@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="uv-crmi"/>
+  <url value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/uv-crmi"/>
+  <version value="0.1.0"/>
+  <name value="CRMI"/>
+  <title value="Canonical Resource Management Infrastructure Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-05-17T00:00:00-06:00"/>
+  <publisher value="Clinical Decision Support WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss"/>
+    </telecom>
+  </contact>
+  <description value="This implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.uv.crmi"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <!-- Note this dependency is only included to support references to the FHIR-ModelInfo and FHIRCommon libraries used by examples in this IG -->
+  <dependsOn id="cqf">
+    <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common"/>
+    <packageId value="fhir.cqf.common"/>
+    <version value="4.0.1"/>
+  </dependsOn>
+  <definition>
+    <!--
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-allocation"/>
+      </reference>
+      <name value="Allocation"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-definitionTerm"/>
+      </reference>
+      <name value="Definition Term"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-isPrimaryCitation"/>
+      </reference>
+      <name value="Is Primary Citation"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-publicationStatus"/>
+      </reference>
+      <name value="Publication Status"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-publicationDate"/>
+      </reference>
+      <name value="Publication Date"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-populationBasis"/>
+      </reference>
+      <name value="Population Basis"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-softwaresystem"/>
+      </reference>
+      <name value="Software System"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-directReferenceCode"/>
+      </reference>
+      <name value="Direct-reference Code"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-logicDefinition"/>
+      </reference>
+      <name value="Logic Definition"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-scoringUnit"/>
+      </reference>
+      <name value="Scoring Unit"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-scoring"/>
+      </reference>
+      <name value="Scoring"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-type"/>
+      </reference>
+      <name value="Type"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-riskAdjustment"/>
+      </reference>
+      <name value="Risk Adjustment"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-rateAggregation"/>
+      </reference>
+      <name value="Rate Aggregation"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-improvementNotation"/>
+      </reference>
+      <name value="Improvement Notation"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-compositeScoring"/>
+      </reference>
+      <name value="Composite Scoring"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-component"/>
+      </reference>
+      <name value="Component"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-groupId"/>
+      </reference>
+      <name value="Group Id"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/crmi-weight"/>
+      </reference>
+      <name value="Weight"/>
+      <exampleBoolean value="false"/>
+    </resource>
+  -->
+    <resource>
+      <reference>
+        <reference value="Device/software-system-example"/>
+      </reference>
+      <name value="Device - Software System Example"/>
+      <description value="Example of a Software System Device used to illustrate a tooling, testing, or authoring system"/>
+      <exampleCanonical value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystemdevice"/>
+    </resource>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="Canonical Resource Management Infrastructure Implementation Guide Homepage"/>
+      <generation value="markdown"/>
+    <page>
+    <nameUrl value="introduction.html"/>
+    <title value="Introduction"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="version-manifest.html"/>
+    <title value="Version Manifest"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="artifact-conformance.html"/>
+    <title value="Conformance"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="using-cql.html"/>
+    <title value="Using CQL"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="packaging.html"/>
+    <title value="Packaging"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="testing.html"/>
+    <title value="Testing"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="profiles.html"/>
+    <title value="Profiles"/>
+    <generation value="markdown"/>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-computablelibrary.html"/>
+      <title value="CRMI Computable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-capabilitystatement.html"/>
+      <title value="CRMI CapabilityStatement"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-computablemeasure.html"/>
+      <title value="CRMI Computable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-computablevalueset.html"/>
+      <title value="CRMI Computable ValueSet"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-softwaresystemdevice.html"/>
+      <title value="CRMI SoftwareSystem Device"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-executablelibrary.html"/>
+      <title value="CRMI Executable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-executablemeasure.html"/>
+      <title value="CRMI Executable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-executablevalueset.html"/>
+      <title value="CRMI Executable ValuesSet"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-shareablelibrary.html"/>
+      <title value="CRMI Shareable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-shareablemeasure.html"/>
+      <title value="CRMI Shareable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-modelinfolibrary.html"/>
+      <title value="CRMI Model Information Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-moduledefinitionlibrary.html"/>
+      <title value="CRMI Module Definition Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-publishablecodesystem.html"/>
+      <title value="CRMI Publishable CodeSystem"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-publishablelibrary.html"/>
+      <title value="CRMI Publishable Library"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-publishablemeasure.html"/>
+      <title value="CRMI Publishable Measure"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-publishablevalueset.html"/>
+      <title value="CRMI Publishable ValueSet"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-versionmanifest.html"/>
+      <title value="CRMI Version Manifest"/>
+      <generation value="generated"/>
+    </page>
+  </page>
+  <page>
+    <nameUrl value="extensions.html"/>
+    <title value="Extensions"/>
+    <generation value="markdown"/>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-artifactComment.html"/>
+      <title value="Artifact Comment Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-definitionTerm.html"/>
+      <title value="Defintion Term Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-directReferenceCode.html"/>
+      <title value="Direct Reference Code Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-logicDefinition.html"/>
+      <title value="Artifact Logic Definition Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-isPrimaryCitation.html"/>
+      <title value="Artifact Is Primary Citation Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-publicationStatus.html"/>
+      <title value="Artifact Publication Status Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-publicationDate.html"/>
+      <title value="Artifact Publication Date Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-inputParameters.html"/>
+      <title value="Artifact Input Parameters Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-usageWarning.html"/>
+      <title value="Artifact Usage Warning Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="StructureDefinition-crmi-supportedCqlVersion.html"/>
+      <title value="CQL Version extension"/>
+      <generation value="generated"/>
+    </page>
+  </page>
+  <page>
+    <nameUrl value="terminology.html"/>
+    <title value="Terminology"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="capabilities.html"/>
+    <title value="Capabilities"/>
+    <generation value="markdown"/>
+    <page>
+      <nameUrl value="artifact-terminology-service.html"/>
+      <title value="Artifact Terminology Service"/>
+      <generation value="markdown"/>
+    </page>
+    <page>
+      <nameUrl value="artifact-repository-service.html"/>
+      <title value="Artifact Repository Service"/>
+      <generation value="markdown"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Library-package.html"/>
+      <title value="Library Package Operation Definition"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Library-data-requirements.html"/>
+      <title value="Library Data Requirements Operation Definition"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Artifact-package.html"/>
+      <title value="Artifact Packaging Operation Definition"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-Artifact-data-requirements.html"/>
+      <title value="Artifact Data Requirements Operation Definition"/>
+      <generation value="generated"/>
+    </page>
+    <page>
+      <nameUrl value="OperationDefinition-ValueSet-expand.html"/>
+      <title value="Artifact Value Set Expand Extension Definition"/>
+      <generation value="generated"/>
+    </page>
+  </page>
+  <page>
+    <nameUrl value="examples.html"/>
+    <title value="Examples"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="glossary.html"/>
+    <title value="Glossary"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="downloads.html"/>
+    <title value="Downloads"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="acknowledgements.html"/>
+    <title value="Acknowledgements"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="changes.html"/>
+    <title value="Changes"/>
+    <generation value="markdown"/>
+  </page>
+</page>
+    <parameter>
+      <code value="releaselabel"/>
+      <value value="ballot"/>
+    </parameter>
+    <parameter>
+      <code value="copyrightyear"/>
+      <value value="2019+"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-expansion-params"/>
+      <value value="_resources/exp-params.json"/>
+    </parameter>
+    <parameter>
+    <code value="find-other-resources"/>
+    <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\capabilitystatement"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\operationdefinition"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\codesystem"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\conceptmap"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\device"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\library"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\measure"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\measurereport"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="resources\valueset"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="pages"/>
+    </parameter>
+    <!-- Use CQF-Tooling to refresh content
+    <parameter>
+      <code value="path-binary"/>
+      <value value="input/cql"/>
+    </parameter>
+    -->
+    <parameter>
+      <code value="path-liquid"/>
+      <value value="templates\liquid"/>
+    </parameter>
+    <parameter>
+      <code value="apply"/>
+      <value value="jurisdiction"/>
+    </parameter>
+    <parameter>
+      <code value="jira-code"/>
+      <value value="cmi"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="xml"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="JSON"/>
+    </parameter>
+    <parameter>
+      <code value="apply-version"/>
+      <value value="true"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>
