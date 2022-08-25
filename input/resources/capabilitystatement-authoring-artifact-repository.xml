@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="authoring-measure-repository"/>
-  <url value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/authoring-measure-repository"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/authoring-measure-repository"/>
   <version value="3.0.0"/>
-  <name value="CMIAuthoringMeasureRepository"/>
+  <name value="CRMIAuthoringMeasureRepository"/>
   <title value="CQF Measures Authoring Measure Repository Capability Statement"/>
   <status value="active"/>
   <experimental value="false"/>

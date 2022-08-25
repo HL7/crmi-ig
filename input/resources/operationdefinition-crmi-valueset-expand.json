@@ -1,10 +1,10 @@
 {
   "resourceType" : "OperationDefinition",
   "id" : "ValueSet-expand",
-  "url" : "http://hl7.org/fhir/uv/cmi/OperationDefinition/ValueSet-expand",
+  "url" : "http://hl7.org/fhir/uv/crmi/OperationDefinition/ValueSet-expand",
   "version" : "4.0.1",
   "name" : "ValueSetExpand",
-  "title": "CQF Measures Extension of Value Set Expansion",
+  "title": "CRMI Extension of Value Set Expansion",
   "status" : "draft",
   "kind" : "operation",
   "date" : "2019-11-01T09:29:23+11:00",

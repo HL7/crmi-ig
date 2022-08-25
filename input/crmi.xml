@@ -375,6 +375,11 @@
       <generation value="markdown"/>
     </page>
     <page>
+      <nameUrl value="OperationDefinition-get-package.html"/>
+      <title value="Get Package Operation Definition"/>
+      <generation value="generated"/>
+    </page>
+    <page>
       <nameUrl value="OperationDefinition-Library-package.html"/>
       <title value="Library Package Operation Definition"/>
       <generation value="generated"/>

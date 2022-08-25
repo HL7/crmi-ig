@@ -9,13 +9,13 @@
       <code value="1.5"/>
     </valueCoding>
   </extension>
-  <extension url="http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-supportedCqlVersion">
+  <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/cmi-supportedCqlVersion">
     <valueCoding>
-      <system value="http://hl7.org/fhir/uv/cmi/CodeSystem/cql-version"/>
+      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
       <code value="1.4"/>
     </valueCoding>
   </extension>
-  <url value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/measure-calculation-service-example"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/measure-calculation-service-example"/>
   <name value="MeasureCalculationServiceCapabilityStatementExample"/>
   <title value="Measure Calculation Service Capability Statement Example"/>
   <status value="draft"/>
