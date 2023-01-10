@@ -83,7 +83,7 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
 * [**Approve**](#approve): Approve and provide comments on an existing artifact (regardless of status)
 * [**Publish**](#publish): Post a new artifact with _active_ status
-* [**Release**](#release): Update an existing _draft_ artifact to _active_
+* [**Release**](#release): Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
 * [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 * [**Archive**](#archive): Delete a _retired_ artifact
 
@@ -199,7 +199,13 @@ The _publish_ operation supports posting a new artifact with _active_ status. Th
 
 ##### Release
 
-The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource, but is otherwise not allowed to change any other elements of the artifact.
+The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource and pins versions of all direct and transitive references. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also Released, recursively.
+
+##### Draft
+The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of draft and no version. It is an error to create multiple drafts of the same artifact by URL.
+##### Clone
+
+The _clone_ operation supports the creation of a new draft version of an existing artifact, regardless of status, with a new URL. This operation creates a new resource with the same contents as the existing artifact, but with a status of draft and not version, and the new URL.
 
 ##### Retire
 
