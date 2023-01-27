@@ -2,6 +2,7 @@
 - [Aggregate Method](StructureDefinition-cmi-aggregateMethod.html)
 - [Allocation](StructureDefinition-cmi-allocation.html)
 - [Applies To](StructureDefinition-cmi-appliesTo.html)
+- [Artifact Release Description](StructureDefinition-cmi-artifact-releaseDescription.html)
 - [Artifact Comment](StructureDefinition-cmi-artifactComment.html)
 - [Component](StructureDefinition-cmi-component.html)
 - [Composite Scoring](StructureDefinition-cmi-compositeScoring.html)
