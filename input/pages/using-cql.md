@@ -622,6 +622,8 @@ filename = <CQLLibraryName>.cql
 |dateLowProperty,dateHighProperty|dateFilter.path (resolved to an interval-valued property)|
 |dateRange|dateFilter.path or dateFilter.searchParam|
 
+> Note that best-practice for CQL evaluation is to make use of and distribute compiled CQL (ELM). In the case that dynamic CQL construction is required, implementers should take care to sanitize inputs from any parameters used in the construction of dynamic CQL to avoid [injection attacks](https://en.wikipedia.org/wiki/SQL_injection).
+
 #### RelatedArtifacts
 {: #relatedartifacts}
 
