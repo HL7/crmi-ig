@@ -7,17 +7,16 @@ A CQL artifact is referred to as a library.
 
 **Conformance Requirement 4.1 (Library Declaration):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-1)
 {: #conformance-requirement-4-1}
-  1. Any CQL library referenced by a Measure must contain a library declaration line as the first line of the library.
+  1. Any CQL library used by a FHIR artifact SHALL contain a library declaration.
   2. The library identifier SHALL be a valid un-quoted identifier and SHALL NOT contain underscores
-  3. The library declaration line SHALL contain a version number.
-  4. The library version number SHALL follow the convention :  
+  3. The library declaration SHOULD specify a version.
+  4. The library version SHOULD follow the convention :  
        < major >.< minor >.< patch >
 
 #### Library Versioning
 {: #library-versioning}
 
-This IG recommends an approach to versioning libraries used within Measures to help track and manage dependencies.
-The approach recommended here is based on the [Semantic Versioning Scheme.](https://semver.org/)
+This IG recommends [Semantic Versioning](https://semver.org) be used to version libraries used within knowledge artifacts to help track and manage dependencies.
 
 **Conformance Requirement 4.2 (Library Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-2)
 {: #conformance-requirement-4-2}
@@ -67,26 +66,23 @@ Snippet 4-1: Library line from EXM146.cql, the second major version.
 {: #nested-libraries}
 
 CQL allows libraries to re-use logic already defined in other libraries. This is accomplished by utilizing the
-include line as in Snippet 4-2.
+include declaration as in Snippet 4-2.
 
 ```cql
-includes Common version '2.0.0' called Common
+include Common version '2.0.0' called Common
 ```
 
 Snippet 4-2: Nested library within [EXM146.cql](Library-EXM146.html#cql-content)
 
-The set of all CQL libraries used to define a Measure must adhere to Conformance Requirement 4.3.
+The set of all CQL libraries used as part of a knowledge artifact must adhere to Conformance Requirement 4.3.
 
 **Conformance Requirement 4.3 (Nested Libraries):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-3)
 {: #conformance-requirement-4-3}
 
-1. CQL libraries SHALL be structured such that all CQL expressions referenced by the Measure population criteria are
+1. CQL libraries SHALL be structured such that all CQL expressions referenced from a single FHIR resource are
 contained within a single library.
 2. CQL libraries SHALL use a `called` clause for all included libraries
 3. The `called`-alias for an included library SHOULD be consistent for usages across libraries
-
-Because of this conformance statement, the primary library for a measure can always be determined by looking at the
-library referenced by the initial population criteria for the measure.
 
 #### Library Namespaces
 {: #library-namespaces}
@@ -112,25 +108,25 @@ the addressability, but the uniqueness, ensuring that library name collisions ca
 
 1. CQL libraries SHOULD use namespaces.
 2. When a namespace is not used, the library SHALL be considered part of a "public" global namespace for the purposes of resolution within a given environment.
+3. The root of the CQL namespace SHALL match the root of the url of the Library resource housing the CQL library.
 
-In addition, because the namespace of a library is part of the text, changing the namespace of a library requires a new version, just like any other change to the text of the library. However, because a change to the namespace is not a material change to the library itself, changing the namespace does not require a different version-independent identifier to be used for the library.
+In addition, because the namespace of a library functions as part of the globally unique identifier for the library, changing the namespace of the library results in a different artifact.
 
 ### Data Model
 {: #data-model}
 
-CQL can be used with any data model. In the context of a Measure, any referenced CQL library must identify the same data model.
-
+CQL can be used with any data model(s). To be used with FHIR, CQL requires model information. To facilitate use with any FHIR content, a general-purpose FHIR information model is included in the [Common](https://fhir.org/guides/cqf/common) implementation guide. However, CQL may also be used with implementation-guide specific model information (i.e. structures based on the profile definitions in an IG).
 
 **Conformance Requirement 4.5 (CQL Data Model):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-5)
 {: #conformance-requirement-4-5}
 
-1. All libraries and CQL expressions used directly or indirectly within a measure SHALL use FHIR based data models. For example, one could use QI Core and SDOH IGs.
+1. All libraries and CQL expressions used directly or indirectly within a knowledge artifact SHOULD use FHIR-based data models.
 2. Data Model declarations SHALL include a version declaration.
 
 For example:
 
 ```cql
-using FHIR version '3.0.0'
+using FHIR version '4.0.1'
 ```
 
 Snippet 4-3: Data Model line from [EXM146.cql](Library-EXM146.html#cql-content)
@@ -270,7 +266,7 @@ base FHIR specification.
 {: #representation-in-a-library}
 
 The representation of valueset declarations in a Library is discussed in the
-[Measure Conformance Chapter](measure-conformance.html) of this IG.
+[Artifact Conformance](artifact-conformance.html) of this IG.
 
 #### String-based Membership Testing
 {: #string-based-membership-testing}
@@ -318,14 +314,14 @@ CQL supports both version-specific and version-independent specification of and 
 #### Representation in a Library
 {: #representation-in-a-library}
 
-When direct-reference codes are used within eCQMs, they will be represented in the narrative (Human-readable) as:
+When direct-reference codes are used within knowledge artifacts, they will be represented in the narrative (Human-readable) as:
 
 ```html
 "Assessment, Performed: Assessment of breastfeeding"
 using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
 ```
 
-The representation of code declarations in a Library is discussed in [Measure Conformance Chapter](measure-conformance.html) of this IG.
+The representation of code declarations in a Library is discussed in [Artifact Conformance](artifact-conformance.html) of this IG.
 
 ### UCUM Best Practices
 {: #ucum-best-practices}
@@ -360,15 +356,13 @@ define "BMI in Measurement Period":
 ### Concepts
 {: #concepts}
 
-In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all semantically
-equivalent. CQL Concepts are not currently used within measure development and SHALL NOT be used within FHIR-based
-eCQMs, except to the extent that individual codes will be implicitly converted to concepts for the purposes of
-comparison with the Concept-value elements in FHIR resources.
+In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all _about_ the same concept, (e.g. the same concept represented in different code systems, or the same concept from the same code system represented at different levels of detail), but CQL itself will make no attempt to ensure that is the case. Concepts should never be used as a surrogate for proper valueset definition.
 
 **Conformance Requirement 4.12 (Concepts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-12)
 {: #conformance-requirement-4-12}
 
-1. The CQL concept construct SHALL NOT be used.
+1. The CQL concept construct MAY be used.
+2. The CQL concept construct SHALL NOT be used as a surrogate for valueset definition.
 
 ### Library-level Identifiers
 {: #library-level-identifiers}
@@ -426,16 +420,16 @@ Snippet 4-9: Expression definition from [EXM130.cql](Library-EXM130.html#cql-con
 #### Negation in FHIR
 {: #negation-in-fhir}
 
-Two commonly used patterns for negation in quality measurement are:
+Two commonly used patterns for negation in clinical logic are:
 
 * Absence of evidence for a particular event
 * Documentation of an event not occurring, together with a reason
 
-For the purposes of quality measurement, when looking for documentation that a particular event did not occur, it must
+For the purposes of clinical reasoning, when looking for documentation that a particular event did not occur, it must
 be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of
 evidence pattern should be used, rather than documentation of an event not occurring.
 
-To address the reason an action did not occur (negation rationale), the eCQM must define the event it expects to occur
+To address the reason an action did not occur (negation rationale), an artifact must define the event it expects to occur
 using appropriate terminology to identify the kind of event (using a value set or direct-reference code), and then use
 additional criteria to indicate that the event did not occur, as well as identifying a reason.
 
@@ -452,7 +446,7 @@ Evidence that "Antithrombotic Therapy" (defined by a medication-specific value s
 define "Antithrombotic Administered":
   ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
     where AntithromboticTherapy.status = 'completed'
-      and AntithromboticTherapy.category = "Inpatient Setting"
+      and AntithromboticTherapy.category ~ "Inpatient Setting"
 ```
 
 ##### Absence
@@ -465,7 +459,7 @@ define "No Antithrombotic Therapy":
   not exists (
     ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
       where AntithromboticTherapy.status = 'completed'
-        and AntithromboticTherapy.category = "Inpatient Setting"
+        and AntithromboticTherapy.category ~ "Inpatient Setting"
   )
 ```
 
@@ -473,27 +467,25 @@ define "No Antithrombotic Therapy":
 {: #negation-rationale}
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
-defined by a value set referenced by the eCQM (i.e., negation rationale):
+defined by a value set referenced by the clinical logic (i.e., negation rationale):
 
 ```cql
 define "Antithrombotic Not Administered":
   ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
-    where NotAdministered.notGiven is true
-      and NotAdministered.reasonNotGiven in "Medical Reason"
+    where NotAdministered.status = 'not-done'
+      and NotAdministered.statusReason in "Medical Reason"
 ```
 
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
-value set. To report Antithrombotic Therapy Not Administered, this is done by referencing the URI of the "Antithrombotic
-Therapy" value set using the [value set extension](http://hl7.org/fhir/extension-valueset-reference.html) to indicate
+value set. 
+
+To represent Antithrombotic Therapy Not Administered, implementing systems reference the canonical of the "Antithrombotic
+Therapy" value set using the [notDoneValueSet](StructureDefinition-crmi-notDoneValueSet.html) to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set URI to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
-not forced to having to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
+not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
 did not administer in order to negate.
-
-Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason, the URI of "Cardiac Surgery" value set
-is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
-specified in the "Cardiac Surgery" value set.
 
 ### Attribute Names
 {: #attribute-names}
@@ -504,8 +496,8 @@ All attributes referenced in the CQL follow Conformance Requirement 4.15.
 {: #conformance-requirement-4-15}
 
 1. Data model attributes referenced in the CQL:<br/>
-      a. SHALL NOT Use quoted identifiers<br/>
-      b. SHALL Use camelCase
+      a. SHOULD NOT use quoted identifiers (unless required due to the attribute name in the model not being a valid identifier in CQL)<br/>
+      b. SHOULD use camelCase (unless dictated by the attribute naming in the model being used)
 
 Examples of attributes conforming to Conformance Requirement 4.15 are given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
 
@@ -518,8 +510,8 @@ result
 ### Aliases and Argument Names
 {: #aliases-and-argument-names}
 
-Aliases are used in CQL as local variable names to refer to sections of code. When defining a function, argument names
-are used to create scoped variables that refer to the function inputs. Both aliases and argument names conform to
+Aliases are used in CQL to reference items within the scope of a query. When defining a function, argument names
+are used to create scoped identifiers that refer to the function inputs. Both aliases and argument names conform to
 Conformance Requirement 4.16.
 
 **Conformance Requirement 4.16 (Aliases and Argument Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-16)
@@ -528,7 +520,7 @@ Conformance Requirement 4.16.
 1. Aliases and argument names referenced in the CQL:<br/>
       a. SHALL NOT Use quoted identifiers<br/>
       b. SHALL Use PascalCase<br/>
-      c. SHOULD Use descriptive names (no abbreviations)
+      c. SHOULD Use descriptive names (rather than abbreviations)
 
 For example:
 
@@ -544,12 +536,12 @@ define function "ED Stay Time"(Encounter "Encounter"):
 ### Library Resources
 {: #library-resources}
 
-Inclusion of CQL content used within quality measures is accomplished through the use of a Library resource. These libraries are then referenced from Measure resources using the `library` element. The content of the CQL library is included using the `content` element of the Library.
+Inclusion of CQL content used within knowledge artifacts is accomplished through the use of a Library resource. These libraries are then referenced from FHIR resources such as PlanDefinition and Measure using the `library` element. The content of the CQL library is included using the `content` element of the Library.
 
 **Conformance Requirement 4.17 (Library Resources):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-17)
 {: #conformance-requirement-4-17}
 
-1. Content conforming to this implementation guide SHALL use at least the [CMILibrary](StructureDefinition-library-cmi.html) profile for Library resources.
+1. Content conforming to this implementation guide SHALL use at least the [CRMILibrary](StructureDefinition-crmi-library.html) profile for Library resources.
 
 #### Library Name and URL
 {: #library-name-and-url}
@@ -569,7 +561,7 @@ Inclusion of CQL content used within quality measures is accomplished through th
 For CQL library source files, the convention SHOULD be:
 
 ```
-filename = <CQL library name>.cql
+filename = <CQLLibraryName>.cql
 ```
 
 3. To avoid issues with characters between web ids and names, library names SHALL NOT have underscores.
@@ -589,6 +581,7 @@ filename = <CQL library name>.cql
 |`System.Decimal`|`FHIR.decimal`|
 |`System.Date`|`FHIR.date`|
 |`System.DateTime`|`FHIR.dateTime`|
+|`System.Long`|`FHIR.integer64`|
 |`System.Time`|`FHIR.time`|
 |`System.String`|`FHIR.string`|
 |`System.Quantity`|`FHIR.Quantity`|
@@ -646,9 +639,9 @@ filename = <CQL library name>.cql
 #### MIME Type version
 The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
 
-* `text/cql; version=1.4`
-* `application/elm+xml; version=1.4`
-* `application/elm+json; version=1.4`
+* `text/cql; version=1.5`
+* `application/elm+xml; version=1.5`
+* `application/elm+json; version=1.5`
 
 Resource narratives for Libraries and Measures that use CQL should include the CQL version if it is specified in the MIME type as shown above.
 
@@ -723,12 +716,12 @@ For measure development with FHIR, the following options are recommended:
 
 #### Specifying Options
 
-This implementation guide defines the [cqlOptions](StructureDefinition-cmi-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CQFComputableLibrary](StructureDefinition-computable-library-cmi.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CMIQualityProgram](StructureDefinition-quality-program-cmi.html), it SHALL be used to provides options to the translator unless the options are provided directly by the library.
+This implementation guide defines the [cqlOptions](StructureDefinition-crmi-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIQualityProgram](StructureDefinition-crmi-qualityprogram.html), it SHALL be used to provides options to the translator unless the options are provided directly by the library.
 
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
-1. Translator options SHOULD be provided in either a CMIComputableLibrary or a CMIQualityProgram
-2. Translator options specified in a CMIComputableLibrary take precedence over options defined in a CMIQualityProgram
+1. Translator options SHOULD be provided in either a CRMIComputableLibrary or a CRMIQualityProgram
+2. Translator options specified in a CRMIComputableLibrary take precedence over options defined in a CRMIQualityProgram
 3. If no translator options are provided, the recommended options above SHOULD be used
 4. If translator options are provided in a Library that is both computable and executable, the options SHALL be consistent with the translator options reported by the ELM content
