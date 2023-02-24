@@ -191,7 +191,18 @@ The _review_ operation supports applying a review to an existing artifact, regar
 
 ##### Approve
 
-The _approve_ operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add _artifactComment_ elements to the artifact, and to add or update an _endorser_.
+The _approve_ operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add [_artifactComment_](http://hl7.org/fhir/StructureDefinition/cqf-artifactComment) elements to the artifact, and to add or update an _endorser_.
+
+The following parameters SHOULD be supported for the operation:
+
+* **id**: The server-specific id of the artifact to be approved.
+* **approvalDate**: The date on which the artifact was approved for release. If this parameter is not provided the operation will infer the date to be the current system date on the repository performing the operation.
+* **endorser**: A ContactDetail parameter which should identify (and optionally provide contact information for) the party who approved the artifact for release.
+* **artifactCommentType**: If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (and must belong to the [artifactCommentType](http://hl7.org/fhir/ValueSet/artifact-comment-type) ValueSet).
+* **artifactCommentText**: If a comment is submitted as part of the approval, this parameter contains the body of the comment.
+* **artifactCommentTarget**: The version-specific canonical url for the artifact being approved. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
+* **artifactCommentReference**: Optional supporting reference for the comment.
+* **artifactCommentUser**: The name of the party who approved the artifact for release. This must match the name which is specified as part of the endorser parameter.
 
 ##### Publish
 
