@@ -305,6 +305,11 @@
     <title value="Extensions"/>
     <generation value="markdown"/>
     <page>
+      <nameUrl value="StructureDefinition-cmi-artifact-releaseDescription.html"/>
+      <title value="Artifact Release Description Extension"/>
+      <generation value="generated"/>
+    </page>
+    <page>
       <nameUrl value="StructureDefinition-crmi-artifactComment.html"/>
       <title value="Artifact Comment Extension"/>
       <generation value="generated"/>
