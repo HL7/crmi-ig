@@ -5,9 +5,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system">
     <valueUri value="http://loinc.org"/>
   </extension>
-  <url value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/measure-terminology-service"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/measure-terminology-service"/>
   <version value="3.0.0"/>
-  <name value="CMIMeasureTerminologyService"/>
+  <name value="CRMIMeasureTerminologyService"/>
   <title value="Measure Terminology Service Capability Statement"/>
   <status value="draft"/>
   <experimental value="false"/>

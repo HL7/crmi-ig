@@ -1,14 +1,14 @@
 {
-   "package-id": "hl7.fhir.uv.cmi",
-   "title": "Content Management Infrastructure Implementation Guide for FHIR R4",
+   "package-id": "hl7.fhir.uv.crmi",
+   "title": "Canonical Resource Management Infrastructure Implementation Guide for FHIR R4",
    "category": "Quality / CDS",
-   "canonical": "http://hl7.org/fhir/uv/cmi",
+   "canonical": "http://hl7.org/fhir/uv/crmi",
    "introduction": "This implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content.",
    "list": [
       {
          "version": "current",
          "desc": "Continuous Integration Build (latest in version control)",
-         "path": "http://build.fhir.org/ig/HL7/cmi",
+         "path": "http://build.fhir.org/ig/HL7/crmi-ig",
          "status": "ci-build",
          "current": true,
 				 "fhirversion": "4.0.1"

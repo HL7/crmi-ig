@@ -3,13 +3,13 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="publishable-example"/>
   <meta>
-    <profile value="http://hl7.org/fhir/uv/cmi/StructureDefinition/publishable-codesystem-cmi"/>
+    <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishable-codesystem"/>
   </meta>
   <language value="en"/>
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><p>This code system http://snomed.info/sct defines many codes, but they are not represented here</p></div>
   </text>
-  <url value="http://hl7.org/fhir/uv/cmi/CodeSystem/publishable-example"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.6.96"/>

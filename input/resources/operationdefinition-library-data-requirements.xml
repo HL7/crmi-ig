@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Library-data-requirements"/>
-  <url value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Library-data-requirements"/>
+  <url value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-data-requirements"/>
   <version value="3.0.0"/>
   <name value="LibraryDataRequirements"/>
   <title value="Library Data Requirements"/>
