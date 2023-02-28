@@ -1,9 +1,9 @@
 # Content Management Infrastructure Implementation Guide
 
-This repository contains the source for the Content Management Infrastructure
+This repository contains the source for the HL7 Content Management Infrastructure
 FHIR implementation guide.
 
 
-Continuous Integration Build: http://build.fhir.org/ig/HL7/cmi
+Continuous Integration Build: http://build.fhir.org/ig/HL7/crmi-ig 
 
-HL7 Project Scope Statement: https://jira.hl7.org/browse/PSS-1959
+HL7 Project Confluence Page: https://confluence.hl7.org/display/CDS/CRMI+-+Canonical+Resource+Management+Infrastructure+IG
