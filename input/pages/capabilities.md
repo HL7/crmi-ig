@@ -42,4 +42,6 @@ See the capability statements defined in the [Data Exchange for Quality Measures
 * [**Measure/$package**](OperationDefinition-Measure-package.html)
 * [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
 * [**MeasureReport/$package**](OperationDefinition-MeasureReport-package.html)
+* [**Resource/$release**](OperationDefinition-KnowledgeArtifact-release.html)
 * [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OperationDefinition xmlns="http://hl7.org/fhir">
+    <id value="KnowledgeArtifact-release"/>
+    <url value="http://hl7.org/fhir/uv/cmi/OperationDefinition/KnowledgeArtifact-release"/>
+    <version value="3.0.0"/>
+    <name value="KnowledgeArtifactRelease"/>
+    <title value="Knowledge Artifact Release"/>
+    <status value="draft"/>
+    <kind value="operation"/>
+    <date value="2023-01-27T09:29:23+11:00"/>
+    <publisher value="HL7 (FHIR Project)"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="fhir@lists.hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references. Child artifacts (i.e. artifacts that compose the existing artifact) are also released, recursively."/>    
+    <code value="knowledge-artifact-release"/>
+    <comment value="The release operation supports the ability of a repository to transitively gather components and dependencies of the artifact and record those as dependencies on the artifact itself while updating the status of all components to 'active'. For both components and dependencies if versions are not specified in the relevant reference, the operation will infer the version to be used by either locating a current 'draft' version of the artifact being reference or locating the latest active version in the case of dependencies."/>
+    <resource value="Resource"/>
+    <system value="false"/>
+    <type value="true"/>
+    <instance value="true"/>
+    <parameter>
+        <name value="id"/>
+        <use value="in"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The logical id of the artifact to release. The server must know the artifact (e.g. it is defined explicitly in the server&#39;s artifacts)"/>
+        <type value="string"/>
+    </parameter>
+    <parameter>
+        <name value="version"/>
+        <use value="in"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="Specifies the version to be applied to the artifact being released when a version is not already specified. Component artifacts that do not already have a version specified will get the root artifact's version if it is specified otherwise they will get this version. Valid values are: \n\n* 'default': \n\n* 'check': \n\n* 'force':"/>
+        <type value="string"/>
+    </parameter>
+    <parameter>
+        <name value="version-behavior"/>
+        <use value="in"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="Indicates the behavior with which the 'version' parameter should applied to the artifact being released and its components."/>
+        <binding>
+            <strength value="required"/>
+            <valueSet value="http://hl7.org/fhir/uv/cmi/ValueSet/knowledgeArtifact-release-version-behavior"/>
+        </binding>
+        <type value="Coding"/>
+    </parameter>
+    <parameter>
+        <name value="latest-from-tx-server"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="Indicates whether or not the terminology server from which a value set was originally downloaded should be checked for the latest version. The terminolgy server of origin is tracked via the authoritativeSource extension (https://hl7.org/fhir/extension-valueset-authoritativesource.html) on the value set. If this flag is set to false or the value set does not have an authoritativeSource specified, then the check should be constrained to the local system/cache. This flag is optional with a default of false."/>
+        <type value="boolean"/>
+    </parameter>
+</OperationDefinition>
