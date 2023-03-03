@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessment-title",
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/crmi-artifactAssessment-title",
+  "id": "crmi-artifactAssessmentApprovalDate",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentApprovalDate",
   "version": "1.0.0",
-  "name": "CRMIArtifactAssessmentTitle",
-  "title": "CRMI Artifact Assessment Title",
+  "name": "CRMIArtifactAssessmentApprovalDate",
+  "title": "CRMI Artifact Assessment Approval Date",
   "status": "active",
   "experimental": false,
   "date": "2023-02-28",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "A short title for the assessment for use in displaying and selecting.",
+  "description": "When the artifact assessment was approved by publisher.",
   "jurisdiction": [
     {
       "coding": [
@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "purpose": "To specify a short title for the assessment for use in displaying and selecting.",
+  "purpose": "To specify When the artifact assessment was approved by publisher.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
@@ -48,8 +48,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Assessment Title",
-        "definition": "A short title for the assessment for use in displaying and selecting.",
+        "short": "Assessment Approval Date",
+        "definition": "When the artifact assessment was approved by publisher.",
         "min": 0,
         "max": "1"
       },
@@ -61,14 +61,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-title"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentApprovalDate"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "string"
+            "code": "date"
           }
         ]
       }

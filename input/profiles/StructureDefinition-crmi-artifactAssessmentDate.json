@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessment-copyright",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-copyright",
+  "id": "crmi-artifactAssessmentDate",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDate",
   "version": "1.0.0",
-  "name": "CRMIArtifactAssessmentCopyright",
-  "title": "CRMI Artifact Assessment Copyright",
+  "name": "CRMIArtifactAssessmentDate",
+  "title": "CRMI Artifact Assessment Date",
   "status": "active",
   "experimental": false,
   "date": "2023-02-28",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "Use and/or publishing restrictions.",
+  "description": "Date last changed.",
   "jurisdiction": [
     {
       "coding": [
@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "purpose": "To specify use and/or publishing restrictions.",
+  "purpose": "To specify when the resource was last changed.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
@@ -48,8 +48,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Assessment Copyright",
-        "definition": "Use and/or publishing restrictions.",
+        "short": "Assessment Date",
+        "definition": "Date last changed.",
         "min": 0,
         "max": "1"
       },
@@ -61,14 +61,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-copyright"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDate"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "markdown"
+            "code": "dateTime"
           }
         ]
       }

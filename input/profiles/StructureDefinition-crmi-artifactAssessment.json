@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-artifactAssessment",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-extension",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessment",
   "title": "CRMI Artifact Assessment",
@@ -62,7 +62,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-title"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentTitle"
             ]
           }
         ],
@@ -78,7 +78,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-citeAs"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs"
             ]
           }
         ],
@@ -94,7 +94,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-date"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDate"
             ]
           }
         ],
@@ -110,7 +110,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-copyright"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCopyright"
             ]
           }
         ],
@@ -126,7 +126,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-approvalDate"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentApprovalDate"
             ]
           }
         ],
@@ -142,7 +142,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-lastReviewDate"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentLastReviewDate"
             ]
           }
         ],
@@ -158,7 +158,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-artifact"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentArtifact"
             ]
           }
         ],
@@ -174,7 +174,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-content"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentContent"
             ]
           }
         ],
@@ -190,7 +190,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-workflowStatus"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus"
             ]
           }
         ],
@@ -206,7 +206,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-disposition"
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDisposition"
             ]
           }
         ],

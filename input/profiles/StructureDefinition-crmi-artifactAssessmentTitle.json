@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessment-citeAs",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-citeAs",
+  "id": "crmi-artifactAssessmentTitle",
+  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/crmi-artifactAssessmentTitle",
   "version": "1.0.0",
-  "name": "CRMIArtifactAssessmentCiteAs",
-  "title": "CRMI Artifact Assessment Cite As",
+  "name": "CRMIArtifactAssessmentTitle",
+  "title": "CRMI Artifact Assessment Title",
   "status": "active",
   "experimental": false,
   "date": "2023-02-28",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "How to cite the comment or rating.",
+  "description": "A short title for the assessment for use in displaying and selecting.",
   "jurisdiction": [
     {
       "coding": [
@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "purpose": "Display of or reference to the bibliographic citation of the comment, classifier, or rating.",
+  "purpose": "To specify a short title for the assessment for use in displaying and selecting.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
@@ -48,8 +48,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "How to cite the comment or rating.",
-        "definition": "Display of or reference to the bibliographic citation of the comment, classifier, or rating.",
+        "short": "Assessment Title",
+        "definition": "A short title for the assessment for use in displaying and selecting.",
         "min": 0,
         "max": "1"
       },
@@ -61,18 +61,16 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-citeAs"
+        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessmentTitle"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
-        "type": [{
-          "code" : "Reference",
-          "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Citation"]
-        },
-        {
-          "code" : "markdown"
-        }]
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
       }
     ]
   }

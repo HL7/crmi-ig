@@ -1,8 +1,8 @@
 
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessment-disposition",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-disposition",
+  "id": "crmi-artifactAssessmentDisposition",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDisposition",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessment Disposition",
   "title": "CRMI Artifact Assessment Disposition",
@@ -62,7 +62,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-disposition"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDisposition"
       },
       {
         "id": "Extension.value[x]",
@@ -76,7 +76,7 @@
         "binding": {
           "strength": "required",
           "description": "Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/artifactassessment-disposition"
+          "valueSet": "http://hl7.org/fhir/ValueSet/artifactassessmentDisposition"
         }
       }
     ]

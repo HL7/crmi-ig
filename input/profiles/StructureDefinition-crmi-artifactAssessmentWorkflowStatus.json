@@ -1,8 +1,8 @@
 
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessment-workflowStatus",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-workflowStatus",
+  "id": "crmi-artifactAssessmentWorkflowStatus",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessmentworkflowStatus",
   "title": "CRMI Artifact Assessment Workflow Status",
@@ -62,7 +62,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-workflowStatus"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus"
       },
       {
         "id": "Extension.value[x]",
