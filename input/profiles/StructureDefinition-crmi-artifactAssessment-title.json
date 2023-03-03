@@ -1,0 +1,77 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cmi-artifactAssessment-title",
+  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-title",
+  "version": "1.0.0",
+  "name": "CMIArtifactAssessmentTitle",
+  "title": "CMI Artifact Assessment Title",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-02-28",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "A short title for the assessment for use in displaying and selecting.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "To specify a short title for the assessment for use in displaying and selecting.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Resource"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Assessment Title",
+        "definition": "A short title for the assessment for use in displaying and selecting.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-title"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

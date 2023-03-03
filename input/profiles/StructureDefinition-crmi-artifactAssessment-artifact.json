@@ -1,0 +1,81 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-artifactAssessment-artifact",
+  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-artifact",
+  "version": "1.0.0",
+  "name": "CMIArtifactAssessmentArtifact",
+  "title": "CMI Artifact Assessment Artifact",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-02-28",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The artifact assessed, commented upon or rated.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "To define a reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Resource"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "The artifact assessed, commented upon or rated.",
+        "definition" : "A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about.",        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-artifact"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource"]
+        },
+        {
+          "code" : "canonical"
+        },
+        {
+          "code" : "uri"
+        }]
+      }
+    ]
+  }
+}
