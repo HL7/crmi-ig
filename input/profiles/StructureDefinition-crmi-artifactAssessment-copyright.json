@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cmi-artifactAssessment-copyright",
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-copyright",
+  "id": "crmi-artifactAssessment-copyright",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-copyright",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessmentCopyright",
   "title": "CRMI Artifact Assessment Copyright",
@@ -61,7 +61,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/crmi-artifactAssessment-copyright"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-copyright"
       },
       {
         "id": "Extension.value[x]",

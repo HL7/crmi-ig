@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-artifactAssessment-content",
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-content",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-content",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessmentContent",
   "title": "CRMI Artifact Assessment Content",
@@ -144,7 +144,7 @@
         "path": "Extension.extension.value[x]",
         "type": [
           {
-            "code": "codeableconcept"
+            "code": "CodeableConcept"
           }
         ],
         "binding" : {
@@ -185,7 +185,7 @@
         "path": "Extension.extension.value[x]",
         "type": [
           {
-            "code": "codeableconcept"
+            "code": "CodeableConcept"
           }
         ],
         "binding" : {
@@ -281,7 +281,7 @@
         "path": "Extension.extension.value[x]",
         "type" : [{
           "code" : "uri"
-        }],
+        }]
       },
       {
         "id": "Extension.extension:relatedArtifact",
@@ -307,7 +307,7 @@
         "path": "Extension.extension.value[x]",
         "type" : [{
           "code" : "RelatedArtifact"
-        }],
+        }]
       },
       {
         "id": "Extension.extension:freeToShare",
@@ -357,7 +357,7 @@
       {
         "id": "Extension.extension:type.value[x]",
         "path": "Extension.extension.value[x]",
-        "contentReference" : "#crmi-artifactAssessment-content"
+        "contentReference" : "#Extension"
       }
     ]
   }

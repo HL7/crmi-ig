@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cmi-artifactAssessment-lastReviewDate",
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-lastReviewDate",
+  "id": "crmi-artifactAssessment-lastReviewDate",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-lastReviewDate",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessmentLastReviewDate",
   "title": "CRMI Artifact Assessment Last Review Date",
@@ -61,7 +61,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/crmi-artifactAssessment-lastReviewDate"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-lastReviewDate"
       },
       {
         "id": "Extension.value[x]",

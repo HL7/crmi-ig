@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cmi-artifactAssessment-approvalDate",
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifactAssessment-approvalDate",
+  "id": "crmi-artifactAssessment-approvalDate",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-approvalDate",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessmentApprovalDate",
   "title": "CRMI Artifact Assessment Approval Date",
@@ -61,7 +61,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/crmi-artifactAssessment-approvalDate"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment-approvalDate"
       },
       {
         "id": "Extension.value[x]",
