@@ -88,7 +88,7 @@
         ],
         "binding": {
           "strength": "required",
-          "description": "The type of artifact Content (documentation, review, guidance)",
+          "description": "The type of information contained in a component of an artifact assessment.",
           "valueSet": "http://hl7.org/fhir/ValueSet/artifactassessment-information-type"
         }
       },
