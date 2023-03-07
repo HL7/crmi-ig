@@ -2,7 +2,7 @@
 <OperationDefinition xmlns="http://hl7.org/fhir">
     <id value="KnowledgeArtifact-approve"/>
     <url value="http://hl7.org/fhir/uv/cmi/OperationDefinition/KnowledgeArtifact-approve"/>
-    <version value="3.0.0"/>
+    <version value="1.0.0"/>
     <name value="KnowledgeArtifactApprove"/>
     <title value="Knowledge Artifact Approve"/>
     <status value="draft"/>
@@ -51,19 +51,19 @@
         <type value="ContactDetail"/>
     </parameter>
     <parameter>
-        <name value="artifactCommentType"/>
+        <name value="artifactAssessmentType"/>
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
         <binding>
           <strength value="required" />
-          <valueSet value="http://hl7.org/fhir/ValueSet/artifact-comment-type" />
+          <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type" />
         </binding>
-        <documentation value="If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (documentation, review, guidance)."/>
+        <documentation value="If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment."/>
         <type value="code"/>
     </parameter>
     <parameter>
-        <name value="artifactCommentText"/>
+        <name value="artifactAssessmentSummary"/>
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
@@ -71,7 +71,7 @@
         <type value="string"/>
     </parameter>
     <parameter>
-        <name value="artifactCommentTarget"/>
+        <name value="artifactAssessmentTarget"/>
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
@@ -79,7 +79,7 @@
         <type value="canonical"/>
     </parameter>
     <parameter>
-        <name value="artifactCommentReference"/>
+        <name value="artifactAssessmentRelatedArtifact"/>
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
@@ -87,11 +87,11 @@
         <type value="uri"/>
     </parameter>
     <parameter>
-        <name value="artifactCommentUser"/>
+        <name value="artifactAssessmentAuthor"/>
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
         <documentation value="The name of the party who approved the artifact for release. This must match the name which is specified as part of the endorser parameter."/>
-        <type value="string"/>
+        <type value="reference"/>
     </parameter>
 </OperationDefinition>
