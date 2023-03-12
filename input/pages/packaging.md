@@ -8,6 +8,8 @@ provides guidance on how to package quality measures, either independently, or a
 ### Packaging Artifacts
 {: #packaging-artifacts}
 
+#### FHIR Bundle
+
 In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
 of type `transaction`. They may span multiple bundles in a given delivery, thus the bundle should be processed as a unit.
 
@@ -20,6 +22,32 @@ dependencies and associated artifacts as subsequent entries as follows:
 4. **Test Cases**: Any test cases defined for the artifact
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
+
+NOTE: It is recommended that each resource in the transaction is a [conditional create](https://www.hl7.org/fhir/http.html#ccreate) using the canonical URL and version as search parameters, e.g.:
+
+```jsonc
+  "entry": [
+    { 
+      "resource": { 
+        "resourceType": "Library",
+        "url": "http://example.org/Library/SomeLibrary",
+        "version": "0.1.0",
+        // ...
+      },
+      "request" :{
+        "method": "POST",
+        "url": "Library",
+        "ifNotExist": "url=http://example.org/Library/SomeLibrary&version=0.1.0"
+      }
+    }
+  ]
+```
+
+#### FHIR Packages
+
+Artifacts may also be packaged following the FHIR Package specification. This involves creating a NPM package (tarball archive with a package.json). The IGPublisher build tool creates a FHIR Package when building an implementation guide.
+
+See also: [FHIR Package Specification](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
 ### Packaging Libraries
 {: #packaging-libraries}
