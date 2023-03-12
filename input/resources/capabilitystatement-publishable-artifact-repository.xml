@@ -22,7 +22,7 @@
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/cmi/ImplementationGuide/us-cmieasures-3.0.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/us-crmieasures-3.0.0"/>
   <rest>
     <mode value="server"/>
     <documentation value="RESTful Measure Repository"/>
@@ -251,7 +251,7 @@
     </resource>
     <resource>
       <type value="MeasureReport"/>
-      <profile value="http://hl7.org/fhir/uv/cmi/StructureDefinition/test-case-cmi"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/test-case-crmi"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="MAY"/>
@@ -280,35 +280,35 @@
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Library-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Measure-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/MeasureReport-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/MeasureReport-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="data-requirements"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Library-data-requirements"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-data-requirements"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="data-requirements"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Measure-data-requirements"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-data-requirements"/>
     </operation>
   </rest>
 </CapabilityStatement>

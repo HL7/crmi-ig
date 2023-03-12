@@ -69,7 +69,7 @@ The following are conformance requirements when packaging a Measure:
 ### Packaging Test Cases
 {: #packaging-test-cases}
 
-Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CMITestCase](StructureDefinition-test-case-cmi.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
+Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CRMITestCase](StructureDefinition-test-case-crmi.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
 
 **Conformance Requirement 6.3 (Test Case Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-3)
 {: #conformance-requirement-6-3}
@@ -90,4 +90,4 @@ Basic testing of measure logic should involve at least one positive and negative
 This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.
 
 1. Artifacts SHOULD use the `useContext` element with the `program` context type to specify a quality program
-2. Quality program descriptions SHALL use the [CQFQualityProgram](StructureDefinition-quality-program-cmi.html) profile
+2. Quality program descriptions SHALL use the [CQFQualityProgram](StructureDefinition-quality-program-crmi.html) profile

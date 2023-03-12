@@ -11,15 +11,15 @@ This release includes changes due to ballot reconciliation and connectathon test
 
 #### Terminology Services Change Summary
 
-##### Changes to the CMIExecutableValueSet profile:
+##### Changes to the CRMIExecutableValueSet profile:
 
-* Changed the warning extension from cmi-usageWarning to valueset-warning (base extension)
+* Changed the warning extension from crmi-usageWarning to valueset-warning (base extension)
 * Changed the fixed value of the warning extension to discuss conformance only (moved guidance to the IG)
 * Changed expansion contains elements to require a version unless the parameters element has a system-version for the system
 
-##### Changes to the CMIQualityProgram profile:
+##### Changes to the CRMIQualityProgram profile:
 
-* Removed cmi-activeOnly and cmi-expansionUri extensions in favor of the more general cmi-expansionParameters extension
+* Removed crmi-activeOnly and crmi-expansionUri extensions in favor of the more general crmi-expansionParameters extension
 
 ##### Changes to the ValueSet/$expand operation:
 
@@ -51,12 +51,12 @@ This release includes changes due to ballot reconciliation and connectathon test
 
 #### Measure Representation Change Summary
 
-##### Changes to the CMIMeasure profile:
+##### Changes to the CRMIMeasure profile:
 
-* Required CMIMeasure Library reference to be a CMILibrary
+* Required CRMIMeasure Library reference to be a CRMILibrary
 * Relaxed scoring, type, and improvementNotation cardinality
 
-##### Changes to the CMIComputableMeasure profile:
+##### Changes to the CRMIComputableMeasure profile:
 
 * Changed cardinality of group to 0..*
 * Changed the representation of effective data requirements on a measure to use a contained module definition library, rather than extensions in the measure
@@ -65,11 +65,11 @@ This release includes changes due to ballot reconciliation and connectathon test
 * Added valueFilter extension to support additional filtering in dataRequirement
 * Added constraints to enforce scoring, populationBasis, and improvementNotation be specified at the root or all groups, but not both
 * Added constraints to enforce population criteria in groups based on the group scoring extension
-* Required Library to be a CMIComputableLibrary and all expressions to be text/cql-expression or -identifier
+* Required Library to be a CRMIComputableLibrary and all expressions to be text/cql-expression or -identifier
 
-##### Added CMIExecutableMeasure
+##### Added CRMIExecutableMeasure
 
-* Required Library to be a CMIExecutableLibrary and all expressions to be text/cql-identifier
+* Required Library to be a CRMIExecutableLibrary and all expressions to be text/cql-identifier
 
 ##### Changes to measure repository service:
 
@@ -92,7 +92,7 @@ This release includes changes due to ballot reconciliation and connectathon test
 * [**FHIR-36156**](https://jira.hl7.org/browse/FHIR-36156): Required scoring, populationBasis, and improvementNotation to be specified at the root or on all groups, but not both
 * [**FHIR-33975**](https://jira.hl7.org/browse/FHIR-33975): Changed executable value set to use the warning extension from the base specification
 * [**FHIR-33971**](https://jira.hl7.org/browse/FHIR-33971): Restricted the use of the content element in a quality program
-* [**FHIR-33178**](https://jira.hl7.org/browse/FHIR-33178): Required CMIMeasure library reference to be a CMILibrary
+* [**FHIR-33178**](https://jira.hl7.org/browse/FHIR-33178): Required CRMIMeasure library reference to be a CRMILibrary
 * [**FHIR-32748**](https://jira.hl7.org/browse/FHIR-32748): Changed cardinality of group to 0..*
 * [**FHIR-32594**](https://jira.hl7.org/browse/FHIR-32594): Changed the representation of expansion parameters to use a contained parameters resource rather than specific extensions per parameter
 * [**FHIR-32593**](https://jira.hl7.org/browse/FHIR-32593): Changed the representation of effective data requirements on a measure to use a contained module definition library, rather than extensions in the measure
@@ -100,7 +100,7 @@ This release includes changes due to ballot reconciliation and connectathon test
 
 ##### Compatible, Substantive Changes
 
-* [**FHIR-36304**](https://jira.hl7.org/browse/FHIR-36304): Added CMIExecutableMeasure profile to separate computable/executable concerns of a measure
+* [**FHIR-36304**](https://jira.hl7.org/browse/FHIR-36304): Added CRMIExecutableMeasure profile to separate computable/executable concerns of a measure
 * [**FHIR-34290**](https://jira.hl7.org/browse/FHIR-34290): Added capabilities to the measure terminology service to align with publishing terminology service capabilities
 * [**FHIR-33970**](https://jira.hl7.org/browse/FHIR-33970): Added searching by useContext
 * [**FHIR-33968**](https://jira.hl7.org/browse/FHIR-33968): Added searching for valuesets by artifacts that reference the value set
@@ -185,8 +185,8 @@ This release includes changes due to ballot reconciliation and connectathon test
 * [**FHIR-28300**](https://jira.hl7.org/browse/FHIR-28300): Added mapping from V3 Measure Types to FHIR Measure Types
 * [**FHIR-28290**](https://jira.hl7.org/browse/FHIR-28290): Clarified the definition of population basis
 * [**FHIR-28288**](https://jira.hl7.org/browse/FHIR-28288): Updated examples to use "citation" related artifact code, rather than "documentation" when they were citations of references
-* [**FHIR-28239**](https://jira.hl7.org/browse/FHIR-28239): Corrected cardinality of CMIMeasure.profile meta constraint
-* [**FHIR-28238**](https://jira.hl7.org/browse/FHIR-28238): Corrected cardinality of CMILibrary.profile meta constraint
+* [**FHIR-28239**](https://jira.hl7.org/browse/FHIR-28239): Corrected cardinality of CRMIMeasure.profile meta constraint
+* [**FHIR-28238**](https://jira.hl7.org/browse/FHIR-28238): Corrected cardinality of CRMILibrary.profile meta constraint
 * [**FHIR-28210**](https://jira.hl7.org/browse/FHIR-28210): Corrected description of EXM146 as an encounter-based measure
 * [**FHIR-28206**](https://jira.hl7.org/browse/FHIR-28206): Updated glossary terms
 * [**FHIR-26331**](https://jira.hl7.org/browse/FHIR-26331): Corrected breadcrumbs display throughout the IG
@@ -201,8 +201,8 @@ This ballot release introduces support for composite measures, and adds descript
 * **Applied**:Permit stratifier expression to have any type (Conformance requirement 15) ([FHIR-27878](https://jira.hl7.org/browse/FHIR-27878))
 * **Applied**:Glossary population criteria entries are inconsistent with population code system ([FHIR-28206](https://jira.hl7.org/browse/FHIR-28206))
 * **Applied**:Example measure 146 is incorrectly described as "patient-based" ([FHIR-28210](https://jira.hl7.org/browse/FHIR-28210))
-* **Applied**:CMI Library has incorrect cardinality for profile constraint ([FHIR-28238](https://jira.hl7.org/browse/FHIR-28238))
-* **Applied**:CMIMeasure profile has incorrect cardinality for profile constraint ([FHIR-28239](https://jira.hl7.org/browse/FHIR-28239))
+* **Applied**:CRMI Library has incorrect cardinality for profile constraint ([FHIR-28238](https://jira.hl7.org/browse/FHIR-28238))
+* **Applied**:CRMIMeasure profile has incorrect cardinality for profile constraint ([FHIR-28239](https://jira.hl7.org/browse/FHIR-28239))
 * **Applied**:Possible issue with related artifact example ([FHIR-28288](https://jira.hl7.org/browse/FHIR-28288))
 * **Applied**:PopulationBasis definition ([FHIR-28290](https://jira.hl7.org/browse/FHIR-28290))
 * **Applied**:Measure Type valueset needs a concept map to the V3 codes ([FHIR-28300](https://jira.hl7.org/browse/FHIR-28300))
@@ -273,14 +273,14 @@ This ballot is a minimal update to the STU1 ballot to address the following item
 * 21986	Denominator exceptions in differential table? - QM #136
 * 21988	Supporting measurement period without specifying year? - QM #137
 * 21145	conformance requirement 13 states that a continuous variable measure SHALL have a criteriaReference extension but the profile has this extension as 0..1 rather than 1..1. Should the profile have 1..1?
-* 21187	consider for all slices that are not "measure observation" to make cmi-criteriaReference and cmi-aggregateMethod 0..0
+* 21187	consider for all slices that are not "measure observation" to make crmi-criteriaReference and crmi-aggregateMethod 0..0
 * 21183	initial population slice for proportion measure is 1..2. Should be 1..1. (1..2 is for ratio measure).
 * 21192	EXM55 library references
 * 21178	Does it make sense for the profile itself to specify usage for criteriaReference and aggregateMethod (measure observations)
 * 21191	consider slicing content and including the required contentType (text/cql) and optional ones (application/elm+xml, application/elm+json)
 * 21984	Require use of specific model? - QM #135
 * 21158	Should this be a conformance requirement?
-* 21188	consider making cmi-criteriaReference and cmi-aggregateMethod 1..1 for "measure observation" slice.
+* 21188	consider making crmi-criteriaReference and crmi-aggregateMethod 1..1 for "measure observation" slice.
 * 21186	measure population exclusion slice should be 0..1. population.code for this slice should still be required (1..1)
 * 21182	should population.identifier, supplementalData.identifier and stratification.identifier be required?
 * 21185	missing denominator exception slice
