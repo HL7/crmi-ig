@@ -1,0 +1,64 @@
+# This IG YML file is inspired by the ImplementationGuide resource
+# and also draws from package.json, package-list.json, and ig.ini.
+# That said, it is structured for ease-of-use, so it is not strictly
+# conformant to any of those existing configuration formats.
+
+# SUSHI will use id as both id and packageId in the IG unless a
+# specific packageId is also provided in this file.
+id: hl7.fhir.uv.crmi
+canonical: http://hl7.org/fhir/uv/crmi
+name: CRMI
+title: Canonical Resource Management Infrastructure Implementation Guide
+description: >-
+  This implementation guide defines profiles, operations, capability statements
+  and guidance to facilitate the content management lifecycle for authoring,
+  publishing, distribution, and implementation of FHIR knowledge artifacts such
+  as value sets, profiles, libraries, rules, and measures. The guide is
+  intended to be used by specification and content implementation guide authors
+  as both a dependency for validation of published artifacts, and a guide for
+  construction and publication of content.
+status: draft
+license: CC0-1.0
+date: 2022-05-17
+version: 0.1.0
+
+# Although fhirVersions is 0..* in the ImplementationGuide resource
+# it can be a single item OR and array here (but so far SUSHI only
+# supports 4.0.1 anyway).
+fhirVersion: 4.0.1
+
+# The following two lines correspond to items that used to be in
+# ig.ini but were moved to IG.definition.parameter. For
+# consistency within this file, the names are represented using
+# camelcase, but if authors use the formal parameter names, SUSHI
+# will recognize them as well. In either case, they'll be copied
+# to the IG JSON using the formal names.
+copyrightYear: 2022+
+releaseLabel: Ballot
+
+# The publisher can be a single item or a list, each with a name and
+# optional url and/or email. The first publisher's name will be used
+# as IG.publisher.  The contact details and/or additional publishers
+# will be translated into IG.contact values.
+publisher:
+  name: Clinical Decision Support WG
+
+# Those who need more control or want to add additional details to the contact values can use
+# contact directly and follow the format outlined in the ImplementationGuide resource and
+# ContactDetail.
+contact:
+  - telecom:
+    - system: url
+      value: http://www.hl7.org/Special/committees/dss
+
+# The jurisdiction can be a single item or a list. The FHIR Shorthand
+# code syntax can be used here.
+jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
+
+# The dependencies property corresponds to IG.dependsOn. The key is the
+# package id and the value is the version (or dev/current). For advanced
+# use cases, the value can be an object with keys for `uri` and `version`.
+# For R5 ImplementationGuides, the object can also have a key for `reason`.
+dependencies:
+  fhir.cqf.common: 4.0.1
+
