@@ -184,6 +184,10 @@ Read and search operations can be used to distribute artifacts, see [Knowledge R
 
 Downstream systems MAY require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
 
+<div style="max-width:800px;">
+{% include img.html img="CRMI-PackageOperation.png" %}
+</div>
+
 To facilitate this, a downstream system MAY use the $package or $data-requirements operation(s) on a canonical resource to resolve dependencies.
 * $package: The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
 * $data-requirements: The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
