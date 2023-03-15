@@ -217,68 +217,46 @@ The _retire_ operation supports updating the status of an existing _active_ arti
 
 The _archive_ operation supports removing an existing _retired_ artifact from the repository. The operation is defined as a `DELETE` but the status of the deleted resource is required to be _retired_.
 
-<!--- !!!! --->
-### Shareable Measure Repository
+### Shareable Artifact Repository
 
-The ShareableMeasureRepository capability statement defines the minimum expectations for a measure repository that provides basic access to shareable measure content. It describes the minimum required functionality for sharing FHIR-based measure content.
+The ShareableArtifactRepository capability statement defines the minimum expectations for an artifact repository that provides basic access to shareable artifact content. It describes the minimum required functionality for sharing FHIR-based artifact content.
 
-The [CRMIShareableMeasureRepository](CapabilityStatement-shareable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIShareableArtifactRepository](CapabilityStatement-shareable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
-#### Libraries
+#### Artifacts
 
-A ShareableMeasureRepository:
+For each type of knowledge artifact supported by a ShareableArtifactRepository:
 
-1. SHALL Represent basic Library information, as specified by the [CRMILibrary](StructureDefinition-library-crmi.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
+1. SHALL Represent basic artifact information, as specified by the shareable profile for the artifact, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
 
-2. For computable libraries, SHALL represent computable Library information, as specified by the [CRMIComputableLibrary](StructureDefinition-computable-library-crmi.html) profile.
+2. For computable artifacts, SHALL represent computable artifact information, as specified by the computable artifact profile.
 
-3. For executable libraries, SHALL represent executable Library information, as specified by the [CRMIExecutableLibrary](StructureDefinition-executable-library-crmi.html) profile.
+3. For executable artifacts, SHALL represent executable artifact information, as specified by the executable artifact profile.
 
-2. For published libraries, SHALL represent publishable Library information, as specified by the [CRMIPublishableLibrary](StructureDefinition-publishable-library-crmi.html) profile.
+2. For published artifacts, SHALL represent publishable artifact information, as specified by the publishable artifact profile.
 
-3. SHALL support Library read by the server-defined id for the Library
+3. SHALL support artifact read by the server-defined id for the artifact
 
-4. SHALL support Library searches by:
-    1. SHALL url: Returning all versions of the library matching that url
-    2. SHALL version: Returning the library matching that version (can appear only in combination with a url search)
-    3. SHALL identifier: Returning any library matching the identifier
-    4. SHALL name: Returning any library matching the name, according to the string-matching semantics in FHIR
-    5. SHALL title: Returning any library matching the title, according to the string-matching semantics in FHIR
-    6. SHALL status: Returning libraries that match the given status
-    7. SHALL description: Returning any Library matching the search description, according to string-matching semantics in FHIR
+4. SHALL support artifact searches by:
+    1. SHALL url: Returning all versions of the artifact matching that url
+    2. SHALL version: Returning the artifact matching that version (can appear only in combination with a url search)
+    3. SHALL identifier: Returning any artifact matching the identifier
+    4. SHALL name: Returning any artifact matching the name, according to the string-matching semantics in FHIR
+    5. SHALL title: Returning any artifact matching the title, according to the string-matching semantics in FHIR
+    6. SHALL status: Returning artifacts that match the given status
+    7. SHALL description: Returning any artifact matching the search description, according to string-matching semantics in FHIR
 
-#### Measures
+### Publishable Artifact Repository
 
-A ShareableMeasureRepository:
+The PublishableArtifactRepository capability statement expresses additional functionality that SHOULD be provided in support of providing published FHIR artifacts including additional searching and packaging capabilities.
 
-1. SHALL Represent basic Measure information, as specified by the [CRMIMeasure](StructureDefinition-measure-crmi.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
+The [CRMIPublishableArtifactRepository](CapabilityStatement-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
-2. For computable measures, SHALL represent computable Measure information, as specified by the [CRMIComputableMeasure](StructureDefinition-computable-measure-crmi.html) profile.
+#### Artifacts
 
-2. For published measures, SHALL represent publishable Measure information, as specified by the [CRMIPublishableMeasure](StructureDefinition-publishable-measure-crmi.html) profile.
+For each type of knowledge artifact supported by a PublishableArtifactRepository:
 
-3. SHALL support Measure read by the server-defined id for the Measure
-
-4. SHALL support Measure searches by:
-    1. SHALL url: Returning all versions of the measure matching that url
-    2. SHALL version: Returning the measure matching that version (can appear only in combination with a url search)
-    3. SHALL identifier: Returning any measure matching the identifier
-    4. SHALL name: Returning any measure matching the name, according to the string-matching semantics in FHIR
-    5. SHALL title: Returning any measure matching the title, according to the string-matching semantics in FHIR
-    6. SHALL status: Returning measures that match the given status
-    7. SHALL description: Returning any measure matching the search description, according to string-matching semantics in FHIR
-
-### Publishable Measure Repository
-
-The PublishableMeasureRepository capability statement expresses additional functionality that SHOULD be provided in support of providing published FHIR quality measures including additional searching and packaging capabilities.
-
-The [CRMIPublishableMeasureRepository](CapabilityStatement-publishable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
-
-#### Libraries
-
-A PublishableMeasureRepository:
-
-1. SHALL support library packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+1. SHALL support artifact packaging: [$package](OperationDefinition-Artifact-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
@@ -290,7 +268,7 @@ A PublishableMeasureRepository:
     9. SHOULD support include-components parameter
     10. SHOULD support include-dependencies parameter
 
-2. SHALL support library requirements analysis: [Library/$data-requirements](OperationDefinition-Library-data-requirements.html) operation
+2. SHALL support artifact requirements analysis: [$data-requirements](OperationDefinition-Artifact-data-requirements.html) operation
     1. SHALL support the id parameter
     2. SHALL support the url parameter
     3. SHALL support the version parameter
@@ -304,112 +282,40 @@ A PublishableMeasureRepository:
     11. SHOULD support include-components parameter
     12. SHOULD support include-dependencies parameter
 
-3. SHOULD support library Metadata searches:
-    1. date: Returning all libraries matching the given date
-    2. effective: Returning all libraries matching the given effectivePeriod
-    3. jurisdiction: Returning all libraries matching the given jurisdiction
-    4. context: Returning all libraries with a use context value matching the given context
-    5. context-type: Returning all libraries with a use context type matching the given context type
-    6. context-type-quantity: Returning all libraries with a use context quantity or range matching the given quantity
-    7. context-type-value: Returning all libraries with a given use context type and value
-    8. topic: Returning all libraries matching the given topic
+3. SHOULD support artifact Metadata searches:
+    1. date: Returning all artifacts matching the given date
+    2. effective: Returning all artifacts matching the given effectivePeriod
+    3. jurisdiction: Returning all artifacts matching the given jurisdiction
+    4. context: Returning all artifacts with a use context value matching the given context
+    5. context-type: Returning all artifacts with a use context type matching the given context type
+    6. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
+    7. context-type-value: Returning all artifacts with a given use context type and value
+    8. topic: Returning all artifacts matching the given topic
 
-4. MAY support library RelatedArtifact searches:
-    1. composed-of: Returning all libraries that have the given artifact as a component
-    2. depends-on: Returning all libraries that have the given artifact as a dependency
-    3. derived-from: Returning all libraries that are derived from the given artifact
-    4. successor: Returning all libraries that have the given artifact as a successor
-    5. predecessor: Returning all libraries that have the given artifact as a predecessor
+4. MAY support artifact RelatedArtifact searches:
+    1. composed-of: Returning all artifacts that have the given artifact as a component
+    2. depends-on: Returning all artifacts that have the given artifact as a dependency
+    3. derived-from: Returning all artifacts that are derived from the given artifact
+    4. successor: Returning all artifacts that have the given artifact as a successor
+    5. predecessor: Returning all artifacts that have the given artifact as a predecessor
 
-#### Measures
+### Authoring Artifact Repository
 
-A PublishableMeasureRepository:
+The AuthoringArtifactRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed.
 
-1. SHALL support measure packaging: [Measure/$package](OperationDefinition-Measure-package.html) operation
-    1. SHALL support the url parameter
-    2. SHALL support the version parameter
-    3. SHOULD support the offset parameter
-    4. SHOULD support the count parameter
-    5. SHOULD support system-version parameter (overrides code system versions specified in the manifest)
-    6. SHOULD support check-system-version parameter (overrides code system versions specified in the manifest)
-    7. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
-    8. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
+The [CRMIAuthoringArtifactRepository](CapabilityStatement-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
-2. SHALL support measure requirements analysis: [Measure/$data-requirements](OperationDefinition-Measure-data-requirements.html) operation
-    1. SHALL support the id parameter
-    2. SHALL support the url parameter
-    3. SHALL support the version parameter
-    4. SHALL support the identifier parameter
-    5. SHOULD support the expression parameter
-    6. SHOULD support the parameters parameter
-    7. SHOULD support system-version parameter (overrides code system versions specified in the manifest)
-    8. SHOULD support check-system-version parameter (overrides code system versions specified in the manifest)
-    9. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
-    10. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
-    11. SHOULD support include-components parameter
-    12. SHOULD support include-dependencies parameter
+#### Artifacts
 
-3. SHOULD support measure Metadata searches:
-    1. date: Returning all measures matching the given date
-    2. effective: Returning all measures matching the given effectivePeriod
-    3. jurisdiction: Returning all measures matching the given jurisdiction
-    4. context: Returning all measures with a use context value matching the given context
-    5. context-type: Returning all measures with a use context type matching the given context type
-    6. context-type-quantity: Returning all measures with a use context quantity or range matching the given quantity
-    7. context-type-value: Returning all measures with a given use context type and value
-    8. topic: Returning all measures matching the given topic
+For each type of artifact supported, an AuthoringMeasureRepository:
 
-4. MAY support library RelatedArtifact searches:
-    1. composed-of: Returning all measures that have the given artifact as a component
-    2. depends-on: Returning all measures that have the given artifact as a dependency
-    3. derived-from: Returning all measures that are derived from the given artifact
-    4. successor: Returning all measures that have the given artifact as a successor
-    5. predecessor: Returning all measures that have the given artifact as a predecessor
+1. SHALL support [**Submit**](#submit): Post a new artifact in _draft_ status
+2. SHALL support [**Revise**](#revise): Update an existing artifact in _draft_ status
+3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ artifact
+4. SHOULD support [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
+5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing artifact (regardless of status)
+6. SHALL support [**Publish**](#publish): Post a new artifact with _active_ status
+7. SHALL support [**Release**](#release): Update an existing _draft_ artifact to _active_
+8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
+9. SHOULD support [**Archive**](#archive): Delete a _retired_ artifact
 
-#### MeasureReports
-
-A PublishableMeasureRepository:
-
-1. MAY support representation of test cases using the [CRMITestCase](StructureDefinition-test-case-crmi.html) profile.
-
-1. MAY support retrieval of test cases by server-specific id through the MeasureReport/read interaction
-
-1. MAY support searching of test cases by the `measure` search parameter
-
-1. MAY support including test cases in measure packages.
-
-1. MAY support test case packaging: [MeasureReport/$package](OperationDefinition-MeasureReport-package.html) operation
-
-### Authoring Measure Repository
-
-The AuthoringMeasureRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed.
-
-The [CRMIAuthoringMeasureRepository](CapabilityStatement-authoring-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
-
-#### Libraries
-
-An AuthoringMeasureRepository:
-
-1. SHALL support [**Submit**](#submit): Post a new library in _draft_ status
-2. SHALL support [**Revise**](#revise): Update an existing library in _draft_ status
-3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ library
-4. SHOULD support [**Review**](#review): Review and provide comments on an existing library (regardless of status)
-5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing library (regardless of status)
-6. SHALL support [**Publish**](#publish): Post a new library with _active_ status
-7. SHALL support [**Release**](#release): Update an existing _draft_ library to _active_
-8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ library
-9. SHOULD support [**Archive**](#archive): Delete a _retired_ library
-
-#### Measures
-
-An AuthoringMeasureRepository:
-
-1. SHALL support [**Submit**](#submit): Post a new measure in _draft_ status
-2. SHALL support [**Revise**](#revise): Update an existing measure in _draft_ status
-3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ measure
-4. SHOULD support [**Review**](#review): Review and provide comments on an existing measure (regardless of status)
-5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing measure (regardless of status)
-6. SHALL support [**Publish**](#publish): Post a new measure with _active_ status
-7. SHALL support [**Release**](#release): Update an existing _draft_ measure to _active_
-8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ measure
-9. SHOULD support [**Archive**](#archive): Delete a _retired_ measure

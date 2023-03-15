@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Execuable Library profile defines the must support elements for an executable library used to support eCQM logic",
+  "description": "The CRMI Execuable Library profile defines the must support elements for an executable library used to support artifact logic",
   "jurisdiction": [
     {
       "coding": [

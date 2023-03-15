@@ -1,12 +1,12 @@
 {: #capabilities}
 
-The following sequence diagram depicts overall processing for quality improvement data use scenarios. The roles depicted are:
+The following discussion describes overall processing for quality improvement artifact development and implementation scenarios. The roles depicted are:
 
-* Data Repository - The clinical data repository for the submitting system. This is typically a FHIR server endpoint for the submitting system's electronic health record (EHR) or system of record, but could also be an HIE or other aggregated data source, depending on the particular submission and reporting requirements.
-* Submitting System - This would be either a hospital, physician practice, or any organization that wants to submit the relevant eCQM data to a receiving system
-* Knowledge Repository - This would be a FHIR server that has the eCQMs loaded and is the source of truth for those eCQMS and can provide the required data elements for each measure
-* Terminology Service - This can be any valid FHIR terminology service that has the appropriate valuesets used in the eCQMs and can provide the expansion of those valuesets
-* Receiving System - This would be the system that will receive all of the relevant clinical data for a given eCQM and be able to perform the evaluation of that measure
+* Data Repository - The clinical data repository for the source system. This is typically a FHIR server endpoint for the source system's electronic health record (EHR) or system of record, but could also be an HIE or other aggregated data source, depending on the particular use case and data requirements.
+* Client System - This would be either a hospital, physician practice, or any organization that wants to make use of a knowledge artifact specification
+* Knowledge Repository - This would be a FHIR server that has the knowledge artifacts loaded and is the source of truth for those eCQMS and can provide the required data elements for each artifact
+* Terminology Service - This can be any valid FHIR terminology service that has the appropriate valuesets used in the artifacts and can provide the expansion of those valuesets
+* Server System - This would be the system that will receive requests for processing based on the relevant clinical data for a given artifact and be able to perform the evaluation of that artifact
 
 There are 5 workflows depicted using the swimlanes.
 

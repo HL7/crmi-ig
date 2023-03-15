@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Executable Measure Profile describes minimum expectations for an executable electronic Clinical Quality Measure (eCQM), including a reference to an executable library, and restricted to the use of identifier-based expressions only for all criteria.",
+  "description": "The CRMI Executable Measure Profile describes minimum expectations for an executable measure, including a reference to an executable library, and restricted to the use of identifier-based expressions only for all criteria.",
   "jurisdiction": [
     {
       "coding": [
@@ -72,7 +72,7 @@
           {
             "code": "canonical",
             "targetProfile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/executable-library-CRMI"
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary"
             ]
           }
         ],

@@ -1,7 +1,7 @@
 {:toc}
 
 ## Overview
-This page describes and documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based quality measure specifications as described in this implementation guide.
+This page describes and documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based knowledge artifact specifications as described in this implementation guide.
 
 This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and implementation of FHIR-based knowledge artifacts.
 
@@ -18,10 +18,10 @@ Note that during the authoring phase, the value sets referenced by artifacts wil
 #### Version Manifest
 As a version manifest, an artifact collection specifies versioned canonical references for dependencies using `relatedArtifact` elements with a type of `depends-on`.
 
-> NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if a measure explicitly references the version of a value set, the manifest cannot override that version.
+> NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if an artifact explicitly references the version of a value set, the manifest cannot override that version.
 
 #### Expansion Rules
-Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [crmi-expansionParameters](StructureDefinition-crmi-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by a measure terminology service, including support for the following parameters:
+Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [crmi-expansionParameters](StructureDefinition-crmi-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
 
 1. `activeOnly`
 2. `system-version`
@@ -60,7 +60,6 @@ To support organization of releases, the Quality Program profile can also be use
 5. SHOULD support CodeSystem searches by:
     1. status: Returning codesystems that match the given status
     2. valueset: Returning any codesystem that is referenced by the given value set url (optionally versioned)
-    3. measure: Returning any codesystem that is referenced by the given measure url (optionally versioned)
     4. library: Returning any codesystem that is referenced by the given library url (optionally versioned)
     4. artifact: Returning any codesystem that is referenced by the given artifact url (optionally versioned)
 
@@ -122,8 +121,7 @@ Note that when a code system authority has not established a versioning system, 
     6. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
     7. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
     8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
-    9. measure: Returning any valueset that is referenced by the given measure url (optionally versioned)
-    10. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
+    9. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
 
 7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
@@ -153,25 +151,25 @@ Note that when a code system authority has not established a versioning system, 
     14. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
     15. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
 
-### Quality Programs (Artifact Collections)
+### Artifact Collections
 
-1. SHALL Represent basic quality program release information, as specified by the [CRMIQualityProgram](StructureDefinition-quality-program-crmi.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, measure, library, and terminology references
+1. SHALL Represent basic artifact collection release information, as specified by the [CRMIArtifactCollection](StructureDefinition-artifact-collection-crmi.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, and terminology references
 
-2. For published quality programs, SHALL represent publishable quality program information as specified by the [CRMIPublishableLibrary](StructureDefinition-publishable-library-crmi.html) profile.
+2. For published artifact collection, SHALL represent publishable artifact collection information as specified by the [CRMIPublishableLibrary](StructureDefinition-publishable-library-crmi.html) profile.
 
-3. SHALL support Quality Program (Library) read, by the server-defined id for the quality program library
+3. SHALL support Library read, by the server-defined id for the library
 
-4. SHALL support Quality Program (Library) searches by:
-    1. url: Returning all versions of the quality program matching that url
-    2. version: Returning the quality program matching that version (can appear only in combination with a url search)
-    3. identifier: Returning any quality program matching the identifier
-    4. name: Returning any quality program matching the name, according to the string-matching semantics in FHIR
-    5. title: Returning any quality program matching the title, according to the string-matching semantics in FHIR
-    6. status: Returning quality programs that match the given status
-    7. description: Returning any quality programs matching the search description, according to string-matching semantics in FHIR
-    8. composed-of: Returning any quality program that includes the given measure canonical or quality program version manifest or release
-    9. depends-on: Returning any quality program that references the given code system or value set canonical
-    10. part-of: Returning any version manifest or release that is part of the given quality program
+4. SHALL support Library searches by:
+    1. url: Returning all versions of the library matching that url
+    2. version: Returning the library matching that version (can appear only in combination with a url search)
+    3. identifier: Returning any library matching the identifier
+    4. name: Returning any library matching the name, according to the string-matching semantics in FHIR
+    5. title: Returning any library matching the title, according to the string-matching semantics in FHIR
+    6. status: Returning libraries that match the given status
+    7. description: Returning any libraries matching the search description, according to string-matching semantics in FHIR
+    8. composed-of: Returning any library that includes the given measure canonical or quality program version manifest or release
+    9. depends-on: Returning any library that references the given code system or value set canonical
+    10. part-of: Returning any version manifest or release that is part of the given library
 
 4. SHALL support specifying expansion rules for the following $expand parameters
     1. SHALL support the activeOnly parameter
@@ -211,7 +209,7 @@ Note that when a code system authority has not established a versioning system, 
 
 The above capabilities are formally captured in the following capability statement:
 
-[CRMIMeasureTerminologyService](CapabilityStatement-measure-terminology-service.html)
+[CRMIArtifactTerminologyService](CapabilityStatement-artifact-terminology-service.html)
 
 ### Examples
 
@@ -382,26 +380,26 @@ The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html
 Note this expansion contains the same codes as the `current` example, but is explicitly
 bound to the 2019-09 version of the US Edition of the SNOMED code system (http://snomed.info/sct/731000124108/version/20190901).
 
-#### Quality Programs
+#### Artifact Collections
 
-From the perspective of quality measurement, artifact collections are used to represent Quality Programs in 2 different ways:
+From the perspective of artifact development, artifact collections are used to represent collections of artifacts in 2 different ways:
 
-1. As an organizer for an overall quality program that contains version manifests and releases over time.
-2. As a program definition that provides version bindings and expansion rules for the measures in the program.
+1. As an organizer for an overall collection that contains version manifests and releases over time.
+2. As a collection definition that provides version bindings and expansion rules for the artifacts in the collection.
 
-Note that as the measures in the program definition are developed, different aspects of the definition will be specified at different points of the process. For example, the initial program definition will typically include a set of measures, as well as an initial set of proposed code system versions to be used. This provides for stable expansion of value sets while the measures are being developed. As development progresses, more and more aspects of the program definition are finalized, resulting in more versions being pinned down. To illustrate these usages, we provide three quality program examples, one to illustrate the overall definition of a quality program, one to illustrate the selection of code systems at the beginning of a program development cycle, and one to illustrate a final release of a program definition with measure versions, value set versions, and code system versions completely specified.
+Note that as the artifacts in the collection are developed, different aspects of the definition will be specified at different points of the process. For example, the initial definition will typically include a set of artifacts, as well as an initial set of proposed code system versions to be used. This provides for stable expansion of value sets while the artifacts are being developed. As development progresses, more and more aspects of the collection definition are finalized, resulting in more versions being pinned down. To illustrate these usages, we provide three artifact collection examples, one to illustrate the overall definition of a collection, one to illustrate the selection of code systems at the beginning of a development cycle, and one to illustrate a final release of a collection definition with artifact versions, value set versions, and code system versions completely specified.
 
-##### Quality Program Example
+##### Collection Example
 
-The following example illustrates an overall quality program that contains multiple version manifests and releases over time:
+The following example illustrates an overall collection that contains multiple version manifests and releases over time:
 
 * [eCQM Quality Program](Library-ecqm-quality-program.html)
 
-Note that as an organizer, this library just contains the program-level information. Version manifests and releases over time use the [part-of](StructureDefinition-crmi-partOf.html) extension to indicate that they are part of a quality program.
+Note that as an organizer, this library just contains the program-level information. Version manifests and releases over time use the [part-of](StructureDefinition-crmi-partOf.html) extension to indicate that they are part of an artifact collection.
 
-##### Draft Quality Program Example
+##### Draft Collection Example
 
-This example illustrates the use of a draft quality program description to specify the version of SNOMED to be used for valuesets used by measures in the quality program.
+This example illustrates the use of a draft quality program description to specify the version of SNOMED to be used for valuesets used by artifacts in the quality program.
 
 ```
 "contained": [
@@ -452,11 +450,11 @@ The full example is available here:
 
 * [eCQM Version Manifest, 2020](Library-ecqm-update-2020.html)
 
-##### Release Quality Program
+##### Release Artifact Collection
 
-The following example illustrates a program release that is an _active_ instance of a quality program release used to provide stable extensions for the released artifacts in a quality program.
+The following example illustrates a collection that is an _active_ instance of an artifact collection release used to provide stable extensions for the released artifacts in the collection.
 
-Specifically, the program release uses the `expansion` parameter in the contained expansion parameters at the artifact collection level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
+Specifically, the collection release uses the `expansion` parameter in the contained expansion parameters at the artifact collection level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
 
 ```
 {
@@ -465,7 +463,7 @@ Specifically, the program release uses the `expansion` parameter in the containe
 }
 ```
 
-In addition, the program release specifies versions of code systems, value sets, and measures included in the release:
+In addition, the collection release specifies versions of code systems, value sets, and artifacts included in the release:
 
 ```
 {

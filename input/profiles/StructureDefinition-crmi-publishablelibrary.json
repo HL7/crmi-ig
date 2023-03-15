@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Publishable Library profile defines the must support elements in a library used to support eCQM logic",
+  "description": "The CRMI Publishable Library profile defines the must support elements in a library used to support artifact logic",
   "jurisdiction": [
     {
       "coding": [
