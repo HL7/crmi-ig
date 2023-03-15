@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cmi-artifact-releaseDescription",
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifact-releaseDescription",
+  "id": "crmi-artifact-releaseDescription",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-releaseDescription",
   "version": "1.0.0",
-  "name": "CMIArtifactReleaseDescription",
-  "title": "CMI Artifact Release Description",
+  "name": "CRMIArtifactReleaseDescription",
+  "title": "CRMI Artifact Release Description",
   "status": "active",
   "experimental": false,
   "date": "2023-01-09T13:31:32-07:00",
@@ -68,7 +68,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-artifact-releaseDescription"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-releaseDescription"
       },
       {
         "id": "Extension.value[x]",

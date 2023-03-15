@@ -222,19 +222,19 @@ The _archive_ operation supports removing an existing _retired_ artifact from th
 
 The ShareableMeasureRepository capability statement defines the minimum expectations for a measure repository that provides basic access to shareable measure content. It describes the minimum required functionality for sharing FHIR-based measure content.
 
-The [CMIShareableMeasureRepository](CapabilityStatement-shareable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIShareableMeasureRepository](CapabilityStatement-shareable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 #### Libraries
 
 A ShareableMeasureRepository:
 
-1. SHALL Represent basic Library information, as specified by the [CMILibrary](StructureDefinition-library-cmi.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
+1. SHALL Represent basic Library information, as specified by the [CRMILibrary](StructureDefinition-library-crmi.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
 
-2. For computable libraries, SHALL represent computable Library information, as specified by the [CMIComputableLibrary](StructureDefinition-computable-library-cmi.html) profile.
+2. For computable libraries, SHALL represent computable Library information, as specified by the [CRMIComputableLibrary](StructureDefinition-computable-library-crmi.html) profile.
 
-3. For executable libraries, SHALL represent executable Library information, as specified by the [CMIExecutableLibrary](StructureDefinition-executable-library-cmi.html) profile.
+3. For executable libraries, SHALL represent executable Library information, as specified by the [CRMIExecutableLibrary](StructureDefinition-executable-library-crmi.html) profile.
 
-2. For published libraries, SHALL represent publishable Library information, as specified by the [CMIPublishableLibrary](StructureDefinition-publishable-library-cmi.html) profile.
+2. For published libraries, SHALL represent publishable Library information, as specified by the [CRMIPublishableLibrary](StructureDefinition-publishable-library-crmi.html) profile.
 
 3. SHALL support Library read by the server-defined id for the Library
 
@@ -251,11 +251,11 @@ A ShareableMeasureRepository:
 
 A ShareableMeasureRepository:
 
-1. SHALL Represent basic Measure information, as specified by the [CMIMeasure](StructureDefinition-measure-cmi.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
+1. SHALL Represent basic Measure information, as specified by the [CRMIMeasure](StructureDefinition-measure-crmi.html) profile, which includes url, identifier, version, name, title, type, status, experimental, date, publisher, contact, description, useContext, and jurisdiction.
 
-2. For computable measures, SHALL represent computable Measure information, as specified by the [CMIComputableMeasure](StructureDefinition-computable-measure-cmi.html) profile.
+2. For computable measures, SHALL represent computable Measure information, as specified by the [CRMIComputableMeasure](StructureDefinition-computable-measure-crmi.html) profile.
 
-2. For published measures, SHALL represent publishable Measure information, as specified by the [CMIPublishableMeasure](StructureDefinition-publishable-measure-cmi.html) profile.
+2. For published measures, SHALL represent publishable Measure information, as specified by the [CRMIPublishableMeasure](StructureDefinition-publishable-measure-crmi.html) profile.
 
 3. SHALL support Measure read by the server-defined id for the Measure
 
@@ -272,7 +272,7 @@ A ShareableMeasureRepository:
 
 The PublishableMeasureRepository capability statement expresses additional functionality that SHOULD be provided in support of providing published FHIR quality measures including additional searching and packaging capabilities.
 
-The [CMIPublishableMeasureRepository](CapabilityStatement-publishable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIPublishableMeasureRepository](CapabilityStatement-publishable-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 #### Libraries
 
@@ -370,7 +370,7 @@ A PublishableMeasureRepository:
 
 A PublishableMeasureRepository:
 
-1. MAY support representation of test cases using the [CMITestCase](StructureDefinition-test-case-cmi.html) profile.
+1. MAY support representation of test cases using the [CRMITestCase](StructureDefinition-test-case-crmi.html) profile.
 
 1. MAY support retrieval of test cases by server-specific id through the MeasureReport/read interaction
 
@@ -384,7 +384,7 @@ A PublishableMeasureRepository:
 
 The AuthoringMeasureRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed.
 
-The [CMIAuthoringMeasureRepository](CapabilityStatement-authoring-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIAuthoringMeasureRepository](CapabilityStatement-authoring-measure-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 #### Libraries
 

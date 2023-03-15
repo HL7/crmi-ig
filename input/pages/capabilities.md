@@ -29,7 +29,7 @@ This implementation guide defines capability statements, use cases, and conforma
 * [**Measure Terminology Service**](measure-terminology-service.html)
 * [**Measure Repository**](measure-repository-service.html)
 
-In addition, the following example capability statement illustrates the use of the [cmi-supportedCqlVersion](StructureDefinition-cmi-supportedCqlVersion.html) extension to support advertising the version of CQL supported by the service:
+In addition, the following example capability statement illustrates the use of the [crmi-supportedCqlVersion](StructureDefinition-crmi-supportedCqlVersion.html) extension to support advertising the version of CQL supported by the service:
 
 * [**Example Measure Calculation Service**](CapabilityStatement-measure-calculation-service-example.html)
 
