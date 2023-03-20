@@ -31,13 +31,6 @@
     }
   ],
   "fhirVersion": "4.0.1",
-  "mapping": [
-    {
-      "identity": "rim",
-      "uri": "http://hl7.org/v3",
-      "name": "RIM Mapping"
-    }
-  ],
   "kind": "complex-type",
   "abstract": false,
   "context": [
@@ -65,7 +58,7 @@
         "sliceName": "informationType",
         "short": "comment | classifier | rating | container | response | change-request",
         "definition": "The type of information this component of the content represents.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -98,7 +91,7 @@
         "sliceName": "summary",
         "short": "Brief summary of the content",
         "definition": "A brief summary of the content of this component..",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -126,7 +119,7 @@
         "sliceName": "type",
         "short": "Indicates what type of content this component represents",
         "definition": "Indicates what type of content this component represents.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -147,19 +140,14 @@
             "code": "CodeableConcept"
           }
         ],
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-            "valueString" : "EvidenceCertaintyType"
-          }]
-        },
-        "constraint" : [{
-          "key" : "ele-1",
-          "severity" : "error",
-          "human" : "All FHIR elements must have a @value or children",
-          "expression" : "hasValue() or (children().count() > id.count())",
-          "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-        }]
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "EvidenceCertaintyType"
+            }
+          ]
+        }
       },
       {
         "id": "Extension.extension:classifier",
@@ -167,8 +155,8 @@
         "sliceName": "classifier",
         "short": "Rating, classifier, or assessment",
         "definition": "Represents a rating, classifier, or assessment of the artifact.",
-        "min": 1,
-        "max": "1",
+        "min": 0,
+        "max": "*",
         "type": [
           {
             "code": "Extension"
@@ -188,13 +176,15 @@
             "code": "CodeableConcept"
           }
         ],
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-            "valueString" : "EvidenceCertaintyRating"
-          }],
-          "strength" : "example",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/certainty-rating"
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "EvidenceCertaintyRating"
+            }
+          ],
+          "strength": "example",
+          "valueSet": "http://hl7.org/fhir/ValueSet/certainty-rating"
         }
       },
       {
@@ -203,7 +193,7 @@
         "sliceName": "quantity",
         "short": "Quantitative rating",
         "definition": "A quantitative rating of the artifact.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -221,7 +211,7 @@
         "path": "Extension.extension.value[x]",
         "type": [
           {
-            "code" : "Quantity"
+            "code": "Quantity"
           }
         ]
       },
@@ -229,9 +219,9 @@
         "id": "Extension.extension:author",
         "path": "Extension.extension",
         "sliceName": "author",
-        "short" : "Who authored the content",
-        "definition" : "Indicates who or what authored the content.",
-        "min": 1,
+        "short": "Who authored the content",
+        "definition": "Indicates who or what authored the content.",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -247,24 +237,28 @@
       {
         "id": "Extension.extension:author.value[x]",
         "path": "Extension.extension.value[x]",
-        "type" : [{
-          "code" : "Reference",
-          "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Patient",
-          "http://hl7.org/fhir/StructureDefinition/Practitioner",
-          "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
-          "http://hl7.org/fhir/StructureDefinition/Organization",
-          "http://hl7.org/fhir/StructureDefinition/Device"]
-        }]
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient",
+              "http://hl7.org/fhir/StructureDefinition/Practitioner",
+              "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
+              "http://hl7.org/fhir/StructureDefinition/Organization",
+              "http://hl7.org/fhir/StructureDefinition/Device"
+            ]
+          }
+        ]
       },
       {
         "id": "Extension.extension:path",
         "path": "Extension.extension",
         "sliceName": "path",
 
-        "short" : "What the comment is directed to",
-        "definition" : "A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource.",
-        "min": 1,
-        "max": "1",
+        "short": "What the comment is directed to",
+        "definition": "A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource.",
+        "min": 0,
+        "max": "*",
         "type": [
           {
             "code": "Extension"
@@ -279,18 +273,20 @@
       {
         "id": "Extension.extension:path.value[x]",
         "path": "Extension.extension.value[x]",
-        "type" : [{
-          "code" : "uri"
-        }]
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
       },
       {
         "id": "Extension.extension:relatedArtifact",
         "path": "Extension.extension",
         "sliceName": "relatedArtifact",
-        "short" : "Additional information",
-        "definition" : "Additional related artifacts that provide supporting documentation, additional evidence, or further information related to the content.",
-        "min": 1,
-        "max": "1",
+        "short": "Additional information",
+        "definition": "Additional related artifacts that provide supporting documentation, additional evidence, or further information related to the content.",
+        "min": 0,
+        "max": "*",
         "type": [
           {
             "code": "Extension"
@@ -305,17 +301,19 @@
       {
         "id": "Extension.extension:relatedArtifact.value[x]",
         "path": "Extension.extension.value[x]",
-        "type" : [{
-          "code" : "RelatedArtifact"
-        }]
+        "type": [
+          {
+            "code": "RelatedArtifact"
+          }
+        ]
       },
       {
         "id": "Extension.extension:freeToShare",
         "path": "Extension.extension",
         "sliceName": "freeToShare",
-        "short" : "Acceptable to publicly share the resource content",
-        "definition" : "Acceptable to publicly share the comment, classifier or rating.",
-        "min": 1,
+        "short": "Acceptable to publicly share the resource content",
+        "definition": "Acceptable to publicly share the comment, classifier or rating.",
+        "min": 0,
         "max": "1",
         "type": [
           {
@@ -331,18 +329,20 @@
       {
         "id": "Extension.extension:freeToShare.value[x]",
         "path": "Extension.extension.value[x]",
-        "type" : [{
-          "code" : "boolean"
-        }]
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
       },
       {
         "id": "Extension.extension:component",
         "path": "Extension.extension",
         "sliceName": "component",
-        "short" : "Contained content",
-        "definition" : "If the informationType is container, the components of the content.",
-        "min": 1,
-        "max": "1",
+        "short": "Contained content",
+        "definition": "If the informationType is container, the components of the content.",
+        "min": 0,
+        "max": "*",
         "type": [
           {
             "code": "Extension"
@@ -357,7 +357,7 @@
       {
         "id": "Extension.extension:component.value[x]",
         "path": "Extension.extension.value[x]",
-        "contentReference" : "#Extension"
+        "contentReference": "#Extension"
       }
     ]
   }
