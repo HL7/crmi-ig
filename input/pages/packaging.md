@@ -8,6 +8,8 @@ provides guidance on how to package quality measures, either independently, or a
 ### Packaging Artifacts
 {: #packaging-artifacts}
 
+#### FHIR Bundle
+
 In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
 of type `transaction`. They may span multiple bundles in a given delivery, thus the bundle should be processed as a unit.
 
@@ -20,6 +22,32 @@ dependencies and associated artifacts as subsequent entries as follows:
 4. **Test Cases**: Any test cases defined for the artifact
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
+
+NOTE: It is recommended that each resource in the transaction is a [conditional create](https://www.hl7.org/fhir/http.html#ccreate) using the canonical URL and version as search parameters, e.g.:
+
+```jsonc
+  "entry": [
+    { 
+      "resource": { 
+        "resourceType": "Library",
+        "url": "http://example.org/Library/SomeLibrary",
+        "version": "0.1.0",
+        // ...
+      },
+      "request" :{
+        "method": "POST",
+        "url": "Library",
+        "ifNotExist": "url=http://example.org/Library/SomeLibrary&version=0.1.0"
+      }
+    }
+  ]
+```
+
+#### FHIR Packages
+
+Artifacts may also be packaged following the FHIR Package specification. This involves creating a NPM package (tarball archive with a package.json). The IGPublisher build tool creates a FHIR Package when building an implementation guide.
+
+See also: [FHIR Package Specification](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
 ### Packaging Libraries
 {: #packaging-libraries}
@@ -69,7 +97,7 @@ The following are conformance requirements when packaging a Measure:
 ### Packaging Test Cases
 {: #packaging-test-cases}
 
-Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CMITestCase](StructureDefinition-test-case-cmi.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
+Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CRMITestCase](StructureDefinition-test-case-crmi.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
 
 **Conformance Requirement 6.3 (Test Case Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-3)
 {: #conformance-requirement-6-3}
@@ -90,4 +118,4 @@ Basic testing of measure logic should involve at least one positive and negative
 This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.
 
 1. Artifacts SHOULD use the `useContext` element with the `program` context type to specify a quality program
-2. Quality program descriptions SHALL use the [CQFQualityProgram](StructureDefinition-quality-program-cmi.html) profile
+2. Quality program descriptions SHALL use the [CQFQualityProgram](StructureDefinition-quality-program-crmi.html) profile

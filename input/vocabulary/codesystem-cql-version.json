@@ -1,7 +1,7 @@
 {
   "resourceType": "CodeSystem",
   "id": "cql-version",
-  "url": "http://hl7.org/fhir/uv/cmi/CodeSystem/cql-version",
+  "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version",
   "version": "3.0.0",
   "name": "CQLVersion",
   "title": "CQL Version Codes",
@@ -22,7 +22,7 @@
     }
   ],
   "caseSensitive": true,
-  "valueSet": "http://hl7.org/fhir/uv/cmi/ValueSet/cql-version",
+  "valueSet": "http://hl7.org/fhir/uv/crmi/ValueSet/cql-version",
   "content": "complete",
   "concept": [
     {

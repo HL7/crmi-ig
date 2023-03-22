@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Computable Library profile defines the must support elements for a computable library used to support eCQM logic",
+  "description": "The CRMI Computable Library profile defines the must support elements for a computable library used to support artifact logic",
   "jurisdiction": [
     {
       "coding": [

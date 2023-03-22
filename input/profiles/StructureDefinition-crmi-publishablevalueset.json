@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "Defines the expectations for publishable value sets used in quality measurement specifications",
+  "description": "Defines the expectations for publishable value sets used in knowledge artifact specifications",
   "jurisdiction": [
     {
       "coding": [

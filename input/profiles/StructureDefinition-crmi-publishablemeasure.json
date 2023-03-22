@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Publishable Measure profile defines the minimum expectations to enable appropriate content management, discovery, and utilization of published electronic Clinical Quality Measures (eCQMs)",
+  "description": "The CRMI Publishable Measure profile defines the minimum expectations to enable appropriate content management, discovery, and utilization of published measure specifications",
   "jurisdiction": [
     {
       "coding": [
@@ -585,38 +585,6 @@
         "id": "Measure.effectivePeriod",
         "path": "Measure.effectivePeriod",
         "requirements": "A published measure should provide an indication of the period during which the measure content can be effectively applied.",
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.effectivePeriod.extension:anchor",
-        "path": "Measure.effectivePeriod.extension",
-        "sliceName": "anchor",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectivePeriodAnchor"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Measure.effectivePeriod.extension:duration",
-        "path": "Measure.effectivePeriod.extension",
-        "sliceName": "duration",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectivePeriodDuration"
-            ]
-          }
-        ],
         "mustSupport": true
       },
       {

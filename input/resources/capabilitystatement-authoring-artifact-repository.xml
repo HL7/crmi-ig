@@ -18,12 +18,12 @@
   </contact>
   <description value="Capability statement for a repository service supporting additional authoring and content workflow capabilities for FHIR-based measure specifications above the basic ShareableMeasureRepository."/>
   <kind value="requirements"/>
-  <imports value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/shareable-measure-repository"/>
-  <imports value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/publishable-measure-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-measure-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/publishable-measure-repository"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/cmi/ImplementationGuide/us-cmieasures-3.0.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/us-crmieasures-3.0.0"/>
   <rest>
     <mode value="server"/>
     <documentation value="RESTful Measure Repository"/>
@@ -89,21 +89,21 @@
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Library-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Measure-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/MeasureReport-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/MeasureReport-package"/>
     </operation>
   </rest>
 </CapabilityStatement>

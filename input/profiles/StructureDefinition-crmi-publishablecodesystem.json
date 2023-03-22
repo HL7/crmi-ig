@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "Defines the expectations for publishable code systems used with quality measure specifications",
+  "description": "Defines the expectations for publishable code systems used with knowledge artifact specifications",
   "jurisdiction": [
     {
       "coding": [

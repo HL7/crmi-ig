@@ -3,8 +3,8 @@
   "id": "crmi-shareablemeasure",
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure",
   "version": "3.0.0",
-  "name": "CRMIMeasure",
-  "title": "CRMI Measure",
+  "name": "CRMIShareableMeasure",
+  "title": "CRMI Shareable Measure",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Measure Profile describes minimum expectations for defining an electronic Clinical Quality Measure (eCQM)",
+  "description": "The CRMI Shareable Measure Profile describes minimum expectations for defining an shareable measure specification",
   "jurisdiction": [
     {
       "coding": [
@@ -97,22 +97,6 @@
         "mustSupport": true
       },
       {
-        "id": "Measure.extension:allocation",
-        "path": "Measure.extension",
-        "sliceName": "allocation",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-allocation"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "Measure.extension:softwaresystem",
         "path": "Measure.extension",
         "sliceName": "softwaresystem",
@@ -131,7 +115,7 @@
       {
         "id": "Measure.library",
         "path": "Measure.library",
-        "short": "CRMIMeasures are not required to use a Library, but if they do, it SHALL be a CRMILibrary.",
+        "short": "CRMIShareableMeasures are not required to use a Library, but if they do, it SHALL be a CRMIShareableLibrary.",
         "requirements": "A computable measure MUST provide one primary library reference containing population criteria definitions for the measure.",
         "min": 0,
         "max": "1",
@@ -139,7 +123,7 @@
           {
             "code": "canonical",
             "targetProfile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/library-CRMI"
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
             ]
           }
         ],

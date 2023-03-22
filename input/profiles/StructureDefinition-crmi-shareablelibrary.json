@@ -3,8 +3,8 @@
   "id": "crmi-shareablelibrary",
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
   "version": "3.0.0",
-  "name": "CRMILibrary",
-  "title": "CRMI Library",
+  "name": "CRMIShareableLibrary",
+  "title": "CRMI Shareable Library",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "The CRMI Library profile defines the minimum expectations for a library used to distribute eCQM logic",
+  "description": "The CRMI Shareable Library profile defines the minimum expectations for a library used to distribute artifact logic",
   "jurisdiction": [
     {
       "coding": [
