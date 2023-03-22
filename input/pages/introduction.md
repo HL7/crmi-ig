@@ -20,6 +20,18 @@ The audience for this IG includes modelers (authors of FHIR profiles); terminolo
 
 The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of canonical resources, as well as guidance on knowledge artifacts within the [Clinical Reasoning module](https://www.hl7.org/fhir/clinicalreasoning-module.html). IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements. This IG also builds on the FHIR Package specification, and creates a compatible approach to managing artifacts.
 
+The following diagram illustrates the overall ecosystem of services and capabilities required to support knowledge authoring, distribution, and implementation:
+
+<div style="max-width:800px;">
+{% include img.html img="K-Platform Illustration for CRMI.PNG" %}
+</div>
+
+Within this ecosystem, this IG focuses on the following areas:
+
+<div style="max-width:800px;">
+{% include img.html img="CRMI Scope for K-Platform Illustration for CRMI.PNG" %}
+</div>
+
 ### Scope
 {: #scope}
 

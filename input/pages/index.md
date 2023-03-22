@@ -16,6 +16,21 @@ Where possible, new and updated content will be highlighted with green text and 
 ## Canonical Resource Management Infrastructure Implementation Guide
 {: #canonical-resource-management-infrastructure-implementation-guide}
 
+### Ballot Note
+{: #ballot-note}
+
+For this for comment ballot, below are focus areas that are intended to be addressed in this IG but have not been fully documented as of this ballot:
+
+* Complete dependency tracing for the knowledge artifact resources (see the dependency tracing section of the Introduction)
+* Asset metamodels, or patterns for definitional resources (i.e. templates for knowledge artifacts such as measures, decision support rules, case feature definitions, etc)
+* Profiles and guidance on OperationDefinition to support assets as services (i.e. common parameters for operations on canonical resources such as contentEndpoint, terminologyEndpoint, representationLevel, manifest, etc.)
+* More guidance on the use of $data-requirements to support dependency graph calculation. Note that the current implementation flattens the dependency tree, is that potentially an issue
+* Guidance on the impact of packaging on dependency graph calculation
+* Considering overall organization of the implementation guide to improve navigation and usability
+* Inclusion of testing content for the operations defined
+* Generalizing the `include-dependencies` and `include-components` parameters of $package to an `includeType` parameter that supports more general selection of content to include in the result of the operation
+* Generalizing support for the use of NPM packages as the result of the $package operation
+
 ### Summary
 {: #summary}
 
@@ -32,7 +47,6 @@ page in the menu bar:
 -  **[Home](index.html)**: The home page provides the summary and background information for the Canonical Resource Management Infrastructure Implementation Guide
 -  **[Introduction](introduction.html)**: The introduction provides a more detailed overview of the content management lifecycle and the background for this guide
 -  **[Version Manifest](version-manifest.html)**: This page provides guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
--  **[Conformance](artifact-conformance.html)**: This page describes artifact representation and conformance requirements
 -  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language as part of knowledge artifacts
 -  **[Packaging](packaging.html)**: This page describes packaging and distribution requirements for canonical resources and knowledge artifacts
 Measures IG
@@ -41,7 +55,6 @@ Measures IG
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by knowledge artifacts
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
 -  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
--  **[Examples](examples.html)**: This page provides examples used in the other pages
 -  **[Glossary](glossary.html)** This page defines terms related to knowledge artifacts.
 -  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
