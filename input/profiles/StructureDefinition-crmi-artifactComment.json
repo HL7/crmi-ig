@@ -89,7 +89,7 @@
         "binding": {
           "strength": "required",
           "description": "The type of artifact comment (documentation, review, guidance)",
-          "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type"
+          "valueSet": "http://hl7.org/fhir/uv/crmi/ValueSet/artifact-comment-type"
         }
       },
       {
@@ -214,7 +214,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-artifactComment"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactComment"
       },
       {
         "id": "Extension.value[x]",

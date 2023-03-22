@@ -5,4 +5,4 @@ Alias: $shareablelibrary = http://hl7.org/fhir/StructureDefinition/shareablelibr
 Alias: $shareablemeasure = http://hl7.org/fhir/StructureDefinition/shareablemeasure
 
 // CQFMeasures
-Alias: $artifact-comment-type = http://hl7.org/fhir/us/cqfmeasures/ValueSet/artifact-comment-type
+Alias: $artifact-comment-type = http://hl7.org/fhir/uv/crmi/ValueSet/artifact-comment-type
