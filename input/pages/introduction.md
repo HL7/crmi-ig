@@ -88,7 +88,7 @@ If there is a set of artifacts that ought to be published together (e.g. in a co
 
 If publishing a single artifact (outside a content IG), ensure the `.version` property of the resource does not conflict with already published ones.
 
-This IG recommends you SHOULD use [semver]() to version artifacts, including pre-release tags as needed.
+This IG recommends you SHOULD use [semver](https://semver.org) to version artifacts, including pre-release tags as needed.
 
 OPTIONAL: A SHA hash for each resource maybe generated to confirm immutability of the resource. This SHA SHOULD be based on the contents of the resource, not including the `.meta`. The value can be stored as a `meta.security` coding. The metadata about the resource MAY change such that it does not substantially alter or modify the resource. For example, a tag could be added or removed on a published artifact without changing the substance.
 
@@ -189,8 +189,9 @@ Downstream systems MAY require all content dependencies. These dependencies can 
 </div>
 
 To facilitate this, a downstream system MAY use the $package or $data-requirements operation(s) on a canonical resource to resolve dependencies.
-* $package: The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
-* $data-requirements: The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
+
+* [$package](OperationDefinition-Library-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
+* [$data-requirements](OperationDefinition-Library-data-requirements.html): The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
 
 NOTE: $data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
 
@@ -259,7 +260,7 @@ Both `$package` and `$dependencies` operations are available for all canonical r
   * `extension[cpg-collectWith]`
   * `extension[cpg-enrollIn]`
   * `extension[cpg-reportWith]`
-PlanDefinition
+* **PlanDefinition**
   * `relatedArtifact[].resource`
   * `library[]`
   * `action[]..trigger[].dataRequirement[].profile[]`
