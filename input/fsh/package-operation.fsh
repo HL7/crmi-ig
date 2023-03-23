@@ -7,6 +7,17 @@ Usage: #definition
 * title = "Packaging"
 * description = """
 Packages a specified canonical resource with dependencies.
+
+See [$package and $data-requirements](introduction.html#distribution-fhir-package)
+"""
+* comment = """
+TODO: More documentation about the operation, including inline examples:
+
+```json
+{
+  "resourceType": "Bundle"
+}
+```
 """
 * kind = #operation
 * code = #package
