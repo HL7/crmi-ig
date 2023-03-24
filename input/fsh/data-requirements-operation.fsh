@@ -1,4 +1,4 @@
-Instance: DataRequirementOperation
+Instance: DataRequirementsOperation
 InstanceOf: OperationDefinition
 Title: "Data Requirement Operation"
 Usage: #definition
@@ -21,7 +21,7 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 (artifacts), and data requirements
 """
 * kind = #operation
-* code = #data-requirement
+* code = #data-requirements
 * resource[+] = #StructureDefinition
 * resource[+] = #StructureMap
 * resource[+] = #ConceptMap
