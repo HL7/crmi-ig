@@ -48,7 +48,7 @@ TODO: More documentation about the operation, including inline examples:
   * max = "1"
   * use = #in
   * type = #string
-  * documentation = "A business identifierThe logical id of an existing Resource to package on the server."
+  * documentation = "The logical id of an existing Resource to package on the server."
 
 * parameter[+]
   * name = #url
