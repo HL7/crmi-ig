@@ -1,8 +1,7 @@
 {
   "resourceType": "CodeSystem",
   "id": "software-system-type",
-  "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/software-system-type",
-  "version": "4.0.0-ballot",
+  "url": "http://hl7.org/fhir/CodeSystem/software-system-type",
   "name": "SoftwareSystemType",
   "title": "Software System Type Codes",
   "status": "active",
@@ -10,7 +9,7 @@
   "date": "2019-03-14T23:21:03-06:00",
   "description": "The type of software system (authoring, testing, tooling, evaluation)",
   "caseSensitive": true,
-  "valueSet": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/software-system-type",
+  "valueSet": "http://hl7.org/fhir/ValueSet/software-system-type",
   "content": "complete",
   "concept": [
     {

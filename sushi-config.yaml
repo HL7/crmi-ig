@@ -61,4 +61,3 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 # For R5 ImplementationGuides, the object can also have a key for `reason`.
 dependencies:
   fhir.cqf.common: 4.0.1
-

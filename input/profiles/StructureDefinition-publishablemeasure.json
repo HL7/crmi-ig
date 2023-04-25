@@ -1,0 +1,170 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "publishablemeasure",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/publishablemeasure",
+  "name" : "PublishableMeasure",
+  "title" : "Publishable Measure",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the Measure metadata required by HL7 and other organizations that share and publish measures with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Measure",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/shareablemeasure",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Measure",
+      "path" : "Measure",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Measure.identifier",
+      "path" : "Measure.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.date",
+      "path" : "Measure.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.contact",
+      "path" : "Measure.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.useContext",
+      "path" : "Measure.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.jurisdiction",
+      "path" : "Measure.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.purpose",
+      "path" : "Measure.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.usage",
+      "path" : "Measure.usage",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.copyright",
+      "path" : "Measure.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.copyrightLabel",
+      "path" : "Measure.copyrightLabel",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.approvalDate",
+      "path" : "Measure.approvalDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.lastReviewDate",
+      "path" : "Measure.lastReviewDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.effectivePeriod",
+      "path" : "Measure.effectivePeriod",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.topic",
+      "path" : "Measure.topic",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.author",
+      "path" : "Measure.author",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.editor",
+      "path" : "Measure.editor",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.reviewer",
+      "path" : "Measure.reviewer",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.endorser",
+      "path" : "Measure.endorser",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact",
+      "path" : "Measure.relatedArtifact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact.display",
+      "path" : "Measure.relatedArtifact.display",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact.document",
+      "path" : "Measure.relatedArtifact.document",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact.resource",
+      "path" : "Measure.relatedArtifact.resource",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Measure.relatedArtifact.resourceReference",
+      "path" : "Measure.relatedArtifact.resourceReference",
+      "mustSupport" : true
+    }]
+  }
+}

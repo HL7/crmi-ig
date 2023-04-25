@@ -1,8 +1,7 @@
 {
   "resourceType": "CodeSystem",
   "id": "cql-version",
-  "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version",
-  "version": "3.0.0",
+  "url": "http://hl7.org/fhir/CodeSystem/cql-version",
   "name": "CQLVersion",
   "title": "CQL Version Codes",
   "status": "active",
@@ -11,7 +10,7 @@
   "publisher": "Clinical Decision Support Workgroup",
   "description": "The version of CQL supported",
   "caseSensitive": true,
-  "valueSet": "http://hl7.org/fhir/uv/crmi/ValueSet/cql-version",
+  "valueSet": "http://hl7.org/fhir/ValueSet/cql-version",
   "content": "complete",
   "concept": [
     {

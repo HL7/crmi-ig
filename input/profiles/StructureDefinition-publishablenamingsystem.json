@@ -1,0 +1,147 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "publishablenamingsystem",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "vocab"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/publishablenamingsystem",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1261"
+  }],
+  "name" : "PublishableNamingSystem",
+  "title" : "Publishable NamingSystem",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Defines and enforces the minimum expectations for publication and distribution of a naming system, typically as part of an artifact repository or implementation guide publication",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 V2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "NamingSystem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/shareablenamingsystem",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "NamingSystem",
+      "path" : "NamingSystem",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "NamingSystem.identifier",
+      "path" : "NamingSystem.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.date",
+      "path" : "NamingSystem.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.contact",
+      "path" : "NamingSystem.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.useContext",
+      "path" : "NamingSystem.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.jurisdiction",
+      "path" : "NamingSystem.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.purpose",
+      "path" : "NamingSystem.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.copyright",
+      "path" : "NamingSystem.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.copyrightLabel",
+      "path" : "NamingSystem.copyrightLabel",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.approvalDate",
+      "path" : "NamingSystem.approvalDate"
+    },
+    {
+      "id" : "NamingSystem.lastReviewDate",
+      "path" : "NamingSystem.lastReviewDate"
+    },
+    {
+      "id" : "NamingSystem.effectivePeriod",
+      "path" : "NamingSystem.effectivePeriod",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.topic",
+      "path" : "NamingSystem.topic",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.author",
+      "path" : "NamingSystem.author"
+    },
+    {
+      "id" : "NamingSystem.editor",
+      "path" : "NamingSystem.editor"
+    },
+    {
+      "id" : "NamingSystem.reviewer",
+      "path" : "NamingSystem.reviewer"
+    },
+    {
+      "id" : "NamingSystem.endorser",
+      "path" : "NamingSystem.endorser"
+    },
+    {
+      "id" : "NamingSystem.relatedArtifact",
+      "path" : "NamingSystem.relatedArtifact"
+    }]
+  }
+}

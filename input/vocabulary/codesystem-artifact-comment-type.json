@@ -1,8 +1,7 @@
 {
   "resourceType": "CodeSystem",
   "id": "artifact-comment-type",
-  "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/artifact-comment-type",
-  "version": "4.0.0-ballot",
+  "url": "http://hl7.org/fhir/CodeSystem/artifact-comment-type",
   "name": "ArtifactCommentType",
   "title": "Artifact Comment Type Codes",
   "status": "active",
@@ -11,7 +10,7 @@
   "publisher": "Clinical Decision Support Workgroup",
   "description": "The type of artifact comment (documentation, review, guidance)",
   "caseSensitive": true,
-  "valueSet": "http://hl7.org/fhir/uv/crmi/ValueSet/artifact-comment-type",
+  "valueSet": "http://hl7.org/fhir/ValueSet/artifact-comment-type",
   "content": "complete",
   "concept": [
     {

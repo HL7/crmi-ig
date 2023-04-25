@@ -7,7 +7,6 @@
     ]
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/value-filter-comparator",
-  "version": "3.0.0",
   "name": "ValueFilterComparator",
   "title": "Value Filter Comparator",
   "status": "active",
