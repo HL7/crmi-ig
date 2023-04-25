@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-expansionParameters",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expansionParameters",
-  "version": "3.0.0",
-  "name": "CRMIexpansionParameters",
-  "title": "CRMI Expansion Parameters",
+  "id": "cqf-expansionParameters",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
+  "version": "4.0.101",
+  "name": "ExpansionParameters",
+  "title": "Expansion Parameters",
   "status": "active",
   "experimental": false,
   "date": "2021-11-27T13:31:32-07:00",
@@ -20,16 +20,6 @@
     }
   ],
   "description": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -72,7 +62,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expansionParameters"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters"
       },
       {
         "id": "Extension.value[x]",

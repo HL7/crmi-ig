@@ -1,13 +1,13 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-usageWarning",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-usageWarning",
-  "version": "3.0.0",
-  "name": "CRMIUsageWarning",
-  "title": "CRMI Usage Warning",
-  "status": "draft",
+  "id": "cqf-isPrimaryCitation",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-isPrimaryCitation",
+  "version": "4.0.101",
+  "name": "IsPrimaryCitation",
+  "title": "Is Primary Citation",
+  "status": "active",
   "experimental": false,
-  "date": "2019-06-06",
+  "date": "2021-11-27T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -19,17 +19,8 @@
       ]
     }
   ],
-  "description": "An extra warning about the correct use of the value set.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
+  "description": "Specifies whether the related artifact is defining a primary citation for the artifact (i.e. one that should appear in the narrative for the artifact specification.",
+  "purpose": "An artifact author must be able to control which citations are the primary source material for the artifact specification.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -43,7 +34,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "ValueSet"
+      "expression": "RelatedArtifact"
     }
   ],
   "type": "Extension",
@@ -54,8 +45,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "warning",
-        "definition": "An extra warning about the correct use of the value set.",
+        "short": "Primary reference",
+        "definition": "Specifies whether the related artifact is defining a primary citation for the artifact (i.e. one that should appear in the narrative for the artifact specification.",
         "min": 0,
         "max": "1"
       },
@@ -67,14 +58,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-usageWarning"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-isPrimaryCitation"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "string"
+            "code": "boolean"
           }
         ]
       }

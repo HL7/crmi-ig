@@ -1,13 +1,13 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifact-releaseDescription",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-releaseDescription",
-  "version": "1.0.0",
-  "name": "CRMIArtifactReleaseDescription",
-  "title": "CRMI Artifact Release Description",
+  "id": "cqf-defaultValue",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue",
+  "version": "4.0.101",
+  "name": "DefaultValue",
+  "title": "Default Value",
   "status": "active",
   "experimental": false,
-  "date": "2023-01-09T13:31:32-07:00",
+  "date": "2019-02-13",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -19,18 +19,7 @@
       ]
     }
   ],
-  "description": "Specifies a description for a program release.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
-  "purpose": "To specify a brief description of the contents and updates of a particular program release.",
+  "description": "Provides a default value for a parameter definition.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -44,7 +33,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Resource"
+      "expression": "ParameterDefinition"
     }
   ],
   "type": "Extension",
@@ -55,8 +44,6 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Release description",
-        "definition": "Specifies a description for a program release.",
         "min": 0,
         "max": "1"
       },
@@ -68,7 +55,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-releaseDescription"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue"
       },
       {
         "id": "Extension.value[x]",
@@ -76,6 +63,39 @@
         "type": [
           {
             "code": "string"
+          },
+          {
+            "code": "boolean"
+          },
+          {
+            "code": "integer"
+          },
+          {
+            "code": "decimal"
+          },
+          {
+            "code": "date"
+          },
+          {
+            "code": "dateTime"
+          },
+          {
+            "code": "Coding"
+          },
+          {
+            "code": "CodeableConcept"
+          },
+          {
+            "code": "Period"
+          },
+          {
+            "code": "Range"
+          },
+          {
+            "code": "Quantity"
+          },
+          {
+            "code": "Ratio"
           }
         ]
       }

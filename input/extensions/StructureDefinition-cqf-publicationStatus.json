@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-publicationDate",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publicationDate",
-  "version": "3.0.0",
-  "name": "CRMIPublicationDate",
-  "title": "CRMI Publication Date",
+  "id": "cqf-publicationStatus",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus",
+  "version": "4.0.101",
+  "name": "PublicationStatus",
+  "title": "Publication Status",
   "status": "active",
   "experimental": false,
   "date": "2021-11-27T13:31:32-07:00",
@@ -19,18 +19,8 @@
       ]
     }
   ],
-  "description": "Specifies the publication date of the referenced artifacts.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
-  "purpose": "A published measure should provide the publication date of referenced artifacts.",
+  "description": "Specifies the publication status of the referenced artifacts.",
+  "purpose": "A published measure should provide the publication status of the referenced artifacts.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -55,8 +45,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Publication date of referenced artifact",
-        "definition": "Specifies the publication date of the referenced artifacts.",
+        "short": "Publication status of referenced artifact",
+        "definition": "Specifies the publication status of the referenced artifacts.",
         "min": 0,
         "max": "1"
       },
@@ -68,16 +58,21 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publicationDate"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "date"
+            "code": "code"
           }
-        ]
+        ],
+        "binding": {
+          "strength": "required",
+          "description": "The lifecycle status of a reference artifact",
+          "valueSet": "http://hl7.org/fhir/ValueSet/publication-status"
+        }
       }
     ]
   }

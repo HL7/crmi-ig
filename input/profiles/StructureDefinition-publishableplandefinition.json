@@ -14,6 +14,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/publishableplandefinition",
+  "version": "4.0.101",
   "name" : "PublishablePlanDefinition",
   "title" : "Publishable PlanDefinition",
   "status" : "draft",

@@ -1,13 +1,13 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-isPrimaryCitation",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-isPrimaryCitation",
-  "version": "2.0.0",
-  "name": "CRMIIsPrimaryCitation",
-  "title": "CRMI Is Primary Citation",
+  "id": "cqf-softwaresystem",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-softwaresystem",
+  "version": "4.0.101",
+  "name": "SoftwareSystem",
+  "title": "Software System",
   "status": "active",
   "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
+  "date": "2019-02-13",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -19,18 +19,7 @@
       ]
     }
   ],
-  "description": "Specifies whether the related artifact is defining a primary citation for the measure (i.e. one that should appear in the narrative for the measure specification.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
-  "purpose": "A measure author must be able to control which citations are the primary source material for the measure specification.",
+  "description": "Specifies the software systems used in the packaging and testing of measure and library resources. Specifically to know which version of what software was used.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -44,7 +33,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "RelatedArtifact"
+      "expression": "Resource"
     }
   ],
   "type": "Extension",
@@ -55,10 +44,9 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Primary reference",
-        "definition": "Specifies whether the related artifact is defining a primary citation for the measure (i.e. one that should appear in the narrative for the measure specification.",
+        "definition": "Specifies the software systems used in the packaging and testing of measure and library resources. Specifically to know which version of what software was used.",
         "min": 0,
-        "max": "1"
+        "max": "*"
       },
       {
         "id": "Extension.url",
@@ -68,14 +56,17 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-isPrimaryCitation"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-softwaresystem"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "boolean"
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/softwaresystemdevice"
+            ]
           }
         ]
       }

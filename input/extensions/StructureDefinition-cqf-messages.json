@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-inputParameters",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-inputParameters",
-  "version": "3.0.0",
-  "name": "CRMIInputParameters",
-  "title": "CRMI Input Parameters",
+  "id": "cqf-messages",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+  "version": "4.0.101",
+  "name": "Messages",
+  "title": "Messages",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -19,18 +19,8 @@
       ]
     }
   ],
-  "description": "Specifies the input parameters to the operation (such as a test case or data requirements operation).",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
-  "purpose": "This extension allows input parameters to be captured, either as part of specifying a test case, or as part of communicating the input parameters that produced a given result (e.g. as part of the result of a $data-requirements or $evaluate-measure operation).",
+  "description": "An OperationOutcome that contains any information, warning, and/or error messages that were generated while processing an operation such as $evaluate or $prepopulate.",
+  "purpose": "Operation processing often generates information, warning, or error messages that don't necessarily stop processing (so would not result in an OperationOutcome as the overall result of the operation) but still need to be communicated as part of the result. This extension allows for these messages to be included as a reference to an OperationOutcome resource (typically included as a contained resource in the result of the operation).",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -44,7 +34,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "MeasureReport"
+      "expression": "Resource"
     }
   ],
   "type": "Extension",
@@ -55,10 +45,10 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Input Parameter",
-        "definition": "Specifies the input parameters to the operation (such as a test case or data requirements operation).",
+        "short": "Evaluation messages",
+        "definition": "An OperationOutcome resource with information, warning, or error messages that were generated as part of processing an operation.",
         "min": 0,
-        "max": "1"
+        "max": "*"
       },
       {
         "id": "Extension.url",
@@ -68,7 +58,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-inputParameters"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-messages"
       },
       {
         "id": "Extension.value[x]",
@@ -77,7 +67,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Parameters"
+              "http://hl7.org/fhir/StructureDefinition/OperationOutcome"
             ]
           }
         ]

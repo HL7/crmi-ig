@@ -14,6 +14,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/publishableactivitydefinition",
+  "version": "4.0.101",
   "name" : "PublishableActivityDefinition",
   "title" : "Publishable ActivityDefinition",
   "status" : "draft",

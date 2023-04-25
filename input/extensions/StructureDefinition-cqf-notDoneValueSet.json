@@ -1,16 +1,14 @@
 {
-  "publisher": "HL7 International - Clinical Decision Support",
-  "description": "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-notDoneValueSet",
-  "context": [
-    {
-      "type": "element",
-      "expression": "CodeableConcept"
-    }
-  ],
   "resourceType": "StructureDefinition",
-  "type": "Extension",
-  "name": "CRMINotDoneValueSet",
+  "id": "cqf-notDoneValueSet",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet",
+  "version": "4.0.101",
+  "name": "NotDoneValueSet",
+  "title": "Not Done ValueSet",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-11-01T09:29:23+11:00",
+  "publisher": "HL7 International - Clinical Decision Support",
   "contact": [
     {
       "telecom": [
@@ -21,7 +19,31 @@
       ]
     }
   ],
-  "date": "2019-11-01T09:29:23+11:00",
+  "description": "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "CodeableConcept"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
   "differential": {
     "element": [
       {
@@ -51,7 +73,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-notDoneValueSet"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
       },
       {
         "min": 1,
@@ -68,25 +90,5 @@
         "path": "Extension.value[x]"
       }
     ]
-  },
-  "title": "CRMI Not Done ValueSet",
-  "experimental": false,
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
-  "derivation": "constraint",
-  "mapping": [
-    {
-      "identity": "v2",
-      "uri": "http://hl7.org/v2",
-      "name": "HL7 v2 Mapping"
-    },
-    {
-      "identity": "rim",
-      "uri": "http://hl7.org/v3",
-      "name": "RIM Mapping"
-    }
-  ],
-  "status": "draft",
-  "abstract": false,
-  "id": "crmi-notDoneValueSet",
-  "kind": "complex-type"
+  }
 }

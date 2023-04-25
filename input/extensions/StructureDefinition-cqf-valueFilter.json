@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-valueFilter",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-valueFilter",
-  "version": "2.0.0",
-  "name": "CRMIValueFilter",
-  "title": "CRMI Value Filter",
+  "id": "cqf-valueFilter",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter",
+  "version": "4.0.101",
+  "name": "ValueFilter",
+  "title": "Value Filter",
   "status": "active",
   "experimental": false,
   "date": "2021-11-27T13:31:32-07:00",
@@ -20,16 +20,6 @@
     }
   ],
   "description": "Allows additional value-based filters to be specified as part of a data requirement.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -138,7 +128,7 @@
         "binding": {
           "strength": "required",
           "description": "The comparator operator to use",
-          "valueSet": "http://hl7.org/fhir/uv/crmi/ValueSet/value-filter-comparator"
+          "valueSet": "http://hl7.org/fhir/ValueSet/value-filter-comparator"
         }
       },
       {
@@ -190,7 +180,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-valueFilter"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
       },
       {
         "id": "Extension.value[x]",

@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-fhirQueryPattern",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-fhirQueryPattern",
-  "version": "3.0.0",
-  "name": "CRMIFHIRQueryPattern",
-  "title": "CRMI FHIR Query Pattern",
+  "id": "cqf-fhirQueryPattern",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
+  "version": "4.0.101",
+  "name": "FHIRQueryPattern",
+  "title": "FHIR Query Pattern",
   "status": "active",
   "experimental": false,
   "date": "2021-11-27T13:31:32-07:00",
@@ -20,16 +20,6 @@
     }
   ],
   "description": "A FHIR Query URL pattern that corresponds to the data specified by the data requirement. If multiple FHIR Query URLs are present, they each contribute to the data specified by the data requirement (i.e. the union of the results of the FHIR Queries represents the complete data for the data requirement). This is not a resolveable URL, in that it will contain 1) No base canonical (i.e. it's a relative query), and 2) Parameters using tokens that are delimited using double-braces and the context parameters are dependent solely on the subjectType, according to the following: Patient: context.patientId, Practitioner: context.practitionerId, Organization: context.organizationId, Location: context.locationId, Device: context.deviceId.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -68,7 +58,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-fhirQueryPattern"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern"
       },
       {
         "id": "Extension.value[x]",
