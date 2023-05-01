@@ -2,7 +2,7 @@
   <li><a href="index.html">Home</a></li>
   <li><a href="introduction.html" class="item">Introduction</a></li>
   <li><a href="version-manifest.html" class="item">Version Manifest</a></li>
-  <li><a href="artifact-conformance.html" class="item">Conformance</a></li>
+  <!--li><a href="artifact-conformance.html" class="item">Conformance</a></li-->
   <li><a href="using-cql.html" class="item">Using CQL</a></li>
   <li><a href="packaging.html" class="item">Packaging</a></li>
   <li class="dropdown">
@@ -17,7 +17,7 @@
       <li><a href="artifacts.html" class="item">Artifacts Summary</a></li>
     </ul>
   </li>
-  <li><a href="examples.html" class="item">Examples</a></li>
+  <!--li><a href="examples.html" class="item">Examples</a></li-->
   <li><a href="glossary.html" class="item">Glossary</a></li>
   <li><a href="downloads.html" class="item">Downloads</a></li>
   <li><a href="changes.html">Version History</a></li>

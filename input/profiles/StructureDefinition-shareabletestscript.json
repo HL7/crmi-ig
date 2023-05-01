@@ -1,0 +1,114 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "shareabletestscript",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 2
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "fhir"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/shareabletestscript",
+  "version": "4.0.101",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1081"
+  }],
+  "name" : "ShareableTestScript",
+  "title" : "Shareable  Test Script",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2021-11-08T17:15:11-04:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the test script metadata required by HL7 and other organizations that share and publish test scripts",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "TestScript",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/TestScript",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "TestScript",
+      "path" : "TestScript",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "TestScript.url",
+      "path" : "TestScript.url",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "TestScript.version",
+      "path" : "TestScript.version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "TestScript.experimental",
+      "path" : "TestScript.experimental",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "TestScript.publisher",
+      "path" : "TestScript.publisher",
+      "alias" : ["steward"],
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "TestScript.description",
+      "path" : "TestScript.description",
+      "alias" : ["scope"],
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "markdown"
+      }],
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    }]
+  }
+}

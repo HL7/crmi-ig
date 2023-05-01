@@ -1,0 +1,171 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "publishableplandefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/publishableplandefinition",
+  "version": "4.0.101",
+  "name" : "PublishablePlanDefinition",
+  "title" : "Publishable PlanDefinition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the PlanDefinition metadata required by HL7 and other organizations that share and publish plandefinitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "PlanDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/shareableplandefinition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "PlanDefinition",
+      "path" : "PlanDefinition",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "PlanDefinition.identifier",
+      "path" : "PlanDefinition.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.date",
+      "path" : "PlanDefinition.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.contact",
+      "path" : "PlanDefinition.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.useContext",
+      "path" : "PlanDefinition.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.jurisdiction",
+      "path" : "PlanDefinition.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.purpose",
+      "path" : "PlanDefinition.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.usage",
+      "path" : "PlanDefinition.usage",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.copyright",
+      "path" : "PlanDefinition.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.copyrightLabel",
+      "path" : "PlanDefinition.copyrightLabel",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.approvalDate",
+      "path" : "PlanDefinition.approvalDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.lastReviewDate",
+      "path" : "PlanDefinition.lastReviewDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.effectivePeriod",
+      "path" : "PlanDefinition.effectivePeriod",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.topic",
+      "path" : "PlanDefinition.topic",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.author",
+      "path" : "PlanDefinition.author",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.editor",
+      "path" : "PlanDefinition.editor",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.reviewer",
+      "path" : "PlanDefinition.reviewer",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.endorser",
+      "path" : "PlanDefinition.endorser",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.relatedArtifact",
+      "path" : "PlanDefinition.relatedArtifact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.relatedArtifact.display",
+      "path" : "PlanDefinition.relatedArtifact.display",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.relatedArtifact.document",
+      "path" : "PlanDefinition.relatedArtifact.document",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.relatedArtifact.resource",
+      "path" : "PlanDefinition.relatedArtifact.resource",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.relatedArtifact.resourceReference",
+      "path" : "PlanDefinition.relatedArtifact.resourceReference",
+      "mustSupport" : true
+    }]
+  }
+}

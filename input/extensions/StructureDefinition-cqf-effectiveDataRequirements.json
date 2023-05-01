@@ -1,0 +1,89 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqf-effectiveDataRequirements",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-effectiveDataRequirements",
+  "version": "4.0.101",
+  "name": "EffectiveDataRequirements",
+  "title": "Effective Data Requirements",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "A module definition library that contains the effective data requirements for an artifact (i.e. the calculated data requirements for the expressions directly referenced by the artifact structure).",
+  "purpose": "A computable artifact specification needs to specify the effective data requirements for the artifact, i.e. the data requirements for criteria that are actually used by the artifact. Data requirements SHALL be at least the de-duplicated set of all data requirements for the primary library and all referenced libraries, recursively, and SHOULD be the set of data requirements reachable by expressions referenced from the artifact, and SHOULD use the mustSupport element of data requirements to indicate which elements of a data element are actually referenced by the artifact logic.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "ActivityDefinition"
+    },
+    {
+      "type": "element",
+      "expression": "Measure"
+    },
+    {
+      "type": "element",
+      "expression": "Questionnaire"
+    },
+    {
+      "type": "element",
+      "expression": "PlanDefinition"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Effective required data for evaluation",
+        "definition": "A module definition library that contains the effective data requirements for the artifact (i.e. the calculated data requirements for the expressions referenced by the artifact structure).",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-effectiveDataRequirements"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/moduledefinitionlibrary"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
