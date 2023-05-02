@@ -21,7 +21,7 @@
     </contact>
     <description value="The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program's manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively."/>    
     <code value="knowledge-artifact-release"/>
-    <comment value="The release operation supports the ability of an authoring repository to transitively resolve component and dependency references, ensuring that version-specific references are determined and recorded and updating component resources to transition them to a released state. \n\nReferences MUST either be version-specific or, if they are not, an entry must exist in the version manifest to specify which version of the referenced resource should be used. The release operation SHOULD ensure that the determined versions are recorded in the version manifest. If a reference is not version-specific and no entry exists in the version manifest for the referenced resource, the program is considered to be in an invalid state and not eligible for release. \n\nThe operation should update the status of all components to 'active'. For both components and dependencies, if versions are not specified in the relevant reference, the operation will lookup the version to be used in the version manifest."/>
+    <comment value="The release operation supports the ability of an authoring repository to transitively resolve component and dependency references, ensuring that version-specific references are determined and recorded and updating component resources to transition them to a released state. \n\nReferences MUST either be version-specific or, if they are not, an entry must exist in the version manifest to specify which version of the referenced resource should be used. The release operation SHALL ensure that the determined versions are recorded in the version manifest. If a reference is not version-specific and no entry exists in the version manifest for the referenced resource, the program is considered to be in an invalid state and not eligible for release. \n\nThe operation SHALL update the status of all components to 'active'. For both components and dependencies, if versions are not specified in the relevant reference, the operation will lookup the version to be used in the version manifest."/>
     <resource value="Resource"/>
     <system value="false"/>
     <type value="true"/>
@@ -39,11 +39,11 @@
         <use value="in"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="Specifies the version to be applied to the artifact being released when a version is not already specified. Component artifacts that do not already have a version specified will get the root artifact's version if it is specified otherwise they will get this version. Valid values are: \n\n* 'default': \n\n* 'check': \n\n* 'force':"/>
+        <documentation value="Specifies the version to be applied to the artifact being released when a version is not already specified. Component artifacts that do not already have a version specified will get the root artifact's version if it is specified otherwise they will get this version."/>
         <type value="string"/>
     </parameter>
     <parameter>
-        <name value="version-behavior"/>
+        <name value="versionBehavior"/>
         <use value="in"/>
         <min value="1"/>
         <max value="1"/>
@@ -55,7 +55,7 @@
         <type value="Coding"/>
     </parameter>
     <parameter>
-        <name value="latest-from-tx-server"/>
+        <name value="latestFromTxServer"/>
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
