@@ -19,9 +19,9 @@
             <value value="fhir@lists.hl7.org"/>
         </telecom>
     </contact>
-    <description value="The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add artifactComment elements to the artifact, and to add or update an endorser."/>    
+    <description value="The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository."/>    
     <code value="knowledge-artifact-approve"/>
-    <comment value="The approve operation supports the ability of a repository to record information about its' eligibility for release on the artifact itself upon completion of the review process. The artifactComments which are added by the operation must reference a version of the artifact."/>
+    <comment value="The approve operation supports the ability of a repository to record information about its' eligibility for release in an ArtifactAssessment resource upon completion of the review process. The ArtifactAssessments which are added by the operation must reference a version of the artifact."/>
     <resource value="Resource"/>
     <system value="false"/>
     <type value="true"/>
@@ -41,14 +41,6 @@
         <max value="1"/>
         <documentation value="The date on which the artifact was approved for release. If one is not provided the system date will be used."/>
         <type value="date"/>
-    </parameter>
-    <parameter>
-        <name value="endorser"/>
-        <use value="in"/>
-        <min value="0"/>
-        <max value="1"/>
-        <documentation value="A ContactDetail parameter which should identify (and optionally provide contact information for) the party who approved the artifact for release."/>
-        <type value="ContactDetail"/>
     </parameter>
     <parameter>
         <name value="artifactAssessmentType"/>
