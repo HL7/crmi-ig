@@ -20,7 +20,7 @@
     "value" : "urn:oid:2.16.840.1.113883.4.642.5.1078"
   }],
   "name" : "ComputablePlanDefinition",
-  "title" : "Computable  Plan Definition",
+  "title" : "Computable Plan Definition",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
