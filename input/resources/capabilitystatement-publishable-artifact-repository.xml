@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="publishable-artifat-repository"/>
+  <id value="publishable-artifact-repository"/>
   <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/publishable-artifact-repository"/>
   <version value="3.0.0"/>
   <name value="CRMIPublishableArtifactRepository"/>
