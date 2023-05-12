@@ -375,6 +375,11 @@
       <generation value="generated"/>
     </page>
     <page>
+      <nameUrl value="OperationDefinition-Library-draft.html"/>
+      <title value="Library Package Operation Definition"/>
+      <generation value="generated"/>
+    </page>
+    <page>
       <nameUrl value="OperationDefinition-Library-data-requirements.html"/>
       <title value="Library Data Requirements Operation Definition"/>
       <generation value="generated"/>

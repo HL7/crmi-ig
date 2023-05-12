@@ -202,7 +202,12 @@ The _publish_ operation supports posting a new artifact with _active_ status. Th
 The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource and pins versions of all direct and transitive references. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also Released, recursively.
 
 ##### Draft
-The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of draft and no version. It is an error to create multiple drafts of the same artifact by URL.
+The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of draft and a version appended with `-draft`. It is an error to create multiple drafts of the same artifact by URL (i.e. with the same base version).
+
+The following parameters SHOULD be supported for the draft operations:
+
+* **id**: The server-specific id of the artifact to be analyzed
+* **version**: The version of the artifact which is in review, i.e. the version under which it will be released
 ##### Clone
 
 The _clone_ operation supports the creation of a new draft version of an existing artifact, regardless of status, with a new URL. This operation creates a new resource with the same contents as the existing artifact, but with a status of draft and not version, and the new URL.
@@ -304,7 +309,21 @@ A PublishableMeasureRepository:
     11. SHOULD support include-components parameter
     12. SHOULD support include-dependencies parameter
 
-3. SHOULD support library Metadata searches:
+3. SHALL support library drafting: [Library/$draft](OperationDefinition-Library-draft.html) operation
+    1. SHALL support the id parameter
+    2. SHALL support the url parameter
+    3. SHALL support the version parameter
+    4. SHALL support the identifier parameter
+    5. SHOULD support the expression parameter
+    6. SHOULD support the parameters parameter
+    7. SHOULD support system-version parameter (overrides code system versions specified in the manifest)
+    8. SHOULD support check-system-version parameter (overrides code system versions specified in the manifest)
+    9. SHOULD support force-system-version parameter (overrides code system versions specified in the manifest)
+    10. SHOULD support manifest parameter (provides a reference to a manifest to be used for the packaging)
+    11. SHOULD support include-components parameter
+    12. SHOULD support include-dependencies parameter
+
+4. SHOULD support library Metadata searches:
     1. date: Returning all libraries matching the given date
     2. effective: Returning all libraries matching the given effectivePeriod
     3. jurisdiction: Returning all libraries matching the given jurisdiction
@@ -314,7 +333,7 @@ A PublishableMeasureRepository:
     7. context-type-value: Returning all libraries with a given use context type and value
     8. topic: Returning all libraries matching the given topic
 
-4. MAY support library RelatedArtifact searches:
+5. MAY support library RelatedArtifact searches:
     1. composed-of: Returning all libraries that have the given artifact as a component
     2. depends-on: Returning all libraries that have the given artifact as a dependency
     3. derived-from: Returning all libraries that are derived from the given artifact
