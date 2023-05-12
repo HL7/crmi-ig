@@ -83,7 +83,15 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="The name of the party who approved the artifact for release. This must match the name which is specified as part of the endorser parameter."/>
-        <type value="reference"/>
+        <documentation value="The name of the party who approved the artifact for release."/>
+        <type value="Reference"/>
+    </parameter>
+    <parameter>
+        <name value="return"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The Bundle result containing both the updated artifact and the ArtifactAssessment resource containing the Approval metadata"/>
+        <type value="Bundle"/>
     </parameter>
 </OperationDefinition>
