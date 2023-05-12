@@ -1,0 +1,147 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "shareableplandefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/shareableplandefinition",
+  "version": "4.0.101",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1077"
+  }],
+  "name" : "ShareablePlanDefinition",
+  "title" : "Shareable PlanDefinition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the plan definition metadata required by HL7 and other organizations that share and publish plan definitions",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "PlanDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/PlanDefinition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "PlanDefinition",
+      "path" : "PlanDefinition",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "PlanDefinition.extension:knowledgeCapability",
+      "path" : "PlanDefinition.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.extension:knowledgeRepresentationLevel",
+      "path" : "PlanDefinition.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.extension:artifactComment",
+      "path" : "PlanDefinition.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.url",
+      "path" : "PlanDefinition.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.version",
+      "path" : "PlanDefinition.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.versionAlgorithm[x]",
+      "path" : "PlanDefinition.versionAlgorithm[x]",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.name",
+      "path" : "PlanDefinition.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.title",
+      "path" : "PlanDefinition.title",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.experimental",
+      "path" : "PlanDefinition.experimental",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.publisher",
+      "path" : "PlanDefinition.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PlanDefinition.description",
+      "path" : "PlanDefinition.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}
