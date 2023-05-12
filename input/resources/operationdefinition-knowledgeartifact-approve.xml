@@ -75,7 +75,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="Optional supporting reference for the comment. "/>
+        <documentation value="Optional supporting canonincal / reference for the comment. "/>
         <type value="uri"/>
     </parameter>
     <parameter>
@@ -83,7 +83,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="The name of the party who approved the artifact for release."/>
+        <documentation value="A reference to a resource containing information about who approved the artifact for release."/>
         <type value="Reference"/>
     </parameter>
     <parameter>
