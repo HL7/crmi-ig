@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-executablelibrary",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary",
-  "version": "3.0.0",
   "name": "CRMIExecutableLibrary",
   "title": "CRMI Executable Library",
   "status": "active",
@@ -20,16 +31,6 @@
     }
   ],
   "description": "The CRMI Execuable Library profile defines the must support elements for an executable library used to support artifact logic",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -93,7 +94,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-fhirQueryPattern"
+              "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern"
             ]
           }
         ],

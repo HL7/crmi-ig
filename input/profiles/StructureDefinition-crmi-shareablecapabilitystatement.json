@@ -1,26 +1,26 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "crmi-shareablemeasure",
+  "id" : "crmi-shareablecapabilitystatement",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-    "valueCode" : "cqi"
+    "valueCode" : "cds"
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure",
-  "name" : "CRMIShareableMeasure",
-  "title" : "CRMI Shareable Measure",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement",
+  "name" : "CRMIShareableCapabilityStatement",
+  "title" : "CRMI Shareable CapabilityStatement",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
-  "description" : "Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures",
+  "description" : "Enforces the minimum information set for the capabilitystatement metadata required by HL7 and other organizations that share and publish capability statements",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -44,19 +44,19 @@
   }],
   "kind" : "resource",
   "abstract" : false,
-  "type" : "Measure",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Measure",
+  "type" : "CapabilityStatement",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CapabilityStatement",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
-      "id" : "Measure",
-      "path" : "Measure",
+      "id" : "CapabilityStatement",
+      "path" : "CapabilityStatement",
       "min" : 1,
       "max" : "1"
     },
     {
-      "id" : "Measure.extension:knowledgeCapability",
-      "path" : "Measure.extension",
+      "id" : "CapabilityStatement.extension:knowledgeCapability",
+      "path" : "CapabilityStatement.extension",
       "sliceName" : "knowledgeCapability",
       "min" : 0,
       "max" : "*",
@@ -67,8 +67,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.extension:knowledgeRepresentationLevel",
-      "path" : "Measure.extension",
+      "id" : "CapabilityStatement.extension:knowledgeRepresentationLevel",
+      "path" : "CapabilityStatement.extension",
       "sliceName" : "knowledgeRepresentationLevel",
       "min" : 0,
       "max" : "*",
@@ -79,8 +79,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.extension:artifactComment",
-      "path" : "Measure.extension",
+      "id" : "CapabilityStatement.extension:artifactComment",
+      "path" : "CapabilityStatement.extension",
       "sliceName" : "artifactComment",
       "min" : 0,
       "max" : "*",
@@ -91,8 +91,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.extension:versionAlgorithm",
-      "path" : "Measure.extension",
+      "id" : "CapabilityStatement.extension:versionAlgorithm",
+      "path" : "CapabilityStatement.extension",
       "sliceName" : "versionAlgorithm",
       "min" : 0,
       "max" : "1",
@@ -103,49 +103,51 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.url",
-      "path" : "Measure.url",
+      "id" : "CapabilityStatement.url",
+      "path" : "CapabilityStatement.url",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.version",
-      "path" : "Measure.version",
+      "id" : "CapabilityStatement.version",
+      "path" : "CapabilityStatement.version",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.name",
-      "path" : "Measure.name",
+      "id" : "CapabilityStatement.name",
+      "path" : "CapabilityStatement.name",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.title",
-      "path" : "Measure.title",
+      "id" : "CapabilityStatement.title",
+      "path" : "CapabilityStatement.title",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.status",
-      "path" : "Measure.status",
+      "id" : "CapabilityStatement.status",
+      "path" : "CapabilityStatement.status",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.experimental",
-      "path" : "Measure.experimental",
+      "id" : "CapabilityStatement.experimental",
+      "path" : "CapabilityStatement.experimental",
+      "min" : 1,
+      "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.publisher",
-      "path" : "Measure.publisher",
+      "id" : "CapabilityStatement.publisher",
+      "path" : "CapabilityStatement.publisher",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.description",
-      "path" : "Measure.description",
+      "id" : "CapabilityStatement.description",
+      "path" : "CapabilityStatement.description",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true

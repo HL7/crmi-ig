@@ -2,7 +2,6 @@
   "resourceType": "StructureDefinition",
   "id": "crmi-publishablecodesystem",
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem",
-  "version": "3.0.0",
   "name": "CRMIPublishableCodeSystem",
   "title": "CRMI Publishable CodeSystem",
   "status": "draft",

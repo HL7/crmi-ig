@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-publicationStatus",
+  "id": "artifact-approvalDate",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,12 +13,12 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus",
-  "name": "PublicationStatus",
-  "title": "Publication Status",
+  "url": "http://hl7.org/fhir/StructureDefinition/artifact-approvalDate",
+  "name": "ArtifactApprovalDate",
+  "title": "Artifact Approval Date",
   "status": "active",
   "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
+  "date": "2023-01-09T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "description": "Specifies the publication status of the referenced artifacts.",
-  "purpose": "A published measure should provide the publication status of the referenced artifacts.",
+  "description": "When the artifact was approved by publisher.",
+  "purpose": "To provide an approval date for an artifact when the artifact is represented using a FHIR resource that does not declare the approvalDate element.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -45,7 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "RelatedArtifact"
+      "expression": "Resource"
     }
   ],
   "type": "Extension",
@@ -56,8 +56,9 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Publication status of referenced artifact",
-        "definition": "Specifies the publication status of the referenced artifacts.",
+        "short": "When the artifact was approved by publisher",
+        "definition": "The date on which the artifact content was approved by the publisher. Approval happens once when the content is officially approved for usage.",
+        "comment": "The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.",
         "min": 0,
         "max": "1"
       },
@@ -69,21 +70,16 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "code"
+            "code": "date"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "description": "The lifecycle status of a reference artifact",
-          "valueSet": "http://hl7.org/fhir/ValueSet/publication-status"
-        }
+        ]
       }
     ]
   }

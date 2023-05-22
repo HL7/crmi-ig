@@ -1,6 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "publishableactivitydefinition",
+  "id" : "crmi-publishableactivitydefinition",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,10 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/StructureDefinition/publishableactivitydefinition",
-  "version": "4.0.101",
-  "name" : "PublishableActivityDefinition",
-  "title" : "Publishable ActivityDefinition",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableactivitydefinition",
+  "name" : "CRMIPublishableActivityDefinition",
+  "title" : "CRMI Publishable ActivityDefinition",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
@@ -46,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "ActivityDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/shareableactivitydefinition",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
@@ -54,6 +53,30 @@
       "path" : "ActivityDefinition",
       "min" : 1,
       "max" : "1"
+    },
+    {
+      "id" : "ActivityDefinition.extension:usage",
+      "path" : "ActivityDefinition.extension",
+      "sliceName" : "usage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-usage"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ActivityDefinition.extension:copyrightLabel",
+      "path" : "ActivityDefinition.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
     },
     {
       "id" : "ActivityDefinition.identifier",
@@ -88,18 +111,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "ActivityDefinition.usage",
-      "path" : "ActivityDefinition.usage",
-      "mustSupport" : true
-    },
-    {
       "id" : "ActivityDefinition.copyright",
       "path" : "ActivityDefinition.copyright",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ActivityDefinition.copyrightLabel",
-      "path" : "ActivityDefinition.copyrightLabel",
       "mustSupport" : true
     },
     {

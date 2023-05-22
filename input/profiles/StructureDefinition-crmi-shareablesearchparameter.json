@@ -1,26 +1,26 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "crmi-shareablemeasure",
+  "id" : "crmi-shareablesearchparameter",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-    "valueCode" : "cqi"
+    "valueCode" : "cds"
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure",
-  "name" : "CRMIShareableMeasure",
-  "title" : "CRMI Shareable Measure",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesearchparameter",
+  "name" : "CRMIShareableSearchParameter",
+  "title" : "CRMI Shareable SearchParameter",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
-  "description" : "Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures",
+  "description" : "Enforces the minimum information set for the search parameter metadata required by HL7 and other organizations that share and publish search parameters",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -44,19 +44,19 @@
   }],
   "kind" : "resource",
   "abstract" : false,
-  "type" : "Measure",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Measure",
+  "type" : "SearchParameter",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/SearchParameter",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
-      "id" : "Measure",
-      "path" : "Measure",
+      "id" : "SearchParameter",
+      "path" : "SearchParameter",
       "min" : 1,
       "max" : "1"
     },
     {
-      "id" : "Measure.extension:knowledgeCapability",
-      "path" : "Measure.extension",
+      "id" : "SearchParameter.extension:knowledgeCapability",
+      "path" : "SearchParameter.extension",
       "sliceName" : "knowledgeCapability",
       "min" : 0,
       "max" : "*",
@@ -67,8 +67,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.extension:knowledgeRepresentationLevel",
-      "path" : "Measure.extension",
+      "id" : "SearchParameter.extension:knowledgeRepresentationLevel",
+      "path" : "SearchParameter.extension",
       "sliceName" : "knowledgeRepresentationLevel",
       "min" : 0,
       "max" : "*",
@@ -79,8 +79,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.extension:artifactComment",
-      "path" : "Measure.extension",
+      "id" : "SearchParameter.extension:artifactComment",
+      "path" : "SearchParameter.extension",
       "sliceName" : "artifactComment",
       "min" : 0,
       "max" : "*",
@@ -91,8 +91,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.extension:versionAlgorithm",
-      "path" : "Measure.extension",
+      "id" : "SearchParameter.extension:versionAlgorithm",
+      "path" : "SearchParameter.extension",
       "sliceName" : "versionAlgorithm",
       "min" : 0,
       "max" : "1",
@@ -103,49 +103,56 @@
       "mustSupport" : true
     },
     {
-      "id" : "Measure.url",
-      "path" : "Measure.url",
+      "id" : "SearchParameter.extension:title",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "title",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.url",
+      "path" : "SearchParameter.url",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.version",
-      "path" : "Measure.version",
+      "id" : "SearchParameter.version",
+      "path" : "SearchParameter.version",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.name",
-      "path" : "Measure.name",
+      "id" : "SearchParameter.name",
+      "path" : "SearchParameter.name",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.title",
-      "path" : "Measure.title",
+      "id" : "SearchParameter.status",
+      "path" : "SearchParameter.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.experimental",
+      "path" : "SearchParameter.experimental",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.status",
-      "path" : "Measure.status",
+      "id" : "SearchParameter.publisher",
+      "path" : "SearchParameter.publisher",
       "mustSupport" : true
     },
     {
-      "id" : "Measure.experimental",
-      "path" : "Measure.experimental",
-      "mustSupport" : true
-    },
-    {
-      "id" : "Measure.publisher",
-      "path" : "Measure.publisher",
-      "mustSupport" : true
-    },
-    {
-      "id" : "Measure.description",
-      "path" : "Measure.description",
+      "id" : "SearchParameter.description",
+      "path" : "SearchParameter.description",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
