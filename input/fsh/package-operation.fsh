@@ -204,6 +204,19 @@ values are:
 * extensions - extension definitions (i.e. StructureDefinition resources that define extensions) 
 * knowledge - knowledge artifacts (i.e. ActivityDefinition, Library, PlanDefinition, Measure, Questionnaire)
 * tests - test cases and data (i.e. test cases as defined by the testing specification in this implementation guide)
+* examples - example resources (i.e. resources identified as examples in the implementation guide)
+"""
+
+* parameter[+]
+  * name = #packageOnly
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #boolean
+  * documentation = """
+True to indicate that the resulting package should only include resources that are defined in the implementation guide 
+or specification that defines the artifact being packaged. False (default) to indicate that the resulting package should 
+include resources regardless of what implementation guide or specification they are defined in.
 """
 
 * parameter[+]
