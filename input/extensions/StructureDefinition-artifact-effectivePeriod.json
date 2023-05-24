@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-publicationStatus",
+  "id": "artifact-effectivePeriod",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,12 +13,12 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus",
-  "name": "PublicationStatus",
-  "title": "Publication Status",
+  "url": "http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod",
+  "name": "ArtifactEffectivePeriod",
+  "title": "Artifact Effective Period",
   "status": "active",
   "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
+  "date": "2023-01-09T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "description": "Specifies the publication status of the referenced artifacts.",
-  "purpose": "A published measure should provide the publication status of the referenced artifacts.",
+  "description": "When the artifact is expected to be used.",
+  "purpose": "To provide an effective period for an artifact when the artifact is represented using a FHIR resource that does not declare the effectivePeriod element.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -45,7 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "RelatedArtifact"
+      "expression": "Resource"
     }
   ],
   "type": "Extension",
@@ -56,8 +56,10 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Publication status of referenced artifact",
-        "definition": "Specifies the publication status of the referenced artifacts.",
+        "short": "When the artifact is expected to be used",
+        "definition": "The period during which the artifact content was or is planned to be in active use.",
+        "comment": "The effective period for an artifact determines when the content is applicable for usage and is independent of publication and review dates. For example, an artifact intended to be used for the year 2016 might be published in 2015.",
+        "requirements": "Allows establishing a transition before an artifact comes into effect and also allows for a sunsetting process when new versions of the artifact are or are expected to be used instead.",
         "min": 0,
         "max": "1"
       },
@@ -69,21 +71,16 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "code"
+            "code": "Period"
           }
-        ],
-        "binding": {
-          "strength": "required",
-          "description": "The lifecycle status of a reference artifact",
-          "valueSet": "http://hl7.org/fhir/ValueSet/publication-status"
-        }
+        ]
       }
     ]
   }

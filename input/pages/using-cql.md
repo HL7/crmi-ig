@@ -159,7 +159,7 @@ The base FHIR specification defines canonical URLs for most common code systems
 The local identifier for the codesystem ("SNOMED CT:2017-09" in this case) should include the friendly name of the code system
 and optionally, an indication of the version, separated with a colon.
 
-Version information for code systems is not required to be included in eCQMs; terminology versioning information may be
+Version information for code systems is not required to be included in knowledge artifacts; terminology versioning information may be
 specified externally. However, if versioning information is included, it must be done in accordance with the terminology
 usage specified by FHIR.
 
@@ -216,7 +216,7 @@ GET fhir/ValueSet?url=http%3A%2F%2Fcts.nlm.nih.gov%2Ffhir%2FValueSet%2F2.16.840.
 #### Value Set Version
 {: #value-set-version}
 
-Version information for value sets is not required to be included in eCQMs; terminology versioning information may be
+Version information for value sets is not required to be included in knowledge artifacts; terminology versioning information may be
 specified externally. However, if versioning information is included, it must be done in accordance with the terminology
 usage specified by FHIR.
 
@@ -270,8 +270,7 @@ The representation of valueset declarations in a Library is discussed in the
 #### String-based Membership Testing
 {: #string-based-membership-testing}
 
-Although CQL allows the use of strings as input to membership testing in value sets, this capability should be
-disallowed in measure CQL as it can lead to incorrect matching if the code system is ignored.
+Although CQL allows the use of strings as input to membership testing in value sets, this capability should not be used in knowledge artifact CQL as it can lead to incorrect matching if the code system is ignored.
 
 **Conformance Requirement 4.10 (String-based Membership Testing):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-10)
 {: #conformance-requirement-4-10}
@@ -308,7 +307,7 @@ device (physical object)") should be the same as the description of the code wit
 conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for
 potential naming conflicts, as well as simplification of longer names when appropriate.
 
-CQL supports both version-specific and version-independent specification of and comparison to direct-reference codes. The best practice is for measure authors to use version-independent direct-reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct-reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
+CQL supports both version-specific and version-independent specification of and comparison to direct-reference codes. The best practice is for artifact authors to use version-independent direct-reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct-reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
 
 #### Representation in a Library
 {: #representation-in-a-library}
@@ -395,8 +394,9 @@ Snippet 4-8: Function definition from [Common.cql](Library-Common.html#cql-conte
 
 A "data type" in CQL refers to any named type used within CQL expressions. They may be primitive types, such as the
 system-defined "Integer" and "DateTime", or they may be model-defined types such as "Encounter" or "Medication". For
-FHIR-based eCQMs using the QI-Core profiles, these will be the author-friendly identifiers for the QI-Core profile. Data
-types referenced in CQL libraries to be included in a Measure must conform to Conformance Requirement 4.14.
+FHIR-based knowledge artifacts using model information based on implementation guides (such as the QI-Core profiles), 
+these will be the author-friendly identifiers for the profile. Data types referenced in CQL libraries to be included 
+in a knowledge artifact must conform to Conformance Requirement 4.14.
 
 **Conformance Requirement 4.14 (Data Type Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-14)
 {: #conformance-requirement-4-14}
@@ -540,7 +540,7 @@ Inclusion of CQL content used within knowledge artifacts is accomplished through
 **Conformance Requirement 4.17 (Library Resources):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-17)
 {: #conformance-requirement-4-17}
 
-1. Content conforming to this implementation guide SHALL use at least the [CRMILibrary](StructureDefinition-crmi-library.html) profile for Library resources.
+1. Content conforming to this implementation guide SHALL use at least the [CRMIShareableLibrary](StructureDefinition-crmi-shareablelibrary.html) profile for Library resources.
 
 #### Library Name and URL
 {: #library-name-and-url}
@@ -644,7 +644,7 @@ The version of CQL/ELM used for content in a library should be specified using t
 * `application/elm+xml; version=1.5`
 * `application/elm+json; version=1.5`
 
-Resource narratives for Libraries and Measures that use CQL should include the CQL version if it is specified in the MIME type as shown above.
+Resource narratives for Libraries and knowledge artifacts that use CQL should include the CQL version if it is specified in the MIME type as shown above.
 
 ### Use of Terminologies
 {: #use-of-terminologies}
@@ -698,31 +698,126 @@ See the definition of the [Quantity](https://cql.hl7.org/2020May/02-authorsguide
 ### Translation to ELM
 {: #translation-to-elm}
 
-Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions are
-included with eCQMs to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
+Tooling exists to support translation of CQL to ELM for distribution in XML or JSON formats. These distributions can be
+included with knowledge artifacts to facilitate implementation. [The existing translator tooling](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md) applies to both measure and decision
 support development, and has several options available to make use of different data models in different environments.
-For measure development with FHIR, the following options are recommended:
+For knowledge artifact development with FHIR, the following options are recommended:
 
 | Option | Description | Recommendation |
 |----|----|----|
 | EnableAnnotations | This instructs the translator to include the source CQL as an annotation within the ELM. | This option should be used to ensure that the distributed ELM could be linked back to the source CQL. |
 | EnableLocators | This instructs the translator to include line number and character information for each ELM node. | This option should be used to ensure that distributed ELM could be tied directly to the input source CQL. |
-| DisableListDemotion | This instructs the translator to disallow demotion of list-valued expressions to singletons. The list demotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure list demotion does not occur unexpectedly. |
-| DisableListPromotion | This instructs the translator to disallow promotion of singletons to list-valued expressions. The list promotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with Measures to ensure list promotion does not occur unexpectedly. |
-| DisableMethodInvocation | This instructs the translator to disallow method-style invocation. The method-style invocation feature of CQL is used to enable functionality related to use with FHIRPath. | This option should not be used with FHIR-based measures because it prevents the use of the fluent functions feature of CQL 1.5, which can be used to significantly improve readability of measure logic, especially when accessing extensions. |
-| EnableDateRangeOptimization | This instructs the translator to optimize date range filters by moving them inside retrieve expressions. | This feature may be used with Measures. |
-| EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with Measures. |
-| EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with Measures. |
-| DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With Measures, disabling this feature would prevent a useful capability. | This feature should not be used with Measures. |
+| DisableListDemotion | This instructs the translator to disallow demotion of list-valued expressions to singletons. The list demotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with knowledge artifacts to ensure list demotion does not occur unexpectedly. |
+| DisableListPromotion | This instructs the translator to disallow promotion of singletons to list-valued expressions. The list promotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with knowledge artifacts to ensure list promotion does not occur unexpectedly. |
+| DisableMethodInvocation | This instructs the translator to disallow method-style invocation. The method-style invocation feature of CQL is used to enable functionality related to use with FHIRPath. | This option should not be used with FHIR-based knowledge artifacts because it prevents the use of the fluent functions feature of CQL 1.5, which can be used to significantly improve readability of knowledge artifact logic, especially when accessing extensions. |
+| EnableDateRangeOptimization | This instructs the translator to optimize date range filters by moving them inside retrieve expressions. | This feature may be used with knowledge artifacts. |
+| EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with knowledge artifacts. |
+| EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with knowledge artifacts. |
+| DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With knowledge artifacts, disabling this feature would prevent a useful capability. | This feature should not be used with knowledge artifacts. |
 
 #### Specifying Options
 
-This implementation guide defines the [cqlOptions](StructureDefinition-crmi-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIQualityProgram](StructureDefinition-crmi-qualityprogram.html), it SHALL be used to provides options to the translator unless the options are provided directly by the library.
+The FHIR specification defines the [cqlOptions](http://hl7.org/fhir/extensions/StructureDefinition-cqf-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIVersionManifest](StructureDefinition-crmi-versionmanifest.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
 
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
-1. Translator options SHOULD be provided in either a CRMIComputableLibrary or a CRMIQualityProgram
-2. Translator options specified in a CRMIComputableLibrary take precedence over options defined in a CRMIQualityProgram
+1. Translator options SHOULD be provided in either a CRMIComputableLibrary or a CRMIVersionManifest
+2. Translator options specified in a CRMIComputableLibrary take precedence over options defined in a CRMIVersionManifest
 3. If no translator options are provided, the recommended options above SHOULD be used
 4. If translator options are provided in a Library that is both computable and executable, the options SHALL be consistent with the translator options reported by the ELM content
+
+The `cqlOptions` extension references a contained `Parameters` resource that contains a parameter for each option specified, as well as a `translatorVersion` parameter that indicates the version of the translator used to produce the ELM. For example:
+
+```json
+{
+  "resourceType": "Library",
+  "id": "FHIRCommon",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary" ]
+  },
+  "contained": [ {
+    "resourceType": "Parameters",
+    "id": "options",
+    "parameter": [ {
+      "name": "translatorVersion",
+      "valueString": "2.9.0-SNAPSHOT"
+    }, {
+      "name": "option",
+      "valueString": "EnableAnnotations"
+    }, {
+      "name": "option",
+      "valueString": "EnableLocators"
+    }, {
+      "name": "option",
+      "valueString": "DisableListDemotion"
+    }, {
+      "name": "option",
+      "valueString": "DisableListPromotion"
+    }, {
+      "name": "format",
+      "valueString": "XML"
+    }, {
+      "name": "format",
+      "valueString": "JSON"
+    }, {
+      "name": "analyzeDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "collapseDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "compatibilityLevel",
+      "valueString": "1.5"
+    }, {
+      "name": "enableCqlOnly",
+      "valueBoolean": false
+    }, {
+      "name": "errorLevel",
+      "valueString": "Info"
+    }, {
+      "name": "signatureLevel",
+      "valueString": "None"
+    }, {
+      "name": "validateUnits",
+      "valueBoolean": true
+    }, {
+      "name": "verifyOnly",
+      "valueBoolean": false
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions",
+    "valueReference": {
+      "reference": "#options"
+    }
+  } ],
+  "url": "http://ecqi.healthit.gov/ecqms/Library/FHIRCommon",
+  "version": "4.1.000",
+  "name": "FHIRCommon",
+  ...
+}
+```
+
+#### ELM Suitability
+
+Because certain translator options impact language features and functionality, translated ELM may not be suitable for use in all contexts if the options used to produce the ELM are inconsistent with the options in use in the evaluating environment. To determine suitability of ELM for use in a given environment, the following guidance should be followed:
+
+**Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
+
+1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL have been translated with a SignatureLevel other than `None`
+2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
+3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
+4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment
+5. The translator options used in the evaluation environment SHALL be consistent with the translator options used to produce the ELM for at least the following options:
+    * DisableListTraversal
+    * DisableListDemotion
+    * DisableListPromotion
+    * EnableIntervalDemotion
+    * EnableIntervalPromotion
+    * DisableMethodInvocation
+    * RequireFromKeyword
+6. For authoring environments, the following additional translator options MAY be used to determine suitability of available ELM:
+    * EnableAnnotations
+    * EnableLocators
+    * EnableResultTypes

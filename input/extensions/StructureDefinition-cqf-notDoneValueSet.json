@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
   "id": "cqf-notDoneValueSet",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet",
-  "version": "4.0.101",
   "name": "NotDoneValueSet",
   "title": "Not Done ValueSet",
   "status": "draft",

@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "id": "crmi-computablelibrary",
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary",
-  "version": "3.0.0",
   "name": "CRMIComputableLibrary",
   "title": "CRMI Computable Library",
   "status": "active",
@@ -20,16 +31,6 @@
     }
   ],
   "description": "The CRMI Computable Library profile defines the must support elements for a computable library used to support artifact logic",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -75,23 +76,23 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-directReferenceCode"
+              "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "Library.extension:crmi-cqlOptions",
+        "id": "Library.extension:cqlOptions",
         "path": "Library.extension",
-        "sliceName": "crmi-cqlOptions",
+        "sliceName": "cqlOptions",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-cqlOptions"
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions"
             ]
           }
         ],
@@ -132,7 +133,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-fhirQueryPattern"
+              "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern"
             ]
           }
         ],

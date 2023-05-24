@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-moduledefinitionlibrary",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary",
-  "version": "3.0.0",
   "name": "CRMIModuleDefinitionLibrary",
   "title": "CRMI Module Definition Library",
   "status": "active",
@@ -20,16 +31,6 @@
     }
   ],
   "description": "The CRMI Module Definition Library profile defines the must support elements for a library that communicates the effective data requirements and dependencies of an artifact (or set of artifacts). This is most commonly used as the result of a $data-requirements operation, but could also be persisted statically as a way to persist the calculation of effective data requirements for a specific artifact and input parameters",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -76,7 +77,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-directReferenceCode"
+              "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode"
             ]
           }
         ],
@@ -92,7 +93,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-inputParameters"
+              "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"
             ]
           }
         ],
@@ -148,7 +149,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-defaultValue"
+              "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue"
             ]
           }
         ],
@@ -172,7 +173,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-isSelective"
+              "http://hl7.org/fhir/StructureDefinition/cqf-isSelective"
             ]
           }
         ],
@@ -188,7 +189,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-valueFilter"
+              "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
             ]
           }
         ],
@@ -204,7 +205,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-fhirQueryPattern"
+              "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern"
             ]
           }
         ],
