@@ -710,7 +710,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
      b. SHALL reference the same CQL library.
-2. References to expressions SHALL use the `text/cql.identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
+2. References to expressions SHALL use the `text/cql-identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
 
 #### Criteria Names
 {: #criteria-names}
@@ -1331,7 +1331,7 @@ Stratification is represented using the stratifier element. The semantics of thi
       "value": "stratifier-1-identifier"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "Stratification 1"
     }
   }
@@ -1373,7 +1373,7 @@ Part of the definition of a quality measure involves the ability to specify addi
       "text": "Supplemental Data"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "SDE Ethnicity"
     }
   }
@@ -1417,7 +1417,7 @@ Some measures may define variables used to adjust scores based on a measure of â
       "text": "Risk Adjustment Variable"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "Hepatic Failure"
     }
   }

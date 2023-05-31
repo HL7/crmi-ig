@@ -46,11 +46,14 @@ page in the menu bar:
 
 -  **[Home](index.html)**: The home page provides the summary and background information for the Canonical Resource Management Infrastructure Implementation Guide
 -  **[Introduction](introduction.html)**: The introduction provides a more detailed overview of the content management lifecycle and the background for this guide
--  **[Version Manifest](version-manifest.html)**: This page provides guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
--  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language as part of knowledge artifacts
--  **[Packaging](packaging.html)**: This page describes packaging and distribution requirements for canonical resources and knowledge artifacts
-Measures IG
--  **[Testing](testing.html)**: This page describes a simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
+-  **Content Management**
+    -  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language as part of knowledge artifacts
+    -  **[Naming Conventions](naming-conventions.html)**: This page describes naming conventions for a package of knowledge artifacts, incluing canonical base, url and name, and operation definitions.
+    -  **[Testing](testing.html)**: This page describes a simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
+    -  **[Packaging](packaging.html)**: This page describes packaging and distribution requirements for canonical resources and knowledge artifacts 
+    -  **[Publishing](publishing.html)**: This page describes packaging and distribution requirements for canonical resources and knowledge artifacts 
+    -  **[Distribution](distribution.html)**: This page describes packaging and distribution requirements for canonical resources and knowledge artifacts 
+    -  **[Dealing with unversioned canonical references](version-manifest.html)**: This page provides guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
 -  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by knowledge artifacts
 -  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by knowledge artifacts
 -  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
