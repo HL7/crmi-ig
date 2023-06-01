@@ -47,6 +47,8 @@ Both `$package` and `$dependencies` operations are available for all canonical r
 3. Questionnaire, ActivityDefinition, PlanDefinition, Library, Measure
 4. ObservationDefinition, SpecimenDefinition, MedicationKnowledge, etc...
 
+NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
+
 ### Dependency Tracing
 
 Here is an exhaustive list of canonical resources with required dependencies for an execution environment, as shown below:
@@ -70,26 +72,26 @@ import[]
 group[].rule[]..source[].defaultValue[x]
 ```
 
-#### ValueSet** |
+#### ValueSet**
 
 ```
 compose.include[].valueSet
 compose.exclude[].valueSet
 ```
 
-#### CodeSystem** |
+#### CodeSystem**
 
 ```
 valueSet
 supplements
 ```
 
-#### NamingSystem** |
+#### NamingSystem**
 ```
 (none)
 ```
 
-#### ConceptMap** |
+#### ConceptMap**
 
 ```
 sourceCanonical
@@ -99,7 +101,7 @@ group[].element[].target[].product[]..system
 unmapped.url
 ```
 
-#### Questionnaire** |
+#### Questionnaire**
 
 ```
 item[]..definition
@@ -121,7 +123,7 @@ item[]..extension[cqf-expression].reference
 item[]..extension[sdc-questionnaire-subQuestionnaire]
 ```
 
-#### ActivityDefinition** |
+#### ActivityDefinition**
 
 ```
 relatedArtifact[].resource
@@ -138,7 +140,7 @@ extension[cpg-enrollIn]
 extension[cpg-reportWith]
 ```
 
-#### PlanDefinition** |
+#### PlanDefinition**
 
 ```
 relatedArtifact[].resource
@@ -155,7 +157,7 @@ action[]..dynamicValue[].expression.reference
 extension[cpg-partOf]
 ```
 
-#### Library** |
+#### Library**
 
 ```
 relatedArtifact[].resource
@@ -163,7 +165,7 @@ dataRequirement[].profile[]
 dataRequirement[].codeFilter[].valueSet
 ```
 
-#### Measure** |
+#### Measure**
 
 ```
 relatedArtifact[].resource
@@ -179,44 +181,44 @@ extension[cqfm-cqlOptions]
 extension[cqfm-component][].resource
 ```
 
-#### GraphDefinition** |
+#### GraphDefinition**
 
 ```
 extension[cpg-relatedArtifact].reference
 ```
 
-#### ImplementationGuide** |
+#### ImplementationGuide**
 
 ```
 extension[cpg-relatedArtifact].reference
 ```
 
-#### Ingredient** |
+#### Ingredient**
 
 ```
 for
 ```
 
-#### Medication** |
+#### Medication**
 
 ```
 manufacturer
 ingredient[].itemReference
 ```
 
-#### Substance** |
+#### Substance**
 
 ```
 ingredient[].substanceReference
 ```
 
-#### Parameters** |
+#### Parameters**
 
 ```
 parameter[].resource
 ```
 
-#### MedicationKnowledge** |
+#### MedicationKnowledge**
 
 ```
 relatedMedicationKnowledge[].reference

@@ -16,8 +16,11 @@ When definition the `url` fo the artifact, use the package's canonical base and 
 
 ### Operation definitions
 
-Names of operation definitions should be prefixed using a namespace using the `id` for the package, e.g.:
+Operation definition names (`OperationDefinition.code` property) should be constructed using a namespace from the last segment of the package `id` and the operation signifier e.g.:
+
+Given the packageId of `hl7.fhir.uv.crmi`, the namespace for operation is `crmi`:
+
 ```
-hl7.fhir.uv.crmi.data-requirements
-hl7.fhir.uv.crmi.apply
+crmi.data-requirements
+crmi.apply
 ```
