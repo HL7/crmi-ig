@@ -47,7 +47,7 @@ page in the menu bar:
 -  **[Home](index.html)**: Summary and background information for the Canonical Resource Management Infrastructure Implementation Guide
 -  **[Introduction](introduction.html)**: Detailed overview of the content management lifecycle and the background for this guide
 -  **Content Management**
-    -  **[Content lifecycle](content-lifecycle)**: Content lifecycle of knowledge artifacts
+    -  **[Content lifecycle](content-lifecycle.html)**: Content lifecycle of knowledge artifacts
     -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, incluing canonical base, url and name, and operation definitions.
     -  **[Using CQL](using-cql.html)**: Using Clinical Quality Language as part of knowledge artifacts
     -  **[Testing](testing.html)**: Simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
