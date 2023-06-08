@@ -19,7 +19,7 @@ dependencies and associated artifacts as subsequent entries as follows:
 
 1. **Artifact**: The main artifact resource for the package (such as a PlanDefinition, Measure, or Library)
 2. **Dependencies**: Any dependencies, including libraries, terminologies, and other artifacts required for the artifact
-4. **Test Cases**: Any test cases defined for the artifact
+3. **Test Cases**: Any test cases defined for the artifact
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
 
