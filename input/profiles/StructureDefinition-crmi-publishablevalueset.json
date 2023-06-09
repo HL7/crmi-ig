@@ -1,6 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "computablevalueset",
+  "id" : "crmi-publishablevalueset",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary",
     "valueMarkdown" : "**mustSupport**\n\nWhen this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."
@@ -21,19 +21,14 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/profile-summary",
     "valueString" : "**mustSupport**\n\nWhen this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."
   }],
-  "url" : "http://hl7.org/fhir/StructureDefinition/computablevalueset",
-  "version": "4.0.101",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1212"
-  }],
-  "name" : "ComputableValueSet",
-  "title" : "Computable ValueSet",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset",
+  "name" : "CRMIPublishableValueSet",
+  "title" : "CRMI Publishable ValueSet",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
-  "description" : "Defines a computable value set as one that SHALL have an expression-based definition (i.e. a value set defined intensionally using expressions of the code systems involved) and MAY have an expansion included. The expression-based definition SHALL be represented in only one of three ways; using the compose element, using the expression extension, or using the rules-text extension to provide a step-by-step process for expanding the value set definition",
+  "description" : "Defines and enforces the minimum expectations for publication and distribution of a value set, typically as part of an artifact repository or implementation guide publication",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -58,14 +53,14 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "ValueSet",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset",
   "derivation" : "constraint",
   "snapshot" : {
     "element" : [{
       "id" : "ValueSet",
       "path" : "ValueSet",
       "short" : "A set of codes drawn from one or more code systems",
-      "definition" : "A value set that includes instructions for construction of the value set using one and only one of human instructions, machine instructions, or the value set compose element.",
+      "definition" : "A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [CodeSystem](codesystem.html) definitions and their use in [coded elements](terminologies.html).",
       "min" : 1,
       "max" : "1",
       "base" : {
@@ -79,12 +74,6 @@
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
         "expression" : "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')",
         "source" : "http://hl7.org/fhir/StructureDefinition/ValueSet"
-      },
-      {
-        "key" : "cvs-1",
-        "severity" : "error",
-        "human" : "Only one of rulesText, expression, or a compose definition SHALL be provided",
-        "expression" : "extension('http://hl7.org/fhir/StructureDefinition/valueset-rules-text').exists() xor extension('http://hl7.org/fhir/StructureDefinition/valueset-expression').exists() xor compose.exists()"
       }],
       "mustSupport" : false,
       "isModifier" : false,
@@ -398,12 +387,12 @@
       "isModifier" : false
     },
     {
-      "id" : "ValueSet.extension:rulesText",
+      "id" : "ValueSet.extension:trustedExpansion",
       "path" : "ValueSet.extension",
-      "sliceName" : "rulesText",
-      "short" : "Human instructions for constructing the valueset",
-      "definition" : "An expression that provides a definition of the content of the value set in some form that is not computable - e.g. instructions that could only be followed by a human.",
-      "comment" : "Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype.",
+      "sliceName" : "trustedExpansion",
+      "short" : "Reference to a trusted expansion",
+      "definition" : "Indicates an authoritative source for performing value set expansions.",
+      "comment" : "If the designated \"authoritative source\" (as specified in the valueset-authoritativeSource extension, if present) is unable to provide a valid expansion, this extension indicates an alternate authoritative source where the value set expansion may be performed. The alternate authoritative source url must reference a FHIR terminology server endpoint (the [base] url of the FHIR server).",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -413,9 +402,8 @@
       },
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-rules-text"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"]
       }],
-      "condition" : ["cvs-1"],
       "constraint" : [{
         "key" : "ele-1",
         "severity" : "error",
@@ -435,14 +423,13 @@
       "isSummary" : false
     },
     {
-      "id" : "ValueSet.extension:expression",
+      "id" : "ValueSet.extension:otherTitle",
       "path" : "ValueSet.extension",
-      "sliceName" : "expression",
-      "short" : "Machine instructions for constructing the value set",
-      "definition" : "An expression that provides the computable definition for the content of the value set. The value set can only be expanded by a server that understands the expression syntax used.",
-      "comment" : "Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype.",
+      "sliceName" : "otherTitle",
+      "short" : "Alternative titles",
+      "definition" : "Human readable titles for the valueset.",
       "min" : 0,
-      "max" : "1",
+      "max" : "*",
       "base" : {
         "path" : "DomainResource.extension",
         "min" : 0,
@@ -450,9 +437,8 @@
       },
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-expression"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"]
       }],
-      "condition" : ["cvs-1"],
       "constraint" : [{
         "key" : "ele-1",
         "severity" : "error",
@@ -467,16 +453,17 @@
         "expression" : "extension.exists() != value.exists()",
         "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : false
     },
     {
-      "id" : "ValueSet.extension:supplement",
+      "id" : "ValueSet.extension:sourceReference",
       "path" : "ValueSet.extension",
-      "sliceName" : "supplement",
-      "short" : "Declares dependency on a particular supplment",
-      "definition" : "This extension declares that a value set depends on a particular [CodeSystem supplement](codesystem.html#supplements) and should not be used in its absence.",
+      "sliceName" : "sourceReference",
+      "short" : "Where did this content come from",
+      "definition" : "This text is intended to act as a citation to work done elsewhere that is not part of the current stewarding process where the referenced source is in some way a basis of the current value set definition.",
+      "comment" : "This is not intended to be a direct link to another value set. It is only intended to support a link or textual description that indicates related material for the value set.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -486,7 +473,7 @@
       },
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-supplement"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-sourceReference"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -502,7 +489,7 @@
         "expression" : "extension.exists() != value.exists()",
         "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : false
     },
@@ -615,7 +602,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -841,7 +828,7 @@
       "definition" : "The date (and optionally time) when the value set metadata or content logical definition (.compose) was created or revised.",
       "comment" : "Note that this is not the same as the meta.lastUpdated which is specific to an instance of a value set resource on a server.  Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
       "alias" : ["Revision Date"],
-      "min" : 0,
+      "min" : 1,
       "max" : "1",
       "base" : {
         "path" : "ValueSet.date",
@@ -858,7 +845,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -933,7 +920,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : true
     },
@@ -978,10 +965,6 @@
     },
     {
       "id" : "ValueSet.useContext",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.useContext",
       "short" : "The context that the content is intended to support",
       "definition" : "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate value set instances.",
@@ -1004,16 +987,12 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : true
     },
     {
       "id" : "ValueSet.jurisdiction",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "deprecated"
-      }],
       "path" : "ValueSet.jurisdiction",
       "short" : "Intended jurisdiction for value set (if applicable)",
       "definition" : "A legal or geographic region in which the value set is intended to be used.",
@@ -1035,7 +1014,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : true,
       "binding" : {
@@ -1075,7 +1054,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true
     },
@@ -1110,7 +1089,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : false,
       "mapping" : [{
@@ -1156,7 +1135,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : false,
       "mapping" : [{
@@ -1167,10 +1146,6 @@
     {
       "id" : "ValueSet.copyrightLabel",
       "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      },
-      {
         "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
         "valueBoolean" : true
       },
@@ -1200,16 +1175,12 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : false
     },
     {
       "id" : "ValueSet.approvalDate",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.approvalDate",
       "short" : "When the ValueSet was approved by publisher",
       "definition" : "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.",
@@ -1241,10 +1212,6 @@
     },
     {
       "id" : "ValueSet.lastReviewDate",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.lastReviewDate",
       "short" : "When the ValueSet was last reviewed by the publisher",
       "definition" : "The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.",
@@ -1277,10 +1244,6 @@
     },
     {
       "id" : "ValueSet.effectivePeriod",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.effectivePeriod",
       "short" : "When the ValueSet is expected to be used",
       "definition" : "The period during which the ValueSet content was or is planned to be in active use.",
@@ -1303,7 +1266,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -1313,10 +1276,6 @@
     },
     {
       "id" : "ValueSet.topic",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "deprecated"
-      }],
       "path" : "ValueSet.topic",
       "short" : "E.g. Education, Treatment, Assessment, etc",
       "definition" : "Descriptions related to the content of the ValueSet. Topics provide a high-level categorization as well as keywords for the ValueSet that can be useful for filtering and searching.",
@@ -1339,7 +1298,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : false,
       "binding" : {
@@ -1353,10 +1312,6 @@
     },
     {
       "id" : "ValueSet.author",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.author",
       "short" : "Who authored the ValueSet",
       "definition" : "An individiual or organization primarily involved in the creation and maintenance of the ValueSet.",
@@ -1383,10 +1338,6 @@
     },
     {
       "id" : "ValueSet.editor",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.editor",
       "short" : "Who edited the ValueSet",
       "definition" : "An individual or organization primarily responsible for internal coherence of the ValueSet.",
@@ -1413,10 +1364,6 @@
     },
     {
       "id" : "ValueSet.reviewer",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.reviewer",
       "short" : "Who reviewed the ValueSet",
       "definition" : "An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet.",
@@ -1444,10 +1391,6 @@
     },
     {
       "id" : "ValueSet.endorser",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.endorser",
       "short" : "Who endorsed the ValueSet",
       "definition" : "An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting.",
@@ -1475,10 +1418,6 @@
     },
     {
       "id" : "ValueSet.relatedArtifact",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.relatedArtifact",
       "short" : "Additional documentation, citations, etc",
       "definition" : "Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.",
@@ -1529,7 +1468,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : false
     },
@@ -1564,11 +1503,16 @@
     {
       "id" : "ValueSet.compose.extension",
       "path" : "ValueSet.compose.extension",
-      "short" : "Additional content defined by implementations",
-      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
-      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-      "alias" : ["extensions",
-      "user content"],
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "ordered" : false,
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
       "min" : 0,
       "max" : "*",
       "base" : {
@@ -1594,11 +1538,73 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
       }],
       "isModifier" : false,
-      "isSummary" : false,
-      "mapping" : [{
-        "identity" : "rim",
-        "map" : "n/a"
-      }]
+      "isSummary" : false
+    },
+    {
+      "id" : "ValueSet.compose.extension:composeCreatedBy",
+      "path" : "ValueSet.compose.extension",
+      "sliceName" : "composeCreatedBy",
+      "short" : "Extension",
+      "definition" : "User who created the compose for the ValueSet.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false
+    },
+    {
+      "id" : "ValueSet.compose.extension:composeCreationDate",
+      "path" : "ValueSet.compose.extension",
+      "sliceName" : "composeCreationDate",
+      "short" : "Extension",
+      "definition" : "User who created the compose for the ValueSet.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false
     },
     {
       "id" : "ValueSet.compose.modifierExtension",
@@ -1665,7 +1671,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -1696,7 +1702,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true
     },
@@ -1748,7 +1754,7 @@
         "expression" : "concept.empty() or filter.empty()",
         "source" : "http://hl7.org/fhir/StructureDefinition/ValueSet"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -1890,7 +1896,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -1921,7 +1927,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -1958,7 +1964,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : false,
       "mapping" : [{
@@ -2457,7 +2463,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -2600,7 +2606,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -2631,7 +2637,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "binding" : {
@@ -2675,7 +2681,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -2708,7 +2714,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : true,
       "mapping" : [{
@@ -2718,10 +2724,6 @@
     },
     {
       "id" : "ValueSet.compose.include.copyright",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-        "valueCode" : "trial-use"
-      }],
       "path" : "ValueSet.compose.include.copyright",
       "short" : "A copyright statement for the specific code system included in the value set",
       "definition" : "A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present).",
@@ -2742,7 +2744,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : false,
+      "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : false,
       "mapping" : [{
@@ -2771,7 +2773,7 @@
         "expression" : "hasValue() or (children().count() > id.count())",
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
-      "mustSupport" : true,
+      "mustSupport" : false,
       "isModifier" : false,
       "isSummary" : false,
       "mapping" : [{
@@ -4506,133 +4508,156 @@
     "element" : [{
       "id" : "ValueSet",
       "path" : "ValueSet",
-      "definition" : "A value set that includes instructions for construction of the value set using one and only one of human instructions, machine instructions, or the value set compose element.",
-      "constraint" : [{
-        "key" : "cvs-1",
-        "severity" : "error",
-        "human" : "Only one of rulesText, expression, or a compose definition SHALL be provided",
-        "expression" : "extension('http://hl7.org/fhir/StructureDefinition/valueset-rules-text').exists() xor extension('http://hl7.org/fhir/StructureDefinition/valueset-expression').exists() xor compose.exists()"
-      }],
-      "mustSupport" : false
+      "min" : 1,
+      "max" : "1"
     },
     {
-      "id" : "ValueSet.extension:rulesText",
+      "id" : "ValueSet.extension:trustedExpansion",
       "path" : "ValueSet.extension",
-      "sliceName" : "rulesText",
-      "short" : "Human instructions for constructing the valueset",
-      "definition" : "An expression that provides a definition of the content of the value set in some form that is not computable - e.g. instructions that could only be followed by a human.",
-      "comment" : "Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype.",
+      "sliceName" : "trustedExpansion",
       "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-rules-text"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"]
       }],
-      "condition" : ["cvs-1"],
       "mustSupport" : true
     },
     {
-      "id" : "ValueSet.extension:expression",
+      "id" : "ValueSet.extension:otherTitle",
       "path" : "ValueSet.extension",
-      "sliceName" : "expression",
-      "short" : "Machine instructions for constructing the value set",
-      "definition" : "An expression that provides the computable definition for the content of the value set. The value set can only be expanded by a server that understands the expression syntax used.",
-      "comment" : "Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype.",
+      "sliceName" : "otherTitle",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"]
+      }]
+    },
+    {
+      "id" : "ValueSet.extension:sourceReference",
+      "path" : "ValueSet.extension",
+      "sliceName" : "sourceReference",
       "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-expression"]
-      }],
-      "condition" : ["cvs-1"],
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-sourceReference"]
+      }]
+    },
+    {
+      "id" : "ValueSet.identifier",
+      "path" : "ValueSet.identifier",
       "mustSupport" : true
     },
     {
-      "id" : "ValueSet.extension:supplement",
-      "path" : "ValueSet.extension",
-      "sliceName" : "supplement",
-      "min" : 0,
+      "id" : "ValueSet.date",
+      "path" : "ValueSet.date",
+      "min" : 1,
       "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-supplement"]
-      }],
       "mustSupport" : true
     },
     {
-      "id" : "ValueSet.immutable",
-      "path" : "ValueSet.immutable",
+      "id" : "ValueSet.contact",
+      "path" : "ValueSet.contact",
       "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.useContext",
+      "path" : "ValueSet.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.jurisdiction",
+      "path" : "ValueSet.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.purpose",
+      "path" : "ValueSet.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.copyright",
+      "path" : "ValueSet.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.copyrightLabel",
+      "path" : "ValueSet.copyrightLabel",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.approvalDate",
+      "path" : "ValueSet.approvalDate"
+    },
+    {
+      "id" : "ValueSet.lastReviewDate",
+      "path" : "ValueSet.lastReviewDate"
+    },
+    {
+      "id" : "ValueSet.effectivePeriod",
+      "path" : "ValueSet.effectivePeriod",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.topic",
+      "path" : "ValueSet.topic",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.author",
+      "path" : "ValueSet.author"
+    },
+    {
+      "id" : "ValueSet.editor",
+      "path" : "ValueSet.editor"
+    },
+    {
+      "id" : "ValueSet.reviewer",
+      "path" : "ValueSet.reviewer"
+    },
+    {
+      "id" : "ValueSet.endorser",
+      "path" : "ValueSet.endorser"
+    },
+    {
+      "id" : "ValueSet.relatedArtifact",
+      "path" : "ValueSet.relatedArtifact"
     },
     {
       "id" : "ValueSet.compose",
-      "path" : "ValueSet.compose",
-      "mustSupport" : true
+      "path" : "ValueSet.compose"
     },
     {
-      "id" : "ValueSet.compose.lockedDate",
-      "path" : "ValueSet.compose.lockedDate",
-      "mustSupport" : true
+      "id" : "ValueSet.compose.extension:composeCreatedBy",
+      "path" : "ValueSet.compose.extension",
+      "sliceName" : "composeCreatedBy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]
+      }]
     },
     {
-      "id" : "ValueSet.compose.inactive",
-      "path" : "ValueSet.compose.inactive",
-      "mustSupport" : true
+      "id" : "ValueSet.compose.extension:composeCreationDate",
+      "path" : "ValueSet.compose.extension",
+      "sliceName" : "composeCreationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]
+      }]
     },
     {
       "id" : "ValueSet.compose.include",
-      "path" : "ValueSet.compose.include",
-      "mustSupport" : true
+      "path" : "ValueSet.compose.include"
     },
     {
-      "id" : "ValueSet.compose.include.system",
-      "path" : "ValueSet.compose.include.system",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.version",
-      "path" : "ValueSet.compose.include.version",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.concept",
-      "path" : "ValueSet.compose.include.concept",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.filter",
-      "path" : "ValueSet.compose.include.filter",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.filter.property",
-      "path" : "ValueSet.compose.include.filter.property",
-      "min" : 1,
-      "max" : "1",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.filter.op",
-      "path" : "ValueSet.compose.include.filter.op",
-      "min" : 1,
-      "max" : "1",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.filter.value",
-      "path" : "ValueSet.compose.include.filter.value",
-      "min" : 1,
-      "max" : "1",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.include.valueSet",
-      "path" : "ValueSet.compose.include.valueSet",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.compose.exclude",
-      "path" : "ValueSet.compose.exclude",
+      "id" : "ValueSet.compose.include.copyright",
+      "path" : "ValueSet.compose.include.copyright",
       "mustSupport" : true
     }]
   }
