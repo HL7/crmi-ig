@@ -9,7 +9,7 @@ Usage: #definition
 Determines the effective data requirements for the artifact, including known
 components and dependencies, and optionally informed by a version manifest.
 
-See [$package and $data-requirements](introduction.html#distribution-fhir-package)
+See [$crmi.package and $crmi.data-requirements](introduction.html#distribution-fhir-package)
 
 *TODO*: Add example of the use-case that will do dependency tracing, similar to
 `$package` but returns only the information and not the actual resources.
@@ -21,7 +21,7 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 (artifacts), and data requirements
 """
 * kind = #operation
-* code = #data-requirements
+* code = #crmi.data-requirements
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement

@@ -1,1 +1,26 @@
 This folder contains page files in md and html format which are used as standalone content
+
+
+* Home
+* Introduction
+* Content management
+  * Using CQL
+  * Testing
+  * Packaging
+    * FHIR Bundle
+    * FHIR Package
+  * Publishing
+    * FHIR Package (npm)
+    * FHIR REST
+  * Distribution
+    * FHIR Package (npm)
+    * FHIR REST (incl. $package and $data-requirements)
+    * RSS
+  * Dealing with unversioned canonicals
+* Profiles
+* Extensions
+* Terminology
+* Capabilities
+* Glossary
+* Downloads
+* Acknowledgements
