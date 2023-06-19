@@ -3,6 +3,7 @@
 - [Allocation](StructureDefinition-crmi-allocation.html)
 - [Applies To](StructureDefinition-crmi-appliesTo.html)
 - [Artifact Release Description](StructureDefinition-crmi-artifact-releaseDescription.html)
+- [Artifact Release Label](StructureDefinition-artifact-releaseLabel.html)
 - [Artifact Comment](StructureDefinition-crmi-artifactComment.html)
 - [Component](StructureDefinition-crmi-component.html)
 - [Composite Scoring](StructureDefinition-crmi-compositeScoring.html)
