@@ -31,3 +31,13 @@ In addition, the following example capability statement illustrates the use of t
 * [**Example Measure Calculation Service**](CapabilityStatement-measure-calculation-service-example.html)
 
 
+## Operations
+
+* [**Library/$package**](OperationDefinition-Library-package.html)
+* [**Library/$data-requirements**](OperationDefinition-Library-data-requirements.html)
+* [**Measure/$package**](OperationDefinition-Measure-package.html)
+* [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
+* [**MeasureReport/$package**](OperationDefinition-MeasureReport-package.html)
+* [**Resource/$release**](OperationDefinition-crmi-release.html)
+* [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+

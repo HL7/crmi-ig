@@ -9,6 +9,7 @@
 -  [Artifact Comment Type](CodeSystem-artifact-comment-type.html)
 -  [CQL Version](CodeSystem-cql-version.html)
 -  [Identifier Type](CodeSystem-identifier-type.html)
+-  [Knowledge Artifact Release Version Behavior](CodeSystem-knowledgeArtifact-release-version-behavior.html)
 -  [Software System Type](CodeSystem-software-system-type.html)
 -  [Quality Programs](CodeSystem-quality-programs.html)
 
@@ -19,6 +20,7 @@
 -  [Aggregate Method](ValueSet-aggregate-method.html)
 -  [CQL Version](ValueSet-cql-version.html)
 -  [Identifier Type](ValueSet-identifier-type.html)
+-  [Knowledge Artifact Release Version Behavior](ValueSet-knowledgeArtifact-release-version-behavior.html)
 -  [Quality Programs](ValueSet-quality-programs.html)
 -  [Software System Type](ValueSet-software-system-type.html)
 -  [Value Filter Comparator](ValueSet-value-filter-comparator.html)

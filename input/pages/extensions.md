@@ -19,6 +19,7 @@
 - [Group Id](StructureDefinition-crmi-groupId.html)
 - [Improvement Notation](StructureDefinition-crmi-improvementNotation.html)
 - [Input Parameters](StructureDefinition-crmi-inputParameters.html)
+- [Is Owned](StructureDefinition-crmi-isOwned.html)
 - [Is Primary Citation](StructureDefinition-crmi-isPrimaryCitation.html)
 - [Is Selective](StructureDefinition-crmi-isSelective.html)
 - [Is Test Case](StructureDefinition-crmi-isTestCase.html)
