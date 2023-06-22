@@ -7,10 +7,12 @@ Usage: #definition
 * title = "CRMI Revise"
 * description = """
 Revises an existing resource with draft status.
-This operation is defined as a `PUT` of the artifact resource,
-but the status of both the existing and updated resources is required to be draft.
+A successful $revise will produce a Bundle containing the updated resource.
+The updated resource must also have a status draft.
 
-See [$revise and $data-requirements](introduction.html#distribution-fhir-package)
+This operation is defined as a `PUT` of the artifact resource.
+
+See [description of $revise operation](artifact-repository-service.md#####revise)
 """
 * comment = """
 [Request Url]:
