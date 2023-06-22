@@ -12,7 +12,7 @@ The updated resource must also have a status draft.
 
 This operation is defined as a `PUT` of the artifact resource.
 
-See [description of $revise operation](artifact-repository-service.md#####revise)
+See [description of $revise operation](artifact-repository-service.html#revise)
 """
 * comment = """
 [Request Url]:
