@@ -46,7 +46,7 @@ See [$revise and $data-requirements](introduction.html#distribution-fhir-package
 
 * parameter[+]
   * name = #resource
-  * min = 0
+  * min = 1
   * max = "1"
   * use = #in
   * type = #Resource
