@@ -202,7 +202,7 @@ The _publish_ operation supports posting a new artifact with _active_ status. Th
 The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource and pins versions of all direct and transitive references. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also Released, recursively.
 
 ##### Draft
-The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and a version appended with `-draft`.
+The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and a pre-release label of `-draft` appended to the version.
 
 The following parameters SHOULD be supported for the draft operations:
 
