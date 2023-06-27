@@ -15,11 +15,6 @@ This operation is defined as a `PUT` of the artifact resource.
 See [description of $revise operation](artifact-repository-service.html#revise)
 """
 * comment = """
-[Request Url]:
-```
-  {{fhirServerUrl}}/$revise
-```
-
 [Request Body]:
 ```json
 {
@@ -45,6 +40,7 @@ See [description of $revise operation](artifact-repository-service.html#revise)
 * system = false
 * type = true
 * instance = true
+* resource = #Resource
 
 * parameter[+]
   * name = #resource
