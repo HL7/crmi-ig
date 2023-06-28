@@ -13,7 +13,7 @@
   "experimental": false,
   "date": "2021-08-31T23:21:03-06:00",
   "publisher": "Clinical Decision Support Workgroup",
-  "description": "The version of CQL cupported",
+  "description": "The version of CQL supported",
   "jurisdiction": [
     {
       "coding": [
