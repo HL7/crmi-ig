@@ -21,7 +21,7 @@
     </contact>
     <description value="The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository."/>    
     <code value="knowledge-artifact-approve"/>
-    <comment value="The approve operation supports the ability of a repository to record information about its' eligibility for release in an ArtifactAssessment resource upon completion of the review process. The ArtifactAssessments which are added by the operation must reference a version of the artifact."/>
+    <comment value="The approve operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment resource by applying an approval. The ArtifactAssessments which are added by the operation must reference a version of the artifact."/>
     <resource value="Resource"/>
     <system value="false"/>
     <type value="true"/>
@@ -39,7 +39,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="The date on which the artifact was approved for release. If one is not provided the system date will be used."/>
+        <documentation value="The date on which the artifact was approved. If one is not provided the system date will be used."/>
         <type value="date"/>
     </parameter>
     <parameter>
@@ -67,7 +67,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="The url for the artifact being approved. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56"/>
+        <documentation value="The canonical url for the artifact being approved. The format is: [system]|[version] - e.g. http://loinc.org|2.56"/>
         <type value="canonical"/>
     </parameter>
     <parameter>
@@ -75,7 +75,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="Optional supporting canonincal / reference for the comment. "/>
+        <documentation value="Optional supporting canonical URL / Reference for the comment. "/>
         <type value="uri"/>
     </parameter>
     <parameter>
@@ -83,7 +83,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="A reference to a resource containing information about who approved the artifact for release."/>
+        <documentation value="A Reference to a resource containing information about the entity applying the approval."/>
         <type value="Reference"/>
     </parameter>
     <parameter>

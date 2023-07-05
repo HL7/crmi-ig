@@ -196,12 +196,12 @@ The _approve_ operation supports applying an approval to an existing artifact, r
 The following parameters SHOULD be supported for the operation:
 
 * **id**: The server-specific id of the artifact to be approved.
-* **approvalDate**: The date on which the artifact was approved for release. If this parameter is not provided the operation will infer the date to be the current system date on the repository performing the operation.
+* **approvalDate**: The date on which the artifact was last approved. If this parameter is not provided the operation will infer the date to be the current system date on the repository performing the operation.
 * **artifactAssessmentType**: If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (and must belong to the [Artifact Assessment Information Type ValueSet](http://hl7.org/fhir/ValueSet/artifactassessment-information-type) ValueSet).
 * **artifactAssessmentSummary**: If a comment is submitted as part of the approval, this parameter contains the body of the comment.
-* **artifactAssessmentTarget**: The version-specific canonical url for the artifact being approved. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
+* **artifactAssessmentTarget**: The version-specific canonical URL for the artifact being approved. The format is: [system]|[version] - e.g. http://loinc.org|2.56
 * **artifactAssessmentRelatedArtifact**: Optional supporting Reference or canonical URL pointing to a supporting resource for the comment.
-* **artifactAssessmentAuthor**: A Reference to the party approving the artifact for release.
+* **artifactAssessmentAuthor**: A Reference to a resource with further information about the entiry applying the approval.
 
 ##### Publish
 
