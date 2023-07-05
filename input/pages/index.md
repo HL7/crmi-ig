@@ -38,6 +38,115 @@ The Canonical Resource Management Infrastructure implementation guide defines pr
 
 This implementation guide is based upon work in multiple quality improvement and reporting domains. Various implementation guides have developed similar infrastructure-level profiles for conformance and knowledge artifacts. These profiles are being refactored into universal-realm, domain-independent profiles that can then be re-used in future versions of those specifications, as well as included in future versions of the base FHIR specification.
 
+#### Canonical Resource Types
+
+The following is a list of FHIR resource types that are considered _canonical resources_ along with a grouping of these resource types by priority of support within this implementation guide. Priority groupings are first described generally and any specific exceptions to those groupings (e.g., a different prioritization for a particular operation) should be described explicitly elsewhere.
+
+**Canonical Resource Types**
+* ActivityDefinition
+* CapabilityStatement
+* CareTeam (potential)
+* ChargeItemDefinition (not considered in this IG)
+* CodeSystem
+* CompartmentDefinition
+* ConceptMap
+* ConditionDefinition
+* ClinicalUseDefinition (R5)
+* DeviceDefinition
+* EffectEvidenceSynthesis (not considered, uses EBM resources)
+* EventDefinition (targeted for removal)
+* Evidence
+* EvidenceVariable
+* ExampleScenario
+* GraphDefinition
+* Group (partial)
+* ImplementationGuide
+* Library
+* Location (partial)
+* Measure
+* MedicationKnowledge
+* MessageDefinition
+* NamingSystem
+* ObservationDefinition
+* Organization (potential)
+* OperationDefinition
+* PlanDefinition
+* Practitioner (partial)
+* PractitionerRole (partial)
+* Questionnaire
+* ResearchDefinition (not considered, uses EBM resources)
+* ResearchElementDefinition (not considered, uses EBM resources)
+* RiskEvidenceSynthesis (not considered, uses EBM resources)
+* SearchParameter
+* SpecimenDefinition
+* SubscriptionTopic (R5)
+* StructureDefinition
+* StructureMap
+* TerminologyCapabilities
+* TestScript
+* ValueSet
+
+The following groupings of these canonical resources indicate priority of support as well as categorization of capability within this implementation guide:
+
+##### Knowledge Artifacts (Primary)
+* ActivityDefinition
+* Library
+* Measure
+* PlanDefinition
+* Questionnaire
+* MedicationKnowledge
+
+##### Terminology Artifacts (Secondary)
+* ValueSet
+* CodeSystem
+* ConceptMap
+* NamingSystem
+
+##### Conformance Artifacts (Tertiary)
+* CapabilityStatement
+* CompartmentDefinition
+* GraphDefinition
+* ImplementationGuide
+* MessageDefinition
+* OperationDefinition
+* StructureDefinition
+* StructureMap
+* SearchParameter
+* SubscriptionTopic (R5)
+* TerminologyCapabilities
+
+##### Domain Definition Artifacts
+* ActorDefinition (R5)
+* CareTeam
+* ConditionDefinition
+* ClinicalUseDefinition (R5)
+* DeviceDefinition
+* Group
+* Location
+* Practitioner
+* PractitionerRole
+* ObservationDefinition
+* Organization?
+* SpecimenDefinition
+
+##### Evidence-based Medicine Artifacts (Quarternary)
+
+If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other EBM resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
+
+* EffectEvidenceSynthesis
+* Evidence
+* EvidenceVariable
+* ResearchDefinition
+* ResearchElementDefinition
+* RiskEvidenceSynthesis
+
+##### Related Resources
+* ArtifactAssessment (R5)
+* Citation (R5)
+* Permission (R5)
+* Obligation (R5)
+* Requirement (R5)
+
 ### How to read this Guide
 {: #how-to-read-this-guide}
 

@@ -248,7 +248,7 @@
       "max" : "0"
     },
     {
-      "id" : "Extension.extension:user.url",
+      "id" : "Extension.extension:authoredOn.url",
       "path" : "Extension.extension.url",
       "type" : [{
         "code" : "uri"
@@ -256,7 +256,7 @@
       "fixedUri" : "authoredOn"
     },
     {
-      "id" : "Extension.extension:user.value[x]",
+      "id" : "Extension.extension:authoredOn.value[x]",
       "path" : "Extension.extension.value[x]",
       "min" : 1,
       "type" : [{
