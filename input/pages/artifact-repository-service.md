@@ -201,7 +201,7 @@ The following parameters SHOULD be supported for the operation:
 * **artifactAssessmentSummary**: If a comment is submitted as part of the approval, this parameter contains the body of the comment.
 * **artifactAssessmentTarget**: The version-specific canonical URL for the artifact being approved. The format is: [system]|[version] - e.g. http://loinc.org|2.56
 * **artifactAssessmentRelatedArtifact**: Optional supporting Reference or canonical URL pointing to a supporting resource for the comment.
-* **artifactAssessmentAuthor**: A Reference to a resource with further information about the entiry applying the approval.
+* **artifactAssessmentAuthor**: A Reference to a resource with further information about the entity applying the approval.
 
 ##### Publish
 
