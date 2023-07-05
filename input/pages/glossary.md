@@ -107,7 +107,7 @@ Additional variables required for risk adjustment or other purposes of data aggr
 | API | --- |	Application Program Interface |
 | CDS |	--- | Clinical Decision Support |
 | CMS |	--- | Centers for Medicare and Medicaid Services |
-| CMI | --- |	Clinical Quality Framework Measures |
+| CRMI | --- |	Clinical Quality Framework Measures |
 | CQL |	--- | Clinical Quality Language |
 | CQM |	--- | Clinical Quality Measures |
 | eCQM | --- | 	electronic Clinical Quality Measures |

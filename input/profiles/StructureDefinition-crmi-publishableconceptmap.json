@@ -1,0 +1,138 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-publishableconceptmap",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "vocab"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableconceptmap",
+  "name" : "CRMIPublishableConceptMap",
+  "title" : "CRMI Publishable ConceptMap",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Defines and enforces the minimum expectations for publication and distribution of a concept map, typically as part of an artifact repository or implementation guide publication",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ConceptMap",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ConceptMap",
+      "path" : "ConceptMap",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "ConceptMap.identifier",
+      "path" : "ConceptMap.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.date",
+      "path" : "ConceptMap.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.contact",
+      "path" : "ConceptMap.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.useContext",
+      "path" : "ConceptMap.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.jurisdiction",
+      "path" : "ConceptMap.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.purpose",
+      "path" : "ConceptMap.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.copyright",
+      "path" : "ConceptMap.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.copyrightLabel",
+      "path" : "ConceptMap.copyrightLabel",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.approvalDate",
+      "path" : "ConceptMap.approvalDate"
+    },
+    {
+      "id" : "ConceptMap.lastReviewDate",
+      "path" : "ConceptMap.lastReviewDate"
+    },
+    {
+      "id" : "ConceptMap.effectivePeriod",
+      "path" : "ConceptMap.effectivePeriod",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.topic",
+      "path" : "ConceptMap.topic",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.author",
+      "path" : "ConceptMap.author"
+    },
+    {
+      "id" : "ConceptMap.editor",
+      "path" : "ConceptMap.editor"
+    },
+    {
+      "id" : "ConceptMap.reviewer",
+      "path" : "ConceptMap.reviewer"
+    },
+    {
+      "id" : "ConceptMap.endorser",
+      "path" : "ConceptMap.endorser"
+    },
+    {
+      "id" : "ConceptMap.relatedArtifact",
+      "path" : "ConceptMap.relatedArtifact"
+    }]
+  }
+}

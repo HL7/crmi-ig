@@ -1,0 +1,156 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablestructuredefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition",
+  "name" : "CRMIShareableStructureDefinition",
+  "title" : "CRMI Shareable StructureDefinition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the structure definition metadata required by HL7 and other organizations that share and publish structure definitions",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "StructureDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/StructureDefinition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "StructureDefinition",
+      "path" : "StructureDefinition",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "StructureDefinition.extension:knowledgeCapability",
+      "path" : "StructureDefinition.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.extension:knowledgeRepresentationLevel",
+      "path" : "StructureDefinition.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.extension:artifactComment",
+      "path" : "StructureDefinition.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.extension:versionAlgorithm",
+      "path" : "StructureDefinition.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.url",
+      "path" : "StructureDefinition.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.version",
+      "path" : "StructureDefinition.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.name",
+      "path" : "StructureDefinition.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.title",
+      "path" : "StructureDefinition.title",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.status",
+      "path" : "StructureDefinition.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.experimental",
+      "path" : "StructureDefinition.experimental",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.publisher",
+      "path" : "StructureDefinition.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "StructureDefinition.description",
+      "path" : "StructureDefinition.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

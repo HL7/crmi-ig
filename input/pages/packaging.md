@@ -1,25 +1,53 @@
 {:toc}
 
-{: #measure-packaging}
+{: #artifact-packaging}
 
-To facilitate publishing and distribution of quality measures, this Implementation Guide
-provides guidance on how to package quality measures, either independently, or as part of a collection of related measures.
+To facilitate publishing and distribution of canonical resources and knowledge artifacts, this Implementation Guide
+provides guidance on how to package knowledge artifacts, either independently, or as part of a collection of related artifacts.
 
 ### Packaging Artifacts
 {: #packaging-artifacts}
 
+#### FHIR Bundle
+
 In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
-of type `transaction`. They may span multiple bundles in a given delivery, thus the bundle should be processed as a unit.
+of type `transaction`. However, since large artifact packages may span multiple bundles, the type
+`collection` may be used as well. In that case, the bundles should be processed as a unit.
 
 An artifact bundle contains the artifact as the first entry in the bundle, and optionally the
 dependencies and associated artifacts as subsequent entries as follows:
 
-1. **Artifact**: The main artifact resource for the package (such as a Measure or Library)
-2. **Library Dependencies**: Any libraries required for the artifact
-3. **Terminology Dependencies**: Any CodeSystem or ValueSet resources required for the artifact
-4. **Test Cases**: Any test cases defined for the artifact
+1. **Artifact**: The main artifact resource for the package (such as a PlanDefinition, Measure, or Library)
+2. **Dependencies**: Any dependencies, including libraries, terminologies, and other artifacts required for the artifact
+3. **Test Cases**: Any test cases defined for the artifact
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
+
+NOTE: It is recommended that each resource in the transaction is a [conditional create](https://www.hl7.org/fhir/http.html#ccreate) using the canonical URL and version as search parameters, e.g.:
+
+```jsonc
+  "entry": [
+    { 
+      "resource": { 
+        "resourceType": "Library",
+        "url": "http://example.org/Library/SomeLibrary",
+        "version": "0.1.0",
+        // ...
+      },
+      "request" :{
+        "method": "POST",
+        "url": "Library",
+        "ifNotExist": "url=http://example.org/Library/SomeLibrary&version=0.1.0"
+      }
+    }
+  ]
+```
+
+#### FHIR Packages
+
+Artifacts may also be packaged following the FHIR Package specification. This involves creating a NPM package (tarball archive with a package.json). The IGPublisher build tool creates a FHIR Package when building an implementation guide.
+
+See also: [FHIR Package Specification](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
 ### Packaging Libraries
 {: #packaging-libraries}
@@ -55,27 +83,10 @@ general components:
 * Optionally, all the required terminologies referenced by the primary library or any required libraries (included as CodeSystem and/or ValueSet resources)
 * Optionally, any test cases defined for the quality measure
 
-The following are conformance requirements when packaging a Measure:
-
-**Conformance Requirement 6.2 (Measure Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
-{: #conformance-requirement-6-2}
-
-  1. The first entry in a Measure bundle SHALL be a Measure resource
-  2. The second entry in a Measure bundle SHALL be the primary Library resource for the measure
-  3. Measures bundles MAY include any libraries referenced by the primary library
-  4. Library bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
-  5. Library bundles MAY include any test case bundles defined for the measure
-
 ### Packaging Test Cases
 {: #packaging-test-cases}
 
-Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CMITestCase](StructureDefinition-test-case-cmi.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
-
-**Conformance Requirement 6.3 (Test Case Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-3)
-{: #conformance-requirement-6-3}
-
-  1. The first entry in a TestCase bundle SHALL be a MeasureReport resource representing the expected outcome of evaluating the measure, given the test data provided as part of the test case
-  2. TestCase bundles SHALL include any resource data required to evaluate the test case
+Basic testing of measure logic should involve at least one positive and negative test of each of the population criteria. A test case is represented as a set of test resources, together with a MeasureReport that conforms to the [CRMITestCase](StructureDefinition-test-case-crmi.html) profile to define the expected results. The test case bundle can then be used to package and distribute the test case.
 
 ### Intellectual Property of Packaging
   {: #intellectual-property-packaging}
@@ -89,5 +100,5 @@ Basic testing of measure logic should involve at least one positive and negative
 
 This implementation guide includes a profile for describing a quality program as a collection of quality measures. This profile is a Library of type `asset-collection` that uses the `relatedArtifact` element to indicate which measures are part of the quality program. In addition, measures and libraries can use the `useContext` element to specify a quality program.
 
-1. Artifacts SHOULD use the `useContext` element with the `program` context type to specify a quality program
-2. Quality program descriptions SHALL use the [CQFQualityProgram](StructureDefinition-quality-program-cmi.html) profile
+1. Artifacts SHOULD use the `useContext` element with the `program` context type to specify an artifact collection
+2. Asset collection descriptions SHALL use the [CRMIAssetCollection](StructureDefinition-crmi-assetcollection.html) profile

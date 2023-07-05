@@ -1,0 +1,206 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-publishablequestionnaire",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablequestionnaire",
+  "name" : "CRMIPublishableQuestionnaire",
+  "title" : "CRMI Publishable Questionnaire",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the Questionnaire metadata required by HL7 and other organizations that share and publish questionnaires with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Questionnaire",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablequestionnaire",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Questionnaire",
+      "path" : "Questionnaire",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Questionnaire.extension:usage",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "usage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-usage"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:copyrightLabel",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:topic",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:author",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:editor",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:reviewer",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:endorser",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.extension:relatedArtifact",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.identifier",
+      "path" : "Questionnaire.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.date",
+      "path" : "Questionnaire.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.contact",
+      "path" : "Questionnaire.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.useContext",
+      "path" : "Questionnaire.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.jurisdiction",
+      "path" : "Questionnaire.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.purpose",
+      "path" : "Questionnaire.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.copyright",
+      "path" : "Questionnaire.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.approvalDate",
+      "path" : "Questionnaire.approvalDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.lastReviewDate",
+      "path" : "Questionnaire.lastReviewDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Questionnaire.effectivePeriod",
+      "path" : "Questionnaire.effectivePeriod",
+      "mustSupport" : true
+    }]
+  }
+}

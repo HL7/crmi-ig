@@ -6,8 +6,7 @@
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
     ]
   },
-  "url": "http://hl7.org/fhir/uv/cmi/ValueSet/value-filter-comparator",
-  "version": "3.0.0",
+  "url": "http://hl7.org/fhir/ValueSet/value-filter-comparator",
   "name": "ValueFilterComparator",
   "title": "Value Filter Comparator",
   "status": "active",
@@ -15,17 +14,6 @@
   "date": "2021-08-10T10:21:03-06:00",
   "publisher": "Clinical Decision Support Workgroup",
   "description": "The type of comparator operator to use",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US",
-          "display": "United States of America"
-        }
-      ]
-    }
-  ],
   "immutable": true,
   "compose": {
     "include": [

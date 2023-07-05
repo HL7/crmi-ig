@@ -13,15 +13,139 @@ Where possible, new and updated content will be highlighted with green text and 
 </div>
 -->
 
-## Content Management Infrastructure Implementation Guide
-{: #content-management-infrastructure-implementation-guide}
+## Canonical Resource Management Infrastructure Implementation Guide
+{: #canonical-resource-management-infrastructure-implementation-guide}
+
+### Ballot Note
+{: #ballot-note}
+
+For this for comment ballot, below are focus areas that are intended to be addressed in this IG but have not been fully documented as of this ballot:
+
+* Complete dependency tracing for the knowledge artifact resources (see the dependency tracing section of the Introduction)
+* Asset metamodels, or patterns for definitional resources (i.e. templates for knowledge artifacts such as measures, decision support rules, case feature definitions, etc)
+* Profiles and guidance on OperationDefinition to support assets as services (i.e. common parameters for operations on canonical resources such as contentEndpoint, terminologyEndpoint, representationLevel, manifest, etc.)
+* More guidance on the use of $data-requirements to support dependency graph calculation. Note that the current implementation flattens the dependency tree, is that potentially an issue
+* Guidance on the impact of packaging on dependency graph calculation
+* Considering overall organization of the implementation guide to improve navigation and usability
+* Inclusion of testing content for the operations defined
+* Generalizing the `include-dependencies` and `include-components` parameters of $package to an `includeType` parameter that supports more general selection of content to include in the result of the operation
+* Generalizing support for the use of NPM packages as the result of the $package operation
 
 ### Summary
 {: #summary}
 
-The Content Management Infrastructure implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content.
+The Canonical Resource Management Infrastructure implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content.
 
 This implementation guide is based upon work in multiple quality improvement and reporting domains. Various implementation guides have developed similar infrastructure-level profiles for conformance and knowledge artifacts. These profiles are being refactored into universal-realm, domain-independent profiles that can then be re-used in future versions of those specifications, as well as included in future versions of the base FHIR specification.
+
+#### Canonical Resource Types
+
+The following is a list of FHIR resource types that are considered _canonical resources_ along with a grouping of these resource types by priority of support within this implementation guide. Priority groupings are first described generally and any specific exceptions to those groupings (e.g., a different prioritization for a particular operation) should be described explicitly elsewhere.
+
+**Canonical Resource Types**
+* ActivityDefinition
+* CapabilityStatement
+* CareTeam (potential)
+* ChargeItemDefinition (not considered in this IG)
+* CodeSystem
+* CompartmentDefinition
+* ConceptMap
+* ConditionDefinition
+* ClinicalUseDefinition (R5)
+* DeviceDefinition
+* EffectEvidenceSynthesis (not considered, uses EBM resources)
+* EventDefinition (targeted for removal)
+* Evidence
+* EvidenceVariable
+* ExampleScenario
+* GraphDefinition
+* Group (partial)
+* ImplementationGuide
+* Library
+* Location (partial)
+* Measure
+* MedicationKnowledge
+* MessageDefinition
+* NamingSystem
+* ObservationDefinition
+* Organization (potential)
+* OperationDefinition
+* PlanDefinition
+* Practitioner (partial)
+* PractitionerRole (partial)
+* Questionnaire
+* ResearchDefinition (not considered, uses EBM resources)
+* ResearchElementDefinition (not considered, uses EBM resources)
+* RiskEvidenceSynthesis (not considered, uses EBM resources)
+* SearchParameter
+* SpecimenDefinition
+* SubscriptionTopic (R5)
+* StructureDefinition
+* StructureMap
+* TerminologyCapabilities
+* TestScript
+* ValueSet
+
+The following groupings of these canonical resources indicate priority of support as well as categorization of capability within this implementation guide:
+
+##### Knowledge Artifacts (Primary)
+* ActivityDefinition
+* Library
+* Measure
+* PlanDefinition
+* Questionnaire
+* MedicationKnowledge
+
+##### Terminology Artifacts (Secondary)
+* ValueSet
+* CodeSystem
+* ConceptMap
+* NamingSystem
+
+##### Conformance Artifacts (Tertiary)
+* CapabilityStatement
+* CompartmentDefinition
+* GraphDefinition
+* ImplementationGuide
+* MessageDefinition
+* OperationDefinition
+* StructureDefinition
+* StructureMap
+* SearchParameter
+* SubscriptionTopic (R5)
+* TerminologyCapabilities
+
+##### Domain Definition Artifacts
+* ActorDefinition (R5)
+* CareTeam
+* ConditionDefinition
+* ClinicalUseDefinition (R5)
+* DeviceDefinition
+* Group
+* Location
+* Practitioner
+* PractitionerRole
+* ObservationDefinition
+* Organization?
+* SpecimenDefinition
+
+##### Evidence-based Medicine Artifacts (Quarternary)
+
+If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other EBM resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
+
+* EffectEvidenceSynthesis
+* Evidence
+* EvidenceVariable
+* ResearchDefinition
+* ResearchElementDefinition
+* RiskEvidenceSynthesis
+
+##### Related Resources
+* ArtifactAssessment (R5)
+* Citation (R5)
+* Permission (R5)
+* Obligation (R5)
+* Requirement (R5)
 
 ### How to read this Guide
 {: #how-to-read-this-guide}
@@ -29,20 +153,23 @@ This implementation guide is based upon work in multiple quality improvement and
 This Guide is divided into several pages which are listed at the top of each
 page in the menu bar:
 
--  **[Home](index.html)**: The home page provides the summary and background information for the FHIR Quality Measure Implementation Guide
--  **[Introduction](introduction.html)**: The introduction provides a more detailed overview of the content management lifecycle and the background for this guide
--  **[Version Manifest](version-manifest.html)**: This page provides guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
--  **[Conformance](artifact-conformance.html)**: This page describes artifact representation and conformance requirements
--  **[Using CQL](using-cql.html)**: This page covers using Clinical Quality Language as part of knowledge artifacts
--  **[Packaging](packaging.html)**: This page describes measure packaging and distribution requirements for canonical resources and knowledge artifacts
-Measures IG
--  **[Profiles](profiles.html)**: This page lists the set of profiles defined for use by knowledge artifacts
--  **[Extensions](extensions.html)**: This page lists the set of extensions defined for use by knowledge artifacts
--  **[Terminology](terminology.html)**: This page lists value sets and code systems defined in this IG
--  **[Capabilities](capabilities.html)**: This page defines services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
--  **[Examples](examples.html)**: This page provides examples used in the other pages
--  **[Glossary](glossary.html)** This page defines terms related to knowledge artifacts.
--  **[Downloads](downloads.html)**: This page provides links to downloadable artifacts for implementations.
+-  **[Home](index.html)**: Summary and background information for the Canonical Resource Management Infrastructure Implementation Guide
+-  **[Introduction](introduction.html)**: Detailed overview of the content management lifecycle and the background for this guide
+-  **Content Management**
+    -  **[Content lifecycle](content-lifecycle.html)**: Content lifecycle of knowledge artifacts
+    -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, incluing canonical base, url and name, and operation definitions.
+    -  **[Using CQL](using-cql.html)**: Using Clinical Quality Language as part of knowledge artifacts
+    -  **[Testing](testing.html)**: Simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
+    -  **[Packaging](packaging.html)**: Packaging requirements for canonical resources and knowledge artifacts 
+    -  **[Publishing](publishing.html)**: Publishing requirements for canonical resources and knowledge artifacts 
+    -  **[Distribution](distribution.html)**: Distribution requirements for canonical resources and knowledge artifacts 
+    -  **[Dealing with unversioned canonical references](version-manifest.html)**: Guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
+-  **[Profiles](profiles.html)**: List of profiles defined for use by knowledge artifacts
+-  **[Extensions](extensions.html)**: List of extensions defined for use by knowledge artifacts
+-  **[Terminology](terminology.html)**: List of value sets and code systems defined in this IG
+-  **[Capabilities](capabilities.html)**: Definitions of services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
+-  **[Glossary](glossary.html)** Definitions of terms related to knowledge artifacts.
+-  **[Downloads](downloads.html)**: Links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
 
 ### References

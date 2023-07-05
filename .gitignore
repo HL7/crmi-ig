@@ -6,4 +6,8 @@
 /.vscode
 /txCache
 /template
+/input-cache
+/fsh-generated
 publisher.jar
+FHIR-cmi.xml
+FHIR-crmi.xml

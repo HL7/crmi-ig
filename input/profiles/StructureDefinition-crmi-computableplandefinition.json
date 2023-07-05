@@ -1,0 +1,68 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-computableplandefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computableplandefinition",
+  "name" : "CRMIComputablePlanDefinition",
+  "title" : "CRMI Computable Plan Definition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Defines a computable PlanDefinition that specifies a single library and requires all expressions referenced from the PlanDefinition to be definitions in that single library",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "PlanDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableplandefinition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "PlanDefinition",
+      "path" : "PlanDefinition",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "PlanDefinition.library",
+      "path" : "PlanDefinition.library",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "canonical",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Library"]
+      }]
+    }]
+  }
+}

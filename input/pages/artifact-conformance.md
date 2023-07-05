@@ -14,7 +14,7 @@ In FHIR, an eCQM is represented as a FHIR Measure resource containing metadata (
     <start value="2018-01-01"/>
     <end value="2018-12-31"/>
   </effectivePeriod>
-  <library value="http://hl7.org/fhir/uv/cmi/Library/EXMLogic"/>
+  <library value="http://hl7.org/fhir/uv/crmi/Library/EXMLogic"/>
   <group>
     <population>
       <code><coding><code value="initial-population"/></coding></code>
@@ -60,7 +60,7 @@ When using multiple CQL libraries to define a measure, refer to the [Nested Libr
 Inclusion of CQL into a FHIR eCQM is accomplished through the use of a FHIR Library resource as shown in Snippet 3-4. These libraries are then incorporated into the FHIR eCQM using the `library` element of the Measure (Snippet 3). CQL library content is encoded as `base64` and included as the `content` element of the Library resource.
 
 ```xml
-<library value="http://hl7.org/fhir/uv/cmi/Library/EXMLogic"/>
+<library value="http://hl7.org/fhir/uv/crmi/Library/EXMLogic"/>
 ```
 Snippet 3-3: `library` element from Snippet 3-1
 
@@ -69,19 +69,19 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
 **Conformance Requirement 3.1 (Referencing CQL Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
 {: #conformance-requirement-3-1}
 
-1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CMIMeasure profile. In particular, FHIR-based eCQMs SHALL contain a narrative containing a human-readable representation of the measure content.
+1. FHIR-based eCQMs SHALL consist of a FHIR Measure resource conforming to at least the CRMIMeasure profile. In particular, FHIR-based eCQMs SHALL contain a narrative containing a human-readable representation of the measure content.
 2. FHIR-based eCQM Measure and Library resource instances SHALL declare their profile.
-3. Proportion Measures SHALL conform to the CMIProportionMeasure profile or satisfy the proportion scoring constraints in the CMIComputableMeasure profile.
-4. Ratio Measures SHALL conform to the CMIRatioMeasure profile or satisfy the ratio scoring constraints in the CMIComputableMeasure profile.
-5. Composite Measures SHALL conform to the CMICompositeMeasure profile or satisfy the composite scoring constraints in the CMIComputableMeasure profile.
-6. Continuous Variable Measures SHALL conform to the CMIContinuousVariableMeasure profile or satisfy the continuous variable scoring constraints in the CMIComputableMeasure profile.
-7. Cohort Measures SHALL conform to the CMICohortMeasure profile or satisfy the cohort scoring constraints in the CMIComputableMeasure profile.
-8. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CMILibrary profile.
-9. CMIMeasures utilizing CQL libraries SHALL include exactly 1 CMILibrary per CQL library referenced in the Measure.
+3. Proportion Measures SHALL conform to the CRMIProportionMeasure profile or satisfy the proportion scoring constraints in the CRMIComputableMeasure profile.
+4. Ratio Measures SHALL conform to the CRMIRatioMeasure profile or satisfy the ratio scoring constraints in the CRMIComputableMeasure profile.
+5. Composite Measures SHALL conform to the CRMICompositeMeasure profile or satisfy the composite scoring constraints in the CRMIComputableMeasure profile.
+6. Continuous Variable Measures SHALL conform to the CRMIContinuousVariableMeasure profile or satisfy the continuous variable scoring constraints in the CRMIComputableMeasure profile.
+7. Cohort Measures SHALL conform to the CRMICohortMeasure profile or satisfy the cohort scoring constraints in the CRMIComputableMeasure profile.
+8. Libraries used with FHIR-based eCQMs SHALL consist of a FHIR Library resource conforming to at least the CRMILibrary profile.
+9. CRMIMeasures utilizing CQL libraries SHALL include exactly 1 CRMILibrary per CQL library referenced in the Measure.
 10. CQL Libraries implicitly referenced through nesting of libraries MAY be included.
-11. CMILibraries SHALL include a content element for CQL.
-12. The CMILibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
-13. CMILibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
+11. CRMILibraries SHALL include a content element for CQL.
+12. The CRMILibrary content element SHALL include a sub-element with a mediaType of `text/cql`.
+13. CRMILibraries SHALL specify CQL content as a base-64-encoded string in the content sub-element as content.data.
 14. Any referenced CQL library SHALL contain a library declaration line.
 15. The library declaration line SHALL be the first line in the library.
 16. The name of the Library resource SHALL be the same as the name of the CQL library.
@@ -94,10 +94,10 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
   "id": "EXM146",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cmi/StructureDefinition/library-cmi"
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/library-crmi"
     ]
   },
-  "url": "http://hl7.org/fhir/uv/cmi/Library/EXM146",
+  "url": "http://hl7.org/fhir/uv/crmi/Library/EXM146",
   "identifier": [
     {
       "use": "official",
@@ -140,7 +140,7 @@ Snippet 3-4 illustrates a FHIR Library resource containing a CQL library with a 
       "valueCodeableConcept": {
         "coding": [
           {
-            "system": "http://hl7.org/fhir/uv/cmi/CodeSystem/quality-programs",
+            "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/quality-programs",
             "code": "ep-ec",
             "display": "EP/EC"
           }
@@ -383,8 +383,8 @@ Both CQL and ELM representations may be included in the Library resource dependi
 
 **Conformance Requirement 3.2 (Referencing ELM Documents):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-2)
 {: #conformance-requirement-3-2}
-1. CMILibraries SHOULD include a content element with the ELM in either XML or JSON format
-2. CMILibraries SHALL specify ELM content as a base-64-encoded string in the content sub-element as content.data
+1. CRMILibraries SHOULD include a content element with the ELM in either XML or JSON format
+2. CRMILibraries SHALL specify ELM content as a base-64-encoded string in the content sub-element as content.data
 3. An ELM translation SHOULD be provided, in either XML or JSON format.
 4. For executable environments, an ELM translation SHALL be provided, in either XML or JSON format.
 5. The XML representation of the ELM SHALL have a mediaType attribute
@@ -394,7 +394,7 @@ value of `application/elm+json`
 7. Any translation-referenced ELM documents SHALL be semantically
 equivalent to the corresponding parent CQL expression document.
 
-The content elements in Snippet 3-4 provide an example of how a CMILibrary resource would contain both the CQL and the ELM as base-64-encoded strings. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146.json](Measure-measure-exm146-FHIR.json.html).
+The content elements in Snippet 3-4 provide an example of how a CRMILibrary resource would contain both the CQL and the ELM as base-64-encoded strings. More on ELM can be found in Section 3.1.1. For examples of ELM using the XML and JSON representations please see the included examples, [EXM146.xml](Measure-measure-exm146-FHIR.xml.html) and [EXM146.json](Measure-measure-exm146-FHIR.json.html).
 
 #### Measurement Period
 {: #measurement-period}
@@ -423,16 +423,16 @@ Snippet 3-6: CQL declaration of the measurement period parameter (from [EXM146.c
 
 Rather than specifying a static effective period, implementations may specify the effective period using a start date and a reporting period duration.
 
-This implementation guide defines two extensions, [`cmi-effectivePeriodAnchor`](StructureDefinition-cmi-effectivePeriodAnchor.html) and [`cmi-effectivePeriodDuration`](StructureDefinition-cmi-effectivePeriodDuration.html) to support this alternative.
+This implementation guide defines two extensions, [`crmi-effectivePeriodAnchor`](StructureDefinition-crmi-effectivePeriodAnchor.html) and [`crmi-effectivePeriodDuration`](StructureDefinition-crmi-effectivePeriodDuration.html) to support this alternative.
 
 As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a calendar duration of 1 year, would have valid Measurement Periods of 1/1/2019-12/31/2019, 1/1/2020-12/31/2020, etc. Note that although UCUM definite-duration units are required within FHIR, the semantics in this case use calendar duration semantics.
 
 ```xml
 <effectivePeriod>
-	<extension url="http://hl7.org/fhir/uv/cmi/cmi-effectivePeriodAnchor">
+	<extension url="http://hl7.org/fhir/uv/crmi/crmi-effectivePeriodAnchor">
 		<valueDateTime value="2019-01-01"/>
 	</extension>
-	<extension url="http://hl7.org/fhir/uv/cmi/cmi-effectivePeriodDuration">
+	<extension url="http://hl7.org/fhir/uv/crmi/crmi-effectivePeriodDuration">
 		<valueDuration>
 			<value value="1"/>
 			<code value="a"/>
@@ -440,11 +440,11 @@ As shown below in Snippet 3-7, a measure anchored to January 1, 2019 with a cale
 	</extension>
 </effectivePeriod>
 ```
-Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-cmi-effectivePeriodAnchor.html) (used to define the starting date and range) and [effectivePeriodDuration extension](StructureDefinition-cmi-effectivePeriodDuration.html) (used to specify the reporting period).
+Snippet 3-7: Example of [effectivePeriodAnchor extension](StructureDefinition-crmi-effectivePeriodAnchor.html) (used to define the starting date and range) and [effectivePeriodDuration extension](StructureDefinition-crmi-effectivePeriodDuration.html) (used to specify the reporting period).
 
 **Conformance Requirement 3.3 (Measurement Period):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-3)
 {: #conformance-requirement-3-3}
-1. FHIR-based eCQMs SHALL provide either an `effectivePeriod` element, or an `cmi-effectivePeriodAnchor` and `cmi-effectivePeriodDuration` extension
+1. FHIR-based eCQMs SHALL provide either an `effectivePeriod` element, or an `crmi-effectivePeriodAnchor` and `crmi-effectivePeriodDuration` extension
 2. Measurement Period SHALL be either the `effectivePeriod` as specified, or an appropriate interval of length duration, starting at the specified anchor
 
 
@@ -472,7 +472,7 @@ Snippet 3-8: CQL declaration of codesystem, valueset, and code (from [Terminolog
 
 Further discussion of codesystem, valueset, and code can be found in the [Using CQL Chapter](using-cql.html) of this IG, sections [4.3](using-cql.html#code-systems), [4.4](using-cql.html#value-sets), and [4.5](using-cql.html#codes).
 
-All declared valuesets and codes can be found in the [dataRequirement](StructureDefinition-library-cmi-definitions.html#Library.dataRequirement) elements in the Library resource referenced by the Measure resource.
+All declared valuesets and codes can be found in the [dataRequirement](StructureDefinition-library-crmi-definitions.html#Library.dataRequirement) elements in the Library resource referenced by the Measure resource.
 
 ```json
 "dataRequirement": [
@@ -710,7 +710,7 @@ Snippet 3-15: CQL definition of the "Initial Population" criteria (from [EXM146.
 1. All Measure population criteria components <br/>
      a. SHALL reference exactly one CQL expression.<br/>
      b. SHALL reference the same CQL library.
-2. References to expressions SHALL use the `text/cql.identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
+2. References to expressions SHALL use the `text/cql-identifier` media type defined in the [CQL specification](https://cql.hl7.org/2020May/07-physicalrepresentation.html#media-types-and-namespaces).<br/>
 
 #### Criteria Names
 {: #criteria-names}
@@ -760,14 +760,14 @@ In addition to the measure type, measures generally fall into two categories, pa
 **Conformance Requirement 3.9 (Population Basis):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-9)
 {: #conformance-requirement-3-9}
 1. CQL expressions SHALL be written to return an appropriate value for each population depending on the measure type
-2. The [`cmi-populationBasis`](StructureDefinition-cmi-populationBasis.html) extension SHALL be used to identify the result type of population criteria expressions in the measure
+2. The [`crmi-populationBasis`](StructureDefinition-crmi-populationBasis.html) extension SHALL be used to identify the result type of population criteria expressions in the measure
 
 The following example illustrates the use of the populationBasis extension for a patient-based measure:
 
 ```json
   "extension": [
     {
-      "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-populationBasis",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-populationBasis",
       "valueCode": "boolean"
     }
   ],
@@ -778,7 +778,7 @@ And the following example illustrates the use of the populationBasis extension f
 ```json
   "extension": [
     {
-      "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-populationBasis",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-populationBasis",
       "valueCode": "Encounter"
     }
   ],
@@ -1109,11 +1109,11 @@ The criteria referenced from the measure-observation component refers to a CQL e
 {
   "extension": [
     {
-      "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-criteriaReference",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-criteriaReference",
       "valueString": "measure-population-identifier"
     },
     {
-      "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-aggregateMethod",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-aggregateMethod",
       "valueCode": "median"
     }
   ],
@@ -1160,7 +1160,7 @@ In the example shown in Snippet 3-17 and Snippet 3-18: the measure reports the a
 
 ```json
 {
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-aggregateMethod",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-aggregateMethod",
   "valueCode": "median"
 }
  ```
@@ -1178,7 +1178,7 @@ Snippet 3-21: "Measure Observation" function in Snippet 3-18 (Sample CQL (from [
 
 ```json
 {
-  "url": "http://hl7.org/fhir/uv/cmi/StructureDefinition/cmi-criteriaReference",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-criteriaReference",
   "valueString": "measure-population-identifier"
 }
 ```
@@ -1331,7 +1331,7 @@ Stratification is represented using the stratifier element. The semantics of thi
       "value": "stratifier-1-identifier"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "Stratification 1"
     }
   }
@@ -1373,7 +1373,7 @@ Part of the definition of a quality measure involves the ability to specify addi
       "text": "Supplemental Data"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "SDE Ethnicity"
     }
   }
@@ -1417,7 +1417,7 @@ Some measures may define variables used to adjust scores based on a measure of â
       "text": "Risk Adjustment Variable"
     },
     "criteria": {
-      "language": "text/cql.identifier",
+      "language": "text/cql-identifier",
       "expression": "Hepatic Failure"
     }
   }
@@ -1445,7 +1445,7 @@ Refer to the [ConceptMap Resources section](terminology.html#conceptmap-resource
 
 ### Attribution
 
-Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CMIQualityProgram](StructureDefinition-quality-program-cmi.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
+Member Attribution (ATR) lists are used between Payers and Providers for implementing risk-based contracts, value based contracts, care gap closures and quality reporting. Creation of a Member Attribution List typically starts with a need to identify the patients for a specific purpose such as Quality Reporting. The [CRMIQualityProgram](StructureDefinition-quality-program-crmi.html) is a library profile used to establish a set of related quality improvement artifacts such as a measure program and can be used to establish a "release" of a quality program.
 
 Referring to the [Member Attribution Lists Workflows and Definitions](http://build.fhir.org/ig/HL7/davinci-atr/usecases.html#member-attribution-list-workflows-and-definitions) within the Da Vinvi - Member Attribution (ATR) List IG, there is a potential in using "contract identifier" to look up a group but not prescriptive from the perspective of QM IG.  
 

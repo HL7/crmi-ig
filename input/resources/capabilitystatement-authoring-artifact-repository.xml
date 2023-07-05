@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="authoring-measure-repository"/>
-  <url value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/authoring-measure-repository"/>
+  <id value="authoring-artifact-repository"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/authoring-artifact-repository"/>
   <version value="3.0.0"/>
-  <name value="CMIAuthoringMeasureRepository"/>
-  <title value="CQF Measures Authoring Measure Repository Capability Statement"/>
+  <name value="CRMIAuthoringArtifactRepository"/>
+  <title value="CRMI Authoring Artifact Repository Capability Statement"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-08"/>
@@ -16,17 +16,17 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Capability statement for a repository service supporting additional authoring and content workflow capabilities for FHIR-based measure specifications above the basic ShareableMeasureRepository."/>
+  <description value="Capability statement for a repository service supporting additional authoring and content workflow capabilities for FHIR-based knowledge artifacts above the basic ShareableArtifactRepository."/>
   <kind value="requirements"/>
-  <imports value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/shareable-measure-repository"/>
-  <imports value="http://hl7.org/fhir/uv/cmi/CapabilityStatement/publishable-measure-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-artifact-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/publishable-artifact-repository"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/cmi/ImplementationGuide/us-cmieasures-3.0.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/uv-crmi-0.1.0"/>
   <rest>
     <mode value="server"/>
-    <documentation value="RESTful Measure Repository"/>
+    <documentation value="RESTful Artifact Repository"/>
     <security>
       <cors value="true"/>
       <service>
@@ -89,21 +89,21 @@
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Library-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/Measure-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/cmi/OperationDefinition/MeasureReport-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/MeasureReport-package"/>
     </operation>
   </rest>
 </CapabilityStatement>

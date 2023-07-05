@@ -3,7 +3,7 @@
   "id": "software-system-example",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cmi/StructureDefinition/device-softwaresystem-cmi"
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/device-softwaresystem-crmi"
     ]
   },
   "deviceName": [
@@ -15,7 +15,7 @@
   "type": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/uv/cmi/CodeSystem/software-system-type",
+        "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/software-system-type",
         "code": "tooling"
       }
     ]

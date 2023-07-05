@@ -2,61 +2,52 @@
 
 ## Capability Profiles
 
-To support flexible representation and packaging of measure and library artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](http://build.fhir.org/ig/HL7/cqf-recommendations/CodeSystem-cpg-knowledge-capability.html) established by the [CPG-on-FHIR](http://build.fhir.org/ig/HL7/cqf-recommendations) implementation guide:
+To support flexible representation and packaging of knowledge artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](https://build.fhir.org/ig/HL7/fhir-extensions/CodeSystem-knowledge-capability.html):
 
 <table>
   <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
-  <tr><td>CodeSystem</td><td>N/A (use base ShareableCodeSystem)</td><td>N/A (no requirements)</td><td><a href="StructureDefinition-publishable-codesystem-cmi.html">CMIPublishableCodeSystem</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>Library</td><td><a href="StructureDefinition-library-cmi.html">CMILibrary</a></td><td><a href="StructureDefinition-computable-library-cmi.html">CMIComputableLibrary</a></td><td><a href="StructureDefinition-publishable-library-cmi.html">CMIPublishableLibrary</a></td><td><a href="StructureDefinition-executable-library-cmi.html">CMIExecutableLibrary</a></td></tr>
-  <tr><td>Measure</td><td><a href="StructureDefinition-measure-cmi.html">CMIMeasure</a></td><td><a href="StructureDefinition-computable-measure-cmi.html">CMIComputableMeasure</a></td><td><a href="StructureDefinition-publishable-measure-cmi.html">CMIPublishableMeasure</a></td><td><a href="StructureDefinition-executable-measure-cmi.html">CMIExecutableMeasure</a></td></tr>
-  <tr><td>ValueSet</td><td>N/A (use base ShareableValueSet)</td><td><a href="StructureDefinition-computable-valueset-cmi.html">CMIComputableValueSet</a></td><td><a href="StructureDefinition-publishable-valueset-cmi.html">CMIPublishableValueSet</a></td><td><a href="StructureDefinition-executable-valueset-cmi.html">CMIExecutableValueSet</a></td></tr>
-
-</table>
-
-In addition, measures are required to conform to the appropriate measure profile based on their scoring type:
-
-<table>
-  <tr><th>Scoring Type</th><th>Profile</th></tr>
-  <tr><td>Cohort</td><td><a href="StructureDefinition-cohort-measure-cmi.html">CMICohortMeasure</a></td></tr>
-  <tr><td>Proportion</td><td><a href="StructureDefinition-proportion-measure-cmi.html">CMIProportionMeasure</a></td></tr>
-  <tr><td>Ratio</td><td><a href="StructureDefinition-ratio-measure-cmi.html">CMIRatioMeasure</a></td></tr>
-  <tr><td>Continuous Variable</td><td><a href="StructureDefinition-cv-measure-cmi.html">CMIContinuousVariableMeasure</a></td></tr>
-  <tr><td>Composite</td><td><a href="StructureDefinition-composite-measure-cmi.html">CMICompositeMeasure</a></td></tr>
+  <tr><td>ActivityDefinition</td><td><a href="StructureDefinition-crmi-shareableactivitydefinition.html">CRMIShareableActivityDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableactivitydefinition.html">CRMIPublishableActivityDefinition</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>CapabilityStatement</td><td><a href="StructureDefinition-crmi-shareablecapabilitystatement.html">CRMIShareableCapabilityStatement</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecapabilitystatement.html">CRMIPublishableCapabilityStatement</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>CareTeam</td><td><a href="StructureDefinition-crmi-shareablecareteam.html">CRMIShareableCareTeam (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecareteam.html">CRMIPublishableCareTeam (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>ClinicalUseDefinition</td><td><a href="StructureDefinition-crmi-shareableclinicalusedefinition.html">CRMIShareableClinicalUseDefinition (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableclinicalusedefinition.html">CRMIPublishableClinicalUseDefinition (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>CodeSystem</td><td><a href="StructureDefinition-crmi-shareablecodesystem.html">CRMIShareableCodeSystem</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecodesystem.html">CRMIPublishableCodeSystem</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>CompartmentDefinition</td><td><a href="StructureDefinition-crmi-shareablecompartmentdefinition.html">CRMIShareableCompartmentDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecompartmentdefinition.html">CRMIPublishableCompartmentDefinition</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>ConditionDefinition</td><td><a href="StructureDefinition-crmi-shareableconditiondefinition.html">CRMIShareableConditionDefinition (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableconditiondefinition.html">CRMIPublishableConditionDefinition (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>ConceptMap</td><td><a href="StructureDefinition-crmi-shareableconceptmap.html">CRMIShareableConceptMap</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableconceptmap.html">CRMIPublishableConceptMap</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>DeviceDefinition</td><td><a href="StructureDefinition-crmi-shareabledevicedefinition.html">CRMIShareableDeviceDefinition (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishabledevicedefinition.html">CRMIPublishableDeviceDefinition (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>ExampleScenario</td><td><a href="StructureDefinition-crmi-shareableexamplescenario.html">CRMIShareableExampleScenario (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableexamplescenario.html">CRMIPublishableExampleScenario (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>GraphDefinition</td><td><a href="StructureDefinition-crmi-shareablegraphdefinition.html">CRMIShareableGraphDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablegraphdefinition.html">CRMIPublishableGraphDefinition</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>Group</td><td><a href="StructureDefinition-crmi-shareablegroup.html">CRMIShareableGroup (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablegroup.html">CRMIPublishableGroup (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>ImplementationGuide</td><td><a href="StructureDefinition-crmi-shareableimplementationguide.html">CRMIShareableImplementationGuide</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableimplementationguide.html">CRMIPublishableImplementationGuide</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>Library</td><td><a href="StructureDefinition-crmi-shareablelibrary.html">CRMIShareableLibrary</a></td><td><a href="StructureDefinition-crmi-computablelibrary.html">CRMIComputableLibrary</a></td><td><a href="StructureDefinition-crmi-publishablelibrary.html">CRMIPublishableLibrary</a></td><td><a href="StructureDefinition-crmi-executablelibrary.html">CRMIExecutableLibrary</a></td></tr>
+  <tr><td>Location</td><td><a href="StructureDefinition-crmi-shareablelocation.html">CRMIShareableLocation (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablelocation.html">CRMIPublishableLocation (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>Measure</td><td><a href="StructureDefinition-crmi-shareablemeasure.html">CRMIShareableMeasure</a></td><td><a href="StructureDefinition-crmi-computablemeasure.html">CRMIComputableMeasure</a></td><td><a href="StructureDefinition-crmi-publishablemeasure.html">CRMIPublishableMeasure</a></td><td><a href="StructureDefinition-crmi-executablemeasure.html">CRMIExecutableMeasure</a></td></tr>
+  <tr><td>MedicationKnowledge</td><td><a href="StructureDefinition-crmi-shareablemedicationknowledge.html">CRMIShareableMedicationKnowledge (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemedicationknowledge.html">CRMIPublishableMedicationKnowledge (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>MessageDefinition</td><td><a href="StructureDefinition-crmi-shareablemessagedefinition.html">CRMIShareableMessageDefinition (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemessagedefinition.html">CRMIPublishableMessageDefinition (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>NamingSystem</td><td><a href="StructureDefinition-crmi-shareablenamingsystem.html">CRMIShareableNamingSystem</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablenamingsystem.html">CRMIPublishableNamingSystem</a></td><td>N/A (no requirements)</td></tr>
+  <tr><td>ObservationDefinition</td><td><a href="StructureDefinition-crmi-shareableobservationdefinition.html">CRMIShareableObservationDefinition (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableobservationdefinition.html">CRMIPublishableObservationDefinition (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>OperationDefinition</td><td><a href="StructureDefinition-crmi-shareableoperationdefinition.html">CRMIShareableOperationDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableoperationdefinition.html">CRMIPublishableOperationDefinition</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>Organization</td><td><a href="StructureDefinition-crmi-shareableorganization.html">CRMIShareableOrganization (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableorganization.html">CRMIPublishableOrganization (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>PlanDefinition</td><td><a href="StructureDefinition-crmi-shareableplandefinition.html">CRMIShareablePlanDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableplandefinition.html">CRMIPublishablePlanDefinition</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>Practitioner</td><td><a href="StructureDefinition-crmi-shareablepractitioner.html">CRMIShareablePractitioner (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablepractitioner.html">CRMIPublishablePractitioner (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>PractitionerRole</td><td><a href="StructureDefinition-crmi-shareablepractitionerrole.html">CRMIShareablePractitionerRole (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablepractitionerrole.html">CRMIPublishablePractitionerRole (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>Questionnaire</td><td><a href="StructureDefinition-crmi-shareablequestionnaire.html">CRMIShareableQuestionnaire</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablequestionnaire.html">CRMIPublishableQuestionnaire</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>SearchParameter</td><td><a href="StructureDefinition-crmi-shareablesearchparameter.html">CRMIShareableSearchParameter</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablesearchparameter.html">CRMIPublishableSearchParameter</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>SpecimenDefinition</td><td><a href="StructureDefinition-crmi-shareablespecimendefinition.html">CRMIShareableSpecimenDefinition (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablespecimendefinition.html">CRMIPublishableSpecimenDefinition (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>SubscriptionTopic</td><td><a href="StructureDefinition-crmi-shareablesubscriptiontopic.html">CRMIShareableSubscriptionTopic (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablesubscriptiontopic.html">CRMIPublishableSubscriptionTopic (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>StructureDefinition</td><td><a href="StructureDefinition-crmi-shareablestructuredefinition.html">CRMIShareableStructureDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablestructuredefinition.html">CRMIPublishableStructureDefinition</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>StructureMap</td><td><a href="StructureDefinition-crmi-shareablestructuremap.html">CRMIShareableStructureMap</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablestructuremap.html">CRMIPublishableStructureMap</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>TerminologyCapabilities</td><td><a href="StructureDefinition-crmi-shareableterminologycapabilities.html">CRMIShareableTerminologyCapabilities (TODO)</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableterminologycapabilities.html">CRMIPublishableTerminologyCapabilities (TODO)</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>ValueSet</td><td><a href="StructureDefinition-crmi-shareablevalueset.html">CRMIShareableValueSet</a></td><td><a href="StructureDefinition-crmi-computablevalueset.html">CRMIComputableValueSet</a></td><td><a href="StructureDefinition-crmi-publishablevalueset.html">CRMIPublishableValueSet</a></td><td><a href="StructureDefinition-crmi-executablevalueset.html">CRMIExecutableValueSet</a></td></tr>
 </table>
 
 To support packaging, testing, and distribution of measure and library artifacts, this implementation guide defines the following additional profiles:
 
 <table>
   <tr><th>Profile</th><th>Description</th></tr>
-  <tr><td><a href="StructureDefinition-capability-statement-cmi.html">CMICapabilityStatement</a></td><td>A system capability statement that can express which version of CQL is supported</td></tr>
-  <tr><td><a href="StructureDefinition-device-softwaresystem-cmi.html">CMIDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
-  <tr><td><a href="StructureDefinition-modelinfo-library-cmi.html">CMIModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used in quality measurement.</td></tr>
-  <tr><td><a href="StructureDefinition-module-definition-library-cmi.html">CMIModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.</td></tr>
-  <tr><td><a href="StructureDefinition-test-case-cmi.html">CMITestCase</a></td><td>A measure report profile that allows definition and exchange of test cases for a measure.</td></tr>
-  <tr><td><a href="StructureDefinition-quality-program-cmi.html">CMIQualityProgram</a></td><td>A library profile used to establish a set of related quality improvement artifacts such as a measure program and supports the definition of Quality Program. The set of identified quality programs is not exhaustive and this IG is not prescribing codes for programs.</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-capabilitystatement.html">CRMICapabilityStatement</a></td><td>A system capability statement that can express which version of CQL is supported</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-softwaresystemdevice.html">CRMISoftwareSystemDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-modelinfolibrary.html">CRMIModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used in quality measurement.</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-moduledefinitionlibrary.html">CRMIModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts) used in quality measurement.</td></tr>
 </table>
 
-## Alphabetical Listing
-
-- [Capability Statement](StructureDefinition-capability-statement-cmi.html)
-- [Cohort Measure](StructureDefinition-cohort-measure-cmi.html)
-- [Composite Measure](StructureDefinition-composite-measure-cmi.html)
-- [Computable Library](StructureDefinition-computable-library-cmi.html)
-- [Computable Measure](StructureDefinition-computable-measure-cmi.html)
-- [Computable ValueSet](StructureDefinition-computable-valueset-cmi.html)
-- [Continuous Variable Measure](StructureDefinition-cv-measure-cmi.html)
-- [Device](StructureDefinition-device-softwaresystem-cmi.html)
-- [Executable Library](StructureDefinition-executable-library-cmi.html)
-- [Executable ValueSet](StructureDefinition-executable-valueset-cmi.html)
-- [Library](StructureDefinition-library-cmi.html)
-- [Measure](StructureDefinition-measure-cmi.html)
-- [Measure Test Case](StructureDefinition-test-case-cmi.html)
-- [Model Info Library](StructureDefinition-modelinfo-library-cmi.html)
-- [Module Definition Library](StructureDefinition-module-definition-library-cmi.html)
-- [Proportion Measure](StructureDefinition-proportion-measure-cmi.html)
-- [Publishable CodeSystem](StructureDefinition-publishable-codesystem-cmi.html)
-- [Publishable Library](StructureDefinition-publishable-library-cmi.html)
-- [Publishable Measure](StructureDefinition-publishable-measure-cmi.html)
-- [Publishable ValueSet](StructureDefinition-publishable-valueset-cmi.html)
-- [Quality Program Specification](StructureDefinition-quality-program-cmi.html)
-- [Ratio Measure](StructureDefinition-ratio-measure-cmi.html)

@@ -1,0 +1,46 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "software-system-type",
+  "url": "http://terminology.hl7.org/CodeSystem/software-system-type",
+  "name": "SoftwareSystemType",
+  "title": "Software System Type Codes",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-03-14T23:21:03-06:00",
+  "description": "The type of software system (authoring, testing, tooling, evaluation)",
+  "caseSensitive": true,
+  "valueSet": "http://terminology.hl7.org/ValueSet/software-system-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "authoring",
+      "display": "Authoring",
+      "definition": "A knowledge authoring environment"
+    },
+    {
+      "code": "testing",
+      "display": "Testing",
+      "definition": "A testing environment"
+    },
+    {
+      "code": "tooling",
+      "display": "Tooling",
+      "definition": "Tooling software"
+    },
+    {
+      "code": "evaluation",
+      "display": "Evaluation",
+      "definition": "A knowledge evaluation environment"
+    },
+    {
+      "code": "reporting",
+      "display": "Reporting",
+      "definition": "A quality reporting system"
+    },
+    {
+      "code": "data-capture",
+      "display": "Data Capture",
+      "definition": "A system that performs data-capture as part of a reporting pipeline"
+    }
+  ]
+}

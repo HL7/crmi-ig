@@ -1,0 +1,156 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareableimplementationguide",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableimplementationguide",
+  "name" : "CRMIShareableImpementationGuide",
+  "title" : "CRMI Shareable ImplementationGuide",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the implementation guide metadata required by HL7 and other organizations that share and publish implementation guides",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ImplementationGuide",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ImplementationGuide",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ImplementationGuide",
+      "path" : "ImplementationGuide",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "ImplementationGuide.extension:knowledgeCapability",
+      "path" : "ImplementationGuide.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.extension:knowledgeRepresentationLevel",
+      "path" : "ImplementationGuide.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.extension:artifactComment",
+      "path" : "ImplementationGuide.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.extension:versionAlgorithm",
+      "path" : "ImplementationGuide.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.url",
+      "path" : "ImplementationGuide.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.version",
+      "path" : "ImplementationGuide.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.name",
+      "path" : "ImplementationGuide.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.title",
+      "path" : "ImplementationGuide.title",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.status",
+      "path" : "ImplementationGuide.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.experimental",
+      "path" : "ImplementationGuide.experimental",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.publisher",
+      "path" : "ImplementationGuide.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImplementationGuide.description",
+      "path" : "ImplementationGuide.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

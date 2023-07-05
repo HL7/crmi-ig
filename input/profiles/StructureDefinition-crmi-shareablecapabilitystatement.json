@@ -1,0 +1,156 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablecapabilitystatement",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement",
+  "name" : "CRMIShareableCapabilityStatement",
+  "title" : "CRMI Shareable CapabilityStatement",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the capabilitystatement metadata required by HL7 and other organizations that share and publish capability statements",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "CapabilityStatement",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CapabilityStatement",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "CapabilityStatement",
+      "path" : "CapabilityStatement",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "CapabilityStatement.extension:knowledgeCapability",
+      "path" : "CapabilityStatement.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.extension:knowledgeRepresentationLevel",
+      "path" : "CapabilityStatement.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.extension:artifactComment",
+      "path" : "CapabilityStatement.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.extension:versionAlgorithm",
+      "path" : "CapabilityStatement.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.url",
+      "path" : "CapabilityStatement.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.version",
+      "path" : "CapabilityStatement.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.name",
+      "path" : "CapabilityStatement.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.title",
+      "path" : "CapabilityStatement.title",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.status",
+      "path" : "CapabilityStatement.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.experimental",
+      "path" : "CapabilityStatement.experimental",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.publisher",
+      "path" : "CapabilityStatement.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "CapabilityStatement.description",
+      "path" : "CapabilityStatement.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}
