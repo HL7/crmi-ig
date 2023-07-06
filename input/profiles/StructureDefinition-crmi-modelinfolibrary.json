@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-modelinfolibrary",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-modelinfolibrary",
-  "version": "3.0.0",
   "name": "CRMIModelInfoLibrary",
   "title": "CRMI Model Info Library",
   "status": "active",
@@ -20,16 +31,6 @@
     }
   ],
   "description": "The CRMI Model Information Library profile defines the must support elements for a computable Model Definition library used to support declaration and distribution of CQL ModelInfo such as the FHIR Model Info Library",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {

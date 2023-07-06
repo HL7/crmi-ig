@@ -1,0 +1,161 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablesearchparameter",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesearchparameter",
+  "name" : "CRMIShareableSearchParameter",
+  "title" : "CRMI Shareable SearchParameter",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the search parameter metadata required by HL7 and other organizations that share and publish search parameters",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "SearchParameter",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/SearchParameter",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "SearchParameter",
+      "path" : "SearchParameter",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "SearchParameter.extension:knowledgeCapability",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.extension:knowledgeRepresentationLevel",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.extension:artifactComment",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.extension:versionAlgorithm",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.extension:title",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "title",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.url",
+      "path" : "SearchParameter.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.version",
+      "path" : "SearchParameter.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.name",
+      "path" : "SearchParameter.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.status",
+      "path" : "SearchParameter.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.experimental",
+      "path" : "SearchParameter.experimental",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.publisher",
+      "path" : "SearchParameter.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "SearchParameter.description",
+      "path" : "SearchParameter.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

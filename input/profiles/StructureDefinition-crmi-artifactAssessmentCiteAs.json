@@ -1,0 +1,79 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-artifactAssessmentCiteAs",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs",
+  "version": "1.0.0",
+  "name": "CRMIArtifactAssessmentCiteAs",
+  "title": "CRMI Artifact Assessment Cite As",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-02-28",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "How to cite the comment or rating.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "Display of or reference to the bibliographic citation of the comment, classifier, or rating.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Resource"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "How to cite the comment or rating.",
+        "definition": "Display of or reference to the bibliographic citation of the comment, classifier, or rating.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Citation"]
+        },
+        {
+          "code" : "markdown"
+        }]
+      }
+    ]
+  }
+}

@@ -2,15 +2,18 @@
   "resourceType" : "StructureDefinition",
   "id" : "cqf-artifactComment",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-    "valueCode" : "fhir"
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
   },
   {
-    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 1
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/cqf-artifactComment",
-  "version": "4.0.101",
   "name" : "ArtifactComment",
   "title": "Artifact Comment",
   "status" : "draft",
@@ -245,7 +248,7 @@
       "max" : "0"
     },
     {
-      "id" : "Extension.extension:user.url",
+      "id" : "Extension.extension:authoredOn.url",
       "path" : "Extension.extension.url",
       "type" : [{
         "code" : "uri"
@@ -253,7 +256,7 @@
       "fixedUri" : "authoredOn"
     },
     {
-      "id" : "Extension.extension:user.value[x]",
+      "id" : "Extension.extension:authoredOn.value[x]",
       "path" : "Extension.extension.value[x]",
       "min" : 1,
       "type" : [{

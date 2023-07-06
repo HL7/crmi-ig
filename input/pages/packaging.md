@@ -2,7 +2,7 @@
 
 {: #artifact-packaging}
 
-To facilitate publishing and distribution of knowledge artifacts, this Implementation Guide
+To facilitate publishing and distribution of canonical resources and knowledge artifacts, this Implementation Guide
 provides guidance on how to package knowledge artifacts, either independently, or as part of a collection of related artifacts.
 
 ### Packaging Artifacts
@@ -11,14 +11,15 @@ provides guidance on how to package knowledge artifacts, either independently, o
 #### FHIR Bundle
 
 In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
-of type `transaction`. They may span multiple bundles in a given delivery, thus the bundle should be processed as a unit.
+of type `transaction`. However, since large artifact packages may span multiple bundles, the type
+`collection` may be used as well. In that case, the bundles should be processed as a unit.
 
 An artifact bundle contains the artifact as the first entry in the bundle, and optionally the
 dependencies and associated artifacts as subsequent entries as follows:
 
 1. **Artifact**: The main artifact resource for the package (such as a PlanDefinition, Measure, or Library)
 2. **Dependencies**: Any dependencies, including libraries, terminologies, and other artifacts required for the artifact
-4. **Test Cases**: Any test cases defined for the artifact
+3. **Test Cases**: Any test cases defined for the artifact
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
 

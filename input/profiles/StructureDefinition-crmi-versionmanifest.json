@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-versionmanifest",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-versionmanifest",
-  "version": "3.0.0",
   "name": "CRMIVersionManifest",
   "title": "CRMI Version Manifest",
   "status": "active",
@@ -20,16 +31,6 @@
     }
   ],
   "description": "Defines and supports the definition of a version manifest used to declare specific versions of dependencies used in knowledge artifacts",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "purpose": "Knowledge artifacts must be able to specify versioning information for all the dependencies used in a particular release to enable stable expansion of value sets. Specifically, the versions of code systems used to construct value sets referenced by the artifacts must be identified so that terminology servers performing expansions can unambiguously select the version of each code system used to perform the expansion.",
   "fhirVersion": "4.0.1",
   "mapping": [
@@ -85,7 +86,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-partOf"
+              "http://hl7.org/fhir/StructureDefinition/cqf-partOf"
             ]
           }
         ],
@@ -101,7 +102,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-directReferenceCode"
+              "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode"
             ]
           }
         ],
@@ -117,7 +118,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-cqlOptions"
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions"
             ]
           }
         ],
@@ -133,7 +134,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expansionParameters"
+              "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters"
             ]
           }
         ],

@@ -141,14 +141,14 @@ The package operation supports the ability of a repository to package an artifac
 * **capability**: A desired capability of the resulting package. `computable` to include computable elements in packaged content, `executable` to include executable elements in packaged content, `publishable` to include publishable elements in packaged content.
 * **offset**: Paging support - where to start if a subset is desired (default = 0). Offset is number of records (not number of pages)
 * **count**: Paging support - how many resources should be provided in a partial page view. If count = 0, the client is asking how large the package is.
-* **system-version**: Specifies a version to use for a system, if the library or value set does not already specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
-* **check-system-version**: Edge Case: Specifies a version to use for a system. If a library or value set specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
-* **force-system-version**: Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the library and value sets (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
+* **canonicalVersion**: Specifies a version to use for a system, if the library or value set does not already specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
+* **checkCanonicalVersion**: Edge Case: Specifies a version to use for a system. If a library or value set specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
+* **forceCanonicalVersion**: Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the library and value sets (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
-* **include-dependencies**: Specifies whether to include known dependencies of the artifact in the resulting package, recursively (default = true)
-* **include-components**: Specifies whether to include components of the artifact in the resulting package, recursively (default = true)
+* **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
+* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the same package as the artifact being packaged (default is false) 
 
-The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters.
+The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters. This operation can also be 
 
 ##### Requirements
 
@@ -168,8 +168,8 @@ The following parameters SHOULD be supported for the requirements operations:
 * **expression**: If appropriate for the type of artifact, specific expressions or components to be analyzed. If not specified, the analysis is performed for the entire artifact
 * **parameters**: Any input parameters for the artifact. Parameters defined in this input will be bound by name to parameters defined in the CQL library (or referenced libraries). Parameter types are mapped to CQL as specified in the Using CQL section of this implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL.
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by value set(s) or other artifacts used in the artifact. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
-* **include-dependencies**: Specifies whether to follow known dependencies of the artifact as part of the analysis, recursively (default = true)
-* **include-components**: Specifies whether to follow known components of the artifact as part of the analysis, recursively (default = true)
+* **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
+* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the same package as the artifact being packaged (default is false) 
 
 The result of the requirements operation is a _module-definition_ Library that returns the computed effective requirements of the artifact.
 
@@ -191,7 +191,17 @@ The _review_ operation supports applying a review to an existing artifact, regar
 
 ##### Approve
 
-The _approve_ operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add _artifactComment_ elements to the artifact, and to add or update an _endorser_.
+The _approve_ operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to add an [_artifactAssessment_](http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentArtifact) resource to the repository.
+
+The following parameters SHOULD be supported for the operation:
+
+* **id**: The server-specific id of the artifact to be approved.
+* **approvalDate**: The date on which the artifact was last approved. If this parameter is not provided the operation will infer the date to be the current system date on the repository performing the operation.
+* **artifactAssessmentType**: If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (and must belong to the [Artifact Assessment Information Type ValueSet](http://hl7.org/fhir/ValueSet/artifactassessment-information-type) ValueSet).
+* **artifactAssessmentSummary**: If a comment is submitted as part of the approval, this parameter contains the body of the comment.
+* **artifactAssessmentTarget**: The version-specific canonical URL for the artifact being approved. The format is: [system]|[version] - e.g. http://loinc.org|2.56
+* **artifactAssessmentRelatedArtifact**: Optional supporting Reference or canonical URL pointing to a supporting resource for the comment.
+* **artifactAssessmentAuthor**: A Reference to a resource with further information about the entity applying the approval.
 
 ##### Publish
 
@@ -320,7 +330,7 @@ For each type of artifact supported, an AuthoringMeasureRepository:
 4. SHOULD support [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
 5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing artifact (regardless of status)
 6. SHALL support [**Publish**](#publish): Post a new artifact with _active_ status
-7. SHALL support [**Release**](OperationDefinition-crmi-authoring-knowledge-artifact-release.html): The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program's manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively.
+7. SHALL support [**Release**](OperationDefinition-crmi-release.html): The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and, to the extent specified in the operation's parameter inputs, pins versions of all direct and transitive references and records them in the program's manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively.
 8. SHOULD support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 9. SHOULD support [**Archive**](#archive): Delete a _retired_ artifact
 

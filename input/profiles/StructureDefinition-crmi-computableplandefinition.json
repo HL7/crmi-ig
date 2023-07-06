@@ -1,6 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "computableplandefinition",
+  "id" : "crmi-computableplandefinition",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,14 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/StructureDefinition/computableplandefinition",
-  "version": "4.0.101",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1078"
-  }],
-  "name" : "ComputablePlanDefinition",
-  "title" : "Computable  Plan Definition",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computableplandefinition",
+  "name" : "CRMIComputablePlanDefinition",
+  "title" : "CRMI Computable Plan Definition",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
@@ -50,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "PlanDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/PlanDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableplandefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

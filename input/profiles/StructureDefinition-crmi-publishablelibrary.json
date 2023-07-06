@@ -1,267 +1,201 @@
 {
-  "resourceType": "StructureDefinition",
-  "id": "crmi-publishablelibrary",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary",
-  "version": "3.0.0",
-  "name": "CRMIPublishableLibrary",
-  "title": "CRMI Publishable Library",
-  "status": "active",
-  "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
-  "publisher": "Clinical Decision Support WG",
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
-        }
-      ]
-    }
-  ],
-  "description": "The CRMI Publishable Library profile defines the must support elements in a library used to support artifact logic",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
-  "fhirVersion": "4.0.1",
-  "mapping": [
-    {
-      "identity": "rim",
-      "uri": "http://hl7.org/v3",
-      "name": "RIM Mapping"
+  "resourceType" : "StructureDefinition",
+  "id" : "publishablelibrary",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/publishablelibrary",
+  "version": "4.0.101",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1159"
+  }],
+  "name" : "PublishableLibrary",
+  "title" : "Publishable Library",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the library metadata required by HL7 and other organizations that share and publish libraries with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Library",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Library",
+      "path" : "Library",
+      "min" : 1,
+      "max" : "1"
     },
     {
-      "identity": "workflow",
-      "uri": "http://hl7.org/fhir/workflow",
-      "name": "Workflow Pattern"
+      "id" : "Library.extension:logicDefinition",
+      "path" : "Library.extension",
+      "sliceName" : "logicDefinition",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"]
+      }],
+      "mustSupport" : true
     },
     {
-      "identity": "w5",
-      "uri": "http://hl7.org/fhir/fivews",
-      "name": "FiveWs Pattern Mapping"
+      "id" : "Library.extension:copyrightLabel",
+      "path" : "Library.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
     },
     {
-      "identity": "objimpl",
-      "uri": "http://hl7.org/fhir/object-implementation",
-      "name": "Object Implementation Information"
-    }
-  ],
-  "kind": "resource",
-  "abstract": false,
-  "type": "Library",
-  "baseDefinition": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
-  "derivation": "constraint",
-  "differential": {
-    "element": [
-      {
-        "id": "Library",
-        "path": "Library",
-        "mustSupport": false
-      },
-      {
-        "id": "Library.text",
-        "path": "Library.text",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.title",
-        "path": "Library.title",
-        "requirements": "A published library must specify a human-friendly title.",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.date",
-        "path": "Library.date",
-        "requirements": "A published library must specify the date the library content was last changed.",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.useContext",
-        "path": "Library.useContext",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "code"
-            }
-          ],
-          "rules": "open"
-        },
-        "requirements": "A published library should provide a clear indication of the expected contexts of use for the library content.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.useContext:qualityProgram",
-        "path": "Library.useContext",
-        "sliceName": "qualityProgram",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.useContext:qualityProgram.code",
-        "path": "Library.useContext.code",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Coding"
-          }
-        ],
-        "patternCoding": {
-          "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-          "code": "program"
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Library.useContext:qualityProgram.value[x]",
-        "path": "Library.useContext.value[x]",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "mustSupport": true,
-        "binding": {
-          "strength": "extensible",
-          "description": "The quality programs",
-          "valueSet": "http://hl7.org/fhir/uv/crmi/ValueSet/quality-programs"
-        }
-      },
-      {
-        "id": "Library.purpose",
-        "path": "Library.purpose",
-        "requirements": "A published library should provide a clear description of the purpose of the library.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.usage",
-        "path": "Library.usage",
-        "requirements": "A published library should provide clinical usage notes for the library.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.copyright",
-        "path": "Library.copyright",
-        "requirements": "A published library should provide copyright statement relating to the library and/or its contents.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.approvalDate",
-        "path": "Library.approvalDate",
-        "requirements": "A published library must indicate the date the library content was approved by the publisher.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.lastReviewDate",
-        "path": "Library.lastReviewDate",
-        "requirements": "A published library must indicate when the library content was last reviewed.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.effectivePeriod",
-        "path": "Library.effectivePeriod",
-        "requirements": "A published library should provide an indication of the period during which the library content can be effectively applied.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.topic",
-        "path": "Library.topic",
-        "requirements": "A published library should provide relevant topics for the library content.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.author",
-        "path": "Library.author",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.editor",
-        "path": "Library.editor",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.reviewer",
-        "path": "Library.reviewer",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.endorser",
-        "path": "Library.endorser",
-        "requirements": "A published library should provide copyright information for the library content.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.relatedArtifact",
-        "path": "Library.relatedArtifact",
-        "short": "Any referenced CQL libraries or additional documentation, citations, etc.",
-        "definition": "Any referenced CQL libraries or additional documentation, citations, etc.",
-        "requirements": "A published library should provide related information such as supporting evidence, citations, and documentation.",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.relatedArtifact.extension:publicationStatus",
-        "path": "Library.relatedArtifact.extension",
-        "sliceName": "publicationStatus",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publicationStatus"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Library.relatedArtifact.extension:publicationDate",
-        "path": "Library.relatedArtifact.extension",
-        "sliceName": "publicationDate",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publicationDate"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Library.relatedArtifact.display",
-        "path": "Library.relatedArtifact.display",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.relatedArtifact.url",
-        "path": "Library.relatedArtifact.url",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.relatedArtifact.resource",
-        "path": "Library.relatedArtifact.resource",
-        "mustSupport": true
-      }
-    ]
+      "id" : "Library.identifier",
+      "path" : "Library.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.type",
+      "path" : "Library.type",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.date",
+      "path" : "Library.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.contact",
+      "path" : "Library.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.useContext",
+      "path" : "Library.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.jurisdiction",
+      "path" : "Library.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.purpose",
+      "path" : "Library.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.usage",
+      "path" : "Library.usage",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.copyright",
+      "path" : "Library.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.approvalDate",
+      "path" : "Library.approvalDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.lastReviewDate",
+      "path" : "Library.lastReviewDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.effectivePeriod",
+      "path" : "Library.effectivePeriod",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.topic",
+      "path" : "Library.topic",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.author",
+      "path" : "Library.author",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.editor",
+      "path" : "Library.editor",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.reviewer",
+      "path" : "Library.reviewer",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.endorser",
+      "path" : "Library.endorser",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.relatedArtifact",
+      "path" : "Library.relatedArtifact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.relatedArtifact.display",
+      "path" : "Library.relatedArtifact.display",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.relatedArtifact.document",
+      "path" : "Library.relatedArtifact.document",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.relatedArtifact.resource",
+      "path" : "Library.relatedArtifact.resource",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Library.relatedArtifact.resourceReference",
+      "path" : "Library.relatedArtifact.resourceReference",
+      "mustSupport" : true
+    }]
   }
 }

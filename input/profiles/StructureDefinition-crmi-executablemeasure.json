@@ -1,8 +1,19 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-executablemeasure",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablemeasure",
-  "version": "3.0.0",
   "name": "CRMIExecutableMeasure",
   "title": "CRMI Executable Measure",
   "status": "active",
@@ -20,16 +31,6 @@
     }
   ],
   "description": "The CRMI Executable Measure Profile describes minimum expectations for an executable measure, including a reference to an executable library, and restricted to the use of identifier-based expressions only for all criteria.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "mapping": [
     {

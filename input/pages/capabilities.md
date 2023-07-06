@@ -39,6 +39,6 @@ In addition, the following example capability statement illustrates the use of t
 * [**Measure/$package**](OperationDefinition-Measure-package.html)
 * [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
 * [**MeasureReport/$package**](OperationDefinition-MeasureReport-package.html)
-* [**Resource/$release**](OperationDefinition-KnowledgeArtifact-release.html)
+* [**Resource/$release**](OperationDefinition-crmi-release.html)
 * [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
 
