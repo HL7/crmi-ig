@@ -64,6 +64,7 @@ The following is a list of FHIR resource types that are considered _canonical re
 * Library
 * Location (partial)
 * Measure
+* Medication
 * MedicationKnowledge
 * MessageDefinition
 * NamingSystem
@@ -94,7 +95,6 @@ The following groupings of these canonical resources indicate priority of suppor
 * Measure
 * PlanDefinition
 * Questionnaire
-* MedicationKnowledge
 
 ##### Terminology Artifacts (Secondary)
 * ValueSet
@@ -123,6 +123,8 @@ The following groupings of these canonical resources indicate priority of suppor
 * DeviceDefinition
 * Group
 * Location
+* Medication
+* MedicationKnowledge
 * Practitioner
 * PractitionerRole
 * ObservationDefinition
