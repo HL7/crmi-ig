@@ -1,0 +1,217 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-artifactAssessment",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment",
+  "version": "1.0.0",
+  "name": "CRMIArtifactAssessment",
+  "title": "CRMI Artifact Assessment",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-02-28",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "This Extension provides one or more comments, classifiers or ratings about an Artifact and supports attribution and rights management metadata for the added content.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Resource"
+    }
+  ],
+  "type": "Basic",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Basic",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "ArtifactAssessment",
+        "path": "Basic",
+        "short": "Additional documentation, review, or usage guidance",
+        "definition": "A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "ArtifactAssessment.extension:title",
+        "path": "Basic.extension",
+        "sliceName": "title",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentTitle"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:citeAs",
+        "path": "Basic.extension",
+        "sliceName": "citeAs",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:date",
+        "path": "Basic.extension",
+        "sliceName": "date",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDate"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:copyright",
+        "path": "Basic.extension",
+        "sliceName": "copyright",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCopyright"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:approvalDate",
+        "path": "Basic.extension",
+        "sliceName": "approvalDate",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentApprovalDate"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:lastReviewDate",
+        "path": "Basic.extension",
+        "sliceName": "lastReviewDate",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentLastReviewDate"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:artifact",
+        "path": "Basic.extension",
+        "sliceName": "artifact",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentArtifact"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:content",
+        "path": "Basic.extension",
+        "sliceName": "content",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentContent"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:workflowStatus",
+        "path": "Basic.extension",
+        "sliceName": "workflowStatus",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "ArtifactAssessment.extension:disposition",
+        "path": "Basic.extension",
+        "sliceName": "disposition",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDisposition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
