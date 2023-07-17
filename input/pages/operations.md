@@ -25,6 +25,42 @@
         * endpointUri 0..1 The URI of the endpoint, exclusive with the endpoint parameter
         * endpoint 0..1 An Endpoint resource describing the endpoint, exclusive with the endpointUri parameter
 
+Options for federated client specification:
+
+* 0
+    * canonicalRoute: http://cts.nlm.org/fhir/ValueSet/
+    * endpointUri: http://uat-cts.nlm.org/fhir
+* 1
+    * canonicalRoute: http://cts.nlm.org/fhir/ValueSet/
+    * endpointUri: http://apelon-dts
+* 2
+    * 
+    * endpointUri: http://tx.fhir.org
+
+* Route
+    * canonicalRoute: http://cts.nlm.org/fhir/ValueSet/
+    * endpointUri
+        * 0: http://uat-cts.nlm.org/fhir
+        * 1: http://apelon-dts
+        * 2: http://tx.fhir.org
+
+
+*
+    * http://cts.nlm.org/
+*
+    * http://cts.nlm.org/
+    * endpointUri: http://uat-cts.nlm.org/fhir
+*
+    * http://cts.nlm.org/
+    * endpointUri: http://apelon-dts.com/fhir
+*
+    * http://terminology.hl7.org/
+    * endpointUri: http://tx.fhir.org
+*
+    * http://hl7.org/fhir/
+    * endpointUri: http://tx.fhir.org
+
+
 * Resource/$package
     * id
     * url

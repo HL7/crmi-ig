@@ -81,6 +81,7 @@ The following is a list of FHIR resource types that are considered _canonical re
 * SearchParameter
 * SpecimenDefinition
 * SubscriptionTopic (R5)
+* Substance
 * StructureDefinition
 * StructureMap
 * TerminologyCapabilities
@@ -125,11 +126,12 @@ The following groupings of these canonical resources indicate priority of suppor
 * Location
 * Medication
 * MedicationKnowledge
-* Practitioner
+* Practitioner?
 * PractitionerRole
 * ObservationDefinition
 * Organization?
 * SpecimenDefinition
+* Substance
 
 ##### Evidence-based Medicine Artifacts (Quarternary)
 

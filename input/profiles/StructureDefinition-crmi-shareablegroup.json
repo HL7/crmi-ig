@@ -1,0 +1,197 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablegroup",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegroup",
+  "name" : "CRMIShareableGroup",
+  "title" : "CRMI Shareable Group",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the group metadata required by HL7 and other organizations that share and publish groups",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Group",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Group",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Group",
+      "path" : "Group",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Group.extension:knowledgeCapability",
+      "path" : "Group.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:knowledgeRepresentationLevel",
+      "path" : "Group.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:artifactComment",
+      "path" : "Group.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:url",
+      "path" : "Group.extension",
+      "sliceName" : "url",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-url"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:version",
+      "path" : "Group.extension",
+      "sliceName" : "version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-version"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:versionAlgorithm",
+      "path" : "Group.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:title",
+      "path" : "Group.extension",
+      "sliceName" : "title",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:experimental",
+      "path" : "Group.extension",
+      "sliceName" : "experimental",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:publisher",
+      "path" : "Group.extension",
+      "sliceName" : "publisher",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-publisher"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.extension:description",
+      "path" : "Group.extension",
+      "sliceName" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-description"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.modifierExtension:status",
+      "path" : "Group.modifierExtension",
+      "sliceName" : "status",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-status"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Group.name",
+      "path" : "Group.name",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-publishablemessagedefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemessagedefinition",
+  "name" : "CRMIPublishableMessageDefinition",
+  "title" : "CRMI Publishable MessageDefinition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the MessageDefinition metadata required by HL7 and other organizations that share and publish message definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MessageDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemessagedefinition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "MessageDefinition",
+      "path" : "MessageDefinition",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "MessageDefinition.extension:identifier",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "usage",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-identifier"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:usage",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "usage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-usage"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:copyrightLabel",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:approvalDate",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:lastReviewDate",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:effectivePeriod",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:topic",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:author",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:editor",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:reviewer",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:endorser",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:relatedArtifact",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.date",
+      "path" : "MessageDefinition.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.contact",
+      "path" : "MessageDefinition.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.useContext",
+      "path" : "MessageDefinition.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.jurisdiction",
+      "path" : "MessageDefinition.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.purpose",
+      "path" : "MessageDefinition.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.copyright",
+      "path" : "MessageDefinition.copyright",
+      "mustSupport" : true
+    }]
+  }
+}
