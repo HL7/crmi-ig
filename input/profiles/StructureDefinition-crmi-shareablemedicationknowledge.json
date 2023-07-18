@@ -127,6 +127,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "MedicationKnowledge.extension:versionPolicy",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "MedicationKnowledge.extension:name",
       "path" : "MedicationKnowledge.extension",
       "sliceName" : "name",

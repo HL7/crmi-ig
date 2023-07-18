@@ -72,6 +72,30 @@
       "mustSupport" : true
     },
     {
+      "id" : "NamingSystem.extension:versionAlgorithm",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:versionPolicy",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "NamingSystem.url",
       "path" : "NamingSystem.url",
       "min" : 1,
@@ -86,11 +110,6 @@
       "type" : [{
         "code" : "string"
       }],
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.versionAlgorithm[x]",
-      "path" : "NamingSystem.versionAlgorithm[x]",
       "mustSupport" : true
     },
     {

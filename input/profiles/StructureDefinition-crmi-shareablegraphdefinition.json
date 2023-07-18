@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "GraphDefinition.extension:versionPolicy",
+      "path" : "GraphDefinition.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "GraphDefinition.extension:title",
       "path" : "GraphDefinition.extension",
       "sliceName" : "title",

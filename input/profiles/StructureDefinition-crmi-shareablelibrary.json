@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "Library.extension:versionPolicy",
+      "path" : "Library.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "Library.url",
       "path" : "Library.url",
       "min" : 1,

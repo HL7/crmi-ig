@@ -1,11 +1,23 @@
 
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessmentWorkflowStatus",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus",
+  "id": "artifactassessment-workflowStatus",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/StructureDefinition/artifactassessment-workflowStatus",
   "version": "1.0.0",
-  "name": "CRMIArtifactAssessmentworkflowStatus",
-  "title": "CRMI Artifact Assessment Workflow Status",
+  "name": "ArtifactAssessmentWorkflowStatus",
+  "title": "Artifact Assessment Workflow Status",
   "status": "active",
   "experimental": false,
   "date": "2023-02-28",
@@ -62,7 +74,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifactassessment-workflowStatus"
       },
       {
         "id": "Extension.value[x]",

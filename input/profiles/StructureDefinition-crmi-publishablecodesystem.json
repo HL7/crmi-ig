@@ -55,6 +55,18 @@
       "max" : "1"
     },
     {
+      "id" : "CodeSystem.extension:copyrightLabel",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "CodeSystem.extension:sourceReference",
       "path" : "CodeSystem.extension",
       "sliceName" : "sourceReference",
@@ -111,11 +123,6 @@
     {
       "id" : "CodeSystem.copyright",
       "path" : "CodeSystem.copyright",
-      "mustSupport" : true
-    },
-    {
-      "id" : "CodeSystem.copyrightLabel",
-      "path" : "CodeSystem.copyrightLabel",
       "mustSupport" : true
     },
     {

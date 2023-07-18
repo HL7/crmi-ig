@@ -62,7 +62,7 @@
       "max" : "*",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-artifactIdentifier"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-identifier"]
       }],
       "mustSupport" : true
     },

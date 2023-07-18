@@ -127,6 +127,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "Group.extension:versionPolicy",
+      "path" : "Group.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "Group.extension:title",
       "path" : "Group.extension",
       "sliceName" : "title",

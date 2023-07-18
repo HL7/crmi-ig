@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "PlanDefinition.extension:versionPolicy",
+      "path" : "PlanDefinition.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "PlanDefinition.url",
       "path" : "PlanDefinition.url",
       "min" : 1,

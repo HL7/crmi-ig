@@ -55,6 +55,18 @@
       "max" : "1"
     },
     {
+      "id" : "ConceptMap.extension:copyrightLabel",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "ConceptMap.identifier",
       "path" : "ConceptMap.identifier",
       "mustSupport" : true
@@ -89,11 +101,6 @@
     {
       "id" : "ConceptMap.copyright",
       "path" : "ConceptMap.copyright",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ConceptMap.copyrightLabel",
-      "path" : "ConceptMap.copyrightLabel",
       "mustSupport" : true
     },
     {

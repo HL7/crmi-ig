@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "CompartmentDefinition.extension:versionPolicy",
+      "path" : "CompartmentDefinition.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "CompartmentDefinition.extension:title",
       "path" : "CompartmentDefinition.extension",
       "sliceName" : "title",

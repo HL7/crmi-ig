@@ -60,6 +60,18 @@
       "max" : "1"
     },
     {
+      "id" : "NamingSystem.extension:copyrightLabel",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "NamingSystem.identifier",
       "path" : "NamingSystem.identifier",
       "mustSupport" : true
@@ -94,11 +106,6 @@
     {
       "id" : "NamingSystem.copyright",
       "path" : "NamingSystem.copyright",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.copyrightLabel",
-      "path" : "NamingSystem.copyrightLabel",
       "mustSupport" : true
     },
     {

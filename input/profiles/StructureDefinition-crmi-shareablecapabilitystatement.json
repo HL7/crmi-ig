@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "CapabilityStatement.extension:versionPolicy",
+      "path" : "CapabilityStatement.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "CapabilityStatement.url",
       "path" : "CapabilityStatement.url",
       "min" : 1,

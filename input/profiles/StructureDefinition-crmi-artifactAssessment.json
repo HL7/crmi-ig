@@ -1,6 +1,18 @@
 {
   "resourceType": "StructureDefinition",
   "id": "crmi-artifactAssessment",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessment",
   "version": "1.0.0",
   "name": "CRMIArtifactAssessment",
@@ -41,11 +53,11 @@
   ],
   "type": "Basic",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Basic",
-  "derivation": "specialization",
+  "derivation": "constraint",
   "differential": {
     "element": [
       {
-        "id": "ArtifactAssessment",
+        "id": "Basic",
         "path": "Basic",
         "short": "Additional documentation, review, or usage guidance",
         "definition": "A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user.",
@@ -53,7 +65,7 @@
         "max": "*"
       },
       {
-        "id": "ArtifactAssessment.extension:title",
+        "id": "Basic.extension:title",
         "path": "Basic.extension",
         "sliceName": "title",
         "min": 0,
@@ -62,14 +74,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentTitle"
+               "http://hl7.org/fhir/StructureDefinition/artifact-title"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:citeAs",
+        "id": "Basic.extension:citeAs",
         "path": "Basic.extension",
         "sliceName": "citeAs",
         "min": 0,
@@ -78,14 +90,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs"
+               "http://hl7.org/fhir/StructureDefinition/artifact-citeAs"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:date",
+        "id": "Basic.extension:date",
         "path": "Basic.extension",
         "sliceName": "date",
         "min": 0,
@@ -94,14 +106,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDate"
+               "http://hl7.org/fhir/StructureDefinition/artifact-date"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:copyright",
+        "id": "Basic.extension:copyright",
         "path": "Basic.extension",
         "sliceName": "copyright",
         "min": 0,
@@ -110,14 +122,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCopyright"
+               "http://hl7.org/fhir/StructureDefinition/artifact-copyright"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:approvalDate",
+        "id": "Basic.extension:approvalDate",
         "path": "Basic.extension",
         "sliceName": "approvalDate",
         "min": 0,
@@ -126,14 +138,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentApprovalDate"
+               "http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:lastReviewDate",
+        "id": "Basic.extension:lastReviewDate",
         "path": "Basic.extension",
         "sliceName": "lastReviewDate",
         "min": 0,
@@ -142,14 +154,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentLastReviewDate"
+               "http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:artifact",
+        "id": "Basic.extension:artifact",
         "path": "Basic.extension",
         "sliceName": "artifact",
         "min": 1,
@@ -158,14 +170,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentArtifact"
+               "http://hl7.org/fhir/StructureDefinition/artifact-reference"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:content",
+        "id": "Basic.extension:content",
         "path": "Basic.extension",
         "sliceName": "content",
         "min": 0,
@@ -174,14 +186,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentContent"
+               "http://hl7.org/fhir/StructureDefinition/artifactassessment-content"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:workflowStatus",
+        "id": "Basic.extension:workflowStatus",
         "path": "Basic.extension",
         "sliceName": "workflowStatus",
         "min": 0,
@@ -190,14 +202,14 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentWorkflowStatus"
+               "http://hl7.org/fhir/StructureDefinition/artifactassessment-workflowStatus"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "ArtifactAssessment.extension:disposition",
+        "id": "Basic.extension:disposition",
         "path": "Basic.extension",
         "sliceName": "disposition",
         "min": 0,
@@ -206,7 +218,7 @@
           {
             "code": "Extension",
             "profile": [
-               "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentDisposition"
+               "http://hl7.org/fhir/StructureDefinition/artifactassessment-disposition"
             ]
           }
         ],

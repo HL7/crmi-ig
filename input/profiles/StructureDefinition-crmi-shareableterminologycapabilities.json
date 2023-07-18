@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "TerminologyCapabilities.extension:versionPolicy",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "TerminologyCapabilities.url",
       "path" : "TerminologyCapabilities.url",
       "min" : 1,

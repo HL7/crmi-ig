@@ -103,6 +103,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "Questionnaire.extension:versionPolicy",
+      "path" : "Questionnaire.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "Questionnaire.url",
       "path" : "Questionnaire.url",
       "min" : 1,

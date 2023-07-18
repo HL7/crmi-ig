@@ -1,6 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "publishablelibrary",
+  "id" : "crmi-publishablelibrary",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,14 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/StructureDefinition/publishablelibrary",
-  "version": "4.0.101",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1159"
-  }],
-  "name" : "PublishableLibrary",
-  "title" : "Publishable Library",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary",
+  "name" : "CRMIPublishableLibrary",
+  "title" : "CRMI Publishable Library",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",

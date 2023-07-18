@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessmentCiteAs",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs",
+  "id": "artifact-citeAs",
+  "url": "http://hl7.org/fhir/StructureDefinition/artifact-citeAs",
   "version": "1.0.0",
-  "name": "CRMIArtifactAssessmentCiteAs",
-  "title": "CRMI Artifact Assessment Cite As",
+  "name": "ArtifactCiteAs",
+  "title": "Artifact Cite As",
   "status": "active",
   "experimental": false,
   "date": "2023-02-28",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "How to cite the comment or rating.",
+  "description": "How to cite the resource/artifact.",
   "jurisdiction": [
     {
       "coding": [
@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "purpose": "Display of or reference to the bibliographic citation of the comment, classifier, or rating.",
+  "purpose": "Display of or reference to the bibliographic citation of the resource/artifact.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
@@ -48,8 +48,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "How to cite the comment or rating.",
-        "definition": "Display of or reference to the bibliographic citation of the comment, classifier, or rating.",
+        "short": "How to cite the resource/artifact.",
+        "definition": "Display of or reference to the bibliographic citation of the resource/artifact.",
         "min": 0,
         "max": "1"
       },
@@ -61,7 +61,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentCiteAs"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-citeAs"
       },
       {
         "id": "Extension.value[x]",

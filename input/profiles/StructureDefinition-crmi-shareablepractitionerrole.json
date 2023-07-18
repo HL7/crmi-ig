@@ -127,6 +127,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "PractitionerRole.extension:versionPolicy",
+      "path" : "PractitionerRole.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "PractitionerRole.extension:name",
       "path" : "PractitionerRole.extension",
       "sliceName" : "name",
