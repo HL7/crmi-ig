@@ -1,0 +1,168 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablemessagedefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemessagedefinition",
+  "name" : "CRMIShareableMessageDefinition",
+  "title" : "CRMI Shareable MessageDefinition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the message definition metadata required by HL7 and other organizations that share and publish message definitions",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MessageDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MessageDefinition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "MessageDefinition",
+      "path" : "MessageDefinition",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "MessageDefinition.extension:knowledgeCapability",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:knowledgeRepresentationLevel",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:artifactComment",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:versionAlgorithm",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.extension:versionPolicy",
+      "path" : "MessageDefinition.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.url",
+      "path" : "MessageDefinition.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.version",
+      "path" : "MessageDefinition.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.name",
+      "path" : "MessageDefinition.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.title",
+      "path" : "MessageDefinition.title",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.status",
+      "path" : "MessageDefinition.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.experimental",
+      "path" : "MessageDefinition.experimental",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.publisher",
+      "path" : "MessageDefinition.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MessageDefinition.description",
+      "path" : "MessageDefinition.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

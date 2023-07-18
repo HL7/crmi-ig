@@ -2,10 +2,6 @@
   "resourceType" : "StructureDefinition",
   "id" : "crmi-shareablevalueset",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary",
-    "valueMarkdown" : "**mustSupport**\n\nWhen this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."
-  },
-  {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 5
   },
@@ -16,10 +12,6 @@
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
-  },
-  {
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/profile-summary",
-    "valueString" : "**mustSupport**\n\nWhen this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."
   }],
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset",
   "name" : "CRMIShareableValueSet",
@@ -75,6 +67,30 @@
       "mustSupport" : true
     },
     {
+      "id" : "ValueSet.extension:versionAlgorithm",
+      "path" : "ValueSet.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:versionPolicy",
+      "path" : "ValueSet.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "ValueSet.extension:authoritativeSource",
       "path" : "ValueSet.extension",
       "sliceName" : "authoritativeSource",
@@ -98,11 +114,6 @@
       "path" : "ValueSet.version",
       "min" : 1,
       "max" : "1",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.versionAlgorithm[x]",
-      "path" : "ValueSet.versionAlgorithm[x]",
       "mustSupport" : true
     },
     {

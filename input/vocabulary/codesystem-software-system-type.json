@@ -2,7 +2,7 @@
   "resourceType": "CodeSystem",
   "id": "software-system-type",
   "url": "http://terminology.hl7.org/CodeSystem/software-system-type",
-  "name": "SoftwareSystemType",
+  "name": "SoftwareSystemTypeCodes",
   "title": "Software System Type Codes",
   "status": "active",
   "experimental": false,

@@ -1,0 +1,272 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-publishablelocation",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelocation",
+  "name" : "CRMIPublishableLocation",
+  "title" : "CRMI Publishable Location",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the location metadata required by HL7 and other organizations that share and publish locations with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Location",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelocation",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Location",
+      "path" : "Location",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Location.extension:date",
+      "path" : "Location.extension",
+      "sliceName" : "date",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-date"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:contact",
+      "path" : "Location.extension",
+      "sliceName" : "contact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-contact"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:useContext",
+      "path" : "Location.extension",
+      "sliceName" : "useContext",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-useContext"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:jurisdiction",
+      "path" : "Location.extension",
+      "sliceName" : "jurisdiction",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-jurisdiction"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:purpose",
+      "path" : "Location.extension",
+      "sliceName" : "purpose",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-purpose"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:usage",
+      "path" : "Location.extension",
+      "sliceName" : "usage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-usage"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:copyright",
+      "path" : "Location.extension",
+      "sliceName" : "copyright",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyright"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:copyrightLabel",
+      "path" : "Location.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:approvalDate",
+      "path" : "Location.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:lastReviewDate",
+      "path" : "Location.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:effectivePeriod",
+      "path" : "Location.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:topic",
+      "path" : "Location.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:author",
+      "path" : "Location.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:editor",
+      "path" : "Location.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:reviewer",
+      "path" : "Location.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:endorser",
+      "path" : "Location.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.extension:relatedArtifact",
+      "path" : "Location.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.identifier",
+      "path" : "Location.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Location.type",
+      "path" : "Location.type",
+      "mustSupport" : true
+    }]
+  }
+}

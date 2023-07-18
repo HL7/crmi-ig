@@ -1,10 +1,22 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "crmi-artifactAssessmentContent",
-  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifactAssessmentContent",
+  "id": "artifactassessment-content",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/StructureDefinition/artifactassessment-content",
   "version": "1.0.0",
-  "name": "CRMIArtifactAssessmentContent",
-  "title": "CRMI Artifact Assessment Content",
+  "name": "ArtifactAssessmentContent",
+  "title": "Artifact Assessment Content",
   "status": "active",
   "experimental": false,
   "date": "2023-02-28",
@@ -36,7 +48,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Element"
+      "expression": "Basic"
     }
   ],
   "type": "Extension",
@@ -146,9 +158,11 @@
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "EvidenceCertaintyType"
             }
-          ]
+          ],
+          "strength": "example",
+          "valueSet": "http://hl7.org/fhir/ValueSet/certainty-rating"
         }
-      },
+    },
       {
         "id": "Extension.extension:classifier",
         "path": "Extension.extension",
@@ -357,7 +371,7 @@
       {
         "id": "Extension.extension:component.value[x]",
         "path": "Extension.extension.value[x]",
-        "contentReference": "#Extension"
+        "contentReference": "#Extension.extension:component"
       }
     ]
   }

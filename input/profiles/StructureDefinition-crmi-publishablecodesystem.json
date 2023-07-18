@@ -55,6 +55,126 @@
       "max" : "1"
     },
     {
+      "id" : "CodeSystem.extension:copyrightLabel",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:approvalDate",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:lastReviewDate",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:effectivePeriod",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:topic",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:author",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:editor",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:reviewer",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:endorser",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CodeSystem.extension:relatedArtifact",
+      "path" : "CodeSystem.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "CodeSystem.extension:sourceReference",
       "path" : "CodeSystem.extension",
       "sliceName" : "sourceReference",
@@ -112,49 +232,6 @@
       "id" : "CodeSystem.copyright",
       "path" : "CodeSystem.copyright",
       "mustSupport" : true
-    },
-    {
-      "id" : "CodeSystem.copyrightLabel",
-      "path" : "CodeSystem.copyrightLabel",
-      "mustSupport" : true
-    },
-    {
-      "id" : "CodeSystem.approvalDate",
-      "path" : "CodeSystem.approvalDate"
-    },
-    {
-      "id" : "CodeSystem.lastReviewDate",
-      "path" : "CodeSystem.lastReviewDate"
-    },
-    {
-      "id" : "CodeSystem.effectivePeriod",
-      "path" : "CodeSystem.effectivePeriod",
-      "mustSupport" : true
-    },
-    {
-      "id" : "CodeSystem.topic",
-      "path" : "CodeSystem.topic",
-      "mustSupport" : true
-    },
-    {
-      "id" : "CodeSystem.author",
-      "path" : "CodeSystem.author"
-    },
-    {
-      "id" : "CodeSystem.editor",
-      "path" : "CodeSystem.editor"
-    },
-    {
-      "id" : "CodeSystem.reviewer",
-      "path" : "CodeSystem.reviewer"
-    },
-    {
-      "id" : "CodeSystem.endorser",
-      "path" : "CodeSystem.endorser"
-    },
-    {
-      "id" : "CodeSystem.relatedArtifact",
-      "path" : "CodeSystem.relatedArtifact"
     }]
   }
 }

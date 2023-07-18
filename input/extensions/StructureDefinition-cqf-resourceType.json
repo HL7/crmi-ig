@@ -64,7 +64,6 @@
         "short": "What type of resource",
         "definition": "Specifies the type of resource the canonical references. If present, this extension SHALL be consistent with the actual type of the resource specified by the canonical on which it appears.",
         "comment": "Knowing the actual type of the target of a canonical resource allows for improved processing of knowledge artifacts, but this information cannot be reliably inferred from the canonical URL, the URL must be resolved. This extension can be used to provide this information to facilitate dependency processing.",
-        "requirements": "Implementations need to be able to tell what type of resource the canonical reference is targeting (cannot infer this from the URI)",
         "min": 0,
         "max": "1",
         "isModifier": false
@@ -84,6 +83,7 @@
         "path": "Extension.value[x]",
         "min": 1,
         "label": "What type of resource",
+        "requirements": "Implementations need to be able to tell what type of resource the canonical reference is targeting (cannot infer this from the URI)",
         "type": [
           {
             "code": "code"

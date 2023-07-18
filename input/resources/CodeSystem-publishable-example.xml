@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="publishable-example"/>
   <meta>
-    <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishable-codesystem"/>
+    <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem"/>
   </meta>
   <language value="en"/>
   <text>

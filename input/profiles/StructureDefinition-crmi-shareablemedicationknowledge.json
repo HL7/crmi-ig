@@ -1,0 +1,207 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablemedicationknowledge",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedicationknowledge",
+  "name" : "CRMIShareableMedicationKnowledge",
+  "title" : "CRMI Shareable MedicationKnowledge",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the medication knowledge metadata required by HL7 and other organizations that share and publish medication knowledge",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationKnowledge",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationKnowledge",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "MedicationKnowledge",
+      "path" : "MedicationKnowledge",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "MedicationKnowledge.extension:knowledgeCapability",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:knowledgeRepresentationLevel",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:artifactComment",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:url",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "url",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-url"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:version",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-version"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:versionAlgorithm",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:versionPolicy",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:name",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "name",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-name"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:title",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "title",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:experimental",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "experimental",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:publisher",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "publisher",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-publisher"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationKnowledge.extension:description",
+      "path" : "MedicationKnowledge.extension",
+      "sliceName" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-description"]
+      }],
+      "mustSupport" : true
+    },
+  {
+    "id": "MedicationKnowledge.status",
+    "path": "MedicationKnowledge.status",
+    "mustSupport": true
+  }]
+  }
+}

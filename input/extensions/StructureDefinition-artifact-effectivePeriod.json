@@ -59,7 +59,6 @@
         "short": "When the artifact is expected to be used",
         "definition": "The period during which the artifact content was or is planned to be in active use.",
         "comment": "The effective period for an artifact determines when the content is applicable for usage and is independent of publication and review dates. For example, an artifact intended to be used for the year 2016 might be published in 2015.",
-        "requirements": "Allows establishing a transition before an artifact comes into effect and also allows for a sunsetting process when new versions of the artifact are or are expected to be used instead.",
         "min": 0,
         "max": "1"
       },
@@ -76,6 +75,7 @@
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
+        "requirements": "Allows establishing a transition before an artifact comes into effect and also allows for a sunsetting process when new versions of the artifact are or are expected to be used instead.",
         "type": [
           {
             "code": "Period"

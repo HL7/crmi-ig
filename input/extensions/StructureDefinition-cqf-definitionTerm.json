@@ -45,7 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Element"
+      "expression": "Resource"
     }
   ],
   "type": "Extension",

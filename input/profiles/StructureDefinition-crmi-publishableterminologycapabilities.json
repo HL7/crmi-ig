@@ -1,0 +1,234 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-publishableterminologycapabilities",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableterminologycapabilities",
+  "name" : "CRMIPublishableTerminologyCapabilities",
+  "title" : "CRMI Publishable TerminologyCapabilities",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Supports declaration of the TerminologyCapabilities metadata required by HL7 and other organizations that share and publish terminology capabilities with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "TerminologyCapabilities",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableterminologycapabilities",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "TerminologyCapabilities",
+      "path" : "TerminologyCapabilities",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:identifier",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "identifier",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-identifier"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:usage",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "usage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-usage"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:copyrightLabel",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:approvalDate",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:lastReviewDate",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:effectivePeriod",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:topic",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:author",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:editor",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:reviewer",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:endorser",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:relatedArtifact",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.date",
+      "path" : "TerminologyCapabilities.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.contact",
+      "path" : "TerminologyCapabilities.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.useContext",
+      "path" : "TerminologyCapabilities.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.jurisdiction",
+      "path" : "TerminologyCapabilities.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.purpose",
+      "path" : "TerminologyCapabilities.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "TerminologyCapabilities.copyright",
+      "path" : "TerminologyCapabilities.copyright",
+      "mustSupport" : true
+    }]
+  }
+}

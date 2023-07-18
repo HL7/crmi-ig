@@ -16,21 +16,6 @@ Where possible, new and updated content will be highlighted with green text and 
 ## Canonical Resource Management Infrastructure Implementation Guide
 {: #canonical-resource-management-infrastructure-implementation-guide}
 
-### Ballot Note
-{: #ballot-note}
-
-For this for comment ballot, below are focus areas that are intended to be addressed in this IG but have not been fully documented as of this ballot:
-
-* Complete dependency tracing for the knowledge artifact resources (see the dependency tracing section of the Introduction)
-* Asset metamodels, or patterns for definitional resources (i.e. templates for knowledge artifacts such as measures, decision support rules, case feature definitions, etc)
-* Profiles and guidance on OperationDefinition to support assets as services (i.e. common parameters for operations on canonical resources such as contentEndpoint, terminologyEndpoint, representationLevel, manifest, etc.)
-* More guidance on the use of $data-requirements to support dependency graph calculation. Note that the current implementation flattens the dependency tree, is that potentially an issue
-* Guidance on the impact of packaging on dependency graph calculation
-* Considering overall organization of the implementation guide to improve navigation and usability
-* Inclusion of testing content for the operations defined
-* Generalizing the `include-dependencies` and `include-components` parameters of $package to an `includeType` parameter that supports more general selection of content to include in the result of the operation
-* Generalizing support for the use of NPM packages as the result of the $package operation
-
 ### Summary
 {: #summary}
 
@@ -64,6 +49,7 @@ The following is a list of FHIR resource types that are considered _canonical re
 * Library
 * Location (partial)
 * Measure
+* Medication
 * MedicationKnowledge
 * MessageDefinition
 * NamingSystem
@@ -80,6 +66,7 @@ The following is a list of FHIR resource types that are considered _canonical re
 * SearchParameter
 * SpecimenDefinition
 * SubscriptionTopic (R5)
+* Substance
 * StructureDefinition
 * StructureMap
 * TerminologyCapabilities
@@ -94,7 +81,6 @@ The following groupings of these canonical resources indicate priority of suppor
 * Measure
 * PlanDefinition
 * Questionnaire
-* MedicationKnowledge
 
 ##### Terminology Artifacts (Secondary)
 * ValueSet
@@ -123,11 +109,14 @@ The following groupings of these canonical resources indicate priority of suppor
 * DeviceDefinition
 * Group
 * Location
-* Practitioner
+* Medication
+* MedicationKnowledge
+* Practitioner?
 * PractitionerRole
 * ObservationDefinition
 * Organization?
 * SpecimenDefinition
+* Substance
 
 ##### Evidence-based Medicine Artifacts (Quarternary)
 

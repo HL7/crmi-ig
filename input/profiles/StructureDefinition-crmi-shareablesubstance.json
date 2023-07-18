@@ -1,0 +1,214 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "crmi-shareablesubstance",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesubstance",
+  "name" : "CRMIShareableSubstance",
+  "title" : "CRMI Shareable Substance",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-12-28T16:55:11+11:00",
+  "publisher" : "HL7",
+  "description" : "Enforces the minimum information set for the substance metadata required by HL7 and other organizations that share and publish substances",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Substance",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Substance",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Substance",
+      "path" : "Substance",
+      "min" : 1,
+      "max" : "1"
+    },
+    {
+      "id" : "Substance.extension:knowledgeCapability",
+      "path" : "Substance.extension",
+      "sliceName" : "knowledgeCapability",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:knowledgeRepresentationLevel",
+      "path" : "Substance.extension",
+      "sliceName" : "knowledgeRepresentationLevel",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:artifactComment",
+      "path" : "Substance.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:url",
+      "path" : "Substance.extension",
+      "sliceName" : "url",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-url"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:version",
+      "path" : "Substance.extension",
+      "sliceName" : "version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-version"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:versionAlgorithm",
+      "path" : "Substance.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:versionPolicy",
+      "path" : "Substance.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:name",
+      "path" : "Substance.extension",
+      "sliceName" : "name",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-name"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:title",
+      "path" : "Substance.extension",
+      "sliceName" : "title",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:experimental",
+      "path" : "Substance.extension",
+      "sliceName" : "experimental",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:publisher",
+      "path" : "Substance.extension",
+      "sliceName" : "publisher",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-publisher"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:description",
+      "path" : "Substance.extension",
+      "sliceName" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-description"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.modifierExtension:status",
+      "path" : "Substance.modifierExtension",
+      "sliceName" : "status",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-status"]
+      }],
+      "mustSupport" : true
+    }]
+  }
+}

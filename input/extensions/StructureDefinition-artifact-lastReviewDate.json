@@ -59,7 +59,6 @@
         "short": "When the artifact was approved by publisher",
         "definition": "The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.",
         "comment": "If specified, this date follows the original approval date.",
-        "requirements": "Gives a sense of how \"current\" the content is. Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.",
         "min": 0,
         "max": "1"
       },
@@ -76,6 +75,7 @@
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
+        "requirements": "Gives a sense of how \"current\" the content is. Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.",
         "type": [
           {
             "code": "date"
