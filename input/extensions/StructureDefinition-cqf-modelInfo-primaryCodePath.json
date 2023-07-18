@@ -1,9 +1,9 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-expansionParameters",
+  "id": "cqf-modelInfo-primaryCodePath",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 3
+    "valueInteger" : 1
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
-  "name": "ExpansionParameters",
-  "title": "Expansion Parameters",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+  "name": "ModelInfoPrimaryCodePath",
+  "title": "ModelInfo Primary Code Path",
   "status": "active",
   "experimental": false,
   "date": "2021-11-27T13:31:32-07:00",
@@ -30,7 +30,8 @@
       ]
     }
   ],
-  "description": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
+  "description": "Specifies the primary code path for the class constructed in the model info for the profile (i.e. the path to the code-valued element on the resource that should be used as the default terminology filter when no terminology target is specified in a CQL retrieve).",
+  "purpose": "An artifact author must be able to control the primary code paths applied to classes in the model info.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -44,15 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Library"
-    },
-    {
-      "type": "element",
-      "expression": "ImplementationGuide"
-    },
-    {
-      "type": "element",
-      "expression": "RelatedArtifact"
+      "expression": "StructureDefinition"
     }
   ],
   "type": "Extension",
@@ -63,9 +56,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What expansion rules",
-        "definition": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
-        "comment": "For a complete description of how these expansion rules impact the behavior of the expansion operation, see the [Expansion Rules](measure-terminology-service.html#expansion-rules) topic.",
+        "short": "What default code-valued element",
+        "definition": "Specifies the primary code path for the class constructed for the profile (i.e. the default code-valued element to be used if no terminology target is specified in a retrieve in CQL).",
         "min": 0,
         "max": "1"
       },
@@ -77,17 +69,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Parameters"
-            ]
+            "code": "string"
           }
         ]
       }

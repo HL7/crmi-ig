@@ -1,9 +1,9 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-expansionParameters",
+  "id": "cqf-modelInfo-isIncluded",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 3
+    "valueInteger" : 1
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
-  "name": "ExpansionParameters",
-  "title": "Expansion Parameters",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+  "name": "ModelInfoIsIncluded",
+  "title": "ModelInfo Is Included",
   "status": "active",
   "experimental": false,
   "date": "2021-11-27T13:31:32-07:00",
@@ -30,7 +30,8 @@
       ]
     }
   ],
-  "description": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
+  "description": "Specifies whether the profile should be included in the model info constructed for an artifact collection such as an implementation guide. If this extension is not present, included is true by default for resources and profiles, but not data types (unless they are indirectly referenced by included resources or profiles). Note that even if isIncluded is false for a resource or profile, it will still be included in model info if it is a required dependency of some other included resource, profile, or data type.",
+  "purpose": "An artifact author must be able to control which profiles are included in the model info for an artifact collection.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -44,15 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Library"
-    },
-    {
-      "type": "element",
-      "expression": "ImplementationGuide"
-    },
-    {
-      "type": "element",
-      "expression": "RelatedArtifact"
+      "expression": "StructureDefinition"
     }
   ],
   "type": "Extension",
@@ -63,9 +56,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What expansion rules",
-        "definition": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
-        "comment": "For a complete description of how these expansion rules impact the behavior of the expansion operation, see the [Expansion Rules](measure-terminology-service.html#expansion-rules) topic.",
+        "short": "Include in model info",
+        "definition": "Specifies whether the artifact should be included in the model info for an artifact collection such as an implementation guide",
         "min": 0,
         "max": "1"
       },
@@ -77,17 +69,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Parameters"
-            ]
+            "code": "boolean"
           }
         ]
       }

@@ -276,17 +276,8 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-creationDate"]
       }]
-    },
-    {
-      "id" : "ValueSet.compose.include",
-      "path" : "ValueSet.compose.include"
-    },
-    {
-      "id" : "ValueSet.compose.include.copyright",
-      "path" : "ValueSet.compose.include.copyright",
-      "mustSupport" : true
     }]
   }
 }

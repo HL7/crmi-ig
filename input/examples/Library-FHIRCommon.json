@@ -69,6 +69,7 @@
     "url": "http://ecqi.healthit.gov/ecqms/Library/FHIRCommon",
     "version": "4.1.000",
     "name": "FHIRCommon",
+    "title": "FHIR Common",
     "status": "active",
     "experimental": false,
     "type": {
