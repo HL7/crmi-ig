@@ -174,11 +174,6 @@
       "id" : "ActivityDefinition.relatedArtifact.resource",
       "path" : "ActivityDefinition.relatedArtifact.resource",
       "mustSupport" : true
-    },
-    {
-      "id" : "ActivityDefinition.relatedArtifact.resourceReference",
-      "path" : "ActivityDefinition.relatedArtifact.resourceReference",
-      "mustSupport" : true
     }]
   }
 }

@@ -67,6 +67,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "ImplementationGuide.extension:purpose",
+      "path" : "ImplementationGuide.extension",
+      "sliceName" : "purpose",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-purpose"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "ImplementationGuide.extension:usage",
       "path" : "ImplementationGuide.extension",
       "sliceName" : "usage",
@@ -218,11 +230,6 @@
     {
       "id" : "ImplementationGuide.jurisdiction",
       "path" : "ImplementationGuide.jurisdiction",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ImplementationGuide.purpose",
-      "path" : "ImplementationGuide.purpose",
       "mustSupport" : true
     },
     {

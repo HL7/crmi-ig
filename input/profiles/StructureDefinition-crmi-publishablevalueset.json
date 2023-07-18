@@ -75,6 +75,114 @@
       "mustSupport" : true
     },
     {
+      "id" : "ValueSet.extension:approvalDate",
+      "path" : "ValueSet.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:lastReviewDate",
+      "path" : "ValueSet.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:effectivePeriod",
+      "path" : "ValueSet.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:topic",
+      "path" : "ValueSet.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:author",
+      "path" : "ValueSet.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:editor",
+      "path" : "ValueSet.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:reviewer",
+      "path" : "ValueSet.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:endorser",
+      "path" : "ValueSet.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:relatedArtifact",
+      "path" : "ValueSet.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "ValueSet.extension:trustedExpansion",
       "path" : "ValueSet.extension",
       "sliceName" : "trustedExpansion",
@@ -144,49 +252,6 @@
       "id" : "ValueSet.copyright",
       "path" : "ValueSet.copyright",
       "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.copyrightLabel",
-      "path" : "ValueSet.copyrightLabel",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.approvalDate",
-      "path" : "ValueSet.approvalDate"
-    },
-    {
-      "id" : "ValueSet.lastReviewDate",
-      "path" : "ValueSet.lastReviewDate"
-    },
-    {
-      "id" : "ValueSet.effectivePeriod",
-      "path" : "ValueSet.effectivePeriod",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.topic",
-      "path" : "ValueSet.topic",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.author",
-      "path" : "ValueSet.author"
-    },
-    {
-      "id" : "ValueSet.editor",
-      "path" : "ValueSet.editor"
-    },
-    {
-      "id" : "ValueSet.reviewer",
-      "path" : "ValueSet.reviewer"
-    },
-    {
-      "id" : "ValueSet.endorser",
-      "path" : "ValueSet.endorser"
-    },
-    {
-      "id" : "ValueSet.relatedArtifact",
-      "path" : "ValueSet.relatedArtifact"
     },
     {
       "id" : "ValueSet.compose",

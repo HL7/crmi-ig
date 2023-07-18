@@ -73,7 +73,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/crmi-isOwned"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned"
       },
       {
         "id": "Extension.value[x]",

@@ -72,6 +72,30 @@
       "mustSupport" : true
     },
     {
+      "id" : "NamingSystem.extension:url",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "url",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-url"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:version",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-version"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "NamingSystem.extension:versionAlgorithm",
       "path" : "NamingSystem.extension",
       "sliceName" : "versionAlgorithm",
@@ -96,19 +120,26 @@
       "mustSupport" : true
     },
     {
-      "id" : "NamingSystem.url",
-      "path" : "NamingSystem.url",
-      "min" : 1,
-      "max" : "1",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.version",
-      "path" : "NamingSystem.version",
+      "id" : "NamingSystem.extension:title",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "title",
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "string"
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:experimental",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "experimental",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]
       }],
       "mustSupport" : true
     },
@@ -118,22 +149,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "NamingSystem.title",
-      "path" : "NamingSystem.title",
-      "min" : 1,
-      "max" : "1",
-      "mustSupport" : true
-    },
-    {
       "id" : "NamingSystem.status",
       "path" : "NamingSystem.status",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.experimental",
-      "path" : "NamingSystem.experimental",
-      "min" : 0,
-      "max" : "1",
       "mustSupport" : true
     },
     {

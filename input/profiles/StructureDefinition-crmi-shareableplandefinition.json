@@ -129,11 +129,6 @@
       "mustSupport" : true
     },
     {
-      "id" : "PlanDefinition.versionAlgorithm[x]",
-      "path" : "PlanDefinition.versionAlgorithm[x]",
-      "mustSupport" : true
-    },
-    {
       "id" : "PlanDefinition.name",
       "path" : "PlanDefinition.name",
       "mustSupport" : true

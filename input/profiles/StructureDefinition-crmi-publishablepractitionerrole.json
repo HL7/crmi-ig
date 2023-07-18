@@ -13,7 +13,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/uv/cpg/StructureDefinition/crmi-publishablepractitionerrole",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablepractitionerrole",
   "name" : "CRMIPublishablePractitionerRole",
   "title" : "CRMI Publishable PractitionerRole",
   "status" : "draft",
@@ -264,8 +264,13 @@
       "mustSupport" : true
     },
     {
-      "id" : "PractitionerRole.type",
-      "path" : "PractitionerRole.type",
+      "id" : "PractitionerRole.code",
+      "path" : "PractitionerRole.code",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.specialty",
+      "path" : "PractitionerRole.specialty",
       "mustSupport" : true
     }]
   }

@@ -67,6 +67,114 @@
       "mustSupport" : true
     },
     {
+      "id" : "ConceptMap.extension:approvalDate",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:lastReviewDate",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:effectivePeriod",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:topic",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:author",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:editor",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:reviewer",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:endorser",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:relatedArtifact",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "ConceptMap.identifier",
       "path" : "ConceptMap.identifier",
       "mustSupport" : true
@@ -102,44 +210,6 @@
       "id" : "ConceptMap.copyright",
       "path" : "ConceptMap.copyright",
       "mustSupport" : true
-    },
-    {
-      "id" : "ConceptMap.approvalDate",
-      "path" : "ConceptMap.approvalDate"
-    },
-    {
-      "id" : "ConceptMap.lastReviewDate",
-      "path" : "ConceptMap.lastReviewDate"
-    },
-    {
-      "id" : "ConceptMap.effectivePeriod",
-      "path" : "ConceptMap.effectivePeriod",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ConceptMap.topic",
-      "path" : "ConceptMap.topic",
-      "mustSupport" : true
-    },
-    {
-      "id" : "ConceptMap.author",
-      "path" : "ConceptMap.author"
-    },
-    {
-      "id" : "ConceptMap.editor",
-      "path" : "ConceptMap.editor"
-    },
-    {
-      "id" : "ConceptMap.reviewer",
-      "path" : "ConceptMap.reviewer"
-    },
-    {
-      "id" : "ConceptMap.endorser",
-      "path" : "ConceptMap.endorser"
-    },
-    {
-      "id" : "ConceptMap.relatedArtifact",
-      "path" : "ConceptMap.relatedArtifact"
     }]
   }
 }

@@ -60,6 +60,42 @@
       "max" : "1"
     },
     {
+      "id" : "NamingSystem.extension:identifier",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "identifier",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-identifier"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:purpose",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "purpose",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-purpose"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:copyright",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "copyright",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyright"]
+      }],
+      "mustSupport" : true
+    },
+    {
       "id" : "NamingSystem.extension:copyrightLabel",
       "path" : "NamingSystem.extension",
       "sliceName" : "copyrightLabel",
@@ -72,8 +108,111 @@
       "mustSupport" : true
     },
     {
-      "id" : "NamingSystem.identifier",
-      "path" : "NamingSystem.identifier",
+      "id" : "NamingSystem.extension:approvalDate",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:lastReviewDate",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:effectivePeriod",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:topic",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:author",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:editor",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:reviewer",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:endorser",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:relatedArtifact",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
       "mustSupport" : true
     },
     {
@@ -97,54 +236,6 @@
       "id" : "NamingSystem.jurisdiction",
       "path" : "NamingSystem.jurisdiction",
       "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.purpose",
-      "path" : "NamingSystem.purpose",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.copyright",
-      "path" : "NamingSystem.copyright",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.approvalDate",
-      "path" : "NamingSystem.approvalDate"
-    },
-    {
-      "id" : "NamingSystem.lastReviewDate",
-      "path" : "NamingSystem.lastReviewDate"
-    },
-    {
-      "id" : "NamingSystem.effectivePeriod",
-      "path" : "NamingSystem.effectivePeriod",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.topic",
-      "path" : "NamingSystem.topic",
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.author",
-      "path" : "NamingSystem.author"
-    },
-    {
-      "id" : "NamingSystem.editor",
-      "path" : "NamingSystem.editor"
-    },
-    {
-      "id" : "NamingSystem.reviewer",
-      "path" : "NamingSystem.reviewer"
-    },
-    {
-      "id" : "NamingSystem.endorser",
-      "path" : "NamingSystem.endorser"
-    },
-    {
-      "id" : "NamingSystem.relatedArtifact",
-      "path" : "NamingSystem.relatedArtifact"
     }]
   }
 }

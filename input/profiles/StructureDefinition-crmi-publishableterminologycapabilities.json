@@ -57,7 +57,7 @@
     {
       "id" : "TerminologyCapabilities.extension:identifier",
       "path" : "TerminologyCapabilities.extension",
-      "sliceName" : "usage",
+      "sliceName" : "identifier",
       "min" : 0,
       "max" : "*",
       "type" : [{

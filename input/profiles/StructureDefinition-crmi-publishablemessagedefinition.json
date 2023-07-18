@@ -57,7 +57,7 @@
     {
       "id" : "MessageDefinition.extension:identifier",
       "path" : "MessageDefinition.extension",
-      "sliceName" : "usage",
+      "sliceName" : "identifier",
       "min" : 0,
       "max" : "*",
       "type" : [{

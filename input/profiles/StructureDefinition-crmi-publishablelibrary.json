@@ -186,11 +186,6 @@
       "id" : "Library.relatedArtifact.resource",
       "path" : "Library.relatedArtifact.resource",
       "mustSupport" : true
-    },
-    {
-      "id" : "Library.relatedArtifact.resourceReference",
-      "path" : "Library.relatedArtifact.resourceReference",
-      "mustSupport" : true
     }]
   }
 }

@@ -168,11 +168,6 @@
       "id" : "Measure.relatedArtifact.resource",
       "path" : "Measure.relatedArtifact.resource",
       "mustSupport" : true
-    },
-    {
-      "id" : "Measure.relatedArtifact.resourceReference",
-      "path" : "Measure.relatedArtifact.resourceReference",
-      "mustSupport" : true
     }]
   }
 }

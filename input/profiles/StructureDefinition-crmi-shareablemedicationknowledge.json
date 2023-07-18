@@ -199,8 +199,8 @@
       "mustSupport" : true
     },
   {
-    "id": "Medication.status",
-    "path": "Medication.status",
+    "id": "MedicationKnowledge.status",
+    "path": "MedicationKnowledge.status",
     "mustSupport": true
   }]
   }

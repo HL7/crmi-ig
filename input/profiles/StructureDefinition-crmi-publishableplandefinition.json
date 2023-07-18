@@ -167,11 +167,6 @@
       "id" : "PlanDefinition.relatedArtifact.resource",
       "path" : "PlanDefinition.relatedArtifact.resource",
       "mustSupport" : true
-    },
-    {
-      "id" : "PlanDefinition.relatedArtifact.resourceReference",
-      "path" : "PlanDefinition.relatedArtifact.resourceReference",
-      "mustSupport" : true
     }]
   }
 }

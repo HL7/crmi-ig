@@ -43,14 +43,8 @@
     }
   ],
   "fhirVersion": "4.0.1",
-  "kind": "complex-type",
+  "kind": "resource",
   "abstract": false,
-  "context": [
-    {
-      "type": "element",
-      "expression": "Resource"
-    }
-  ],
   "type": "Basic",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Basic",
   "derivation": "constraint",

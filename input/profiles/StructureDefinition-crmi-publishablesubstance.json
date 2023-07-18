@@ -13,7 +13,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/uv/cpg/StructureDefinition/crmi-publishablesubstance",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablesubstance",
   "name" : "CRMIPublishableSubstance",
   "title" : "CRMI Publishable Substance",
   "status" : "draft",

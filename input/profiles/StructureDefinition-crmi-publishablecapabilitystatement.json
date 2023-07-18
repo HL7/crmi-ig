@@ -57,7 +57,7 @@
     {
       "id" : "CapabilityStatement.extension:identifier",
       "path" : "CapabilityStatement.extension",
-      "sliceName" : "usage",
+      "sliceName" : "identifier",
       "min" : 0,
       "max" : "*",
       "type" : [{

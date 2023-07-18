@@ -1,9 +1,9 @@
 {
   "resourceType": "Device",
-  "id": "software-system-example",
+  "id": "cqf-tooling",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/crmi/StructureDefinition/device-softwaresystem-crmi"
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystemdevice"
     ]
   },
   "deviceName": [
