@@ -82,7 +82,7 @@
           "binding": {
             "strength": "extensible",
             "description": "The versioning policy of the artifact",
-            "valueSet": "http://hl7.org/fhir/ValueSet/artifact-version-policy"
+            "valueSet": "http://terminology.hl7.org/ValueSet/artifact-version-policy"
           }
         }
       ]
