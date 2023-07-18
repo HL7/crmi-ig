@@ -221,8 +221,6 @@ The _clone_ operation supports the creation of a new draft version of an existin
 
 The _retire_ operation supports updating the status of an existing _active_ artifact to _retired_. The operation sets the _date_ element of the resource, but is otherwise not allowed to change any other elements of the artifact.
 
-* [**Archive**](#archive): Delete a _retired_ artifact
-
 ##### Archive
 
 The _archive_ operation supports removing an existing _retired_ artifact from the repository. The operation is defined as a `DELETE` but the status of the deleted resource is required to be _retired_.
@@ -320,7 +318,7 @@ The [CRMIAuthoringArtifactRepository](CapabilityStatement-authoring-artifact-rep
 For each type of artifact supported, an AuthoringMeasureRepository:
 
 1. SHALL support [**Submit**](#submit): Post a new artifact in _draft_ status
-2. SHALL support [**Revise**](#revise): Update an existing artifact in _draft_ status
+2. SHALL support [**$revise**](OperationDefinition-crmi-revise.html): Update an existing artifact in _draft_ status
 3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ artifact
 4. SHOULD support [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
 5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing artifact (regardless of status)
