@@ -2,14 +2,9 @@
     "resourceType": "CodeSystem",
     "id": "artifactassessment-disposition",
     "meta": {
-        "lastUpdated": "2023-03-26T15:21:02.749+11:00",
         "profile": [
             "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
         ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This code system <code>http://hl7.org/fhir/artifactassessment-disposition</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">unresolved<a name=\"artifactassessment-disposition-unresolved\"> </a></td><td>Unresolved</td><td>The comment is unresolved</td></tr><tr><td style=\"white-space:nowrap\">not-persuasive<a name=\"artifactassessment-disposition-not-persuasive\"> </a></td><td>Not Persuasive</td><td>The comment is not persuasive (rejected in full)</td></tr><tr><td style=\"white-space:nowrap\">persuasive<a name=\"artifactassessment-disposition-persuasive\"> </a></td><td>Persuasive</td><td>The comment is persuasive (accepted in full)</td></tr><tr><td style=\"white-space:nowrap\">persuasive-with-modification<a name=\"artifactassessment-disposition-persuasive-with-modification\"> </a></td><td>Persuasive with Modification</td><td>The comment is persuasive with modification (partially accepted)</td></tr><tr><td style=\"white-space:nowrap\">not-persuasive-with-modification<a name=\"artifactassessment-disposition-not-persuasive-with-modification\"> </a></td><td>Not Persuasive with Modification</td><td>The comment is not persuasive with modification (partially rejected)</td></tr></table></div>"
     },
     "extension": [
         {

@@ -3,7 +3,7 @@
   "id": "crmi-moduledefinitionlibrary",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 1
+    "valueInteger" : 3
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",

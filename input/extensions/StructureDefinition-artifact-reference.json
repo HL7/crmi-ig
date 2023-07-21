@@ -1,6 +1,18 @@
 {
   "resourceType": "StructureDefinition",
   "id": "artifact-reference",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url": "http://hl7.org/fhir/StructureDefinition/artifact-reference",
   "version": "1.0.0",
   "name": "ArtifactReference",

@@ -1,7 +1,21 @@
 {
   "resourceType": "CodeSystem",
   "id": "software-system-type",
-  "url": "http://terminology.hl7.org/CodeSystem/software-system-type",
+  "extension": [
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "cds"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "trial-use"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 1
+    }
+],
+"url": "http://terminology.hl7.org/CodeSystem/software-system-type",
   "name": "SoftwareSystemTypeCodes",
   "title": "Software System Type Codes",
   "status": "active",
