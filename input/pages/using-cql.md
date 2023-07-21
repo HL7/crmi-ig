@@ -821,3 +821,8 @@ Because certain translator options impact language features and functionality, t
     * EnableAnnotations
     * EnableLocators
     * EnableResultTypes
+
+### ModelInfo
+{: #modelinfo}
+
+#### Namespaces

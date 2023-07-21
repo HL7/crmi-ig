@@ -130,7 +130,7 @@ If you are using these constructs in R4, this implementation guide provides an a
 * RiskEvidenceSynthesis
 
 ##### Related Resources
-* ArtifactAssessment (R5)
+* ArtifactAssessment (R5)  // Example: https://fevir.net/resources/ArtifactAssessment/122618
 * Citation (R5)
 * Permission (R5)
 * Obligation (R5)

@@ -1,0 +1,304 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-manifestlibrary",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary",
+  "name": "CRMIManifestLibrary",
+  "title": "CRMI Manifest Library",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Defines and supports the definition of a manifest used to establish specific versions of dependencies used in a collection of knowledge artifacts",
+  "purpose": "Knowledge artifacts must be able to specify versioning information for all the dependencies used in a particular release to enable stable expansion of value sets and consistent resolution of dependencies. For example, the versions of code systems used in value sets referenced by the artifacts must be identified so that terminology servers performing expansions can unambiguously select the version of each code system used to perform the expansion.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Library",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/shareablelibrary",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Library",
+        "path": "Library",
+        "definition": "Represents an artifact manifest, specifying version-specific dependencies of an artifact or group of artifacts. Artifact manifests are used throughout the content development lifecycle to establish version bindings for unversioned canonical references. Prior to release (when the status is draft) of the artifact(s), the manifest establishes the expansion rules such as code system versions used for expansion of value sets while artifacts are being authored. As part of release, the manifest is used to provide a complete dependency listing, as well as complete binding for all unversioned dependencies referenced in the artifacts so that canonical references can be reliably resolved, ensuring the stability of value set expansions used for evaluation of the artifacts.",
+        "comment": "Prior to release, artifact(s) should specify code system versions to support stable expansion of value sets during the development phase (also called an expansion profile). Post release, the artifact(s) may specify expansion identifiers to lock the code lists used for value sets. Provisional codes can be specified using the code system version mechanism (i.e. it is not the case that only one code system version can be specified per code system in an expand, and a manifest).",
+        "mustSupport": false
+      },
+      {
+        "id": "Library.extension:directReferenceCode",
+        "path": "Library.extension",
+        "sliceName": "directReferenceCode",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:cqlOptions",
+        "path": "Library.extension",
+        "sliceName": "cqlOptions",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:expansionParameters",
+        "path": "Library.extension",
+        "sliceName": "expansionParameters",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.type",
+        "path": "Library.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "asset-collection"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact",
+        "path": "Library.relatedArtifact",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:component",
+        "path": "Library.relatedArtifact",
+        "sliceName": "component",
+        "short": "What components are in the manifest",
+        "definition": "A canonical resource (such as a Library, CodeSystem, or ValueSet) that is part of the manifest.",
+        "comment": "This is the full list of component artifacts.",
+        "requirements": "Manifests must be able to unambiguously specify the set of components that make up the artifact collection. The version of each component SHALL be included in the canonical reference to the component.",
+        "min": 0,
+        "max": "*",
+        "constraint": [{
+          "key": "mnf-1",
+          "severity": "error",
+          "human": "Component reference must be either a resourceReference (referencing a canonical promotion) or a canonical (referencing a canonical resource), but not both",
+          "expression": "resource.exists() xor extension('http://hl7.org/fhir/5.0/StructureDefinition/extension-RelatedArtifact.resourceReference').exists()"
+        }],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:component.isOwned",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "isOwned",
+        "min": 0,
+        "max": "1",
+        "type": [{
+          "code" : "Extension",
+          "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-isOwned"]
+        }],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:component.resourceReference",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "resourceReference",
+        "short": "A reference to the component artifact (for canonical promotions)",
+        "definition": "A reference to a canonical promotion of a FHIR resource (i.e. a non-canonical resource that has been promoted to a canonical resource so it can be used in definitional contexts).",
+        "min": 0,
+        "max": "1",
+        "condition": [ "mnf-1" ],
+        "type": [{
+          "code": "Extension",
+          "profile": [ "http://hl7.org/fhir/5.0/StructureDefinition/extension-RelatedArtifact.resourceReference" ]
+        }],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:component.type",
+        "path": "Library.relatedArtifact.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "composed-of",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:component.display",
+        "path": "Library.relatedArtifact.display",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:component.resource",
+        "path": "Library.relatedArtifact.resource",
+        "short": "A reference to the component artifact (for canonical resources)",
+        "min": 0,
+        "max": "1",
+        "condition": [ "mnf-1" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency",
+        "path": "Library.relatedArtifact",
+        "sliceName": "dependency",
+        "short": "What dependencies are referenced",
+        "definition": "A canonical resource (such as a Library, CodeSystem, or ValueSet) referenced by any artifact in the release, or any dependency of any artifact in the release, recursively.",
+        "comment": "This is the full list of dependencies of all artifacts used in the specification.",
+        "requirements": "Artifacts must be able to unambiguously specify the versions of all dependencies used by artifacts in a specification. The version of each dependency SHALL be included in the canonical reference to the dependency.",
+        "min": 0,
+        "max": "*",
+        "constraint": [{
+          "key": "mnf-2",
+          "severity": "error",
+          "human": "Dependency reference must be either a resourceReference (referencing a canonical promotion) or a canonical (referencing a canonical resource), but not both",
+          "expression": "resource.exists() xor extension('http://hl7.org/fhir/5.0/StructureDefinition/extension-RelatedArtifact.resourceReference').exists()"
+        }],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.resourceReference",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "resourceReference",
+        "short": "A reference to the dependency artifact (for canonical promotions)",
+        "definition": "A reference to a canonical promotion of a FHIR resource (i.e. a non-canonical resource that has been promoted to a canonical resource so it can be used in definitional contexts).",
+        "min": 0,
+        "max": "1",
+        "condition": [ "mnf-2" ],
+        "type": [{
+          "code": "Extension",
+          "profile": [ "http://hl7.org/fhir/5.0/StructureDefinition/extension-RelatedArtifact.resourceReference" ]
+        }],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.type",
+        "path": "Library.relatedArtifact.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "depends-on",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.display",
+        "path": "Library.relatedArtifact.display",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.artifact",
+        "path": "Library.relatedArtifact.resource",
+        "short": "A reference to the dependency artifact (for canonical resources)",
+        "min": 0,
+        "max": "1",
+        "condition": [ "mnf-2" ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.content",
+        "path": "Library.content",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "Attachment"
+          }
+        ],
+        "mustSupport": false
+      }
+    ]
+  }
+}

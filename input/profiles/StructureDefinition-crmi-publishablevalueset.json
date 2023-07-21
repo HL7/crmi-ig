@@ -2,10 +2,6 @@
   "resourceType" : "StructureDefinition",
   "id" : "crmi-publishablevalueset",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary",
-    "valueMarkdown" : "**mustSupport**\n\nWhen this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."
-  },
-  {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
   },
@@ -16,10 +12,6 @@
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
-  },
-  {
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/profile-summary",
-    "valueString" : "**mustSupport**\n\nWhen this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."
   }],
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset",
   "name" : "CRMIPublishableValueSet",
