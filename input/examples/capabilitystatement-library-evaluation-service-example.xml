@@ -1,0 +1,109 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="library-evaluation-service-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-capabilitystatement"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-supportedCqlVersion">
+    <valueCoding>
+      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
+      <code value="1.5"/>
+    </valueCoding>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/crmi-supportedCqlVersion">
+    <valueCoding>
+      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
+      <code value="1.4"/>
+    </valueCoding>
+  </extension>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/library-evaluation-service-example"/>
+  <name value="LibraryEvaluationServiceCapabilityStatementExample"/>
+  <title value="Library Evaluation Service Capability Statement Example"/>
+  <status value="draft"/>
+  <date value="2016-09-16"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <name value="FHIR Project"/>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Basic conformance statement for a Library Evaluation Service. A server can support more fucntionality
+   than defined here, but this is the minimum amount"/>
+  <kind value="instance"/>
+  <instantiates value="http://hl7.org/fhir/knowledge-repository"/>
+  <software>
+    <name value="ACME Library Evaluation Service"/>
+  </software>
+  <implementation>
+    <description value="This service supports basic library repository features as well as library evaluation using the $evaluate operation."/>
+    <url value="https://example.org/fhir"/>
+  </implementation>
+  <fhirVersion value="4.0.1"/>
+  <format value="json"/>
+  <format value="xml"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="RESTful Library Evaluation Service"/>
+    <security>
+      <cors value="true"/>
+      <service>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
+          <code value="Certificates"/>
+        </coding>
+      </service>
+    </security>
+    <resource>
+      <type value="Library"/>
+      <profile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+        <interaction>
+        <code value="read"/>
+        <documentation value="Read allows clients to get the logical definitions of the libraries"/>
+      </interaction>
+      <interaction>
+        <code value="search-type"/>
+        <documentation value="Search allows clients to find libraries on the server"/>
+      </interaction>
+      <searchParam>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-description"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-identifier"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-status"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="topic"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-topic"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-version"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-url"/>
+        <type value="uri"/>
+      </searchParam>
+    </resource>
+    <operation>
+      <name value="evaluate"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/Library-evaluate"/>
+      </operation>
+  </rest>
+</CapabilityStatement>

@@ -1,0 +1,15 @@
+{
+    "package-id" : "hl7.fhir.uv.crmi",
+    "version" : "0.1.0-ballot",
+    "path" : "http://hl7.org/fhir/uv/crmi/0.1.0",
+    "mode": "working",
+    "status" : "ballot",
+    "sequence" : "STU1",
+    "desc" : "STU1 Ballot (v0.1.0)",
+    "descmd" : "This is the initial ballot of the Canonical Resource Management Infrastructure IG STU1",
+    "first" : true,
+    "title" : "Canonical Resource Management Infrastructure Implementation Guide",
+    "ci-build": "http://build.fhir.org/ig/HL7/crmi-ig",
+    "category": "infrastructure",
+    "introduction": "The Canonical Resource Management Infrastructure implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content."
+  }
