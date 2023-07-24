@@ -56,7 +56,7 @@
       } ]
     } ],
     "extension": [ {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-softwaresystem",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
       "valueReference": {
         "reference": "Device/cqf-tooling"
       }

@@ -72,4 +72,6 @@ dependencies:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 parameters:
   excludettl: true
-  special-url-base: http://hl7.org/fhir
+  special-url-base: 
+      - http://hl7.org/fhir
+      - http://terminology.hl7.org

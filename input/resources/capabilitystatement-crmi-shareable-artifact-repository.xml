@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="crmi-shareable-measure-repository"/>
-  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-shareable-measure-repository"/>
+  <id value="crmi-shareable-artifact-repository"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-shareable-artifact-repository"/>
   <version value="3.0.0"/>
-  <name value="CRMIShareableMeasureRepository"/>
-  <title value="CQF Measures Shareable Measure Repository"/>
+  <name value="CRMIShareableArtifactRepository"/>
+  <title value="CRMI Shareable Artifact Repository"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-08"/>

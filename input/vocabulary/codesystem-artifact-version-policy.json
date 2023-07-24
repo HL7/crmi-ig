@@ -1,6 +1,6 @@
 {
   "resourceType": "CodeSystem",
-  "id": "artifact-version-policy",
+  "id": "artifact-version-policy-codes",
   "extension": [
     {
         "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -15,7 +15,7 @@
         "valueInteger": 1
     }
 ],
-"url": "http://terminology.hl7.org/CodeSystem/artifact-version-policy",
+"url": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
   "name": "ArtifactVersionPolicyCodes",
   "title": "Artifact Version Policy Codes",
   "status": "active",

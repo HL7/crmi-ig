@@ -3,17 +3,11 @@
   <meta>
     <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-capabilitystatement"/>
   </meta>
-  <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-supportedCqlVersion">
-    <valueCoding>
-      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
-      <code value="1.5"/>
-    </valueCoding>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
+    <valueString value="1.5"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/crmi-supportedCqlVersion">
-    <valueCoding>
-      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
-      <code value="1.4"/>
-    </valueCoding>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
+    <valueString value="1.4"/>
   </extension>
   <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/library-evaluation-service-example"/>
   <name value="LibraryEvaluationServiceCapabilityStatementExample"/>

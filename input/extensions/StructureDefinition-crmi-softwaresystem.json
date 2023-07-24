@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-softwaresystem",
+  "id": "crmi-softwaresystem",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-softwaresystem",
-  "name": "SoftwareSystem",
-  "title": "Software System",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
+  "name": "CRMISoftwareSystem",
+  "title": "CRMI Software System",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "description": "Specifies the software systems used in the packaging and testing of measure and library resources. Specifically to know which version of what software was used.",
+  "description": "Specifies the software systems used in the packaging and testing of knowledge artifacts. Specifically to support explicitly stating which versions of the various software components were used in the authoring, packaging, and testing.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -55,7 +55,7 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "definition": "Specifies the software systems used in the packaging and testing of measure and library resources. Specifically to know which version of what software was used.",
+        "definition": "Specifies the software systems used in the packaging and testing of knowledge artifacts. Specifically to support explicitly stating which versions of the various software components were used in the authoring, packaging, and testing.",
         "min": 0,
         "max": "*"
       },
@@ -67,7 +67,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-softwaresystem"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem"
       },
       {
         "id": "Extension.value[x]",
@@ -76,7 +76,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/softwaresystemdevice"
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystemdevice"
             ]
           }
         ]

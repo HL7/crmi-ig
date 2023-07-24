@@ -1,6 +1,6 @@
 {
   "resourceType": "CodeSystem",
-  "id": "software-system-type",
+  "id": "software-system-type-codes",
   "extension": [
     {
         "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -15,7 +15,7 @@
         "valueInteger": 1
     }
 ],
-"url": "http://terminology.hl7.org/CodeSystem/software-system-type",
+"url": "http://terminology.hl7.org/CodeSystem/software-system-type-codes",
   "name": "SoftwareSystemTypeCodes",
   "title": "Software System Type Codes",
   "status": "active",

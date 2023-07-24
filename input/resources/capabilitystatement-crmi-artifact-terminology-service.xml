@@ -41,7 +41,7 @@
     <resource>
       <type value="CodeSystem"/>
       <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-codesystem-crmi"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
