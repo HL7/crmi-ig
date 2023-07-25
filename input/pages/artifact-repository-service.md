@@ -195,14 +195,19 @@ The _approve_ operation supports applying an approval to an existing artifact, r
 
 The following parameters SHOULD be supported for the operation:
 
-* **id**: The server-specific id of the artifact to be approved.
 * **approvalDate**: The date on which the artifact was last approved. If this parameter is not provided the operation will infer the date to be the current system date on the repository performing the operation.
-* **artifactAssessmentType**: If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (and must belong to the [Artifact Assessment Information Type ValueSet](http://hl7.org/fhir/ValueSet/artifactassessment-information-type) ValueSet).
+* **artifactAssessmentType**: If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (and must belong to the [Artifact Assessment Information Type ValueSet](http://hl7.org/fhir/ValueSet/artifactassessment-information-type)).
 * **artifactAssessmentSummary**: If a comment is submitted as part of the approval, this parameter contains the body of the comment.
 * **artifactAssessmentTarget**: The version-specific canonical URL for the artifact being approved. The format is: [system]|[version] - e.g. http://loinc.org|2.56
 * **artifactAssessmentRelatedArtifact**: Optional supporting Reference or canonical URL pointing to a supporting resource for the comment.
 * **artifactAssessmentAuthor**: A Reference to a resource with further information about the entity applying the approval.
-
+* Instance level:
+    * **id**: The server-specific id of the artifact to be approved.
+* Type level:
+    * **version**: The version of the artifact to be approved.
+    * **url**: The canonical url of the artifact to be approved.
+    * **identifier**: A business identifier of the artifact to be approved.
+    * **resource**: The resource type of the artifact to be released.
 ##### Publish
 
 The _publish_ operation supports posting a new artifact with _active_ status. The operation is defined as a `POST` (or `PUT` if the server supports client-defined ids) of the artifact resource, but the status of the posted resource is required to be _active_.
@@ -211,13 +216,30 @@ The _publish_ operation supports posting a new artifact with _active_ status. Th
 
 The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource and pins versions of all direct and transitive references. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also Released, recursively.
 
+The following parameters SHOULD be supported for the operation:
+
+* Instance level:
+    * **id**: The server-specific id of the artifact to be released.
+* Type level:
+    * **url**: The canonical url of the artifact to be released.
+    * **version**: The current version of the artifact to be released.
+    * **identifier**: A business identifier of the artifact to be released.
+    * **resource**: The resource type of artifact to be released.
+
 ##### Draft
 The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and a pre-release label of `-draft` appended to the version.
 
 The following parameters SHOULD be supported for the draft operations:
 
-* **id**: The server-specific id of the artifact to be analyzed
-* **version**: The version of the artifact which is in review, i.e. the version under which it will be released
+* **draftVersion**: The version of the artifact which is in review, i.e. the version under which it will be released
+* Type level:
+    * **url**: The (optionally version-specific) canonical URL of the artifact
+    * **version**: The current version of the artifact
+    * **identifier**: An identifier for the artifact
+    * **resource**: The artifact's resource type
+* Instance level:
+    * **id**: The server-specific id of the artifact to be analyzed
+
 ##### Clone
 
 The _clone_ operation supports the creation of a new draft version of an existing artifact, regardless of status, with a new URL. This operation creates a new resource with the same contents as the existing artifact, but with a status of draft and not version, and the new URL.
