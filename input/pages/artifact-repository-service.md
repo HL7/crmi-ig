@@ -217,7 +217,9 @@ The _publish_ operation supports posting a new artifact with _active_ status. Th
 The _release_ operation supports updating the status of an existing _draft_ artifact to _active_. The operation sets the _date_ element of the resource and pins versions of all direct and transitive references. Child artifacts (i.e. artifacts that _compose_ the existing artifact) are also Released, recursively.
 
 The following parameters SHOULD be supported for the operation:
-
+* **releaseVersion**: The version for the resulting active artifact.
+* **versionBehavior**: Whether or not the operation should override existing versions already set on the artifact and its descendants.
+* **latestFromTxServer**: Whether or not the repository should search the remote source when updating references.
 * Instance level:
     * **id**: The server-specific id of the artifact to be released.
 * Type level:
@@ -232,13 +234,13 @@ The _draft_ operation supports the creation of a new draft version of an existin
 The following parameters SHOULD be supported for the draft operations:
 
 * **draftVersion**: The version of the artifact which is in review, i.e. the version under which it will be released
-* Type level:
-    * **url**: The (optionally version-specific) canonical URL of the artifact
-    * **version**: The current version of the artifact
-    * **identifier**: An identifier for the artifact
-    * **resource**: The artifact's resource type
 * Instance level:
-    * **id**: The server-specific id of the artifact to be analyzed
+    * **id**: The server-specific id of the artifact to be drafted.
+* Type level:
+    * **url**: The canonical url of the artifact to be drafted.
+    * **version**: The current version of the artifact to be drafted
+    * **identifier**: A business identifier of the artifact to be drafted.
+    * **resource**: The resource type of artifact to be drafted.
 
 ##### Clone
 
