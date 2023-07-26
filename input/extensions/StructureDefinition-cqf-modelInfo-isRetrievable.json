@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "artifact-usage",
+  "id": "cqf-modelInfo-isRetrievable",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -13,12 +13,12 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/artifact-usage",
-  "name": "ArtifactUsage",
-  "title": "Artifact Usage",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+  "name": "ModelInfoIsRetrievable",
+  "title": "ModelInfo Is Retrievable",
   "status": "active",
   "experimental": false,
-  "date": "2023-01-09T13:31:32-07:00",
+  "date": "2021-11-27T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "description": "Describes the clinical usage of the artifact.",
-  "purpose": "To provide clinical guidance for the usage of an artifact.",
+  "description": "Specifies whether the class constructed for the profile should be marked as retrievable in the model info (meaning whether or not it can appear as the target of a retrieve expression). If this value is not specified, retrievable is true for resources and false for data types.",
+  "purpose": "An artifact author must be able to control which classes in the resulting model info are retrievable.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -45,7 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Resource"
+      "expression": "StructureDefinition"
     }
   ],
   "type": "Extension",
@@ -56,8 +56,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Describes the clinical usage of the artifact",
-        "definition": "A detailed description of how the artifact is used from a clinical perspective.",
+        "short": "Whether the resources can be retrieved",
+        "definition": "Specifies whether the class constructed for the profile should be marked as retrievable in the model info (i.e. whether it can be the target of a retrieve).",
         "min": 0,
         "max": "1"
       },
@@ -69,14 +69,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-usage"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "markdown"
+            "code": "boolean"
           }
         ]
       }

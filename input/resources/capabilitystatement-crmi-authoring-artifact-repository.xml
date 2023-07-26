@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="authoring-artifact-repository"/>
-  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/authoring-artifact-repository"/>
+  <id value="crmi-authoring-artifact-repository"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-authoring-artifact-repository"/>
   <version value="3.0.0"/>
   <name value="CRMIAuthoringArtifactRepository"/>
-  <title value="CRMI Authoring Artifact Repository Capability Statement"/>
+  <title value="CRMI Authoring Artifact Repository"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-08"/>
@@ -18,15 +18,15 @@
   </contact>
   <description value="Capability statement for a repository service supporting additional authoring and content workflow capabilities for FHIR-based knowledge artifacts above the basic ShareableArtifactRepository."/>
   <kind value="requirements"/>
-  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-artifact-repository"/>
-  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/publishable-artifact-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-shareable-artifact-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-publishable-artifact-repository"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/uv-crmi-0.1.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
   <rest>
     <mode value="server"/>
-    <documentation value="RESTful Artifact Repository"/>
+    <documentation value="RESTful Authoring Artifact Repository"/>
     <security>
       <cors value="true"/>
       <service>

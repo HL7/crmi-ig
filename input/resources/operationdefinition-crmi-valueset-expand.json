@@ -1,9 +1,9 @@
 {
   "resourceType" : "OperationDefinition",
-  "id" : "ValueSet-expand",
-  "url" : "http://hl7.org/fhir/uv/crmi/OperationDefinition/ValueSet-expand",
+  "id" : "crmi-valueset-expand",
+  "url" : "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-valueset-expand",
   "version" : "4.0.1",
-  "name" : "ValueSetExpand",
+  "name" : "CRMIValueSetExpand",
   "title": "CRMI Extension of Value Set Expansion",
   "status" : "draft",
   "kind" : "operation",

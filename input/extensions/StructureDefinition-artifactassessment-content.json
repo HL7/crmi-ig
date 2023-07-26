@@ -160,7 +160,7 @@
             }
           ],
           "strength": "example",
-          "valueSet": "http://hl7.org/fhir/ValueSet/certainty-rating"
+          "valueSet": "http://hl7.org/fhir/ValueSet/certainty-type"
         }
     },
       {

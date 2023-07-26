@@ -1,9 +1,9 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "artifact-usage",
+  "id": "crmi-softwaresystem",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 1
+    "valueInteger" : 3
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -13,12 +13,12 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/artifact-usage",
-  "name": "ArtifactUsage",
-  "title": "Artifact Usage",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
+  "name": "CRMISoftwareSystem",
+  "title": "CRMI Software System",
   "status": "active",
   "experimental": false,
-  "date": "2023-01-09T13:31:32-07:00",
+  "date": "2019-02-13",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -30,8 +30,7 @@
       ]
     }
   ],
-  "description": "Describes the clinical usage of the artifact.",
-  "purpose": "To provide clinical guidance for the usage of an artifact.",
+  "description": "Specifies the software systems used in the packaging and testing of knowledge artifacts. Specifically to support explicitly stating which versions of the various software components were used in the authoring, packaging, and testing.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -56,10 +55,9 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Describes the clinical usage of the artifact",
-        "definition": "A detailed description of how the artifact is used from a clinical perspective.",
+        "definition": "Specifies the software systems used in the packaging and testing of knowledge artifacts. Specifically to support explicitly stating which versions of the various software components were used in the authoring, packaging, and testing.",
         "min": 0,
-        "max": "1"
+        "max": "*"
       },
       {
         "id": "Extension.url",
@@ -69,14 +67,17 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-usage"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "markdown"
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystemdevice"
+            ]
           }
         ]
       }

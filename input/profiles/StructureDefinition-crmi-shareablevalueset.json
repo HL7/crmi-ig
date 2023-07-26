@@ -3,7 +3,7 @@
   "id" : "crmi-shareablevalueset",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 5
+    "valueInteger" : 4
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",

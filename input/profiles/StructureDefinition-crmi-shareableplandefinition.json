@@ -3,7 +3,7 @@
   "id" : "crmi-shareableplandefinition",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 3
+    "valueInteger" : 4
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",

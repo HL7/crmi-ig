@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="measure-terminology-service"/>
+  <id value="crmi-artifact-terminology-service"/>
   <!-- Specify for each supported terminology system -->
   <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system">
     <valueUri value="http://loinc.org"/>
   </extension>
-  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/measure-terminology-service"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-artifact-terminology-service"/>
   <version value="3.0.0"/>
-  <name value="CRMIMeasureTerminologyService"/>
-  <title value="Measure Terminology Service Capability Statement"/>
+  <name value="CRMIArtifactTerminologyService"/>
+  <title value="CRMI Artifact Terminology Service"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2015-07-05"/>
@@ -20,15 +20,15 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Capability statement for a terminology service supporting measure authoring and evaulation use cases. A server can support more functionality than defined here, but this defines the minimum expectations."/>
+  <description value="Capability statement for a terminology service supporting artifact authoring and evaulation use cases. A server can support more functionality than defined here, but this defines the minimum expectations."/>
   <kind value="requirements"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/us-crmieasures-3.0.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
   <rest>
     <mode value="server"/>
-    <documentation value="RESTful Measure Terminology Server"/>
+    <documentation value="RESTful Artifact Terminology Server"/>
     <security>
       <cors value="true"/>
       <service>
@@ -40,8 +40,8 @@
     </security>
     <resource>
       <type value="CodeSystem"/>
-      <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-codesystem-crmi"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -123,10 +123,10 @@
     </resource>
     <resource>
       <type value="ValueSet"/>
-      <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/computable-valueset-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/executable-valueset-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-valueset-crmi"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablevalueset"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -248,20 +248,26 @@
     </resource>
     <resource>
       <type value="Library"/>
-      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/quality-program-crmi"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-modelinfolibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Read allows clients to get the logical definitions of the quality program specifications"/>
+        <documentation value="Read allows clients to get the logical definitions of the available artifact libraries"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Search allows clients to find quality programs on the server"/>
+        <documentation value="Search allows clients to find artifact libraries on the server"/>
       </interaction>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">

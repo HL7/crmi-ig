@@ -3,18 +3,6 @@
   <meta>
     <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-capabilitystatement"/>
   </meta>
-  <extension url="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-supportedCqlVersion">
-    <valueCoding>
-      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
-      <code value="1.5"/>
-    </valueCoding>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/crmi-supportedCqlVersion">
-    <valueCoding>
-      <system value="http://hl7.org/fhir/uv/crmi/CodeSystem/cql-version"/>
-      <code value="1.4"/>
-    </valueCoding>
-  </extension>
   <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/library-evaluation-service-example"/>
   <name value="LibraryEvaluationServiceCapabilityStatementExample"/>
   <title value="Library Evaluation Service Capability Statement Example"/>
@@ -43,6 +31,12 @@
   <format value="json"/>
   <format value="xml"/>
   <rest>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
+      <valueString value="1.5"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion">
+      <valueString value="1.4"/>
+    </extension>
     <mode value="server"/>
     <documentation value="RESTful Library Evaluation Service"/>
     <security>
@@ -96,7 +90,7 @@
         <type value="token"/>
       </searchParam>
       <searchParam>
-        <name value="version"/>
+        <name value="url"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-url"/>
         <type value="uri"/>
       </searchParam>

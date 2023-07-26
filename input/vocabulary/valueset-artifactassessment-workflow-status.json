@@ -2,14 +2,9 @@
     "resourceType": "ValueSet",
     "id": "artifactassessment-workflow-status",
     "meta": {
-        "lastUpdated": "2023-03-26T15:21:02.749+11:00",
         "profile": [
             "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
         ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Include all codes defined in <a href=\"codesystem-artifactassessment-workflow-status.html\"><code>http://hl7.org/fhir/artifactassessment-workflow-status</code></a></li></ul></div>"
     },
     "extension": [
         {

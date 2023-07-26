@@ -1,6 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "crmi-shareablemedication",
+  "id" : "crmi-shareablecareteam",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -13,14 +13,14 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedication",
-  "name" : "CRMIShareableMedication",
-  "title" : "CRMI Shareable Medication",
+  "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecareteam",
+  "name" : "CRMIShareableCareTeam",
+  "title" : "CRMI Shareable CareTeam",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
-  "description" : "Enforces the minimum information set for the medication metadata required by HL7 and other organizations that share and publish medications",
+  "description" : "Enforces the minimum information set for the careteam metadata required by HL7 and other organizations that share and publish careteams",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -44,19 +44,19 @@
   }],
   "kind" : "resource",
   "abstract" : false,
-  "type" : "Medication",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Medication",
+  "type" : "CareTeam",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CareTeam",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
-      "id" : "Medication",
-      "path" : "Medication",
+      "id" : "CareTeam",
+      "path" : "CareTeam",
       "min" : 1,
       "max" : "1"
     },
     {
-      "id" : "Medication.extension:knowledgeCapability",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:knowledgeCapability",
+      "path" : "CareTeam.extension",
       "sliceName" : "knowledgeCapability",
       "min" : 0,
       "max" : "*",
@@ -67,8 +67,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:knowledgeRepresentationLevel",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:knowledgeRepresentationLevel",
+      "path" : "CareTeam.extension",
       "sliceName" : "knowledgeRepresentationLevel",
       "min" : 0,
       "max" : "*",
@@ -79,8 +79,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:artifactComment",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:artifactComment",
+      "path" : "CareTeam.extension",
       "sliceName" : "artifactComment",
       "min" : 0,
       "max" : "*",
@@ -91,8 +91,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:url",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:url",
+      "path" : "CareTeam.extension",
       "sliceName" : "url",
       "min" : 1,
       "max" : "1",
@@ -103,8 +103,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:version",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:version",
+      "path" : "CareTeam.extension",
       "sliceName" : "version",
       "min" : 1,
       "max" : "1",
@@ -115,8 +115,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:versionAlgorithm",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:versionAlgorithm",
+      "path" : "CareTeam.extension",
       "sliceName" : "versionAlgorithm",
       "min" : 0,
       "max" : "1",
@@ -127,8 +127,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:versionPolicy",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:versionPolicy",
+      "path" : "CareTeam.extension",
       "sliceName" : "versionPolicy",
       "min" : 0,
       "max" : "1",
@@ -139,20 +139,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:name",
-      "path" : "Medication.extension",
-      "sliceName" : "name",
-      "min" : 0,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-name"]
-      }],
-      "mustSupport" : true
-    },
-    {
-      "id" : "Medication.extension:title",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:title",
+      "path" : "CareTeam.extension",
       "sliceName" : "title",
       "min" : 1,
       "max" : "1",
@@ -163,8 +151,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:experimental",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:experimental",
+      "path" : "CareTeam.extension",
       "sliceName" : "experimental",
       "min" : 0,
       "max" : "1",
@@ -175,8 +163,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:publisher",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:publisher",
+      "path" : "CareTeam.extension",
       "sliceName" : "publisher",
       "min" : 0,
       "max" : "1",
@@ -187,8 +175,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.extension:description",
-      "path" : "Medication.extension",
+      "id" : "CareTeam.extension:description",
+      "path" : "CareTeam.extension",
       "sliceName" : "description",
       "min" : 0,
       "max" : "1",
@@ -199,8 +187,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "Medication.modifierExtension:artifactStatus",
-      "path" : "Medication.modifierExtension",
+      "id" : "CareTeam.modifierExtension:artifactStatus",
+      "path" : "CareTeam.modifierExtension",
       "sliceName" : "artifactStatus",
       "min" : 1,
       "max" : "1",
@@ -208,6 +196,13 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-status"]
       }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "CareTeam.name",
+      "path" : "CareTeam.name",
+      "min" : 0,
+      "max" : "1",
       "mustSupport" : true
     }]
   }

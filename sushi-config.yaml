@@ -62,3 +62,14 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 dependencies:
   fhir.cqf.common: 4.0.1
   hl7.fhir.uv.extensions.r4: 1.0.0
+
+# The parameters property represents IG.definition.parameter. Rather
+# than a list of code/value pairs (as in the ImplementationGuide
+# resource), the code is the YAML key. If a parameter allows repeating
+# values, the value in the YAML should be a sequence/array. For parameters
+# defined by core FHIR see: http://build.fhir.org/codesystem-guide-parameter-code.html.
+# For parameters defined by the FHIR Tools IG  see:
+# http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
+parameters:
+  excludettl: true
+  special-url-base: http://hl7.org/fhir

@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-effectiveDataRequirements",
+  "id": "crmi-effectiveDataRequirements",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 3
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-effectiveDataRequirements",
-  "name": "EffectiveDataRequirements",
-  "title": "Effective Data Requirements",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
+  "name": "CRMIEffectiveDataRequirements",
+  "title": "CRMI Effective Data Requirements",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -81,7 +81,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-effectiveDataRequirements"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements"
       },
       {
         "id": "Extension.value[x]",
@@ -90,7 +90,7 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/moduledefinitionlibrary"
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
             ]
           }
         ]

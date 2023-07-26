@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="shareable-measure-repository"/>
-  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-measure-repository"/>
+  <id value="crmi-shareable-artifact-repository"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-shareable-artifact-repository"/>
   <version value="3.0.0"/>
-  <name value="CRMIShareableMeasureRepository"/>
-  <title value="CQF Measures Shareable Measure Repository Capability Statement"/>
+  <name value="CRMIShareableArtifactRepository"/>
+  <title value="CRMI Shareable Artifact Repository"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-08"/>
@@ -16,12 +16,12 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Capability statement for a repository service supporting minimum required capabilities to share FHIR-based measure specifications. See the Publishable and Authoring Measure Repository capability statements for more comprehensive support for publishing and authoring workflows."/>
+  <description value="Capability statement for a repository service supporting minimum required capabilities to share FHIR-based artifact specifications. See the Publishable and Authoring Artifact Repository capability statements for more comprehensive support for publishing and authoring workflows."/>
   <kind value="requirements"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/us-crmieasures-3.0.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
   <rest>
     <mode value="server"/>
     <documentation value="RESTful Measure Repository"/>
@@ -36,12 +36,13 @@
     </security>
     <resource>
       <type value="Library"/>
-      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/library-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/computable-library-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-library-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/executable-library-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/modelinfo-library-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/quality-program-crmi"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-modelinfolibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -115,14 +116,9 @@
     </resource>
     <resource>
       <type value="Measure"/>
-      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/computable-measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/cohort-measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/proportion-measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/ratio-measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/cv-measure-crmi"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/composite-measure-crmi"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablemeasure"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemeasure"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>

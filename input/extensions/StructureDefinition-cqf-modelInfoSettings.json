@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "artifact-usage",
+  "id": "cqf-modelInfoSettings",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -13,12 +13,12 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/artifact-usage",
-  "name": "ArtifactUsage",
-  "title": "Artifact Usage",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings",
+  "name": "ModelInfoSettings",
+  "title": "ModelInfo Settings",
   "status": "active",
   "experimental": false,
-  "date": "2023-01-09T13:31:32-07:00",
+  "date": "2021-11-27T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -30,8 +30,7 @@
       ]
     }
   ],
-  "description": "Describes the clinical usage of the artifact.",
-  "purpose": "To provide clinical guidance for the usage of an artifact.",
+  "description": "Specifies the settings to be used for constructing modelinfo from profile definitions.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -45,7 +44,15 @@
   "context": [
     {
       "type": "element",
-      "expression": "Resource"
+      "expression": "Library"
+    },
+    {
+      "type": "element",
+      "expression": "ImplementationGuide"
+    },
+    {
+      "type": "element",
+      "expression": "RelatedArtifact"
     }
   ],
   "type": "Extension",
@@ -56,8 +63,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Describes the clinical usage of the artifact",
-        "definition": "A detailed description of how the artifact is used from a clinical perspective.",
+        "short": "What model info settings",
+        "definition": "Specifies the settings to be used when constructing model info from profile definitions.",
         "min": 0,
         "max": "1"
       },
@@ -69,14 +76,17 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/artifact-usage"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "markdown"
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Parameters"
+            ]
           }
         ]
       }

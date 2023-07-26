@@ -1,0 +1,23 @@
+{
+    "resourceType": "Parameters",
+    "id": "qicore-modelinfosettings",
+    "parameter": [ {
+      "name": "modelName",
+      "valueString": "QICore"
+    }, {
+      "name": "modelUrl",
+      "valueString": "http://hl7.org/fhir/us/qicore"
+    }, {
+      "name": "patientClassName",
+      "valueString": "Patient"
+    }, {
+      "name": "patientBirthDatePropertyName",
+      "valueString": "birthDate"
+    }, {
+      "name": "targetQualifier",
+      "valueString": "QICore"
+    }, {
+      "name": "targetUrl",
+      "valueString": "http://hl7.org/fhir"
+    } ]
+  }

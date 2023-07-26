@@ -2,14 +2,9 @@
     "resourceType": "CodeSystem",
     "id": "artifactassessment-information-type",
     "meta": {
-        "lastUpdated": "2023-03-26T15:21:02.749+11:00",
         "profile": [
             "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
         ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This code system <code>http://hl7.org/fhir/artifactassessment-information-type</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">comment<a name=\"artifactassessment-information-type-comment\"> </a></td><td>Comment</td><td>A comment on the artifact</td></tr><tr><td style=\"white-space:nowrap\">classifier<a name=\"artifactassessment-information-type-classifier\"> </a></td><td>Classifier</td><td>A classifier of the artifact</td></tr><tr><td style=\"white-space:nowrap\">rating<a name=\"artifactassessment-information-type-rating\"> </a></td><td>Rating</td><td>A rating of the artifact</td></tr><tr><td style=\"white-space:nowrap\">container<a name=\"artifactassessment-information-type-container\"> </a></td><td>Container</td><td>A container for multiple components</td></tr><tr><td style=\"white-space:nowrap\">response<a name=\"artifactassessment-information-type-response\"> </a></td><td>Response</td><td>A response to a comment</td></tr><tr><td style=\"white-space:nowrap\">change-request<a name=\"artifactassessment-information-type-change-request\"> </a></td><td>Change Request</td><td>A change request for the artifact</td></tr></table></div>"
     },
     "extension": [
         {

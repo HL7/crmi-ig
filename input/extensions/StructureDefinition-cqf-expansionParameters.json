@@ -48,6 +48,10 @@
     },
     {
       "type": "element",
+      "expression": "ImplementationGuide"
+    },
+    {
+      "type": "element",
       "expression": "RelatedArtifact"
     }
   ],

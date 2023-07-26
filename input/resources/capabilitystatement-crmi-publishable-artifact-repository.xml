@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="publishable-artifact-repository"/>
-  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/publishable-artifact-repository"/>
+  <id value="crmi-publishable-artifact-repository"/>
+  <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-publishable-artifact-repository"/>
   <version value="3.0.0"/>
   <name value="CRMIPublishableArtifactRepository"/>
-  <title value="CRMI Publishable Artifact Repository Capability Statement"/>
+  <title value="CRMI Publishable Artifact Repository"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-08"/>
@@ -18,11 +18,11 @@
   </contact>
   <description value="Capability statement for a repository service supporting additional publishing capabilities for FHIR-based knowledge artifacts above the basic ShareableArtifactRepository."/>
   <kind value="requirements"/>
-  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-artifact-repository"/>
+  <imports value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-shareable-artifact-repository"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>
   <format value="xml"/>
-  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/uv-crmi-0.1.0"/>
+  <implementationGuide value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
   <rest>
     <mode value="server"/>
     <documentation value="RESTful Measure Repository"/>
