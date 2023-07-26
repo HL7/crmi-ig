@@ -92,11 +92,49 @@ Options for federated client specification:
     * contentEndpoint
     * terminologyEndpoint
 * Resource/$draft
+    * id
+    * url
+    * version
+    * identifier
+    * resource
 * Resource/$approve
+    * id
+    * url
+    * version
+    * identifier
+    * resource
+    * approvalDate
+    * artifactAssessmentType
+    * artifactAssessmentSummary
+    * artifactAssessmentTarget
+    * artifactAssessmentRelatedArtifact
+    * artifactAssessmentAuthor
 * Resource/$revise
+    * id
+    * url
+    * version
+    * identifier
+    * resource
 * Resource/$review
+    * id
+    * url
+    * version
+    * identifier
+    * resource
 * Resource/$endorse
+    * id
+    * url
+    * version
+    * identifier
+    * resource
 * Resource/$release
+    * id
+    * url
+    * version
+    * identifier
+    * resource
+    * versionBehavior
+    * latestFromTxServer
 * ActivityDefinition/$apply
 * PlanDefinition/$apply
 * Resource/$apply

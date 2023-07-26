@@ -34,6 +34,7 @@ In addition, the following example capability statement illustrates the use of t
 ## Operations
 
 * [**Library/$package**](OperationDefinition-Library-package.html)
+* [**Library/$draft**](OperationDefinition-Library-draft.html)
 * [**Library/$data-requirements**](OperationDefinition-Library-data-requirements.html)
 * [**Measure/$package**](OperationDefinition-Measure-package.html)
 * [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
