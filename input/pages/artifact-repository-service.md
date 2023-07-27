@@ -144,7 +144,7 @@ The package operation supports the ability of a repository to package an artifac
     * **force**: Edge Case: This parameter overrides any specified version in the library and value sets (and any it depends on). Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `canonicalVersion` parameter.
 * **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
-* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the same package as the artifact being packaged (default is false)
+* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the implementation guide or specification that defines the artifact being packaged (default is false)
 * Instance level:
     * **id**: The server-specific id of the artifact to be approved.
 * Type level:
