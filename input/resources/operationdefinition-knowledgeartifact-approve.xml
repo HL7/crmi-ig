@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OperationDefinition xmlns="http://hl7.org/fhir">
     <id value="KnowledgeArtifact-approve"/>
-    <url value="http://hl7.org/fhir/uv/crmi/OperationDefinition/KnowledgeArtifact-approve"/>
+    <url value="http://hl7.org/fhir/uv/crmi/OperationDefinition/knowledgeartifact-approve"/>
     <version value="1.0.0"/>
     <name value="KnowledgeArtifactApprove"/>
     <title value="Knowledge Artifact Approve"/>
@@ -20,7 +20,7 @@
         </telecom>
     </contact>
     <description value="The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository."/>    
-    <code value="knowledge-artifact-approve"/>
+    <code value="crmi.knowledge-artifact-approve"/>
     <comment value="The approve operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment resource by applying an approval. The ArtifactAssessments which are added by the operation must reference a version of the artifact."/>
     <resource value="Resource"/>
     <system value="false"/>

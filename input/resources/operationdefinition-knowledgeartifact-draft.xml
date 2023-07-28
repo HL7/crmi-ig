@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="KnowledgeArtifact-draft"/>
+  <url value="http://hl7.org/fhir/uv/crmi/OperationDefinition/knowledgeartifact-draft"/>
+  <version value="1.0.0"/>
+  <name value="KnowledgeArtifactDraft"/>
+  <title value="KnowledgeArtifact Draft"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2023-05-12"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Creates a draft version of a knowledge artifact, as well as for all resources it is composed of."/>
+  <code value="crmi.knowledge-artifact-draft"/>
+  <comment value="This operation is used to set the status and version."/>
+  <resource value="Library"/>
+  <resource value="ActivityDefinition"/>
+  <resource value="CapabilityStatement"/>
+  <resource value="ChargeItemDefinition"/>
+  <resource value="CodeSystem"/>
+  <resource value="CompartmentDefinition"/>
+  <resource value="ConceptMap"/>
+  <resource value="EffectEvidenceSynthesis"/>
+  <resource value="EventDefinition"/>
+  <resource value="Evidence"/>
+  <resource value="EvidenceVariable"/>
+  <resource value="ExampleScenario"/>
+  <resource value="GraphDefinition"/>
+  <resource value="ImplementationGuide"/>
+  <resource value="Library"/>
+  <resource value="Measure"/>
+  <resource value="MessageDefinition"/>
+  <resource value="NamingSystem"/>
+  <resource value="OperationDefinition"/>
+  <resource value="PlanDefinition"/>
+  <resource value="Questionnaire"/>
+  <resource value="ResearchDefinition"/>
+  <resource value="ResearchElementDefinition"/>
+  <resource value="RiskEvidenceSynthesis"/>
+  <resource value="SearchParameter"/>
+  <resource value="StructureDefinition"/>
+  <resource value="StructureMap"/>
+  <resource value="TerminologyCapabilities"/>
+  <resource value="TestScript"/>
+  <resource value="ValueSet"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="id"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The logical id of the artifact to draft. The server must know the artifact (e.g. it is defined explicitly in the server&#39;s resources)"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="version"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="A semantic version in the form MAJOR.MINOR.PATCH.REVISION"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The new Resource with the draft status and version."/>
+    <type value="Resource"/>
+  </parameter>
+</OperationDefinition>
