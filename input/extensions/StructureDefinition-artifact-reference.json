@@ -32,16 +32,6 @@
     }
   ],
   "description": "A reference to a resource, canonical resource, or non-FHIR resource",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "purpose": "To allow resources to define a reference to a resource, canonical resource, or non-FHIR resource.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",

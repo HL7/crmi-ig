@@ -86,6 +86,22 @@
           "mustSupport": false
         },
         {
+          "id": "Group.extension:library",
+          "path": "Group.extension",
+          "sliceName": "library",
+          "min": 0,
+          "max": "1",
+          "type": [
+            {
+              "code": "Extension",
+              "profile": [
+                "http://hl7.org/fhir/StructureDefinition/cqf-library"
+              ]
+            }
+          ],
+          "mustSupport": true
+        },
+        {
           "id": "Group.extension:expression",
           "path": "Group.extension",
           "sliceName": "expression",

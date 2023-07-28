@@ -32,16 +32,6 @@
     }
   ],
   "description": "How to cite the resource/artifact.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "purpose": "Display of or reference to the bibliographic citation of the resource/artifact.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",

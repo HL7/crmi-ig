@@ -1,0 +1,34 @@
+{
+    "resourceType": "CodeSystem",
+    "id": "shareable-example",
+    "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem" ]
+    },
+    "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/shareable-example",
+    "name": "ANCMActivityCodes",
+    "title": "ANCM Activity Codes",
+    "status": "draft",
+    "experimental": false,
+    "description": "Set of codes representing all activities used in the implementation guide",
+    "caseSensitive": true,
+    "content": "complete",
+    "concept": [ {
+      "code": "ANC.A",
+      "display": "Registration"
+    }, {
+      "code": "ANC.A4",
+      "display": "Gather client details"
+    }, {
+      "code": "ANC.A7",
+      "display": "Create client record?OR?ANC.A8. Validate client details"
+    }, {
+      "code": "ANC.B5",
+      "display": "Quick check"
+    }, {
+      "code": "ANC.B4",
+      "display": "Confirm pregnancy"
+    }, {
+      "code": "ANC.End",
+      "display": "End"
+    } ]
+  }

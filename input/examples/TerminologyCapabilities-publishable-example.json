@@ -1,0 +1,53 @@
+{
+    "resourceType": "TerminologyCapabilities",
+    "id": "publishable-example",
+    "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableterminologycapabilities"
+        ]
+      },
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
+          "valueCode": "shareable"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
+          "valueCode": "computable"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel",
+          "valueCode": "structured"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/crmi/TerminologyCapabilities/publishable-example",
+      "version": "1.0.0",
+      "name": "ExamplePublishableTerminologyCapabilities",
+      "title": "Example Publishable TerminologyCapabilities",
+      "status": "draft",
+      "experimental": true,
+      "publisher": "HL7 International - Clinical Decision Support WG",
+      "description": "Example Publishable Terminology Capabilities to describe an environment capable of expanding LOINC value sets, but not RxNORM value sets",
+      "kind": "requirements",
+      "codeSystem": [{
+        "uri": "http://loinc.org",
+        "version": [{
+            "code": "2.58",
+            "isDefault": true,
+            "filter": [{
+                "code": "???",
+                "op": [ "???" ]
+            }]
+        }]
+      }, {
+        "uri": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version": [{
+            "code": "202306",
+            "isDefault": true,
+            "filter": [{
+                "code": "???",
+                "op": [ "???" ]
+            }]
+        }]
+      }]
+  }

@@ -85,10 +85,6 @@
       }],
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
-          "valueString" : "The type of artifact comment (documentation, review, guidance)."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
           "valueString" : "ArtifactCommentType"
         }],

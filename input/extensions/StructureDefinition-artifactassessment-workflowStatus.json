@@ -33,16 +33,6 @@
     }
   ],
   "description": "Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "purpose": "To specify the  workflow status for the assessment.",
   "fhirVersion": "4.0.1",
   "kind": "complex-type",

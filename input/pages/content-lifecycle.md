@@ -9,11 +9,17 @@ Knowledge artifacts go through a lifecycle, typically following a similar patter
 {% include img.html img="knowledge-artifact-lifecycle.png" %}
 </div>
 
-TODO: More details here about levels of representation....
+The `Publication Status` value set is used to track the lifecycle of an artifact:
+
+* _draft_: The artifact is in development and the contents of the artifact may change without changing the version.
+* _active_: The artifact is published and the contents of the artifact may only change in accordance with the versioning policy of the artifact.
+* _retired_: The artifact is retired and no longer in active use, typically because it has been superseded by a newer version of the artifact.
+
+To ensure stable resolution of dependencies of an artifact throughout its lifecycle (including stable value set expansion), a version manifest can be used to allow resolution of unversioned canonical references in the artifact and its dependencies. See the [Version Manifest](version-manifest.html) discussion for more information on how the Manifest Library profile supports stable resolution of dependencies.
 
 ### Knowledge package
 
-A knowledge package is a group of knowledge artifacts that go through the lifecycle together. This is similar to a software package. Is it best practice that all artifiacts in a package may share common metadata (publisher, author, jurisdiction), as well as version, as well as the canonical root of their URLs. A knowledge package is distributed as a FHIR package.
+A knowledge package is a group of knowledge artifacts that go through the lifecycle together. This is similar to a software package. It is best practice that all artifiacts in a package may share common metadata (publisher, author, jurisdiction), as well as version, as well as the canonical root of their URLs. A knowledge package is distributed as a FHIR package.
 
 Since there is currently no direct resource in FHIR to represent a FHIR Package, two approaches are currently considered:
 
@@ -29,4 +35,10 @@ If a single ImplementationGuide is returned, the package is the packageId. If mu
 
 ### Components vs dependencies
 
-TODO
+A _component_ artifact is an artifact that is designated specifically as part of a collection, whereas a _dependency_ is an artifact that is referenced by another artifact. The distinction is drawn to ensure that dependencies can always be calculated by tracing artifact dependencies, whereas components always need to be specified (i.e. they are the designated components of the collection).
+
+In addition, component artifacts can be _owned_ meaning that the lifecycle of the component artifact is entirely controlled by the containing collection, as opposed to the artifact having its own lifecycle.
+
+A collection of artifacts is specified using a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html). The components of the collection are identified with `relatedArtifact` entries of type `composed-of`. The `isOwned` extension is used to designate whether a component is owned (i.e. managed entirely as part of the collection).
+
+The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact.

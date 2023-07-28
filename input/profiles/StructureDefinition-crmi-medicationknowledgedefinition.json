@@ -1,0 +1,86 @@
+{
+    "resourceType": "StructureDefinition",
+    "id": "crmi-medicationknowledgedefinition",
+    "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger" : 1
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode" : "cds"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+    }],
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationknowledgedefinition",
+    "name": "CRMIMedicationKnowledgeDefinition",
+    "title": "CRMI MedicationKnowledge Definition",
+    "status": "draft",
+    "experimental": false,
+    "date": "2019-06-06",
+    "publisher": "Health Level Seven, Inc. - CDS WG",
+    "contact": [
+      {
+        "telecom": [
+          {
+            "system": "url",
+            "value": "http://hl7.org/special/committees/DSS"
+          }
+        ]
+      }
+    ],
+    "description": "Represents the definition of medication knowledge, suitable for use in various contexts",
+    "jurisdiction": [
+      {
+        "coding": [
+          {
+            "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+            "code": "001",
+            "display": "World"
+          }
+        ]
+      }
+    ],
+    "fhirVersion": "4.0.1",
+    "mapping": [
+      {
+        "identity": "rim",
+        "uri": "http://hl7.org/v3",
+        "name": "RIM Mapping"
+      },
+      {
+        "identity" : "workflow",
+        "uri" : "http://hl7.org/fhir/workflow",
+        "name" : "Workflow Pattern"
+      },
+      {
+        "identity": "w5",
+        "uri": "http://hl7.org/fhir/fivews",
+        "name": "FiveWs Pattern Mapping"
+    },
+    {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+    }],
+    "kind": "resource",
+    "abstract": false,
+    "type": "MedicationKnowledge",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicationKnowledge",
+    "derivation": "constraint",
+    "differential": {
+      "element": [
+        {
+          "id": "MedicationKnowledge",
+          "path": "MedicationKnowledge",
+          "mustSupport": false
+        },
+        {
+          "id": "MedicationKnowledge.code",
+          "path": "MedicationKnowledge.code",
+          "mustSupport": true
+        }
+     ]
+    }
+  }

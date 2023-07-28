@@ -1,0 +1,33 @@
+{
+    "resourceType": "MedicationKnowledge",
+    "id": "definition-example",
+    "meta": {
+      "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationknowledgedefinition" ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/ndc",
+          "code": "0069-2587-10",
+          "display": "Vancomycin Hydrochloride, 10 VIAL in 1 CARTON (0069-2587-10) > 10 mL in 1 VIAL (0069-2587-03) (package)"
+        }
+      ]
+    },
+    "status": "active",
+    "doseForm": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "385219001",
+          "display": "Solution for injection"
+        }
+      ]
+    },
+    "amount": {
+      "value": 50,
+      "unit": "mg/ml"
+    },
+    "synonym": [
+      "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"
+    ]
+  }

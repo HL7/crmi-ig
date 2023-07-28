@@ -1,0 +1,51 @@
+{
+    "resourceType": "Location",
+    "id": "shareable-example",
+    "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelocation" ]
+    },
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
+        "valueUri": "http://hl7.org/fhir/uv/crmi/Location/shareable-example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
+        "valueString": "0.1.0"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
+        "valueCoding": {
+            "system": "http://hl7.org/fhir/version-algorithm",
+            "code": "semver"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
+        "valueCoding": {
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+            "code": "strict"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
+        "valueString": "Antenatal Care Location Definition"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
+        "valueBoolean": true
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "valueString": "World Health Organization"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-description",
+        "valueMarkdown": "The definition of a location for delivering antenatal care as part of the WHO guidelines on antenatal care"
+    }],
+    "modifierExtension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-status",
+        "valueCode": "draft"
+    }],
+    "name": "ANCLocation",
+    "mode": "kind",
+    "type": [{
+        "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "OB",
+            "display": "Obstetrics clinic"
+        }]
+    }]
+}

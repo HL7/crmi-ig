@@ -2,7 +2,22 @@
 
 ## Capability Profiles
 
-To support flexible representation and packaging of knowledge artifacts for different use cases, this implementation guide uses four general categories of profiles, aligned with the [knowledge capabilities](https://build.fhir.org/ig/HL7/fhir-extensions/CodeSystem-knowledge-capability.html):
+For definitional artifacts, this implementation guide defines profile classes to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. All knowledge artifacts must be at least shareable, and where appropriate for the target environment, artifacts should declare the capabilities they support using the [cqf-knowledgeCapability](StructureDefinition-cqf-knowledgeCapability.html) extension, as well as the knowledge representation level of the artifact using the [cqf-knowledgeRepresentationLevel](StructureDefinition-cqf-knowledgeRepresentationLevel) extension, as defined in the shareable profiles.
+
+* **Shareable**: Shareable profiles set the minimum expectations for exchanging an artifact, including the URL, version, name, and publisher.
+* **Computable**: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.
+* **Publishable**: Publishable profiles describe the expectations for publication and distribution of an artifact, typically as part of an artifact repository.
+* **Executable**: Executable profiles deal with run-time behavior and implementation considerations. For example, an executable library may contain compiled content that can be directly executed by an engine. At a minimum, an executable artifact is guaranteed to have all the elements required to support at least one operation appropriate to the type of artifact.
+
+These capabilities are introduced to support separation of concerns along the spectrum from authoring to distribution to consumption, as illustrated by the following diagram:
+
+<div style="max-width:500px;">
+{% include img.html img="knowledge-capabilities.png" %}
+</div>
+
+A given artifact may provide all knowledge capabilities (Shareable plus Computable, Publishable, and Executable), or it may be focused on a particular capability. For example, a ValueSet may be only Shareable and Executable because it is intended for use in environments without access to a terminology service capable of expanding the Computable value set.
+
+Note that explicit profiles for capabilities are only defined when there are specific elements of the artifact involved in supporting that capability. For example, there is no executable ActivityDefinition profile, but that doesn't mean that ActivityDefinition artifacts cannot be executable, only that there are no additional conformance expectations for executable ActivityDefinitions specified by this implementation guide.
 
 <table>
   <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
@@ -21,10 +36,10 @@ To support flexible representation and packaging of knowledge artifacts for diff
   <tr><td>ImplementationGuide</td><td><a href="StructureDefinition-crmi-shareableimplementationguide.html">CRMIShareableImplementationGuide</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableimplementationguide.html">CRMIPublishableImplementationGuide</a></td><td>N/A (no requirements)</td></tr>
   <tr><td>Library</td><td><a href="StructureDefinition-crmi-shareablelibrary.html">CRMIShareableLibrary</a></td><td><a href="StructureDefinition-crmi-computablelibrary.html">CRMIComputableLibrary</a></td><td><a href="StructureDefinition-crmi-publishablelibrary.html">CRMIPublishableLibrary</a></td><td><a href="StructureDefinition-crmi-executablelibrary.html">CRMIExecutableLibrary</a></td></tr>
   <tr><td>Location</td><td><a href="StructureDefinition-crmi-shareablelocation.html">CRMIShareableLocation</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablelocation.html">CRMIPublishableLocation</a></td><td>N/A (no requirements>)</td></tr>
-  <tr><td>Measure</td><td><a href="StructureDefinition-crmi-shareablemeasure.html">CRMIShareableMeasure</a></td><td><a href="StructureDefinition-crmi-computablemeasure.html">CRMIComputableMeasure</a></td><td><a href="StructureDefinition-crmi-publishablemeasure.html">CRMIPublishableMeasure</a></td><td><a href="StructureDefinition-crmi-executablemeasure.html">CRMIExecutableMeasure</a></td></tr>
+  <tr><td>Measure</td><td><a href="StructureDefinition-crmi-shareablemeasure.html">CRMIShareableMeasure</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemeasure.html">CRMIPublishableMeasure</a></td><td>N/A (no requirements)</td></tr>
   <tr><td>Medication</td><td><a href="StructureDefinition-crmi-shareablemedication.html">CRMIShareableMedication</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemedication.html">CRMIPublishableMedication</a></td><td>N/A (no requirements>)</td></tr>
   <tr><td>MedicationKnowledge</td><td><a href="StructureDefinition-crmi-shareablemedicationknowledge.html">CRMIShareableMedicationKnowledge</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemedicationknowledge.html">CRMIPublishableMedicationKnowledge</a></td><td>N/A (no requirements>)</td></tr>
-  <tr><td>MessageDefinition</td><td><a href="StructureDefinition-crmi-shareablemessagedefinition.html">CRMIShareableMessageDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemessagedefinition.html">CRMIPublishableMessageDefinition</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>MessageDefinition</td><td>CRMIShareableMessageDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableMessageDefinition (Roadmap Item)</td><td>N/A (no requirements>)</td></tr>
   <tr><td>NamingSystem</td><td><a href="StructureDefinition-crmi-shareablenamingsystem.html">CRMIShareableNamingSystem</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablenamingsystem.html">CRMIPublishableNamingSystem</a></td><td>N/A (no requirements)</td></tr>
   <tr><td>ObservationDefinition</td><td>CRMIShareableObservationDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableObservationDefinition (Roadmap Item)</td><td>N/A (no requirements>)</td></tr>
   <tr><td>OperationDefinition</td><td><a href="StructureDefinition-crmi-shareableoperationdefinition.html">CRMIShareableOperationDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableoperationdefinition.html">CRMIPublishableOperationDefinition</a></td><td>N/A (no requirements>)</td></tr>
@@ -54,6 +69,7 @@ To support packaging, testing, and distribution of knowledge artifacts, this imp
   <tr><td><a href="StructureDefinition-crmi-locationdefinition.html">CRMILocationDefinition</a></td><td>A profile of Location that supports context-independent representation of locations for use in definitional contexts.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-manifestlibrary.html">CRMIManifestLibrary</a></td><td>A library profile used to define artifact collections that provide complete dependency and version resolution information for the artifacts in the collection.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-medicationdefinition.html">CRMIMedicationDefinition</a></td><td>A profile of Medication that supports context-independent representation of medications for use in definitional contexts.</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-medicationknowledgedefinition.html">CRMIMedicationKnowledgeDefinition</a></td><td>A profile of MedicationKnowledge that supports context-independent representation of medication knowledge for use in definitional contexts.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-modelinfolibrary.html">CRMIModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used by CQL.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-moduledefinitionlibrary.html">CRMIModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts).</td></tr>
   <tr><td><a href="StructureDefinition-crmi-practitionerroledefinition.html">CRMIPractitionerRoleDefinition</a></td><td>A profile of PractitionerRole that supports context-independent representation of practitioner roles for use in definitional contexts.</td></tr>

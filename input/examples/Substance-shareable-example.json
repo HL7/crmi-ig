@@ -1,0 +1,63 @@
+{
+    "resourceType": "Substance",
+    "id": "shareable-example",
+    "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesubstance" ]
+    },
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
+        "valueUri": "http://hl7.org/fhir/uv/crmi/Substance/shareable-example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
+        "valueString": "0.1.0"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
+        "valueCoding": {
+            "system": "http://hl7.org/fhir/version-algorithm",
+            "code": "semver"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
+        "valueCoding": {
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+            "code": "strict"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
+        "valueString": "Shareable Substance Definition Example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
+        "valueBoolean": true
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "valueString": "Clinical Decision Support WG"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-description",
+        "valueMarkdown": "The definition of a substance"
+    }],
+    "modifierExtension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-status",
+        "valueCode": "draft"
+    }],
+    "identifier": [
+      {
+        "system": "http://acme.org/identifiers/substances",
+        "value": "1463"
+      }
+    ],
+    "status": "active",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/substance-category",
+            "code": "allergen",
+            "display": "Allergen"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "text": "apitoxin (Honey Bee Venom)"
+    }
+}

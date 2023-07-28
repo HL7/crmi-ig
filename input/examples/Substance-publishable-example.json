@@ -1,0 +1,128 @@
+{
+    "resourceType": "Substance",
+    "id": "publishable-example",
+    "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablesubstance" ]
+    },
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
+        "valueUri": "http://hl7.org/fhir/uv/crmi/Substance/publishable-example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
+        "valueString": "0.1.0"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
+        "valueCoding": {
+            "system": "http://hl7.org/fhir/version-algorithm",
+            "code": "semver"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
+        "valueCoding": {
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+            "code": "strict"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
+        "valueString": "Publishable Substance Definition Example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
+        "valueBoolean": true
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "valueString": "Clinical Decision Support WG"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-contact",
+        "valueContactDetail": {
+            "name": "Clinical Decision Support WG"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-description",
+        "valueMarkdown": "Publishable Substance Definition Example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-date",
+        "valueDateTime": "2023-07-25"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-useContext",
+        "valueUsageContext": {
+            "code": {
+                "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+                "code": "focus"
+            },
+            "valueCodeableConcept": {
+                "coding": [{
+                    "system": "http://snomed.info/sct",
+                    "code": "77386006",
+                    "display": "Pregnancy (finding)"
+                }]
+            }
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-jurisdiction",
+        "valueCodeableConcept": {
+            "coding": [{
+                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                "code": "001",
+                "display": "World"
+            }]
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-purpose",
+        "valueMarkdown": "To support a reusable medication definition"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-usage",
+        "valueMarkdown": "See the [FHIR Clinical Guidelines](http://hl7.org/fhir/uv/cpg) for information on how this definition is used to support computable care guidelines"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-copyright",
+        "valueMarkdown": "This resource is licensed under Creative Commons [CC0](http://creativecommons.org/publicdomain/zero/1.0/)"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel",
+        "valueString": "Copyright 2023+, World Health Organization, No Rights Reserved"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-approvalDate",
+        "valueDate": "2023-07-25"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate",
+        "valueDate": "2023-07-25"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod",
+        "valuePeriod": {
+            "start": "2024-01-01"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-topic",
+        "valueCodeableConcept": {
+            "text": "Antenatal Care"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+        "valueContactDetail": {
+            "name": "Clinical Decision Support WG"
+        }
+    }],
+    "modifierExtension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-status",
+        "valueCode": "draft"
+    }],
+    "identifier": [
+      {
+        "system": "http://acme.org/identifiers/substances",
+        "value": "1463"
+      }
+    ],
+    "status": "active",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/substance-category",
+            "code": "allergen",
+            "display": "Allergen"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "text": "apitoxin (Honey Bee Venom)"
+    }
+}

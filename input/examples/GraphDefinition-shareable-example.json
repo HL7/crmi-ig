@@ -1,0 +1,57 @@
+{
+    "resourceType": "GraphDefinition",
+    "id": "shareable-example",
+    "meta" : {
+      "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegraphdefinition"]
+    },
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
+        "valueString": "Shareable GraphDefinition Example"
+    }],
+    "url": "http://hl7.org/fhir/uv/crmi/GraphDefinition/shareable-example",
+    "version": "1.0.0",
+    "name": "ShareableGraphDefinitionExample",
+    "status": "draft",
+    "experimental": true,
+    "date": "2021-02-11T20:43:58+00:00",
+    "description": "Example of a Shareable GraphDefinition",
+    "jurisdiction": [
+      {
+        "coding": [
+          {
+            "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+            "code": "001",
+            "display": "World"
+          }
+        ]
+      }
+    ],
+    "start": "Patient",
+    "profile": "http://http://fhir.org/guides/who/anc-cds/ancpatient",
+    "link": [
+      {
+        "min": 0,
+        "max": "*",
+        "description": "Encounters",
+        "target": [
+          {
+            "type": "Encounter",
+            "params": "patient={ref}",
+            "profile": "http://fhir.org/guides/who/anc-cds/ancencounter"
+          }
+        ]
+      },
+      {
+        "min": 0,
+        "max": "*",
+        "description": "LMP",
+        "target": [
+          {
+            "type": "Observation",
+            "params": "patient={ref}",
+            "profile": "http://fhir.org/guides/who/anc-cds/StructureDefinition/lmpobservation"
+          }
+        ]
+      }
+    ]
+  }

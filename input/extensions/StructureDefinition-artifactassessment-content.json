@@ -32,16 +32,6 @@
     }
   ],
   "description": "A Content containing additional documentation, a review Content, usage guidance, or other relevant information from a particular user.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
   "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,

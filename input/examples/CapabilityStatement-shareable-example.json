@@ -1,0 +1,112 @@
+{
+    "resourceType" : "CapabilityStatement",
+    "id" : "shareable-example",
+    "meta" : {
+      "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement"]
+    },
+    "url" : "http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-example",
+    "version" : "0.1.0",
+    "name" : "ShareableCapabilityStatementExample",
+    "title" : "Shareable Capability Statement Example",
+    "status" : "draft",
+    "date" : "2016-09-16",
+    "publisher" : "Clinical Decision Support WG",
+    "contact" : [{
+      "telecom" : [{
+        "system" : "url",
+        "value" : "http://www.hl7.org/Special/committees/dss"
+      }]
+    }],
+    "description" : "Basic conformance statement for a Library Evaluation Service. A server can support more fucntionality    than defined here, but this is the minimum amount",
+    "jurisdiction" : [{
+      "coding" : [{
+        "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+        "code" : "001",
+        "display" : "World"
+      }]
+    }],
+    "kind" : "instance",
+    "instantiates" : ["http://hl7.org/fhir/knowledge-repository"],
+    "software" : {
+      "name" : "ACME Library Evaluation Service"
+    },
+    "implementation" : {
+      "description" : "This service supports basic library repository features as well as library evaluation using the $evaluate operation.",
+      "url" : "https://example.org/fhir"
+    },
+    "fhirVersion" : "4.0.1",
+    "format" : ["json",
+    "xml"],
+    "rest" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion",
+        "valueString" : "1.5"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/cqf-supportedCqlVersion",
+        "valueString" : "1.4"
+      }],
+      "mode" : "server",
+      "documentation" : "RESTful Library Evaluation Service",
+      "security" : {
+        "cors" : true,
+        "service" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/restful-security-service",
+            "code" : "Certificates"
+          }]
+        }]
+      },
+      "resource" : [{
+        "type" : "Library",
+        "profile" : "http://hl7.org/fhir/StructureDefinition/Library",
+        "interaction" : [{
+          "code" : "read",
+          "documentation" : "Read allows clients to get the logical definitions of the libraries"
+        },
+        {
+          "code" : "search-type",
+          "documentation" : "Search allows clients to find libraries on the server"
+        }],
+        "searchParam" : [{
+          "name" : "description",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-description",
+          "type" : "string"
+        },
+        {
+          "name" : "identifier",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-identifier",
+          "type" : "token"
+        },
+        {
+          "name" : "status",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-status",
+          "type" : "token"
+        },
+        {
+          "name" : "title",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-title",
+          "type" : "string"
+        },
+        {
+          "name" : "topic",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-topic",
+          "type" : "token"
+        },
+        {
+          "name" : "version",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-version",
+          "type" : "token"
+        },
+        {
+          "name" : "url",
+          "definition" : "http://hl7.org/fhir/SearchParameter/Library-url",
+          "type" : "uri"
+        }]
+      }],
+      "operation" : [{
+        "name" : "evaluate",
+        "definition" : "http://hl7.org/fhir/OperationDefinition/Library-evaluate"
+      }]
+    }]
+  }

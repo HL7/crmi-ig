@@ -1,0 +1,16 @@
+{
+    "resourceType": "PractitionerRole",
+    "id": "definition-example",
+    "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-practitionerroledefinition" ]
+    },
+    "code": [{
+        "text": "Nurse practitioner"
+    }],
+    "specialty": [{
+        "text": "Antenatal care"
+    }],
+    "location": [{
+        "reference": "http://hl7.org/fhir/uv/crmi/Location/definition-example"
+    }]
+}

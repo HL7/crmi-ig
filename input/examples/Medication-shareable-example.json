@@ -1,0 +1,86 @@
+{
+    "resourceType": "Medication",
+    "id": "shareable-example",
+    "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedication" ]
+    },
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
+        "valueUri": "http://hl7.org/fhir/uv/crmi/Medication/shareable-example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
+        "valueString": "0.1.0"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
+        "valueCoding": {
+            "system": "http://hl7.org/fhir/version-algorithm",
+            "code": "semver"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
+        "valueCoding": {
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+            "code": "strict"
+        }
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
+        "valueString": "Shareable Medication Definition Example"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
+        "valueBoolean": true
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "valueString": "Clinical Decision Support WG"
+    }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-description",
+        "valueMarkdown": "The definition of a medication"
+    }],
+    "modifierExtension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-status",
+        "valueCode": "draft"
+    }],
+    "code": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "308047",
+          "display": "alprazolam 0.25 MG Oral Tablet"
+        }
+      ]
+    },
+    "form": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "385055001",
+          "display": "Tablet (basic dose form)"
+        }
+      ]
+    },
+    "ingredient": [
+      {
+        "itemCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "386983007",
+              "display": "Alprazolam (substance)"
+            }
+          ]
+        },
+        "strength": {
+          "numerator": {
+            "value": 0.25,
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
+          },
+          "denominator": {
+            "value": 1,
+            "unit": "Tablet",
+            "system": "http://snomed.info/sct",
+            "code": "385055001"
+          }
+        }
+      }
+    ]
+  }
