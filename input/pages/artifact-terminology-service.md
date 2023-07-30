@@ -21,14 +21,14 @@ As a version manifest, an artifact collection specifies versioned canonical refe
 > NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if an artifact explicitly references the version of a value set, the manifest cannot override that version.
 
 #### Expansion Rules
-Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [crmi-expansionParameters](StructureDefinition-crmi-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
+Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters](StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
 
 1. `activeOnly`
 2. `system-version`
 3. `check-system-version`
 4. `force-system-version`
-5. `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
-6. `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
+5. `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+6. `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
 Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
 
@@ -37,14 +37,11 @@ Because this capability results in the potential for parameter values to be supp
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-#### Quality Programs
-To support organization of releases, the Quality Program profile can also be used to define quality programs that contain multiple releases over multiple years. This usage is represented by an overall Quality Program that is then referenced by each release using the [partOf](StructureDefinition-crmi-partOf.html) extension.
-
 ### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
 
-2. For published CodeSystems, SHALL represent publishable CodeSystem information, as specified by the [CRMIPublishableCodeSystem](StructureDefinition-publishable-codesystem-crmi.html) profile.
+2. For published CodeSystems, SHALL represent publishable CodeSystem information, as specified by the [CRMIPublishableCodeSystem](StructureDefinition-crmi-publishablecodesystem.html) profile.
 
 3. SHALL support CodeSystem read by the server-defined id for the CodeSystem
 
@@ -94,11 +91,11 @@ Note that when a code system authority has not established a versioning system, 
         2. Concepts in a system (specified version)
         3. Value Sets
 
-2. SHALL Represent computable ValueSet information, as specified by the [CRMIComputableValueSet](StructureDefinition-computable-valueset-crmi.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
+2. SHALL Represent computable ValueSet information, as specified by the [CRMIComputableValueSet](StructureDefinition-crmi-computablevalueset.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 
-3. SHALL Represent executable ValueSet information, as specified by the [CRMIExecutableValueSet](StructureDefinition-executable-valueset-crmi.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
+3. SHALL Represent executable ValueSet information, as specified by the [CRMIExecutableValueSet](StructureDefinition-crmi-executablevalueset.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
 
-4. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CRMIPublishableValueSet](StructureDefinition-publishable-valueset-crmi.html) profile.
+4. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CRMIPublishableValueSet](StructureDefinition-crmi-publishablevalueset.html) profile.
 
 5. SHALL support ValueSet read, by the server-defined id for the ValueSet
 
@@ -147,15 +144,15 @@ Note that when a code system authority has not established a versioning system, 
     10. SHOULD support includeDesignation parameter
     11. SHOULD support designation parameter
     12. SHOULD support paging parameters
-    13. SHOULD support the `manifest` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    14. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    15. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    13. SHOULD support the `manifest` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    14. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    15. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
 ### Artifact Collections
 
-1. SHALL Represent basic artifact collection release information, as specified by the [CRMIArtifactCollection](StructureDefinition-artifact-collection-crmi.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, and terminology references
+1. SHALL Represent basic artifact collection release information, as specified by the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, and terminology references
 
-2. For published artifact collection, SHALL represent publishable artifact collection information as specified by the [CRMIPublishableLibrary](StructureDefinition-publishable-library-crmi.html) profile.
+2. For published artifact collection, SHALL represent publishable artifact collection information as specified by the [CRMIPublishableLibrary](StructureDefinition-crmi-publishablelibrary.html) profile.
 
 3. SHALL support Library read, by the server-defined id for the library
 
@@ -177,8 +174,8 @@ Note that when a code system authority has not established a versioning system, 
     3. SHALL support the check-system-version parameter
     4. SHALL support the force-system-version parameter
     5. SHOULD support other parameters
-    6. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
-    7. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-ValueSet-expand.html))
+    6. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    7. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
 5. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
     1. If a parameter is specified as part of the $expand operation directly, it takes precedence
@@ -186,7 +183,7 @@ Note that when a code system authority has not established a versioning system, 
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
     4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-6. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-Library-package.html) operation
+6. SHALL support version manifest and release value set packaging: [Library/$crmi.package](OperationDefinition-crmi-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
@@ -209,7 +206,7 @@ Note that when a code system authority has not established a versioning system, 
 
 The above capabilities are formally captured in the following capability statement:
 
-[CRMIArtifactTerminologyService](CapabilityStatement-artifact-terminology-service.html)
+[CRMIArtifactTerminologyService](CapabilityStatement-crmi-artifact-terminology-service.html)
 
 ### Examples
 
@@ -219,7 +216,7 @@ This is the computable representation of an example Chronic Liver Disease value 
 contains two concepts that are active (as of the 2019-09 release of the US Edition of
 SNOMED-CT) and one concept that was last active in the 2015-03 release).
 
-* [ChronicLiverDiseaseLegacyExample](ValueSet-chronic-liver-disease-legacy-example.html)
+* ChronicLiverDiseaseLegacyExample
 
 The `compose` element of this value set is:
 
@@ -266,7 +263,7 @@ Given the following `$expand`:
 [base]/ValueSet/chronic-liver-disease-legacy-example/$expand
 ```
 
-The expected [result](ValueSet-chronic-liver-disease-legacy-example-current.html) expansion is:
+The expected result expansion is:
 
 ```
 "expansion": {
@@ -304,7 +301,7 @@ Given the following `$expand`:
 [base]/ValueSet/chronic-liver-disease-legacy-example/$expand?activeOnly=true
 ```
 
-The expected [result](ValueSet-chronic-liver-disease-legacy-example-current-active.html) expansion is:
+The expected result expansion is:
 
 ```
 "expansion": {
@@ -341,7 +338,7 @@ Given the following `$expand`:
 [base]/ValueSet/chronic-liver-disease-legacy-example/$expand?valueSetVersion=2020-05&system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20150301
 ```
 
-The expected [result](ValueSet-chronic-liver-disease-legacy-example-2019-09.html) expansion is:
+The expected result expansion is:
 
 ```
 "expansion": {
@@ -393,9 +390,9 @@ Note that as the artifacts in the collection are developed, different aspects of
 
 The following example illustrates an overall collection that contains multiple version manifests and releases over time:
 
-* [eCQM Quality Program](Library-ecqm-quality-program.html)
+* [Manifest Library](Library-manifest-example.html)
 
-Note that as an organizer, this library just contains the program-level information. Version manifests and releases over time use the [part-of](StructureDefinition-crmi-partOf.html) extension to indicate that they are part of an artifact collection.
+Note that as an organizer, this library just contains the collection-level information.
 
 ##### Draft Collection Example
 
@@ -446,10 +443,6 @@ Note that the version of SNOMED in use is still listed as a dependency in the ar
 ]
 ```
 
-The full example is available here:
-
-* [eCQM Version Manifest, 2020](Library-ecqm-update-2020.html)
-
 ##### Release Artifact Collection
 
 The following example illustrates a collection that is an _active_ instance of an artifact collection release used to provide stable extensions for the released artifacts in the collection.
@@ -497,10 +490,6 @@ In addition, the collection release specifies versions of code systems, value se
   "display": "Appropriate Testing for Children with Pharyngitis"
 }
 ```
-
-The full example is available here:
-
-* [eCQM Release, 2020-05-07](Library-ecqm-update-2020-05-07.html)
 
 ##### Expansion with manifests and releases:
 

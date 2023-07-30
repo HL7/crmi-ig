@@ -1,0 +1,68 @@
+{
+    "resourceType": "MeasureReport",
+    "id": "result-example",
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+        "valueReference": {
+            "reference": "#messages"
+        }
+    }],
+    "contained": [{
+        "resourceType": "OperationOutcome",
+        "id": "messages",
+        "issue": [{
+            "severity": "fatal",
+            "code": "invalid",
+            "details": {
+                "text": "Errors translating library ANCCohort"
+            }
+        }]
+    }],
+    "status": "error",
+    "measure": "http://hl7.org/fhir/uv/crmi/Measure/publishable-example",
+    "group": [ {
+        "id": "group-1",
+        "population": [ {
+          "id": "initial-population",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "denominator",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "numerator",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+            "value": 0.0
+        },
+        "stratifier": [ {
+          "id": "by-age",
+          "code": [{
+            "text": "Age"
+          }]
+        }, {
+          "id": "by-education-level",
+          "code": [{
+            "text": "Education Level"
+          }]
+        } ]
+      } ]
+  }

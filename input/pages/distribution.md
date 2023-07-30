@@ -35,24 +35,23 @@ Downstream systems MAY require all content dependencies. These dependencies can 
 
 To facilitate this, a downstream system MAY use the $package or $data-requirements operation(s) on a canonical resource to resolve dependencies.
 
-* [$package](OperationDefinition-Library-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
-* [$data-requirements](OperationDefinition-Library-data-requirements.html): The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
+* [$crmi.package](OperationDefinition-crmi-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
+* [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
 
-NOTE: $data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
+NOTE: $crmi.data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
 
-Both `$package` and `$dependencies` operations are available for all canonical resources:
+Both `$crmi.package` and `$crmi.data-requirements` operations are available for all canonical resources:
 
 1. StructureDefinition, StructureMap
 2. ValueSet, CodeSystem, NamingSystem, ConceptMap
 3. Questionnaire, ActivityDefinition, PlanDefinition, Library, Measure
 4. ObservationDefinition, SpecimenDefinition, MedicationKnowledge, etc...
 
-NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
+NOTE: To recreate the contents of a FHIR Package, the `$crmi.package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
 
 ### Dependency Tracing
 
 Here is an exhaustive list of canonical resources with required dependencies for an execution environment, as shown below:
-
 
 #### Structure Definition
 
@@ -317,4 +316,4 @@ This can simplify tooling for distribution to downstream systems, and can decrea
 
 Systems using sharable content, including: authoring systems, clinical data repositories, quality measure engines, decision support engines, care management systems, and assessment filler applications.
 
-[Distribution client capabilities]()
+Distribution client capabilities

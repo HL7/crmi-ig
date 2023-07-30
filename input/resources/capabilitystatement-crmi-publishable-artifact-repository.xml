@@ -249,32 +249,6 @@
         <type value="reference"/>
       </searchParam>
     </resource>
-    <resource>
-      <type value="MeasureReport"/>
-      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/test-case-crmi"/>
-      <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="read"/>
-        <documentation value="Read allows clients to get the definitions and details of repository measure test cases"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="search-type"/>
-        <documentation value="Search allows clients to search for repository measure test cases"/>
-      </interaction>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <name value="measure"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/MeasureReport-measure"/>
-        <type value="reference"/>
-      </searchParam>
-    </resource>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>

@@ -95,7 +95,7 @@
             "valueString" : "ResourceType"
           }],
           "strength" : "required",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/all-resource-types"
+          "valueSet" : "http://hl7.org/fhir/ValueSet/resource-types"
         }
       }
     ]

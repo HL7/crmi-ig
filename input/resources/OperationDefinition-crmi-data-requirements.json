@@ -1,0 +1,185 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "crmi-data-requirements",
+  "url": "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-data-requirements",
+  "version": "0.1.0",
+  "date": "2023-03-12",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166"
+        }
+      ]
+    }
+  ],
+  "experimental": false,
+  "status": "draft",
+  "name": "CRMIDataRequirements",
+  "title": "CRMI Data Requirements",
+  "description": "Determines the effective data requirements for the artifact, including known\ncomponents and dependencies, and optionally informed by a version manifest.\n\nSee [$crmi.package and $crmi.data-requirements](introduction.html)\n\n*TODO*: Add example of the use-case that will do dependency tracing, similar to\n`$package` but returns only the information and not the actual resources.",
+  "comment": "The requirements operation supports the ability of a repository to determine the\neffective requirements of an artifact, including terminology usage (code\nsystems, value sets, and direct-reference codes), parameters, dependencies\n(artifacts), and data requirements",
+  "kind": "operation",
+  "code": "crmi.data-requirements",
+  "resource": [
+    "ActivityDefinition",
+    "CapabilityStatement",
+    "ChargeItemDefinition",
+    "CodeSystem",
+    "CompartmentDefinition",
+    "ConceptMap",
+    "EffectEvidenceSynthesis",
+    "EventDefinition",
+    "Evidence",
+    "EvidenceVariable",
+    "ExampleScenario",
+    "GraphDefinition",
+    "ImplementationGuide",
+    "Library",
+    "Measure",
+    "MessageDefinition",
+    "NamingSystem",
+    "OperationDefinition",
+    "PlanDefinition",
+    "Questionnaire",
+    "ResearchDefinition",
+    "ResearchElementDefinition",
+    "RiskEvidenceSynthesis",
+    "SearchParameter",
+    "StructureDefinition",
+    "StructureMap",
+    "TerminologyCapabilities",
+    "TestScript",
+    "ValueSet"
+  ],
+  "system": false,
+  "type": true,
+  "instance": true,
+  "parameter": [
+    {
+      "name": "id",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "The logical id of the canonical resource to analyze.",
+      "type": "string"
+    },
+    {
+      "name": "url",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "A canonical reference to a canonical resource.",
+      "type": "uri"
+    },
+    {
+      "name": "version",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "The version of the canonical resource to analyze",
+      "type": "string"
+    },
+    {
+      "name": "identifier",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "A business identifier of the canonical resource to be analyzed.",
+      "type": "string",
+      "searchType": "token"
+    },
+    {
+      "name": "expression",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "The name of a specific expression to be considered for analysis. If no\nexpressions are specified, the analysis is performed on the entire resource. If\nexpressions are specified, the analysis is performed only on the expressions\nspecified.",
+      "type": "string"
+    },
+    {
+      "name": "parameters",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "Any input parameters for the artifact. Parameters defined in this input will be\nbound by name to parameters defined in the CQL library (or referenced\nlibraries). Parameter types are mapped to CQL as specified in the Using CQL\nsection of this implementation guide. If a parameter appears more than once in\nthe input Parameters resource, it is represented with a List in the input CQL.\nIf a parameter has parts, it is represented as a Tuple in the input CQL.\n\nNOTE: Does this only apply to Library resource types?",
+      "type": "Parameters"
+    },
+    {
+      "name": "canonicalVersion",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "Specifies a version to use for a canonical resource if the artifact referencing \nthe resource does not already specify a version. The format is the same as a canonical URL:\n[url]|[version] - e.g. http://loinc.org|2.56 \n\nNote that this is a generalization of the `system-version` parameter to the $expand operation \nto apply to any canonical resource, including code systems.",
+      "type": "canonical"
+    },
+    {
+      "name": "checkCanonicalVersion",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing \nthe resource specifies a different version, an error is returned instead of the package. The\nformat is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 \n\nNote that this is a generalization of the `check-system-version` parameter to the $expand operation to \napply to any canonical resource, including code systems.",
+      "type": "canonical"
+    },
+    {
+      "name": "forceCanonicalVersion",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any\nspecified version in the artifact (and any artifacts it depends on). The\nformat is the same as a canonical URL: [system]|[version] - e.g.\nhttp://loinc.org|2.56. Note that this has obvious safety issues, in that it may\nresult in a value set expansion giving a different list of codes that is both\nwrong and unsafe, and implementers should only use this capability reluctantly.\n\nIt primarily exists to deal with situations where specifications have fallen\ninto decay as time passes. If the version of a canonical is overriden, the version used SHALL\nexplicitly be represented in the expansion parameters. \n\nNote that this is a generalization of the `force-system-version` parameter to the $expand operation \nto apply to any canonical resource, including code systems.",
+      "type": "canonical"
+    },
+    {
+      "name": "manifest",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "Specifies an asset-collection library that defines version bindings for code\nsystems and other canonical resources referenced by the value set(s) being expanded\nand other canonical resources referenced by the artifact. When specified, code\nsystems and other canonical resources identified as `depends-on` related artifacts \nin the manifest library have the same meaning as specifying that code system or other\ncanonical version in the `system-version` parameter of an expand or the `canonicalVersion` \nparameter.",
+      "type": "canonical"
+    },
+    {
+      "name": "include",
+      "min": 0,
+      "max": "*",
+      "use": "in",
+      "type": "string",
+      "documentation": "Specifies what contents should be included in the resulting package. The codes indicate which types of resources should be included, but note that\nthe set of possible resources is determined as all known (i.e. present on the server) dependencies and related artifacts. Possible\nvalues are:\n* all (default) - all resource types\n* artifact - the specified artifact\n* canonical - canonical resources (i.e. resources with a defined url element or that can be canonical resources using the artifact-url extension)\n* terminology - terminology resources (i.e. CodeSystem, ValueSet, NamingSystem, ConceptMap)\n* conformance - conformance resources (i.e. StructureDefinition, StructureMap, SearchParameter, CompartmentDefinition)\n* profiles - profile definitions (i.e. StructureDefinition resources that define profiles)\n* extensions - extension definitions (i.e. StructureDefinition resources that define extensions) \n* knowledge - knowledge artifacts (i.e. ActivityDefinition, Library, PlanDefinition, Measure, Questionnaire)\n* tests - test cases and data (i.e. test cases as defined by the testing specification in this implementation guide)\n* examples - example resources (i.e. resources identified as examples in the implementation guide)"
+    },
+    {
+      "name": "contentEndpoint",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "Endpoint",
+      "documentation": "An endpoint to use to access content (i.e. libraries, activities, measures, questionnaires, and plans) referenced by the\nartifact. If no content endpoint is supplied the evaluation will attempt to\nretrieve content from the server on which the operation is being performed."
+    },
+    {
+      "name": "terminologyEndpoint",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "Endpoint",
+      "documentation": "An endpoint to use to access terminology (i.e. valuesets, codesystems, naming systems, concept maps, and\nmembership testing) referenced by the Resource. If no terminology endpoint is\nsupplied, the evaluation will attempt to use the server on which the operation\nis being performed as the terminology server."
+    },
+    {
+      "name": "return",
+      "use": "out",
+      "min": 1,
+      "max": "1",
+      "documentation": "The result of the requirements operation is a _module-definition_ Library that\nreturns the computed effective requirements of the artifact.",
+      "type": "Bundle"
+    }
+  ]
+}

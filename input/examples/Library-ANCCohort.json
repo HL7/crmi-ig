@@ -1,8 +1,11 @@
 {
     "resourceType": "Library",
     "id": "ANCCohort",
+    "meta": {
+      "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary" ]
+    },
     "extension": [ {
-      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
       "valueReference": {
         "reference": "Device/cqf-tooling"
       }
@@ -35,7 +38,7 @@
     }, {
       "type": "depends-on",
       "display": "Code system ANCM Concept Codes",
-      "resource": "http://hl7.org/fhir/uv/crmi/CodeSystem/concept-codes"
+      "resource": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example"
     } ],
     "parameter": [ {
       "name": "Is pregnancy confirmed",
@@ -44,6 +47,12 @@
       "max": "1",
       "type": "boolean"
     }, {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue",
+          "valueBoolean": false
+        }
+      ],
       "name": "Is Antenatal Care Applicable",
       "use": "out",
       "min": 0,
@@ -57,7 +66,7 @@
       "codeFilter": [ {
         "path": "code",
         "code": [ {
-          "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/concept-codes",
+          "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
           "code": "ANC.B4.DE1",
           "display": "Pregnancy confirmed"
         } ]

@@ -2,7 +2,7 @@
 
 ## Capability Profiles
 
-For definitional artifacts, this implementation guide defines profile classes to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. All knowledge artifacts must be at least shareable, and where appropriate for the target environment, artifacts should declare the capabilities they support using the [cqf-knowledgeCapability](StructureDefinition-cqf-knowledgeCapability.html) extension, as well as the knowledge representation level of the artifact using the [cqf-knowledgeRepresentationLevel](StructureDefinition-cqf-knowledgeRepresentationLevel) extension, as defined in the shareable profiles.
+For definitional artifacts, this implementation guide defines profile classes to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. All knowledge artifacts must be at least shareable, and where appropriate for the target environment, artifacts should declare the capabilities they support using the cqf-knowledgeCapability extension, as well as the knowledge representation level of the artifact using the cqf-knowledgeRepresentationLevel extension, as defined in the shareable profiles.
 
 * **Shareable**: Shareable profiles set the minimum expectations for exchanging an artifact, including the URL, version, name, and publisher.
 * **Computable**: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.
@@ -53,7 +53,7 @@ Note that explicit profiles for capabilities are only defined when there are spe
   <tr><td>Substance</td><td><a href="StructureDefinition-crmi-shareablesubstance.html">CRMIShareableSubstance</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablesubstance.html">CRMIPublishableSubstance</a></td><td>N/A (no requirements>)</td></tr>
   <tr><td>SubscriptionTopic</td><td>CRMIShareableSubscriptionTopic (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableSubscriptionTopic (Roadmap Item)</td><td>N/A (no requirements>)</td></tr>
   <tr><td>StructureDefinition</td><td><a href="StructureDefinition-crmi-shareablestructuredefinition.html">CRMIShareableStructureDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablestructuredefinition.html">CRMIPublishableStructureDefinition</a></td><td>N/A (no requirements>)</td></tr>
-  <tr><td>StructureMap</td><td><a href="StructureDefinition-crmi-shareablestructuremap.html">CRMIShareableStructureMap</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablestructuremap.html">CRMIPublishableStructureMap</a></td><td>N/A (no requirements>)</td></tr>
+  <tr><td>StructureMap</td><td>CRMIShareableStructureMap (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableStructureMap (Roadmap Item)</td><td>N/A (no requirements>)</td></tr>
   <tr><td>TerminologyCapabilities</td><td><a href="StructureDefinition-crmi-shareableterminologycapabilities.html">CRMIShareableTerminologyCapabilities</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableterminologycapabilities.html">CRMIPublishableTerminologyCapabilities</a></td><td>N/A (no requirements>)</td></tr>
   <tr><td>ValueSet</td><td><a href="StructureDefinition-crmi-shareablevalueset.html">CRMIShareableValueSet</a></td><td><a href="StructureDefinition-crmi-computablevalueset.html">CRMIComputableValueSet</a></td><td><a href="StructureDefinition-crmi-publishablevalueset.html">CRMIPublishableValueSet</a></td><td><a href="StructureDefinition-crmi-executablevalueset.html">CRMIExecutableValueSet</a></td></tr>
 </table>
@@ -62,7 +62,7 @@ To support packaging, testing, and distribution of knowledge artifacts, this imp
 
 <table>
   <tr><th>Profile</th><th>Description</th></tr>
-  <tr><td><a href="StructureDefinition-crmi-artifactassessment.html">CRMIArtifactAssessment</a></td><td>A profile of Basic that supports expression and use of the <a href="http://hl7.org/fhir/artifactassessment.html">R5 ArtifactAssessment</a> resource in R4 contexts.</td></tr>
+  <!--<tr><td><a href="StructureDefinition-crmi-artifactassessment.html">CRMIArtifactAssessment</a></td><td>A profile of Basic that supports expression and use of the <a href="http://hl7.org/fhir/artifactassessment.html">R5 ArtifactAssessment</a> resource in R4 contexts.</td></tr>-->
   <tr><td><a href="StructureDefinition-crmi-capabilitystatement.html">CRMICapabilityStatement</a></td><td>A system capability statement that can express which version of CQL is supported.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-careteamdefinition.html">CRMICareTeamDefinition</a></td><td>A profile of CareTeam that supports context-independent representation of care teams for use in definitional contexts.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-groupdefinition.html">CRMIGroupDefinition</a></td><td>A profile of Group that supports context-independent representation of groups for use in definitional contexts.</td></tr>

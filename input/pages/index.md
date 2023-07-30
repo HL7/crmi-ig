@@ -154,10 +154,7 @@ page in the menu bar:
     -  **[Distribution](distribution.html)**: Distribution requirements for canonical resources and knowledge artifacts 
     -  **[Dealing with unversioned canonical references](version-manifest.html)**: Guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
 -  **[Profiles](profiles.html)**: List of profiles defined for use by knowledge artifacts
--  **[Extensions](extensions.html)**: List of extensions defined for use by knowledge artifacts
--  **[Terminology](terminology.html)**: List of value sets and code systems defined in this IG
 -  **[Capabilities](capabilities.html)**: Definitions of services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
--  **[Glossary](glossary.html)** Definitions of terms related to knowledge artifacts.
 -  **[Downloads](downloads.html)**: Links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
 

@@ -76,7 +76,7 @@
           "path": "Extension.value[x]",
           "type": [
             {
-              "code": "CodeableConcept"
+              "code": "Coding"
             }
           ],
           "binding": {

@@ -14,10 +14,6 @@
           {
             "name" : "system-version",
             "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
-          },
-          {
-            "name": "expansion",
-            "valueUri": "eCQM%20Update%202020-05-07"
           }
         ]
       }
@@ -28,6 +24,20 @@
         "valueReference": {
           "reference": "#exp-params"
         }
+      },
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-scope",
+        "valueString": "who.fhir.ancm.anc-dt-01@http://fhir.org/guides/who/ancm#1.0.0"
+      },
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-artifactComment",
+        "extension": [{
+          "url": "type",
+          "valueCode": "documentation"
+        }, {
+          "url": "text",
+          "valueMarkdown": "For more information on the use of this manifest, refer to the Canonical Resource Management Infrastructure IG"
+        }]
       }
     ],
     "url": "http://hl7.org/fhir/uv/crmi/Library/manifest-example",
@@ -35,12 +45,12 @@
       {
         "use": "official",
         "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
-        "value": "eCQM Update 2020-05-07"
+        "value": "ANCM-DT-01"
       }
     ],
     "version": "1.0.0",
-    "name": "ECQMUpdate20200507",
-    "title": "eCQM Update 2020-05-07",
+    "name": "ANCMDangerSignsPackage",
+    "title": "ANCM Danger Signs Package",
     "status": "active",
     "experimental": true,
     "type": {
@@ -69,7 +79,7 @@
         "code": "US"
       }]
     }],
-    "description": "This library is an example of a program release that provides versioning information in support of stable expansion of a set of value sets used in a particular quality program.",
+    "description": "This library is an example of an artifact manifest for the DT-01 PlanDefinition from the ANC-Mini IG.",
     "approvalDate": "2020-05-07",
     "lastReviewDate": "2020-05-07",
     "useContext": [
@@ -90,29 +100,49 @@
         "display": "SNOMED-CT US Edition, 2019-09-01"
       },
       {
-        "type": "depends-on",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example|2020-05",
-        "display": "Chronic Liver Disease, Legacy Example (2020-05)"
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }],
+        "type": "composed-of",
+        "resource": "http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example",
+        "_resource": {
+          "extension": [{
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "StructureDefinition"
+          }]
+        },
+        "display": "Danger signs Profile"
       },
       {
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM124-FHIR",
-        "display": "Cervical Cancer Screening"
+        "resource": "http://hl7.org/fhir/uv/crmi/PlanDefinition/publishable-example",
+        "_resource": {
+          "extension": [{
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "PlanDefinition"
+          }]
+        },
+        "display":"ANC.DT.01 Danger signs PlanDefinition"
       },
       {
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }],
         "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM125-FHIR",
-        "display": "Breast Cancer Screening"
-      },
-      {
-        "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130-FHIR",
-        "display":"Colorectal Cancer Screening"
-      },
-      {
-        "type": "composed-of",
-        "resource": "http://hl7.org/fhir/us/cqfmeasures/Measure/EXM146-FHIR",
-        "display": "Appropriate Testing for Children with Pharyngitis"
+        "resource": "http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example",
+        "_resource": {
+          "extension": [{
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "StructureDefinition"
+          }]
+        },
+        "display": "ANC.B5 Quick check Questionnaire"
       }
     ]
   }

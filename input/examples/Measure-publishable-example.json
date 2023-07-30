@@ -8,28 +8,28 @@
       "resourceType": "Library",
       "id": "effective-data-requirements",
       "extension": [ {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
         "valueCoding": {
           "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
           "code": "P10Y--P14Y",
           "display": "10-14 years"
         }
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
         "valueCoding": {
           "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
           "code": "P15Y--P19Y",
           "display": "15-19 years"
         }
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
         "valueCoding": {
           "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
           "code": "P20Y--P9999Y",
           "display": "20+ years"
         }
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCBaseDataElements"
@@ -44,7 +44,7 @@
           "valueInteger": 0
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCIND01"
@@ -59,7 +59,7 @@
           "valueInteger": 1
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCContactDataElements"
@@ -74,7 +74,7 @@
           "valueInteger": 2
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCIND01"
@@ -89,7 +89,7 @@
           "valueInteger": 3
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCStratifiers"
@@ -104,7 +104,7 @@
           "valueInteger": 4
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCIND01"
@@ -119,7 +119,7 @@
           "valueInteger": 5
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCIND01"
@@ -134,7 +134,7 @@
           "valueInteger": 6
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCStratifiers"
@@ -149,7 +149,7 @@
           "valueInteger": 7
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCIND01"
@@ -164,7 +164,7 @@
           "valueInteger": 8
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCBaseDataElements"
@@ -179,7 +179,7 @@
           "valueInteger": 9
         } ]
       }, {
-        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
         "extension": [ {
           "url": "libraryName",
           "valueString": "ANCIND01"
@@ -203,32 +203,12 @@
       },
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "Library BaseData",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/ANCBaseDataElements"
-      }, {
-        "type": "depends-on",
-        "display": "Library BCx",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/ANCBaseConcepts"
+        "display": "Library ANCCohort",
+        "resource": "http://hl7.org/fhir/uv/crmi/Library/ANCCohort"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/FHIRHelpers|4.0.1"
-      }, {
-        "type": "depends-on",
-        "display": "Library Cx",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/ANCConcepts"
-      }, {
-        "type": "depends-on",
-        "display": "Library ContactData",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/ANCContactDataElements"
-      }, {
-        "type": "depends-on",
-        "display": "Library WC",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/WHOCommon"
-      }, {
-        "type": "depends-on",
-        "display": "Library Stratifiers",
-        "resource": "http://fhir.org/guides/who/anc-cds/Library/ANCStratifiers"
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
       }, {
         "type": "depends-on",
         "display": "Code system ISO-8601-Derived Periods",
@@ -294,6 +274,10 @@
         "type": "boolean"
       } ],
       "dataRequirement": [ {
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-isSelective",
+          "valueBoolean": true
+        }],
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type", "reasonCode", "period" ],
@@ -302,6 +286,10 @@
           "valueSet": "http://fhir.org/guides/who/anc-cds/ValueSet/antenatal-care-contact"
         } ]
       }, {
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-isSelective",
+          "valueBoolean": true
+        }],
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "code", "status", "encounter", "encounter.reference" ],
@@ -324,18 +312,13 @@
       } ]
     } ],
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-      "valueReference": {
-        "reference": "Device/cqf-tooling"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
       "valueReference": {
         "reference": "Device/cqf-tooling"
       }
     }, {
       "id": "effective-data-requirements",
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
       "valueReference": {
         "reference": "#effective-data-requirements"
       }
@@ -347,7 +330,7 @@
     "experimental": false,
     "date": "2023-03-13T22:32:10-06:00",
     "description": "Percentage of pregnant women with first ANC contact in the first trimester (before 12 weeks of gestation)",
-    "library": [ "http://fhir.org/guides/who/anc-cds/Library/ANCIND01" ],
+    "library": [ "http://hl7.org/fhir/uv/crmi/Library/ANCCohort" ],
     "scoring": {
       "coding": [ {
         "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
@@ -366,6 +349,15 @@
         "code": "increase"
       } ]
     },
+    "relatedArtifact": [{
+      "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isPrimaryCitation",
+        "valueBoolean": true
+      }],
+      "type": "citation",
+      "citation": "WHO, UN Women, UNFPA. Health care for women subjected to intimate partner violence or sexual violence – a clinical handbook. Geneva: World Health Organization; 2014",
+      "url": "https://apps.who.int/iris/bitstream/handle/10665/136101/WHO_RHR_14.26_eng.pdf"
+    }],
     "group": [ {
       "id": "group-1",
       "population": [ {
@@ -407,12 +399,18 @@
       } ],
       "stratifier": [ {
         "id": "by-age",
+        "code": {
+          "text": "Age"
+        },
         "criteria": {
           "language": "text/cql-identifier",
           "expression": "Age Stratifier"
         }
       }, {
         "id": "by-education-level",
+        "code": {
+          "text": "Education Level"
+        },
         "criteria": {
           "language": "text/cql-identifier",
           "expression": "Education Level Stratifier"

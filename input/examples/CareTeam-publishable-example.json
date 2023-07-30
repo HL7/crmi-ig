@@ -29,10 +29,10 @@
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
         "valueBoolean": true
     }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-publisher",
         "valueString": "World Health Organization"
     }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-contact",
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-contact",
         "valueContactDetail": {
             "name": "World Health Organization"
         }
@@ -53,7 +53,7 @@
                 "coding": [{
                     "system": "http://snomed.info/sct",
                     "code": "77386006",
-                    "display": "Pregnant (finding)"
+                    "display": "Pregnancy (finding)"
                 }]
             }
         }
@@ -110,7 +110,11 @@
             "text": "Nurse practitioner"
         }],
         "member": {
-            "reference": "http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example"
+            "extension": [{
+                "url": "http://hl7.org/fhir/StructureDefinition/artifact-canonicalReference",
+                "valueCanonical": "http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example"
+            }],
+            "reference": "PractitionerRole/definition-example"
         }
     }]
 }

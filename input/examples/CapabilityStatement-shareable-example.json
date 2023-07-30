@@ -9,6 +9,7 @@
     "name" : "ShareableCapabilityStatementExample",
     "title" : "Shareable Capability Statement Example",
     "status" : "draft",
+    "experimental" : true,
     "date" : "2016-09-16",
     "publisher" : "Clinical Decision Support WG",
     "contact" : [{

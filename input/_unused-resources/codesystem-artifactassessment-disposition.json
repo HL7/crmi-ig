@@ -1,0 +1,93 @@
+{
+    "resourceType": "CodeSystem",
+    "id": "artifactassessment-disposition",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+        ]
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "cds"
+        },
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "trial-use"
+        },
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+            "valueInteger": 1
+        }
+    ],
+    "url": "http://hl7.org/fhir/artifactassessment-disposition",
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.4.642.4.2024"
+        }
+    ],
+    "version": "5.0.0",
+    "name": "ArtifactAssessmentDisposition",
+    "title": "Artifact Assessment Disposition",
+    "status": "active",
+    "experimental": false,
+    "date": "2021-01-05T10:01:24+11:00",
+    "publisher": "HL7 (FHIR Project)",
+    "contact": [
+        {
+            "telecom": [
+                {
+                    "system": "url",
+                    "value": "http://hl7.org/fhir"
+                },
+                {
+                    "system": "email",
+                    "value": "fhir@lists.hl7.org"
+                }
+            ]
+        }
+    ],
+    "description": "Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.",
+    "jurisdiction": [
+        {
+            "coding": [
+                {
+                    "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                    "code": "001",
+                    "display": "World"
+                }
+            ]
+        }
+    ],
+    "caseSensitive": true,
+    "valueSet": "http://hl7.org/fhir/ValueSet/artifactassessment-disposition",
+    "content": "complete",
+    "concept": [
+        {
+            "code": "unresolved",
+            "display": "Unresolved",
+            "definition": "The comment is unresolved"
+        },
+        {
+            "code": "not-persuasive",
+            "display": "Not Persuasive",
+            "definition": "The comment is not persuasive (rejected in full)"
+        },
+        {
+            "code": "persuasive",
+            "display": "Persuasive",
+            "definition": "The comment is persuasive (accepted in full)"
+        },
+        {
+            "code": "persuasive-with-modification",
+            "display": "Persuasive with Modification",
+            "definition": "The comment is persuasive with modification (partially accepted)"
+        },
+        {
+            "code": "not-persuasive-with-modification",
+            "display": "Not Persuasive with Modification",
+            "definition": "The comment is not persuasive with modification (partially rejected)"
+        }
+    ]
+}

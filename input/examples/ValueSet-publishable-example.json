@@ -1,40 +1,84 @@
 {
-    "resourceType": "ValueSet",
-    "id": "publishable-example",
-    "meta": {
-        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset" ]
-    },
-    "url": "http://hl7.org/fhir/uv/crmi/ValueSet/publishable-example",
-    "name": "ReasonforcomingtofacilityCodesGrouper",
-    "title": "Reason for coming to facility Codes Grouper",
-    "status": "draft",
-    "experimental": false,
-    "date": "2023-07-11T09:29:40-06:00",
-    "description": "Group Valueset with codes representing possible values for the Reason for coming to facility Codes Grouper element",
-    "immutable": true,
-    "compose": {
-      "include": [ {
-        "valueSet": [ "http://fhir.org/guides/who/smart-anc-mini/ValueSet/anc-b5-de2" ]
-      }, {
-        "valueSet": [ "http://fhir.org/guides/who/smart-anc-mini/ValueSet/anc-b5-de3" ]
-      }, {
-        "valueSet": [ "http://fhir.org/guides/who/smart-anc-mini/ValueSet/anc-b5-de4" ]
-      } ]
-    },
-    "expansion": {
-      "timestamp": "2023-07-11T09:29:40-06:00",
-      "contains": [ {
-        "system": "http://fhir.org/guides/who/smart-anc-mini/CodeSystem/concept-codes",
-        "code": "ANC.B5.DE2",
-        "display": "First antenatal care contact"
-      }, {
-        "system": "http://fhir.org/guides/who/smart-anc-mini/CodeSystem/concept-codes",
-        "code": "ANC.B5.DE3",
-        "display": "Scheduled antenatal care contact"
-      }, {
-        "system": "http://fhir.org/guides/who/smart-anc-mini/CodeSystem/concept-codes",
-        "code": "ANC.B5.DE4",
-        "display": "Specific complaint related to antenatal care"
-      } ]
-    }
+  "resourceType": "ValueSet",
+  "id": "publishable-example",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset" ]
+  },
+  "url": "http://hl7.org/fhir/uv/crmi/ValueSet/publishable-example",
+  "name": "DangersignsCodesGrouper",
+  "title": "Danger signs Codes Grouper",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-07-11T09:29:40-06:00",
+  "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
+  "immutable": true,
+  "compose": {
+    "include": [ {
+      "valueSet": [ "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de49" ]
+    }, {
+      "valueSet": [ "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de50" ]
+    }, {
+      "valueSet": [ "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de51" ]
+    } ]
+  },
+  "expansion": {
+    "timestamp": "2023-07-11T09:29:40-06:00",
+    "contains": [ {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE49",
+      "display": "No danger signs"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE50",
+      "display": "Bleeding vaginally"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE52",
+      "display": "Convulsing"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE53",
+      "display": "Fever"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE54",
+      "display": "Imminent delivery"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE55",
+      "display": "Labour"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE56",
+      "display": "Looks very ill"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE57",
+      "display": "Severe headache"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE58",
+      "display": "Severe pain"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE59",
+      "display": "Severe vomiting"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE60",
+      "display": "Severe abdominal pain"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE61",
+      "display": "Unconscious"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE62",
+      "display": "Visual disturbance"
+    }, {
+      "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
+      "code": "ANC.B5.DE51",
+      "display": "Central cyanosis"
+    } ]
   }
+}

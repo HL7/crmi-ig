@@ -1,0 +1,201 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "crmi-package",
+  "url": "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-package",
+  "version": "0.1.0",
+  "date": "2023-03-12",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166"
+        }
+      ]
+    }
+  ],
+  "experimental": false,
+  "status": "draft",
+  "name": "CRMIPackage",
+  "title": "CRMI Package",
+  "description": "Packages a specified canonical resource with dependencies.\n\nSee [$package and $data-requirements](introduction.html)",
+  "comment": "TODO: More documentation about the operation, including inline examples:\n\n```json\n{\n  \"resourceType\": \"Bundle\"\n}\n```",
+  "kind": "operation",
+  "code": "crmi.package",
+  "resource": [
+    "ActivityDefinition",
+    "CapabilityStatement",
+    "ChargeItemDefinition",
+    "CodeSystem",
+    "CompartmentDefinition",
+    "ConceptMap",
+    "EffectEvidenceSynthesis",
+    "EventDefinition",
+    "Evidence",
+    "EvidenceVariable",
+    "ExampleScenario",
+    "GraphDefinition",
+    "ImplementationGuide",
+    "Library",
+    "Measure",
+    "MessageDefinition",
+    "NamingSystem",
+    "OperationDefinition",
+    "PlanDefinition",
+    "Questionnaire",
+    "ResearchDefinition",
+    "ResearchElementDefinition",
+    "RiskEvidenceSynthesis",
+    "SearchParameter",
+    "StructureDefinition",
+    "StructureMap",
+    "TerminologyCapabilities",
+    "TestScript",
+    "ValueSet"
+  ],
+  "system": false,
+  "type": true,
+  "instance": true,
+  "parameter": [
+    {
+      "name": "id",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "string",
+      "documentation": "The logical id of an existing Resource to package on the server."
+    },
+    {
+      "name": "url",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "uri",
+      "documentation": "A canonical reference to a Resource to package on the server."
+    },
+    {
+      "name": "version",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "string",
+      "documentation": "The version of the Resource"
+    },
+    {
+      "name": "identifier",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "string",
+      "searchType": "token",
+      "documentation": "A business identifier of the Resource."
+    },
+    {
+      "name": "capability",
+      "min": 0,
+      "max": "*",
+      "use": "in",
+      "type": "string",
+      "documentation": "A desired capability of the resulting package. `computable` to include\ncomputable elements in packaged content; `executable` to include executable\nelements in packaged content; `publishable` to include publishable elements in\npackaged content."
+    },
+    {
+      "name": "canonicalVersion",
+      "min": 0,
+      "max": "*",
+      "use": "in",
+      "type": "canonical",
+      "documentation": "Specifies a version to use for a canonical resource if the artifact referencing \nthe resource does not already specify a version. The format is the same as a canonical URL:\n[url]|[version] - e.g. http://loinc.org|2.56 Note that this is a generalization of the `system-version`\nparameter to the $expand operation to apply to any canonical resource, including code systems."
+    },
+    {
+      "name": "checkCanonicalVersion",
+      "min": 0,
+      "max": "*",
+      "use": "in",
+      "type": "canonical",
+      "documentation": "Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing \nthe resource specifies a different version, an error is returned instead of the package. The\nformat is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 Note that\nthis is a generalization of the `check-system-version` parameter to the $expand operation to \napply to any canonical resource, including code systems."
+    },
+    {
+      "name": "forceCanonicalVersion",
+      "min": 0,
+      "max": "*",
+      "use": "in",
+      "type": "canonical",
+      "documentation": "Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any\nspecified version in the artifact (and any artifacts it depends on). The\nformat is the same as a canonical URL: [system]|[version] - e.g.\nhttp://loinc.org|2.56. Note that this has obvious safety issues, in that it may\nresult in a value set expansion giving a different list of codes that is both\nwrong and unsafe, and implementers should only use this capability reluctantly.\nIt primarily exists to deal with situations where specifications have fallen\ninto decay as time passes. If the version of a canonical is overriden, the version used SHALL\nexplicitly be represented in the expansion parameters. Note that this is a generalization of the\n`force-system-version` parameter to the $expand operation to apply to any canonical resource,\nincluding code systems."
+    },
+    {
+      "name": "manifest",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "canonical",
+      "documentation": "Specifies an asset-collection library that defines version bindings for code\nsystems and other canonical resources referenced by the value set(s) being expanded\nand other canonical resources referenced by the artifact. When specified, code\nsystems and other canonical resources identified as `depends-on` related artifacts \nin the manifest library have the same meaning as specifying that code system or other\ncanonical version in the `system-version` parameter of an expand or the `canonicalVersion` \nparameter."
+    },
+    {
+      "name": "offset",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "integer",
+      "documentation": "Paging support - where to start if a subset is desired (default = 0). Offset is\nnumber of records (not number of pages)"
+    },
+    {
+      "name": "count",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "integer",
+      "documentation": "Paging support - how many resources should be provided in a partial page view.\nIf count = 0, the client is asking how large the package is."
+    },
+    {
+      "name": "include",
+      "min": 0,
+      "max": "*",
+      "use": "in",
+      "type": "string",
+      "documentation": "Specifies what contents should be included in the resulting package. The codes indicate which types of resources should be included, but note that\nthe set of possible resources is determined as all known (i.e. present on the server) dependencies and related artifacts. Possible\nvalues are:\n* all (default) - all resource types\n* artifact - the specified artifact\n* canonical - canonical resources (i.e. resources with a defined url element or that can be canonical resources using the artifact-url extension)\n* terminology - terminology resources (i.e. CodeSystem, ValueSet, NamingSystem, ConceptMap)\n* conformance - conformance resources (i.e. StructureDefinition, StructureMap, SearchParameter, CompartmentDefinition)\n* profiles - profile definitions (i.e. StructureDefinition resources that define profiles)\n* extensions - extension definitions (i.e. StructureDefinition resources that define extensions) \n* knowledge - knowledge artifacts (i.e. ActivityDefinition, Library, PlanDefinition, Measure, Questionnaire)\n* tests - test cases and data (i.e. test cases as defined by the testing specification in this implementation guide)\n* examples - example resources (i.e. resources identified as examples in the implementation guide)"
+    },
+    {
+      "name": "packageOnly",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "boolean",
+      "documentation": "True to indicate that the resulting package should only include resources that are defined in the implementation guide \nor specification that defines the artifact being packaged. False (default) to indicate that the resulting package should \ninclude resources regardless of what implementation guide or specification they are defined in."
+    },
+    {
+      "name": "contentEndpoint",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "Endpoint",
+      "documentation": "An endpoint to use to access content (i.e. libraries, activities, measures, questionnaires, and plans) referenced by the\nartifact. If no content endpoint is supplied the evaluation will attempt to\nretrieve content from the server on which the operation is being performed."
+    },
+    {
+      "name": "terminologyEndpoint",
+      "min": 0,
+      "max": "1",
+      "use": "in",
+      "type": "Endpoint",
+      "documentation": "An endpoint to use to access terminology (i.e. valuesets, codesystems, naming systems, concept maps, and\nmembership testing) referenced by the Resource. If no terminology endpoint is\nsupplied, the evaluation will attempt to use the server on which the operation\nis being performed as the terminology server."
+    },
+    {
+      "name": "return",
+      "min": 1,
+      "max": "1",
+      "use": "out",
+      "type": "Bundle",
+      "documentation": "The result of the packaging. Servers generating packages SHALL include all the\ndependency resources referenced by the artifact that are known to the server and \nspecified by the include parameters. \n\nFor example, a measure repository SHALL include\nall the required library resources, but would not necessarily have the\nValueSet resources referenced by the measure."
+    }
+  ]
+}

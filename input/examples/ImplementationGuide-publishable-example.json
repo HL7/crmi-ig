@@ -4,6 +4,41 @@
     "meta": {
       "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide" ]
     },
+    "contained": [{
+        "resourceType": "Parameters",
+        "id": "ancm-modelinfosettings",
+        "parameter": [ {
+          "name": "modelName",
+          "valueString": "ANCM"
+        }, {
+          "name": "modelUrl",
+          "valueString": "http://fhir.org/guides/who/smart-anc-mini"
+        }, {
+          "name": "patientClassName",
+          "valueString": "Patient"
+        }, {
+          "name": "patientBirthDatePropertyName",
+          "valueString": "birthDate"
+        }, {
+          "name": "targetQualifier",
+          "valueString": "ANCM"
+        }, {
+          "name": "targetUrl",
+          "valueString": "http://hl7.org/fhir"
+        } ]
+    }],
+    "extension": [{
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseLabel",
+      "valueString": "Release 1"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseDescription",
+      "valueMarkdown": "Example release of an implementation guide with knowledge artifacts"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings",
+      "valueReference": {
+        "reference": "#ancm-modelinfosettings"
+      }
+    }],
     "url" : "http://hl7.org/fhir/uv/crmi/ImplementationGuide/publishable-example",
     "version" : "0.1.0",
     "name" : "PublishableImplementationGuideExample",
@@ -53,12 +88,6 @@
       "uri" : "http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg",
       "packageId" : "hl7.fhir.uv.cpg",
       "version" : "1.0.0"
-    },
-    {
-      "id" : "cqfm",
-      "uri" : "http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures",
-      "packageId" : "hl7.fhir.us.cqfmeasures",
-      "version" : "current"
     },
     {
       "id" : "cqf",
@@ -653,63 +682,35 @@
         }
       }],
       "page" : {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "toc.html"
-        }],
         "nameUrl" : "toc.html",
         "title" : "Table of Contents",
         "generation" : "html",
         "page" : [{
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "index.html"
-          }],
           "nameUrl" : "index.html",
           "title" : "Home",
           "generation" : "html"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "background.html"
-          }],
           "nameUrl" : "background.html",
           "title" : "Background",
           "generation" : "html"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "spec.html"
-          }],
           "nameUrl" : "spec.html",
           "title" : "Detailed Specification",
           "generation" : "markdown"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "downloads.html"
-          }],
           "nameUrl" : "downloads.html",
           "title" : "Useful Downloads",
           "generation" : "html"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "license.html"
-          }],
           "nameUrl" : "license.html",
           "title" : "License",
           "generation" : "markdown"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "changes.html"
-          }],
           "nameUrl" : "changes.html",
           "title" : "IG Change History",
           "generation" : "html"

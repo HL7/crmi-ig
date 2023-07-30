@@ -42,3 +42,21 @@ In addition, component artifacts can be _owned_ meaning that the lifecycle of th
 A collection of artifacts is specified using a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html). The components of the collection are identified with `relatedArtifact` entries of type `composed-of`. The `isOwned` extension is used to designate whether a component is owned (i.e. managed entirely as part of the collection).
 
 The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact.
+
+### Canonical promotion
+
+To support the use of non-canonical resources as knowledge artifacts, extensions can be used to build a "canonical promotion" that promotes a non-canonical resource to a canonical resource. For example, the Group resource is not canonical (i.e. it does not define a `url` or other canonical metadata), but it can be used in definitional contexts if the `actual` element is set to false, meaning the Group represents the definition of a set of members, rather than an actual listing of references to members. The [ShareableGroup](StructureDefinition-crmi-shareablegroup.html] profile is an example of a canonical promotion. The various `artifact-xxx` extensions are used to define the canoncical `url` and other metadata to promote the resource to a canonical.
+
+When referencing canonical promotions, the [artifact-canonicalReference](StructureDefinition-artifact-canonicalReference.html) extension can be used to promote a `Reference` to a canonical reference.
+
+### Artifact Scope
+
+The _scope_ of an artifact is the package context in which it is authored, tested, and evaluated. This is typically specified by the implementation guide or package in which the artifact is published and distributed, and corresponds to the package id and base canonical url for the implementation guide. For example:
+
+```
+hl7.fhir.uv.crmi@http://hl7.org/fhir/uv/crmi
+```
+
+For knowledge artifacts that are authored and published as part of a FHIR Implementation Guide (i.e. a content IG), the scope of the artifact is implied by the base canonical of the artifact URL. However, the scope of an artifact can be overridden using the [cqf-scope](StructureDefinition-cqf-scope.html) extension.
+
+The scope is important for determining the manifest (which dictates the expansion parameters used to resolve unversioned canonical references). The manifest for a given scope is either the implementation guide (if the scope corresponds directly to an implementation guide), or the manifest library identified by the package and url.

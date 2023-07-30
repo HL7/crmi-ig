@@ -17,8 +17,6 @@ There are 5 workflows depicted using the swimlanes.
 
 The CRMI IG is focused on the Setup workflow for knowledge artifacts, while subsequent workflows including Attribution/Selection, Submission, Evaluation are out of scope for this IG and covered by other implementation guides focused on particular use cases (such as the Data Exchange for Quality Measures IG for the quality measurement domain in the US Realm).
 
-{% include img.html img="Data_Element_Submission_Scenario.png" %}
-
 ## Capability Statements
 
 This implementation guide defines capability statements, use cases, and conformance requirements for:
@@ -26,18 +24,14 @@ This implementation guide defines capability statements, use cases, and conforma
 * [**Artifact Terminology Service**](artifact-terminology-service.html)
 * [**Artifact Repository**](artifact-repository-service.html)
 
-In addition, the following example capability statement illustrates the use of the [crmi-supportedCqlVersion](StructureDefinition-crmi-supportedCqlVersion.html) extension to support advertising the version of CQL supported by a service:
+In addition, the following example capability statement illustrates the use of the cqf-supportedCqlVersion extension to support advertising the version of CQL supported by a service:
 
-* [**Example Measure Calculation Service**](CapabilityStatement-measure-calculation-service-example.html)
+* [**Example Library Evaluation Service**](CapabilityStatement-library-evaluation-service-example.html)
 
 
 ## Operations
 
-* [**Library/$package**](OperationDefinition-Library-package.html)
-* [**Library/$data-requirements**](OperationDefinition-Library-data-requirements.html)
-* [**Measure/$package**](OperationDefinition-Measure-package.html)
-* [**Measure/$data-requirements**](OperationDefinition-Measure-data-requirements.html)
-* [**MeasureReport/$package**](OperationDefinition-MeasureReport-package.html)
-* [**Resource/$release**](OperationDefinition-crmi-release.html)
-* [**ValueSet/$expand**](OperationDefinition-ValueSet-expand.html)
+* [**$crmi.package**](OperationDefinition-crmi-package.html)
+* [**$crmi.data-requirements**](OperationDefinition-crmi-data-requirements.html)
+* [**ValueSet/$expand**](OperationDefinition-crmi-valueset-expand.html)
 

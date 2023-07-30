@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "Group",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Group",
+  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-groupdefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
@@ -201,8 +201,6 @@
     {
       "id" : "Group.name",
       "path" : "Group.name",
-      "min" : 0,
-      "max" : "1",
       "mustSupport" : true
     }]
   }

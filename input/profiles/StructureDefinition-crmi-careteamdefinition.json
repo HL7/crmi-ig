@@ -141,6 +141,18 @@
           "mustSupport": true
         },
         {
+          "id": "CareTeam.participant.member.extension:canonical",
+          "path": "CareTeam.participant.member.extension",
+          "sliceName": "canonical",
+          "min": 1,
+          "max": "1",
+          "type": [{
+            "code": "Extension",
+            "profile": ["http://hl7.org/fhir/StructureDefinition/artifact-canonicalReference"] 
+          }],
+          "mustSupport": true
+        },
+        {
           "id": "CareTeam.managingOrganization",
           "path": "CareTeam.managingOrganization",
           "min": 0,

@@ -62,10 +62,6 @@
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126"
     }, {
       "type": "depends-on",
-      "display": "Value set Chronic Liver Disease Legacy Example",
-      "resource": "http://hl7.org/fhir/us/cqfmeasures/ValueSet/chronic-liver-disease-legacy-example"
-    }, {
-      "type": "depends-on",
       "display": "Value set ONC Administrative Sex",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"
     }, {
@@ -161,12 +157,33 @@
       "type": "Coding"
     } ],
     "dataRequirement": [ {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
+        "valueString": "Patient?_id={{context.patientId}}"
+      }, {
+        "extension" : [
+          {
+            "url" : "path",
+            "valueString" : "url"
+          },
+          {
+            "url" : "comparator",
+            "valueCode" : "eq"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
+      } ],
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
     }, {
-      "type": "Encounter",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ]
-    }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
+        "valueString": "Encounter?status=finished&subject=Patient/{{context.patientId}}&type:in=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+    } ],
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
       "codeFilter": [ {
@@ -180,7 +197,11 @@
         "path": "id"
       } ]
     }, {
-      "type": "Coverage",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern",
+        "valueString": "Coverage?policy-holder=Patient/{{context.patientId}}&type:in=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+      } ],
+     "type": "Coverage",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Coverage" ],
       "codeFilter": [ {
         "path": "type",

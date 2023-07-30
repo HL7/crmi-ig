@@ -23,7 +23,7 @@
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-version-behavior",
   "version": "3.0.0",
   "name": "CRMIReleaseVersionBehavior",
-  "title": "CRMI Release Version Behavior Codes",
+  "title": "CRMI Release Version Behavior",
   "status": "active",
   "experimental": false,
   "date": "2023-02-03T23:21:03-06:00",

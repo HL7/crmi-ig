@@ -231,7 +231,7 @@ The _archive_ operation supports removing an existing _retired_ artifact from th
 
 The ShareableArtifactRepository capability statement defines the minimum expectations for an artifact repository that provides basic access to shareable artifact content. It describes the minimum required functionality for sharing FHIR-based artifact content.
 
-The [CRMIShareableArtifactRepository](CapabilityStatement-shareable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIShareableArtifactRepository](CapabilityStatement-crmi-shareable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 #### Artifacts
 
@@ -260,13 +260,13 @@ For each type of knowledge artifact supported by a ShareableArtifactRepository:
 
 The PublishableArtifactRepository capability statement expresses additional functionality that SHOULD be provided in support of providing published FHIR artifacts including additional searching and packaging capabilities.
 
-The [CRMIPublishableArtifactRepository](CapabilityStatement-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 #### Artifacts
 
 For each type of knowledge artifact supported by a PublishableArtifactRepository:
 
-1. SHALL support artifact packaging: [$package](OperationDefinition-Artifact-package.html) operation
+1. SHALL support artifact packaging: [$crmi.package](OperationDefinition-crmi-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
@@ -278,7 +278,7 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
     9. SHOULD support include-components parameter
     10. SHOULD support include-dependencies parameter
 
-2. SHALL support artifact requirements analysis: [$data-requirements](OperationDefinition-Artifact-data-requirements.html) operation
+2. SHALL support artifact requirements analysis: [$crmi.data-requirements](OperationDefinition-crmi-data-requirements.html) operation
     1. SHALL support the id parameter
     2. SHALL support the url parameter
     3. SHALL support the version parameter
@@ -313,7 +313,7 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
 
 The AuthoringArtifactRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed.
 
-The [CRMIAuthoringArtifactRepository](CapabilityStatement-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 #### Artifacts
 

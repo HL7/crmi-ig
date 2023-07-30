@@ -10,6 +10,9 @@
     }, {
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
         "valueString": "0.1.0"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
+      "valueString": "SNOMED CT"
     }],
     "name": "SNOMEDCT",
     "status": "active",

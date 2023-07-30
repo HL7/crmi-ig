@@ -29,12 +29,12 @@ This IG is a conformance profile, as described in the [“Conformance” section
 * [Authoring System](#authoring-system): A system enabling content modifications and publishing
   * [Authoring Knowledge Repository](#authoring-knowledge-repository)
   * [Authoring Knowledge Terminology Service](#authoring-knowledge-terminology-service)
-* [Publishing](#publishing): Specifications for publishing artifacts to:
-  * [FHIR Package Registry](#fhir-package-registry)
-  * [Knowledge Repository](#knowledge-repository)
-  * [Knowledge Terminology Service](#knowledge-terminology-service)
-* [Distribution](#distribution): Specifications for artifact distribution
-* [Downstream System(s)](#downstream-systems): Systems using distributed content.
+* [Publishing](publishing.html): Specifications for publishing artifacts to:
+  * FHIR Package Registry
+  * Knowledge Repository
+  * Knowledge Terminology Service
+* [Distribution](distribution.html): Specifications for artifact distribution
+  * Downstream System(s): Systems using distributed content.
 
 #### Authoring System
 {: #authoring-system}

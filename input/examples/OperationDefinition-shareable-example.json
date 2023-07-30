@@ -2,12 +2,14 @@
     "resourceType": "OperationDefinition",
     "id": "shareable-example",
     "meta": {
-        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableoperationdefintion" ]
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableoperationdefinition" ]
     },
     "url": "http://h7.org/fhir/uv/crmi/OperationDefinition/shareable-example",
     "version": "B",
     "name": "ShareableOperationDefinitionExample",
+    "title": "Shareable OperationDefinition Example",
     "status": "draft",
+    "experimental": true,
     "kind": "operation",
     "date": "2015-08-04",
     "publisher": "Acme Healthcare Services",
@@ -26,7 +28,7 @@
     "useContext": [
       {
         "code": {
-          "system": "http://build.fhir.org/codesystem-usage-context-type",
+          "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
           "code": "venue",
           "display": "Clinical Venue"
         },
@@ -54,7 +56,6 @@
     ],
     "code": "populate",
     "comment": "Only implemented for Labs and Medications so far",
-    "base": "OperationDefinition/Questionnaire-populate",
     "resource": [
       "Questionnaire"
     ],

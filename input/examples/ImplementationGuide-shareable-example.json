@@ -55,12 +55,6 @@
       "version" : "1.0.0"
     },
     {
-      "id" : "cqfm",
-      "uri" : "http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures",
-      "packageId" : "hl7.fhir.us.cqfmeasures",
-      "version" : "current"
-    },
-    {
       "id" : "cqf",
       "uri" : "http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common",
       "packageId" : "fhir.cqf.common",
@@ -653,63 +647,35 @@
         }
       }],
       "page" : {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "toc.html"
-        }],
         "nameUrl" : "toc.html",
         "title" : "Table of Contents",
         "generation" : "html",
         "page" : [{
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "index.html"
-          }],
           "nameUrl" : "index.html",
           "title" : "Home",
           "generation" : "html"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "background.html"
-          }],
           "nameUrl" : "background.html",
           "title" : "Background",
           "generation" : "html"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "spec.html"
-          }],
           "nameUrl" : "spec.html",
           "title" : "Detailed Specification",
           "generation" : "markdown"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "downloads.html"
-          }],
           "nameUrl" : "downloads.html",
           "title" : "Useful Downloads",
           "generation" : "html"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "license.html"
-          }],
           "nameUrl" : "license.html",
           "title" : "License",
           "generation" : "markdown"
         },
         {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-            "valueUrl" : "changes.html"
-          }],
           "nameUrl" : "changes.html",
           "title" : "IG Change History",
           "generation" : "html"

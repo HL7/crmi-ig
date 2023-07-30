@@ -29,7 +29,7 @@
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
         "valueBoolean": true
     }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-publisher",
         "valueString": "Clinical Decision Support WG"
     }, {
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-description",

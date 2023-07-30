@@ -47,10 +47,6 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <binding>
-          <strength value="required" />
-          <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type" />
-        </binding>
         <documentation value="If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment."/>
         <type value="code"/>
     </parameter>
@@ -59,7 +55,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="The body of the comment. "/>
+        <documentation value="The body of the comment."/>
         <type value="string"/>
     </parameter>
     <parameter>
@@ -75,7 +71,7 @@
         <use value="in"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="Optional supporting canonical URL / Reference for the comment. "/>
+        <documentation value="Optional supporting canonical URL / Reference for the comment."/>
         <type value="uri"/>
     </parameter>
     <parameter>

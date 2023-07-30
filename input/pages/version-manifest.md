@@ -116,7 +116,7 @@ There are two potential implementation strategies considered here:
 
 #### Manifest Parameter
 
-The first approach to implementation involves defining a `manifest` parameter on operations that involve artifact evaluation. This is the approach taken for the `ValueSet/$expand` operation defined in this implementation guide, and provides a way to describe the expected behavior as part of the definition of the operation. See the [ValueSet/$expand](OperationDefinition-valueset-expand.html) operation definition for more details.
+The first approach to implementation involves defining a `manifest` parameter on operations that involve artifact evaluation. This is the approach taken for the `ValueSet/$expand` operation defined in this implementation guide, and provides a way to describe the expected behavior as part of the definition of the operation. See the [ValueSet/$expand](OperationDefinition-crmi-valueset-expand.html) operation definition for more details.
 
 #### X-Manifest Header
 

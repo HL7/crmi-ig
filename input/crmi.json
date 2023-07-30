@@ -1,0 +1,1680 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.fhir.uv.crmi",
+  "url": "http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi",
+  "version": "1.0.0-ballot",
+  "name": "CRMI",
+  "title": "Canonical Resource Management Infrastructure Implementation Guide",
+  "status": "draft",
+  "date": "2022-05-17",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss"
+        }
+      ]
+    }
+  ],
+  "description": "This implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "001",
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "packageId": "hl7.fhir.uv.crmi",
+  "license": "CC0-1.0",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "fhir.cqf.common",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common",
+      "id": "fhir_cqf_common"
+    },
+    {
+      "packageId": "hl7.fhir.uv.extensions.r4",
+      "version": "1.0.0",
+      "uri": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "id": "hl7_fhir_uv_extensions_r4"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "OperationDefinition/crmi-data-requirements"
+        },
+        "name": "CRMI Data Requirements Operation",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/crmi-package"
+        },
+        "name": "CRMI Package Operation",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/crmi-release"
+        },
+        "name": "crmi-release",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-approvalDate"
+        },
+        "description": "When the artifact was approved by publisher.",
+        "exampleBoolean": false,
+        "name": "Artifact Approval Date"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-canonicalReference"
+        },
+        "description": "A reference to a canonical resource",
+        "exampleBoolean": false,
+        "name": "Artifact Canonical Reference"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-effectivePeriod"
+        },
+        "description": "When the artifact is expected to be used.",
+        "exampleBoolean": false,
+        "name": "Artifact Effective Period"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-isOwned"
+        },
+        "description": "Whether or not the referenced artifact is owned by the referencing artifact.",
+        "exampleBoolean": false,
+        "name": "Artifact Is Owned"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-lastReviewDate"
+        },
+        "description": "When the artifact was last reviewed by the publisher.",
+        "exampleBoolean": false,
+        "name": "Artifact Last Review Date"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-releaseDescription"
+        },
+        "description": "Release notes for a release of an artifact.",
+        "exampleBoolean": false,
+        "name": "Artifact Release Description"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-releaseLabel"
+        },
+        "description": "A human-friendly release label assigned for the version.",
+        "exampleBoolean": false,
+        "name": "Artifact Release Label"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-usage"
+        },
+        "description": "Describes the clinical usage of the artifact.",
+        "exampleBoolean": false,
+        "name": "Artifact Usage"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-versionAlgorithm"
+        },
+        "description": "Indicates the mechanism used to compare versions to determine which is more current.",
+        "exampleBoolean": false,
+        "name": "Artifact Version Algorithm"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/artifact-versionPolicy"
+        },
+        "description": "Describes the versioning policy of the artifact.",
+        "exampleBoolean": false,
+        "name": "Artifact Version Policy"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-artifactComment"
+        },
+        "description": "A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user.",
+        "exampleBoolean": false,
+        "name": "Artifact Comment"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-defaultValue"
+        },
+        "description": "Provides a default value for a parameter definition.",
+        "exampleBoolean": false,
+        "name": "Default Value"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-definitionTerm"
+        },
+        "description": "Specifies a term and its associated definition.",
+        "exampleBoolean": false,
+        "name": "Definition Term"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-expansionParameters"
+        },
+        "description": "Specifies the expansion parameters that should be used to expand the ValueSet, or any ValueSets in the Library (or referenced by components of the Library).",
+        "exampleBoolean": false,
+        "name": "Expansion Parameters"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-fhirQueryPattern"
+        },
+        "description": "A FHIR Query URL pattern that corresponds to the data specified by the data requirement. If multiple FHIR Query URLs are present, they each contribute to the data specified by the data requirement (i.e. the union of the results of the FHIR Queries represents the complete data for the data requirement). This is not a resolveable URL, in that it will contain 1) No base canonical (i.e. it's a relative query), and 2) Parameters using tokens that are delimited using double-braces and the context parameters are dependent solely on the subjectType, according to the following: Patient: context.patientId, Practitioner: context.practitionerId, Organization: context.organizationId, Location: context.locationId, Device: context.deviceId.",
+        "exampleBoolean": false,
+        "name": "FHIR Query Pattern"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-isPrimaryCitation"
+        },
+        "description": "Specifies whether the related artifact is defining a primary citation for the artifact (i.e. one that should appear in the narrative for the artifact specification.",
+        "exampleBoolean": false,
+        "name": "Is Primary Citation"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-isSelective"
+        },
+        "description": "Allows a given data requirement to be identified as \"selective\", meaning that it can be used as an additive criteria to filter a population. A selective data requirement is guaranteed to define a subset (not necessarily proper) of the initial population of an artifact. If multiple data requirements are marked selective, they all apply (i.e. AND semantics).",
+        "exampleBoolean": false,
+        "name": "Is Selective"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-messages"
+        },
+        "description": "An OperationOutcome that contains any information, warning, and/or error messages that were generated while processing an operation such as $evaluate or $prepopulate.",
+        "exampleBoolean": false,
+        "name": "Messages"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-modelInfo-isIncluded"
+        },
+        "description": "Specifies whether the profile should be included in the model info constructed for an artifact collection such as an implementation guide. If this extension is not present, included is true by default for resources and profiles, but not data types (unless they are indirectly referenced by included resources or profiles). Note that even if isIncluded is false for a resource or profile, it will still be included in model info if it is a required dependency of some other included resource, profile, or data type.",
+        "exampleBoolean": false,
+        "name": "ModelInfo Is Included"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-modelInfo-isRetrievable"
+        },
+        "description": "Specifies whether the class constructed for the profile should be marked as retrievable in the model info (meaning whether or not it can appear as the target of a retrieve expression). If this value is not specified, retrievable is true for resources and false for data types.",
+        "exampleBoolean": false,
+        "name": "ModelInfo Is Retrievable"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-modelInfo-label"
+        },
+        "description": "Specifies the label for the class constructed in the model info for the profile (i.e. an alternative, user-friendly name that can be used as the identifier for the class in CQL expressions).",
+        "exampleBoolean": false,
+        "name": "ModelInfo Label"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-modelInfo-primaryCodePath"
+        },
+        "description": "Specifies the primary code path for the class constructed in the model info for the profile (i.e. the path to the code-valued element on the resource that should be used as the default terminology filter when no terminology target is specified in a CQL retrieve).",
+        "exampleBoolean": false,
+        "name": "ModelInfo Primary Code Path"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-modelInfoSettings"
+        },
+        "description": "Specifies the settings to be used for constructing modelinfo from profile definitions.",
+        "exampleBoolean": false,
+        "name": "ModelInfo Settings"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-notDoneValueSet"
+        },
+        "description": "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
+        "exampleBoolean": false,
+        "name": "Not Done ValueSet"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-resourceType"
+        },
+        "description": "Specifies the type of resource the canonical references.",
+        "exampleBoolean": false,
+        "name": "Resource Type"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-scope"
+        },
+        "description": "Defines the scope of an artifact as a string of the form {namespace-name}[@{namespace-uri}]. Namespace name shall be a valid NPM package id, and namespace uri shall be a valid uri. For FHIR implementation guides, scope is inferred using the package id and the base canonical. e.g. fhir.cqf.common@http://fhir.org/guides/cqf/common. This extension can be used on Implementation Guides, Libraries, on any knowledge artifact, to declare the scope of the artifact. In the absence of an explicit scope declaration, the scope of an artifact is inferred based on the IG in which the artifact is defined.",
+        "exampleBoolean": false,
+        "name": "Scope"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cqf-valueFilter"
+        },
+        "description": "Allows additional value-based filters to be specified as part of a data requirement.",
+        "exampleBoolean": false,
+        "name": "Value Filter"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-effectiveDataRequirements"
+        },
+        "description": "A module definition library that contains the effective data requirements for an artifact (i.e. the calculated data requirements for the expressions directly referenced by the artifact structure).",
+        "exampleBoolean": false,
+        "name": "CRMI Effective Data Requirements"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-softwaresystem"
+        },
+        "description": "Specifies the software systems used in the packaging and testing of knowledge artifacts. Specifically to support explicitly stating which versions of the various software components were used in the authoring, packaging, and testing.",
+        "exampleBoolean": false,
+        "name": "CRMI Software System"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-capabilitystatement"
+        },
+        "description": "The CRMI Capability Statement Profile enables capability statements to express supported CQL versions.",
+        "exampleBoolean": false,
+        "name": "CRMI Capability Statement"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-careteamdefinition"
+        },
+        "description": "Represents the definition of a careteam, suitable for use in various contexts",
+        "exampleBoolean": false,
+        "name": "CRMI CareTeamDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-computablelibrary"
+        },
+        "description": "The CRMI Computable Library profile defines the must support elements for a computable library used to support artifact logic",
+        "exampleBoolean": false,
+        "name": "CRMI Computable Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-computablevalueset"
+        },
+        "description": "Defines a computable value set as one that SHALL have an expression-based definition (i.e. a value set defined intensionally using expressions of the code systems involved) and MAY have an expansion included. The expression-based definition SHALL be represented in only one of three ways; using the compose element, using the expression extension, or using the rules-text extension to provide a step-by-step process for expanding the value set definition",
+        "exampleBoolean": false,
+        "name": "CRMI Computable ValueSet"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-executablelibrary"
+        },
+        "description": "The CRMI Execuable Library profile defines the must support elements for an executable library used to support artifact logic",
+        "exampleBoolean": false,
+        "name": "CRMI Executable Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-executablevalueset"
+        },
+        "description": "Defines an executable value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a computable definition of the value set must be obtained to compute the updated expansion.",
+        "exampleBoolean": false,
+        "name": "CRMI Executable ValueSet"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-groupdefinition"
+        },
+        "description": "Represents the definition of a group of subjects, suitable for use in various contexts, such as a cohort definition, a recommendation inclusion or exclusion criteria, the members of a study, or a population criteria",
+        "exampleBoolean": false,
+        "name": "CRMI GroupDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-locationdefinition"
+        },
+        "description": "Represents the definition of a location, suitable for use in various contexts, such as a facility definition",
+        "exampleBoolean": false,
+        "name": "CRMI LocationDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-manifestlibrary"
+        },
+        "description": "Defines and supports the definition of a manifest used to establish specific versions of dependencies used in a collection of knowledge artifacts",
+        "exampleBoolean": false,
+        "name": "CRMI Manifest Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-medicationdefinition"
+        },
+        "description": "Represents the definition of a medication, suitable for use in various contexts",
+        "exampleBoolean": false,
+        "name": "CRMI MedicationDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-medicationknowledgedefinition"
+        },
+        "description": "Represents the definition of medication knowledge, suitable for use in various contexts",
+        "exampleBoolean": false,
+        "name": "CRMI MedicationKnowledge Definition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-modelinfolibrary"
+        },
+        "description": "The CRMI Model Information Library profile defines the must support elements for a computable Model Definition library used to support declaration and distribution of CQL ModelInfo such as the FHIR Model Info Library",
+        "exampleBoolean": false,
+        "name": "CRMI Model Info Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-moduledefinitionlibrary"
+        },
+        "description": "The CRMI Module Definition Library profile defines the must support elements for a library that communicates the effective data requirements and dependencies of an artifact (or set of artifacts). This is most commonly used as the result of a $data-requirements operation, but could also be persisted statically as a way to persist the calculation of effective data requirements for a specific artifact and input parameters",
+        "exampleBoolean": false,
+        "name": "CRMI Module Definition Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-practitionerroledefinition"
+        },
+        "description": "Represents the definition of a practitionerrole, suitable for use in various contexts",
+        "exampleBoolean": false,
+        "name": "CRMI PractitionerRoleDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishableactivitydefinition"
+        },
+        "description": "Supports declaration of the ActivityDefinition metadata required by HL7 and other organizations that share and publish activity definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable ActivityDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablecapabilitystatement"
+        },
+        "description": "Supports declaration of the CapabilityStatement metadata required by HL7 and other organizations that share and publish capability statements with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable CapabilityStatement"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablecareteam"
+        },
+        "description": "Supports declaration of the careteam metadata required by HL7 and other organizations that share and publish careteams with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable CareTeam"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablecodesystem"
+        },
+        "description": "Defines and enforces the minimum expectations for publication and distribution of a code system, typically as part of an artifact repository or implementation guide publication",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable CodeSystem"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablecompartmentdefinition"
+        },
+        "description": "Supports declaration of the CompartmentDefinition metadata required by HL7 and other organizations that share and publish compartment definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable CompartmentDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishableconceptmap"
+        },
+        "description": "Defines and enforces the minimum expectations for publication and distribution of a concept map, typically as part of an artifact repository or implementation guide publication",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable ConceptMap"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablegraphdefinition"
+        },
+        "description": "Supports declaration of the GraphDefinition metadata required by HL7 and other organizations that share and publish graph definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable GraphDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablegroup"
+        },
+        "description": "Supports declaration of the group metadata required by HL7 and other organizations that share and publish groups with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Group"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishableimplementationguide"
+        },
+        "description": "Supports declaration of the ImplementationGuide metadata required by HL7 and other organizations that share and publish implementation guides with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable ImplementationGuide"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablelibrary"
+        },
+        "description": "Supports declaration of the library metadata required by HL7 and other organizations that share and publish libraries with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablelocation"
+        },
+        "description": "Supports declaration of the location metadata required by HL7 and other organizations that share and publish locations with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Location"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablemeasure"
+        },
+        "description": "Supports declaration of the Measure metadata required by HL7 and other organizations that share and publish measures with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Measure"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablemedication"
+        },
+        "description": "Supports declaration of the medication metadata required by HL7 and other organizations that share and publish medications with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Medication"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablemedicationknowledge"
+        },
+        "description": "Supports declaration of the medication knowledge metadata required by HL7 and other organizations that share and publish medication knowledge with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable MedicationKnowledge"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablenamingsystem"
+        },
+        "description": "Defines and enforces the minimum expectations for publication and distribution of a naming system, typically as part of an artifact repository or implementation guide publication",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable NamingSystem"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishableoperationdefinition"
+        },
+        "description": "Supports declaration of the OperationDefinition metadata required by HL7 and other organizations that share and publish operation definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable OperationDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishableplandefinition"
+        },
+        "description": "Supports declaration of the PlanDefinition metadata required by HL7 and other organizations that share and publish plandefinitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable PlanDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablepractitionerrole"
+        },
+        "description": "Supports declaration of the practitionerrole metadata required by HL7 and other organizations that share and publish practitionerroles with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable PractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablequestionnaire"
+        },
+        "description": "Supports declaration of the Questionnaire metadata required by HL7 and other organizations that share and publish questionnaires with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Questionnaire"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablesearchparameter"
+        },
+        "description": "Supports declaration of the SearchParameter metadata required by HL7 and other organizations that share and publish search parameters with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable SearchParameter"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablestructuredefinition"
+        },
+        "description": "Supports declaration of the StructureDefinition metadata required by HL7 and other organizations that share and publish structure definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable StructureDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablesubstance"
+        },
+        "description": "Supports declaration of the substance metadata required by HL7 and other organizations that share and publish substances with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Substance"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishableterminologycapabilities"
+        },
+        "description": "Supports declaration of the TerminologyCapabilities metadata required by HL7 and other organizations that share and publish terminology capabilities with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable TerminologyCapabilities"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-publishablevalueset"
+        },
+        "description": "Defines and enforces the minimum expectations for publication and distribution of a value set, typically as part of an artifact repository or implementation guide publication",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable ValueSet"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareableactivitydefinition"
+        },
+        "description": "Enforces the minimum information set for the activity definition metadata required by HL7 and other organizations that share and publish activity definitions",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable ActivityDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablecapabilitystatement"
+        },
+        "description": "Enforces the minimum information set for the capabilitystatement metadata required by HL7 and other organizations that share and publish capability statements",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable CapabilityStatement"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablecareteam"
+        },
+        "description": "Enforces the minimum information set for the careteam metadata required by HL7 and other organizations that share and publish careteams",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable CareTeam"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablecodesystem"
+        },
+        "description": "Enforces the minimum information set for the code system metadata required by HL7 and other organizations that share and publish code systems",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable CodeSystem"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablecompartmentdefinition"
+        },
+        "description": "Enforces the minimum information set for the compartment definition metadata required by HL7 and other organizations that share and publish compartment definitions",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable CompartmentDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareableconceptmap"
+        },
+        "description": "Enforces the minimum information set for the concept map metadata required by HL7 and other organizations that share and publish concept maps",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable ConceptMap"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablegraphdefinition"
+        },
+        "description": "Enforces the minimum information set for the graph definition metadata required by HL7 and other organizations that share and publish graph definitions",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable GraphDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablegroup"
+        },
+        "description": "Enforces the minimum information set for the group metadata required by HL7 and other organizations that share and publish groups",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Group"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareableimplementationguide"
+        },
+        "description": "Enforces the minimum information set for the implementation guide metadata required by HL7 and other organizations that share and publish implementation guides",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable ImplementationGuide"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablelibrary"
+        },
+        "description": "Enforces the minimum information set for the library metadata required by HL7 and other organizations that share and publish libraries",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Library"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablelocation"
+        },
+        "description": "Enforces the minimum information set for the location metadata required by HL7 and other organizations that share and publish locations",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Location"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablemeasure"
+        },
+        "description": "Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Measure"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablemedication"
+        },
+        "description": "Enforces the minimum information set for the medication metadata required by HL7 and other organizations that share and publish medications",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Medication"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablemedicationknowledge"
+        },
+        "description": "Enforces the minimum information set for the medication knowledge metadata required by HL7 and other organizations that share and publish medication knowledge",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable MedicationKnowledge"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablenamingsystem"
+        },
+        "description": "Enforces the minimum information set for the naming system metadata required by HL7 and other organizations that share and publish naming systems",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable NamingSystem"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareableoperationdefinition"
+        },
+        "description": "Enforces the minimum information set for the operation definition metadata required by HL7 and other organizations that share and publish operation definitions",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable OperationDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareableplandefinition"
+        },
+        "description": "Enforces the minimum information set for the plan definition metadata required by HL7 and other organizations that share and publish plan definitions",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable PlanDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablepractitionerrole"
+        },
+        "description": "Enforces the minimum information set for practitioner role metadata required by HL7 and other organizations that share and publish practitioner roles",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable PractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablequestionnaire"
+        },
+        "description": "Enforces the minimum information set for the questionnaire metadata required by HL7 and other organizations that share and publish questionnaires",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Questionnaire"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablesearchparameter"
+        },
+        "description": "Enforces the minimum information set for the search parameter metadata required by HL7 and other organizations that share and publish search parameters",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable SearchParameter"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablestructuredefinition"
+        },
+        "description": "Enforces the minimum information set for the structure definition metadata required by HL7 and other organizations that share and publish structure definitions",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable StructureDefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablesubstance"
+        },
+        "description": "Enforces the minimum information set for the substance metadata required by HL7 and other organizations that share and publish substances",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Substance"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareableterminologycapabilities"
+        },
+        "description": "Enforces the minimum information set for the terminology capabilities metadata required by HL7 and other organizations that share and publish terminology capabilities",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable TerminologyCapabilities"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-shareablevalueset"
+        },
+        "description": "Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable ValueSet"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-softwaresystemdevice"
+        },
+        "description": "The Software System device profile is used to capture software details about the various systems used in authoring, testing, packaging, or evaluation of a knowledge artifact",
+        "exampleBoolean": false,
+        "name": "CRMI Software System Device"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/crmi-substancedefinition"
+        },
+        "description": "Represents the definition of a substance, suitable for use in various contexts",
+        "exampleBoolean": false,
+        "name": "CRMI SubstanceDefinition"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/crmi-artifact-terminology-service"
+        },
+        "description": "Capability statement for a terminology service supporting artifact authoring and evaulation use cases. A server can support more functionality than defined here, but this defines the minimum expectations.",
+        "exampleBoolean": false,
+        "name": "CRMI Artifact Terminology Service"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/crmi-authoring-artifact-repository"
+        },
+        "description": "Capability statement for a repository service supporting additional authoring and content workflow capabilities for FHIR-based knowledge artifacts above the basic ShareableArtifactRepository.",
+        "exampleBoolean": false,
+        "name": "CRMI Authoring Artifact Repository"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/crmi-publishable-artifact-repository"
+        },
+        "description": "Capability statement for a repository service supporting additional publishing capabilities for FHIR-based knowledge artifacts above the basic ShareableArtifactRepository.",
+        "exampleBoolean": false,
+        "name": "CRMI Publishable Artifact Repository"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/crmi-shareable-artifact-repository"
+        },
+        "description": "Capability statement for a repository service supporting minimum required capabilities to share FHIR-based artifact specifications. See the Publishable and Authoring Artifact Repository capability statements for more comprehensive support for publishing and authoring workflows.",
+        "exampleBoolean": false,
+        "name": "CRMI Shareable Artifact Repository"
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/crmi-valueset-expand"
+        },
+        "description": "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. \n\nIf the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message.",
+        "exampleBoolean": false,
+        "name": "CRMI Extension of Value Set Expansion"
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/get-package"
+        },
+        "description": "Retrieves a FHIR package given the package id and version.",
+        "exampleBoolean": false,
+        "name": "Get Package"
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/KnowledgeArtifact-approve"
+        },
+        "description": "The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository.",
+        "exampleBoolean": false,
+        "name": "Knowledge Artifact Approve"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/artifact-version-policy-codes"
+        },
+        "description": "The versioning policy of an artifact (metadata, strict)",
+        "exampleBoolean": false,
+        "name": "Artifact Version Policy Codes"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/crmi-release-version-behavior-codes"
+        },
+        "description": "Behaviors of 'version' parameter application in the $release operation.",
+        "exampleBoolean": false,
+        "name": "CRMI Release Version Behavior Codes"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/knowledge-capability"
+        },
+        "description": "A capability afforded by a knowledge artifact, e.g. shareable, computable, publishable, executable",
+        "exampleBoolean": false,
+        "name": "Knowledge Capability Codes"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/knowledge-representation-level"
+        },
+        "description": "A knowledge representation level, narrative, semi-structured, structured, and executable",
+        "exampleBoolean": false,
+        "name": "Knowledge Representation Level Codes"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/software-system-type-codes"
+        },
+        "description": "The type of software system (authoring, testing, tooling, evaluation)",
+        "exampleBoolean": false,
+        "name": "Software System Type Codes"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/artifact-comment-type"
+        },
+        "description": "The type of artifact comment (documentation, review, guidance)",
+        "exampleBoolean": false,
+        "name": "Artifact Comment Type"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/artifact-version-policy"
+        },
+        "description": "The versioning policy of an artifact or set of artifacts (metadata or strict)",
+        "exampleBoolean": false,
+        "name": "Artifact Version Policy Values"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/crmi-release-version-behavior"
+        },
+        "description": "Behaviors of 'version' parameter application in the $release operation.",
+        "exampleBoolean": false,
+        "name": "CRMI Release Version Behavior"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/knowledge-capability"
+        },
+        "description": "A capability afforded by a knowledge artifact, e.g. shareable, computable, publishable, executable",
+        "exampleBoolean": false,
+        "name": "Knowledge Capability Values"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/knowledge-representation-level"
+        },
+        "description": "A knowledge representation level, narrative, semi-structured, structured, and executable",
+        "exampleBoolean": false,
+        "name": "Knowledge Representation Level Values"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/software-system-type"
+        },
+        "description": "The type of software system (authoring, testing, tooling, evaluation)",
+        "exampleBoolean": false,
+        "name": "Software System Type"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/value-filter-comparator"
+        },
+        "description": "The type of comparator operator to use",
+        "exampleBoolean": false,
+        "name": "Value Filter Comparator"
+      },
+      {
+        "reference": {
+          "reference": "ActivityDefinition/publishable-example"
+        },
+        "name": "publishable-example-activitydefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableactivitydefinition"
+      },
+      {
+        "reference": {
+          "reference": "ActivityDefinition/shareable-example"
+        },
+        "name": "shareable-example-activitydefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/library-evaluation-service-example"
+        },
+        "description": "Basic conformance statement for a Library Evaluation Service. A server can support more fucntionality\r\n   than defined here, but this is the minimum amount",
+        "name": "library-evaluation-service-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-capabilitystatement"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/publishable-example"
+        },
+        "description": "Basic conformance statement for a Library Evaluation Service. A server can support more fucntionality    than defined here, but this is the minimum amount",
+        "name": "publishable-example-capabilitystatement",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecapabilitystatement"
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/shareable-example"
+        },
+        "description": "Basic conformance statement for a Library Evaluation Service. A server can support more fucntionality    than defined here, but this is the minimum amount",
+        "name": "shareable-example-capabilitystatement",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement"
+      },
+      {
+        "reference": {
+          "reference": "CareTeam/definition-example"
+        },
+        "description": "Example of a reusable definition of a CareTeam",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-careteamdefinition"
+      },
+      {
+        "reference": {
+          "reference": "CareTeam/publishable-example"
+        },
+        "description": "Publishable CareTeam definition Example",
+        "name": "publishable-example-careteam",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecareteam"
+      },
+      {
+        "reference": {
+          "reference": "CareTeam/shareable-example"
+        },
+        "description": "Shareable CareTeam definition Example",
+        "name": "shareable-example-careteam",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecareteam"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/publishable-example"
+        },
+        "description": "Set of codes representing all concepts used in the implementation guide",
+        "name": "publishable-example-codesystem",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem"
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/shareable-example"
+        },
+        "description": "Set of codes representing all activities used in the implementation guide",
+        "name": "shareable-example-codesystem",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem"
+      },
+      {
+        "reference": {
+          "reference": "CompartmentDefinition/publishable-example"
+        },
+        "description": "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
+        "name": "publishable-example-compartmentdefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecompartmentdefinition"
+      },
+      {
+        "reference": {
+          "reference": "CompartmentDefinition/shareable-example"
+        },
+        "description": "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
+        "name": "shareable-example-compartmentdefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecompartmentdefinition"
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/publishable-example"
+        },
+        "description": "A mapping between the FHIR and HL7 v3 AddressUse Code systems",
+        "name": "publishable-example-conceptmap",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableconceptmap"
+      },
+      {
+        "reference": {
+          "reference": "ConceptMap/shareable-example"
+        },
+        "description": "A mapping between the FHIR and HL7 v3 AddressUse Code systems",
+        "name": "shareable-example-conceptmap",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap"
+      },
+      {
+        "reference": {
+          "reference": "Device/cqf-tooling"
+        },
+        "description": "Example of a SoftwareSystemDevice indicating what tooling was used to process knowledge artifact content",
+        "name": "cqf-tooling",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystemdevice"
+      },
+      {
+        "reference": {
+          "reference": "GraphDefinition/publishable-example"
+        },
+        "description": "Example of a Publishable GraphDefinition",
+        "name": "publishable-example-graphdefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablegraphdefinition"
+      },
+      {
+        "reference": {
+          "reference": "GraphDefinition/shareable-example"
+        },
+        "description": "Example of a Shareable GraphDefinition",
+        "name": "shareable-example-graphdefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegraphdefinition"
+      },
+      {
+        "reference": {
+          "reference": "Group/definition-example"
+        },
+        "description": "Example of a GroupDefinition",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-groupdefinition"
+      },
+      {
+        "reference": {
+          "reference": "Group/publishable-example"
+        },
+        "description": "Publishable Group Example",
+        "name": "publishable-example-group",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablegroup"
+      },
+      {
+        "reference": {
+          "reference": "Group/shareable-example"
+        },
+        "description": "Shareable Group Example",
+        "name": "shareable-example-group",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegroup"
+      },
+      {
+        "reference": {
+          "reference": "ImplementationGuide/publishable-example"
+        },
+        "description": "This implementation guide demonstrates end-to-end capabilities for computable clinical practice guidelines following the World Health Organization SMART IG approach",
+        "name": "publishable-example-implementationguide",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide"
+      },
+      {
+        "reference": {
+          "reference": "ImplementationGuide/shareable-example"
+        },
+        "description": "This implementation guide demonstrates end-to-end capabilities for computable clinical practice guidelines following the World Health Organization SMART IG approach",
+        "name": "shareable-example-implementationguide",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableimplementationguide"
+      },
+      {
+        "reference": {
+          "reference": "Library/ANCCohort"
+        },
+        "name": "ANCCohort",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/computable-example"
+        },
+        "name": "computable-example-library",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/executable-example"
+        },
+        "name": "executable-example-library",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/FHIRCommon"
+        },
+        "name": "FHIRCommon",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/manifest-example"
+        },
+        "name": "manifest-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/modelinfo-example"
+        },
+        "name": "modelinfo-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-modelinfolibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/moduledefinition-example"
+        },
+        "name": "moduledefinition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/publishable-example"
+        },
+        "name": "publishable-example-library",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
+      },
+      {
+        "reference": {
+          "reference": "Library/shareable-example"
+        },
+        "name": "shareable-example-library",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
+      },
+      {
+        "reference": {
+          "reference": "Location/definition-example"
+        },
+        "description": "Example of a reusable definition of a Location",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-locationdefinition"
+      },
+      {
+        "reference": {
+          "reference": "Location/publishable-example"
+        },
+        "description": "Publishable Location definition example",
+        "name": "publishable-example-location",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelocation"
+      },
+      {
+        "reference": {
+          "reference": "Location/shareable-example"
+        },
+        "description": "Shareable Location definition example",
+        "name": "shareable-example-location",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelocation"
+      },
+      {
+        "reference": {
+          "reference": "Measure/publishable-example"
+        },
+        "name": "publishable-example-measure",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemeasure"
+      },
+      {
+        "reference": {
+          "reference": "Measure/shareable-example"
+        },
+        "name": "shareable-example-measure",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"
+      },
+      {
+        "reference": {
+          "reference": "MeasureReport/result-example"
+        },
+        "description": "Example MeasureReport illustrating return of messages encountered during evaluation",
+        "name": "result-example",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Medication/definition-example"
+        },
+        "description": "Example of a reusable medication definition",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition"
+      },
+      {
+        "reference": {
+          "reference": "Medication/publishable-example"
+        },
+        "description": "Publishable Medication definition example",
+        "name": "publishable-example-medication",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemedication"
+      },
+      {
+        "reference": {
+          "reference": "Medication/shareable-example"
+        },
+        "description": "Shareable Medication definition example",
+        "name": "shareable-example-medication",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedication"
+      },
+      {
+        "reference": {
+          "reference": "MedicationKnowledge/definition-example"
+        },
+        "description": "Example of a reusable MedicationKnowledge definition",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationknowledgedefinition"
+      },
+      {
+        "reference": {
+          "reference": "MedicationKnowledge/publishable-example"
+        },
+        "description": "Publishable MedicationKnowledge example",
+        "name": "publishable-example-medicationknowledge",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemedicationknowledge"
+      },
+      {
+        "reference": {
+          "reference": "MedicationKnowledge/shareable-example"
+        },
+        "description": "Shareable MedicationKnowledge example",
+        "name": "shareable-example-medicationknowledge",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedicationknowledge"
+      },
+      {
+        "reference": {
+          "reference": "NamingSystem/publishable-example"
+        },
+        "description": "SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid \"semantic drift\" so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.    SNOMED CT's concepts are interrelated hierarchically and using description logic.    SNOMED CT concepts have a unique \"fully-specified name\", a preferred term, and, optionally, synonyms.  The description languages include English and Spanish.",
+        "name": "publishable-example-namingsystem",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablenamingsystem"
+      },
+      {
+        "reference": {
+          "reference": "NamingSystem/shareable-example"
+        },
+        "description": "SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid \"semantic drift\" so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.    SNOMED CT's concepts are interrelated hierarchically and using description logic.    SNOMED CT concepts have a unique \"fully-specified name\", a preferred term, and, optionally, synonyms.  The description languages include English and Spanish.",
+        "name": "shareable-example-namingsystem",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem"
+      },
+      {
+        "reference": {
+          "reference": "Observation/negation-example"
+        },
+        "description": "Example of an observation illustrating use of the notDoneValue set extension to communicate negation",
+        "name": "negation-example",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/publishable-example"
+        },
+        "description": "Limited implementation of the Populate Questionnaire implementation",
+        "name": "publishable-example-operationdefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableoperationdefinition"
+      },
+      {
+        "reference": {
+          "reference": "OperationDefinition/shareable-example"
+        },
+        "description": "Limited implementation of the Populate Questionnaire implementation",
+        "name": "shareable-example-operationdefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableoperationdefinition"
+      },
+      {
+        "reference": {
+          "reference": "Parameters/qicore-modelinfosettings"
+        },
+        "description": "Example of a Parameters resource used to specify ModelInfo generation settings",
+        "name": "qicore-modelinfosettings",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "Patient/example"
+        },
+        "description": "Example patient",
+        "name": "example",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "PlanDefinition/publishable-example"
+        },
+        "name": "publishable-example-plandefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableplandefinition"
+      },
+      {
+        "reference": {
+          "reference": "PlanDefinition/shareable-example"
+        },
+        "name": "shareable-example-plandefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableplandefinition"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/definition-example"
+        },
+        "description": "Example of a reusable PractitionerRole definition",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-practitionerroledefinition"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/publishable-example"
+        },
+        "description": "Publishable PractitionerRole example",
+        "name": "publishable-example-practitionerrole",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablepractitionerrole"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/shareable-example"
+        },
+        "description": "Shareable PractitionerRole example",
+        "name": "shareable-example-practitionerrole",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablepractitionerrole"
+      },
+      {
+        "reference": {
+          "reference": "Questionnaire/publishable-example"
+        },
+        "name": "publishable-example-questionnaire",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablequestionnaire"
+      },
+      {
+        "reference": {
+          "reference": "Questionnaire/shareable-example"
+        },
+        "name": "shareable-example-questionnaire",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablequestionnaire"
+      },
+      {
+        "reference": {
+          "reference": "SearchParameter/publishable-example"
+        },
+        "description": "Search by resource identifier - e.g. same as the read interaction, but can return included resources",
+        "name": "publishable-example-searchparameter",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablesearchparameter"
+      },
+      {
+        "reference": {
+          "reference": "SearchParameter/shareable-example"
+        },
+        "description": "Search by resource identifier - e.g. same as the read interaction, but can return included resources",
+        "name": "shareable-example-searchparameter",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesearchparameter"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/publishable-example"
+        },
+        "description": "Before each contact, the health worker should check whether the woman has any of the danger signs listed here – if yes, she should refer to the hospital urgently; if no, she should continue to the normal contact",
+        "name": "publishable-example-structuredefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/shareable-example"
+        },
+        "description": "If the woman came to the facility with a specific health concern, select the health concern(s) from the list",
+        "name": "shareable-example-structuredefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition"
+      },
+      {
+        "reference": {
+          "reference": "Substance/definition-example"
+        },
+        "description": "Example of a reusable Substance definition",
+        "name": "definition-example",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-substancedefinition"
+      },
+      {
+        "reference": {
+          "reference": "Substance/publishable-example"
+        },
+        "description": "Publishable Substance definition example",
+        "name": "publishable-example-substancedefinition",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablesubstance"
+      },
+      {
+        "reference": {
+          "reference": "Substance/shareable-example"
+        },
+        "description": "Shareable Substance definition example",
+        "name": "shareable-example-substance",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesubstance"
+      },
+      {
+        "reference": {
+          "reference": "TerminologyCapabilities/publishable-example"
+        },
+        "description": "Example Publishable Terminology Capabilities to describe an environment capable of expanding LOINC value sets, but not RxNORM value sets",
+        "name": "publishable-example-terminologycapabilities",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableterminologycapabilities"
+      },
+      {
+        "reference": {
+          "reference": "TerminologyCapabilities/shareable-example"
+        },
+        "description": "Example Shareable Terminology Capabilities to describe an environment capable of expanding LOINC value sets, but not RxNORM value sets",
+        "name": "shareable-example-terminologycapabilities",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableterminologycapabilities"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/anc-b5-de49"
+        },
+        "description": "Codes representing possible values for the Danger Signs - No danger signs element",
+        "name": "anc-b5-de49",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/anc-b5-de50"
+        },
+        "description": "Codes representing possible values for the Danger signs element",
+        "name": "anc-b5-de50",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/anc-b5-de51"
+        },
+        "description": "Codes representing possible values for the Danger Signs - Central cyanosis element",
+        "name": "anc-b5-de51",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/computable-example"
+        },
+        "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
+        "name": "computable-example-valueset",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/executable-example"
+        },
+        "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
+        "name": "executable-example-valueset",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablevalueset"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/publishable-example"
+        },
+        "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
+        "name": "publishable-example-valueset",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset"
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/shareable-example"
+        },
+        "description": "Codes representing possible values for the Specific health concern(s) element",
+        "name": "shareable-example-valueset",
+        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset"
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "acknowledgements.html",
+          "title": "Acknowledgements",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "artifact-repository-service.html",
+          "title": "Artifact Repository Service",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "artifact-terminology-service.html",
+          "title": "Artifact Terminology Service",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "capabilities.html",
+          "title": "Capabilities",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "changes.html",
+          "title": "Changes",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "content-lifecycle.html",
+          "title": "Content Lifecycle",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "distribution.html",
+          "title": "Distribution",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Downloads",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "introduction.html",
+          "title": "Introduction",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "naming-conventions.html",
+          "title": "Naming Conventions",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "operations.html",
+          "title": "Operations",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "packaging.html",
+          "title": "Packaging",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "profiles.html",
+          "title": "Profiles",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "publishing.html",
+          "title": "Publishing",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "references.html",
+          "title": "References",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "testing.html",
+          "title": "Testing",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "using-cql.html",
+          "title": "Using Cql",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "version-manifest.html",
+          "title": "Version Manifest",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2022+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "Ballot"
+      },
+      {
+        "code": "excludettl",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes"
+      },
+      {
+        "code": "special-url",
+        "value": "http://terminology.hl7.org/ValueSet/artifact-version-policy"
+      },
+      {
+        "code": "special-url",
+        "value": "http://terminology.hl7.org/CodeSystem/software-system-type-codes"
+      },
+      {
+        "code": "special-url",
+        "value": "http://terminology.hl7.org/ValueSet/software-system-type"
+      },
+      {
+        "code": "special-url-base",
+        "value": "http://hl7.org/fhir"
+      },
+      {
+        "code": "path-history",
+        "value": "http://hl7.org/fhir/uv/crmi/history.html"
+      }
+    ]
+  }
+}

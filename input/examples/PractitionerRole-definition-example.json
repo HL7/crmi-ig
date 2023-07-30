@@ -11,6 +11,10 @@
         "text": "Antenatal care"
     }],
     "location": [{
-        "reference": "http://hl7.org/fhir/uv/crmi/Location/definition-example"
+        "extension": [{
+            "url": "http://hl7.org/fhir/StructureDefinition/artifact-canonicalReference",
+            "valueCanonical": "http://hl7.org/fhir/uv/crmi/Location/definition-example"
+        }],
+        "reference": "Location/definition-example"
     }]
 }

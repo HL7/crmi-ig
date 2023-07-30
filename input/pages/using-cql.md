@@ -72,7 +72,7 @@ include declaration as in Snippet 4-2.
 include Common version '2.0.0' called Common
 ```
 
-Snippet 4-2: Nested library within [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 4-2: Nested library within EXM146.cql
 
 The set of all CQL libraries used as part of a knowledge artifact must adhere to Conformance Requirement 4.3.
 
@@ -129,7 +129,7 @@ For example:
 using FHIR version '4.0.1'
 ```
 
-Snippet 4-3: Data Model line from [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 4-3: Data Model line from EXM146.cql
 
 ### Code Systems
 {: #code-systems}
@@ -150,7 +150,7 @@ codesystem "SNOMED CT:2017-09": 'http://snomed.info/sct'
   version 'http://snomed.info/sct/731000124108/version/201709'
 ```
 
-Snippet 4-4: codesystem definition line from [Terminology.cql](Library-Terminology.html#cql-content).
+Snippet 4-4: codesystem definition line from Terminology.cql.
 
 The canonical URL for a code system is a globally unique, stable, version-independent identifier for the code system.
 The base FHIR specification defines canonical URLs for most common code systems
@@ -184,7 +184,7 @@ For example:
 valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
 ```
 
-Snippet 4-5: Valueset reference from [EXM146.cql](Library-EXM146.html#cql-content)
+Snippet 4-5: Valueset reference from EXM146.cql
 
 The canonical URL for a value set is typically defined by the value set author, though it may be provided by the
 publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR
@@ -235,7 +235,7 @@ valueset "Encounter Inpatient SNOMEDCT Value Set":
    'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
 ```
 
-Snippet 4-6: valueset definition from [Terminology.cql](Library-Terminology.html#cql-content).
+Snippet 4-6: valueset definition from Terminology.cql.
 
 This is a _version specific value set reference_, and can be resolved as a search by the `url` and `version` elements:
 
@@ -265,7 +265,7 @@ For example, rather than combining multiple value sets using a `union`, separate
 {: #representation-in-a-library}
 
 The representation of valueset declarations in a Library is discussed in the
-[Artifact Conformance](artifact-conformance.html) of this IG.
+Artifact Conformance topic of this IG.
 
 #### String-based Membership Testing
 {: #string-based-membership-testing}
@@ -300,7 +300,7 @@ the logical identifier is the code from the code system.
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
 ```
 
-Snippet 4-7: code definition from [Terminology.cql](Library-Terminology.html#cql-content).
+Snippet 4-7: code definition from Terminology.cql.
 
 Note that for direct-reference code usage, the local identifier (in Snippet 4-7 the local identifier is "Venous foot pump,
 device (physical object)") should be the same as the description of the code within the terminology in order to avoid
@@ -319,7 +319,7 @@ When direct-reference codes are used within knowledge artifacts, they will be re
 using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
 ```
 
-The representation of code declarations in a Library is discussed in [Artifact Conformance](artifact-conformance.html) of this IG.
+The representation of code declarations in a Library is discussed in Artifact Conformance of this IG.
 
 ### UCUM Best Practices
 {: #ucum-best-practices}
@@ -387,7 +387,7 @@ define function
          or Condition.onset during Encounter.period
 ```
 
-Snippet 4-8: Function definition from [Common.cql](Library-Common.html#cql-content)
+Snippet 4-8: Function definition from Common.cql
 
 ### Data Type Names
 {: #data-type-names}
@@ -414,7 +414,7 @@ define "Flexible Sigmoidoscopy Performed":
       and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
 ```
 
-Snippet 4-9: Expression definition from [EXM130.cql](Library-EXM130.html#cql-content)
+Snippet 4-9: Expression definition from EXM130.cql
 
 #### Negation in FHIR
 {: #negation-in-fhir}
@@ -480,7 +480,7 @@ for not administering any of the anticoagulant and antiplatelet medications spec
 value set. 
 
 To represent Antithrombotic Therapy Not Administered, implementing systems reference the canonical of the "Antithrombotic
-Therapy" value set using the [notDoneValueSet](StructureDefinition-crmi-notDoneValueSet.html) to indicate
+Therapy" value set using the [notDoneValueSet](StructureDefinition-cqf-notDoneValueSet.html) to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set URI to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
@@ -717,7 +717,7 @@ For knowledge artifact development with FHIR, the following options are recommen
 
 #### Specifying Options
 
-The FHIR specification defines the [cqlOptions](http://hl7.org/fhir/extensions/StructureDefinition-cqf-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIVersionManifest](StructureDefinition-crmi-versionmanifest.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
+The FHIR specification defines the [cqlOptions](http://hl7.org/fhir/extensions/StructureDefinition-cqf-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
 
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
@@ -804,6 +804,7 @@ The `cqlOptions` extension references a contained `Parameters` resource that con
 Because certain translator options impact language features and functionality, translated ELM may not be suitable for use in all contexts if the options used to produce the ELM are inconsistent with the options in use in the evaluating environment. To determine suitability of ELM for use in a given environment, the following guidance should be followed:
 
 **Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
+{: #conformance-requirement-4-23}
 
 1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL have been translated with a SignatureLevel other than `None`
 2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM

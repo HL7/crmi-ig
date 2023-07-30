@@ -1,0 +1,15 @@
+{
+    "resourceType": "Patient",
+    "id": "example",
+    "name": [ {
+      "family": "Asdf",
+      "given": [ "Alana" ]
+    } ],
+    "telecom": [ {
+      "value": "Asdf"
+    } ],
+    "birthDate": "1993-06-14",
+    "address": [ {
+      "line": [ "Somewhere" ]
+    } ]
+  }

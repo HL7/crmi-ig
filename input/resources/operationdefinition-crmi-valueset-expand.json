@@ -200,7 +200,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Specifies an asset-collection library that provides expansion rules for the operation. See the description of [manifest](measure-terminology-service.html#expansion-rules) for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter.",
+    "documentation" : "Specifies an asset-collection library that provides expansion rules for the operation. See the description of manifest for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter.",
     "type": "canonical"
   },
   {

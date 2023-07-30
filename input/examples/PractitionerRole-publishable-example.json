@@ -29,10 +29,10 @@
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-experimental",
         "valueBoolean": true
     }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-publisher",
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-publisher",
         "valueString": "World Health Organization"
     }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/aritfact-contact",
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-contact",
         "valueContactDetail": {
             "name": "World Health Organization"
         }
@@ -111,6 +111,10 @@
         "text": "Antenatal care"
     }],
     "location": [{
-        "reference": "http://hl7.org/fhir/uv/crmi/Location/definition-example"
-    }]
+        "extension": [{
+            "url": "http://hl7.org/fhir/StructureDefinition/artifact-canonicalReference",
+            "valueCanonical": "http://hl7.org/fhir/uv/crmi/Location/definition-example"
+        }],
+        "reference": "Location/definition-example"
+   }]
 }
