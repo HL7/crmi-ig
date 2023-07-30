@@ -1,10 +1,5 @@
 == Suppressed Messages ==
 
-CRMI : Validation Results
-=========================================
-
-# ==== Errors in validation?
-
 # The instances have a start, so it's not clear why the validator is complaining about this
 ERROR: GraphDefinition/publishable-example: GraphDefinition: GraphDefinition.start: minimum required = 1, but only found 0 (from http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablegraphdefinition|1.0.0-ballot)
 ERROR: GraphDefinition/shareable-example: GraphDefinition: GraphDefinition.start: minimum required = 1, but only found 0 (from http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegraphdefinition|1.0.0-ballot)
@@ -16,8 +11,6 @@ ERROR: MedicationKnowledge/shareable-example: MedicationKnowledge.code.coding[0]
 
 # This value set is present, so I think this is because tx.fhir.org is trying to expand it?
 ERROR: ValueSet.where(id = 'computable-example'): Error from server: Unable to find value set "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de49"
-
-# ==== Errors due to the publisher treating examples as conformance artifacts
 
 # The publisher is constructing narrative for the resources in the comparment, but assuming they are in the current IG, rather than referencing the base specification
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\CompartmentDefinition-publishable-example.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 220, column 11: The link 'communication.html' for "Communication" cannot be resolved
@@ -60,8 +53,6 @@ WARNING: CompartmentDefinition.jurisdiction: The resource should declare its jur
 # These are example structure definitions, so should not be being validated as conformance artifacts (i.e. no example of this profile should be provided, it's an example profile)
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example'): The Implementation Guide contains no examples for this profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/shareable-example'): The Implementation Guide contains no examples for this profile
-
-# ==== Errors due to the publisher not knowing how to resolve canonical promotions
 
 # These are because the publisher does not know that these URLs are canonical URLs (they are "canonical promotions", i.e. resources that are not canonical but are being promoted to canonicals for use in definitions)
 ERROR: CareTeam/definition-example: CareTeam.participant[0].member.extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example' does not resolve

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="KnowledgeArtifact-draft"/>
+  <id value="knowledgeartifact-draft"/>
   <url value="http://hl7.org/fhir/uv/crmi/OperationDefinition/knowledgeartifact-draft"/>
   <version value="1.0.0"/>
   <name value="KnowledgeArtifactDraft"/>

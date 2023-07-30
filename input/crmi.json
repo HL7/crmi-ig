@@ -1011,7 +1011,7 @@
           "reference": "CareTeam/definition-example"
         },
         "description": "Example of a reusable definition of a CareTeam",
-        "name": "definition-example",
+        "name": "definition-example-careteam",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-careteamdefinition"
       },
       {
@@ -1107,7 +1107,7 @@
           "reference": "Group/definition-example"
         },
         "description": "Example of a GroupDefinition",
-        "name": "definition-example",
+        "name": "definition-example-group",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-groupdefinition"
       },
       {
@@ -1210,7 +1210,7 @@
           "reference": "Location/definition-example"
         },
         "description": "Example of a reusable definition of a Location",
-        "name": "definition-example",
+        "name": "definition-example-location",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-locationdefinition"
       },
       {
@@ -1256,7 +1256,7 @@
           "reference": "Medication/definition-example"
         },
         "description": "Example of a reusable medication definition",
-        "name": "definition-example",
+        "name": "definition-example-medication",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition"
       },
       {
@@ -1280,7 +1280,7 @@
           "reference": "MedicationKnowledge/definition-example"
         },
         "description": "Example of a reusable MedicationKnowledge definition",
-        "name": "definition-example",
+        "name": "definition-example-medicationknowledge",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationknowledgedefinition"
       },
       {
@@ -1374,7 +1374,7 @@
           "reference": "PractitionerRole/definition-example"
         },
         "description": "Example of a reusable PractitionerRole definition",
-        "name": "definition-example",
+        "name": "definition-example-practitionerrole",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-practitionerroledefinition"
       },
       {
@@ -1444,7 +1444,7 @@
           "reference": "Substance/definition-example"
         },
         "description": "Example of a reusable Substance definition",
-        "name": "definition-example",
+        "name": "definition-example-substance",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-substancedefinition"
       },
       {

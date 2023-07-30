@@ -192,7 +192,7 @@ Note that when a code system authority has not established a versioning system, 
     6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
     7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
 
-7. SHALL support version manifest and release value set packaging: [Library/$draft](OperationDefinition-Library-draft.html) operation
+7. SHALL support version manifest and release value set packaging: Library/$draft operation
     1. SHALL support the version parameter
 
 ### Server Operations
