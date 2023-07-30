@@ -866,7 +866,7 @@
       },
       {
         "reference": {
-          "reference": "OperationDefinition/KnowledgeArtifact-approve"
+          "reference": "OperationDefinition/knowledgeartifact-approve"
         },
         "description": "The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository.",
         "exampleBoolean": false,
