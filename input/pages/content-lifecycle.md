@@ -43,11 +43,16 @@ A collection of artifacts is specified using a [CRMIManifestLibrary](StructureDe
 
 The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact.
 
-### Canonical promotion
+### Non-canonical definitional resources
 
-To support the use of non-canonical resources as knowledge artifacts, extensions can be used to build a "canonical promotion" that promotes a non-canonical resource to a canonical resource. For example, the Group resource is not canonical (i.e. it does not define a `url` or other canonical metadata), but it can be used in definitional contexts if the `actual` element is set to false, meaning the Group represents the definition of a set of members, rather than an actual listing of references to members. The [ShareableGroup](StructureDefinition-crmi-shareablegroup.html] profile is an example of a canonical promotion. The various `artifact-xxx` extensions are used to define the canoncical `url` and other metadata to promote the resource to a canonical.
+This implementation guide defines profiles for several resources that can be used in a definitional context:
 
-When referencing canonical promotions, the [artifact-canonicalReference](StructureDefinition-artifact-canonicalReference.html) extension can be used to promote a `Reference` to a canonical reference.
+* Location
+* Group
+* PractitionerRole
+* Medication
+* MedicationKnowledge
+* Substance
 
 ### Artifact Scope
 

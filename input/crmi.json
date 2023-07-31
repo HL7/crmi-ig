@@ -434,27 +434,11 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-publishablecareteam"
-        },
-        "description": "Supports declaration of the careteam metadata required by HL7 and other organizations that share and publish careteams with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable CareTeam"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-publishablecodesystem"
         },
         "description": "Defines and enforces the minimum expectations for publication and distribution of a code system, typically as part of an artifact repository or implementation guide publication",
         "exampleBoolean": false,
         "name": "CRMI Publishable CodeSystem"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-publishablecompartmentdefinition"
-        },
-        "description": "Supports declaration of the CompartmentDefinition metadata required by HL7 and other organizations that share and publish compartment definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable CompartmentDefinition"
       },
       {
         "reference": {
@@ -474,14 +458,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-publishablegroup"
-        },
-        "description": "Supports declaration of the group metadata required by HL7 and other organizations that share and publish groups with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable Group"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-publishableimplementationguide"
         },
         "description": "Supports declaration of the ImplementationGuide metadata required by HL7 and other organizations that share and publish implementation guides with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
@@ -498,35 +474,11 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-publishablelocation"
-        },
-        "description": "Supports declaration of the location metadata required by HL7 and other organizations that share and publish locations with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable Location"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-publishablemeasure"
         },
         "description": "Supports declaration of the Measure metadata required by HL7 and other organizations that share and publish measures with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
         "exampleBoolean": false,
         "name": "CRMI Publishable Measure"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-publishablemedication"
-        },
-        "description": "Supports declaration of the medication metadata required by HL7 and other organizations that share and publish medications with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable Medication"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-publishablemedicationknowledge"
-        },
-        "description": "Supports declaration of the medication knowledge metadata required by HL7 and other organizations that share and publish medication knowledge with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable MedicationKnowledge"
       },
       {
         "reference": {
@@ -554,14 +506,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-publishablepractitionerrole"
-        },
-        "description": "Supports declaration of the practitionerrole metadata required by HL7 and other organizations that share and publish practitionerroles with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable PractitionerRole"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-publishablequestionnaire"
         },
         "description": "Supports declaration of the Questionnaire metadata required by HL7 and other organizations that share and publish questionnaires with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
@@ -583,14 +527,6 @@
         "description": "Supports declaration of the StructureDefinition metadata required by HL7 and other organizations that share and publish structure definitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
         "exampleBoolean": false,
         "name": "CRMI Publishable StructureDefinition"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-publishablesubstance"
-        },
-        "description": "Supports declaration of the substance metadata required by HL7 and other organizations that share and publish substances with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
-        "exampleBoolean": false,
-        "name": "CRMI Publishable Substance"
       },
       {
         "reference": {
@@ -626,27 +562,11 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-shareablecareteam"
-        },
-        "description": "Enforces the minimum information set for the careteam metadata required by HL7 and other organizations that share and publish careteams",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable CareTeam"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-shareablecodesystem"
         },
         "description": "Enforces the minimum information set for the code system metadata required by HL7 and other organizations that share and publish code systems",
         "exampleBoolean": false,
         "name": "CRMI Shareable CodeSystem"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-shareablecompartmentdefinition"
-        },
-        "description": "Enforces the minimum information set for the compartment definition metadata required by HL7 and other organizations that share and publish compartment definitions",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable CompartmentDefinition"
       },
       {
         "reference": {
@@ -666,14 +586,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-shareablegroup"
-        },
-        "description": "Enforces the minimum information set for the group metadata required by HL7 and other organizations that share and publish groups",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable Group"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-shareableimplementationguide"
         },
         "description": "Enforces the minimum information set for the implementation guide metadata required by HL7 and other organizations that share and publish implementation guides",
@@ -690,35 +602,11 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-shareablelocation"
-        },
-        "description": "Enforces the minimum information set for the location metadata required by HL7 and other organizations that share and publish locations",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable Location"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-shareablemeasure"
         },
         "description": "Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures",
         "exampleBoolean": false,
         "name": "CRMI Shareable Measure"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-shareablemedication"
-        },
-        "description": "Enforces the minimum information set for the medication metadata required by HL7 and other organizations that share and publish medications",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable Medication"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-shareablemedicationknowledge"
-        },
-        "description": "Enforces the minimum information set for the medication knowledge metadata required by HL7 and other organizations that share and publish medication knowledge",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable MedicationKnowledge"
       },
       {
         "reference": {
@@ -746,14 +634,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/crmi-shareablepractitionerrole"
-        },
-        "description": "Enforces the minimum information set for practitioner role metadata required by HL7 and other organizations that share and publish practitioner roles",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable PractitionerRole"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/crmi-shareablequestionnaire"
         },
         "description": "Enforces the minimum information set for the questionnaire metadata required by HL7 and other organizations that share and publish questionnaires",
@@ -775,14 +655,6 @@
         "description": "Enforces the minimum information set for the structure definition metadata required by HL7 and other organizations that share and publish structure definitions",
         "exampleBoolean": false,
         "name": "CRMI Shareable StructureDefinition"
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/crmi-shareablesubstance"
-        },
-        "description": "Enforces the minimum information set for the substance metadata required by HL7 and other organizations that share and publish substances",
-        "exampleBoolean": false,
-        "name": "CRMI Shareable Substance"
       },
       {
         "reference": {
@@ -1008,22 +880,6 @@
       },
       {
         "reference": {
-          "reference": "CareTeam/publishable-example"
-        },
-        "description": "Publishable CareTeam definition Example",
-        "name": "publishable-example-careteam",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecareteam"
-      },
-      {
-        "reference": {
-          "reference": "CareTeam/shareable-example"
-        },
-        "description": "Shareable CareTeam definition Example",
-        "name": "shareable-example-careteam",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecareteam"
-      },
-      {
-        "reference": {
           "reference": "CodeSystem/publishable-example"
         },
         "description": "Set of codes representing all concepts used in the implementation guide",
@@ -1037,22 +893,6 @@
         "description": "Set of codes representing all activities used in the implementation guide",
         "name": "shareable-example-codesystem",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem"
-      },
-      {
-        "reference": {
-          "reference": "CompartmentDefinition/publishable-example"
-        },
-        "description": "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
-        "name": "publishable-example-compartmentdefinition",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecompartmentdefinition"
-      },
-      {
-        "reference": {
-          "reference": "CompartmentDefinition/shareable-example"
-        },
-        "description": "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).",
-        "name": "shareable-example-compartmentdefinition",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecompartmentdefinition"
       },
       {
         "reference": {
@@ -1101,22 +941,6 @@
         "description": "Example of a GroupDefinition",
         "name": "definition-example-group",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-groupdefinition"
-      },
-      {
-        "reference": {
-          "reference": "Group/publishable-example"
-        },
-        "description": "Publishable Group Example",
-        "name": "publishable-example-group",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablegroup"
-      },
-      {
-        "reference": {
-          "reference": "Group/shareable-example"
-        },
-        "description": "Shareable Group Example",
-        "name": "shareable-example-group",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegroup"
       },
       {
         "reference": {
@@ -1207,22 +1031,6 @@
       },
       {
         "reference": {
-          "reference": "Location/publishable-example"
-        },
-        "description": "Publishable Location definition example",
-        "name": "publishable-example-location",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelocation"
-      },
-      {
-        "reference": {
-          "reference": "Location/shareable-example"
-        },
-        "description": "Shareable Location definition example",
-        "name": "shareable-example-location",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelocation"
-      },
-      {
-        "reference": {
           "reference": "Measure/publishable-example"
         },
         "name": "publishable-example-measure",
@@ -1253,43 +1061,11 @@
       },
       {
         "reference": {
-          "reference": "Medication/publishable-example"
-        },
-        "description": "Publishable Medication definition example",
-        "name": "publishable-example-medication",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemedication"
-      },
-      {
-        "reference": {
-          "reference": "Medication/shareable-example"
-        },
-        "description": "Shareable Medication definition example",
-        "name": "shareable-example-medication",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedication"
-      },
-      {
-        "reference": {
           "reference": "MedicationKnowledge/definition-example"
         },
         "description": "Example of a reusable MedicationKnowledge definition",
         "name": "definition-example-medicationknowledge",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationknowledgedefinition"
-      },
-      {
-        "reference": {
-          "reference": "MedicationKnowledge/publishable-example"
-        },
-        "description": "Publishable MedicationKnowledge example",
-        "name": "publishable-example-medicationknowledge",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemedicationknowledge"
-      },
-      {
-        "reference": {
-          "reference": "MedicationKnowledge/shareable-example"
-        },
-        "description": "Shareable MedicationKnowledge example",
-        "name": "shareable-example-medicationknowledge",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemedicationknowledge"
       },
       {
         "reference": {
@@ -1371,22 +1147,6 @@
       },
       {
         "reference": {
-          "reference": "PractitionerRole/publishable-example"
-        },
-        "description": "Publishable PractitionerRole example",
-        "name": "publishable-example-practitionerrole",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablepractitionerrole"
-      },
-      {
-        "reference": {
-          "reference": "PractitionerRole/shareable-example"
-        },
-        "description": "Shareable PractitionerRole example",
-        "name": "shareable-example-practitionerrole",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablepractitionerrole"
-      },
-      {
-        "reference": {
           "reference": "Questionnaire/publishable-example"
         },
         "name": "publishable-example-questionnaire",
@@ -1438,22 +1198,6 @@
         "description": "Example of a reusable Substance definition",
         "name": "definition-example-substance",
         "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-substancedefinition"
-      },
-      {
-        "reference": {
-          "reference": "Substance/publishable-example"
-        },
-        "description": "Publishable Substance definition example",
-        "name": "publishable-example-substancedefinition",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablesubstance"
-      },
-      {
-        "reference": {
-          "reference": "Substance/shareable-example"
-        },
-        "description": "Shareable Substance definition example",
-        "name": "shareable-example-substance",
-        "exampleCanonical": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesubstance"
       },
       {
         "reference": {
@@ -1609,8 +1353,8 @@
           "generation": "markdown"
         },
         {
-          "nameUrl": "references.html",
-          "title": "References",
+          "nameUrl": "bibliography.html",
+          "title": "Bibliography",
           "generation": "markdown"
         },
         {

@@ -30,47 +30,47 @@ The following is a list of FHIR resource types that are considered _canonical re
 **Canonical Resource Types**
 * ActivityDefinition
 * CapabilityStatement
-* CareTeam (potential)
+* CareTeam (non-canonical definitional)
 * ChargeItemDefinition (not considered in this IG)
 * CodeSystem
-* CompartmentDefinition
+* CompartmentDefinition (not profiled because only HL7 can define CompartmentDefinition instances)
 * ConceptMap
-* ConditionDefinition
+* ConditionDefinition (roadmap item)
 * ClinicalUseDefinition (R5)
-* DeviceDefinition
+* DeviceDefinition (roadmap item)
 * EffectEvidenceSynthesis (not considered, uses EBM resources)
 * EventDefinition (targeted for removal)
-* Evidence
-* EvidenceVariable
-* ExampleScenario
+* Evidence (not considered, uses EBM resources)
+* EvidenceVariable (not considered, uses EBM resources)
+* ExampleScenario (roadmap item)
 * GraphDefinition
-* Group (partial)
+* Group (non-canonical definitional)
 * ImplementationGuide
 * Library
-* Location (partial)
+* Location (non-canonical definitional)
 * Measure
-* Medication
-* MedicationKnowledge
-* MessageDefinition
+* Medication (non-canonical definitional)
+* MedicationKnowledge (non-canonical definitional)
+* MessageDefinition (roadmap item)
 * NamingSystem
-* ObservationDefinition
-* Organization (potential)
+* ObservationDefinition (roadmap item)
+* Organization (non-canonical definitional)
 * OperationDefinition
 * PlanDefinition
-* Practitioner (partial)
-* PractitionerRole (partial)
+* Practitioner (non-canonical definitional)
+* PractitionerRole (non-canonical definitional)
 * Questionnaire
 * ResearchDefinition (not considered, uses EBM resources)
 * ResearchElementDefinition (not considered, uses EBM resources)
 * RiskEvidenceSynthesis (not considered, uses EBM resources)
 * SearchParameter
-* SpecimenDefinition
+* SpecimenDefinition (roadmap item)
 * SubscriptionTopic (R5)
-* Substance
+* Substance (non-canonical definitional)
 * StructureDefinition
-* StructureMap
+* StructureMap (roadmap item)
 * TerminologyCapabilities
-* TestScript
+* TestScript (roadmap item)
 * ValueSet
 
 The following groupings of these canonical resources indicate priority of support as well as categorization of capability within this implementation guide:
@@ -103,20 +103,20 @@ The following groupings of these canonical resources indicate priority of suppor
 
 ##### Domain Definition Artifacts
 * ActorDefinition (R5)
-* CareTeam
+* CareTeam (non-canonical definitional)
 * ConditionDefinition
 * ClinicalUseDefinition (R5)
 * DeviceDefinition
-* Group
-* Location
-* Medication
-* MedicationKnowledge
-* Practitioner?
-* PractitionerRole
+* Group (non-canonical definitional)
+* Location (non-canonical definitional)
+* Medication (non-canonical definitional)
+* MedicationKnowledge (non-canonical definitional)
+* Practitioner (non-canonical definitional)
+* PractitionerRole (non-canonical definitional)
 * ObservationDefinition
-* Organization?
+* Organization (non-canonical definitional)
 * SpecimenDefinition
-* Substance
+* Substance (non-canonical definitional)
 
 ##### Evidence-based Medicine Artifacts (Quarternary)
 
