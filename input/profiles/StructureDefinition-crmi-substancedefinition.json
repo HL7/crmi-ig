@@ -98,8 +98,7 @@
             {
               "code": "Reference",
               "targetProfile": [
-                "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-substancedefinition",
-                "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition"
+                "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-substancedefinition"
               ]
             }
           ],
