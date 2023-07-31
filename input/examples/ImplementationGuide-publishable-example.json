@@ -38,7 +38,49 @@
       "valueReference": {
         "reference": "#ancm-modelinfosettings"
       }
-    }],
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
+      "valueCoding": {
+          "system": "http://hl7.org/fhir/version-algorithm",
+          "code": "semver"
+      }
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
+      "valueCoding": {
+          "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+          "code": "strict"
+      }
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-purpose",
+      "valueMarkdown": "To support characterization of the inclusion criteria for delivery of antenatal care"
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-usage",
+      "valueMarkdown": "See the [FHIR Clinical Guidelines](http://hl7.org/fhir/uv/cpg) for information on how this definition is used to support computable care guidelines"
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel",
+      "valueString": "Copyright 2023+, World Health Organization, No Rights Reserved"
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-approvalDate",
+      "valueDate": "2023-07-25"
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate",
+      "valueDate": "2023-07-25"
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod",
+      "valuePeriod": {
+          "start": "2024-01-01"
+      }
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-topic",
+      "valueCodeableConcept": {
+          "text": "Antenatal Care"
+      }
+  }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+      "valueContactDetail": {
+          "name": "World Health Organization"
+      }
+  }],
     "url" : "http://hl7.org/fhir/uv/crmi/ImplementationGuide/publishable-example",
     "version" : "0.1.0",
     "name" : "PublishableImplementationGuideExample",
