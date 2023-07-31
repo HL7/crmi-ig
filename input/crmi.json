@@ -82,14 +82,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/artifact-canonicalReference"
-        },
-        "description": "A reference to a canonical resource",
-        "exampleBoolean": false,
-        "name": "Artifact Canonical Reference"
-      },
-      {
-        "reference": {
           "reference": "StructureDefinition/artifact-effectivePeriod"
         },
         "description": "When the artifact is expected to be used.",

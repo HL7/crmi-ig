@@ -110,9 +110,6 @@ ERROR: ImplementationGuide/shareable-example: ImplementationGuide.definition.pag
 ERROR: ImplementationGuide/shareable-example: ImplementationGuide.definition.page.page[4]: The extension http://hl7.org/fhir/tools/StructureDefinition/ig-page-name is not allowed to be used at this point (allowed = e:ImplementationGuide.definition.page; this element is [ImplementationGuide.definition.page.page, BackboneElement.page.page, BackboneElement.page, ])
 ERROR: ImplementationGuide/shareable-example: ImplementationGuide.definition.page.page[5]: The extension http://hl7.org/fhir/tools/StructureDefinition/ig-page-name is not allowed to be used at this point (allowed = e:ImplementationGuide.definition.page; this element is [ImplementationGuide.definition.page.page, BackboneElement.page.page, BackboneElement.page, ])
 
-# This extension is used on any element to allow a reference to a canonicalReference, so it should be allowed anywhere. It will most often be used on existing Reference elements, but should be allowed to support definition of a canonical reference where there isn't a non-canonical reference
-WARNING: StructureDefinition/artifact-canonicalReference: StructureDefinition.context[0]: Review the extension type: extensions should not have a context of Element unless it's really intended that they can be used anywhere
-
 # This is how the base versionAlgorithm is defined as well
 INFORMATION: StructureDefinition/artifact-versionAlgorithm: StructureDefinition.differential.element[3].binding: The element Extension.value[x] has a binding, and has multiple types subject to bindings ([string, Coding]). The binding will apply to all the types
 

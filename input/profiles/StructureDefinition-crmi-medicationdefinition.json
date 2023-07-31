@@ -107,18 +107,6 @@
             }
           ],
           "mustSupport": true
-        },
-        {
-          "id": "Medication.ingredient.itemReference.extension:canonical",
-          "path": "Medication.ingredient.itemReference.extension",
-          "sliceName": "canonical",
-          "min": 0,
-          "max": "1",
-          "type": [{
-            "code": "Extension",
-            "profile": ["http://hl7.org/fhir/StructureDefinition/artifact-canonicalReference"] 
-          }],
-          "mustSupport": true
         }
      ]
     }
