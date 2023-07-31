@@ -10,10 +10,6 @@
             "text": "Nurse practitioner"
         }],
         "member": {
-            "extension": [{
-                "url": "http://hl7.org/fhir/StructureDefinition/artifact-canonicalReference",
-                "valueCanonical": "http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example"
-            }],
             "reference": "PractitionerRole/definition-example"
         }
     }]

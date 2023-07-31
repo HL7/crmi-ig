@@ -12,16 +12,6 @@ ERROR: MedicationKnowledge/shareable-example: MedicationKnowledge.code.coding[0]
 # This value set is present, so I think this is because tx.fhir.org is trying to expand it?
 ERROR: ValueSet.where(id = 'computable-example'): Error from server: Unable to find value set "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de49"
 
-# The publisher is constructing narrative for the resources in the comparment, but assuming they are in the current IG, rather than referencing the base specification
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\CompartmentDefinition-publishable-example.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 220, column 11: The link 'communication.html' for "Communication" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\CompartmentDefinition-publishable-example.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 221, column 11: The link 'communicationrequest.html' for "CommunicationRequest" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\CompartmentDefinition-shareable-example.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 220, column 11: The link 'communication.html' for "Communication" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\CompartmentDefinition-shareable-example.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 221, column 11: The link 'communicationrequest.html' for "CommunicationRequest" cannot be resolved
-
-# These are inherited from the base questionnaire and referencing the base specification
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-crmi-publishablequestionnaire-definitions.html#/html/body/div/div/div/div/div/div/div/table/tr/td/p/a at Line 1322, column 186: The link 'references.html#canonical' for "canonical URL" cannot be resolved (valid targets: [segment-header, references, publish-box, bottom, hl7-logo, segment-post-footer, hl7-search, hl7-search-lnk, family-logo, family-nav, ig-status, top, stripe, segment-footer, hl7-nav, segment-navbar, segment-content, segment-breadcrumb])
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-crmi-shareablequestionnaire-definitions.html#/html/body/div/div/div/div/div/div/div/table/tr/td/p/a at Line 998, column 186: The link 'references.html#canonical' for "canonical URL" cannot be resolved (valid targets: [segment-header, references, publish-box, bottom, hl7-logo, segment-post-footer, hl7-search, hl7-search-lnk, family-logo, family-nav, ig-status, top, stripe, segment-footer, hl7-nav, segment-navbar, segment-content, segment-breadcrumb])
-
 # The publisher is constructing structure definition narrative but these are example structure definitions and should not be processed as conformance artifacts
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
@@ -43,36 +33,10 @@ ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDe
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-testing.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 195, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 202, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: Substance/publishable-example: Substance.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Substance/publishable-example' does not resolve
-ERROR: Substance/shareable-example: Substance.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Substance/shareable-example' does not resolve
-
-# The artifact is declaring jurisdiction, but is doing it using the artifact-jurisdiction extension so the publisher doesn't know it (and they are example resources anyway so probably shouldn't be being validated as conformance artifacts)
-WARNING: CompartmentDefinition.jurisdiction: The resource should declare its jurisdiction to match the package id (hl7.fhir.uv.crmi, jurisdiction = http://unstats.un.org/unsd/methods/m49/m49.htm#001: 'World') (for Sushi users: in sushi-config.yaml, 'jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"')
-WARNING: CompartmentDefinition.jurisdiction: The resource should declare its jurisdiction to match the package id (hl7.fhir.uv.crmi, jurisdiction = http://unstats.un.org/unsd/methods/m49/m49.htm#001: 'World') (for Sushi users: in sushi-config.yaml, 'jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"')
 
 # These are example structure definitions, so should not be being validated as conformance artifacts (i.e. no example of this profile should be provided, it's an example profile)
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example'): The Implementation Guide contains no examples for this profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/shareable-example'): The Implementation Guide contains no examples for this profile
-
-# These are because the publisher does not know that these URLs are canonical URLs (they are "canonical promotions", i.e. resources that are not canonical but are being promoted to canonicals for use in definitions)
-ERROR: CareTeam/definition-example: CareTeam.participant[0].member.extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example' does not resolve
-ERROR: CareTeam/publishable-example: CareTeam.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/CareTeam/publishable-example' does not resolve
-ERROR: CareTeam/publishable-example: CareTeam.participant[0].member.extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example' does not resolve
-ERROR: CareTeam/shareable-example: CareTeam.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/CareTeam/shareable-example' does not resolve
-ERROR: CareTeam/shareable-example: CareTeam.participant[0].member.extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/PractitionerRole/definition-example' does not resolve
-ERROR: Group/publishable-example: Group.extension[2].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Group/publishable-example' does not resolve
-ERROR: Group/shareable-example: Group.extension[2].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Group/shareable-example' does not resolve
-ERROR: Location/publishable-example: Location.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Location/publishable-example' does not resolve
-ERROR: Location/shareable-example: Location.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Location/shareable-example' does not resolve
-ERROR: Medication/publishable-example: Medication.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Medication/publishable-example' does not resolve
-ERROR: Medication/shareable-example: Medication.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/Medication/shareable-example' does not resolve
-ERROR: MedicationKnowledge/publishable-example: MedicationKnowledge.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/MedicationKnowledge/publishable-example' does not resolve
-ERROR: MedicationKnowledge/shareable-example: MedicationKnowledge.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/MedicationKnowledge/shareable-example' does not resolve
-ERROR: PractitionerRole/definition-example: PractitionerRole.location[0].extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/Location/definition-example' does not resolve
-ERROR: PractitionerRole/publishable-example: PractitionerRole.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/PractitionerRole/publishable-example' does not resolve
-ERROR: PractitionerRole/publishable-example: PractitionerRole.location[0].extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/Location/definition-example' does not resolve
-ERROR: PractitionerRole/shareable-example: PractitionerRole.extension[0].value.ofType(uri): URL value 'http://hl7.org/fhir/uv/crmi/PractitionerRole/shareable-example' does not resolve
-ERROR: PractitionerRole/shareable-example: PractitionerRole.location[0].extension[0].value.ofType(canonical): Canonical URL 'http://hl7.org/fhir/uv/crmi/Location/definition-example' does not resolve
 
 # Expected missing slices
 INFORMATION: Library/ANCCohort: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
