@@ -5,7 +5,7 @@
 
 Knowledge artifacts go through a lifecycle, typically following a similar pattern found in software:
 
-<div style="max-width:500px;">
+<div style="max-width:750px;">
 {% include img.html img="knowledge-artifact-lifecycle.png" %}
 </div>
 
@@ -17,21 +17,28 @@ The `Publication Status` value set is used to track the lifecycle of an artifact
 
 To ensure stable resolution of dependencies of an artifact throughout its lifecycle (including stable value set expansion), a version manifest can be used to allow resolution of unversioned canonical references in the artifact and its dependencies. See the [Version Manifest](version-manifest.html) discussion for more information on how the Manifest Library profile supports stable resolution of dependencies.
 
-### Knowledge package
+### Grouping Knowledge Artifacts
 
-A knowledge package is a group of knowledge artifacts that go through the lifecycle together. This is similar to a software package. It is best practice that all artifiacts in a package may share common metadata (publisher, author, jurisdiction), as well as version, as well as the canonical root of their URLs. A knowledge package is distributed as a FHIR package.
+There are a few use-cases for groups of knowledge artifacts:
+1. During the authoring lifecycle
+2. Distribution of published artifacts
 
-Since there is currently no direct resource in FHIR to represent a FHIR Package, two approaches are currently considered:
-
-1. Use the ImplementationGuide resource: This resource can represent a FHIR package, as it has a `packageId` as well as references to all artifacts in the package.
-2. Use a Library resource: This resource, with some extensions and using `relatedArtifact` as `composed-of` could be used to represent the package.
-
-If using ImplementationGuide, the following query could be used to see what package a particular artifact is part of:
+#### For the authoring lifecycle, a FHIR Package is used. This is compatiable with
+HL7 FHIR Publishing tools. In the FHIR Package a corresponding
+ImplementationGuide resource is used to represent the package, as it has a
+`packageId`, a proposed `packageScope`, and references to all artifacts in the
+package. Additionally, the following query could be used to see what package a
+particular artifact is part of:
 ```
 /ImplementationGuide?resource={artifact.resourceType}/{artifact.id}
 ```
-
 If a single ImplementationGuide is returned, the package is the packageId. If multiple are found and the packageId varies, or if no ImplementationGuide resources are found, then it is not known what package the artifact is from.
+
+[See more about publishing](publishing.html)
+
+#### For distribution, an Artifact Library (FHIR Library) is used.
+
+This can be created following the `$package` operation and paramaters to define requirements for the group. [See more about distribution APIs](distribution.html).
 
 ### Components vs dependencies
 
