@@ -10,21 +10,21 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
         "valueCoding": {
-          "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+          "system": "http://example.org/CodeSystem/iso-8601-derived-periods",
           "code": "P10Y--P14Y",
           "display": "10-14 years"
         }
       }, {
         "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
         "valueCoding": {
-          "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+          "system": "http://example.org/CodeSystem/iso-8601-derived-periods",
           "code": "P15Y--P19Y",
           "display": "15-19 years"
         }
       }, {
         "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
         "valueCoding": {
-          "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+          "system": "http://example.org/CodeSystem/iso-8601-derived-periods",
           "code": "P20Y--P9999Y",
           "display": "20+ years"
         }
@@ -211,8 +211,8 @@
         "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods",
-        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
+        "display": "Example Code system ISO-8601-Derived Periods",
+        "resource": "http://example.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
         "display": "Value set Antenatal care contact",

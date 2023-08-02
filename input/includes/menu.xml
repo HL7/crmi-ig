@@ -20,6 +20,7 @@
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
+      <li><a href="profiles.html" class="item">Profiles</a></li>
       <li><a href="capabilities.html" class="item">Capabilities</a></li>
       <li><a href="artifacts.html" class="item">Artifacts Summary</a></li>
     </ul>

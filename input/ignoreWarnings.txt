@@ -7,9 +7,6 @@ ERROR: GraphDefinition/shareable-example: GraphDefinition: GraphDefinition.start
 # The display name is the same, copied directly from this message, but it still shows up as an error, I don't know why
 ERROR: MedicationKnowledge/definition-example: MedicationKnowledge.code.coding[0]: Wrong Display Name 'Vancomycin Hydrochloride, 10 VIAL in 1 CARTON (0069-2587-10) > 10 mL in 1 VIAL (0069-2587-03) (package)' for http://hl7.org/fhir/sid/ndc#0069-2587-10 - should be ''Vancomycin Hydrochloride, 10 VIAL in 1 CARTON (0069-2587-10)  > 10 mL in 1 VIAL (0069-2587-03)  (package)'' (for the language(s) '--') (from Tx-Server) for 'http://hl7.org/fhir/sid/ndc#0069-2587-10'
 
-# This value set is present, so I think this is because tx.fhir.org is trying to expand it?
-ERROR: ValueSet.where(id = 'computable-example'): Error from server: Unable to find value set "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de49"
-
 # The publisher is constructing structure definition narrative but these are example structure definitions and should not be processed as conformance artifacts
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
 ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
@@ -83,12 +80,12 @@ INFORMATION: ValueSet/software-system-type: ValueSet.extension[1]: This element 
 INFORMATION: ValueSet/software-system-type: ValueSet.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset|1.0.0-ballot
 
 # Example content so although the code system is valid, it's not relevant for conformance for this IG anyway
-INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[0].value.ofType(Coding): Code System URI 'http://ohie.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[1].value.ofType(Coding): Code System URI 'http://ohie.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[2].value.ofType(Coding): Code System URI 'http://ohie.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[0].value.ofType(Coding): Code System URI 'http://ohie.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[1].value.ofType(Coding): Code System URI 'http://ohie.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[2].value.ofType(Coding): Code System URI 'http://ohie.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
+INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[0].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
+INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[1].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
+INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[2].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
+INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[0].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
+INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[1].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
+INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[2].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
 
 # The validator does not validate cql-identifier references for measure stratifiers
 WARNING: Measure/publishable-example: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
