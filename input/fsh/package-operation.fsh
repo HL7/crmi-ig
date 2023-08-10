@@ -92,7 +92,7 @@ TODO: More documentation about the operation, including inline examples:
   * min = 0
   * max = "*"
   * use = #in
-  * type = #string
+  * type = #code
   * documentation = """
 A desired capability of the resulting package. `computable` to include
 computable elements in packaged content; `executable` to include executable
@@ -190,7 +190,7 @@ If count = 0, the client is asking how large the package is.
   * min = 0
   * max = "*"
   * use = #in
-  * type = #string
+  * type = #code
   * documentation = """
 Specifies what contents should be included in the resulting package. The codes indicate which types of resources should be included, but note that
 the set of possible resources is determined as all known (i.e. present on the server) dependencies and related artifacts. Possible
