@@ -73,3 +73,8 @@ dependencies:
 parameters:
   excludettl: true
   special-url-base: http://hl7.org/fhir
+  special-url:
+    - http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes
+    - http://terminology.hl7.org/CodeSystem/software-system-type-codes
+    - http://terminology.hl7.org/ValueSet/artifact-version-policy
+    - http://terminology.hl7.org/ValueSet/software-system-type
