@@ -347,7 +347,7 @@ The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifac
 For each type of artifact supported, an AuthoringMeasureRepository:
 
 1. SHALL support [**Submit**](#submit): Post a new artifact in _draft_ status
-2. SHALL support [**$revise**](#revise): Update an existing artifact in _draft_ status
+2. SHALL support [**$revise**](OperationDefinition-crmi-revise.html): Update an existing artifact in _draft_ status
 3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ artifact
 4. SHOULD support [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
 5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing artifact (regardless of status)
