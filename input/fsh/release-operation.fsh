@@ -31,7 +31,7 @@ Usage: #definition
 * parameter[=].documentation = "The logical id of the artifact to release. The server must know the artifact (e.g. it is defined explicitly in the server's artifacts)"
 * parameter[=].type = #string
 
-* parameter[+].name = #version
+* parameter[+].name = #releaseVersion
 * parameter[=].use = #in
 * parameter[=].min = 1
 * parameter[=].max = "1"
