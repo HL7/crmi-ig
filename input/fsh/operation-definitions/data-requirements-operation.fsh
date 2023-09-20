@@ -3,6 +3,9 @@ InstanceOf: OperationDefinition
 Title: "CRMI Data Requirements Operation"
 Usage: #definition
 * insert DefinitionMetadata
+* insert CanonicalOperationProfile
+* insert VersionableOperationProfile 
+* insert ManifestableOperationProfile
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
 * description = """
@@ -216,7 +219,7 @@ values are:
   * documentation = """
 An endpoint to use to access content (i.e. libraries, activities, measures, questionnaires, and plans) referenced by the
 artifact. If no content endpoint is supplied the evaluation will attempt to
-retrieve content from the server on which the operation is being performed. 
+retrieve content from the server on which the operation is being performed.
 """
 
 * parameter[+]

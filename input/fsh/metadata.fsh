@@ -6,6 +6,23 @@ RuleSet: DefinitionMetadata
 * contact.telecom.system = #url
 * contact.telecom.value = "http://www.hl7.org/Special/committees/dss/index.cfm"
 * jurisdiction = urn:iso:std:iso:3166#US
-
 * experimental = false
 * status = #draft
+
+RuleSet: CanonicalOperationProfile
+* meta.profile[+] = Canonical(CanonicalOperation)
+
+RuleSet: ArtifactEndpoingConfigurableOperationProfile
+* meta.profile[+] = Canonical(ArtifactEndpointConfigurableOperation)
+
+RuleSet: DataConfigurableOperationProfile
+* meta.profile[+] = Canonical(DataConfigurableOperation)
+
+RuleSet: ManifestableOperationProfile 
+* meta.profile[+] = Canonical(ManifestableOperation)
+
+RuleSet: PageableOperationProfile 
+* meta.profile[+] = Canonical(PageableOperation)
+
+RuleSet: VersionableOperationProfile
+* meta.profile[+] = Canonical(VersionableOperation)

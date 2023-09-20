@@ -3,6 +3,9 @@ InstanceOf: OperationDefinition
 Title: "CRMI Package Operation"
 Usage: #definition
 * insert DefinitionMetadata
+* insert CanonicalOperationProfile
+* insert VersionableOperationProfile 
+* insert ManifestableOperationProfile
 * name = "CRMIPackage"
 * title = "CRMI Package"
 * description = """
