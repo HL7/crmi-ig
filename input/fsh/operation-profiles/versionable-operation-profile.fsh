@@ -14,7 +14,7 @@ Operation where default canonical version(s) can be specified
 * parameter
   * insert SliceOnName
 
-* parameter contains canonicalVersion 0..1 MS
+* parameter contains canonicalVersion 0..* MS
 * parameter[canonicalVersion]
   * name = #canonicalVersion (exactly)
   * min = 0
@@ -22,7 +22,7 @@ Operation where default canonical version(s) can be specified
   * use = #in
   * type = #uri
 
-* parameter contains checkCanonicalVersion 0..1 MS
+* parameter contains checkCanonicalVersion 0..* MS
 * parameter[checkCanonicalVersion]
   * name = #checkCanonicalVersion (exactly)
   * min = 0
@@ -30,7 +30,7 @@ Operation where default canonical version(s) can be specified
   * use = #in
   * type = #boolean
 
-* parameter contains forceCanonicalVersion 0..1 MS
+* parameter contains forceCanonicalVersion 0..* MS
 * parameter[forceCanonicalVersion]
   * name = #forceCanonicalVersion (exactly)
   * min = 0
