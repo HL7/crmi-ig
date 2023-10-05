@@ -136,6 +136,7 @@ Options for federated client specification:
     * resource
     * versionBehavior
     * latestFromTxServer
+    * requireNonExperimental
 * ActivityDefinition/$apply
 * PlanDefinition/$apply
 * Resource/$apply

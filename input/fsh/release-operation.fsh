@@ -67,3 +67,10 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "Indicates whether or not the terminology server from which a value set was originally downloaded should be checked for the latest version. The terminolgy server of origin is tracked via the authoritativeSource extension (https://hl7.org/fhir/extension-valueset-authoritativesource.html) on the value set. If this flag is set to false or the value set does not have an authoritativeSource specified, then the check should be constrained to the local system/cache. (default = false)"
 * parameter[=].type = #boolean
+
+* parameter[+].name = #requireNonExperimental
+* parameter[=].use = #in
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "Indicates whether or not the repository should throw an error if a spefication which is not Experimental references Experimental components"
+* parameter[=].type = #boolean
