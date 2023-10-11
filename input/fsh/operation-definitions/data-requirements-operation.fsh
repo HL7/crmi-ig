@@ -4,7 +4,7 @@ Title: "CRMI Data Requirements Operation"
 Usage: #definition
 * insert DefinitionMetadata
 * insert CanonicalOperationProfile
-* insert VersionableOperationProfile 
+* insert VersionBindableOperationProfile 
 * insert ManifestableOperationProfile
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
