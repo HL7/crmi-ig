@@ -7,7 +7,7 @@ names, types, and processing semantics.
 | **Operation Profile**               | **Purpose**                                                                 |
 |-------------------------------------|-----------------------------------------------------------------------------|
 | [Canonical][1]                      | Defines parameters used to identify canonical resource                      |
-| [Versionable][2]                    | Defines parameters used to specify missing versions in canonical references |
+| [Version Bindable][2]               | Defines parameters used to specify missing versions in canonical references |
 | [Manifestable][3]                   | Defines parameters used to provide a version manifest                       |
 | [Pagable][4]                        | Defines parameters for an operation with pagable options                    |
 | [Artifact Endpoint Configurable][5] | Defines parameters to provide endpoints to resolve canonical artifacts      |
