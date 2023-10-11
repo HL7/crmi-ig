@@ -14,7 +14,7 @@ names, types, and processing semantics.
 | [Data Configurable][6]              | Defines parameters to specify how to resolve data requirements              |
 
 [1]: StructureDefinition-crmi-canonical-operation.html
-[2]: StructureDefinition-crmi-versionable-operation.html
+[2]: StructureDefinition-crmi-version-bindable-operation.html
 [3]: StructureDefinition-crmi-manifestable-operation.html
 [4]: StructureDefinition-crmi-pagable-operation.html
 [5]: StructureDefinition-crmi-artifact-endpoint-configurable-operation.html
