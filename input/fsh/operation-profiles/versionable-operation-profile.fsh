@@ -1,5 +1,5 @@
 Profile: VersionableBindableOperation
-Id: crmi-versionable-operation
+Id: crmi-version-bindable-operation
 Parent: OperationDefinition
 Title: "CRMI Operation Profile: Version Bindable"
 Description: """
