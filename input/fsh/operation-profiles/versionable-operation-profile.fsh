@@ -1,7 +1,7 @@
 Profile: VersionableOperation
 Id: crmi-versionable-operation
 Parent: OperationDefinition
-Title: "CRMI Operation Profile: Versionable"
+Title: "CRMI Operation Profile: Version Bindable"
 Description: """
 Operation where default canonical version(s) can be specified
 
