@@ -25,4 +25,4 @@ RuleSet: PageableOperationProfile
 * meta.profile[+] = Canonical(PageableOperation)
 
 RuleSet: VersionBindableOperationProfile
-* meta.profile[+] = Canonical(VersionableOperation)
+* meta.profile[+] = Canonical(VersionBindableOperation)
