@@ -24,5 +24,5 @@ RuleSet: ManifestableOperationProfile
 RuleSet: PageableOperationProfile 
 * meta.profile[+] = Canonical(PageableOperation)
 
-RuleSet: VersionableOperationProfile
+RuleSet: VersionBindableOperationProfile
 * meta.profile[+] = Canonical(VersionableOperation)
