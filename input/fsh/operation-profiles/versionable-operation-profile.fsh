@@ -1,4 +1,4 @@
-Profile: VersionableOperation
+Profile: VersionableBindableOperation
 Id: crmi-versionable-operation
 Parent: OperationDefinition
 Title: "CRMI Operation Profile: Version Bindable"
