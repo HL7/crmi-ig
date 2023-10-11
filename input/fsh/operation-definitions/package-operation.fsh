@@ -4,7 +4,7 @@ Title: "CRMI Package Operation"
 Usage: #definition
 * insert DefinitionMetadata
 * insert CanonicalOperationProfile
-* insert VersionableOperationProfile 
+* insert VersionBindableOperationProfile 
 * insert ManifestableOperationProfile
 * name = "CRMIPackage"
 * title = "CRMI Package"
