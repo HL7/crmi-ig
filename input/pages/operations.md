@@ -1,24 +1,26 @@
 {: #operations}
 
 OperationDefinitions that involve canonical resources may conform to one or more
-of the following profiles. This allows conventionalize operation paramater
+of the following profiles. This allows conventionalize operation parameter
 names, types, and processing semantics.
 
-| **Operation Profile**               | **Purpose**                                                                 |
-|-------------------------------------|-----------------------------------------------------------------------------|
-| [Canonical][1]                      | Defines parameters used to identify canonical resource                      |
-| [Version Bindable][2]               | Defines parameters used to specify missing versions in canonical references |
-| [Manifestable][3]                   | Defines parameters used to provide a version manifest                       |
-| [Pagable][4]                        | Defines parameters for an operation with pagable options                    |
-| [Artifact Endpoint Configurable][5] | Defines parameters to provide endpoints to resolve canonical artifacts      |
-| [Data Configurable][6]              | Defines parameters to specify how to resolve data requirements              |
+| **Operation Profile**               | **Purpose**                                                                    |
+|-------------------------------------|--------------------------------------------------------------------------------|
+| [Artifact][1]                       | Defines parameters used to identify artifact resource                          |
+| [Canonical Version Bindable][2]     | DEPRECATED, see Artifact Version Bindable: Defines parameters used to specify missing versions in canonical references |
+| [Artifact Version Bindable][3]      | Defines parameters used to specify missing versions in all artifact references |
+| [Manifestable][4]                   | Defines parameters used to provide a version manifest                          |
+| [Pageable][5]                       | Defines parameters for an operation with pageable options                      |
+| [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts         |
+| [Data Configurable][7]              | Defines parameters to specify how to resolve data requirements                 |
 
-[1]: StructureDefinition-crmi-canonical-operation.html
-[2]: StructureDefinition-crmi-version-bindable-operation.html
-[3]: StructureDefinition-crmi-manifestable-operation.html
-[4]: StructureDefinition-crmi-pagable-operation.html
-[5]: StructureDefinition-crmi-artifact-endpoint-configurable-operation.html
-[6]: StructureDefinition-crmi-data-configurable-operation.html
+[1]: StructureDefinition-crmi-artifact-operation.html
+[2]: StructureDefinition-crmi-canonical-version-bindable-operation.html
+[3]: StructureDefinition-crmi-artifact-version-bindable-operation.html
+[4]: StructureDefinition-crmi-manifestable-operation.html
+[5]: StructureDefinition-crmi-pageable-operation.html
+[6]: StructureDefinition-crmi-artifact-endpoint-configurable-operation.html
+[7]: StructureDefinition-crmi-data-configurable-operation.html
 
 <!--
 * ArtifactOperation

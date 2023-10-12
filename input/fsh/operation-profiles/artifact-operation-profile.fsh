@@ -1,18 +1,22 @@
-Profile: CanonicalOperation
-Id: crmi-canonical-operation
+Profile: ArtifactOperation
+Id: crmi-artifact-operation
 Parent: OperationDefinition
-Title: "CRMI Operation Profile: Canonical Operation"
+Title: "CRMI Operation Profile: Artifact Operation"
 Description: """
-Profile for general canonical artifact operations.
+Profile for knowledge artifact operations.
 
 This establishes input paramaters when the operation is involked at the resource
 type level. The parameters are used to identify or specify the resource for the
 operation.
 
-* `url`: canonical URL of the resource
-* `version`: version of the resource
+* `url`: artifact URL&ast; for the resource
+* `version`: artifact version&ast; for the resource
 * `identifier`: business identifier for the resource
 * `resource`: instance of a canonical resource
+
+&ast;The artifact URL for canonical resources is `.url`, for non-canonical resources, it is
+the extension `artifact-url`. The version for canonical resources is `.version`, for non-canonical
+resources it is the extension `artifact-version`.
 
 NOTE: When involking canonical operations using any combination of `url`,
 `version`, and `identifier`: 
@@ -45,7 +49,8 @@ NOTE: When involking canonical operations using any combination of `url`,
   * use = #in
   * min = 0
   * max = "1"
-  * type = #Identifier
+  * type = #string
+  * searchType = #token
 
 * parameter contains resource 0..1 MS
 * parameter[resource]
@@ -53,4 +58,4 @@ NOTE: When involking canonical operations using any combination of `url`,
   * use = #in
   * min = 0
   * max = "1"
-  * type from CanonicalResourceTypes (required)
+  * type from ArtifactResourceTypes (required)

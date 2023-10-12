@@ -1,6 +1,9 @@
 Alias: $fhir-types = http://hl7.org/fhir/resource-types
 
-ValueSet: CanonicalResourceTypes
+ValueSet: ArtifactResourceTypes
+Description: "FHIR canonical plus knowledge artifact resource types."
+Title: "Artifact Resource Types"
+* ^experimental = false
 * $fhir-types#ActivityDefinition
 * $fhir-types#CapabilityStatement
 * $fhir-types#ChargeItemDefinition
@@ -30,7 +33,8 @@ ValueSet: CanonicalResourceTypes
 * $fhir-types#TerminologyCapabilities
 * $fhir-types#TestScript
 * $fhir-types#ValueSet
-// also the "additional" canonical types
+
+* $fhir-types#Group
 * $fhir-types#Medication
 * $fhir-types#Substance
 * $fhir-types#MedicationKnowledge

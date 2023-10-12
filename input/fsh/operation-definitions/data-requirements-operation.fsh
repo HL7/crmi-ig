@@ -3,8 +3,8 @@ InstanceOf: OperationDefinition
 Title: "CRMI Data Requirements Operation"
 Usage: #definition
 * insert DefinitionMetadata
-* insert CanonicalOperationProfile
-* insert VersionBindableOperationProfile 
+* insert ArtifactOperationProfile
+* insert ArtifactVersionBindableOperationProfile 
 * insert ManifestableOperationProfile
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
@@ -124,7 +124,7 @@ NOTE: Does this only apply to Library resource types?
 """
 * parameter[=].type = #Parameters
 
-* parameter[+].name = #canonicalVersion
+* parameter[+].name = #artifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "*"
@@ -136,12 +136,12 @@ the resource does not already specify a version. The format is the same as a can
 Note that this is a generalization of the `system-version` parameter to the $expand operation 
 to apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #uri
 
-* parameter[+].name = #checkCanonicalVersion
+* parameter[+].name = #checkArtifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
-* parameter[=].max = "*"
+* parameter[=].max = "1"
 * parameter[=].documentation = """
 Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing 
 the resource specifies a different version, an error is returned instead of the package. The
@@ -150,12 +150,12 @@ format is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2
 Note that this is a generalization of the `check-system-version` parameter to the $expand operation to 
 apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #boolean
 
-* parameter[+].name = #forceCanonicalVersion
+* parameter[+].name = #forceArtifactlVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
-* parameter[=].max = "*"
+* parameter[=].max = "1"
 * parameter[=].documentation = """
 Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any
 specified version in the artifact (and any artifacts it depends on). The
@@ -171,7 +171,7 @@ explicitly be represented in the expansion parameters.
 Note that this is a generalization of the `force-system-version` parameter to the $expand operation 
 to apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #boolean
 
 * parameter[+].name = #manifest
 * parameter[=].use = #in

@@ -9,8 +9,8 @@ RuleSet: DefinitionMetadata
 * experimental = false
 * status = #draft
 
-RuleSet: CanonicalOperationProfile
-* meta.profile[+] = Canonical(CanonicalOperation)
+RuleSet: ArtifactOperationProfile
+* meta.profile[+] = Canonical(ArtifactOperation)
 
 RuleSet: ArtifactEndpoingConfigurableOperationProfile
 * meta.profile[+] = Canonical(ArtifactEndpointConfigurableOperation)
@@ -24,5 +24,5 @@ RuleSet: ManifestableOperationProfile
 RuleSet: PageableOperationProfile 
 * meta.profile[+] = Canonical(PageableOperation)
 
-RuleSet: VersionBindableOperationProfile
-* meta.profile[+] = Canonical(VersionBindableOperation)
+RuleSet: ArtifactVersionBindableOperationProfile
+* meta.profile[+] = Canonical(ArtifactVersionBindableOperation)

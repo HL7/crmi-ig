@@ -1,6 +1,6 @@
 Profile: ArtifactEndpointConfigurableOperation
 Id: crmi-artifact-endpoint-configurable-operation
-Parent: OperationDefinition
+Parent: OperationDefinition 
 Title: "CRMI Operation Profile: Artifact Endpoint Configurable"
 Description: """
 Profile for operations where artifact endpoint configuration can be specified.

@@ -18,4 +18,4 @@ Operation where default manifest to resolve canonicals can be specified
   * min = 0
   * max = "1"
   * use = #in
-  * type = #Library // ? Is this correct?
+  * type = #canonical

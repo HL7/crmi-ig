@@ -1,15 +1,14 @@
 Profile: PageableOperation
-Id: crmi-pagable-operation
+Id: crmi-pageable-operation
 Parent: OperationDefinition
-Title: "CRMI Operation Profile: Pagable"
+Title: "CRMI Operation Profile: Pageable"
 Description: """
-Operation that is pagable
+Operation that is pageable
 
 This establishes input parameters when the operation might return paging.
 
 * `offset`: Pagination offset
 * `count`: Number of items per page
-
 """
 
 * parameter

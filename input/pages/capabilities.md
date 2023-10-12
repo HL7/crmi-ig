@@ -17,7 +17,7 @@ There are 5 workflows depicted using the swimlanes.
 
 The CRMI IG is focused on the Setup workflow for knowledge artifacts, while subsequent workflows including Attribution/Selection, Submission, Evaluation are out of scope for this IG and covered by other implementation guides focused on particular use cases (such as the Data Exchange for Quality Measures IG for the quality measurement domain in the US Realm).
 
-## Capability Statements
+### Capability Statements
 
 This implementation guide defines capability statements, use cases, and conformance requirements for:
 
@@ -29,7 +29,11 @@ In addition, the following example capability statement illustrates the use of t
 * [**Example Library Evaluation Service**](CapabilityStatement-library-evaluation-service-example.html)
 
 
-## Operations
+### Operations
+
+For profiles of knowledge operations to conventionalize API parameters and output, see [**CRMI Operation Profiles**](operations.html)
+
+This implementation guide also defines the following operation definitions:
 
 * [**$crmi.package**](OperationDefinition-crmi-package.html)
 * [**$crmi.data-requirements**](OperationDefinition-crmi-data-requirements.html)
