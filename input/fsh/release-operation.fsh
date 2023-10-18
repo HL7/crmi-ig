@@ -43,7 +43,7 @@ Usage: #definition
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "Indicates the behavior with which the 'version' parameter should applied to the artifact being released and its components."
-* parameter[=].type = #Coding
+* parameter[=].type = #code
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-version-behavior"
 
@@ -72,5 +72,7 @@ Usage: #definition
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "Indicates whether or not the repository should throw an error if a spefication which is not Experimental references Experimental components"
-* parameter[=].type = #boolean
+* parameter[=].documentation = "Indicates whether or not the repository should throw an error or warning if a spefication which is not Experimental references Experimental components"
+* parameter[=].type = #code
+* parameter[=].binding.strength = #required
+* parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-experimental-behavior"
