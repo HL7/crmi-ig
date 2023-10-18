@@ -72,7 +72,7 @@ Usage: #definition
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "Indicates whether or not the repository should throw an error or warning if a spefication which is not Experimental references Experimental components"
+* parameter[=].documentation = "Indicates whether or not the repository should throw an error or warning if a specification which is not Experimental references Experimental components"
 * parameter[=].type = #code
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-experimental-behavior"
