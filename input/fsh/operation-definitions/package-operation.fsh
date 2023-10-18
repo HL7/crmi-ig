@@ -104,11 +104,11 @@ packaged content.
 """
 
 * parameter[+]
-  * name = #canonicalVersion
+  * name = #artifactVersion
   * min = 0
   * max = "*"
   * use = #in
-  * type = #canonical
+  * type = #uri
   * documentation = """
 Specifies a version to use for a canonical resource if the artifact referencing 
 the resource does not already specify a version. The format is the same as a canonical URL:
@@ -117,11 +117,11 @@ parameter to the $expand operation to apply to any canonical resource, including
 """
 
 * parameter[+]
-  * name = #checkCanonicalVersion
+  * name = #checkArtifactVersion
   * min = 0
   * max = "*"
   * use = #in
-  * type = #canonical
+  * type = #uri
   * documentation = """
 Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing 
 the resource specifies a different version, an error is returned instead of the package. The
@@ -131,11 +131,11 @@ apply to any canonical resource, including code systems.
 """
 
 * parameter[+]
-  * name = #forceCanonicalVersion
+  * name = #forceArtifactVersion
   * min = 0
   * max = "*"
   * use = #in
-  * type = #canonical
+  * type = #uri
   * documentation = """
 Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any
 specified version in the artifact (and any artifacts it depends on). The
@@ -155,7 +155,7 @@ including code systems.
   * min = 0
   * max = "1"
   * use = #in
-  * type = #canonical
+  * type = #uri
   * documentation = """
 Specifies an asset-collection library that defines version bindings for code
 systems and other canonical resources referenced by the value set(s) being expanded

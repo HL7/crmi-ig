@@ -19,7 +19,7 @@ NOTE: This profile is here for backwards compatibility, see ArtifactVersionBinda
 * parameter[canonicalVersion]
   * name = #canonicalVersion (exactly)
   * min = 0
-  * max = "1"
+  * max = "*"
   * use = #in
   * type = #uri
 
@@ -27,14 +27,14 @@ NOTE: This profile is here for backwards compatibility, see ArtifactVersionBinda
 * parameter[checkCanonicalVersion]
   * name = #checkCanonicalVersion (exactly)
   * min = 0
-  * max = "1"
+  * max = "*"
   * use = #in
-  * type = #boolean
+  * type = #uri
 
 * parameter contains forceCanonicalVersion 0..* MS
 * parameter[forceCanonicalVersion]
   * name = #forceCanonicalVersion (exactly)
   * min = 0
-  * max = "1"
+  * max = "*"
   * use = #in
-  * type = #boolean
+  * type = #uri

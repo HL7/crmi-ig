@@ -29,14 +29,14 @@ and Group.
 * parameter[checkArtifactVersion]
   * name = #checkArtifactVersion (exactly)
   * min = 0
-  * max = "1"
+  * max = "*"
   * use = #in
-  * type = #boolean
+  * type = #uri
 
 * parameter contains forceArtifactVersion 0..* MS
 * parameter[forceArtifactVersion]
   * name = #forceArtifactVersion (exactly)
   * min = 0
-  * max = "1"
+  * max = "*"
   * use = #in
-  * type = #boolean
+  * type = #uri

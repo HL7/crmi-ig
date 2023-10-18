@@ -141,7 +141,7 @@ to apply to any canonical resource, including code systems.
 * parameter[+].name = #checkArtifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
-* parameter[=].max = "1"
+* parameter[=].max = "*"
 * parameter[=].documentation = """
 Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing 
 the resource specifies a different version, an error is returned instead of the package. The
@@ -150,12 +150,12 @@ format is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2
 Note that this is a generalization of the `check-system-version` parameter to the $expand operation to 
 apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #boolean
+* parameter[=].type = #uri
 
-* parameter[+].name = #forceArtifactlVersion
+* parameter[+].name = #forceArtifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
-* parameter[=].max = "1"
+* parameter[=].max = "*"
 * parameter[=].documentation = """
 Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any
 specified version in the artifact (and any artifacts it depends on). The
@@ -171,7 +171,7 @@ explicitly be represented in the expansion parameters.
 Note that this is a generalization of the `force-system-version` parameter to the $expand operation 
 to apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #boolean
+* parameter[=].type = #uri
 
 * parameter[+].name = #manifest
 * parameter[=].use = #in
@@ -186,7 +186,7 @@ in the manifest library have the same meaning as specifying that code system or 
 canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
 parameter.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #uri
 
 * parameter[+]
   * name = #include
