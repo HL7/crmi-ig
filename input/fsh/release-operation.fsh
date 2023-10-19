@@ -43,7 +43,7 @@ Usage: #definition
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "Indicates the behavior with which the 'version' parameter should applied to the artifact being released and its components."
-* parameter[=].type = #Coding
+* parameter[=].type = #code
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-version-behavior"
 
@@ -67,3 +67,12 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "Indicates whether or not the terminology server from which a value set was originally downloaded should be checked for the latest version. The terminolgy server of origin is tracked via the authoritativeSource extension (https://hl7.org/fhir/extension-valueset-authoritativesource.html) on the value set. If this flag is set to false or the value set does not have an authoritativeSource specified, then the check should be constrained to the local system/cache. (default = false)"
 * parameter[=].type = #boolean
+
+* parameter[+].name = #experimentalBehavior
+* parameter[=].use = #in
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "Indicates whether the repository should throw an error, log a warning or not validate if a specification which is not Experimental references Experimental components"
+* parameter[=].type = #code
+* parameter[=].binding.strength = #required
+* parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-experimental-behavior"

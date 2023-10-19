@@ -225,6 +225,7 @@ The following parameters SHOULD be supported for the operation:
     * **check**: Edge Case: If a library or value set specifies a different version, an error is returned instead of the package.
     * **force**: Edge Case: This parameter overrides any specified version in the library and value sets (and any it depends on). Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
 * **latestFromTxServer**: Whether or not the repository should search the remote source when updating references.
+* **experimentalBehavior**: Whether the repository should throw an error, log a warning or not validate if a specification which is not Experimental references Experimental components
 * Instance level:
     * **id**: The server-specific id of the artifact to be released.
 * Type level:
