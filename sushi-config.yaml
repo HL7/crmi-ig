@@ -43,6 +43,10 @@ releaseLabel: Ballot
 publisher:
   name: Clinical Decision Support WG
 
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: cds
+
 # Those who need more control or want to add additional details to the contact values can use
 # contact directly and follow the format outlined in the ImplementationGuide resource and
 # ContactDetail.
