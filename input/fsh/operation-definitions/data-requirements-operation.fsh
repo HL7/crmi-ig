@@ -93,8 +93,7 @@ The version of the canonical resource to analyze
 * parameter[=].documentation = """
 A business identifier of the canonical resource to be analyzed.
 """
-* parameter[=].type = #string
-* parameter[=].searchType = #token
+* parameter[=].type = #Identifier
 
 * parameter[+].name = #expression
 * parameter[=].use = #in
@@ -186,7 +185,22 @@ in the manifest library have the same meaning as specifying that code system or 
 canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
 parameter.
 """
-* parameter[=].type = #uri
+* parameter[=].type = #Library
+
+* parameter[+].name = #manifestReference
+* parameter[=].use = #in
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = """
+Specifies a reference to an asset-collection library that defines version bindings for code
+systems and other canonical resources referenced by the value set(s) being expanded
+and other canonical resources referenced by the artifact. When specified, code
+systems and other canonical resources identified as `depends-on` related artifacts 
+in the manifest library have the same meaning as specifying that code system or other
+canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
+parameter.
+"""
+* parameter[=].type = #canonical
 
 * parameter[+]
   * name = #include

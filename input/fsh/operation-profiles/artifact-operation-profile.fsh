@@ -1,3 +1,8 @@
+Invariant:   crmi-artifact-operation-1
+Description: "Parameter url type is uri or canonical"
+Expression:  "type='uri' or type='canonical'"
+Severity:    #error
+
 Profile: ArtifactOperation
 Id: crmi-artifact-operation
 Parent: OperationDefinition
@@ -33,7 +38,7 @@ NOTE: When involking canonical operations using any combination of `url`,
   * use = #in
   * min = 0
   * max = "1"
-  * type = #uri
+  * obeys crmi-artifact-operation-1
 
 * parameter contains version 0..1 MS
 * parameter[version]
@@ -49,8 +54,7 @@ NOTE: When involking canonical operations using any combination of `url`,
   * use = #in
   * min = 0
   * max = "1"
-  * type = #string
-  * searchType = #token
+  * type = #Identifier
 
 * parameter contains resource 0..1 MS
 * parameter[resource]

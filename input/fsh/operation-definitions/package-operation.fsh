@@ -86,8 +86,7 @@ TODO: More documentation about the operation, including inline examples:
   * min = 0
   * max = "1"
   * use = #in
-  * type = #string
-  * searchType = #token 
+  * type = #Identifier
   * documentation = "A business identifier of the Resource."
 
 * parameter[+]
@@ -155,7 +154,7 @@ including code systems.
   * min = 0
   * max = "1"
   * use = #in
-  * type = #uri
+  * type = #Library
   * documentation = """
 Specifies an asset-collection library that defines version bindings for code
 systems and other canonical resources referenced by the value set(s) being expanded
@@ -164,6 +163,22 @@ systems and other canonical resources identified as `depends-on` related artifac
 in the manifest library have the same meaning as specifying that code system or other
 canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
 parameter.
+"""
+
+* parameter[+]
+  * name = #manifestReference
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #canonical
+  * documentation = """
+Specifies a reference to an asset-collection library that defines version
+bindings for code systems and other canonical resources referenced by the value
+set(s) being expanded and other canonical resources referenced by the artifact.
+When specified, code systems and other canonical resources identified as
+`depends-on` related artifacts in the manifest library have the same meaning as
+specifying that code system or other canonical version in the `system-version`
+parameter of an expand or the `canonicalVersion` parameter.
 """
 
 * parameter[+]

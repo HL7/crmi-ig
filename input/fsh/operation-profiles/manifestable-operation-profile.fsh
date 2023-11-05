@@ -6,7 +6,7 @@ Description: """
 Operation where default manifest to resolve canonicals can be specified
 
 * `manifest`: Library resource where related-artifacts are used to define the versions of canonical resources.
-
+* `manifestReference`: Canonical reference to existing manifest Library.
 """
 
 * parameter
@@ -18,4 +18,13 @@ Operation where default manifest to resolve canonicals can be specified
   * min = 0
   * max = "1"
   * use = #in
-  * type = #uri
+  * type = #Library
+
+* parameter contains manifestReference 0..1 MS
+* parameter[manifestReference]
+  * name = #manifestReference (exactly)
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #canonical
+  * searchType = #reference

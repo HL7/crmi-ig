@@ -31,7 +31,6 @@ Rank each `artifactEndpointConfiguration` such that:
 
 NOTE: For evenly ranked `artifactEndpointConfiguration`s, order as defined in the
 OperationDefinition.
-
 """
 
 * parameter
