@@ -5,8 +5,7 @@ Title: "CRMI Operation Profile: Manifestable"
 Description: """
 Operation where default manifest to resolve canonicals can be specified
 
-* `manifest`: Library resource where related-artifacts are used to define the versions of canonical resources.
-* `manifestReference`: Canonical reference to existing manifest Library.
+* `manifest`: Canonical reference to a Library resource where related-artifacts are used to define the versions of canonical resources.
 """
 
 * parameter

@@ -6,28 +6,28 @@ Description: """
 Profile for operations where artifact endpoint configuration can be specified.
 
 * `artifactEndpointConfiguration`: Configuration information to resolve canonical artifacts
-  * `canonicalRoute`: An optional route used to determine whether this endpoint is expected to be able to resolve artifacts that match the route (i.e. start with the route, up to and including the entire url)
+  * `artifactRoute`: An optional route used to determine whether this endpoint is expected to be able to resolve artifacts that match the route (i.e. start with the route, up to and including the entire url)
   * `endpointUri`: The URI of the endpoint, exclusive with the `endpoint` parameter
   * `endpoint`: An Endpoint resource describing the endpoint, exclusive with the `endpointUri` parameter
 
 **Processing semantics**:
 
-Create a canonical reference from the canonical resource (e.g.
-`{canonical.url}|{canonical.version}`).
+Create a canonical-like reference (e.g.
+`{canonical.url}|{canonical.version}` or similar extensions for non-canonical artifacts).
 
 * Given a single `artifactEndpointConfiguration`
-  * When `canonicalRoute` is present
-    * And `canonicalRoute` *starts with* canonical reference
+  * When `artifactRoute` is present
+    * And `artifactRoute` *starts with* canonical or artifact reference
     * Then attempt to resolve with `endpointUri` or `endpoint`
-  * When `canonicalRoute` is not present
+  * When `artifactRoute` is not present
     * Then attempt to resolve with `endpointUri` or `endpoint`
 * Given multiple `artifactEndpointConfiguration`s
   * Then rank order each configuration (see below)
   * And attempt to resolve with `endpointUri` or `endpoint` in order until resolved
 
 Rank each `artifactEndpointConfiguration` such that:
-* if `canonicalRoute` is present *and* `canonicalRoute` *starts with* canonical reference: rank based on number of matching characters 
-* if `canonicalRoute` is *not* present: include but rank lower
+* if `artifactRoute` is present *and* `artifactRoute` *starts with* canonical or artifact reference: rank based on number of matching characters 
+* if `artifactRoute` is *not* present: include but rank lower
 
 NOTE: For evenly ranked `artifactEndpointConfiguration`s, order as defined in the
 OperationDefinition.
@@ -45,9 +45,9 @@ OperationDefinition.
   * part
     * insert SliceOnName
   
-  * part contains canonicalRoute 0..1 MS
-  * part[canonicalRoute]
-    * name = #canonicalRoute
+  * part contains artifactRoute 0..1 MS
+  * part[artifactRoute]
+    * name = #artifactRoute
     * min = 0
     * max = "1"
     * type = #uri
