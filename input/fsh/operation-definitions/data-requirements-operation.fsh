@@ -41,6 +41,8 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 * resource[+] = #ImplementationGuide
 * resource[+] = #Library
 * resource[+] = #Measure
+* resource[+] = #Medication
+* resource[+] = #MedicationKnowledge
 * resource[+] = #MessageDefinition
 * resource[+] = #NamingSystem
 * resource[+] = #OperationDefinition
@@ -52,6 +54,7 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 * resource[+] = #SearchParameter
 * resource[+] = #StructureDefinition
 * resource[+] = #StructureMap
+* resource[+] = #Substance
 * resource[+] = #TerminologyCapabilities
 * resource[+] = #TestScript
 * resource[+] = #ValueSet
@@ -64,7 +67,7 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-The logical id of the canonical resource to analyze.
+The logical id of the canonical or artifact resource to analyze.
 """
 * parameter[=].type = #string
 
@@ -73,7 +76,7 @@ The logical id of the canonical resource to analyze.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-A canonical reference to a canonical resource.
+A canonical or artifact reference to a canonical resource.
 """
 * parameter[=].type = #uri
 
@@ -82,7 +85,7 @@ A canonical reference to a canonical resource.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-The version of the canonical resource to analyze
+The version of the canonical or artifact resource to analyze
 """
 * parameter[=].type = #string
 
@@ -91,9 +94,10 @@ The version of the canonical resource to analyze
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-A business identifier of the canonical resource to be analyzed.
+A business identifier of the canonical or artifact resource to be analyzed.
 """
-* parameter[=].type = #Identifier
+* parameter[=].type = #string
+* parameter[=].searchType = #token
 
 * parameter[+].name = #expression
 * parameter[=].use = #in
@@ -128,7 +132,7 @@ NOTE: Does this only apply to Library resource types?
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-Specifies a version to use for a canonical resource if the artifact referencing 
+Specifies a version to use for a canonical or artifact resource if the artifact referencing 
 the resource does not already specify a version. The format is the same as a canonical URL:
 [url]|[version] - e.g. http://loinc.org|2.56 
 
@@ -142,7 +146,7 @@ to apply to any canonical resource, including code systems.
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing 
+Edge Case: Specifies a version to use for a canonical or artifact resource. If the artifact referencing 
 the resource specifies a different version, an error is returned instead of the package. The
 format is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 
 
@@ -156,7 +160,7 @@ apply to any canonical resource, including code systems.
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any
+Edge Case: Specifies a version to use for a canonical or artifact resource. This parameter overrides any
 specified version in the artifact (and any artifacts it depends on). The
 format is the same as a canonical URL: [system]|[version] - e.g.
 http://loinc.org|2.56. Note that this has obvious safety issues, in that it may
@@ -185,22 +189,8 @@ in the manifest library have the same meaning as specifying that code system or 
 canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
 parameter.
 """
-* parameter[=].type = #Library
-
-* parameter[+].name = #manifestReference
-* parameter[=].use = #in
-* parameter[=].min = 0
-* parameter[=].max = "1"
-* parameter[=].documentation = """
-Specifies a reference to an asset-collection library that defines version bindings for code
-systems and other canonical resources referenced by the value set(s) being expanded
-and other canonical resources referenced by the artifact. When specified, code
-systems and other canonical resources identified as `depends-on` related artifacts 
-in the manifest library have the same meaning as specifying that code system or other
-canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
-parameter.
-"""
 * parameter[=].type = #canonical
+* parameter[=].targetProfile = Canonical(http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary)
 
 * parameter[+]
   * name = #include

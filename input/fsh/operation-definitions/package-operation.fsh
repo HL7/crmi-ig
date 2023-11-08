@@ -24,6 +24,7 @@ TODO: More documentation about the operation, including inline examples:
 """
 * kind = #operation
 * code = #crmi.package
+
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
 * resource[+] = #ChargeItemDefinition
@@ -39,6 +40,8 @@ TODO: More documentation about the operation, including inline examples:
 * resource[+] = #ImplementationGuide
 * resource[+] = #Library
 * resource[+] = #Measure
+* resource[+] = #Medication
+* resource[+] = #MedicationKnowledge
 * resource[+] = #MessageDefinition
 * resource[+] = #NamingSystem
 * resource[+] = #OperationDefinition
@@ -50,6 +53,7 @@ TODO: More documentation about the operation, including inline examples:
 * resource[+] = #SearchParameter
 * resource[+] = #StructureDefinition
 * resource[+] = #StructureMap
+* resource[+] = #Substance
 * resource[+] = #TerminologyCapabilities
 * resource[+] = #TestScript
 * resource[+] = #ValueSet
@@ -71,7 +75,7 @@ TODO: More documentation about the operation, including inline examples:
   * max = "1"
   * use = #in
   * type = #uri
-  * documentation = "A canonical reference to a Resource to package on the server."
+  * documentation = "A canonical or artifact reference to a Resource to package on the server."
 
 * parameter[+]
   * name = #version
@@ -86,7 +90,8 @@ TODO: More documentation about the operation, including inline examples:
   * min = 0
   * max = "1"
   * use = #in
-  * type = #Identifier
+  * type = #string
+  * searchType = #token
   * documentation = "A business identifier of the Resource."
 
 * parameter[+]
@@ -109,7 +114,7 @@ packaged content.
   * use = #in
   * type = #uri
   * documentation = """
-Specifies a version to use for a canonical resource if the artifact referencing 
+Specifies a version to use for a canonical or artifact resource if the artifact referencing 
 the resource does not already specify a version. The format is the same as a canonical URL:
 [url]|[version] - e.g. http://loinc.org|2.56 Note that this is a generalization of the `system-version`
 parameter to the $expand operation to apply to any canonical resource, including code systems.
@@ -122,7 +127,7 @@ parameter to the $expand operation to apply to any canonical resource, including
   * use = #in
   * type = #uri
   * documentation = """
-Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing 
+Edge Case: Specifies a version to use for a canonical or artifact resource. If the artifact referencing 
 the resource specifies a different version, an error is returned instead of the package. The
 format is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 Note that
 this is a generalization of the `check-system-version` parameter to the $expand operation to 
@@ -136,7 +141,7 @@ apply to any canonical resource, including code systems.
   * use = #in
   * type = #uri
   * documentation = """
-Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any
+Edge Case: Specifies a version to use for a canonical or artifact resource. This parameter overrides any
 specified version in the artifact (and any artifacts it depends on). The
 format is the same as a canonical URL: [system]|[version] - e.g.
 http://loinc.org|2.56. Note that this has obvious safety issues, in that it may
@@ -154,23 +159,8 @@ including code systems.
   * min = 0
   * max = "1"
   * use = #in
-  * type = #Library
-  * documentation = """
-Specifies an asset-collection library that defines version bindings for code
-systems and other canonical resources referenced by the value set(s) being expanded
-and other canonical resources referenced by the artifact. When specified, code
-systems and other canonical resources identified as `depends-on` related artifacts 
-in the manifest library have the same meaning as specifying that code system or other
-canonical version in the `system-version` parameter of an expand or the `canonicalVersion` 
-parameter.
-"""
-
-* parameter[+]
-  * name = #manifestReference
-  * min = 0
-  * max = "1"
-  * use = #in
   * type = #canonical
+  * targetProfile = Canonical(http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary)
   * documentation = """
 Specifies a reference to an asset-collection library that defines version
 bindings for code systems and other canonical resources referenced by the value

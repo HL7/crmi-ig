@@ -54,7 +54,8 @@ NOTE: When involking canonical operations using any combination of `url`,
   * use = #in
   * min = 0
   * max = "1"
-  * type = #Identifier
+  * type = #string
+  * searchType = #token
 
 * parameter contains resource 0..1 MS
 * parameter[resource]

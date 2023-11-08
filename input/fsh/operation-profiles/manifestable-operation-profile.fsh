@@ -18,13 +18,5 @@ Operation where default manifest to resolve canonicals can be specified
   * min = 0
   * max = "1"
   * use = #in
-  * type = #Library
-
-* parameter contains manifestReference 0..1 MS
-* parameter[manifestReference]
-  * name = #manifestReference (exactly)
-  * min = 0
-  * max = "1"
-  * use = #in
   * type = #canonical
-  * searchType = #reference
+  * targetProfile = Canonical(http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary)
