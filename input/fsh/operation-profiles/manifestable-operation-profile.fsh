@@ -5,8 +5,7 @@ Title: "CRMI Operation Profile: Manifestable"
 Description: """
 Operation where default manifest to resolve canonicals can be specified
 
-* `manifest`: Library resource where related-artifacts are used to define the versions of canonical resources.
-
+* `manifest`: Canonical reference to a Library resource where related-artifacts are used to define the versions of canonical resources.
 """
 
 * parameter
@@ -18,4 +17,5 @@ Operation where default manifest to resolve canonicals can be specified
   * min = 0
   * max = "1"
   * use = #in
-  * type = #uri
+  * type = #canonical
+  * targetProfile = Canonical(http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary)

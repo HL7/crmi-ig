@@ -7,14 +7,10 @@ Operation where data endpoint configuration can be specified
 
 * `useServerData`: Whether to use data from the server performing the evaluation, exclusive with `dataEndpoint`.
 * `dataEndpoint`: An endpoint to use to access data referenced by retrieve operations in libraries, exclusive with `useServerData`.
-
 """
 
 * parameter
   * insert SliceOnName
-
-
-// TODO: Add invariant to allow one or the other of the following:
 
 * parameter contains useServerData 0..1 MS
 * parameter[useServerData]
