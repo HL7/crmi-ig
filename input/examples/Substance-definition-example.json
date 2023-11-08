@@ -10,6 +10,16 @@
         "value": "1463"
       }
     ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
+        "valueUri": "http://example.org/Substance/ExampleSubstance"
+      },
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
+        "valueString": "0.0.1"
+      }
+    ],
     "status": "active",
     "category": [
       {
@@ -24,5 +34,17 @@
     ],
     "code": {
       "text": "apitoxin (Honey Bee Venom)"
-    }
+    },
+    "ingredient": [
+      {
+        "substanceReference": {
+          "extension": [
+            { 
+              "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-reference",
+              "valueUri": "http://example.org/Substance/ExampleSubstance|0.0.1"
+            }
+          ]
+        }
+      }
+    ]
 }
