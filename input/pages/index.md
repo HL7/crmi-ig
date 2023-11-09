@@ -30,7 +30,6 @@ The following is a list of FHIR resource types that are considered _canonical re
 **Canonical Resource Types**
 * ActivityDefinition
 * CapabilityStatement
-* CareTeam (non-canonical definitional)
 * ChargeItemDefinition (not considered in this IG)
 * CodeSystem
 * CompartmentDefinition (not profiled because only HL7 can define CompartmentDefinition instances)
@@ -47,18 +46,14 @@ The following is a list of FHIR resource types that are considered _canonical re
 * Group (non-canonical definitional)
 * ImplementationGuide
 * Library
-* Location (non-canonical definitional)
 * Measure
 * Medication (non-canonical definitional)
 * MedicationKnowledge (non-canonical definitional)
 * MessageDefinition (roadmap item)
 * NamingSystem
 * ObservationDefinition (roadmap item)
-* Organization (non-canonical definitional)
 * OperationDefinition
 * PlanDefinition
-* Practitioner (non-canonical definitional)
-* PractitionerRole (non-canonical definitional)
 * Questionnaire
 * ResearchDefinition (not considered, uses EBM resources)
 * ResearchElementDefinition (not considered, uses EBM resources)

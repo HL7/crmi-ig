@@ -41,7 +41,7 @@ releaseLabel: Ballot
 # as IG.publisher.  The contact details and/or additional publishers
 # will be translated into IG.contact values.
 publisher:
-  name: Clinical Decision Support WG
+  name: HL7 International / Clinical Decision Support
 
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
