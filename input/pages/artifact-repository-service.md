@@ -132,7 +132,11 @@ Artifact repositories MAY support searching for artifacts by the following param
 
 ##### Package
 
-The package operation supports the ability of a repository to package an artifact for a particular target environment, and with required components and dependencies included. The following parameters SHOULD be supported for packaging operations:
+The package operation supports the ability of a repository to package an artifact for a particular target environment, and with required components and dependencies included.
+
+If the resulting bundle is paged using `count` or `offset`, it will be of type `collection`. In the special case where `count = 0` it will be of type `searchset`.
+
+The following parameters SHOULD be supported for packaging operations:
 
 * **capability**: A desired capability of the resulting package. `computable` to include computable elements in packaged content, `executable` to include executable elements in packaged content, `publishable` to include publishable elements in packaged content.
 * **offset**: Paging support - where to start if a subset is desired (default = 0). Offset is number of records (not number of pages)

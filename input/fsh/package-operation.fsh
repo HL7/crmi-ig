@@ -171,7 +171,7 @@ parameter.
   * type = #integer
   * documentation = """
 Paging support - where to start if a subset is desired (default = 0). Offset is
-number of records (not number of pages)
+number of records (not number of pages). If offset > 0 the resulting bundle will be of type `collection`.
 """
 
 * parameter[+]
@@ -182,7 +182,7 @@ number of records (not number of pages)
   * type = #integer
   * documentation = """
 Paging support - how many resources should be provided in a partial page view.
-If count = 0, the client is asking how large the package is.
+If count = 0, the client is asking how large the package is. If count > 0 but less than the total number of resources, the result will be a bundle of type `collection`.
 """
 
 * parameter[+]
@@ -252,7 +252,9 @@ is being performed as the terminology server.
   * use = #out
   * type = #Bundle
   * documentation = """
-  The result of the packaging. Servers generating packages SHALL include all the
+  The result of the packaging. If the resulting bundle is paged using `count` or `offset`, it will be of type `collection`. In the special case where `count = 0` it will be of type `searchset`.
+  
+  Servers generating packages SHALL include all the
   dependency resources referenced by the artifact that are known to the server and 
   specified by the include parameters. 
   
