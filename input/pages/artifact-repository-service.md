@@ -86,6 +86,7 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Release**](#release): Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
 * [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 * [**Archive**](#archive): Delete a _retired_ artifact
+* [**Diff**](#diff): Compare two knowledge artifacts and optionally their dependency tree for changes
 
 ##### Retrieve
 
@@ -263,6 +264,17 @@ The _retire_ operation supports updating the status of an existing _active_ arti
 ##### Archive
 
 The _archive_ operation supports removing an existing _retired_ artifact from the repository. The operation is defined as a `DELETE` but the status of the deleted resource is required to be _retired_.
+
+##### Artifact Diff
+The _artifact-diff_ operation supports the comparison of two artifacts of the same type. This operation generates a differential between source and target artifacts as [FHIR Patch](https://www.hl7.org/fhir/fhirpatch.html).
+
+The following parameters SHOULD be supported for the _artifact-diff_ operation:
+
+* **checkDependencies**: Whether or not to compare the artifacts' dependency trees.
+* Instance level:
+    * **target**: A canonical reference of the target artifact which is being compared.
+* Type level:
+    * **source**: The canonical reference of the source artifact to compare against.
 
 ### Shareable Artifact Repository
 
