@@ -26,7 +26,7 @@ The operation is only valid between two resources of the same type and can optio
   * min = "0"
   * max = "1"
   * use = #in
-  * type = #uri
+  * type = #canonical
   * documentation = "The canonical reference of the source artifact to compare against"
 
 * parameter[+]
@@ -34,7 +34,7 @@ The operation is only valid between two resources of the same type and can optio
   * min = "1"
   * max = "1"
   * use = #in
-  * type = #uri
+  * type = #canonical
   * documentation = "A canonical reference of the target artifact which is being compared."
 
 * parameter[+]
