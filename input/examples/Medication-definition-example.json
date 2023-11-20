@@ -1,51 +1,63 @@
 {
-    "resourceType": "Medication",
-    "id": "definition-example",
-    "meta": {
-        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition" ]
+  "resourceType": "Medication",
+  "id": "definition-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
+      "valueUri": "http://example.org/Medication/definition-example"
     },
-    "code": {
-      "coding": [
-        {
-          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "308047",
-          "display": "alprazolam 0.25 MG Oral Tablet"
-        }
-      ]
-    },
-    "form": {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "385055001",
-          "display": "Tablet (basic dose form)"
-        }
-      ]
-    },
-    "ingredient": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
+      "valueString": "1.0.0"
+    }
+  ],
+  "code": {
+    "coding": [
       {
-        "itemCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "386983007",
-              "display": "Alprazolam (substance)"
-            }
-          ]
-        },
-        "strength": {
-          "numerator": {
-            "value": 0.25,
-            "system": "http://unitsofmeasure.org",
-            "code": "mg"
-          },
-          "denominator": {
-            "value": 1,
-            "unit": "Tablet",
-            "system": "http://snomed.info/sct",
-            "code": "385055001"
-          }
-        }
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308047",
+        "display": "alprazolam 0.25 MG Oral Tablet"
       }
     ]
-  }
+  },
+  "form": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "385055001",
+        "display": "Tablet (basic dose form)"
+      }
+    ]
+  },
+  "ingredient": [
+    {
+      "itemCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "386983007",
+            "display": "Alprazolam (substance)"
+          }
+        ]
+      },
+      "strength": {
+        "numerator": {
+          "value": 0.25,
+          "system": "http://unitsofmeasure.org",
+          "code": "mg"
+        },
+        "denominator": {
+          "value": 1,
+          "unit": "Tablet",
+          "system": "http://snomed.info/sct",
+          "code": "385055001"
+        }
+      }
+    }
+  ]
+}

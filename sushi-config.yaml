@@ -41,7 +41,11 @@ releaseLabel: Ballot
 # as IG.publisher.  The contact details and/or additional publishers
 # will be translated into IG.contact values.
 publisher:
-  name: Clinical Decision Support WG
+  name: HL7 International / Clinical Decision Support
+
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: cds
 
 # Those who need more control or want to add additional details to the contact values can use
 # contact directly and follow the format outlined in the ImplementationGuide resource and
@@ -63,15 +67,9 @@ dependencies:
   fhir.cqf.common: 4.0.1
   hl7.fhir.uv.extensions.r4: 1.0.0
 
-# The parameters property represents IG.definition.parameter. Rather
-# than a list of code/value pairs (as in the ImplementationGuide
-# resource), the code is the YAML key. If a parameter allows repeating
-# values, the value in the YAML should be a sequence/array. For parameters
-# defined by core FHIR see: http://build.fhir.org/codesystem-guide-parameter-code.html.
-# For parameters defined by the FHIR Tools IG  see:
-# http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 parameters:
   excludettl: true
+  path-history: http://hl7.org/fhir/uv/crmi/history.html
   special-url-base: http://hl7.org/fhir
   special-url:
     - http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes

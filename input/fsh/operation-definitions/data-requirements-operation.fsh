@@ -3,6 +3,10 @@ InstanceOf: OperationDefinition
 Title: "CRMI Data Requirements Operation"
 Usage: #definition
 * insert DefinitionMetadata
+* insert ArtifactOperationProfile
+* insert ArtifactVersionBindableOperationProfile
+* insert ArtifactEndpointConfigurableOperationProfile
+* insert ManifestableOperationProfile
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
 * description = """
@@ -38,6 +42,8 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 * resource[+] = #ImplementationGuide
 * resource[+] = #Library
 * resource[+] = #Measure
+* resource[+] = #Medication
+* resource[+] = #MedicationKnowledge
 * resource[+] = #MessageDefinition
 * resource[+] = #NamingSystem
 * resource[+] = #OperationDefinition
@@ -49,6 +55,7 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 * resource[+] = #SearchParameter
 * resource[+] = #StructureDefinition
 * resource[+] = #StructureMap
+* resource[+] = #Substance
 * resource[+] = #TerminologyCapabilities
 * resource[+] = #TestScript
 * resource[+] = #ValueSet
@@ -61,7 +68,7 @@ systems, value sets, and direct-reference codes), parameters, dependencies
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-The logical id of the canonical resource to analyze.
+The logical id of the canonical or artifact resource to analyze.
 """
 * parameter[=].type = #string
 
@@ -70,7 +77,7 @@ The logical id of the canonical resource to analyze.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-A canonical reference to a canonical resource.
+A canonical or artifact reference to a canonical resource.
 """
 * parameter[=].type = #uri
 
@@ -79,7 +86,7 @@ A canonical reference to a canonical resource.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-The version of the canonical resource to analyze
+The version of the canonical or artifact resource to analyze
 """
 * parameter[=].type = #string
 
@@ -88,7 +95,7 @@ The version of the canonical resource to analyze
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-A business identifier of the canonical resource to be analyzed.
+A business identifier of the canonical or artifact resource to be analyzed.
 """
 * parameter[=].type = #string
 * parameter[=].searchType = #token
@@ -121,40 +128,40 @@ NOTE: Does this only apply to Library resource types?
 """
 * parameter[=].type = #Parameters
 
-* parameter[+].name = #canonicalVersion
+* parameter[+].name = #artifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-Specifies a version to use for a canonical resource if the artifact referencing 
+Specifies a version to use for a canonical or artifact resource if the artifact referencing 
 the resource does not already specify a version. The format is the same as a canonical URL:
 [url]|[version] - e.g. http://loinc.org|2.56 
 
 Note that this is a generalization of the `system-version` parameter to the $expand operation 
 to apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #uri
 
-* parameter[+].name = #checkCanonicalVersion
+* parameter[+].name = #checkArtifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing 
+Edge Case: Specifies a version to use for a canonical or artifact resource. If the artifact referencing 
 the resource specifies a different version, an error is returned instead of the package. The
 format is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 
 
 Note that this is a generalization of the `check-system-version` parameter to the $expand operation to 
 apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #uri
 
-* parameter[+].name = #forceCanonicalVersion
+* parameter[+].name = #forceArtifactVersion
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any
+Edge Case: Specifies a version to use for a canonical or artifact resource. This parameter overrides any
 specified version in the artifact (and any artifacts it depends on). The
 format is the same as a canonical URL: [system]|[version] - e.g.
 http://loinc.org|2.56. Note that this has obvious safety issues, in that it may
@@ -168,7 +175,7 @@ explicitly be represented in the expansion parameters.
 Note that this is a generalization of the `force-system-version` parameter to the $expand operation 
 to apply to any canonical resource, including code systems.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #uri
 
 * parameter[+].name = #manifest
 * parameter[=].use = #in
@@ -184,6 +191,7 @@ canonical version in the `system-version` parameter of an expand or the `canonic
 parameter.
 """
 * parameter[=].type = #canonical
+* parameter[=].targetProfile = Canonical(http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary)
 
 * parameter[+]
   * name = #include
@@ -208,16 +216,59 @@ values are:
 """
 
 * parameter[+]
-  * name = #contentEndpoint
-  * min = 0
-  * max = "1"
-  * use = #in
-  * type = #Endpoint
+  * name = #artifactEndpointConfiguration
   * documentation = """
-An endpoint to use to access content (i.e. libraries, activities, measures, questionnaires, and plans) referenced by the
-artifact. If no content endpoint is supplied the evaluation will attempt to
-retrieve content from the server on which the operation is being performed. 
+Configuration information to resolve canonical artifacts
+* `artifactRoute`: An optional route used to determine whether this endpoint is expected to be able to resolve artifacts that match the route (i.e. start with the route, up to and including the entire url)
+* `endpointUri`: The URI of the endpoint, exclusive with the `endpoint` parameter
+* `endpoint`: An Endpoint resource describing the endpoint, exclusive with the `endpointUri` parameter
+
+**Processing semantics**:
+
+Create a canonical-like reference (e.g.
+`{canonical.url}|{canonical.version}` or similar extensions for non-canonical artifacts).
+
+* Given a single `artifactEndpointConfiguration`
+  * When `artifactRoute` is present
+    * And `artifactRoute` *starts with* canonical or artifact reference
+    * Then attempt to resolve with `endpointUri` or `endpoint`
+  * When `artifactRoute` is not present
+    * Then attempt to resolve with `endpointUri` or `endpoint`
+* Given multiple `artifactEndpointConfiguration`s
+  * Then rank order each configuration (see below)
+  * And attempt to resolve with `endpointUri` or `endpoint` in order until resolved
+
+Rank each `artifactEndpointConfiguration` such that:
+* if `artifactRoute` is present *and* `artifactRoute` *starts with* canonical or artifact reference: rank based on number of matching characters 
+* if `artifactRoute` is *not* present: include but rank lower
+
+NOTE: For evenly ranked `artifactEndpointConfiguration`s, order as defined in the
+OperationDefinition.
 """
+  * min = 0
+  * max = "*"
+  * use = #in
+  
+  * part[+]
+    * name = #artifactRoute
+    * min = 0
+    * max = "1"
+    * type = #uri
+    * use = #in
+  
+  * part[+]
+    * name = #endpointUri
+    * min = 0
+    * max = "1"
+    * type = #uri
+    * use = #in
+
+  * part[+]
+    * name = #endpoint
+    * min = 0
+    * max = "1"
+    * type = #Endpoint
+    * use = #in
 
 * parameter[+]
   * name = #terminologyEndpoint
