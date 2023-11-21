@@ -132,21 +132,27 @@ Artifact repositories MAY support searching for artifacts by the following param
 
 ##### Package
 
-The package operation supports the ability of a repository to package an artifact for a particular target environment, and with required components and dependencies included. The following parameters SHOULD be supported for packaging operations:
+The package operation supports the ability of a repository to package an artifact for a particular target environment, and with required components and dependencies included.
 
-* **id**: The server-specific id of the artifact to be packaged
-* **url**: The canonical url of the artifact to be packaged
-* **version**: The version of the artifact to be packaged
-* **identifier**: A business identifier of the artifact to be packaged
+If the resulting bundle is paged using `count` or `offset`, it will be of type `collection`. In the special case where `count = 0` it will be of type `searchset`.
+
+The following parameters SHOULD be supported for packaging operations:
+
 * **capability**: A desired capability of the resulting package. `computable` to include computable elements in packaged content, `executable` to include executable elements in packaged content, `publishable` to include publishable elements in packaged content.
 * **offset**: Paging support - where to start if a subset is desired (default = 0). Offset is number of records (not number of pages)
 * **count**: Paging support - how many resources should be provided in a partial page view. If count = 0, the client is asking how large the package is.
-* **canonicalVersion**: Specifies a version to use for a system, if the library or value set does not already specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
 * **checkCanonicalVersion**: Edge Case: Specifies a version to use for a system. If a library or value set specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
 * **forceCanonicalVersion**: Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the library and value sets (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
-* **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
+* **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `canonicalVersion` parameter.
 * **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
-* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the same package as the artifact being packaged (default is false) 
+* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the implementation guide or specification that defines the artifact being packaged (default is false)
+* Instance level:
+    * **id**: The server-specific id of the artifact to be approved.
+* Type level:
+    * **version**: The version of the artifact to be approved.
+    * **url**: The canonical url of the artifact to be approved.
+    * **identifier**: A business identifier of the artifact to be approved.
+    * **resource**: The resource type of the artifact to be released.
 
 The result of the packaging operation is a Bundle (or Bundles if there is a need to partition based on size) containing the artifact, tailored for content based on the requested capabilities, and any components/dependencies as specified in the parameters. This operation can also be 
 
@@ -219,7 +225,11 @@ The _release_ operation supports updating the status of an existing _draft_ arti
 The following parameters SHOULD be supported for the operation:
 * **releaseVersion**: The version for the resulting active artifact.
 * **versionBehavior**: Whether or not the operation should override existing versions already set on the artifact and its descendants.
+    * **default**: Does not override existing versions, only updates resources where the version is missing.
+    * **check**: Edge Case: If a library or value set specifies a different version, an error is returned instead of the package.
+    * **force**: Edge Case: This parameter overrides any specified version in the library and value sets (and any it depends on). Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters
 * **latestFromTxServer**: Whether or not the repository should search the remote source when updating references.
+* **experimentalBehavior**: Whether the repository should throw an error, log a warning or not validate if a specification which is not Experimental references Experimental components
 * Instance level:
     * **id**: The server-specific id of the artifact to be released.
 * Type level:
@@ -347,7 +357,7 @@ The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifac
 For each type of artifact supported, an AuthoringMeasureRepository:
 
 1. SHALL support [**Submit**](#submit): Post a new artifact in _draft_ status
-2. SHALL support [**$revise**](#revise): Update an existing artifact in _draft_ status
+2. SHALL support [**$revise**](OperationDefinition-crmi-revise.html): Update an existing artifact in _draft_ status
 3. SHOULD support [**Withdraw**](#withdraw): Delete a _draft_ artifact
 4. SHOULD support [**Review**](#review): Review and provide comments on an existing artifact (regardless of status)
 5. SHOULD support [**Approve**](#approve): Approve and provide comments on an existing artifact (regardless of status)
