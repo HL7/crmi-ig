@@ -356,13 +356,25 @@ define "BMI in Measurement Period":
 ### Concepts
 {: #concepts}
 
-In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all _about_ the same concept, (e.g. the same concept represented in different code systems, or the same concept from the same code system represented at different levels of detail), but CQL itself will make no attempt to ensure that is the case. Concepts should never be used as a surrogate for proper valueset definition.
+In addition to codes, CQL supports a concept construct, which is defined as a set of codes that are all _about_ the same concept, (e.g. the same concept represented in different code systems, or the same concept from the same code system represented at different levels of detail), but CQL itself will make no attempt to ensure that is the case. Concepts should never be used as a surrogate for proper valueset definition. In other words, the Concept declaration should not be used to define sets of codes for membership testing.
 
 **Conformance Requirement 4.12 (Concepts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-12)
 {: #conformance-requirement-4-12}
 
 1. The CQL concept construct MAY be used.
 2. The CQL concept construct SHALL NOT be used as a surrogate for valueset definition.
+
+As an example of an anti-pattern for Concept usage, consider the following:
+
+```cql
+codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+code "Active": 'active' from "Condition Clinical Status Codes" display 'Active'
+code "Recurrence": 'recurrence' from "Condition Clinical Status Codes" display 'Recurrence'
+code "Relapse": 'relapse' from "Condition Clinical Status Codes" display 'Relapse'
+concept "Active Condition Statuses": { "Active", "Recurrence", "Relapse" } display 'Active Condition Statuses'
+```
+
+This usage of concept includes multiple concepts with different meanings from the same code system. A value set should be used for this purpose as it provides more flexibility and maintainability for this use case.
 
 ### Library-level Identifiers
 {: #library-level-identifiers}
