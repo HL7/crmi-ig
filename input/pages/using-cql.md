@@ -416,7 +416,44 @@ define "Flexible Sigmoidoscopy Performed":
 
 Snippet 4-9: Expression definition from EXM130.cql
 
-#### Negation in FHIR
+### Missing Information
+
+Because clinical information is often incomplete, CQL provides constructs and support for representing and dealing with _unknown_ or missing information. In FHIR, when the value of an element is not present, accessing that element will result in a `null`:
+
+```cql
+Observation.interpretation
+```
+
+Given an instance of an Observation resource that does not have an interpretation element, the above expression will return `null`. In general, `null` results will _propagate_ through operations. For example:
+
+```cql
+MedicationRequest.doNotPerform = false
+```
+
+If the MedicationRequest instance does not have a `doNotPerform` element, this expression will return `null`. When a `null` result is encountered in the evaluation of a criteria (such as a `where` clause), it will be interpreted as `false`. For this reason, best-practice when comparing boolean-valued elements such as `doNotPerform` is to use the `is true | false` predicate test:
+
+```cql
+MedicationRequest MR
+  where MR.doNotPerform is not true
+```
+
+This pattern ensures that whether the instance does not have a doNotPerform element, or the doNotPerform element is false, the result of the expression is true, correctly accounting for the potential missing information.
+
+Another common case encountered in FHIR is the use of an `unknown` code in terminology-valued elements:
+
+```cql
+MedicationRequeest.status = 'unknown'
+```
+
+This is a special-case of characterizing missing information within FHIR resources. To treat this status value as a null, the following pattern can be used:
+
+```cql
+if MedicationRequest.status is null or MedicationRequest.status ~ 'unknown'
+```
+
+For more information about dealing with Missing Information in CQL in general, see the [Missing Information](https://cql.hl7.org/02-authorsguide.html#missing-information) topic in the CQL Author's Guide.
+
+### Negation in FHIR
 {: #negation-in-fhir}
 
 Two commonly used patterns for negation in clinical logic are:
@@ -436,7 +473,7 @@ The following examples differentiate methods to indicate (a) presence of evidenc
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
 of medication included within a value set for "Antithrombotic Therapy".
 
-##### Presence
+#### Presence
 {: #presence}
 
 Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
@@ -448,7 +485,7 @@ define "Antithrombotic Administered":
       and AntithromboticTherapy.category ~ "Inpatient Setting"
 ```
 
-##### Absence
+#### Absence
 {: #absence}
 
 No evidence that "Antithrombotic Therapy" medication was administered:
@@ -462,7 +499,7 @@ define "No Antithrombotic Therapy":
   )
 ```
 
-##### Negation Rationale
+#### Negation Rationale
 {: #negation-rationale}
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
