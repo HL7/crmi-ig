@@ -751,6 +751,7 @@ For knowledge artifact development with FHIR, the following options are recommen
 | EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with knowledge artifacts. |
 | EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with knowledge artifacts. |
 | DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With knowledge artifacts, disabling this feature would prevent a useful capability. | This feature should not be used with knowledge artifacts. |
+| SignatureLevel | This setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel should be `Overloads` or `All` to ensure signature information is present. |
 
 #### Specifying Options
 
@@ -843,7 +844,7 @@ Because certain translator options impact language features and functionality, t
 **Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
 {: #conformance-requirement-4-23}
 
-1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL have been translated with a SignatureLevel other than `None`
+1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL have been translated with a SignatureLevel of `Overloads` or `All`
 2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
 3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
 4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment
@@ -855,6 +856,7 @@ Because certain translator options impact language features and functionality, t
     * EnableIntervalPromotion
     * DisableMethodInvocation
     * RequireFromKeyword
+    * SignatureLevel
 6. For authoring environments, the following additional translator options MAY be used to determine suitability of available ELM:
     * EnableAnnotations
     * EnableLocators
