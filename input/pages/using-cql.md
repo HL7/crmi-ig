@@ -1,9 +1,11 @@
 {:toc}
 
+This topic specifies conformance requirements and guidance for the use of CQL with FHIR, whether that be as in-line expressions in expression-valued elements, or in CQL libraries contained in FHIR Library resources.
+
 ### Libraries
 {: #libraries}
 
-A CQL artifact is referred to as a library.
+Declarations in CQL are packaged in containers called _libraries_ and provide a unit for the definition, distribution, and versioning of CQL logic. The following conformance requirements and guidance apply When libraries of CQL are used with FHIR knowledge artifacts.
 
 **Conformance Requirement 4.1 (Library Declaration):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-1)
 {: #conformance-requirement-4-1}
@@ -572,7 +574,7 @@ define function "ED Stay Time"(Encounter "Encounter"):
 ### Library Resources
 {: #library-resources}
 
-Inclusion of CQL content used within knowledge artifacts is accomplished through the use of a Library resource. These libraries are then referenced from FHIR resources such as PlanDefinition and Measure using the `library` element. The content of the CQL library is included using the `content` element of the Library.
+In addition to the use of CQL directly in expression-valued elements, CQL content used within knowledge artifacts can be included through the use of a Library resource. These libraries can then be referenced from FHIR resources such as PlanDefinition and Measure using the `library` element (as well as the `cqf-library` extension for resources that do not declare a `library` element). The content of the CQL library is included using the `content` element of the Library.
 
 **Conformance Requirement 4.17 (Library Resources):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-17)
 {: #conformance-requirement-4-17}
