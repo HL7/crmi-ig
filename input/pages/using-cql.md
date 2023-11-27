@@ -263,11 +263,16 @@ results of an expansion.
 
 For example, rather than combining multiple value sets using a `union`, separate membership tests in each value set should be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the base FHIR specification.
 
-#### Representation in a Library
-{: #representation-in-a-library}
+#### Representation in Narrative
+{: #valueset-representation-in-narrative}
 
-The representation of valueset declarations in a Library is discussed in the
-Artifact Conformance topic of this IG.
+When value sets are used within knowledge artifacts, they will be represented in the narrative (Human-readable) as:
+
+```html
+"Encounter Inpatient" using "Encounter Inpatient SNOMEDCT Value Set" (http://cts.nlm.nig.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307, version 20160929)
+```
+
+In other words, the local identifier for the value set, followed by the value set information from the value set declaration, including version if specified.
 
 #### String-based Membership Testing
 {: #string-based-membership-testing}
@@ -311,17 +316,16 @@ potential naming conflicts, as well as simplification of longer names when appro
 
 CQL supports both version-specific and version-independent specification of and comparison to direct-reference codes. The best practice is for artifact authors to use version-independent direct-reference codes and comparisons unless there is a specific reason not to (such as the code is retired in the current version). Even in the case that version-specific direct-reference codes are required, best practice is still to use the equivalent (~) operator in CQL for the comparison (again, unless there is a specific reason to do version-specific comparison)
 
-#### Representation in a Library
-{: #representation-in-a-library}
+#### Representation in Narrative
+{: #code-representation-in-narrative}
 
 When direct-reference codes are used within knowledge artifacts, they will be represented in the narrative (Human-readable) as:
 
 ```html
-"Assessment, Performed: Assessment of breastfeeding"
-using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
+"Venous foot pump, device (physical object)" using "Venous foot pump, device (physical object) SNOMED CT Code (442023007)"
 ```
 
-The representation of code declarations in a Library is discussed in Artifact Conformance of this IG.
+In other words, the library identifier followed by the code and code system information from the code declaration.
 
 ### UCUM Best Practices
 {: #ucum-best-practices}
