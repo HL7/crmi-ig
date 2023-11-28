@@ -11,9 +11,6 @@ Declarations in CQL are packaged in containers called _libraries_ and provide a 
 {: #conformance-requirement-4-1}
   1. Any CQL library used by a FHIR artifact SHALL contain a library declaration.
   2. The library identifier SHALL be a valid un-quoted identifier and SHALL NOT contain underscores
-  3. The library declaration SHOULD specify a version.
-  4. The library version SHOULD follow the convention :  
-       < major >.< minor >.< patch >
 
 #### Library Versioning
 {: #library-versioning}
@@ -22,13 +19,18 @@ This IG recommends [Semantic Versioning](https://semver.org) be used to version 
 
 **Conformance Requirement 4.2 (Library Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-2)
 {: #conformance-requirement-4-2}
-  1. For artifacts in draft status, the versioning scheme SHALL NOT apply, and there is no expectation that artifact contents are stable
-  2. The versioning scheme SHALL apply when an artifact moves to active status.
+  1. The library declaration SHOULD specify a version.
+  2. The library version SHOULD follow the convention :  
+       < major >.< minor >.< patch >
+  3. For artifacts in draft status, the versioning scheme SHALL NOT apply, and there is no expectation that artifact contents are stable
+  4. The versioning scheme SHALL apply when an artifact moves to active status.
 
-There are three main types of changes that can be made to a library. First, a library can be changed in a way that
-would alter the public use of its components. Second, a library can be changed by adding new components or functionality
-but without changing existing components are used. And third, a library can be changed in a way that does not change
-existing components or add new components, but only corrects or improves the originally intended functionality.
+There are three main types of changes that can be made to a library:
+
+  1. A library can be changed in a way that would alter the public use of its components. 
+  2. A library can be changed by adding new components or functionality but without changing the way that existing components are used. 
+  3. A library can be changed in a way that does not change existing components or add new components, but only corrects or improves the originally intended functionality.
+
 By exposing version numbers that identify all three types of changes, libraries can be versioned in a way that makes
 clear when a change will impact usage, versus when a change can potentially be safely incorporated as an update. The
 first type of change will be referred to as a "major" change, and will require incrementing of the "major version
