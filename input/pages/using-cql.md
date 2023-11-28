@@ -277,7 +277,7 @@ In other words, the local identifier for the value set, followed by the value se
 #### String-based Membership Testing
 {: #string-based-membership-testing}
 
-Although CQL allows the use of strings as input to membership testing in value sets, this capability should not be used in knowledge artifact CQL as it can lead to incorrect matching if the code system is ignored.
+Although CQL allows the use of strings as input to membership testing in value sets, this capability should not be used with FHIR-based models as it can lead to incorrect matching if the code system is not considered.
 
 **Conformance Requirement 4.10 (String-based Membership Testing):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-10)
 {: #conformance-requirement-4-10}
