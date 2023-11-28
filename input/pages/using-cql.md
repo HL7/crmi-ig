@@ -9,8 +9,16 @@ Declarations in CQL are packaged in containers called _libraries_ and provide a 
 
 **Conformance Requirement 4.1 (Library Declaration):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-1)
 {: #conformance-requirement-4-1}
-  1. Any CQL library used by a FHIR artifact SHALL contain a library declaration.
+  1. Any CQL library used by a FHIR artifact SHALL contain a [library declaration.](https://cql.hl7.org/02-authorsguide.html#library)
   2. The library identifier SHALL be a valid un-quoted identifier and SHALL NOT contain underscores
+
+For example:
+
+```cql
+library EXM146
+```
+
+This declaration specifies the name of the library as `EXM146`. See the discussion on [Library Resources](#library-resources) for more information on library naming conventions.
 
 #### Library Versioning
 {: #library-versioning}
