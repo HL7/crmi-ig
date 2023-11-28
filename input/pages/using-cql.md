@@ -98,9 +98,9 @@ namespaces. For example, consider the following library declaration:
 library CMS.Common version '2.0.0'
 ```
 
-This example declares a library named Common in the CMS namespace. Per the CQL specification, the namespace for a
+This example declares a library named Common in the CMS namespace. Per the [CQL specification](https://cql.hl7.org/04-logicalspecification.html#versionedidentifier), the namespace for a
 library is included in the ELM, along with a URI that provides a globally unique, stable identifier for the namespace.
-For example, the URI for the CMS namespace would be `https://ecqi.healthit.gov/ecqm/measures`.
+For example, the URI for the CMS namespace might be `https://ecqi.healthit.gov/ecqm/measures`.
 
 Note that this is a URI that may or may not correspond to a reachable web address (a URL). The important aspect is not
 the addressability, but the uniqueness, ensuring that library name collisions cannot occur.
