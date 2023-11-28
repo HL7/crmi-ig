@@ -415,6 +415,8 @@ define function
 
 Snippet 4-8: Function definition from Common.cql
 
+The `"Includes Or Starts During"` is the library-level identifier in this example.
+
 ### Data Type Names
 {: #data-type-names}
 
@@ -441,6 +443,8 @@ define "Flexible Sigmoidoscopy Performed":
 ```
 
 Snippet 4-9: Expression definition from EXM130.cql
+
+The `Procedure` is the name of the model data type (FHIR resource type) in this example.
 
 ### Missing Information
 
