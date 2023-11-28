@@ -293,15 +293,15 @@ For example, given a valueset named `"Administrative Gender"`, the following CQL
 ### Codes
 {: #codes}
 
-When direct-reference codes are represented within CQL, the logical identifier is not recommended to be a URI. Instead,
-the logical identifier is the code from the code system.
+When direct-reference codes are represented within CQL, the logical identifier SHALL NOT be a URI. Instead,
+the logical identifier should be the code from the code system.
 
 **Conformance Requirement 4.11 (Direct Referenced Codes):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-11)
 {: #conformance-requirement-4-11}
 
 1. When direct-reference codes are represented within CQL, the logical identifier:<br/>
-     a. MUST NOT be a URI.<br/>
-     b. SHALL be a code from the code system.
+     a. SHALL NOT be a URI.<br/>
+     b. SHOULD be a code from the code system.
 
 ```cql
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
