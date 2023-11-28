@@ -183,7 +183,7 @@ Conformance Requirement 4.7 describes how to specify a valueset within a CQL lib
 For example:
 
 ```cql
-valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011'
+valueset "Absent or Unknown Allergies - IPS": 'http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-allergies-uv-ips'
 ```
 
 Snippet 4-5: Valueset reference from EXM146.cql
@@ -195,23 +195,23 @@ This base is then used to construct the canonical URL for the value set (in the 
 the implementation guide). Note that the _canonical URL_ is a globally unique, stable, version-independent identifier for the
 value set. See [Canonical URLs](http://hl7.org/fhir/references.html#canonical) in the base FHIR specification for more information.
 
-The local identifier for the value set within CQL should be the same as the name of the value set. However, because the name of the value set is not
-necessarily unique, it is possible to reference multiple value sets with the same name, but different identifiers.
-When this happens in a CQL library, the local identifier should be the name of the value set with a qualifying suffix to
-preserve the value set name as a human-readable artifact, but still allow unique reference within the CQL library.
+The local identifier for the value set within CQL should be the same as the `title` of the value set. However, because the title of the value set is not
+necessarily unique, it is possible to reference multiple value sets with the same title, but different identifiers.
+When this happens in a CQL library, the local identifier should be the title of the value set with a qualifying suffix to
+preserve the value set title as a human-readable reference, but still allow unique reference within the CQL library.
 
 For example:
 
 ```cql
-valueset "Acute Pharyngitis (1)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.1'
-valueset "Acute Pharyngitis (2)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.12.1011.2'
+valueset "Acute Pharyngitis (1)": 'http://example.org/fhir/ValueSet/acute-pharyngitis-snomed'
+valueset "Acute Pharyngitis (2)": 'http://example.org/fhir/ValueSet/acute-pharyngitis-icd'
 ```
 
 Note carefully that although this URL may be resolveable for some terminology implementations, this is not necessarily the
 case. This use of a canonical URL can be resolved as a search by the `url` element:
 
 ```
-GET fhir/ValueSet?url=http%3A%2F%2Fcts.nlm.nih.gov%2Ffhir%2FValueSet%2F2.16.840.1.113883.3.464.1003.102.12.1011.1
+GET fhir/ValueSet?url=http://example.org/fhir/ValueSet/acute-pharyngitis-snomed
 ```
 
 #### Value Set Version
@@ -233,7 +233,7 @@ For example:
 
 ```cql
 valueset "Encounter Inpatient SNOMEDCT Value Set":
-   'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307|20160929'
+   'http://example.org/fhir/ValueSet/encounter-inpatient|20160929'
 ```
 
 Snippet 4-6: valueset definition from Terminology.cql.
@@ -241,7 +241,7 @@ Snippet 4-6: valueset definition from Terminology.cql.
 This is a _version specific value set reference_, and can be resolved as a search by the `url` and `version` elements:
 
 ```
-GET fhir/ValueSet?url=http%3A%2F%2Fcts.nlm.nih.gov%2Ffhir%2FValueSet%2F2.16.840.1.113883.3.666.7.307&version=20160929
+GET fhir/ValueSet?url=http://example.org/fhir/ValueSet/encounter-inpatient&version=20160929
 ```
 
 #### Value Set Expansion
@@ -268,7 +268,7 @@ For example, rather than combining multiple value sets using a `union`, separate
 When value sets are used within knowledge artifacts, they will be represented in the narrative (Human-readable) as:
 
 ```html
-"Encounter Inpatient" using "Encounter Inpatient SNOMEDCT Value Set" (http://cts.nlm.nig.gov/fhir/ValueSet/2.16.840.1.113883.3.666.7.307, version 20160929)
+"Encounter Inpatient" using "Encounter Inpatient SNOMEDCT Value Set" (http://example.org/fhir/ValueSet/encounter-inpatient, version 20160929)
 ```
 
 In other words, the local identifier for the value set, followed by the value set information from the value set declaration, including version if specified.
