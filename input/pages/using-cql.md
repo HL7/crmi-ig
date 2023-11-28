@@ -155,8 +155,7 @@ codesystem "SNOMED CT:2017-09": 'http://snomed.info/sct'
 Snippet 4-4: codesystem definition line from Terminology.cql.
 
 The canonical URL for a code system is a globally unique, stable, version-independent identifier for the code system.
-The base FHIR specification defines canonical URLs for most common code systems
-[here](http://hl7.org/fhir/R4/terminologies-systems.html).
+The [HL7 Terminology site (THO)](http://terminology.hl7.org) defines canonical URLs for most common code systems.
 
 The local identifier for the codesystem ("SNOMED CT:2017-09" in this case) should include the friendly name of the code system
 and optionally, an indication of the version, separated with a colon.
