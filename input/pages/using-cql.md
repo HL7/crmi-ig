@@ -189,15 +189,14 @@ valueset "Acute Pharyngitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.1
 Snippet 4-5: Valueset reference from EXM146.cql
 
 The canonical URL for a value set is typically defined by the value set author, though it may be provided by the
-publisher as well. For example, value sets defined in the Value Set Authority Center and exposed via the VSAC FHIR
-interface have a base URL of `http://cts.nlm.nih.gov/fhir/`. This base is then used to construct the canonical URL for
-the value set (in the same way as any FHIR URL) using the resource type (`ValueSet` in this case) and the id (the value
-set OID in this case). Note that the _canonical URL_ is a globally unique, stable, version-independent identifier for the
+publisher as well. For example, value sets defined in the International Patient Summary have a base URL of `http://hl7.org/fhir/uv/ips/`. 
+This base is then used to construct the canonical URL for the value set (in the same way as any FHIR URL) using the resource type 
+(`ValueSet` in this case) and a unique identifier for the value set within that url (typically the same as the value set id in 
+the implementation guide). Note that the _canonical URL_ is a globally unique, stable, version-independent identifier for the
 value set. See [Canonical URLs](http://hl7.org/fhir/references.html#canonical) in the base FHIR specification for more information.
 
-The local identifier for the value set within CQL should be the same as the name of the value set in the
-[Value Set Authority Center (VSAC)](https://vsac.nlm.nih.gov/). However, because the name of the value set is not
-guaranteed to be unique, it is possible to reference multiple value sets with the same name, but different identifiers.
+The local identifier for the value set within CQL should be the same as the name of the value set. However, because the name of the value set is not
+necessarily unique, it is possible to reference multiple value sets with the same name, but different identifiers.
 When this happens in a CQL library, the local identifier should be the name of the value set with a qualifying suffix to
 preserve the value set name as a human-readable artifact, but still allow unique reference within the CQL library.
 
