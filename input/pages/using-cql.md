@@ -693,7 +693,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 **Conformance Requirement 4.21 (Related Artifacts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-21)
 {: #conformance-requirement-4-21}
 
-1. Libraries used in computable guideline content SHALL use the `relatedArtifact` element to identify includes, code systems, value sets, and data models used by the CQL library:
+1. Libraries used in computable artifacts SHALL use the `relatedArtifact` element to identify includes, code systems, value sets, and data models used by the CQL library:
 
 |Dependency|RelatedArtifact representation|
 |Data Model (using declaration)|`depends-on` with `url` of the ModelInfo Library (e.g. `http://hl7.org/fhir/Library/FHIR-ModelInfo|4.0.1`)|
@@ -892,4 +892,45 @@ Because certain translator options impact language features and functionality, t
 ### ModelInfo
 {: #modelinfo}
 
-#### Namespaces
+When using CQL with FHIR, FHIR StructureDefinition resources are used to create the ModelInfo that describes the types for use in CQL, according to the following rules:
+
+1. For each StructureDefinition, if the kind is `primitive-type`, `complex-type` (except for types based on Extension), or `resource` (with no derivation or a derivation of `specialization`), a ClassInfo with the same name as the structure definition is created
+    1. For each element:
+        1. If the element is not a backbone element, a corresponding element with the name and type is added to the ClassInfo. If the maximum cardinality of the element is not "1", the element is created as a list type.
+        2. If the element is a backbone element, a new ClassInfo is created with the child elements of the backbone element and a new element is added to the containing ClassInfo with the type of the ClassInfo. Note that this process is recursive and so may result in multiple levels of nested class creation. As such the name of the ClassInfo must include the name of all the parent classes as qualifiers in order to ensure uniqueness. This approach also supports the ability of FHIR elements to reference other element definitions, though a post-processing fixup step is typically needed to resolve these references.
+
+If this process is run against the StructureDefinitions from the base FHIR specification, it produces a complete representation of all the FHIR Resources as classes in the ModelInfo. However, because FHIR primitive types actually have elements (e.g. `value`, `id`, and `extension`), this process produces classes in the ModelInfo for each of the FHIR primitive types, and only the `value` elements of these FHIR primitives are typed with the actual CQL primitive types. This means that to access the actual values of FHIR elements for comparison against CQL primitive values, the `.value` path must be used:
+
+```cql
+Patient.gender.value = 'female'
+```
+
+To facilitate comparison by authors, these primitives can be implicitly converted to CQL primitive types, and the FHIRHelpers library (typically generated alongside the ModelInfo) defines these implicit conversions. See the [CQF Common](http://fhir.org/guides/cqf/common) implementation guide for a complete FHIR ModelInfo as well as FHIRHelpers library representing the FHIR specification.
+
+#### ModelInfo Libraries
+
+Similar to CQL content, ModelInfo can be included in FHIR Library resources to facilitate distribution.
+
+**Conformance Requirement 4.24 (ModelInfo Libraries):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
+{: #conformance-requirement-4-24}
+
+1. Libraries used to packgae ModelInfo SHALL conform to the [CRMIModelInfoLibrary](StructureDefinition-crmi-modelinfo.html) profile
+
+#### Profile-informed ModelInfo
+
+The process for producing ModelInfo from FHIR StructureDefinitions csn also be applied to FHIR profile definitions, allowing for ModelInfos that reflect profile definitions, using the following refinements:
+
+1. Each profile results in a new ClassInfo in the ModelInfo, derived from the ClassInfo for the baseDefinition of the profile
+1. FHIR Primitive types are mapped to CQL types according to the above FHIR Type Mapping section
+2. Extensions and slices defined in profiles are represented as first-class elements in the ClassInfo
+
+#### ModelInfo Settings
+
+In addition, to support more fine-grained control over the process of producing ModelInfo from FHIR StructureDefinitions, this implementation guide defines several ModelInfo-related extensions:
+
+* cqf-modelInfo-isIncluded - Determines whether to create a ClassInfo for the profile or extension on which it appears
+* cqf-modelInfo-isRetrievable - Determines whether the ClassInfo for the profile on which it appears is marked retrievable (i.e. can appear as the target type of a Retrieve in CQL)
+* cqf-modelInfo-label - Specifies an author-friendly title for the ClassInfo (i.e. an alternate name by which the type can be referenced in CQL type specifiers)
+* cqf-modelInfo-primaryCodePath - Specifies the primary code path for the ClassInfo produced from the profile on which it appears (i.e. the default path for terminology-valued filters when the type is used in a Retrieve in CQL)
+* cqf-modelInfoSettings - Specifies additional settings used to produce the ModelInfo for profiles and extensions defined in the Implementation Guide on which it appears
+
