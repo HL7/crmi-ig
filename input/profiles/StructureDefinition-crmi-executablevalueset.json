@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "ValueSet",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ValueSet",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

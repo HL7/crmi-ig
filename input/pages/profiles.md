@@ -2,7 +2,7 @@
 
 ## Capability Profiles
 
-For definitional artifacts, this implementation guide defines profile classes to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. All knowledge artifacts must be at least shareable, and where appropriate for the target environment, artifacts should declare the capabilities they support using the cqf-knowledgeCapability extension, as well as the knowledge representation level of the artifact using the cqf-knowledgeRepresentationLevel extension, as defined in the shareable profiles.
+For definitional artifacts, this implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. All knowledge artifacts are typically at least shareable, and where appropriate for the target environment, artifacts should declare the capabilities they support using the cqf-knowledgeCapability extension, as well as the knowledge representation level of the artifact using the cqf-knowledgeRepresentationLevel extension, as defined in the shareable profiles.
 
 * **Shareable**: Shareable profiles set the minimum expectations for exchanging an artifact, including the URL, version, name, and publisher.
 * **Computable**: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.
@@ -15,7 +15,7 @@ These capabilities are introduced to support separation of concerns along the sp
 {% include img.html img="knowledge-capabilities.png" %}
 </div>
 
-A given artifact may provide all knowledge capabilities (Shareable plus Computable, Publishable, and Executable), or it may be focused on a particular capability. For example, a ValueSet may be only Shareable and Executable because it is intended for use in environments without access to a terminology service capable of expanding the Computable value set.
+A given artifact may provide all knowledge capabilities (Shareable, Computable, Publishable, and Executable), or it may be focused on a particular capability. For example, a ValueSet may be only Shareable and Expanded because it is intended for use in environments without access to a terminology service capable of expanding the Computable definition of the value set.
 
 Note that explicit profiles for capabilities are only defined when there are specific elements of the artifact involved in supporting that capability. For example, there is no executable ActivityDefinition profile, but that doesn't mean that ActivityDefinition artifacts cannot be executable, only that there are no additional conformance expectations for executable ActivityDefinitions specified by this implementation guide.
 

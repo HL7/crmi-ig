@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "SearchParameter",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablesearchparameter",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/SearchParameter",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

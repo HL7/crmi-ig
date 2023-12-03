@@ -46,7 +46,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "Measure",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Measure",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

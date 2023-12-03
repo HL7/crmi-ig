@@ -50,7 +50,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "NamingSystem",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/NamingSystem",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "CodeSystem",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CodeSystem",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

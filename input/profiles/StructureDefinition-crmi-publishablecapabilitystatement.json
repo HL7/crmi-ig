@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "CapabilityStatement",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CapabilityStatement",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

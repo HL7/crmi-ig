@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "TerminologyCapabilities",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableterminologycapabilities",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

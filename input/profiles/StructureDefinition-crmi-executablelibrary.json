@@ -57,7 +57,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Library",
-  "baseDefinition": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Library",
   "derivation": "constraint",
   "differential": {
     "element": [

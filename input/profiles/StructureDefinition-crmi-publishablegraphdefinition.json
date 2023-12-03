@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "GraphDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegraphdefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/GraphDefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
