@@ -118,6 +118,52 @@
         "mustSupport": true
       },
       {
+        "id": "Library.parameter.extension:defaultValue",
+        "path": "Library.parameter.extension",
+        "sliceName": "defaultValue",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.parameter.extension:cqlType",
+        "path": "Library.parameter.extension",
+        "sliceName": "cqlType",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.parameter.extension:cqlAccessLevel",
+        "path": "Library.parameter.extension",
+        "sliceName": "cqlAccessLevel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlAccessLevel"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Library.dataRequirement",
         "path": "Library.dataRequirement",
         "requirements": "A computable library must declare any data requirements.",
