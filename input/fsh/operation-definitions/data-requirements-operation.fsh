@@ -291,4 +291,4 @@ is being performed as the terminology server.
 The result of the requirements operation is a _module-definition_ Library that
 returns the computed effective requirements of the artifact.
 """
-* parameter[=].type = #Bundle
+* parameter[=].type = #Library

@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "ActivityDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ActivityDefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

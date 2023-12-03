@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "PlanDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableplandefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/PlanDefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

@@ -23,6 +23,10 @@ The Canonical Resource Management Infrastructure implementation guide defines pr
 
 This implementation guide is based upon work in multiple quality improvement and reporting domains. Various implementation guides have developed similar infrastructure-level profiles for conformance and knowledge artifacts. These profiles are being refactored into universal-realm, domain-independent profiles that can then be re-used in future versions of those specifications, as well as included in future versions of the base FHIR specification.
 
+### Scope of Use
+
+This implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts [Profiles](profiles.html). These categories are proposed as a way to help facilitate management of expectations in the content development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
+
 #### Canonical Resource Types
 
 The following is a list of FHIR resource types that are considered _canonical resources_ along with a grouping of these resource types by priority of support within this implementation guide. Priority groupings are first described generally and any specific exceptions to those groupings (e.g., a different prioritization for a particular operation) should be described explicitly elsewhere.
@@ -152,6 +156,27 @@ page in the menu bar:
 -  **[Capabilities](capabilities.html)**: Definitions of services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
 -  **[Downloads](downloads.html)**: Links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
+
+### Must Support
+
+Certain elements in the profiles defined in this implementation guide are marked as Must Support. This flag is used to indicate that the element plays a critical role in defining, sharing, and implementing artifacts, and implementations SHALL understand and process the element.
+
+In addition, because artifact specifications typically make use of data implementation guides (e.g. IPS, US Core, QI-Core), the implications of the Must Support flag for profiles used from those implementation guides must be considered.
+
+For more information, see the definition of [Must Support](https://hl7.org/fhir/R4/profiling.html#mustsupport) in the base FHIR specification.
+
+**Conformance Requirement 1.1 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-1-1)
+{: #conformance-requirement-1-1}
+
+Conformance Requirement 1.1 (Must Support Elements):
+
+For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element SHALL be interpreted as follows:
+
+* Authoring systems and knowledge repositories SHALL be capable of populating all Must Support data elements.
+* Evaluating systems SHALL be capable of processing resource instances containing Must Support data elements without generating an error or causing the evaluation to fail.
+* In situations where information on a particular data element is not present and the reason for absence is unknown, authoring and repository systems SHALL NOT include the data elements in the resource instance. For example, for systems using ‘9999’ to indicate unknown data values, do not include ‘9999’ in the resource instance.
+* When consuming resource instances, evaluating systems SHALL interpret missing data elements within resource instances as data not present for the artifact.
+* Submitting and receiving systems using knowledge artifacts to perform data exchange or artifact evaluation operations SHALL respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
 
 ### References
 {: #references}

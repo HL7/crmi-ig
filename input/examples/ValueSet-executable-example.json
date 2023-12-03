@@ -1,14 +1,14 @@
 {
   "resourceType": "ValueSet",
-  "id": "executable-example",
+  "id": "expanded-example",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablevalueset" ]
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expandedvalueset" ]
   },
   "extension": [{
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
     "valueMarkdown": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated."
   }],
-  "url": "http://hl7.org/fhir/uv/crmi/ValueSet/executable-example",
+  "url": "http://hl7.org/fhir/uv/crmi/ValueSet/expanded-example",
   "name": "DangersignsCodesGrouper",
   "title": "Danger signs Codes Grouper",
   "status": "draft",

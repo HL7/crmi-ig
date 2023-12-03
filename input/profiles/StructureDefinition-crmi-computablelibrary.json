@@ -57,7 +57,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Library",
-  "baseDefinition": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Library",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -116,6 +116,52 @@
         "path": "Library.parameter",
         "requirements": "A computable library must define any input and output parameters.",
         "mustSupport": true
+      },
+      {
+        "id": "Library.parameter.extension:defaultValue",
+        "path": "Library.parameter.extension",
+        "sliceName": "defaultValue",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.parameter.extension:cqlType",
+        "path": "Library.parameter.extension",
+        "sliceName": "cqlType",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlType"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.parameter.extension:cqlAccessLevel",
+        "path": "Library.parameter.extension",
+        "sliceName": "cqlAccessLevel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-cqlAccessLevel"
+            ]
+          }
+        ]
       },
       {
         "id": "Library.dataRequirement",

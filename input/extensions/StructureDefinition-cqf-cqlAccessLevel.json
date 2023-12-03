@@ -1,9 +1,9 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-defaultValue",
+  "id": "cqf-cqlAccessLevel",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 3
+    "valueInteger" : 1
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue",
-  "name": "DefaultValue",
-  "title": "Default Value",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlAccessLevel",
+  "name": "CqlAccessLevel",
+  "title": "CQL Access Level",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "description": "Provides a default value for a parameter definition.",
+  "description": "Surfaces the CQL access level of the parameter definition on which it appears.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -55,9 +55,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What default value",
-        "definition": "Provides the default value for the parameter on which it appears (i.e. the value that shall be used in the evaluation when no value is provided for the parameter by the caller",
-        "comment": "Note that when the value of this extension is a Reference, it SHALL be a reference to a contained resource that is the value of the parameter.",
+        "short": "What CQL access level",
+        "definition": "Surfaces the CQL access level (i.e. public or private) of the parameter definition on which it appears. The value of this extension is a string that is the CQL access level for the declaration the parameter definition on which it appears is representing.",
         "min": 0,
         "max": "1"
       },
@@ -69,7 +68,7 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-cqlAccessLevel"
       },
       {
         "id": "Extension.value[x]",
@@ -77,42 +76,6 @@
         "type": [
           {
             "code": "string"
-          },
-          {
-            "code": "boolean"
-          },
-          {
-            "code": "integer"
-          },
-          {
-            "code": "decimal"
-          },
-          {
-            "code": "date"
-          },
-          {
-            "code": "dateTime"
-          },
-          {
-            "code": "Coding"
-          },
-          {
-            "code": "CodeableConcept"
-          },
-          {
-            "code": "Period"
-          },
-          {
-            "code": "Range"
-          },
-          {
-            "code": "Quantity"
-          },
-          {
-            "code": "Ratio"
-          },
-          {
-            "code": "Reference"
           }
         ]
       }

@@ -1,9 +1,9 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-defaultValue",
+  "id": "cqf-testArtifact",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-    "valueInteger" : 3
+    "valueInteger" : 1
   },
   {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue",
-  "name": "DefaultValue",
-  "title": "Default Value",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-testArtifact",
+  "name": "TestArtifact",
+  "title": "Test Artifact",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -30,7 +30,8 @@
       ]
     }
   ],
-  "description": "Provides a default value for a parameter definition.",
+  "description": "The artifact under test for this test content",
+  "purpose": "This extension allows test content (such as a Group of test case patients) to specify the artifact under test.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -44,7 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "ParameterDefinition"
+      "expression": "Group"
     }
   ],
   "type": "Extension",
@@ -55,11 +56,10 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What default value",
-        "definition": "Provides the default value for the parameter on which it appears (i.e. the value that shall be used in the evaluation when no value is provided for the parameter by the caller",
-        "comment": "Note that when the value of this extension is a Reference, it SHALL be a reference to a contained resource that is the value of the parameter.",
+        "short": "What artifact the test is for",
+        "definition": "A reference to the artifact under test for this test content",
         "min": 0,
-        "max": "1"
+        "max": "*"
       },
       {
         "id": "Extension.url",
@@ -69,50 +69,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-testArtifact"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "string"
-          },
-          {
-            "code": "boolean"
-          },
-          {
-            "code": "integer"
-          },
-          {
-            "code": "decimal"
-          },
-          {
-            "code": "date"
-          },
-          {
-            "code": "dateTime"
-          },
-          {
-            "code": "Coding"
-          },
-          {
-            "code": "CodeableConcept"
-          },
-          {
-            "code": "Period"
-          },
-          {
-            "code": "Range"
-          },
-          {
-            "code": "Quantity"
-          },
-          {
-            "code": "Ratio"
-          },
-          {
-            "code": "Reference"
+            "code": "canonical"
           }
         ]
       }

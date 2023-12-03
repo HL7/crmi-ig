@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "Questionnaire",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablequestionnaire",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Questionnaire",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

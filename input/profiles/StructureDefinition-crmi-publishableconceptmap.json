@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "ConceptMap",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ConceptMap",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

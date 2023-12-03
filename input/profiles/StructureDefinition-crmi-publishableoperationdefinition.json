@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "OperationDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableoperationdefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/OperationDefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

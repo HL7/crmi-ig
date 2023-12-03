@@ -10,18 +10,17 @@ Usage: #definition
 * name = "CRMIPackage"
 * title = "CRMI Package"
 * description = """
-Packages a specified canonical resource with dependencies.
+Packages a specified canonical resource for use in a target environment, optionally 
+including related content such as dependencies, components, and testing cases and data.
 
 See [$package and $data-requirements](introduction.html#distribution-fhir-package)
 """
 * comment = """
-TODO: More documentation about the operation, including inline examples:
-
-```json
-{
-  "resourceType": "Bundle"
-}
-```
+The package operation supports producing a complete package of a particular artifact 
+supporting the capabilities expected to be available in a particular target environment. 
+For example, a Questionnaire may be packaged together with the value sets referenced by 
+elements of the questionnaire, and those value sets may be definitions (Computable) or 
+expansions (Expanded), depending on the parameters to the operation. 
 """
 * kind = #operation
 * code = #crmi.package
@@ -106,6 +105,19 @@ A desired capability of the resulting package. `computable` to include
 computable elements in packaged content; `executable` to include executable
 elements in packaged content; `publishable` to include publishable elements in
 packaged content.
+"""
+
+* parameter[+]
+  * name = #terminologyCapabilities
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #TerminologyCapabilities
+  * documentation = """
+A TerminologyCapabilities resource describing the expected terminology capabilities 
+of the target environment. For example, an environment may be capable of processing 
+specific types of value set definitions, but not others (e.g. LOINC panel definitions, 
+but not SNOMED hierarchies).
 """
 
 * parameter[+]
