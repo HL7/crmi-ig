@@ -18,8 +18,8 @@
 
 Library
 * type: test-case
-* artifact-canonical: Artifact Under Test
-* artifact-canonical: Operation Under Test
+* cqf-testArtifact: Artifact Under Test
+* cqf-testArtifact: Operation Under Test
 * cqf-inputParameters: input parameters
 * cqf-inputData: input data
 * cqf-outputParameters: expected output parameters
