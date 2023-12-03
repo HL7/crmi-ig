@@ -13,7 +13,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
   "name": "CqlType",
   "title": "CQL Type",
   "status": "active",

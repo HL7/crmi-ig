@@ -13,7 +13,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-defaultValue",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlAccessLevel",
   "name": "CqlAccessLevel",
   "title": "CQL Access Level",
   "status": "active",
