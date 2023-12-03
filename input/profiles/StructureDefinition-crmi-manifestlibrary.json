@@ -157,7 +157,7 @@
         "sliceName": "component",
         "short": "What components are in the manifest",
         "definition": "A canonical resource (such as a Library, CodeSystem, or ValueSet) that is part of the manifest.",
-        "comment": "This is the full list of component artifacts.",
+        "comment": "This is the full list of component artifacts. Each component may be either a specific artifact (such as a Library, ValueSet, or Measure), or it may itself be an artifact manifest (i.e. a Library conforming to this profile) to allow manifest information (dependency version binding) to be specified per artifact, rather than requiring it all to be specified at the root level of the manifest).",
         "requirements": "Manifests must be able to unambiguously specify the set of components that make up the artifact collection. The version of each component SHALL be included in the canonical reference to the component.",
         "min": 0,
         "max": "*",
