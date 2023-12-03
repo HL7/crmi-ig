@@ -91,10 +91,13 @@ The set of all CQL libraries used as part of a knowledge artifact must adhere to
 **Conformance Requirement 4.3 (Nested Libraries):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-3)
 {: #conformance-requirement-4-3}
 
-1. CQL libraries SHALL be structured such that all CQL expressions referenced from a single FHIR resource are
+1. CQL libraries SHOULD be structured such that all CQL expressions referenced from a single FHIR resource are
 contained within a single library.
+    * If an artifact makes use of multiple libraries, expression references in that artifact SHALL be qualified with the `name` of the library (i.e. `library-name.expression-identifier`)
 2. CQL libraries SHALL use a `called` clause for all included libraries
 3. The `called`-alias for an included library SHOULD be consistent for usages across libraries
+
+The recommendation that CQL libraries be structured such that all references to expressions from a FHIR artifact is a simplification to ensure that expression references from FHIR artifacts don't require qualified expressions (as they would if multiple libraries were referenced). However, there are valid use cases for allowing multiple libraries to be referenced, such as modular questionnaires, and dependent library references. However, when an artifact 
 
 #### Library Namespaces
 {: #library-namespaces}
