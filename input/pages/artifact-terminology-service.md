@@ -93,7 +93,7 @@ Note that when a code system authority has not established a versioning system, 
 
 2. SHALL Represent computable ValueSet information, as specified by the [CRMIComputableValueSet](StructureDefinition-crmi-computablevalueset.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 
-3. SHALL Represent executable ValueSet information, as specified by the [CRMIExecutableValueSet](StructureDefinition-crmi-executablevalueset.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
+3. SHALL Represent expanded ValueSet information, as specified by the [CRMIExpandedValueSet](StructureDefinition-crmi-expandedvalueset.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
 
 4. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CRMIPublishableValueSet](StructureDefinition-crmi-publishablevalueset.html) profile.
 
