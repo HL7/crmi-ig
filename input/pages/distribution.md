@@ -51,7 +51,11 @@ NOTE: To recreate the contents of a FHIR Package, the `$crmi.package` operation 
 
 ### Dependency Tracing
 
-Here is an exhaustive list of canonical resources with required dependencies for an execution environment, as shown below:
+Dependency tracing is the process of determining, given a root artifact, what other artifacts are referenced by the artifact, recursively, to produce a complete listing of all the artifacts (or _dependencies_) required for the artifact to be used. Because FHIR artifacts in general have many different ways of referencing other artifacts, the process needs to be described per resource type. In addition, because new extensions can be introduced and used at any point, the process needs to support a mechanism for allowing new content to indicate whether it constitutes a dependency for this purpose.
+
+In general, the process considers each element of a resource and, if it is a canonical reference, or a reference to an "artifact" resource as described by this implementation guide, it is traced. In addition, extensions used in quality improvement profiles such as Clinical Guidelines and Quality Measures, are considered.
+
+The following sections describe the dependency references for each type of resource. Note that this dependency-listing is not exhaustive, but captures the required dependencies for the quality improvement use case. The [cqf-shouldTraceDependency](StructureDefinition-cqf-shouldTraceDependency.html) extension can be used in the definition of an extension or profile to indicate whether the element should be traced as a dependency for the purposes of packaging and distribution.
 
 #### Structure Definition
 
