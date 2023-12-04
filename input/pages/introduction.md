@@ -97,7 +97,7 @@ This implementation guide assumes familiarity with the base FHIR specification, 
 
 As with any content development effort, FHIR Knowledge Artifacts have a content development lifecycle to create, review, publish, distribute, and implement. This implementation guide is focused on supporting consistent and reliable usage of FHIR Knowledge Artifacts by establishing content development best practices.
 
-<div style="max-width:800px;">
+<div style="max-width:1200px;">
 {% include img.html img="CRMI-Background.png" %}
 </div>
 
