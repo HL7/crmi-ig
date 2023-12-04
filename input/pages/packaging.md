@@ -17,9 +17,26 @@ of type `transaction`. However, since large artifact packages may span multiple 
 An artifact bundle contains the artifact as the first entry in the bundle, and optionally the
 dependencies and associated artifacts as subsequent entries as follows:
 
-1. **Artifact**: The main artifact resource for the package (such as a PlanDefinition, Measure, or Library)
-2. **Dependencies**: Any dependencies, including libraries, terminologies, and other artifacts required for the artifact
+1. **Artifact**: The main artifact resource for the package
+2. **Dependencies**: Any dependent artifact referenced by the main artifact
 3. **Test Cases**: Any test cases defined for the artifact
+
+Although the scope of the package is a single artifact, this same approach can be used for multiple artifacts by defining an `asset-collection` library as the main artifact.
+
+Dependencies consist of any knowledge artifact referenced by the main artifact (or any dependency, recursively).
+
+Note that packaging may be restricted in various ways, including:
+
+* Limited to only dependencies that are defined in the same package (i.e. implementation guide) as the main artifact
+* Limited to specific types of artifacts (such as terminology, profiles, extensions, etc)
+* Limited to specific capabilities (Shareable, Publishable, Computable, Executable)
+
+Examples of artifact packages include:
+
+* A Questionnaire, together with all the ValueSets referenced
+* A Measure, together with all the ValueSets, Libraries, and Test Cases defined for that measure
+* A StructureDefinition, together with all the parent and extension StructureDefinitions (but not the ValueSets referenced by bindings)
+* A PlanDefinition, together with the Executable libraries and Expanded ValueSets required to apply the PlanDefinition in a setting without a terminology service
 
 *Note that if an artifact package is large enough to require segmentation in multiple bundles, use of `transaction` bundles may not be feasible.
 
