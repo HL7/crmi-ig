@@ -320,4 +320,13 @@ This can simplify tooling for distribution to downstream systems, and can decrea
 
 Systems using sharable content, including: authoring systems, clinical data repositories, quality measure engines, decision support engines, care management systems, and assessment filler applications.
 
-Distribution client capabilities
+### Distribution client capabilities
+{: #distribution-client-capabilities}
+
+Distribution clients must be able to consume the artifacts produced by upstream systems, either as IG packages, or as artifact bundles, depending on how the upstream systems choose to distribute artifact content.
+
+For IG packages, the FHIR publishing ecosystem, including the FHIR validation tooling, already provide implementation support for integrating with the FHIR registry to download packaged implementation guide content as published for FHIR implementation guides. Applications can either make use of this existing tooling, or build tooling appropriate for their platform to integrate with the FHIR registry feed (or other upstream feeds as described above).
+
+Note that for artifact bundles that are the result of the $package operation, bundles may be requested that include duplicate artifacts. Client applications that consume artifact bundles must be prepared for this case.
+
+In addition, client applications must ensure that artifact references are resolved correctly. If an artifact reference is unversioned, a version manifest for the artifact should be consulted to determine the appropriate version-binding information. See the Artifact Scope discussion for information on how to identify the version manfiest appropriate for a particular artifact.
