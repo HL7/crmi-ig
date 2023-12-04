@@ -92,7 +92,7 @@ To support usage of a knowledge artifact, the artifact package contains the foll
 
 In addition, packages may be built for specific environments with particular capabilities. At the highest level, packages may be requested to have the capability categories identified by this implementation guide (Shareable, Publishable, Computable, and Executable). More fine-grained control over capabilities may be provided by parameters to the packaging operation such as `terminologyCapabilities`.
 
-The following are conformance requirements when packaging an artifact:
+The following are conformance requirements that apply to the FHIR Bundle when packaging an artifact using the bundling approach:
 
 **Conformance Requirement 6.1 (Artifact Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-1)
 {: #conformance-requirement-6-1}
@@ -105,6 +105,7 @@ The following are conformance requirements when packaging an artifact:
   {: #intellectual-property-packaging}
 
 **Conformance Requirement 6.2 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
-  {: #conformance-requirement-6-2}
+{: #conformance-requirement-6-2}
+
   1. Artifacts distributed in this way SHALL carry the copyright and intellectual property declarations as mandated by the publishing (or stewarding) entity that governs the use of the content.
 
