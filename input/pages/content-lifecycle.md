@@ -24,29 +24,6 @@ To support proper version management, this implementation guide proposes that:
 
 If an invalid state transition occurs accidentally, the artifacts should be updated to the correct status and downstream systems should be notified as soon as possible.
 
-### Grouping Knowledge Artifacts
-
-There are a few use-cases for groups of knowledge artifacts:
-1. During the authoring lifecycle
-2. Distribution of published artifacts
-
-#### For the authoring lifecycle, a FHIR Package is used. This is compatiable with
-HL7 FHIR Publishing tools. In the FHIR Package a corresponding
-ImplementationGuide resource is used to represent the package, as it has a
-`packageId`, a proposed `packageScope`, and references to all artifacts in the
-package. Additionally, the following query could be used to see what package a
-particular artifact is part of:
-```
-/ImplementationGuide?resource={artifact.resourceType}/{artifact.id}
-```
-If a single ImplementationGuide is returned, the package is the packageId. If multiple are found and the packageId varies, or if no ImplementationGuide resources are found, then it is not known what package the artifact is from.
-
-[See more about publishing](publishing.html)
-
-#### For distribution, an Artifact Library (FHIR Library) is used.
-
-This can be created following the `$package` operation and paramaters to define requirements for the group. [See more about distribution APIs](distribution.html).
-
 ### Components vs dependencies
 
 A _component_ artifact is an artifact that is designated specifically as part of a collection, whereas a _dependency_ is an artifact that is referenced by another artifact. The distinction is drawn to ensure that dependencies can always be calculated by tracing artifact dependencies, whereas components always need to be specified (i.e. they are the designated components of the collection).
