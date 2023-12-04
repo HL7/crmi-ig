@@ -404,7 +404,7 @@ meaningful name (avoid abbreviations) and conform to Conformance Requirement 4.1
 
 1. Library-level identifiers referenced in the CQL:<br/>
       a. SHOULD Use quoted identifiers<br/>
-      b. SHOULD Use Title Case<br/>
+      b. SHOULD Use Initial Case<br/>
       c. MAY Include spaces
 
 For example:
