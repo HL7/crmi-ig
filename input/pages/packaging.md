@@ -12,7 +12,9 @@ provides guidance on how to package knowledge artifacts, either independently, o
 
 In general, artifacts such as libraries, measures, and test cases can be packaged as a Bundle
 of type `transaction`. However, since large artifact packages may span multiple bundles, the type
-`collection` may be used as well. In that case, the bundles should be processed as a unit.
+`collection` may be used as well. In that case, the bundles should be processed as a unit (i.e. as 
+a single transaction). The intent of splitting the bundles is to allow large packages to be processed, 
+but in the case that they are split, transactional considerations are the responsibility of the consumer.
 
 An artifact bundle contains the artifact as the first entry in the bundle, and optionally the
 dependencies and associated artifacts as subsequent entries as follows:
