@@ -27,11 +27,22 @@ This implementation guide is based upon work in multiple quality improvement and
 
 This implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts [Profiles](profiles.html). These categories are proposed as a way to help facilitate management of expectations in the content development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
 
-#### Canonical Resource Types
+#### Artifacts
 
-The following is a list of FHIR resource types that are considered _canonical resources_ along with a grouping of these resource types by priority of support within this implementation guide. Priority groupings are first described generally and any specific exceptions to those groupings (e.g., a different prioritization for a particular operation) should be described explicitly elsewhere.
+An _artifact_ in this implementation guide is a FHIR resource whose primary focus is the representation of context-independent knowledge such as a profile, a value set, a decision support rule, or a quality measure specification, as opposed to FHIR resources such as Patient, Organization, or Observation, that are typically focused on the representation of _instance_ data for patients and other healthcare related entities. Most of the resources types for representing artifacts in FHIR are also [_canonical resources_](https://hl7.org/fhir/canonicalresource.html#CanonicalResource), and often [_metadata resources_](https://hl7.org/fhir/metadataresource.html#MetadataResource). However, some FHIR resources are not defined by FHIR as canonical resources, but may still be used to represent context-independent knowledge (e.g. Medication, or Substance). The use of the term _artifact_ in this IG applies to both canonical resources as defined by the base specification, as well as these _non-canonical definitional_ resources.
 
-**Canonical Resource Types**
+The following is a list of FHIR resource types that are considered _artifacts_, along with a grouping of resource types according to the following priorities:
+
+* Knowledge Artifacts: Representing decision support rules, quality measures, logic libraries, and activity definitions
+* Terminology Artifacts: Code systems, value sets, naming systems, and concept maps
+* Conformance Artifacts: Profiles, extensions, structure maps, and artifacts related to defining and testing conformance
+* Domain Definition Artifacts: Medications, substances, groups, and other domain-related definitional artifacts
+* Evidence-based Medicine Artifacts: Evidence, EvidenceVariable, and other artifacts related to supporting evidence-based medicine
+* Related Resources: Resources that are not artifacts but are profiled and/or used in this implementation guide
+
+These groupings are listed in priority order, meaning the further down the grouping, the less-developed the profiles and guidance for the artifacts in that category.
+
+**Artifact Resource Types**
 * ActivityDefinition
 * CapabilityStatement
 * ChargeItemDefinition (not considered in this IG)
@@ -71,8 +82,6 @@ The following is a list of FHIR resource types that are considered _canonical re
 * TerminologyCapabilities
 * TestScript (roadmap item)
 * ValueSet
-
-The following groupings of these canonical resources indicate priority of support as well as categorization of capability within this implementation guide:
 
 ##### Knowledge Artifacts (Primary)
 * ActivityDefinition
