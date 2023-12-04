@@ -10,7 +10,7 @@ provides guidance on how to package knowledge artifacts, either independently, o
 
 #### FHIR Bundle
 
-In general, artifacts such as libraries, measures, and test cases are packaged as a Bundle
+In general, artifacts such as libraries, measures, and test cases can be packaged as a Bundle
 of type `transaction`. However, since large artifact packages may span multiple bundles, the type
 `collection` may be used as well. In that case, the bundles should be processed as a unit.
 
@@ -49,8 +49,8 @@ Artifacts may also be packaged following the FHIR Package specification. This in
 
 See also: [FHIR Package Specification](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
-### Packaging Artifacts
-{: #packaging-artifacts}
+### Package Conformance
+{: #package-conformance}
 
 To support usage of a knowledge artifact, the artifact package contains the following general components:
 
@@ -60,12 +60,14 @@ To support usage of a knowledge artifact, the artifact package contains the foll
 * Optionally, all the required libraries referenced by the library, recursively (included as Library resources)
 * Optionally, all the required terminologies referenced by the library, or any required libraries (included as CodeSystem and/or ValueSet resources)
 
+In addition, packages may be built for specific environments with particular capabilities. At the highest level, packages may be requested to have the capability categories identified by this implementation guide (Shareable, Publishable, Computable, and Executable). More fine-grained control over capabilities may be provided by parameters to the packaging operation such as `terminologyCapabilities`.
+
 The following are conformance requirements when packaging an artifact:
 
 **Conformance Requirement 6.1 (Artifact Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-1)
 {: #conformance-requirement-6-1}
 
-  1. The first entry in an artifact bundle SHALL be the artifact resource conforming to the appropriate artifact profile(s)
+  1. The first entry in an artifact bundle SHALL be the artifact resource conforming to the artifact profile dictated by the target package capability ([Shareable, Publishable, Computable, Executable](profiles.html#artifact-capability-profiles)
   2. Artifact bundles MAY include any libraries referenced by the primary library
   3. Artifact bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
 
