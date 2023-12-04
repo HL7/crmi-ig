@@ -11,7 +11,7 @@ These operations are defined to support artifact packaging and dependency tracin
 | **Operation** | **Description** |
 |----|----|
 | [Package](OperationDefinition-crmi-package.html) | Packages a specified canonical resource for use in a target environment, optionally including related content such as dependencies, components, and testing cases and data. |
-| [DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. |
+| [DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. The data requirements operation is used for dependency gathering, as a way to understand the set of dependencies of a given artifact, as well as for data requirements determination, as a way to understand the complete set of data requirements for a given artifact. |
 {: .grid }
 
 #### Terminology
