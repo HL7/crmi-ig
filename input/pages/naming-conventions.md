@@ -6,13 +6,25 @@ This section provides guidance on naming conventions for canonical artifacts.
 
 ### Definitional content
 
-The versions of all artifacts are consistend across the package.
+#### URL
 
-When definition the `url` fo the artifact, use the package's canonical base and the `name` of the artifact (computable representation), a common pattern is:
+The `url` element of an artifact SHOULD be constructed according to the following pattern:
 
 ```
 {package-canonical-base}/{resource.resourceType}/{resource.name}
 ```
+
+Note that this pattern is NOT the same as what is typically produced by the IG publisher, which usually makes use of the `id` of the artifact in the authoring context. For example, the URL for the CRMIShareableActivityDefinition profile defined in this implementation guide is:
+
+```
+http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition
+```
+
+However, because the `id` element of the artifact will in general change when the artifact is hosted in other environments, the use of the `id` to construct the URL results in confusion about the role of the `id` in identifying the artifact. Because the canonical URL is so central to the identity of a canonical resource, this IG recommends the use of the `name` element to construct the URL, eliminating the potential confusion associated with the use of the `id` element.
+
+#### Version
+
+The `version` element for all artifacts within the same package SHOULD be the same as the version of the package. This is usually the ImplementationGuide in which the artifact is defined.
 
 ### Operation definitions
 
