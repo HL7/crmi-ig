@@ -68,6 +68,17 @@ Artifacts may also be packaged following the FHIR Package specification. This in
 
 See also: [FHIR Package Specification](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
+### Artifact Terminology
+
+To support packaging and distribution of the terminology required for a particular artifact, this implementation guide defines terminology profiles for the capability categories:
+
+* ComputableValueSet - The definition of a value set (essentially the ValueSet.compose element)
+* ExpandedValueSet - The definition of a value set (essentially the ValueSet.expansion element)
+
+Whether to package and distribute Computable or Expanded value sets is a consideration of the target environment. If the environment is expected to have access to a fully-featured terminology server capable of expanding the required value sets, then packaging Computable value sets only can potentially save on bundle size. Conversely, if the target environment is not expected to have access to a terminology server (an occasionally connected environment for example), then packaging Expanded value sets only may be more appropriate.
+
+In addition, the $package operation defines a `terminologyCapabilities` parameter to support more fine-grained control over how value sets are packaged for a particular environment.
+
 ### Package Conformance
 {: #package-conformance}
 
