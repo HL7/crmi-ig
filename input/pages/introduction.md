@@ -50,7 +50,7 @@ Many authoring systems also:
 * Track changes
 * Content version control
 
-An example of an authoring system is: Visual Studio Code (with various plugins); git; build tools (IG Publisher and Sushi). In this case the authoring content could be stored in a filesystem as text files in a git repository. 
+An example of an authoring system is: Visual Studio Code (with various plugins); git; build tools (IG Publisher and SUSHI). In this case the authoring content could be stored in a filesystem as text files in a git repository. 
 
 An authoring system MAY use an Authoring Knowledge Repository and Authoring Knowledge Terminology Services to aid in the authoring process.
 
@@ -59,7 +59,7 @@ An authoring system MAY use an Authoring Knowledge Repository and Authoring Know
 
 The authoring knowledge repository is used during authoring to help with tools requiring a FHIR server for content to review, preview, test, etc.
 
-See [Authoring Knowledge Repository Capabilities]()
+See [Artifact Repository Service](artifact-repository-service.html)
 
 
 ##### Authoring Knowledge Terminology Service
@@ -67,7 +67,7 @@ See [Authoring Knowledge Repository Capabilities]()
 
 The authoring knowledge terminology service, similar to authoring knowledge repository, is also used during authoring to help with tools requiring a FHIR terminology server for review, preview, test, etc.
 
-See [Authoring Knowledge Terminology Service Capabilities]()
+See [Artifact Terminology Service](artifact-terminology-service.html)
 
 ### Approach
 {: #approach}
@@ -96,11 +96,10 @@ FHIR defines a set of core resources, such as patient, encounter, and observatio
 </div>
 
 This IG has the following aspirations:
-* Full Lifecycle Knowledge Platform respecting key Separations of Concerns, supporting established Principles &amp; Best Practices, and enabling efficient Workflows
-* Will see details of key parts of this in upcoming slides including application to Registry and Quality Measurement business cases
-* Knowledge Assets are extensible and support standards where pragmatic
+* Full lifecycle knowledge platform respecting key separations of concerns, supporting established principles &amp; best practices, and enabling efficient workflows
+* Knowledge Artifacts are extensible and support standards where pragmatic
 * Open Interfaces - based-on and/or supporting standards-based API’s where appropriate
-* Open Formats - Information Models, Terminologies (Semantics), and ‘Libraries’ of reusable and/or sharable Knowledge Representations/ Expressions
+* Open Formats - Information Models, Terminologies (Semantics), and Libraries of reusable and/or sharable Knowledge Representations/Expressions
 * Standards-based API’s, Formats, and Patterns where possible/pragmatic (otherwise supported- e.g. translation to/from)
 
 ### Conventions
