@@ -72,7 +72,7 @@ The following are conformance requirements when packaging an artifact:
 ### Intellectual Property of Packaging
   {: #intellectual-property-packaging}
 
-**Conformance Requirement 6.4 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-4)
-  {: #conformance-requirement-6-4}
-  1. Artifacts distributed in this way SHALL carry the appropriate copyright and intellectual property declarations.
+**Conformance Requirement 6.2 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
+  {: #conformance-requirement-6-2}
+  1. Artifacts distributed in this way SHALL carry the copyright and intellectual property declarations as mandated by the publishing (or stewarding) entity that governs the use of the content.
 
