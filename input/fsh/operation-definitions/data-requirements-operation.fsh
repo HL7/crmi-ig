@@ -12,6 +12,8 @@ Usage: #definition
 * description = """
 Determines the effective data requirements for the artifact, including known
 components and dependencies, and optionally informed by a version manifest.
+
+See [$package and $data-requirements](distribution.html#package-and-data-requirements)
 """
 * comment = """
 The data requirements operation is used for dependency gathering, as a way to understand 
@@ -21,7 +23,7 @@ terminology usage (code systems, value sets, and direct-reference codes), parame
 and data requirements.
 """
 * kind = #operation
-* code = #crmi.data-requirements
+* code = #data-requirements
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement

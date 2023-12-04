@@ -16,11 +16,8 @@ When definition the `url` fo the artifact, use the package's canonical base and 
 
 ### Operation definitions
 
-Operation definition names (`OperationDefinition.code` property) should be constructed using a namespace from the last segment of the package `id` and the operation signifier e.g.:
+Although FHIR operation definitions can specify a `code` property, servers may use whatever code they surface in their capability statement to implement operations. To simplify application development and encourage consistency, this implementation guide proposes that:
 
-Given the packageId of `hl7.fhir.uv.crmi`, the namespace for operation is `crmi`:
+1. Servers SHOULD use the `code` property of the OperationDefinition to expose operation capability
+2. Operation definitions SHOULD use the same `code` property as the base definition of an OperationDefinition they are extending
 
-```
-crmi.data-requirements
-crmi.apply
-```

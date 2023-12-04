@@ -303,7 +303,7 @@ The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-art
 
 For each type of knowledge artifact supported by a PublishableArtifactRepository:
 
-1. SHALL support artifact packaging: [$crmi.package](OperationDefinition-crmi-package.html) operation
+1. SHALL support artifact packaging: [$package](OperationDefinition-crmi-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
@@ -315,7 +315,7 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
     9. SHOULD support include-components parameter
     10. SHOULD support include-dependencies parameter
 
-2. SHALL support artifact requirements analysis: [$crmi.data-requirements](OperationDefinition-crmi-data-requirements.html) operation
+2. SHALL support artifact requirements analysis: [$data-requirements](OperationDefinition-crmi-data-requirements.html) operation
     1. SHALL support the id parameter
     2. SHALL support the url parameter
     3. SHALL support the version parameter
