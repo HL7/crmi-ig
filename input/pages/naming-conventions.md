@@ -26,6 +26,8 @@ However, because the `id` element of the artifact will in general change when th
 
 The `version` element for all artifacts within the same package SHOULD be the same as the version of the package. This is usually the ImplementationGuide in which the artifact is defined.
 
+In addition, all references to canonicals from artifacts in the package to other artifacts in the same package SHOULD be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
+
 ### Operation definitions
 
 Although FHIR operation definitions can specify a `code` property, servers may use whatever code they surface in their capability statement to implement operations. To simplify application development and encourage consistency, this implementation guide proposes that:
