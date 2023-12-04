@@ -57,17 +57,17 @@ An authoring system MAY use an Authoring Knowledge Repository and Authoring Know
 ##### Authoring Knowledge Repository
 {: #authoring-knowledge-repository}
 
-The authoring knowledge repository is used during authoring to help with tools requiring a FHIR server for content to review, preview, test, etc.
+An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing readonly access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
 
-See [Artifact Repository Service](artifact-repository-service.html)
+See [Artifact Repository Service](artifact-repository-service.html) for a complete description of the capabilities provided by an artifact repository.
 
 
 ##### Authoring Knowledge Terminology Service
 {: #authoring-knowledge-terminology-service}
 
-The authoring knowledge terminology service, similar to authoring knowledge repository, is also used during authoring to help with tools requiring a FHIR terminology server for review, preview, test, etc.
+An artifact terminology service is a FHIR terminology service with specific capabilities to enable mangaement of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
 
-See [Artifact Terminology Service](artifact-terminology-service.html)
+See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
 
 ### Approach
 {: #approach}
