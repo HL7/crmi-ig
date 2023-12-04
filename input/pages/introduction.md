@@ -8,13 +8,12 @@
 Canonical resources are conformance, structural, and knowledge [canonical FHIR resources](https://www.hl7.org/fhir/resource.html#canonical). An "artifact" in this IG means an instance of a canonical resource. The purpose of this IG is to:
 
 * Provide a place for universal specification of Shareable/Publishable/Computable/Executable profiles that R4 IGs can use for canonical resources
-* Provide a space for universally applicable guidance and extensions in support of clinical content management and the content development lifecycle, including support for: (1) publishing artifacts and (2) distributing artifacts
+* Provide a space for universally applicable guidance and extensions in support of content management and the content development lifecycle, including support for: (1) publishing artifacts and (2) distributing artifacts
 
 ### Audience
 {: #audience}
 
 The audience for this IG includes modelers (authors of FHIR profiles); terminologists; knowledge developers (authors of measures, guidelines, order catalogs, clinical logic/rules, assessments); and healthcare software developers using FHIR.
-
 
 ### Scope
 {: #scope}
