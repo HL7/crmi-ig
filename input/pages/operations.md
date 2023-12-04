@@ -37,7 +37,7 @@ These operations are defined to support artifact authoring capabilities expected
 
 ### Operation Pattern Profiles
 
-Operations on knowledge artifacts should consider conforming to one or more of the following profiles to ensure consistent naming of operation parameters when providing the same capabilities across operations:
+Operations on knowledge artifacts **SHOULD** consider conforming to one or more of the following profiles to ensure consistent naming of operation parameters when providing the same capabilities across operations:
 
 | **Operation Profile**               | **Purpose**                                                                    |
 |-------------------------------------|--------------------------------------------------------------------------------|

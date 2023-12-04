@@ -14,7 +14,7 @@ Standardized terminologies are used throughout FHIR to represent coded values in
 
 #### CodeSystem
 
-Within FHIR, terminologies are represented using the [CodeSystem](http://hl7.org/fhir/codesystem) resource, which represents a single system of coded concepts. The CodeSystem resource is not intended for distribution, rather it is a description of the code system and its properties. CodeSystem resources _may_ contain content, but not necessarily, and may even have partial content, dependending on the code system and use case being represented.
+Within FHIR, terminologies are represented using the [CodeSystem](http://hl7.org/fhir/codesystem) resource, which represents a single system of coded concepts. The CodeSystem resource is not intended for distribution, rather it is a description of the code system and its properties. CodeSystem resources _may_ contain content, but not necessarily, and may even have partial content, depending on the code system and use case being represented.
 
 Code systems may be _enumerated_, meaning they simply list the concepts that are part of the code system, or they may have a formal grammar that describes rules for valid concepts in the code system, or they may have both, i.e. some enumerated concepts, as well as rules for additional concepts.
 
@@ -96,8 +96,9 @@ This approach means that the version information can be supplied as part of the 
 In addition, it allows the same artifacts and value sets to be included in different artifact packages, and means that the version can be used to only reflect real change in the artifacts, rather than having to increment version information just to support terminology versioning.
 
 ### Version Manifest
+{: #version-manifest-detail}
 
-A _version manifest_ as defined by this implementation guide is an _asset collection_ library (i.e. an instance of a Library resource with a type of `asset-collection`), and conforming to the VersionManifest profile. A version manifest may contain any number of `depends-on` `relatedArtifact` entries to specify the version for any references to canonical resources within the artifacts of the release.
+A _version manifest_ as defined by this implementation guide is an _asset collection_ library (i.e. an instance of a Library resource with a type of `asset-collection`), and conforming to the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile. A version manifest may contain any number of `depends-on` `relatedArtifact` entries to specify the version for any references to canonical resources within the artifacts of the release.
 
 In addition, the version manifest profile allows for specifying the _expansion parameters_, i.e. values for the parameters that should be provided to the `$expand` operation whenever an expansion request is made.
 

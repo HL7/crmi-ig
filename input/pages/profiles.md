@@ -5,7 +5,7 @@
 
 For definitional artifacts, this implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. These categories are proposed as a way to help facilitate management of expectations in the content development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
 
-Most knowledge artifacts are typically at least shareable, and where appropriate for the target environment, artifacts should declare the capabilities they support using the cqf-knowledgeCapability extension, as well as the knowledge representation level of the artifact using the cqf-knowledgeRepresentationLevel extension, as defined in the shareable profiles.
+Most knowledge artifacts are typically at least shareable, and where appropriate for the target environment, artifacts **SHOULD** declare the capabilities they support using the cqf-knowledgeCapability extension, as well as the knowledge representation level of the artifact using the cqf-knowledgeRepresentationLevel extension, as defined in the shareable profiles.
 
 * **Shareable**: Shareable profiles set the minimum expectations for including an artifact in a repository or implementation guide, including the URL, version, name, and publisher.
 * **Computable**: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.
@@ -33,16 +33,16 @@ For knowledge artifacts, a _shareable_ artifact defines the minimum expectations
 
 | **Element** | **Guidance** |
 |----|----|
-| url | Required because it provides the globally unique identity for the artifact |
-| version | Required because it ensures version tracking is possible for the artifact |
-| versionAlgorithm | Should be provided to ensure systems understand how to interpret the version element of the artifact |
-| name | Should be provided to ensure systems can reliably make use of code-generation and other system-level processing for the artifact |
-| title | Required to ensure systems can provide a user-friendly identifier for the artifact |
-| status | Required to ensure systems can track the life-cycle of the artifact |
-| experimental | Should be provided to ensure systems can differentiate production from experimental content |
-| publisher | Should be provided to ensure consumers can identify the publisher (i.e. steward) of the artifact |
-| description | Required to ensure systems can provide a meaningful human-readable description of the artifact |
-| knowledgeRepresentationLevel | Should be provided to allow systems to understand the levels of representation of content provided by the artifact |
+| url | **SHALL** be provided because it provides the globally unique identity for the artifact |
+| version | **SHALL** be provided because it ensures version tracking is possible for the artifact |
+| versionAlgorithm | **SHOULD** be provided to ensure systems understand how to interpret the version element of the artifact |
+| name | **SHOULD** be provided to ensure systems can reliably make use of code-generation and other system-level processing for the artifact |
+| title | **SHALL** be provided to ensure systems can provide a user-friendly identifier for the artifact |
+| status | **SHALL** be provided to ensure systems can track the life-cycle of the artifact |
+| experimental | **SHOULD** be provided to ensure systems can differentiate production from experimental content |
+| publisher | **SHOULD** be provided to ensure consumers can identify the publisher (i.e. steward) of the artifact |
+| description | **SHALL** be provided to ensure systems can provide a meaningful human-readable description of the artifact |
+| knowledgeRepresentationLevel | **SHOULD** be provided to allow systems to understand the levels of representation of content provided by the artifact |
 {: .grid }
 
 ### Publishable
@@ -52,23 +52,23 @@ For knowledge artifacts, a _publishable_ artifact defines the expectations for p
 
 | **Element** | **Guidance** |
 |----|----|
-| identifier | May be provided to allow for additional identifiers beyond the URL (e.g. the OID) |
-| date | Required to ensure systems have a mechanism to detect changes that may not be tracked by the version |
-| contact | Should be provided to allow consumers to understand how to contact the publisher (i.e. steward) of the artifact |
-| useContext | Should be provided to allow systems to categorize by and consumers to understand the appropriate context of use for the artifact |
-| jurisdiction | DEPRECATED, artifacts should use a useContext with a code of jurisdiction to provide this information for the artifact |
-| purpose | Should be provided to allow consumers to understand why an artifact was created and the intended purpose of use |
-| copyright | Should be provided to inform consumers about use and/or publishing restrictions |
-| copyrightLabel | Should be provided to allow systems to display and consumers to understand copyright information |
-| approvalDate | Should be provided to inform consumers about the primary approval date of the artifact |
-| lastReviewDate | Should be provided to inform consumers when the artifact content was last reviewed |
-| effectivePeriod | Should be provided to inform consumers what timeframe the artifact is intended to be used |
-| topic | DEPRECATE, artifact should use a useContext instead |
-| author | Should be provided to inform consumers what authors contributed to the artifact |
-| editor | Should be provided to inform consumers what editors were involved in the artifact |
-| reviewer | Should be provided to inform consumers what individuals or organizations were involved in the review of the artifact |
-| endorser | Should be provided to inform consumers what individuals or organizations have endorsed the artifact |
-| relatedArtifact | Should be provided to support additional documentation, citations, etc. for the artifact |
+| identifier | **MAY** be provided to allow for additional identifiers beyond the URL (e.g. the OID) |
+| date | **SHALL** be provided to ensure systems have a mechanism to detect changes that may not be tracked by the version |
+| contact | **SHOULD** be provided to allow consumers to understand how to contact the publisher (i.e. steward) of the artifact |
+| useContext | **SHOULD** be provided to allow systems to categorize by and consumers to understand the appropriate context of use for the artifact |
+| jurisdiction | **DEPRECATED**, artifacts **SHOULD** use a useContext with a code of jurisdiction to provide this information for the artifact |
+| purpose | **SHOULD** be provided to allow consumers to understand why an artifact was created and the intended purpose of use |
+| copyright | **SHOULD** be provided to inform consumers about use and/or publishing restrictions |
+| copyrightLabel | **SHOULD** be provided to allow systems to display and consumers to understand copyright information |
+| approvalDate | **SHOULD** be provided to inform consumers about the primary approval date of the artifact |
+| lastReviewDate | **SHOULD** be provided to inform consumers when the artifact content was last reviewed |
+| effectivePeriod | **SHOULD** be provided to inform consumers what timeframe the artifact is intended to be used |
+| topic | **DEPRECATED**, artifact **SHOULD** use a useContext instead |
+| author | **SHOULD** be provided to inform consumers what authors contributed to the artifact |
+| editor | **SHOULD** be provided to inform consumers what editors were involved in the artifact |
+| reviewer | **SHOULD** be provided to inform consumers what individuals or organizations were involved in the review of the artifact |
+| endorser | **SHOULD** be provided to inform consumers what individuals or organizations have endorsed the artifact |
+| relatedArtifact | **SHOULD** be provided to support additional documentation, citations, etc. for the artifact |
 {: .grid }
 
 ### Computable

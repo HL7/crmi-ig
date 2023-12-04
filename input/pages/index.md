@@ -126,9 +126,9 @@ These groupings are listed in priority order, meaning the further down the group
 * SpecimenDefinition
 * Substance (non-canonical definitional)
 
-##### Evidence-based Medicine Artifacts (Quarternary)
+##### Evidence-Based Medicine (EBM) Artifacts (Quaternary)
 
-If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other EBM resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
+If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other Evidence-Based Medicine (EBM) resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
 
 * EffectEvidenceSynthesis
 * Evidence
@@ -154,7 +154,7 @@ page in the menu bar:
 -  **[Introduction](introduction.html)**: Detailed overview of the content management lifecycle and the background for this guide
 -  **Content Management**
     -  **[Content lifecycle](content-lifecycle.html)**: Content lifecycle of knowledge artifacts
-    -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, incluing canonical base, url and name, and operation definitions.
+    -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, including canonical base, url and name, and operation definitions.
     -  **[Using CQL](using-cql.html)**: Using Clinical Quality Language as part of knowledge artifacts
     -  **[Testing](testing.html)**: Simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
     -  **[Packaging](packaging.html)**: Packaging requirements for canonical resources and knowledge artifacts 
@@ -168,7 +168,7 @@ page in the menu bar:
 
 ### Must Support
 
-Certain elements in the profiles defined in this implementation guide are marked as Must Support. This flag is used to indicate that the element plays a critical role in defining, sharing, and implementing artifacts, and implementations SHALL understand and process the element.
+Certain elements in the profiles defined in this implementation guide are marked as Must Support. This flag is used to indicate that the element plays a critical role in defining, sharing, and implementing artifacts, and implementations **SHALL** understand and process the element.
 
 In addition, because artifact specifications typically make use of data implementation guides (e.g. IPS, US Core, QI-Core), the implications of the Must Support flag for profiles used from those implementation guides must be considered.
 
@@ -179,13 +179,13 @@ For more information, see the definition of [Must Support](https://hl7.org/fhir/
 
 Conformance Requirement 1.1 (Must Support Elements):
 
-For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element SHALL be interpreted as follows:
+For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element **SHALL** be interpreted as follows:
 
-* Authoring systems and knowledge repositories SHALL be capable of populating all Must Support data elements.
-* Evaluating systems SHALL be capable of processing resource instances containing Must Support data elements without generating an error or causing the evaluation to fail.
-* In situations where information on a particular data element is not present and the reason for absence is unknown, authoring and repository systems SHALL NOT include the data elements in the resource instance. For example, for systems using ‘9999’ to indicate unknown data values, do not include ‘9999’ in the resource instance.
-* When consuming resource instances, evaluating systems SHALL interpret missing data elements within resource instances as data not present for the artifact.
-* Submitting and receiving systems using knowledge artifacts to perform data exchange or artifact evaluation operations SHALL respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
+* Authoring systems and knowledge repositories **SHALL** be capable of populating all Must Support data elements.
+* Evaluating systems **SHALL** be capable of processing resource instances containing Must Support data elements without generating an error or causing the evaluation to fail.
+* In situations where information on a particular data element is not present and the reason for absence is unknown, authoring and repository systems **SHALL NOT** include the data elements in the resource instance. For example, for systems using ‘9999’ to indicate unknown data values, do not include ‘9999’ in the resource instance.
+* When consuming resource instances, evaluating systems **SHALL** interpret missing data elements within resource instances as data not present for the artifact.
+* Submitting and receiving systems using knowledge artifacts to perform data exchange or artifact evaluation operations **SHALL** respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
 
 ### References
 {: #references}

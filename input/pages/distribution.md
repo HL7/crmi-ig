@@ -24,12 +24,12 @@ This example iollustrates the use of an NPM package registry to install IG packa
 ### FHIR REST API
 {: #distribution-fhir-rest}
 
-Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search SHOULD be available for all canonical resources.
+Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search **SHOULD** be available for all canonical resources.
 
 ### $package and $data-requirements
 {: #package-and-data-requirements}
 
-Downstream systems MAY require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
+Downstream systems **MAY** require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
 
 <div style="max-width:800px;">
 {% include img.html img="CRMI-PackageOperation.png" %}
@@ -49,7 +49,7 @@ Both `$package` and `$data-requirements` operations are available for all canoni
 3. Questionnaire, ActivityDefinition, PlanDefinition, Library, Measure
 4. ObservationDefinition, SpecimenDefinition, MedicationKnowledge, etc...
 
-NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
+NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropriate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
 
 ### Dependency Tracing
 
@@ -59,12 +59,23 @@ In general, the process considers each element of a resource and, if it is a can
 
 The following sections describe the dependency references for each type of resource. Note that this dependency-listing is not exhaustive, but captures the required dependencies for the quality improvement use case. The [cqf-shouldTraceDependency](StructureDefinition-cqf-shouldTraceDependency.html) extension can be used in the definition of an extension or profile to indicate whether the element should be traced as a dependency for the purposes of packaging and distribution.
 
+Each section provides a listing of the paths to each element that should be considered as a reference to an artifact (and recursively traced for dependencies as well) using a FHIRPath-like syntax, with abbreviated references to the names of extensions to be followed.
+
 #### Structure Definition
 
+NOTE: For structure definitions, only the differential element is considered, on the basis that the baseDefinition will be traced, so anything in the snapshots will be covered by tracing up the hierarchy.
+
 ```
+extension[].url
+modifierExtension[].url
 baseDefinition
+differential.element[].type.code
+differential.element[].type.profile[]
+differential.element[].type.targetProfile[]
 differential.element[].constraint[].source
 differential.element[].binding.valueSet
+differential.element[].extension[].url
+differential.element[].modifierExtension[].url
 extension[cpg-inferenceExpression].reference
 extension[cpg-assertionExpression].reference
 extension[cpg-featureExpression].reference
@@ -81,7 +92,9 @@ group[].rule[]..source[].defaultValue[x]
 
 ```
 compose.include[].valueSet
+compose.include[].system
 compose.exclude[].valueSet
+compose.exclude[].system
 ```
 
 #### CodeSystem**
@@ -229,22 +242,22 @@ parameter[].resource
 relatedMedicationKnowledge[].reference
 monograph[].source
 ingredient[].itemReference
-reglatory[].reglatoryAuthroity
+regulatory[].regulatoryAuthority
 ```
 
 ### Manifest
 {: #distribution-manifest}
 
-Canonical references MAY not have been authored with a version. To ensure consistent versions of resources are used by downstream systems, a manifest parameter to specify canonical versions MAY be passed to FHIR operations that use dynamic requirements: `$package` and `$data-requirements`; in addition to execution operations that can use a content endpoint to resolve canonical resources such as `$apply` from CPG and `$evaluate-measure` from DEQM IG.
+Canonical references **MAY** be authored without a version. To ensure consistent versions of resources are used by downstream systems, a manifest parameter to specify canonical versions **MAY** be passed to FHIR operations that use dynamic requirements: `$package` and `$data-requirements`; in addition to execution operations that can use a content endpoint to resolve canonical resources such as `$apply` from CPG and `$evaluate-measure` from DEQM IG.
 
-More information on [manifest specification]()
+More information on [manifest specification](version-manifest.html)
 
 ### Syndication
 {: #distribution-syndication}
 
-Syndication allows broadcasting of content changes to interested parties. The syndication mechanism proposed in the IG MAY be used by downstream systems, or federated Knowledge Artifact Repositories so preemptive downloading, or notification message send to interested parties.
+Syndication allows broadcasting of content changes to interested parties. The syndication mechanism proposed in the IG **MAY** be used by downstream systems, or federated Knowledge Artifact Repositories so preemptive downloading, or notification message send to interested parties.
 
-The syndication API SHALL be based on ATOM, an example is shown below:
+The syndication API **SHALL** be based on ATOM, an example is shown below:
 
 ```xml
 <!-- see: https://validator.w3.org/feed/docs/atom.html -->

@@ -20,7 +20,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Capability statement for a terminology service supporting artifact authoring and evaulation use cases. A server can support more functionality than defined here, but this defines the minimum expectations."/>
+  <description value="Capability statement for a terminology service supporting artifact authoring and evaluation use cases. A server can support more functionality than defined here, but this defines the minimum expectations."/>
   <kind value="requirements"/>
   <fhirVersion value="4.0.1"/>
   <format value="json"/>

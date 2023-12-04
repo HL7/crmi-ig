@@ -10,7 +10,7 @@ Title: "CRMI Operation Profile: Artifact Operation"
 Description: """
 Profile for knowledge artifact operations.
 
-This establishes input paramaters when the operation is involked at the resource
+This establishes input parameters when the operation is involked at the resource
 type level. The parameters are used to identify or specify the resource for the
 operation.
 

@@ -38,7 +38,7 @@ This IG is a conformance profile, as described in the [“Conformance” section
   * FHIR Package Registry
   * Knowledge Repository
   * Knowledge Terminology Service
-* [Distribution](distribution.html): Specifications for artifact distribution
+* [Distribution](distribution.html): Specifications for artifact distribution, including the use of NPM (Node Package Manager)
   * Downstream System(s): Systems using distributed content.
 
 #### Authoring System
@@ -107,15 +107,15 @@ This IG has the following aspirations:
 * Open Formats - Information Models, Terminologies (Semantics), and Libraries of reusable and/or sharable Knowledge Representations/Expressions
 * Standards-based API’s, Formats, and Patterns where possible/pragmatic (otherwise supported- e.g. translation to/from)
 
-### Conventions
-{: #conventions}
+### Conformance Language
+{: #conformance-language}
 
-The keywords SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY, and NEED NOT in this document are to be interpreted as defined in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular
+The keywords **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **MAY**, and **NEED NOT** in this document are to be interpreted as defined in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular
 
-* SHALL: an absolute requirement for all implementations
-* SHALL NOT: an absolute prohibition against inclusion for all implementations
-* SHOULD/SHOULD NOT: a best practice or recommendation to be considered by implementers within the context of their particular implementation; there may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course
-* MAY/NEED NOT: truly optional; can be included or omitted as the implementer decides with no implications
+* **SHALL**: an absolute requirement for all implementations
+* **SHALL NOT**: an absolute prohibition against inclusion for all implementations
+* **SHOULD/SHOULD NOT**: a best practice or recommendation to be considered by implementers within the context of their particular implementation; there may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course
+* **MAY/NEED NOT**: truly optional; can be included or omitted as the implementer decides with no implications
 
 <br/>
 <br/>

@@ -9,8 +9,8 @@ Declarations in CQL are packaged in containers called _libraries_ which provide 
 
 **Conformance Requirement 4.1 (Library Declaration):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-1)
 {: #conformance-requirement-4-1}
-  1. Any CQL library used by a FHIR artifact SHALL contain a [library declaration.](https://cql.hl7.org/02-authorsguide.html#library)
-  2. The library identifier SHALL be a valid un-quoted identifier and SHALL NOT contain underscores
+  1. Any CQL library used by a FHIR artifact **SHALL** contain a [library declaration.](https://cql.hl7.org/02-authorsguide.html#library)
+  2. The library identifier **SHALL** be a valid un-quoted identifier and **SHALL NOT** contain underscores
 
 For example:
 
@@ -27,11 +27,11 @@ This IG recommends [Semantic Versioning](https://semver.org) be used to version 
 
 **Conformance Requirement 4.2 (Library Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-2)
 {: #conformance-requirement-4-2}
-  1. The library declaration SHOULD specify a version.
-  2. The library version SHOULD follow the convention :  
+  1. The library declaration **SHOULD** specify a version.
+  2. The library version **SHOULD** follow the convention :  
        < major >.< minor >.< patch >
-  3. For artifacts in draft status, the versioning scheme SHALL NOT apply, and there is no expectation that artifact contents are stable
-  4. The versioning scheme SHALL apply when an artifact moves to active status.
+  3. For artifacts in draft status, the versioning scheme **SHALL NOT** apply, and there is no expectation that artifact contents are stable
+  4. The versioning scheme **SHALL** apply when an artifact moves to active status.
 
 There are three main types of changes that can be made to a library:
 
@@ -91,11 +91,11 @@ The set of all CQL libraries used as part of a knowledge artifact must adhere to
 **Conformance Requirement 4.3 (Nested Libraries):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-3)
 {: #conformance-requirement-4-3}
 
-1. CQL libraries SHOULD be structured such that all CQL expressions referenced from a single FHIR resource are
+1. CQL libraries **SHOULD** be structured such that all CQL expressions referenced from a single FHIR resource are
 contained within a single library.
-    * If an artifact makes use of multiple libraries, expression references in that artifact SHALL be qualified with the `name` of the library (i.e. `library-name.expression-identifier`)
-2. CQL libraries SHALL use a `called` clause for all included libraries
-3. The `called`-alias for an included library SHOULD be consistent for usages across libraries
+    * If an artifact makes use of multiple libraries, expression references in that artifact **SHALL** be qualified with the `name` of the library (i.e. `library-name.expression-identifier`)
+2. CQL libraries **SHALL** use a `called` clause for all included libraries
+3. The `called`-alias for an included library **SHOULD** be consistent for usages across libraries
 
 The recommendation that CQL libraries be structured such that all references to expressions from a FHIR artifact is a simplification to ensure that expression references from FHIR artifacts don't require qualified expressions (as they would if multiple libraries were referenced). However, there are valid use cases for allowing multiple libraries to be referenced, such as modular questionnaires, and dependent library references. However, when an artifact 
 
@@ -121,9 +121,9 @@ the addressability, but the uniqueness, ensuring that library name collisions ca
 **Conformance Requirement 4.4 (Library Namespaces):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-4)
 {: #conformance-requirement-4-4}
 
-1. CQL libraries SHOULD use namespaces.
-2. When a namespace is not used, the library SHALL be considered part of a "public" global namespace for the purposes of resolution within a given environment.
-3. The root of the CQL namespace SHALL match the root of the url of the Library resource housing the CQL library.
+1. CQL libraries **SHOULD** use namespaces.
+2. When a namespace is not used, the library **SHALL** be considered part of a "public" global namespace for the purposes of resolution within a given environment.
+3. The root of the CQL namespace **SHALL** match the root of the url of the Library resource housing the CQL library.
 
 In addition, because the namespace of a library functions as part of the globally unique identifier for the library, changing the namespace of the library results in a different artifact.
 
@@ -135,8 +135,8 @@ CQL can be used with any data model(s). To be used with FHIR, CQL requires model
 **Conformance Requirement 4.5 (CQL Data Model):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-5)
 {: #conformance-requirement-4-5}
 
-1. All libraries and CQL expressions used directly or indirectly within a knowledge artifact SHOULD use FHIR-based data models.
-2. Data Model declarations SHALL include a version declaration.
+1. All libraries and CQL expressions used directly or indirectly within a knowledge artifact **SHOULD** use FHIR-based data models.
+2. Data Model declarations **SHALL** include a version declaration.
 
 For example:
 
@@ -154,9 +154,9 @@ Conformance Requirement 4.6 describes how to specify a code system within a CQL 
 **Conformance Requirement 4.6 (Code System Specification):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-6)
 {: #conformance-requirement-4-6}
 
-1. Within CQL, the identifier of any code system reference SHALL be specified using a URI for the code system.
-2. The URI SHALL be the canonical URL for the code system
-3. The Code System declaration MAY include a version, consistent with the URI specification for FHIR and the code system
+1. Within CQL, the identifier of any code system reference **SHALL** be specified using a URI for the code system.
+2. The URI **SHALL** be the canonical URL for the code system
+3. The Code System declaration **MAY** include a version, consistent with the URI specification for FHIR and the code system
 
 For example:
 
@@ -188,9 +188,9 @@ Conformance Requirement 4.7 describes how to specify a valueset within a CQL lib
 **Conformance Requirement 4.7 (Value Set Specification):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-7)
 {: #conformance-requirement-4-7}
 
-1. Within CQL, the identifier of any value set reference SHALL be specified using a URI for the value set.
-2. The URI SHALL be the canonical URL for the value set
-3. The URI MAY include a version, consistent with versioned canonical URL references in FHIR
+1. Within CQL, the identifier of any value set reference **SHALL** be specified using a URI for the value set.
+2. The URI **SHALL** be the canonical URL for the value set
+3. The URI **MAY** include a version, consistent with versioned canonical URL references in FHIR
 
 For example:
 
@@ -207,9 +207,9 @@ This base is then used to construct the canonical URL for the value set (in the 
 the implementation guide). Note that the _canonical URL_ is a globally unique, stable, version-independent identifier for the
 value set. See [Canonical URLs](http://hl7.org/fhir/references.html#canonical) in the base FHIR specification for more information.
 
-The local identifier for the value set within CQL should be the same as the `title` of the value set. However, because the title of the value set is not
+The local identifier for the value set within CQL **SHOULD** be the same as the `title` of the value set. However, because the title of the value set is not
 necessarily unique, it is possible to reference multiple value sets with the same title, but different identifiers.
-When this happens in a CQL library, the local identifier should be the title of the value set with a qualifying suffix to
+When this happens in a CQL library, the local identifier **SHOULD** be the title of the value set with a qualifying suffix to
 preserve the value set title as a human-readable reference, but still allow unique reference within the CQL library.
 
 For example:
@@ -219,7 +219,7 @@ valueset "Acute Pharyngitis (1)": 'http://example.org/fhir/ValueSet/acute-pharyn
 valueset "Acute Pharyngitis (2)": 'http://example.org/fhir/ValueSet/acute-pharyngitis-icd'
 ```
 
-Note carefully that although this URL may be resolveable for some terminology implementations, this is not necessarily the
+Note carefully that although this URL may be resolvable for some terminology implementations, this is not necessarily the
 case. This use of a canonical URL can be resolved as a search by the `url` element:
 
 ```
@@ -270,9 +270,9 @@ results of an expansion.
 **Conformance Requirement 4.9 (Value Set Expansion):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-9)
 {: #conformance-requirement-4-9}
 
-1. Valueset membership testing SHOULD use the terminology membership operation in CQL (`in(ValueSet)`), as opposed to requiring computation on the lists of codes in a value set.  Please reference  http://cql.hl7.org/02-authorsguide.html#terminology-operators for more information.
+1. Valueset membership testing **SHOULD** use the terminology membership operation in CQL (`in(ValueSet)`), as opposed to requiring computation on the lists of codes in a value set.  Please reference  http://cql.hl7.org/02-authorsguide.html#terminology-operators for more information.
 
-For example, rather than combining multiple value sets using a `union`, separate membership tests in each value set should be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the base FHIR specification.
+For example, rather than combining multiple value sets using a `union`, separate membership tests in each value set **SHOULD** be used. For more information, see the [Value Set Expansion](http://hl7.org/fhir/valueset.html#expansion) topic in the base FHIR specification.
 
 #### Representation in Narrative
 {: #valueset-representation-in-narrative}
@@ -288,12 +288,12 @@ In other words, the local identifier for the value set, followed by the value se
 #### String-based Membership Testing
 {: #string-based-membership-testing}
 
-Although CQL allows the use of strings as input to membership testing in value sets, this capability should not be used with FHIR-based models as it can lead to incorrect matching if the code system is not considered.
+Although CQL allows the use of strings as input to membership testing in value sets, this capability **SHALL NOT** be used with FHIR-based models as it can lead to incorrect matching if the code system is not considered.
 
 **Conformance Requirement 4.10 (String-based Membership Testing):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-10)
 {: #conformance-requirement-4-10}
 
-1. String-based membership testing SHALL NOT be used in CQL libraries
+1. String-based membership testing **SHALL NOT** be used in CQL libraries
 
 For example, given a valueset named `"Administrative Gender"`, the following CQL expression would be non-conformant:
 
@@ -304,15 +304,15 @@ For example, given a valueset named `"Administrative Gender"`, the following CQL
 ### Codes
 {: #codes}
 
-When direct-reference codes are represented within CQL, the logical identifier SHALL NOT be a URI. Instead,
-the logical identifier should be the code from the code system.
+When direct-reference codes are represented within CQL, the logical identifier **SHALL NOT** be a URI. Instead,
+the logical identifier **SHOULD** be the code from the code system.
 
 **Conformance Requirement 4.11 (Direct Referenced Codes):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-11)
 {: #conformance-requirement-4-11}
 
 1. When direct-reference codes are represented within CQL, the logical identifier:<br/>
-     a. SHALL NOT be a URI.<br/>
-     b. SHOULD be a code from the code system.
+     a. **SHALL NOT** be a URI.<br/>
+     b. **SHOULD** be a code from the code system.
 
 ```cql
 code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
@@ -321,7 +321,7 @@ code "Venous foot pump, device (physical object)": '442023007' from "SNOMED CT"
 Snippet 4-7: code definition from Terminology.cql.
 
 Note that for direct-reference code usage, the local identifier (in Snippet 4-7 the local identifier is "Venous foot pump,
-device (physical object)") should be the same as the description of the code within the terminology in order to avoid
+device (physical object)") **SHOULD** be the same as the description of the code within the terminology in order to avoid
 conflicting with any usage or license agreements with the referenced terminologies, but can be different to allow for
 potential naming conflicts, as well as simplification of longer names when appropriate.
 
@@ -343,7 +343,7 @@ In other words, the library identifier followed by the code and code system info
 
 Although the Unified Code for Units of Measure (UCUM) is a code system, it requires specific handling for two reasons. First, it is a grammar-based code system with an effectively infinite number of codes, so membership tests must be performed computationally, rather than just by checking for existence of a code in a list; and second, because UCUM codes are so commonly used as part of quantity values, healthcare contexts typically provide direct mechanisms for using UCUM codes.
 
-For these reasons, within quality artifacts in general, and quality measures specifically, UCUM codes should make use of the direct mechanisms wherever possible. In CQL logic, this means using the Quantity literal, rather than declaring UCUM codes as direct-reference codes as is recommended when using codes from other code systems. For example, when accessing a Body Mass Index (BMI) observation in CQL:
+For these reasons, within quality artifacts in general, and quality measures specifically, UCUM codes **SHOULD** make use of the direct mechanisms wherever possible. In CQL logic, this means using the Quantity literal, rather than declaring UCUM codes as direct-reference codes as is recommended when using codes from other code systems. For example, when accessing a Body Mass Index (BMI) observation in CQL:
 
 ```html
 define "BMI in Measurement Period":
@@ -376,8 +376,8 @@ In addition to codes, CQL supports a concept construct, which is defined as a se
 **Conformance Requirement 4.12 (Concepts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-12)
 {: #conformance-requirement-4-12}
 
-1. The CQL concept construct MAY be used.
-2. The CQL concept construct SHALL NOT be used as a surrogate for valueset definition.
+1. The CQL concept construct **MAY** be used.
+2. The CQL concept construct **SHALL NOT** be used as a surrogate for valueset definition.
 
 As an example of an anti-pattern for Concept usage, consider the following:
 
@@ -389,7 +389,7 @@ code "Relapse": 'relapse' from "Condition Clinical Status Codes" display 'Relaps
 concept "Active Condition Statuses": { "Active", "Recurrence", "Relapse" } display 'Active Condition Statuses'
 ```
 
-This usage of concept includes multiple concepts with different meanings from the same code system. A value set should be used for this purpose as it provides more flexibility and maintainability for this use case.
+This usage of concept includes multiple concepts with different meanings from the same code system. A value set **SHOULD** be used for this purpose as it provides more flexibility and maintainability for this use case.
 
 ### Library-level Identifiers
 {: #library-level-identifiers}
@@ -403,9 +403,9 @@ meaningful name (avoid abbreviations) and conform to Conformance Requirement 4.1
 {: #conformance-requirement-4-13}
 
 1. Library-level identifiers referenced in the CQL:<br/>
-      a. SHOULD Use quoted identifiers<br/>
-      b. SHOULD Use Title Case<br/>
-      c. MAY Include spaces
+      a. **SHOULD** Use quoted identifiers<br/>
+      b. **SHOULD** Use Initial Case<br/>
+      c. **MAY** Include spaces
 
 For example:
 
@@ -432,7 +432,7 @@ in a knowledge artifact must conform to Conformance Requirement 4.14.
 **Conformance Requirement 4.14 (Data Type Names):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-14)
 {: #conformance-requirement-4-14}
 
-1. Data type names referenced in CQL SHALL:<br/>
+1. Data type names referenced in CQL **SHALL**:<br/>
        a. Use quoted identifiers only if necessary (i.e. the data type name includes spaces)<br/>
        b. Use PascalCase plus appropriate spacing
 
@@ -496,7 +496,7 @@ Two commonly used patterns for negation in clinical logic are:
 
 For the purposes of clinical reasoning, when looking for documentation that a particular event did not occur, it must
 be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of
-evidence pattern should be used, rather than documentation of an event not occurring.
+evidence pattern **SHOULD** be used, rather than documentation of an event not occurring.
 
 To address the reason an action did not occur (negation rationale), an artifact must define the event it expects to occur
 using appropriate terminology to identify the kind of event (using a value set or direct-reference code), and then use
@@ -565,8 +565,8 @@ All attributes referenced in the CQL follow Conformance Requirement 4.15.
 {: #conformance-requirement-4-15}
 
 1. Data model attributes referenced in the CQL:<br/>
-      a. SHOULD NOT use quoted identifiers (unless required due to the attribute name in the model not being a valid identifier in CQL)<br/>
-      b. SHOULD use camelCase (unless dictated by the attribute naming in the model being used)
+      a. **SHOULD NOT** use quoted identifiers (unless required due to the attribute name in the model not being a valid identifier in CQL)<br/>
+      b. **SHOULD** use camelCase (unless dictated by the attribute naming in the model being used)
 
 Examples of attributes conforming to Conformance Requirement 4.15 are given below. For a full list of valid of attributes, refer to an appropriate data model specification such as QI-Core.
 
@@ -587,9 +587,9 @@ Conformance Requirement 4.16.
 {: #conformance-requirement-4-16}
 
 1. Aliases and argument names referenced in the CQL:<br/>
-      a. SHALL NOT Use quoted identifiers<br/>
-      b. SHALL Use PascalCase<br/>
-      c. SHOULD Use descriptive names (rather than abbreviations)
+      a. **SHALL NOT** Use quoted identifiers<br/>
+      b. **SHALL** Use PascalCase<br/>
+      c. **SHOULD** Use descriptive names (rather than abbreviations)
 
 For example:
 
@@ -610,7 +610,7 @@ In addition to the use of CQL directly in expression-valued elements, CQL conten
 **Conformance Requirement 4.17 (Library Resources):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-17)
 {: #conformance-requirement-4-17}
 
-1. Content conforming to this implementation guide SHALL use at least the [CRMIShareableLibrary](StructureDefinition-crmi-shareablelibrary.html) profile for Library resources.
+1. Content conforming to this implementation guide **SHALL** use at least the [CRMIShareableLibrary](StructureDefinition-crmi-shareablelibrary.html) profile for Library resources.
 
 #### Library Name and URL
 {: #library-name-and-url}
@@ -618,17 +618,17 @@ In addition to the use of CQL directly in expression-valued elements, CQL conten
 **Conformance Requirement 4.18 (Library Name and URL):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-18)
 {: #conformance-requirement-4-18}
 
-1. The identifying elements of a library SHALL conform to the following requirements:
-* Library.url SHALL be `<CQL namepsace url>/Library/<CQL library name>`
-* Library.name SHALL be `<CQL library name>`
-* Library.version SHALL be `<CQL library version>`
+1. The identifying elements of a library **SHALL** conform to the following requirements:
+* Library.url **SHALL** be `<CQL namespace url>/Library/<CQL library name>`
+* Library.name **SHALL** be `<CQL library name>`
+* Library.version **SHALL** be `<CQL library version>`
 
 2. For libraries included in FHIR implementation guides, the CQL namespace is defined by the implementation guide as follows:
-* CQL namespace name SHALL be IG.packageId
-* CQL namespace url SHALL be IG.canonicalBase
+* CQL namespace name **SHALL** be IG.packageId
+* CQL namespace url **SHALL** be IG.canonicalBase
 
-3. CQL library source files SHOULD be named `<CQLLibraryName>.cql`
-4. To avoid issues with characters between web ids and names, library names SHALL NOT have underscores.
+3. CQL library source files **SHOULD** be named `<CQLLibraryName>.cql`
+4. To avoid issues with characters between web ids and names, library names **SHALL NOT** have underscores.
 
 The prohibition against underscores in CQL library names is required to ensure compliance with the canonical URL pattern (because URLs by convention should not use underscores). In addition, many publishing environments will use the canonical tail (i.e. the name of the library) as the logical id of the Library resource, which does not allow underscores per the FHIR specification.
 
@@ -638,7 +638,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 **Conformance Requirement 4.19 (FHIR Type Mapping):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-19)
 {: #conformance-requirement-4-19}
 
-1. CQL defined types SHALL map to types in FHIR according to the following mapping:
+1. CQL defined types **SHALL** map to types in FHIR according to the following mapping:
 
 |CQL System Type |FHIR Type |
 |---|---|
@@ -661,8 +661,8 @@ The prohibition against underscores in CQL library names is required to ensure c
 {: .grid }
 
 2. In addition:
-* List types SHALL be lists of element types that map to FHIR
-* Tuple types SHALL consist only of elements of types that map to FHIR
+* List types **SHALL** be lists of element types that map to FHIR
+* Tuple types **SHALL** consist only of elements of types that map to FHIR
 
 #### Parameters and Data Requirements
 {: #parameters-and-data-requirements}
@@ -670,11 +670,11 @@ The prohibition against underscores in CQL library names is required to ensure c
 **Conformance Requirement 4.20 (FHIR Type Mapping):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-20)
 {: #conformance-requirement-4-20}
 
-1. Parameters to CQL libraries SHALL be either CQL-defined types that map to FHIR types, or FHIR resource types, optionally with profile designations.
-2. Top level expressions in CQL libraries SHALL return either CQL-defined types that map to FHIR types, or FHIR resources types, optionally with profile designations
+1. Parameters to CQL libraries **SHALL** be either CQL-defined types that map to FHIR types, or FHIR resource types, optionally with profile designations.
+2. Top level expressions in CQL libraries **SHALL** return either CQL-defined types that map to FHIR types, or FHIR resources types, optionally with profile designations
 3. Tuple types are represented with Parameters that have `part` elements corresponding to the elements of the tuple. List types are represented with Parameters that have a cardinality of 0..*.
-4. Libraries used in computable guideline content SHALL use the `parameter` element to identify input parameters as well as the type of all top-level expressions as output parameters.
-5. Libraries used in computable guideline content SHALL use the `dataRequirement` element to identify any retrieves present in the CQL:
+4. Libraries used in computable guideline content **SHALL** use the `parameter` element to identify input parameters as well as the type of all top-level expressions as output parameters.
+5. Libraries used in computable guideline content **SHALL** use the `dataRequirement` element to identify any retrieves present in the CQL:
 
 |Retrieve Element|DataRequirement Element|
 |---|---|
@@ -698,7 +698,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 **Conformance Requirement 4.21 (Related Artifacts):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-21)
 {: #conformance-requirement-4-21}
 
-1. Libraries used in computable artifacts SHALL use the `relatedArtifact` element to identify includes, code systems, value sets, and data models used by the CQL library:
+1. Libraries used in computable artifacts **SHALL** use the `relatedArtifact` element to identify includes, code systems, value sets, and data models used by the CQL library:
 
 |Dependency|RelatedArtifact representation|
 |Data Model (using declaration)|`depends-on` with `url` of the ModelInfo Library (e.g. `http://hl7.org/fhir/Library/FHIR-ModelInfo|4.0.1`)|
@@ -708,13 +708,13 @@ The prohibition against underscores in CQL library names is required to ensure c
 {: .grid }
 
 #### MIME Type version
-The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
+The version of CQL/ELM used for content in a library **SHOULD** be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
 
 * `text/cql; version=1.5`
 * `application/elm+xml; version=1.5`
 * `application/elm+json; version=1.5`
 
-Resource narratives for Libraries and knowledge artifacts that use CQL should include the CQL version if it is specified in the MIME type as shown above.
+Resource narratives for Libraries and knowledge artifacts that use CQL **SHOULD** include the CQL version if it is specified in the MIME type as shown above.
 
 ### Use of Terminologies
 {: #use-of-terminologies}
@@ -770,29 +770,29 @@ For knowledge artifact development with FHIR, the following options are recommen
 
 | Option | Description | Recommendation |
 |----|----|----|
-| EnableAnnotations | This instructs the translator to include the source CQL as an annotation within the ELM. | This option should be used to ensure that the distributed ELM could be linked back to the source CQL. |
-| EnableLocators | This instructs the translator to include line number and character information for each ELM node. | This option should be used to ensure that distributed ELM could be tied directly to the input source CQL. |
-| DisableListDemotion | This instructs the translator to disallow demotion of list-valued expressions to singletons. The list demotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with knowledge artifacts to ensure list demotion does not occur unexpectedly. |
-| DisableListPromotion | This instructs the translator to disallow promotion of singletons to list-valued expressions. The list promotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option should be used with knowledge artifacts to ensure list promotion does not occur unexpectedly. |
-| DisableMethodInvocation | This instructs the translator to disallow method-style invocation. The method-style invocation feature of CQL is used to enable functionality related to use with FHIRPath. | This option should not be used with FHIR-based knowledge artifacts because it prevents the use of the fluent functions feature of CQL 1.5, which can be used to significantly improve readability of knowledge artifact logic, especially when accessing extensions. |
-| EnableDateRangeOptimization | This instructs the translator to optimize date range filters by moving them inside retrieve expressions. | This feature may be used with knowledge artifacts. |
-| EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature may be used with knowledge artifacts. |
-| EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with knowledge artifacts. |
-| DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With knowledge artifacts, disabling this feature would prevent a useful capability. | This feature should not be used with knowledge artifacts. |
-| SignatureLevel | This setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel should be `Overloads` or `All` to ensure signature information is present. |
+| EnableAnnotations | This instructs the translator to include the source CQL as an annotation within the ELM. | This option **SHOULD** be used to ensure that the distributed ELM could be linked back to the source CQL. |
+| EnableLocators | This instructs the translator to include line number and character information for each ELM node. | This option **SHOULD** be used to ensure that distributed ELM could be tied directly to the input source CQL. |
+| DisableListDemotion | This instructs the translator to disallow demotion of list-valued expressions to singletons. The list demotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option **SHOULD** be used with knowledge artifacts to ensure list demotion does not occur unexpectedly. |
+| DisableListPromotion | This instructs the translator to disallow promotion of singletons to list-valued expressions. The list promotion feature of CQL is used to enable functionality related to use with FHIRPath. | This option **SHOULD** be used with knowledge artifacts to ensure list promotion does not occur unexpectedly. |
+| DisableMethodInvocation | This instructs the translator to disallow method-style invocation. The method-style invocation feature of CQL is used to enable functionality related to use with FHIRPath. | This option **SHOULD NOT** be used with FHIR-based knowledge artifacts because it prevents the use of the fluent functions feature of CQL 1.5, which can be used to significantly improve readability of knowledge artifact logic, especially when accessing extensions. |
+| EnableDateRangeOptimization | This instructs the translator to optimize date range filters by moving them inside retrieve expressions. | This feature **MAY** be used with knowledge artifacts. |
+| EnableResultTypes | This instructs the translator to include inferred result types in the output ELM. | This feature **MAY** be used with knowledge artifacts. |
+| EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature **SHOULD NOT** be used with knowledge artifacts. |
+| DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With knowledge artifacts, disabling this feature would prevent a useful capability. | This feature **SHOULD NOT** be used with knowledge artifacts. |
+| SignatureLevel | This setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel **SHOULD** be `Overloads` or `All` to ensure signature information is present. |
 {: .grid }
 
 #### Specifying Options
 
-The FHIR specification defines the [cqlOptions](http://hl7.org/fhir/extensions/StructureDefinition-cqf-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above SHOULD be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it SHALL be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html), it SHALL be used to provide options to the translator unless the options are provided directly by the library.
+The FHIR specification defines the [cqlOptions](http://hl7.org/fhir/extensions/StructureDefinition-cqf-cqlOptions.html) extension to support defining the expected translator options used with a given Library, or set of Libraries. When this extension is not used, the recommended options above **SHOULD** be used. When this extension is present on a [CRMIComputableLibrary](StructureDefinition-crmi-computablelibrary.html), it **SHALL** be used to provide options to the translator when translating CQL for that library. When this extension is present on a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html), it **SHALL** be used to provide options to the translator unless the options are provided directly by the library.
 
 **Conformance Requirement 4.22 (Translator Options):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-22)
 {: #conformance-requirement-4-22}
 
-1. Translator options SHOULD be provided in either a CRMIComputableLibrary or a CRMIVersionManifest
+1. Translator options **SHOULD** be provided in either a CRMIComputableLibrary or a CRMIVersionManifest
 2. Translator options specified in a CRMIComputableLibrary take precedence over options defined in a CRMIVersionManifest
-3. If no translator options are provided, the recommended options above SHOULD be used
-4. If translator options are provided in a Library that is both computable and executable, the options SHALL be consistent with the translator options reported by the ELM content
+3. If no translator options are provided, the recommended options above **SHOULD** be used
+4. If translator options are provided in a Library that is both computable and executable, the options **SHALL** be consistent with the translator options reported by the ELM content
 
 The `cqlOptions` extension references a contained `Parameters` resource that contains a parameter for each option specified, as well as a `translatorVersion` parameter that indicates the version of the translator used to produce the ELM. For example:
 
@@ -868,16 +868,16 @@ The `cqlOptions` extension references a contained `Parameters` resource that con
 
 #### ELM Suitability
 
-Because certain translator options impact language features and functionality, translated ELM may not be suitable for use in all contexts if the options used to produce the ELM are inconsistent with the options in use in the evaluating environment. To determine suitability of ELM for use in a given environment, the following guidance should be followed:
+Because certain translator options impact language features and functionality, translated ELM may not be suitable for use in all contexts if the options used to produce the ELM are inconsistent with the options in use in the evaluating environment. To determine suitability of ELM for use in a given environment, the following guidance **SHOULD** be followed:
 
 **Conformance Requirement 4.23 (ELM Suitability):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
 {: #conformance-requirement-4-23}
 
-1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM SHALL have been translated with a SignatureLevel of `Overloads` or `All`
-2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment SHALL be consistent with the compatibility level used to produce the ELM
-3. If the ELM has a compatibility level set, it SHALL be consistent with the version of the translator used in the evaluation environment
-4. The translator version used to produce the ELM SHOULD be consistent with the translator version used in the evaluation environment
-5. The translator options used in the evaluation environment SHALL be consistent with the translator options used to produce the ELM for at least the following options:
+1. If the library has function overloads (i.e. function definitions with the same name and different argument lists), the ELM **SHALL** have been translated with a SignatureLevel of `Overloads` or `All`
+2. If the evaluation environment or the ELM translator options have a compatibility level set, the compatibility level of the environment **SHALL** be consistent with the compatibility level used to produce the ELM
+3. If the ELM has a compatibility level set, it **SHALL** be consistent with the version of the translator used in the evaluation environment
+4. The translator version used to produce the ELM **SHOULD** be consistent with the translator version used in the evaluation environment
+5. The translator options used in the evaluation environment **SHALL** be consistent with the translator options used to produce the ELM for at least the following options:
     * DisableListTraversal
     * DisableListDemotion
     * DisableListPromotion
@@ -886,7 +886,7 @@ Because certain translator options impact language features and functionality, t
     * DisableMethodInvocation
     * RequireFromKeyword
     * SignatureLevel
-6. For authoring environments, the following additional translator options MAY be used to determine suitability of available ELM:
+6. For authoring environments, the following additional translator options **MAY** be used to determine suitability of available ELM:
     * EnableAnnotations
     * EnableLocators
     * EnableResultTypes
@@ -916,7 +916,7 @@ Similar to CQL content, ModelInfo can be included in FHIR Library resources to f
 **Conformance Requirement 4.24 (ModelInfo Libraries):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-23)
 {: #conformance-requirement-4-24}
 
-1. Libraries used to packgae ModelInfo SHALL conform to the [CRMIModelInfoLibrary](StructureDefinition-crmi-modelinfo.html) profile
+1. Libraries used to packgae ModelInfo **SHALL** conform to the [CRMIModelInfoLibrary](StructureDefinition-crmi-modelinfo.html) profile
 
 #### Profile-informed ModelInfo
 
