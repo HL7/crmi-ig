@@ -38,7 +38,7 @@ This IG is a conformance profile, as described in the [“Conformance” section
   * FHIR Package Registry
   * Knowledge Repository
   * Knowledge Terminology Service
-* [Distribution](distribution.html): Specifications for artifact distribution
+* [Distribution](distribution.html): Specifications for artifact distribution, including the use of NPM (Node Package Manager)
   * Downstream System(s): Systems using distributed content.
 
 #### Authoring System
