@@ -14,7 +14,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableimplementationguide",
-  "name" : "CRMIShareableImpementationGuide",
+  "name" : "CRMIShareableImplementationGuide",
   "title" : "CRMI Shareable ImplementationGuide",
   "status" : "draft",
   "experimental" : false,
