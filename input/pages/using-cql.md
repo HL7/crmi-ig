@@ -725,18 +725,13 @@ FHIR supports various types of terminology-valued elements, including:
 * [Coding](http://hl7.org/fhir/datatypes.html#Coding)<br/>
 * [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept)<br/>
 
-These types correspond directly to the CQL primitive types:
+These types map to the following CQL primitive types, respectively:
 
 * [String](https://cql.hl7.org/09-b-cqlreference.html#string-1)<br/>
 * [Code](https://cql.hl7.org/09-b-cqlreference.html#code-1)<br/>
 * [Concept](https://cql.hl7.org/09-b-cqlreference.html#concept-1)<br/>
 
-In addition to the type of element, FHIR provides the ability to bind these elements to specific codes, in the form of a direct-reference code (constraint to a specific code in a [CodeSystem](http://hl7.org/fhir/codesystem.html)), or a binding to a [ValueSet](http://hl7.org/fhir/valueset.html). These bindings can be different [binding strengths](http://hl7.org/fhir/codesystem-binding-strength.html)
-
-* [required](http://hl7.org/fhir/terminologies.html#required) - To be conformant, the concept in this element SHALL be from the specified value set.<br/>
-* [extensible](http://hl7.org/fhir/terminologies.html#extensible) - To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated. If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</br>
-* [preferred](http://hl7.org/fhir/terminologies.html#preferred) - Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.<br/>
-* [example](http://hl7.org/fhir/terminologies.html#example) - Instances are not expected or even encouraged to draw from the specified value set. The value set merely provides examples of the types of concepts intended to be included.<br/>
+In addition to the type of element, FHIR provides the ability to bind these elements to specific codes, in the form of a direct-reference code (fixed constraint to a specific code in a [CodeSystem](http://hl7.org/fhir/codesystem.html)), or a binding to a [ValueSet](http://hl7.org/fhir/valueset.html). These bindings can be different [binding strengths](http://hl7.org/fhir/codesystem-binding-strength.html)
 
 Within CQL, references to terminology code systems, value sets, codes, and concepts are directly supported, and all such usages are declared within CQL libraries, as described in the  [Terminology](https://cql.hl7.org/02-authorsguide.html#terminology) section of the CQL Author's Guide.
 
