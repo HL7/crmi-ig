@@ -24,6 +24,51 @@ To support proper version management, this implementation guide proposes that:
 
 If an invalid state transition occurs accidentally, the artifacts should be updated to the correct status and downstream systems should be notified as soon as possible.
 
+### Phases
+
+The above diagram depicts the high-level phases of content development as:
+
+* Authoring/Development
+    * Analysis (L1)
+    * Design (L2)
+    * Development (L3)
+    * Testing
+    * Packaging
+* Publishing
+* Distribution
+* Implementation
+
+#### Authoring
+
+The authoring phase is supported by the Shareable and Computable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of these capability categories and profiles.
+
+### Publishing
+
+The publishing phase is supported by the Publishable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete descripition of the Publishable capability category and profiles.
+
+In addition, the $package and $data-requirements operations are concerned with tracing dependencies and constructing packages for the distribution of content.
+
+See the [Publishing](publishing.html) topic for more information on publishing considerations.
+
+The distribution phase is supported in two main ways:
+
+1. Using FHIR implementation guide packages (Node Package Manager (NPM) packages)
+2. Using Artifact Packages (FHIR Bundles) to exchange content in various ways (as files, via API, etc)
+
+The intent of this implementation guide is to ensure that both of these approaches are supported and that that support is provided in a way that is consistent with the existing FHIR Publishing ecosystem as well as FHIR API capabilities.
+
+See the [Distribution](distribution.html) topic for more information on distribution considerations.
+
+Note that artifacts can be authored, packaged, and distributed either individually, or as collections of artifacts.
+
+Specifically, this IG defines capabilities for artifact repositories that support the content development lifecycle, with the goal of enabling a knowledge artifact ecosystem; in the same way that value sets are currently available via an ecosystem of terminology servers, artifacts should be readily available through an ecosystem of artifact repositories.
+
+This IG is not prescriptive about whether content is distributed via IG packages or artifact repositories; both approaches are important and facilitate different use cases. This IG is focused on supporting both in consistent ways to ensure that however content is distributed, it can be reliably used by artifact consumers.
+
+### Implementation
+
+The implementation (or run-time) phase is supported by the Executable profiles dfined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of the Executable capability category and profiles.
+
 ### Components vs dependencies
 
 A _component_ artifact is an artifact that is designated specifically as part of a collection, whereas a _dependency_ is an artifact that is referenced by another artifact. The distinction is drawn to ensure that dependencies can always be calculated by tracing artifact dependencies, whereas components always need to be specified (i.e. they are the designated components of the collection).
