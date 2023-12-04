@@ -187,7 +187,7 @@ Health level seven. Publishing terminology to the FHIR Ecosystem - FHIR Product 
 
 ### Dependencies
 
-{% include dependency-table.xhtml %}
+{% include dependency-table-short.xhtml %}
 
 ### Cross Version Analysis
 
