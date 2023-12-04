@@ -24,12 +24,12 @@ This example iollustrates the use of an NPM package registry to install IG packa
 ### FHIR REST API
 {: #distribution-fhir-rest}
 
-Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search SHOULD be available for all canonical resources.
+Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search **SHOULD** be available for all canonical resources.
 
 ### $package and $data-requirements
 {: #package-and-data-requirements}
 
-Downstream systems MAY require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
+Downstream systems **MAY** require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
 
 <div style="max-width:800px;">
 {% include img.html img="CRMI-PackageOperation.png" %}
@@ -235,16 +235,16 @@ regulatory[].regulatoryAuthority
 ### Manifest
 {: #distribution-manifest}
 
-Canonical references MAY not have been authored with a version. To ensure consistent versions of resources are used by downstream systems, a manifest parameter to specify canonical versions MAY be passed to FHIR operations that use dynamic requirements: `$package` and `$data-requirements`; in addition to execution operations that can use a content endpoint to resolve canonical resources such as `$apply` from CPG and `$evaluate-measure` from DEQM IG.
+Canonical references **MAY** be authored without a version. To ensure consistent versions of resources are used by downstream systems, a manifest parameter to specify canonical versions **MAY** be passed to FHIR operations that use dynamic requirements: `$package` and `$data-requirements`; in addition to execution operations that can use a content endpoint to resolve canonical resources such as `$apply` from CPG and `$evaluate-measure` from DEQM IG.
 
 More information on [manifest specification]()
 
 ### Syndication
 {: #distribution-syndication}
 
-Syndication allows broadcasting of content changes to interested parties. The syndication mechanism proposed in the IG MAY be used by downstream systems, or federated Knowledge Artifact Repositories so preemptive downloading, or notification message send to interested parties.
+Syndication allows broadcasting of content changes to interested parties. The syndication mechanism proposed in the IG **MAY** be used by downstream systems, or federated Knowledge Artifact Repositories so preemptive downloading, or notification message send to interested parties.
 
-The syndication API SHALL be based on ATOM, an example is shown below:
+The syndication API **SHALL** be based on ATOM, an example is shown below:
 
 ```xml
 <!-- see: https://validator.w3.org/feed/docs/atom.html -->

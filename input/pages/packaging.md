@@ -12,7 +12,7 @@ provides guidance on how to package knowledge artifacts, either independently, o
 
 In general, artifacts such as libraries, measures, and test cases can be packaged as a Bundle
 of type `transaction`. However, since large artifact packages may span multiple bundles, the type
-`collection` may be used as well. In that case, the bundles should be processed as a unit (i.e. as 
+`collection` **MAY** be used as well. In that case, the bundles **SHOULD** be processed as a unit (i.e. as 
 a single transaction). The intent of splitting the bundles is to allow large packages to be processed, 
 but in the case that they are split, transactional considerations are the responsibility of the consumer.
 
@@ -27,7 +27,7 @@ Although the scope of the package is a single artifact, this same approach can b
 
 Dependencies consist of any knowledge artifact referenced by the main artifact (or any dependency, recursively).
 
-Note that packaging may be restricted in various ways, including:
+Note that packaging **MAY** be restricted in various ways, including:
 
 * Limited to only dependencies that are defined in the same package (i.e. implementation guide) as the main artifact
 * Limited to specific types of artifacts (such as terminology, profiles, extensions, etc)
@@ -97,9 +97,9 @@ The following are conformance requirements that apply to the FHIR Bundle when pa
 **Conformance Requirement 6.1 (Artifact Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-1)
 {: #conformance-requirement-6-1}
 
-  1. The first entry in an artifact bundle SHALL be the artifact resource conforming to the artifact profile dictated by the target package capability ([Shareable, Publishable, Computable, Executable](profiles.html#artifact-capability-profiles)
-  2. Artifact bundles MAY include any libraries referenced by the primary library
-  3. Artifact bundles MAY include any code systems and value sets referenced by the primary library or any required libraries.
+  1. The first entry in an artifact bundle **SHALL** be the artifact resource conforming to the artifact profile dictated by the target package capability ([Shareable, Publishable, Computable, Executable](profiles.html#artifact-capability-profiles)
+  2. Artifact bundles **MAY** include any libraries referenced by the primary library
+  3. Artifact bundles **MAY** include any code systems and value sets referenced by the primary library or any required libraries.
 
 ### Intellectual Property of Packaging
   {: #intellectual-property-packaging}
@@ -107,5 +107,5 @@ The following are conformance requirements that apply to the FHIR Bundle when pa
 **Conformance Requirement 6.2 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
 {: #conformance-requirement-6-2}
 
-  1. Artifacts distributed in this way SHALL carry the copyright and intellectual property declarations as mandated by the publishing (or stewarding) entity that governs the use of the content.
+  1. Artifacts distributed in this way **SHALL** carry the copyright and intellectual property declarations as mandated by the publishing (or stewarding) entity that governs the use of the content.
 

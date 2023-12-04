@@ -17,12 +17,12 @@ The `Publication Status` value set is used to track the lifecycle of an artifact
 
 To ensure stable resolution of dependencies of an artifact throughout its lifecycle (including stable value set expansion), a version manifest can be used to allow resolution of unversioned canonical references in the artifact and its dependencies. See the [Version Manifest](version-manifest.html) discussion for more information on how the Manifest Library profile supports stable resolution of dependencies.
 
-To support proper version management, this implementation guide proposes that:
+To support proper version management, this implementation guide requires that:
 
-1. An `active` artifact SHALL NOT transition back to `draft`, a new version of the artifact is required
-2. A `retired` artifact SHALL NOT transition back to `active`, a new version of the artifact is required
+1. An `active` artifact **SHALL NOT** transition back to `draft`, a new version of the artifact is required
+2. A `retired` artifact **SHALL NOT** transition back to `active`, a new version of the artifact is required
 
-If an invalid state transition occurs accidentally, the artifacts should be updated to the correct status and downstream systems should be notified as soon as possible.
+If an invalid state transition occurs accidentally, the artifacts **SHOULD** be updated to the correct status and downstream systems **SHOULD** be notified as soon as possible.
 
 ### Phases
 

@@ -8,7 +8,7 @@ This section provides guidance on naming conventions for canonical artifacts.
 
 #### URL
 
-The `url` element of an artifact SHOULD be constructed according to the following pattern:
+The `url` element of an artifact **SHOULD** be constructed according to the following pattern:
 
 ```
 {package-canonical-base}/{resource.resourceType}/{resource.name}
@@ -24,14 +24,14 @@ However, because the `id` element of the artifact will in general change when th
 
 #### Version
 
-The `version` element for all artifacts within the same package SHOULD be the same as the version of the package. This is usually the ImplementationGuide in which the artifact is defined.
+The `version` element for all artifacts within the same package **SHOULD** be the same as the version of the package. This is usually the ImplementationGuide in which the artifact is defined.
 
-In addition, all references to canonicals from artifacts in the package to other artifacts in the same package SHOULD be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
+In addition, all references to canonicals from artifacts in the package to other artifacts in the same package **SHOULD** be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
 
 ### Operation definitions
 
 Although FHIR operation definitions can specify a `code` property, servers may use whatever code they surface in their capability statement to implement operations. To simplify application development and encourage consistency, this implementation guide proposes that:
 
-1. Servers SHOULD use the `code` property of the OperationDefinition to expose operation capability
-2. Operation definitions SHOULD use the same `code` property as the base definition of an OperationDefinition they are extending
+1. Servers **SHOULD** use the `code` property of the OperationDefinition to expose operation capability
+2. Operation definitions **SHOULD** use the same `code` property as the base definition of an OperationDefinition they are extending
 
