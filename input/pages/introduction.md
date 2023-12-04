@@ -72,12 +72,10 @@ See [Artifact Terminology Service](artifact-terminology-service.html)
 ### Approach
 {: #approach}
 
-The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of canonical resources, as well as guidance on knowledge artifacts within the [Clinical Reasoning module](https://www.hl7.org/fhir/clinicalreasoning-module.html). IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements. This IG also builds on the FHIR Package specification, and creates a compatible approach to managing artifacts.
-
 The following diagram illustrates the overall ecosystem of services and capabilities required to support knowledge authoring, distribution, and implementation:
 
-<div style="max-width:800px;">
-{% include img.html img="K-Platform Illustration for CRMI.PNG" %}
+<div style="max-width:1200px;">
+{% include img.html img="CRMI-Background.PNG" %}
 </div>
 
 Within this ecosystem, this IG focuses on the following areas:
@@ -96,10 +94,6 @@ Within this ecosystem, this IG focuses on the following areas:
 This implementation guide assumes familiarity with the base FHIR specification, as well as with profiling FHIR and implementation guides. Refer to the [Profiling](http://hl7.org/fhir/profiling.html) topic in the base specification if needed.
 
 As with any content development effort, FHIR Knowledge Artifacts have a content development lifecycle to create, review, publish, distribute, and implement. This implementation guide is focused on supporting consistent and reliable usage of FHIR Knowledge Artifacts by establishing content development best practices.
-
-<div style="max-width:1200px;">
-{% include img.html img="CRMI-Background.png" %}
-</div>
 
 This IG has the following aspirations:
 * Full lifecycle knowledge platform respecting key separations of concerns, supporting established principles &amp; best practices, and enabling efficient workflows
