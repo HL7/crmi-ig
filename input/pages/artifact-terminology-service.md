@@ -24,9 +24,9 @@ As a version manifest, an artifact collection specifies versioned canonical refe
 Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters](StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
 
 1. `activeOnly`
-2. `system-version`
-3. `check-system-version`
-4. `force-system-version`
+2. `system-version` (or `canonical-version`)
+3. `check-system-version` (or `check-canonical-version`)
+4. `force-system-version` (or `force-canonical-version`)
 5. `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 6. `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
@@ -37,15 +37,23 @@ Because this capability results in the potential for parameter values to be supp
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
+#### Hosted Content
+
+Terminology services may act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they may provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth. In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content SHALL be the same as the status of the content in the source of truth.
+
 ### Code Systems
 
 1. SHALL Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
 
 2. For published CodeSystems, SHALL represent publishable CodeSystem information, as specified by the [CRMIPublishableCodeSystem](StructureDefinition-crmi-publishablecodesystem.html) profile.
 
-3. SHALL support CodeSystem read by the server-defined id for the CodeSystem
+3. For hosted content, the data-absent-reason extension with a value of unknown MAY be used to satisfy required cardinality constraints of the Shareable and Publishable code system profiles when an element is not present in the source of truth for the content.
 
-4. SHALL support CodeSystem searches by:
+4. CodeSystem resources returned by the repository SHALL use the meta.profile element to indicate which profiles the CodeSystem resource conforms to.
+
+5. SHALL support CodeSystem read by the server-defined id for the CodeSystem
+
+6. SHALL support CodeSystem searches by:
     1. url: Returning all versions of the codesystem matching that url
     2. version: Returning the codesystem matching that version (can appear only in combination with a url search)
     3. identifier: Returning any codesystem matching the identifier
@@ -54,15 +62,15 @@ Because this capability results in the potential for parameter values to be supp
     6. description: Returning any codesystem matching the search description, according to string-matching semantics in FHIR
     7. code: Returning any codesystem with the given code
 
-5. SHOULD support CodeSystem searches by:
+7. SHOULD support CodeSystem searches by:
     1. status: Returning codesystems that match the given status
     2. valueset: Returning any codesystem that is referenced by the given value set url (optionally versioned)
     4. library: Returning any codesystem that is referenced by the given library url (optionally versioned)
     4. artifact: Returning any codesystem that is referenced by the given artifact url (optionally versioned)
 
-6. SHALL support [CodeSystem/$lookup](http://hl7.org/fhir/codesystem-operation-lookup.html)
+8. SHALL support [CodeSystem/$lookup](http://hl7.org/fhir/codesystem-operation-lookup.html)
 
-7. SHALL support [CodeSystem/$validate-code](http://hl7.org/fhir/codesystem-operation-validate-code.html)
+9. SHALL support [CodeSystem/$validate-code](http://hl7.org/fhir/codesystem-operation-validate-code.html)
 
 When determining the URI for a code system, the [HL7 Universal Terminology Governance (UTG)](http://terminology.hl7.org)
 site is the source of truth. If a code system is not identified there, submit a request with the
@@ -93,13 +101,17 @@ Note that when a code system authority has not established a versioning system, 
 
 2. SHALL Represent computable ValueSet information, as specified by the [CRMIComputableValueSet](StructureDefinition-crmi-computablevalueset.html) profile, which specifies the definition of a value set using established extensions, or with the `compose` element, including in particular the ability to use the `inactive` element of the `include` to indicate that a specific code is inactive in the code system but should still be included in the expansion.
 
-3. SHALL Represent expanded ValueSet information, as specified by the [CRMIExpandedValueSet](StructureDefinition-crmi-expandedvalueset.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
+3. For hosted content, the data-absent-reason extension with a value of unknown MAY be used to satisfy required cardinality constraints of the Shareable and Publishable value set profiles when an element is not present in the source of truth for the content.
 
-4. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CRMIPublishableValueSet](StructureDefinition-crmi-publishablevalueset.html) profile.
+4. ValueSet resources returned by the repository SHALL use the meta.profile element to indicate which profiles the ValueSet conforms to, Shareable, Publishable, Computable, or Expanded.
 
-5. SHALL support ValueSet read, by the server-defined id for the ValueSet
+5. SHALL Represent expanded ValueSet information, as specified by the [CRMIExpandedValueSet](StructureDefinition-crmi-expandedvalueset.html) profile, which specifies the complete content of a value set using the `expansion` element, including inactive codes specified in the compose.
 
-6. SHALL support ValueSet searches by:
+6. For published ValueSets, SHALL represent publishable ValueSet information, as specified by the [CRMIPublishableValueSet](StructureDefinition-crmi-publishablevalueset.html) profile.
+
+7. SHALL support ValueSet read, by the server-defined id for the ValueSet
+
+8. SHALL support ValueSet searches by:
     1. url: Returning all versions of the valueset matching that url
     2. version: Returning the valueset matching that version (can appear only in combination with a url search)
     3. identifier: Returning any valueset matching the identifier
@@ -108,19 +120,21 @@ Note that when a code system authority has not established a versioning system, 
     6. status: Returning valuesets that match the given status
     7. description: Returning any valueset matching the search description, according to string-matching semantics in FHIR
     8. code: Returning any valueset with the given code
+    9. keyword: Returning any valueset that has a valueset-keyword extension matching the given keyword
 
-7. SHOULD support ValueSet searches by:
-    1. expansion: Used in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
-    2. context: Returning all artifacts with a use context value matching the given context
-    3. context-type: Returning all artifacts with a use context type matching the given context type
-    4. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
-    5. context-type-value: Returning all artifacts with a given use context type and value
-    6. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
-    7. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
-    8. library: Returning any valueset that is referenced by the given library url (optionally versioned)
-    9. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
+9. SHOULD support ValueSet searches by:
+    1. context: Returning all artifacts with a use context value matching the given context
+    2. context-type: Returning all artifacts with a use context type matching the given context type
+    3. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
+    4. context-type-value: Returning all artifacts with a given use context type and value
+    5. codesystem: Returning any valueset that directly references the given codesystem url (optionally versioned)
+    6. valueset: Returning any valueset that references or is referenced by the given valueset url (optionally versioned)
+    7. library: Returning any valueset that is referenced by the given library url (optionally versioned)
+    8. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
+    9. Servers SHOULD support the _text and _content search parameters (as described in the [base specification](http://hl7.org/fhir/R4/search.html#text)
+    10. expansion: MAY support the expansion parameter in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
 
-7. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
+10. SHALL Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
@@ -131,7 +145,7 @@ Note that when a code system authority has not established a versioning system, 
     8. SHALL support the coding parameter
     9. SHALL support the codeableConcept parameter
 
-8. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
+11. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
     1. SHALL support the url parameter
     2. SHALL support the valueSetVersion parameter
     3. SHALL support the activeOnly parameter
@@ -141,18 +155,21 @@ Note that when a code system authority has not established a versioning system, 
     7. SHALL support the system-version parameter
     8. SHALL support the check-system-version parameter
     9. SHALL support the force-system-version parameter
+    10. SHALL support the canonicalVersion parameter (defined in the crmi-valueset-expand)
+    11. SHALL support the checkCanonicalVersion (defined in the crmi-valueset-expand)
+    12. SHALL support the forceCanonicalVersion (defined in the crmi-valueset-expand)
     10. SHOULD support includeDesignation parameter
     11. SHOULD support designation parameter
     12. SHOULD support paging parameters
     13. SHOULD support the `manifest` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    14. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    14. MAY support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
     15. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
 ### Artifact Collections
 
-1. SHALL Represent basic artifact collection release information, as specified by the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, and terminology references
+1. SHALL Represent basic artifact collection information, as specified by the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, and terminology references
 
-2. For published artifact collection, SHALL represent publishable artifact collection information as specified by the [CRMIPublishableLibrary](StructureDefinition-crmi-publishablelibrary.html) profile.
+2. For published artifact collections, SHALL represent publishable artifact collection information as specified by the [CRMIPublishableLibrary](StructureDefinition-crmi-publishablelibrary.html) profile.
 
 3. SHALL support Library read, by the server-defined id for the library
 
@@ -173,9 +190,9 @@ Note that when a code system authority has not established a versioning system, 
     2. SHALL support the system-version parameter
     3. SHALL support the check-system-version parameter
     4. SHALL support the force-system-version parameter
-    5. SHOULD support other parameters
-    6. SHOULD support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    7. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    5. SHOULD support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    6. SHOULD support other parameters
+    7. MAY support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
 5. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
     1. If a parameter is specified as part of the $expand operation directly, it takes precedence
@@ -183,27 +200,46 @@ Note that when a code system authority has not established a versioning system, 
     3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
     4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-6. SHALL support version manifest and release value set packaging: [Library/$crmi.package](OperationDefinition-crmi-package.html) operation
+6. SHALL support version manifest and release value set packaging: [Library/$package](OperationDefinition-crmi-package.html) operation
     1. SHALL support the url parameter
     2. SHALL support the version parameter
     3. SHOULD support the offset parameter
     4. SHOULD support the count parameter
-    5. SHOULD support system-version parameter (overrides code system versions specified in the quality program release)
-    6. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
-    7. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
+    5. SHOULD support canonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    6. SHOULD support checkCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    7. SHOULD support forceCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
+    8. SHOULD support system-version parameter (overrides code system versions specified in the quality program release)
+    9. SHOULD support check-system-version parameter (overrides code system versions specified in the quality program release)
+    10. SHOULD support force-system-version parameter (overrides code system versions specified in the quality program release)
 
-7. SHALL support version manifest and release value set packaging: Library/$draft operation
-    1. SHALL support the version parameter
+7. SHALL support operations to enable maintenance of release specifications for artifact collections using Library resources that conform to the CRMIManifestLibrary profile.
+    1. SHALL support creating a Library in `draft` status (using POST)
+    2. SHALL support updating a Library in `draft` status (using PUT)
+    3. SHALL support updating the status of a Library in `draft` to `active` (using PUT)
+    4. SHALL support updating the status of a Library in `active` status to `retired` (using PUT)
+    5. SHALL reject attempts to update elements of a Library other than status if the Library is not in `draft` status
+    6. SHALL reject attempts to create Libraries that have the same `url` and `version` as another library
 
 ### Server Operations
 
 1. SHALL support the `metadata?mode=terminology`, returning a list of all supported code systems, whether they are explicitly made available as CodeSystem resources or not
 
 2. To ensure performant operations with large code systems and value sets, a measure terminology service SHALL support [batch](https://hl7.org/fhir/http.html#transaction) operations for at least the following:
-    1. CodeSystem/$validate-code
-    2. ValueSet/$validate-code
+    1. CodeSystem read
+    2. CodeSystem search
+    3. CodeSystem/$validate-code
+    4. ValueSet read
+    6. ValueSet search
+    7. ValueSet/$validate-code
 
 3. Services MAY require authentication. If authentication is required, it SHALL be in the form of an authentication header (usually a bearer token) that the user can determine in advance and provide to their FHIR tooling in some configuration.
+
+4. For all string search parameters, servers:
+    1. SHALL support the `contains` and `exact` modifiers
+    2. SHOULD support `text`
+
+5. Servers SHALL support the expression of AND and OR search parameters for all search parameters, as defined in the [composite search parameter topic](http://hl7.org/fhir/R4/search.html#combining)
+
 
 ### Capability Statement
 
