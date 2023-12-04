@@ -13,7 +13,7 @@ Usage: #definition
 Packages a specified canonical resource for use in a target environment, optionally 
 including related content such as dependencies, components, and testing cases and data.
 
-See [$package and $data-requirements](introduction.html#distribution-fhir-package)
+See [$package and $data-requirements](distribution.html#package-and-data-requirements)
 """
 * comment = """
 The package operation supports producing a complete package of a particular artifact 
@@ -23,7 +23,7 @@ elements of the questionnaire, and those value sets may be definitions (Computab
 expansions (Expanded), depending on the parameters to the operation. 
 """
 * kind = #operation
-* code = #crmi.package
+* code = #package
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement

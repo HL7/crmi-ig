@@ -658,6 +658,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 |`Interval<System.Date>`|`FHIR.Period`|
 |`Interval<System.DateTime>`|`FHIR.Period`|
 |`Interval<System.Quantity>`|`FHIR.Range`|
+{: .grid }
 
 2. In addition:
 * List types SHALL be lists of element types that map to FHIR
@@ -687,6 +688,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 |dateProperty|dateFilter.path|
 |dateLowProperty,dateHighProperty|dateFilter.path (resolved to an interval-valued property)|
 |dateRange|dateFilter.path or dateFilter.searchParam|
+{: .grid }
 
 > Note that best-practice for CQL evaluation is to make use of and distribute compiled CQL (ELM). In the case that dynamic CQL construction is required, implementers should take care to sanitize inputs from any parameters used in the construction of dynamic CQL to avoid [injection attacks](https://en.wikipedia.org/wiki/SQL_injection).
 
@@ -703,6 +705,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 |Library (include declaration)|`depends-on` with `url` of the Library (e.g. `http://hl7.org/fhir/Library/FHIRHelpers|4.0.1`)|
 |Code System|`depends-on` with `url` of the CodeSystem (e.g. `http://loing.org`)|
 |Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
+{: .grid }
 
 #### MIME Type version
 The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
@@ -722,18 +725,13 @@ FHIR supports various types of terminology-valued elements, including:
 * [Coding](http://hl7.org/fhir/datatypes.html#Coding)<br/>
 * [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept)<br/>
 
-These types correspond directly to the CQL primitive types:
+These types map to the following CQL primitive types, respectively:
 
 * [String](https://cql.hl7.org/09-b-cqlreference.html#string-1)<br/>
 * [Code](https://cql.hl7.org/09-b-cqlreference.html#code-1)<br/>
 * [Concept](https://cql.hl7.org/09-b-cqlreference.html#concept-1)<br/>
 
-In addition to the type of element, FHIR provides the ability to bind these elements to specific codes, in the form of a direct-reference code (constraint to a specific code in a [CodeSystem](http://hl7.org/fhir/codesystem.html)), or a binding to a [ValueSet](http://hl7.org/fhir/valueset.html). These bindings can be different [binding strengths](http://hl7.org/fhir/codesystem-binding-strength.html)
-
-* [required](http://hl7.org/fhir/terminologies.html#required) - To be conformant, the concept in this element SHALL be from the specified value set.<br/>
-* [extensible](http://hl7.org/fhir/terminologies.html#extensible) - To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated. If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</br>
-* [preferred](http://hl7.org/fhir/terminologies.html#preferred) - Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.<br/>
-* [example](http://hl7.org/fhir/terminologies.html#example) - Instances are not expected or even encouraged to draw from the specified value set. The value set merely provides examples of the types of concepts intended to be included.<br/>
+In addition to the type of element, FHIR provides the ability to bind these elements to specific codes, in the form of a direct-reference code (fixed constraint to a specific code in a [CodeSystem](http://hl7.org/fhir/codesystem.html)), or a binding to a [ValueSet](http://hl7.org/fhir/valueset.html). These bindings can be different [binding strengths](http://hl7.org/fhir/codesystem-binding-strength.html)
 
 Within CQL, references to terminology code systems, value sets, codes, and concepts are directly supported, and all such usages are declared within CQL libraries, as described in the  [Terminology](https://cql.hl7.org/02-authorsguide.html#terminology) section of the CQL Author's Guide.
 
@@ -782,6 +780,7 @@ For knowledge artifact development with FHIR, the following options are recommen
 | EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with knowledge artifacts. |
 | DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With knowledge artifacts, disabling this feature would prevent a useful capability. | This feature should not be used with knowledge artifacts. |
 | SignatureLevel | This setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel should be `Overloads` or `All` to ensure signature information is present. |
+{: .grid }
 
 #### Specifying Options
 

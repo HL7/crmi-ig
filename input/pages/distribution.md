@@ -6,18 +6,20 @@ Distribution involves the APIs for searching and reading published artifacts. Th
 
 * [FHIR Package / NPM](#distribution-fhir-package)
 * [FHIR REST API](#distribution-fhir-rest)
-* [$package and $data-requirements](#distribution-fhir-package)
+* [$package and $data-requirements](#package-and-data-requirements)
 * [Manifest support](#distribution-manifest) for canonical version specification
 * [Syndication (Atom RSS)](#distribution-syndication)
 
 ### FHIR Packages / NPM
 {: #distribution-fhir-package}
 
-Like publishing, [FHIR Packages]() are a way to distribute content. This is compatible with IG Publisher, sushi and the npm client.
+Like publishing, [FHIR Packages](https://hl7.org/fhir/packages.html) are a way to distribute content. This is compatible with IG Publisher, SUSHI and the NPM client.
 
 ```
 npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-package
 ```
+
+This example iollustrates the use of an NPM package registry to install IG packages as NPM packages. This example also illustrates the use of NPM Scopes for FHIR packages.
 
 ### FHIR REST API
 {: #distribution-fhir-rest}
@@ -25,7 +27,7 @@ npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-packa
 Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search SHOULD be available for all canonical resources.
 
 ### $package and $data-requirements
-{: #distribution-fhir-package}
+{: #package-and-data-requirements}
 
 Downstream systems MAY require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
 
@@ -35,19 +37,19 @@ Downstream systems MAY require all content dependencies. These dependencies can 
 
 To facilitate this, a downstream system MAY use the $package or $data-requirements operation(s) on a canonical resource to resolve dependencies.
 
-* [$crmi.package](OperationDefinition-crmi-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
+* [$package](OperationDefinition-crmi-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of its dependencies for a client.
 * [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
 
-NOTE: $crmi.data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
+NOTE: $data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
 
-Both `$crmi.package` and `$crmi.data-requirements` operations are available for all canonical resources:
+Both `$package` and `$data-requirements` operations are available for all canonical resources:
 
 1. StructureDefinition, StructureMap
 2. ValueSet, CodeSystem, NamingSystem, ConceptMap
 3. Questionnaire, ActivityDefinition, PlanDefinition, Library, Measure
 4. ObservationDefinition, SpecimenDefinition, MedicationKnowledge, etc...
 
-NOTE: To recreate the contents of a FHIR Package, the `$crmi.package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
+NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
 
 ### Dependency Tracing
 
@@ -320,4 +322,13 @@ This can simplify tooling for distribution to downstream systems, and can decrea
 
 Systems using sharable content, including: authoring systems, clinical data repositories, quality measure engines, decision support engines, care management systems, and assessment filler applications.
 
-Distribution client capabilities
+### Distribution client capabilities
+{: #distribution-client-capabilities}
+
+Distribution clients must be able to consume the artifacts produced by upstream systems, either as IG packages, or as artifact bundles, depending on how the upstream systems choose to distribute artifact content.
+
+For IG packages, the FHIR publishing ecosystem, including the FHIR validation tooling, already provide implementation support for integrating with the FHIR registry to download packaged implementation guide content as published for FHIR implementation guides. Applications can either make use of this existing tooling, or build tooling appropriate for their platform to integrate with the FHIR registry feed (or other upstream feeds as described above).
+
+Note that for artifact bundles that are the result of the $package operation, bundles may be requested that include duplicate artifacts. Client applications that consume artifact bundles must be prepared for this case.
+
+In addition, client applications must ensure that artifact references are resolved correctly. If an artifact reference is unversioned, a version manifest for the artifact should be consulted to determine the appropriate version-binding information. See the Artifact Scope discussion for information on how to identify the version manfiest appropriate for a particular artifact.

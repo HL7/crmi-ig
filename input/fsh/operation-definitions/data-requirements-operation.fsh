@@ -13,19 +13,17 @@ Usage: #definition
 Determines the effective data requirements for the artifact, including known
 components and dependencies, and optionally informed by a version manifest.
 
-See [$crmi.package and $crmi.data-requirements](introduction.html#distribution-fhir-package)
-
-*TODO*: Add example of the use-case that will do dependency tracing, similar to
-`$package` but returns only the information and not the actual resources.
+See [$package and $data-requirements](distribution.html#package-and-data-requirements)
 """
 * comment = """
-The requirements operation supports the ability of a repository to determine the
-effective requirements of an artifact, including terminology usage (code
-systems, value sets, and direct-reference codes), parameters, dependencies
-(artifacts), and data requirements
+The data requirements operation is used for dependency gathering, as a way to understand 
+the set of dependencies of a given artifact, as well as for data requirements determination, 
+as a way to understand the complete set of data requirements for a given artifact, including 
+terminology usage (code systems, value sets, and direct-reference codes), parameters, dependencies,
+and data requirements.
 """
 * kind = #operation
-* code = #crmi.data-requirements
+* code = #data-requirements
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement

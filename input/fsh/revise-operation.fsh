@@ -36,7 +36,7 @@ See [description of $revise operation](artifact-repository-service.html#revise)
 """
 
 * kind = #operation
-* code = #crmi.revise
+* code = #revise
 * system = false
 * type = true
 * instance = true

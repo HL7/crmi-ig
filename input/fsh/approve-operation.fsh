@@ -8,7 +8,7 @@ Usage: #definition
 * title = "CRMI Approve"
 * description = "The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository."
 * kind = #operation
-* code = #crmi.approve
+* code = #approve
 * comment = "The approve operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment resource by applying an approval. The ArtifactAssessments which are added by the operation must reference a version of the artifact."
 * resource = #Resource
 * system = false

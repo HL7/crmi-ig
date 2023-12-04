@@ -1,8 +1,43 @@
 {: #operations}
 
-OperationDefinitions that involve canonical resources may conform to one or more
-of the following profiles. This allows conventionalize operation parameter
-names, types, and processing semantics.
+This implementation guide defines operations related to packaging and dependency management, as well as establishing several operation definition profiles that provide patterns for common capabilities of knowledge artifact operations.
+
+### Operations
+
+#### Packaging and Dependency Tracing
+
+These operations are defined to support artifact packaging and dependency tracing, including data requirements determination. See the [Packaging](packaging.html) discussion for more information.
+
+| **Operation** | **Description** |
+|----|----|
+| [Package](OperationDefinition-crmi-package.html) | Packages a specified canonical resource for use in a target environment, optionally including related content such as dependencies, components, and testing cases and data. |
+| [DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. The data requirements operation is used for dependency gathering, as a way to understand the set of dependencies of a given artifact, as well as for data requirements determination, as a way to understand the complete set of data requirements for a given artifact. |
+{: .grid }
+
+#### Terminology
+
+These operations are defined to support terminology capabilities expected in an Artifact Terminology Service. See the [Capabilities](capabilities.html) discussion for more information.
+
+| **Operation** | **Description** |
+|----|----|
+| [Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manfiest support |
+{: .grid }
+
+#### Artifact Authoring
+
+These operations are defined to support artifact authoring capabilities expected in an Artifact Authoring Service. See the [Capabilities](capabilities.html) discussion for more information.
+
+| **Operation** | **Description** |
+|----|----|
+| [Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository. | 
+| [Draft](OperationDefinition-crmi-draft.html) | Creates a draft version of a knowledge artifact, as well as for all resources it is composed of. |
+| [Release](OperationDefinition-crmi-release.html) | The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program’s manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
+| [Revise](OperationDefinition-crmi-revise.html) | Revises an existing resource with draft status. A successful $revise will produce a Bundle containing the updated resource. The updated resource must also have a status draft. |
+{: .grid }
+
+### Operation Pattern Profiles
+
+Operations on knowledge artifacts should consider conforming to one or more of the following profiles to ensure consistent naming of operation parameters when providing the same capabilities across operations:
 
 | **Operation Profile**               | **Purpose**                                                                    |
 |-------------------------------------|--------------------------------------------------------------------------------|
@@ -13,6 +48,9 @@ names, types, and processing semantics.
 | [Pageable][5]                       | Defines parameters for an operation with pageable options                      |
 | [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts         |
 | [Data Configurable][7]              | Defines parameters to specify how to resolve data requirements                 |
+{: .grid }
+
+Note that the `CanonicalVersionBindable` profile is already used in at some published operation definitions (such as ValueSet$expand) but is declared as deprecated because this implementation guide is proposing the more general `ArtifactVersionBindable` to support version-binding behavior for both canonical and non-canonical knowledge artifacts.
 
 [1]: StructureDefinition-crmi-artifact-operation.html
 [2]: StructureDefinition-crmi-canonical-version-bindable-operation.html
@@ -196,3 +234,4 @@ Options for federated client specification:
     * manifest
     * expansion
     * includeDraft
+-->

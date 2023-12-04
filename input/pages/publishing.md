@@ -2,7 +2,9 @@
 
 {: #publishing}
 
-Publishing involves: preparing, packaging, and then transmitting artifacts, as shown in the diagram below:
+Within this implementation guide, _publishing_ refers to packaging and distributing artifacts for downstream usage, as opposed to the function of FHIR IG publishing more broadly, which is about preparing a website for implementation guidance (in addition to packaging and distribution concerns).
+
+From the perspective of the content development lifecycle, publishing involves preparing, packaging, and then transmitting artifacts, as shown in the diagram below:
 
 <div style="max-width:800px;">
 {% include img.html img="CRMI-Publishing.png" %}
@@ -67,9 +69,18 @@ There are two modes to send content to a repository, depending on how it was pac
 
 <br/>
 **If the package is a FHIR Bundle** Publishing uses the FHIR REST API where **transaction** bundle(s) are sent to the Knowledge Artifact Repository and Knowledge Terminology Services for processing. Example publishing command:
+
 ```
-curl -X POST -d @content-bundle.json http://knowledge-artifact-repository/
-curl -X POST -d @terminology-bundle.json http://knowledge-terminology-services/
+POST [base]
+
+...json body
+```
+
+For example, using the `curl` command-line utility would look something like this:
+
+```
+curl -X POST -d @content-bundle.json http://example.org/fhir-artifact-repository/
+curl -X POST -d @terminology-bundle.json http://example.org/fhir-artifact-terminology-service/
 ```
 
 <br/>
@@ -78,4 +89,4 @@ curl -X POST -d @terminology-bundle.json http://knowledge-terminology-services/
 npm --registry http://fhir-package-registry publish ./output/package.tgz
 ```
 
-NOTE: A benefit of using FHIR packages is to support authoring tools, such as IG Publisher and Sushi, where dependencies are managed with FHIR packages.
+NOTE: A benefit of using FHIR packages is to support authoring tools, such as IG Publisher and SUSHI, where dependencies are managed with FHIR packages.

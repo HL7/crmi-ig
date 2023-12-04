@@ -1,6 +1,7 @@
 {: #profiles}
 
 ## Capability Profiles
+{: #capability-profiles }
 
 For definitional artifacts, this implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. These categories are proposed as a way to help facilitate management of expectations in the content development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
 
@@ -25,7 +26,67 @@ Profiles along the various axes may have different names appropriate to what cap
 
 Note that explicit profiles for capabilities are only defined when there are specific elements of the artifact involved in supporting that capability. For example, there is no executable ActivityDefinition profile, but that doesn't mean that ActivityDefinition artifacts cannot be executable, only that there are no additional conformance expectations for executable ActivityDefinitions specified by this implementation guide.
 
-<table>
+### Shareable
+{: #shareable }
+
+For knowledge artifacts, a _shareable_ artifact defines the minimum expectations for knowledge artifact resources to be shared between authoring, publishing, and implementation systems. This pattern is intended to apply to Canonical Resources such as ValueSet, CodeSystem, StructureDefinition, Library, and so on. The pattern is defined to ensure that an artifact has enough metadata to make sharing it through a public repository reliable. The following table provides guidance for which elements should be present in a Shareable resource profile:
+
+| **Element** | **Guidance** |
+|----|----|
+| url | Required because it provides the globally unique identity for the artifact |
+| version | Required because it ensures version tracking is possible for the artifact |
+| versionAlgorithm | Should be provided to ensure systems understand how to interpret the version element of the artifact |
+| name | Should be provided to ensure systems can reliably make use of code-generation and other system-level processing for the artifact |
+| title | Required to ensure systems can provide a user-friendly identifier for the artifact |
+| status | Required to ensure systems can track the life-cycle of the artifact |
+| experimental | Should be provided to ensure systems can differentiate production from experimental content |
+| publisher | Should be provided to ensure consumers can identify the publisher (i.e. steward) of the artifact |
+| description | Required to ensure systems can provide a meaningful human-readable description of the artifact |
+| knowledgeRepresentationLevel | Should be provided to allow systems to understand the levels of representation of content provided by the artifact |
+{: .grid }
+
+### Publishable
+{: #publishable }
+
+For knowledge artifacts, a _publishable_ artifact defines the expectations for publication and distribution of an artifact, typically as part of an artifact repository. The Publishable pattern is defined to ensure that artifacts have enough metadata to understand when, where, and why a particular artifact would be used, as well as who contributed to it, who reviewed or endorsed it, and what evidence supports its use. The pattern is about ensuring artifacts can establish trust and credibility, as well as carry enough metadata to be discoverable in a public repository or artifact catalog. All "publishable" artifacts are also "shareable". This pattern is intended to apply to Canonical Resources such as ValueSet, CodeSystem, StructureDefinition, Library, and so on. The following table provides guidance for which elements should be present in a Publishable resource profile:
+
+| **Element** | **Guidance** |
+|----|----|
+| identifier | May be provided to allow for additional identifiers beyond the URL (e.g. the OID) |
+| date | Required to ensure systems have a mechanism to detect changes that may not be tracked by the version |
+| contact | Should be provided to allow consumers to understand how to contact the publisher (i.e. steward) of the artifact |
+| useContext | Should be provided to allow systems to categorize by and consumers to understand the appropriate context of use for the artifact |
+| jurisdiction | DEPRECATED, artifacts should use a useContext with a code of jurisdiction to provide this information for the artifact |
+| purpose | Should be provided to allow consumers to understand why an artifact was created and the intended purpose of use |
+| copyright | Should be provided to inform consumers about use and/or publishing restrictions |
+| copyrightLabel | Should be provided to allow systems to display and consumers to understand copyright information |
+| approvalDate | Should be provided to inform consumers about the primary approval date of the artifact |
+| lastReviewDate | Should be provided to inform consumers when the artifact content was last reviewed |
+| effectivePeriod | Should be provided to inform consumers what timeframe the artifact is intended to be used |
+| topic | DEPRECATE, artifact should use a useContext instead |
+| author | Should be provided to inform consumers what authors contributed to the artifact |
+| editor | Should be provided to inform consumers what editors were involved in the artifact |
+| reviewer | Should be provided to inform consumers what individuals or organizations were involved in the review of the artifact |
+| endorser | Should be provided to inform consumers what individuals or organizations have endorsed the artifact |
+| relatedArtifact | Should be provided to support additional documentation, citations, etc. for the artifact |
+{: .grid }
+
+### Computable
+{: #computable }
+
+For knowledge artifacts a _computable_ artifact identifies the aspects of the artifact that are primarily focused on authoring or design-time/compile-time considerations. For example, the `compose` element of a ValueSet is a computable definition of the members of the value set. Because the computable capabilities of each type of knowledge artifact vary based on what the knowledge artifact is representing, guidance on individual elements for each profile are defined in the computable profiles.
+
+### Executable
+{: #executable }
+
+For knowledge artifacts an _executable_ artifact identifies the aspects of the artifact that are primarily focused on implementation or run-time considerations. For example, the `expansion` element of a ValueSet is an explicit representation of the members of the value set for a particular expansion (i.e. without requiring the use of a terminology server to understand the computable definition). Becasue the executable capabilities of each type of knowledge artifact vary based on what the knowledge artifact is representing, guidance on individual elements for each profile are defined in the executable profile.
+
+### Artifact Capability Profiles
+{: #artifact-capability-profiles }
+
+The following table lists the capability profiles defined for each type of knowledge artifact:
+
+<table class="grid">
   <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
   <tr><td>ActivityDefinition</td><td><a href="StructureDefinition-crmi-shareableactivitydefinition.html">CRMIShareableActivityDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableactivitydefinition.html">CRMIPublishableActivityDefinition</a></td><td>N/A (no requirements>)</td></tr>
   <tr><td>CapabilityStatement</td><td><a href="StructureDefinition-crmi-shareablecapabilitystatement.html">CRMIShareableCapabilityStatement</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecapabilitystatement.html">CRMIPublishableCapabilityStatement</a></td><td>N/A (no requirements)</td></tr>
@@ -59,9 +120,12 @@ Note that explicit profiles for capabilities are only defined when there are spe
   <tr><td>ValueSet</td><td><a href="StructureDefinition-crmi-shareablevalueset.html">CRMIShareableValueSet</a></td><td><a href="StructureDefinition-crmi-computablevalueset.html">CRMIComputableValueSet</a></td><td><a href="StructureDefinition-crmi-publishablevalueset.html">CRMIPublishableValueSet</a></td><td><a href="StructureDefinition-crmi-expandedvalueset.html">CRMIExpandedValueSet</a></td></tr>
 </table>
 
+### Artifact Definition Profiles
+{: #artifact-definition-profiles }
+
 To support packaging, testing, and distribution of knowledge artifacts, this implementation guide defines the following additional profiles:
 
-<table>
+<table class="grid">
   <tr><th>Profile</th><th>Description</th></tr>
   <!--<tr><td><a href="StructureDefinition-crmi-artifactassessment.html">CRMIArtifactAssessment</a></td><td>A profile of Basic that supports expression and use of the <a href="http://hl7.org/fhir/artifactassessment.html">R5 ArtifactAssessment</a> resource in R4 contexts.</td></tr>-->
   <tr><td><a href="StructureDefinition-crmi-capabilitystatement.html">CRMICapabilityStatement</a></td><td>A system capability statement that can express which version of CQL is supported.</td></tr>

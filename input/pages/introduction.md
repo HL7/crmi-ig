@@ -8,13 +8,18 @@
 Canonical resources are conformance, structural, and knowledge [canonical FHIR resources](https://www.hl7.org/fhir/resource.html#canonical). An "artifact" in this IG means an instance of a canonical resource. The purpose of this IG is to:
 
 * Provide a place for universal specification of Shareable/Publishable/Computable/Executable profiles that R4 IGs can use for canonical resources
-* Provide a space for universally applicable guidance and extensions in support of clinical content management and the content development lifecycle, including support for: (1) publishing artifacts and (2) distributing artifacts
+    * **Shareable**: Shareable profiles set the minimum expectations for including an artifact in a repository or implementation guide
+    * **Computable**: Computable profiles deal with authoring and design-time considerations
+    * **Publishable**: Publishable profiles describe the expectations for publication and distribution of an artifact, typically as part of an artifact repository
+    * **Executable**: Executable profiles deal with run-time behavior and implementation considerations
+* Provide a space for universally applicable guidance and extensions in support of content management and the content development lifecycle, including support for: (1) publishing artifacts and (2) distributing artifacts
+
+For a more detailed description of the Shareable, Publishable, Computable, and Executable profile capabilities, refer to the [Profiles](profiles.html) page.
 
 ### Audience
 {: #audience}
 
 The audience for this IG includes modelers (authors of FHIR profiles); terminologists; knowledge developers (authors of measures, guidelines, order catalogs, clinical logic/rules, assessments); and healthcare software developers using FHIR.
-
 
 ### Scope
 {: #scope}
@@ -50,57 +55,56 @@ Many authoring systems also:
 * Track changes
 * Content version control
 
-An example of an authoring system is: Visual Studio Code (with various plugins); git; build tools (IG Publisher and Sushi). In this case the authoring content could be stored in a filesystem as text files in a git repository. 
+An example of an authoring system is: Visual Studio Code (with various plugins); git; build tools (IG Publisher and SUSHI). In this case the authoring content could be stored in a filesystem as text files in a git repository. 
 
 An authoring system MAY use an Authoring Knowledge Repository and Authoring Knowledge Terminology Services to aid in the authoring process.
 
 ##### Authoring Knowledge Repository
 {: #authoring-knowledge-repository}
 
-The authoring knowledge repository is used during authoring to help with tools requiring a FHIR server for content to review, preview, test, etc.
+An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing readonly access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
 
-See [Authoring Knowledge Repository Capabilities]()
+See [Artifact Repository Service](artifact-repository-service.html) for a complete description of the capabilities provided by an artifact repository.
 
 
 ##### Authoring Knowledge Terminology Service
 {: #authoring-knowledge-terminology-service}
 
-The authoring knowledge terminology service, similar to authoring knowledge repository, is also used during authoring to help with tools requiring a FHIR terminology server for review, preview, test, etc.
+An artifact terminology service is a FHIR terminology service with specific capabilities to enable mangaement of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
 
-See [Authoring Knowledge Terminology Service Capabilities]()
+See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
 
 ### Approach
 {: #approach}
 
-The approach taken here is consistent with balloted IGs for FHIR. These publications view the ultimate implementation specification as a set of formal artifacts, including profiles, extensions, and terminologies. The base FHIR specification provides for the representation of canonical resources, as well as guidance on knowledge artifacts within the [Clinical Reasoning module](https://www.hl7.org/fhir/clinicalreasoning-module.html). IGs such as this add constraints to the base resources and guidance through profiles and conformance requirements that further define and restrict the sequence and cardinality of elements in the FHIR resources and the vocabulary sets for coded elements. This IG also builds on the FHIR Package specification, and creates a compatible approach to managing artifacts.
-
 The following diagram illustrates the overall ecosystem of services and capabilities required to support knowledge authoring, distribution, and implementation:
 
-<div style="max-width:800px;">
-{% include img.html img="K-Platform Illustration for CRMI.PNG" %}
+<div style="max-width:1200px;">
+{% include img.html img="CRMI-Background.PNG" %}
 </div>
 
 Within this ecosystem, this IG focuses on the following areas:
 
-<div style="max-width:800px;">
-{% include img.html img="CRMI Scope for K-Platform Illustration for CRMI.PNG" %}
-</div>
+* Artifact identity, lifecycle, and versioning
+* Artifact representation and capabilities (i.e. Shareable, Computable, Publishable, Executable)
+* Packaging and dependencies ($package and $data-requirements)
+* Distribution via packages or repositories
+* Authoring and editing
+* Terminology integration
+* Version-binding support
 
 ### Background
 {: #background}
 
-FHIR defines a set of core resources, such as patient, encounter, and observation, which represent key aspects of healthcare data. FHIR also provides a set of common data elements, called data types, that can be used across different resources to ensure consistency and interoperability. Examples of data types include strings, dates, and quantities. To use and extend the FHIR model for specific use-cases structural (StructureDefinition) and definitional artifacts (Library, Measure, PlanDefinition, Questionnaire) are authored. These artifacts, generally referred to as knowledge artifacts in this IG, have lifecycles that allow create, review, publish, and distribute. Additionally, downstream systems require access to these artifacts, many times including dependencies, for execution.
+This implementation guide assumes familiarity with the base FHIR specification, as well as with profiling FHIR and implementation guides. Refer to the [Profiling](http://hl7.org/fhir/profiling.html) topic in the base specification if needed.
 
-<div style="max-width:800px;">
-{% include img.html img="CRMI-Background.png" %}
-</div>
+As with any content development effort, FHIR Knowledge Artifacts have a content development lifecycle to create, review, publish, distribute, and implement. This implementation guide is focused on supporting consistent and reliable usage of FHIR Knowledge Artifacts by establishing content development best practices.
 
 This IG has the following aspirations:
-* Full Lifecycle Knowledge Platform respecting key Separations of Concerns, supporting established Principles &amp; Best Practices, and enabling efficient Workflows
-* Will see details of key parts of this in upcoming slides including application to Registry and Quality Measurement business cases
-* Knowledge Assets are extensible and support standards where pragmatic
+* Full lifecycle knowledge platform respecting key separations of concerns, supporting established principles &amp; best practices, and enabling efficient workflows
+* Knowledge Artifacts are extensible and support standards where pragmatic
 * Open Interfaces - based-on and/or supporting standards-based API’s where appropriate
-* Open Formats - Information Models, Terminologies (Semantics), and ‘Libraries’ of reusable and/or sharable Knowledge Representations/ Expressions
+* Open Formats - Information Models, Terminologies (Semantics), and Libraries of reusable and/or sharable Knowledge Representations/Expressions
 * Standards-based API’s, Formats, and Patterns where possible/pragmatic (otherwise supported- e.g. translation to/from)
 
 ### Conventions
