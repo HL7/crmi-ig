@@ -35,7 +35,7 @@ Downstream systems MAY require all content dependencies. These dependencies can 
 
 To facilitate this, a downstream system MAY use the $package or $data-requirements operation(s) on a canonical resource to resolve dependencies.
 
-* [$crmi.package](OperationDefinition-crmi-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of it's dependencies for a client.
+* [$crmi.package](OperationDefinition-crmi-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of its dependencies for a client.
 * [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
 
 NOTE: $crmi.data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
