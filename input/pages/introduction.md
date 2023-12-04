@@ -89,7 +89,9 @@ Within this ecosystem, this IG focuses on the following areas:
 ### Background
 {: #background}
 
-FHIR defines a set of core resources, such as patient, encounter, and observation, which represent key aspects of healthcare data. FHIR also provides a set of common data elements, called data types, that can be used across different resources to ensure consistency and interoperability. Examples of data types include strings, dates, and quantities. To use and extend the FHIR model for specific use-cases structural (StructureDefinition) and definitional artifacts (Library, Measure, PlanDefinition, Questionnaire) are authored. These artifacts, generally referred to as knowledge artifacts in this IG, have lifecycles that allow create, review, publish, and distribute. Additionally, downstream systems require access to these artifacts, many times including dependencies, for execution.
+This implementation guide assumes familiarity with the base FHIR specification, as well as with profiling FHIR and implementation guides. Refer to the [Profiling](http://hl7.org/fhir/profiling.html) topic in the base specification if needed.
+
+As with any content development effort, FHIR Knowledge Artifacts have a content development lifecycle to create, review, publish, distribute, and implement. This implementation guide is focused on supporting consistent and reliable usage of FHIR Knowledge Artifacts by establishing content development best practices.
 
 <div style="max-width:800px;">
 {% include img.html img="CRMI-Background.png" %}
