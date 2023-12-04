@@ -250,7 +250,7 @@ regulatory[].regulatoryAuthority
 
 Canonical references **MAY** be authored without a version. To ensure consistent versions of resources are used by downstream systems, a manifest parameter to specify canonical versions **MAY** be passed to FHIR operations that use dynamic requirements: `$package` and `$data-requirements`; in addition to execution operations that can use a content endpoint to resolve canonical resources such as `$apply` from CPG and `$evaluate-measure` from DEQM IG.
 
-More information on [manifest specification]()
+More information on [manifest specification](version-manifest.html)
 
 ### Syndication
 {: #distribution-syndication}
