@@ -658,6 +658,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 |`Interval<System.Date>`|`FHIR.Period`|
 |`Interval<System.DateTime>`|`FHIR.Period`|
 |`Interval<System.Quantity>`|`FHIR.Range`|
+{: .grid }
 
 2. In addition:
 * List types SHALL be lists of element types that map to FHIR
@@ -687,6 +688,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 |dateProperty|dateFilter.path|
 |dateLowProperty,dateHighProperty|dateFilter.path (resolved to an interval-valued property)|
 |dateRange|dateFilter.path or dateFilter.searchParam|
+{: .grid }
 
 > Note that best-practice for CQL evaluation is to make use of and distribute compiled CQL (ELM). In the case that dynamic CQL construction is required, implementers should take care to sanitize inputs from any parameters used in the construction of dynamic CQL to avoid [injection attacks](https://en.wikipedia.org/wiki/SQL_injection).
 
@@ -703,6 +705,7 @@ The prohibition against underscores in CQL library names is required to ensure c
 |Library (include declaration)|`depends-on` with `url` of the Library (e.g. `http://hl7.org/fhir/Library/FHIRHelpers|4.0.1`)|
 |Code System|`depends-on` with `url` of the CodeSystem (e.g. `http://loing.org`)|
 |Value Set|`depends-on` with `url` of the ValueSet (e.g. `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.89`)|
+{: .grid }
 
 #### MIME Type version
 The version of CQL/ELM used for content in a library should be specified using the version parameter of the text/cql and application/elm+xml, application/elm+json media types.
@@ -782,6 +785,7 @@ For knowledge artifact development with FHIR, the following options are recommen
 | EnableDetailedErrors | This instructs the translator to include detailed error information. By default, the translator only reports root-cause errors. | This feature should not be used with knowledge artifacts. |
 | DisableListTraversal | This instructs the translator to disallow traversal of list-valued expressions. With knowledge artifacts, disabling this feature would prevent a useful capability. | This feature should not be used with knowledge artifacts. |
 | SignatureLevel | This setting controls whether the `signature` element of a FunctionRef will be populated. | The SignatureLevel should be `Overloads` or `All` to ensure signature information is present. |
+{: .grid }
 
 #### Specifying Options
 
