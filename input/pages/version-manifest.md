@@ -14,7 +14,7 @@ Standardized terminologies are used throughout FHIR to represent coded values in
 
 #### CodeSystem
 
-Within FHIR, terminologies are represented using the [CodeSystem](http://hl7.org/fhir/codesystem) resource, which represents a single system of coded concepts. The CodeSystem resource is not intended for distribution, rather it is a description of the code system and its properties. CodeSystem resources _may_ contain content, but not necessarily, and may even have partial content, dependending on the code system and use case being represented.
+Within FHIR, terminologies are represented using the [CodeSystem](http://hl7.org/fhir/codesystem) resource, which represents a single system of coded concepts. The CodeSystem resource is not intended for distribution, rather it is a description of the code system and its properties. CodeSystem resources _may_ contain content, but not necessarily, and may even have partial content, depending on the code system and use case being represented.
 
 Code systems may be _enumerated_, meaning they simply list the concepts that are part of the code system, or they may have a formal grammar that describes rules for valid concepts in the code system, or they may have both, i.e. some enumerated concepts, as well as rules for additional concepts.
 

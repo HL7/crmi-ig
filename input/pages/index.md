@@ -126,9 +126,9 @@ These groupings are listed in priority order, meaning the further down the group
 * SpecimenDefinition
 * Substance (non-canonical definitional)
 
-##### Evidence-based Medicine Artifacts (Quarternary)
+##### Evidence-Based Medicine (EBM) Artifacts (Quaternary)
 
-If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other EBM resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
+If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other Evidence-Based Medicine (EBM) resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
 
 * EffectEvidenceSynthesis
 * Evidence
@@ -154,7 +154,7 @@ page in the menu bar:
 -  **[Introduction](introduction.html)**: Detailed overview of the content management lifecycle and the background for this guide
 -  **Content Management**
     -  **[Content lifecycle](content-lifecycle.html)**: Content lifecycle of knowledge artifacts
-    -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, incluing canonical base, url and name, and operation definitions.
+    -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, including canonical base, url and name, and operation definitions.
     -  **[Using CQL](using-cql.html)**: Using Clinical Quality Language as part of knowledge artifacts
     -  **[Testing](testing.html)**: Simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
     -  **[Packaging](packaging.html)**: Packaging requirements for canonical resources and knowledge artifacts 

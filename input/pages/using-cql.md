@@ -219,7 +219,7 @@ valueset "Acute Pharyngitis (1)": 'http://example.org/fhir/ValueSet/acute-pharyn
 valueset "Acute Pharyngitis (2)": 'http://example.org/fhir/ValueSet/acute-pharyngitis-icd'
 ```
 
-Note carefully that although this URL may be resolveable for some terminology implementations, this is not necessarily the
+Note carefully that although this URL may be resolvable for some terminology implementations, this is not necessarily the
 case. This use of a canonical URL can be resolved as a search by the `url` element:
 
 ```
@@ -619,7 +619,7 @@ In addition to the use of CQL directly in expression-valued elements, CQL conten
 {: #conformance-requirement-4-18}
 
 1. The identifying elements of a library SHALL conform to the following requirements:
-* Library.url SHALL be `<CQL namepsace url>/Library/<CQL library name>`
+* Library.url SHALL be `<CQL namespace url>/Library/<CQL library name>`
 * Library.name SHALL be `<CQL library name>`
 * Library.version SHALL be `<CQL library version>`
 

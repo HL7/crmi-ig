@@ -161,7 +161,7 @@ http://loinc.org|2.56. Note that this has obvious safety issues, in that it may
 result in a value set expansion giving a different list of codes that is both
 wrong and unsafe, and implementers should only use this capability reluctantly.
 It primarily exists to deal with situations where specifications have fallen
-into decay as time passes. If the version of a canonical is overriden, the version used SHALL
+into decay as time passes. If the version of a canonical is overridden, the version used SHALL
 explicitly be represented in the expansion parameters. Note that this is a generalization of the
 `force-system-version` parameter to the $expand operation to apply to any canonical resource,
 including code systems.

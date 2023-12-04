@@ -49,7 +49,7 @@ Both `$package` and `$data-requirements` operations are available for all canoni
 3. Questionnaire, ActivityDefinition, PlanDefinition, Library, Measure
 4. ObservationDefinition, SpecimenDefinition, MedicationKnowledge, etc...
 
-NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropiate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
+NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropriate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
 
 ### Dependency Tracing
 
@@ -229,7 +229,7 @@ parameter[].resource
 relatedMedicationKnowledge[].reference
 monograph[].source
 ingredient[].itemReference
-reglatory[].reglatoryAuthroity
+regulatory[].regulatoryAuthority
 ```
 
 ### Manifest
