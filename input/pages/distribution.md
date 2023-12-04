@@ -6,18 +6,20 @@ Distribution involves the APIs for searching and reading published artifacts. Th
 
 * [FHIR Package / NPM](#distribution-fhir-package)
 * [FHIR REST API](#distribution-fhir-rest)
-* [$package and $data-requirements](#distribution-fhir-package)
+* [$package and $data-requirements](#package-and-data-requirements)
 * [Manifest support](#distribution-manifest) for canonical version specification
 * [Syndication (Atom RSS)](#distribution-syndication)
 
 ### FHIR Packages / NPM
 {: #distribution-fhir-package}
 
-Like publishing, [FHIR Packages]() are a way to distribute content. This is compatible with IG Publisher, sushi and the npm client.
+Like publishing, [FHIR Packages](https://hl7.org/fhir/packages.html) are a way to distribute content. This is compatible with IG Publisher, SUSHI and the NPM client.
 
 ```
 npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-package
 ```
+
+This example iollustrates the use of an NPM package registry to install IG packages as NPM packages. This example also illustrates the use of NPM Scopes for FHIR packages.
 
 ### FHIR REST API
 {: #distribution-fhir-rest}
@@ -25,7 +27,7 @@ npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-packa
 Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search SHOULD be available for all canonical resources.
 
 ### $package and $data-requirements
-{: #distribution-fhir-package}
+{: #package-and-data-requirements}
 
 Downstream systems MAY require all content dependencies. These dependencies can cross IG/package boundaries, as intended for reusability (e.g. a common Library could be used by two Measures, or an ActivityDefinition could be used by several PlanDefinitions in different content IGs). Furthermore, some content might have been published outside a content IG/FHIR Package.
 
