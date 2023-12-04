@@ -2,7 +2,9 @@
 
 {: #publishing}
 
-Publishing involves: preparing, packaging, and then transmitting artifacts, as shown in the diagram below:
+Within this implementation guide, _publishing_ refers to packaging and distributing artifacts for downstream usage, as opposed to the function of FHIR IG publishing more broadly, which is about preparing a website for implementation guidance (in addition to packaging and distribution concerns).
+
+From the perspective of the content development lifecycle, publishing involves preparing, packaging, and then transmitting artifacts, as shown in the diagram below:
 
 <div style="max-width:800px;">
 {% include img.html img="CRMI-Publishing.png" %}
