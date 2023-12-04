@@ -82,9 +82,13 @@ The following diagram illustrates the overall ecosystem of services and capabili
 
 Within this ecosystem, this IG focuses on the following areas:
 
-<div style="max-width:800px;">
-{% include img.html img="CRMI Scope for K-Platform Illustration for CRMI.PNG" %}
-</div>
+* Artifact identity, lifecycle, and versioning
+* Artifact representation and capabilities (i.e. Shareable, Computable, Publishable, Executable)
+* Packaging and dependencies ($package and $data-requirements)
+* Distribution via packages or repositories
+* Authoring and editing
+* Terminology integration
+* Version-binding support
 
 ### Background
 {: #background}
