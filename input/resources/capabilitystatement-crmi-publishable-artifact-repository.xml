@@ -36,6 +36,113 @@
       </service>
     </security>
     <resource>
+      <type value="ActivityDefinition"/>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-date"/>
+        <type value="date"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="effective"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-effective"/>
+        <type value="date"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="jurisdiction"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-jurisdiction"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-context"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-context-type"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type-quantity"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-context-type-quantity"/>
+        <type value="composite"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type-value"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-context-type-value"/>
+        <type value="composite"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="topic"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-topic"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-successor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+    <resource>
       <type value="Library"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -249,40 +356,233 @@
         <type value="reference"/>
       </searchParam>
     </resource>
+    <resource>
+      <type value="PlanDefinition"/>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-date"/>
+        <type value="date"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="effective"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-effective"/>
+        <type value="date"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="jurisdiction"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-jurisdiction"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-context"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-context-type"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type-quantity"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-context-type-quantity"/>
+        <type value="composite"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type-value"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-context-type-value"/>
+        <type value="composite"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="topic"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-topic"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-successor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="Questionnaire"/>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-date"/>
+        <type value="date"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="effective"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-effective"/>
+        <type value="date"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="jurisdiction"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-jurisdiction"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-context"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-context-type"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type-quantity"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-context-type-quantity"/>
+        <type value="composite"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="context-type-value"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-context-type-value"/>
+        <type value="composite"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <name value="topic"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-topic"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-successor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-package"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-package"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/MeasureReport-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-package"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="data-requirements"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-data-requirements"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="data-requirements"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-data-requirements"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-data-requirements"/>
     </operation>
   </rest>
 </CapabilityStatement>

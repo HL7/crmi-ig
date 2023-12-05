@@ -37,6 +37,30 @@
       </service>
     </security>
     <resource>
+      <type value="ActivityDefinition"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="create"/>
+        <documentation value="Create allows authoring workflows to post new activity definitions in _draft_ (**submit**) or _active_ (**publish**) status."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="update"/>
+        <documentation value="Update allows authoring workflows to update existing activity definitions in _draft_ (**revise**) status, add comments to existing activity definitions (**review** and **approve**), and **release** or **retire** an activity definition."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Delete allows authoring workflows to **withdraw** _draft_ activity definitions or **archive** _retired_ activity definitions."/>
+      </interaction>
+    </resource>
+    <resource>
       <type value="Library"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -84,26 +108,57 @@
         <documentation value="Delete allows authoring workflows to **withdraw** _draft_ measures or **archive** _retired_ measures."/>
       </interaction>
     </resource>
+    <resource>
+      <type value="PlanDefinition"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="create"/>
+        <documentation value="Create allows authoring workflows to post new plan definitions in _draft_ (**submit**) or _active_ (**publish**) status."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="update"/>
+        <documentation value="Update allows authoring workflows to update existing plan definitions in _draft_ (**revise**) status, add comments to existing plan definitions (**review** and **approve**), and **release** or **retire** a plan definition."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Delete allows authoring workflows to **withdraw** _draft_ plan definitions or **archive** _retired_ plan definitions."/>
+      </interaction>
+    </resource>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
-      <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-package"/>
+      <name value="approve"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-approve"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
-      <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Measure-package"/>
+      <name value="draft"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-draft"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
-      <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/MeasureReport-package"/>
+      <name value="release"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-release"/>
+    </operation>
+    <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
+      <name value="revise"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-revise"/>
     </operation>
   </rest>
 </CapabilityStatement>

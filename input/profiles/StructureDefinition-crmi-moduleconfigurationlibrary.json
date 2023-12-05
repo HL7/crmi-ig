@@ -1,0 +1,188 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-moduleconfigurationlibrary",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduleconfigurationlibrary",
+  "name": "CRMIModuleConfigurationLibrary",
+  "title": "CRMI Module Configuration Library",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-11-27T13:31:32-07:00",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CRMI Module Configuration Library profile supports configuration of the data requirements for a module for a given endpoint. This is useful to provide endpoint-specific configuration of the queries to be used to gather data to satisfy the data requirements for a given module",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Library",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Library",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Library",
+        "path": "Library",
+        "mustSupport": false
+      },
+      {
+        "id": "Library.extension:configurationFor",
+        "path": "Library.extension",
+        "sliceName": "configurationFor",
+        "requirements": "A module configuration library must define which artifact it is configuring.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-configurationFor"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:configurationEndpoint",
+        "path": "Library.extension",
+        "sliceName": "configurationEndpoint",
+        "requirements": "A module configuration library must define which endpoint it is configuring.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-configurationEndpoint"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.type",
+        "path": "Library.type",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "module-definition"
+            }
+          ]
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement",
+        "path": "Library.dataRequirement",
+        "requirements": "A module configuration library must provide a complete description of the data requirements and how to fulfill them given the endpoint being configured.",
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:isSelective",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "isSelective",
+        "short": "specifies whether a given DataRequirement is \"selective\"",
+        "definition": "specifies whether a given DataRequirement is \"selective\", meaning that it can be used, along with other selective requirements, to determine whether an artifact is applicable to a particular subject.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-isSelective"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:valueFilter",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "valueFilter",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.extension:fhirQueryPattern",
+        "path": "Library.dataRequirement.extension",
+        "sliceName": "fhirQueryPattern",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-fhirQueryPattern"
+            ]
+          }
+        ],
+        "mustSupport": false
+      },
+      {
+        "id": "Library.content",
+        "path": "Library.content",
+        "min": 0,
+        "max": "0",
+        "mustSupport": false
+      }
+    ]
+  }
+}

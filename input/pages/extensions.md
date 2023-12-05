@@ -1,3 +1,5 @@
+{:toc}
+
 {: #extensions}
 
 This implementation guide defines and makes use of several categories of extensions to support various aspects of knowledge artifact definition, packaging, and implementation. The following sections provide an index of each of these categories of extensions.

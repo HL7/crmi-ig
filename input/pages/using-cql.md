@@ -1,5 +1,7 @@
 {:toc}
 
+{: #using-cql}
+
 This topic specifies conformance requirements and guidance for the use of CQL with FHIR, whether that be as in-line expressions in expression-valued elements, or in CQL libraries contained in FHIR Library resources.
 
 ### Libraries
@@ -73,6 +75,8 @@ library EXM146 version '2.0.0'
 ```
 
 Snippet 4-1: Library line from EXM146.cql, the second major version.
+
+Note that when CQL libraries are included as part of larger groupings of artifacts (such as quality measures or computable guidelines), the version of the library is specified along with all the other artifacts in the larger group. For more guidance on versioning these artifacts as a group, refer to the [Versioning]() topic in the CRMI implementation guide.
 
 #### Nested Libraries
 {: #nested-libraries}

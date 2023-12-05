@@ -35,6 +35,81 @@
       </service>
     </security>
     <resource>
+      <type value="ActivityDefinition"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableactivitydefinition"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Read allows clients to get the definitions and details of repository activity definitions"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Search allows clients to search for repository activity definitions"/>
+      </interaction>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="url"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-url"/>
+        <type value="uri"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-version"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-identifier"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-description"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-status"/>
+        <type value="token"/>
+      </searchParam>
+    </resource>
+    <resource>
       <type value="Library"/>
       <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"/>
       <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"/>
@@ -186,6 +261,156 @@
         </extension>
         <name value="status"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-status"/>
+        <type value="token"/>
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="PlanDefinition"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableplandefinition"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableplandefinition"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Read allows clients to get the definitions and details of repository plan definitions"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Search allows clients to search for repository plan definitions"/>
+      </interaction>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="url"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-url"/>
+        <type value="uri"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-version"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-identifier"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-description"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-status"/>
+        <type value="token"/>
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="Questionnaire"/>
+      <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablequestionnaire"/>
+      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablequestionnaire"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Read allows clients to get the definitions and details of repository questionnaires"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Search allows clients to search for repository questionnaires"/>
+      </interaction>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="url"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-url"/>
+        <type value="uri"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-version"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-identifier"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-description"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-status"/>
         <type value="token"/>
       </searchParam>
     </resource>

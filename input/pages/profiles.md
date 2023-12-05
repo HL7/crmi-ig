@@ -1,7 +1,6 @@
-{: #profiles}
+{:toc}
 
-## Capability Profiles
-{: #capability-profiles }
+{: #profiles}
 
 For definitional artifacts, this implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts. These categories are proposed as a way to help facilitate management of expectations in the content development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
 
@@ -134,6 +133,7 @@ To support packaging, testing, and distribution of knowledge artifacts, this imp
   <tr><td><a href="StructureDefinition-crmi-medicationdefinition.html">CRMIMedicationDefinition</a></td><td>A profile of Medication that supports context-independent representation of medications for use in definitional contexts.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-medicationknowledgedefinition.html">CRMIMedicationKnowledgeDefinition</a></td><td>A profile of MedicationKnowledge that supports context-independent representation of medication knowledge for use in definitional contexts.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-modelinfolibrary.html">CRMIModelInfoLibrary</a></td><td>A library profile used to distribute model information libraries used by CQL.</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-moduleconfigurationlibrary.html">CRMIModuleConfigurationLibrary</a></td><td>A library profile used to define and exchange configuration information for an artifact (or collection of artifacts) for a specific endpoint.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-moduledefinitionlibrary.html">CRMIModuleDefinitionLibrary</a></td><td>A library profile used to define and exchange effective data requirements and usage information for an artifact (or collection of artifacts).</td></tr>
   <tr><td><a href="StructureDefinition-crmi-softwaresystemdevice.html">CRMISoftwareSystemDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-substancedefinition.html">CRMISubstanceDefinition</a></td><td>A profile of Substance that supports context-independent representation of substances for use in definitional contexts</td></tr>
