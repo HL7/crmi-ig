@@ -42,6 +42,69 @@ The above diagram depicts the high-level phases of content development as:
 
 The authoring phase is supported by the Shareable and Computable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of these capability categories and profiles.
 
+#### Artifact Versioning
+{: #artifact-versioning }
+
+This IG recommends [Semantic Versioning](https://semver.org) be used to version artifacts to help track and manage dependencies.
+
+**Conformance Requirement 3.1 (Artifact Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
+{: #conformance-requirement-3-1}
+  1. Active artifacts **SHALL** specify a version
+  2. The artifact version **SHOULD** follow the convention:
+       < major >.< minor >.< patch >
+  3. For artifacts in draft status, the versioning scheme **SHALL NOT** apply, and there is no expectation that artifact contents are stable
+  4. The versioning scheme **SHALL** apply when an artifact moves to active status.
+
+There are three main types of changes that can be made to an artifact:
+
+  1. An artifact can be changed in a way that would alter the public use of its components, or significantly impact capability. 
+  2. An artifact can be changed by adding new features or functionality but without changing the way that existing capabilities are used. 
+  3. An artifact can be changed in a way that does not change existing functionality or add new capabilities, but only corrects or improves the originally intended functionality.
+
+By exposing version numbers that identify all three types of changes, artifacts can be versioned in a way that makes
+clear when a change will impact usage, versus when a change can potentially be safely incorporated as an update. The
+first type of change will be referred to as a "major" change, and will require incrementing of the "major version
+number". The second type of change will be referred to as a "minor" change, and will only require incrementing of the
+"minor version number". And finally, the third type of change will be referred to as a "patch", and will only require
+incrementing the "patch version number". Version numbers for knowledge artifacts can then be represented as:
+
+```xml
+<major>.<minor>.<patch>
+```
+{: #content-pre}
+
+To summarize, breaking changes or major substantive new capabilities (such as materially changing whether a given recommendation will be applicable to a subject) require a major version number increment; non-breaking changes or minor new capabilities (such as refining the content of a questionnaire or adding stratifiers to a quality measure) require a minor version number increment; while non-substantive changes (such as fixing spelling mistakes and other minor technical corrections) require only a patch version number increment. The scheme is for the benefit of consumers and so should be understood from that perspective.
+
+#### Artifact Versioning Policy
+{: #artifact-versioning-policy }
+
+In addition to the use of semantic versioning, this IG adds support for specifying an _artifact version policy_ that applies to artifacts to allow consumers to understand what types of changes are indicated by version increments. This IG defines two version policies:
+
+* **metadata** - This policy indicates that non-substantive changes to the metadata elements of an artifact may be made without incrementing the version number
+* **strict** - This policy indicates that no changes to any elements of an artifact may be made without incrementing the version number
+
+**Conformance Requirement 3.2 (Artifact Versioning Policy):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-2)
+{: #conformance-requirement-3-2}
+  1. Active artifacts **SHOULD** specify a versioning policy
+  2. When an artifact versioning policy is `metadata`:
+      1. Non-substantive changes to the metadata elements of the artifact **MAY** be made without incrementing the version number, but
+      2. When this occurs, the `date` element **SHALL** be updated
+  3. When an artifact versioning policy is `strict`:
+      1. All changes to the elements of an artifact must be accompanied by an increment in the version number, appropriate to the level of change in the artifact consistent with semantic versioning
+
+#### Artifact Collection Versioning
+
+Because artifacts are often authored, published, and consumed as a collection of artifacts (either as a published implementation guide, or as an artifact package such as a quality measure), the version of an artifact is often established at the collection level and applied consistently to all the artifacts included in the package. In this case, the same considerations apply to establishing the version number, but because that version number is applied to all the artifacts in a package, it can be the case that an artifact has a new version, but does not actually have changes as indicated by its version number.
+
+For example, if a new version of a computable guideline is published as a content implementation guide, but one of the value sets defined in the implementation guide has not changed, the value set will still be assigned the new version number of the content implementation guide as a whole, even though the content of that value set has not changed.
+
+**Conformance Requirement 3.3 (Artifact Collection Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-3)
+{: #conformance-requirement-3-3}
+  1. Artifacts that are authored as part of a collection (either a content implementation guide or an asset collection):
+    1. **SHOULD** have the same version as the overall collection, and as a result:
+    2. **MAY** have version number increments that do not strictly reflect changes to that artifact
+    3. **MAY** specify version algorithm and versioning policy once at the collection level
+
 ### Publishing
 
 The publishing phase is supported by the Publishable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete descripition of the Publishable capability category and profiles.
