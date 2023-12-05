@@ -32,13 +32,11 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment."
 * parameter[=].type = #code
-* parameter[=].binding.strength = #required
-* parameter[=].binding.valueSet = "http://hl7.org/fhir/ValueSet/artifactassessment-information-type"
 * parameter[+].name = #artifactAssessmentSummary
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "The body of the comment. "
+* parameter[=].documentation = "The body of the comment."
 * parameter[=].type = #string
 * parameter[+].name = #artifactAssessmentTarget
 * parameter[=].use = #in
@@ -50,7 +48,7 @@ Usage: #definition
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "Optional supporting canonical URL / Reference for the comment. "
+* parameter[=].documentation = "Optional supporting canonical URL / Reference for the comment."
 * parameter[=].type = #uri
 * parameter[+].name = #artifactAssessmentAuthor
 * parameter[=].use = #in
