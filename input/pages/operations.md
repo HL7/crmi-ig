@@ -1,3 +1,5 @@
+{:toc}
+
 {: #operations}
 
 This implementation guide defines operations related to packaging and dependency management, as well as establishing several operation definition profiles that provide patterns for common capabilities of knowledge artifact operations.

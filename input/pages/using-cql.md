@@ -1,5 +1,7 @@
 {:toc}
 
+{: #using-cql}
+
 This topic specifies conformance requirements and guidance for the use of CQL with FHIR, whether that be as in-line expressions in expression-valued elements, or in CQL libraries contained in FHIR Library resources.
 
 ### Libraries

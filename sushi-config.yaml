@@ -76,3 +76,49 @@ parameters:
     - http://terminology.hl7.org/CodeSystem/software-system-type-codes
     - http://terminology.hl7.org/ValueSet/artifact-version-policy
     - http://terminology.hl7.org/ValueSet/software-system-type
+
+pages:
+  index.md:
+    title: Home
+  introduction.md:
+    title: Introduction
+    acknowledgements.md:
+      title: Acknowledgements
+    bibliography.md:
+      title: Bibliography
+  content-lifecycle.md:
+    title: Content Lifecycle
+    using-cql.md:
+      title: Using CQL
+    naming-conventions.md:
+      title: Naming Conventions
+    packaging.md:
+      title: Packaging
+    testing.md:
+      title: Testing
+    publishing.md:
+      title: Publishing
+    distribution.md:
+      title: Distribution
+    version-manifest.md:
+      title: Dealing with Unversioned Canonicals
+  profiles.md:
+    title: Profiles
+  extensions.md:
+    title: Extensions
+  operations.md:
+    title: Operations
+  capabilities.md:
+    title: Capabilities
+    artifact-repository-service.md:
+      title: Artifact Repository Service
+    artifact-terminology-service.md:
+      title: Artifact Terminology Service
+  terminology.md:
+    title: Terminology
+  artifacts.xml:
+    title: Artifacts Summary
+  downloads.md:
+    title: Downloads
+  changes.md:
+    title: Version History
