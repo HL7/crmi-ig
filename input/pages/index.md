@@ -39,7 +39,7 @@ The following is a list of FHIR resource types that are considered _artifacts_, 
 * Evidence-based Medicine Artifacts: Evidence, EvidenceVariable, and other artifacts related to supporting evidence-based medicine
 * Related Resources: Resources that are not artifacts but are profiled and/or used in this implementation guide
 
-These groupings are listed in priority order, meaning the further down the grouping, the less-developed the profiles and guidance for the artifacts in that category.
+These groupings are listed in priority order, indicating the relative priority of focus for supporting the artifacts in that group.
 
 **Artifact Resource Types**
 * ActivityDefinition
@@ -161,6 +161,8 @@ page in the menu bar:
     -  **[Distribution](distribution.html)**: Distribution requirements for canonical resources and knowledge artifacts 
     -  **[Dealing with unversioned canonical references](version-manifest.html)**: Guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
 -  **[Profiles](profiles.html)**: List of profiles defined for use by knowledge artifacts
+-  **[Extensions](extensions.html)**: List of extensions defined and used by knowledge artifacts
+-  **[Operations](operations.html)**: List of operations and operation pattern profiles
 -  **[Capabilities](capabilities.html)**: Definitions of services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
 -  **[Downloads](downloads.html)**: Links to downloadable artifacts for implementations.
 -  **[Acknowledgements](acknowledgements.html)**
@@ -175,8 +177,6 @@ For more information, see the definition of [Must Support](https://hl7.org/fhir/
 
 **Conformance Requirement 1.1 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-1-1)
 {: #conformance-requirement-1-1}
-
-Conformance Requirement 1.1 (Must Support Elements):
 
 For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element **SHALL** be interpreted as follows:
 
