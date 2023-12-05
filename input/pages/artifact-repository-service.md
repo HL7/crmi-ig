@@ -7,6 +7,12 @@ This implementation guide is not advocating for any particular central authority
 
 This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
 
+In addition to use cases for knowledge artifact management, this page defines three levels of artifact repository capabilities:
+
+* **Shareable Artifact Repository** The minimum functionality required to support read-only, API access to artifacts
+* **Publishable Artifact Repository** Additional capabilities to support indexing and searching, dependency tracing, and packaging of artifacts
+* **Authoring Artifact Repository** Additional write capabilities to support content authoring using the repository as a content store
+
 ### Knowledge Artifact Management
 
 This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
@@ -139,13 +145,16 @@ If the resulting bundle is paged using `count` or `offset`, it will be of type `
 The following parameters **SHOULD** be supported for packaging operations:
 
 * **capability**: A desired capability of the resulting package. `computable` to include computable elements in packaged content, `executable` to include executable elements in packaged content, `publishable` to include publishable elements in packaged content.
+* **terminologyCapabilities**: A description of the terminology capabilities of the target environment. Terminology artifacts should be packaged as `computable` if they can be expanded based on these capabilities, and `executable` (`expanded`) otherwise
 * **offset**: Paging support - where to start if a subset is desired (default = 0). Offset is number of records (not number of pages)
 * **count**: Paging support - how many resources should be provided in a partial page view. If count = 0, the client is asking how large the package is.
-* **checkCanonicalVersion**: Edge Case: Specifies a version to use for a system. If a library or value set specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
-* **forceCanonicalVersion**: Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the library and value sets (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
-* **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by the value set(s) being expanded. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `canonicalVersion` parameter.
+* **artifactVersion**: Specifies a version to use for an artifact if it is referenced without a version 
+* **checkArtifactVersion**: Edge Case: Specifies a version to use for an artifact. If the artifact is referenced with a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
+* **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
+* **manifest**: Specifies an asset-collection library that defines version bindings for artifacts referenced in the artifact being packaged. When specified, artifacts identified as `depends-on` related artifacts in the root artifact have the same meaning as specifying that artifact version in the `artifactVersion` parameter.
 * **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
 * **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the implementation guide or specification that defines the artifact being packaged (default is false)
+* **artifactEndpointConfiguration**: Specifies an optional endpoint configuration for resolving artifact references
 * Instance level:
     * **id**: The server-specific id of the artifact to be approved.
 * Type level:
@@ -173,9 +182,11 @@ The following parameters **SHOULD** be supported for the requirements operations
 * **identifier**: A business identifier of the artifact to be analyzed
 * **expression**: If appropriate for the type of artifact, specific expressions or components to be analyzed. If not specified, the analysis is performed for the entire artifact
 * **parameters**: Any input parameters for the artifact. Parameters defined in this input will be bound by name to parameters defined in the CQL library (or referenced libraries). Parameter types are mapped to CQL as specified in the Using CQL section of this implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL.
+* **artifactVersion**: Specifies a version to use for an artifact if it is referenced without a version 
+* **checkArtifactVersion**: Edge Case: Specifies a version to use for an artifact. If the artifact is referenced with a different version, an error is returned instead of the requirements. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
+* **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by value set(s) or other artifacts used in the artifact. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
-* **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
-* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the same package as the artifact being packaged (default is false) 
+* **artifactEndpointConfiguration**: Specifies an optional endpoint configuration for resolving artifact references
 
 The result of the requirements operation is a _module-definition_ Library that returns the computed effective requirements of the artifact.
 
@@ -270,6 +281,16 @@ The ShareableArtifactRepository capability statement defines the minimum expecta
 
 The [CRMIShareableArtifactRepository](CapabilityStatement-crmi-shareable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
+Note that the shareable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide:
+
+* ActivityDefinition
+* Library
+* Measure
+* PlanDefinition
+* Questionnaire
+
+Repository support for other types of artifacts **SHALL** follow the same pattern established for these artifacts.
+
 #### Artifacts
 
 For each type of knowledge artifact supported by a ShareableArtifactRepository:
@@ -298,6 +319,16 @@ For each type of knowledge artifact supported by a ShareableArtifactRepository:
 The PublishableArtifactRepository capability statement expresses additional functionality that **SHOULD** be provided in support of providing published FHIR artifacts including additional searching and packaging capabilities.
 
 The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+
+Note that the publishable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide:
+
+* ActivityDefinition
+* Library
+* Measure
+* PlanDefinition
+* Questionnaire
+
+Repository support for other types of artifacts **SHALL** follow the same pattern established for these artifacts.
 
 #### Artifacts
 
@@ -351,6 +382,16 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
 The AuthoringArtifactRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed.
 
 The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
+
+Note that the authoring artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide:
+
+* ActivityDefinition
+* Library
+* Measure
+* PlanDefinition
+* Questionnaire
+
+Repository support for other types of artifacts **SHALL** follow the same pattern established for these artifacts.
 
 #### Artifacts
 
