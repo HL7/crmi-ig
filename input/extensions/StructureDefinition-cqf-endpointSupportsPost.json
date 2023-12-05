@@ -1,0 +1,85 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cqf-endpointSupportsPost",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost",
+  "name": "EndpointSupportsPost",
+  "title": "Endpoint Supports POST",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-02-13",
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Indicates whether the endpoint of the configuration library on which it appears supports using a POST for search",
+  "purpose": "This extension allows module configuration libraries to indicate whether the endpoint they are configuring supports the POST style of search interaction.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Library"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Endpoint supports POST?",
+        "definition": "Indicates whether the endpoint for the module configuration library supports POST-style search",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}
