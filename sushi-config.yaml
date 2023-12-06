@@ -64,6 +64,7 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 # use cases, the value can be an object with keys for `uri` and `version`.
 # For R5 ImplementationGuides, the object can also have a key for `reason`.
 dependencies:
+  hl7.fhir.uv.cql: dev
   fhir.cqf.common: 4.0.1
   hl7.fhir.uv.extensions.r4: 1.0.0
 
