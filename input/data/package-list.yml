@@ -1,0 +1,38 @@
+package-id: hl7.fhir.uv.crmi
+title: Canonical Resource Management Infrastructure
+canonical: 'http://hl7.org/fhir/uv/crmi'
+introduction: >-
+  The Canonical Resource Management Infrastructure implementation guide defines profiles, operations, capability 
+  statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, 
+  and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The 
+  guide is intended to be used by specification and content implementation guide authors as both a dependency for 
+  validation of published artifacts, and a guide for construction and publication of content.
+
+list:
+  - version: current
+    desc: |-
+      
+      The following trackers were applied for this version:
+
+      **Status**: **Summary**:(**Jira Issue**)
+    
+      * **Applied**: Use a dataAbsentReason extension to indicate missing results([FHIR-43076](https://jira.hl7.org/browse/FHIR-43076))
+      * **Applied**: Add guidance on missing information([FHIR-43075](https://jira.hl7.org/browse/FHIR-43075))
+      * **Applied**: Consider requiring the use of a SignatureLevel higher than none([FHIR-42921](https://jira.hl7.org/browse/FHIR-42921))
+      * **Applied**: Libraries are not required for CQL([FHIR-42574](https://jira.hl7.org/browse/FHIR-42574))
+      * **Applied**: Explaing conformance requirement 4.12([FHIR-42573](https://jira.hl7.org/browse/FHIR-42573))
+      * **Applied**: Representation in a Library needs clarification([FHIR-42571](https://jira.hl7.org/browse/FHIR-42571))
+      * **Applied**: Code URI expectation inconsistent([FHIR-42570](https://jira.hl7.org/browse/FHIR-42570))
+      * **Applied**: What is "knowledge artifact CQL"?([FHIR-42569](https://jira.hl7.org/browse/FHIR-42569))
+      * **Applied**: Why so much discussion about VSAC in an international spec?([FHIR-42568](https://jira.hl7.org/browse/FHIR-42568))
+      * **Applied**: Use a value set avoiding OIDs([FHIR-42567](https://jira.hl7.org/browse/FHIR-42567))
+      * **Applied**: Update location of code system URIs([FHIR-42566](https://jira.hl7.org/browse/FHIR-42566))
+      * **Applied**: How is the association between a namespace and URI established?([FHIR-42565](https://jira.hl7.org/browse/FHIR-42565))
+      * **Applied**: Put versioning stuff together([FHIR-42562](https://jira.hl7.org/browse/FHIR-42562))
+      * **Applied**: Explain identifier rules([FHIR-42561](https://jira.hl7.org/browse/FHIR-42561))
+      * **Applied**: Better explain library declarations([FHIR-42560](https://jira.hl7.org/browse/FHIR-42560))
+      * **Applied**: Clarify language around CQL artifacts([FHIR-42559](https://jira.hl7.org/browse/FHIR-42559))
+      * **Applied**: No content in this ModelInfo section of Using CQL([FHIR-41869](https://jira.hl7.org/browse/FHIR-41869))
+      * **Applied**: Provide more context in examples([FHIR-41868](https://jira.hl7.org/browse/FHIR-41868))
+      
+

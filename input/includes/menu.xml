@@ -7,7 +7,6 @@
     </a>
     <ul class="dropdown-menu">
       <li><a href="content-lifecycle.html" class="item">Content lifecycle</a></li>
-      <li><a href="using-cql.html" class="item">Using CQL</a></li>
       <li><a href="naming-conventions.html" class="item">Naming conventions</a></li>
       <li><a href="packaging.html" class="item">Packaging</a></li>
       <li><a href="publishing.html" class="item">Publishing</a></li>
