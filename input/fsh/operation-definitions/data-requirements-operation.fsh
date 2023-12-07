@@ -115,14 +115,14 @@ specified.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-Any input parameters for the artifact. Parameters defined in this input will be
-bound by name to parameters defined in the CQL library (or referenced
-libraries). Parameter types are mapped to CQL as specified in the Using CQL
-section of this implementation guide. If a parameter appears more than once in
-the input Parameters resource, it is represented with a List in the input CQL.
-If a parameter has parts, it is represented as a Tuple in the input CQL.
-
-NOTE: Does this only apply to Library resource types?
+Any input parameters for the artifact. If the artifact is a logic library, 
+or references logic libraries, parameters defined in this input will be
+bound by name to parameters defined in the logic library (or referenced
+libraries). If the logic library is a CQL library, parameter types are 
+mapped to CQL as specified in the Using CQL with FHIR implementation guide. 
+If a parameter appears more than once in the input Parameters resource, 
+it is represented with a List in the input CQL. If a parameter has parts, 
+it is represented as a Tuple in the input CQL.
 """
 * parameter[=].type = #Parameters
 

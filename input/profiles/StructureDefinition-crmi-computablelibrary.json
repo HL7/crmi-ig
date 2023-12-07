@@ -134,36 +134,6 @@
         "mustSupport": true
       },
       {
-        "id": "Library.parameter.extension:cqlType",
-        "path": "Library.parameter.extension",
-        "sliceName": "cqlType",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-cqlType"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Library.parameter.extension:cqlAccessLevel",
-        "path": "Library.parameter.extension",
-        "sliceName": "cqlAccessLevel",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-cqlAccessLevel"
-            ]
-          }
-        ]
-      },
-      {
         "id": "Library.dataRequirement",
         "path": "Library.dataRequirement",
         "requirements": "A computable library must declare any data requirements.",
@@ -188,44 +158,7 @@
       {
         "id": "Library.content",
         "path": "Library.content",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "contentType"
-            }
-          ],
-          "rules": "open"
-        },
-        "mustSupport": false
-      },
-      {
-        "id": "Library.content:cqlContent",
-        "path": "Library.content",
-        "sliceName": "cqlContent",
-        "requirements": "A computable library must provide the contents of the library in a computable form.",
         "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:cqlContent.contentType",
-        "path": "Library.content.contentType",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "text/cql",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:cqlContent.data",
-        "path": "Library.content.data",
-        "min": 1,
-        "max": "1",
         "mustSupport": true
       }
     ]

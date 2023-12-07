@@ -4,7 +4,6 @@ This folder contains page files in md and html format which are used as standalo
 * Home
 * Introduction
 * Content management
-  * Using CQL
   * Testing
   * Packaging
     * FHIR Bundle

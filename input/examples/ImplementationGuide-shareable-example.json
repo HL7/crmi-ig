@@ -49,12 +49,6 @@
       "version" : "1.0.0"
     },
     {
-      "id" : "cpg",
-      "uri" : "http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg",
-      "packageId" : "hl7.fhir.uv.cpg",
-      "version" : "1.0.0"
-    },
-    {
       "id" : "cqf",
       "uri" : "http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common",
       "packageId" : "fhir.cqf.common",

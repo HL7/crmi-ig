@@ -30,6 +30,3 @@ These capability statements are required to ensure conformance expectations are 
 * [**Artifact Terminology Service**](artifact-terminology-service.html)
 * [**Artifact Repository**](artifact-repository-service.html)
 
-In addition, the following example capability statement illustrates the use of the cqf-supportedCqlVersion extension to support advertising the version of CQL supported by a service:
-
-* [**Example Library Evaluation Service**](CapabilityStatement-library-evaluation-service-example.html)
