@@ -30,8 +30,8 @@
     "system" : "urn:ietf:rfc:3986",
     "value" : "urn:oid:2.16.840.1.113883.4.642.3.3222"
   }],
-  "name" : "KnowledgeCapability",
-  "title" : "Knowledge Capability",
+  "name" : "KnowledgeCapabilityValues",
+  "title" : "Knowledge Capability Values",
   "status" : "active",
   "experimental" : false,
   "date" : "2019-07-21",

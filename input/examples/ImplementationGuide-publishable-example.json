@@ -18,9 +18,11 @@
       }
   }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
-      "valueCoding": {
-          "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
-          "code": "strict"
+      "valueCodeableConcept": {
+          "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+            "code": "strict"
+          }]
       }
   }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-purpose",

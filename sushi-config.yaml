@@ -67,6 +67,9 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 #  fhir.cqf.common: 4.0.1
 #  hl7.fhir.uv.extensions.r4: 1.0.0
 
+dependencies:
+  hl7.fhir.uv.extensions: current
+
 parameters:
   excludettl: true
   path-history: http://hl7.org/fhir/uv/crmi/history.html

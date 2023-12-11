@@ -1,5 +1,8 @@
 == Suppressed Messages ==
 
+# NOTE: http://hl7.org/fhir/uv/crmi/CodeSystem/crmi-release-experimental-behavior-codes received a TSMG exemption here: https://confluence.hl7.org/display/TSMG/2023-12-07+TSMG+Agenda+and+Minutes
+# NOTE: http://hl7.org/fhir/uv/crmi/CodeSystem/crmi-release-version-behavior-codes received a TSMG exemption here: https://confluence.hl7.org/display/TSMG/2023-12-07+TSMG+Agenda+and+Minutes
+
 # These are example structure definitions, so should not be being validated as conformance artifacts (i.e. no example of this profile should be provided, it's an example profile)
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example'): The Implementation Guide contains no examples for this profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/shareable-example'): The Implementation Guide contains no examples for this profile
@@ -21,13 +24,7 @@ INFORMATION: NamingSystem/publishable-example: NamingSystem.extension[4]: This e
 INFORMATION: NamingSystem/shareable-example: NamingSystem.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem|1.0.0-ballot
 INFORMATION: NamingSystem/shareable-example: NamingSystem.extension[4]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem|1.0.0-ballot
 INFORMATION: StructureDefinition/publishable-example: StructureDefinition.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition|1.0.0-ballot
-INFORMATION: StructureDefinition/publishable-example: StructureDefinition.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition|1.0.0-ballot
-INFORMATION: StructureDefinition/publishable-example: StructureDefinition.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition|1.0.0-ballot
-INFORMATION: StructureDefinition/publishable-example: StructureDefinition.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition|1.0.0-ballot
 INFORMATION: StructureDefinition/shareable-example: StructureDefinition.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition|1.0.0-ballot
-INFORMATION: StructureDefinition/shareable-example: StructureDefinition.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition|1.0.0-ballot
-INFORMATION: StructureDefinition/shareable-example: StructureDefinition.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition|1.0.0-ballot
-INFORMATION: StructureDefinition/shareable-example: StructureDefinition.extension[3]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition|1.0.0-ballot
 INFORMATION: ImplementationGuide/publishable-example: ImplementationGuide.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide|1.0.0-ballot
 INFORMATION: ImplementationGuide/publishable-example: ImplementationGuide.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide|1.0.0-ballot
 INFORMATION: ImplementationGuide/publishable-example: ImplementationGuide.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide|1.0.0-ballot
@@ -43,9 +40,6 @@ WARNING: Measure/publishable-example: Measure.group[0].stratifier[0].criteria: T
 WARNING: Measure/publishable-example: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
 WARNING: Measure/shareable-example: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated
 WARNING: Measure/shareable-example: Measure.group[0].stratifier[1].criteria: The expression language text/cql-identifier is not supported, so can't be validated
-
-# This is how the base versionAlgorithm is defined as well
-INFORMATION: StructureDefinition/artifact-versionAlgorithm: StructureDefinition.differential.element[3].binding: The element Extension.value[x] has a binding, and has multiple types subject to bindings ([string, Coding]). The binding will apply to all the types
 
 # These are inherited from the base resource
 WARNING: StructureDefinition/crmi-publishablecapabilitystatement: StructureDefinition.snapshot.element[0].constraint[6].xpath: value should not start or finish with whitespace ' not(f:kind/@value='instance') or (not(exists(f:implementation)) and exists(f:software))'
