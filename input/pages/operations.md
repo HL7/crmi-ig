@@ -12,8 +12,8 @@ These operations are defined to support artifact packaging and dependency tracin
 
 | **Operation** | **Description** |
 |----|----|
-| [Package](OperationDefinition-crmi-package.html) | Packages a specified canonical resource for use in a target environment, optionally including related content such as dependencies, components, and testing cases and data. |
-| [DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. The data requirements operation is used for dependency gathering, as a way to understand the set of dependencies of a given artifact, as well as for data requirements determination, as a way to understand the complete set of data requirements for a given artifact. |
+| [CRMI Package](OperationDefinition-crmi-package.html) | Packages a specified canonical resource for use in a target environment, optionally including related content such as dependencies, components, and testing cases and data. |
+| [CRMI DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. The data requirements operation is used for dependency gathering, as a way to understand the set of dependencies of a given artifact, as well as for data requirements determination, as a way to understand the complete set of data requirements for a given artifact. |
 {: .grid }
 
 #### Terminology
@@ -22,7 +22,7 @@ These operations are defined to support terminology capabilities expected in an 
 
 | **Operation** | **Description** |
 |----|----|
-| [Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manfiest support |
+| [CRMI ValueSet Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manfiest support |
 {: .grid }
 
 #### Artifact Authoring
@@ -31,10 +31,10 @@ These operations are defined to support artifact authoring capabilities expected
 
 | **Operation** | **Description** |
 |----|----|
-| [Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository. | 
-| [Draft](OperationDefinition-crmi-draft.html) | Creates a draft version of a knowledge artifact, as well as for all resources it is composed of. |
-| [Release](OperationDefinition-crmi-release.html) | The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program’s manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
-| [Revise](OperationDefinition-crmi-revise.html) | Revises an existing resource with draft status. A successful $revise will produce a Bundle containing the updated resource. The updated resource must also have a status draft. |
+| [CRMI Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository. | 
+| [CRMI Draft](OperationDefinition-crmi-draft.html) | Creates a draft version of a knowledge artifact, as well as for all resources it is composed of. |
+| [CRMI Release](OperationDefinition-crmi-release.html) | The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program’s manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
+| [CRMI Revise](OperationDefinition-crmi-revise.html) | Revises an existing resource with draft status. A successful $revise will produce a Bundle containing the updated resource. The updated resource must also have a status draft. |
 {: .grid }
 
 ### Operation Pattern Profiles
@@ -49,7 +49,7 @@ Operations on knowledge artifacts **SHOULD** consider conforming to one or more 
 | [Manifestable][4]                   | Defines parameters used to provide a version manifest                          |
 | [Pageable][5]                       | Defines parameters for an operation with pageable options                      |
 | [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts         |
-| [Data Configurable][7]              | Defines parameters to specify how to resolve data requirements                 |
+| Data Configurable (Roadmap)         | Defines parameters to specify how to resolve data requirements                 |
 {: .grid }
 
 Note that the `CanonicalVersionBindable` profile is already used in at some published operation definitions (such as ValueSet$expand) but is declared as deprecated because this implementation guide is proposing the more general `ArtifactVersionBindable` to support version-binding behavior for both canonical and non-canonical knowledge artifacts.
@@ -60,7 +60,6 @@ Note that the `CanonicalVersionBindable` profile is already used in at some publ
 [4]: StructureDefinition-crmi-manifestable-operation.html
 [5]: StructureDefinition-crmi-pageable-operation.html
 [6]: StructureDefinition-crmi-artifact-endpoint-configurable-operation.html
-[7]: StructureDefinition-crmi-data-configurable-operation.html
 
 <!--
 * ArtifactOperation

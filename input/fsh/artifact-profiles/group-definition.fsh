@@ -14,6 +14,7 @@ Parent: Group
 Id: crmi-groupdefinition
 Title: "CRMI GroupDefinition"
 Description: "Represents the definition of a group of subjects, suitable for use in various contexts, such as a cohort definition, a recommendation inclusion or exclusion criteria, the members of a study, or a population criteria"
+* ^status = #active
 * insert StandardsMetadata(3)
 * obeys gdf-1
 * . ^mustSupport = false

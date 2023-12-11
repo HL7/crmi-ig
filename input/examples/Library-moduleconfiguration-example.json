@@ -155,6 +155,7 @@
     }, {
       "path": "status",
       "code": [ {
+        "system": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
         "code": "active"
       } ]
     } ]
@@ -284,8 +285,10 @@
     "codeFilter": [ {
       "path": "status",
       "code": [ {
+        "system": "http://hl7.org/fhir/request-status",
         "code": "active"
       }, {
+        "system": "http://hl7.org/fhir/request-status",
         "code": "completed"
       } ]
     } ]

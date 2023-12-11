@@ -3,6 +3,7 @@ Parent: MedicationKnowledge
 Id: crmi-medicationknowledgedefinition
 Title: "CRMI MedicationKnowledge Definition"
 Description: "Represents the definition of medication knowledge, suitable for use in various contexts"
+* ^status = #active
 * insert StandardsMetadata(1)
 * extension contains 
   $artifact-url named artifactUrl 0..1 MS and 

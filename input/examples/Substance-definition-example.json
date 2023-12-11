@@ -45,7 +45,8 @@
             "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-reference",
             "valueUri": "http://example.org/Substance/definition-example|1.0.0"
           }
-        ]
+        ],
+        "display": "apitoxin (Honey Bee Venom)"
       }
     }
   ]

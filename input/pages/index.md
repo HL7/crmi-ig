@@ -43,6 +43,8 @@ The following table lists the resource types that are considered _artifacts_, al
 
 Note that CompartmentDefinition is not profiled in this implementation guide because only HL7 can define CompartmentDefinition instances.
 
+(profiled) For Entity-related Domain Definition Artifacts such as Organization, Location, Practitioner, Patient, and CareTeam, this implementation guide uses profiling to address references to these types of resources in the definitional space (i.e. when a PlanDefinition references a particular type of CareTeam for example, the canonical reference would be to a profile of the CareTeam resource.
+
 ### How to read this Guide
 {: #how-to-read-this-guide}
 
