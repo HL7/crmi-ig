@@ -30,118 +30,18 @@ This implementation guide defines categories of profiles to represent knowledge 
 
 An _artifact_ in this implementation guide is a FHIR resource whose primary focus is the representation of context-independent knowledge such as a profile, a value set, a decision support rule, or a quality measure specification, as opposed to FHIR resources such as Patient, Organization, or Observation, that are typically focused on the representation of _instance_ data for patients and other healthcare related entities. Most of the resources types for representing artifacts in FHIR are also [_canonical resources_](https://hl7.org/fhir/canonicalresource.html#CanonicalResource), and often [_metadata resources_](https://hl7.org/fhir/metadataresource.html#MetadataResource). However, some FHIR resources are not defined by FHIR as canonical resources, but may still be used to represent context-independent knowledge (e.g. Medication, or Substance). The use of the term _artifact_ in this IG applies to both canonical resources as defined by the base specification, as well as these _non-canonical definitional_ resources.
 
-The following is a list of FHIR resource types that are considered _artifacts_, along with a grouping of resource types according to the following priorities:
+The following table lists the resource types that are considered _artifacts_, along with a categorization of those artifacts and the relative priority of consideration of those items in this implementation guide.
 
-* Knowledge Artifacts: Representing decision support rules, quality measures, logic libraries, and activity definitions
-* Terminology Artifacts: Code systems, value sets, naming systems, and concept maps
-* Conformance Artifacts: Profiles, extensions, structure maps, and artifacts related to defining and testing conformance
-* Domain Definition Artifacts: Medications, substances, groups, and other domain-related definitional artifacts
-* Evidence-based Medicine Artifacts: Evidence, EvidenceVariable, and other artifacts related to supporting evidence-based medicine
-* Related Resources: Resources that are not artifacts but are profiled and/or used in this implementation guide
+|Artifact Category |Description |Resources |
+|----|----|----|
+|Knowledge Artifacts (Primary) |Representing decision support rules, quality measures, logic libraries, and activity definitions | ActivityDefinition<br/>Library<br/>Measure<br/>PlanDefinition<br/>Questionnaire |
+|Terminology Artifacts (Secondary) |Code systems, value sets, naming systems, and concept maps | ValueSet<br/>CodeSystem<br/>ConceptMap<br/>NamingSystem<br/> |
+|Conformance Artifacts (Tertiary) |Profiles, extensions, structure maps, and artifacts related to defining and testing conformance | CapabilityStatement<br/>CompartmentDefinition<br/>GraphDefinition<br/>ImplementationGuide<br/>MessageDefinition<br/>OperationDefinition<br/>Requirements (R5)<br/>StructureDefinition<br/>StructureMap<br/>SearchParameter<br/>SubscriptionTopic (R5)<br/>TerminologyCapabilities<br/> |
+|Domain Definition Artifacts (Roadmap) |Medications, substances, groups, and other domain-related definitional artifacts | ActorDefinition (R5)<br/>CareTeam (Profiled)<br/>ConditionDefinition<br/>ClinicalUseDefinition (R5)<br/>DeviceDefinition<br/>Group (non-canonical definitional)<br/>Location (profiled)<br/>Medication (non-canonical definitionl)<br/>MedicationKnowledge (non-canonical definitional)<br/>Practitioner (profiled)<br/>PractitionerRole (profiled)<br/>ObservationDefinition<br/>Organization (profiled)<br/>SpecimenDefinition<br/>Substance (non-canonical definitional |
+|Evidence-based Medicine (EBM) Artifacts (Quarternary) |Evidence, EvidenceVariable, and other artifacts related to supporting evidence-based medicine | Evidence<br/>EvidenceVariable<br/>ResearchDefinition<br/>ResearchElementDefinition<br/>RiskEvidenceSynthesis |
+|Related Resources (Roadmap) | | ArtifactAssessment (R5)<br/>Permission (R5) |
 
-These groupings are listed in priority order, indicating the relative priority of focus for supporting the artifacts in that group.
-
-**Artifact Resource Types**
-* ActivityDefinition
-* CapabilityStatement
-* ChargeItemDefinition (not considered in this IG)
-* CodeSystem
-* CompartmentDefinition (not profiled because only HL7 can define CompartmentDefinition instances)
-* ConceptMap
-* ConditionDefinition (roadmap item)
-* ClinicalUseDefinition (R5)
-* DeviceDefinition (roadmap item)
-* EffectEvidenceSynthesis (not considered, uses EBM resources)
-* EventDefinition (targeted for removal)
-* Evidence (not considered, uses EBM resources)
-* EvidenceVariable (not considered, uses EBM resources)
-* ExampleScenario (roadmap item)
-* GraphDefinition
-* Group (non-canonical definitional)
-* ImplementationGuide
-* Library
-* Measure
-* Medication (non-canonical definitional)
-* MedicationKnowledge (non-canonical definitional)
-* MessageDefinition (roadmap item)
-* NamingSystem
-* ObservationDefinition (roadmap item)
-* OperationDefinition
-* PlanDefinition
-* Questionnaire
-* ResearchDefinition (not considered, uses EBM resources)
-* ResearchElementDefinition (not considered, uses EBM resources)
-* RiskEvidenceSynthesis (not considered, uses EBM resources)
-* SearchParameter
-* SpecimenDefinition (roadmap item)
-* SubscriptionTopic (R5)
-* Substance (non-canonical definitional)
-* StructureDefinition
-* StructureMap (roadmap item)
-* TerminologyCapabilities
-* TestScript (roadmap item)
-* ValueSet
-
-##### Knowledge Artifacts (Primary)
-* ActivityDefinition
-* Library
-* Measure
-* PlanDefinition
-* Questionnaire
-
-##### Terminology Artifacts (Secondary)
-* ValueSet
-* CodeSystem
-* ConceptMap
-* NamingSystem
-
-##### Conformance Artifacts (Tertiary)
-* CapabilityStatement
-* CompartmentDefinition
-* GraphDefinition
-* ImplementationGuide
-* MessageDefinition
-* OperationDefinition
-* StructureDefinition
-* StructureMap
-* SearchParameter
-* SubscriptionTopic (R5)
-* TerminologyCapabilities
-
-##### Domain Definition Artifacts
-* ActorDefinition (R5)
-* CareTeam (non-canonical definitional)
-* ConditionDefinition
-* ClinicalUseDefinition (R5)
-* DeviceDefinition
-* Group (non-canonical definitional)
-* Location (non-canonical definitional)
-* Medication (non-canonical definitional)
-* MedicationKnowledge (non-canonical definitional)
-* Practitioner (non-canonical definitional)
-* PractitionerRole (non-canonical definitional)
-* ObservationDefinition
-* Organization (non-canonical definitional)
-* SpecimenDefinition
-* Substance (non-canonical definitional)
-
-##### Evidence-Based Medicine (EBM) Artifacts (Quaternary)
-
-If you are using these constructs in R4, this implementation guide provides an approach to supporting content development lifecycle for these resources. However, the EBM-on-FHIR project has made significant changes to these and other Evidence-Based Medicine (EBM) resources in R5 and moving forward. Contact the [EBM-on-FHIR](https://confluence.hl7.org/display/CDS/EBMonFHIR) project if you have needs for these constructs in R5.
-
-* EffectEvidenceSynthesis
-* Evidence
-* EvidenceVariable
-* ResearchDefinition
-* ResearchElementDefinition
-* RiskEvidenceSynthesis
-
-##### Related Resources
-* ArtifactAssessment (R5)  // Example: https://fevir.net/resources/ArtifactAssessment/122618
-* Citation (R5)
-* Permission (R5)
-* Obligation (R5)
-* Requirement (R5)
+Note that CompartmentDefinition is not profiled in this implementation guide because only HL7 can define CompartmentDefinition instances.
 
 ### How to read this Guide
 {: #how-to-read-this-guide}
