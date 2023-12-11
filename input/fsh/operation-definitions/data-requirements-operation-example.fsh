@@ -1,15 +1,16 @@
-Instance: crmi-data-requirements
+Instance: crmi-profiled-operation-example
 InstanceOf: OperationDefinition
-Title: "CRMI Data Requirements Operation"
+Title: "CRMI Profiled Operation Example"
 Usage: #definition
 * insert DefinitionMetadata
+* insert ArtifactOperationProfile
+* insert ArtifactVersionBindableOperationProfile
+* insert ArtifactEndpointConfigurableOperationProfile
+* insert ManifestableOperationProfile
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
 * description = """
-Determines the effective data requirements for the artifact, including known
-components and dependencies, and optionally informed by a version manifest.
-
-See [$package and $data-requirements](distribution.html#package-and-data-requirements)
+This operation definition is a copy of the CRMI Data Requirements operation but declaring conformance to the CRMI Artifact, Artifact Version Bindable, Artifact Endpoint Configurable, and Manifestable operation profiles.
 """
 * comment = """
 The data requirements operation is used for dependency gathering, as a way to understand 

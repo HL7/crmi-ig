@@ -23,7 +23,7 @@ operation.
 the extension `artifact-url`. The version for canonical resources is `.version`, for non-canonical
 resources it is the extension `artifact-version`.
 
-NOTE: When involking canonical operations using any combination of `url`,
+NOTE: When invoking canonical operations using any combination of `url`,
 `version`, and `identifier`: 
 * if there is one-and-only-one matching resource, the operation should apply, otherwise an error state. 
 * if `resource` is specified then `url`, `version`, and `identifier` should be ignored.

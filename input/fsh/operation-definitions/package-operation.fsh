@@ -3,10 +3,6 @@ InstanceOf: OperationDefinition
 Title: "CRMI Package Operation"
 Usage: #definition
 * insert DefinitionMetadata
-* insert ArtifactOperationProfile
-* insert ArtifactVersionBindableOperationProfile
-* insert ArtifactEndpointConfigurableOperationProfile 
-* insert ManifestableOperationProfile
 * name = "CRMIPackage"
 * title = "CRMI Package"
 * description = """
