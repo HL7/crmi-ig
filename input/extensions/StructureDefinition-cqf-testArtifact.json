@@ -73,10 +73,17 @@
       },
       {
         "id": "Extension.value[x]",
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-shouldTraceDependency",
+          "valueBoolean": true
+        }],
         "path": "Extension.value[x]",
         "type": [
           {
             "code": "canonical"
+          },
+          {
+            "code": "uri"
           }
         ]
       }

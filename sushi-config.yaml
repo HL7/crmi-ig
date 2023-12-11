@@ -175,3 +175,12 @@ resources:
   Parameters/crmi-evaluationresult-example:
     name: Example Evaluation Result Parameters
     description: Example Parameters resource demonstrating the use of data-absent-reason extension to indicate a null evaluation result.
+  Group/testcase-example:
+    name: Example TestCase Group
+    description: Example Group illustrating use of the cqf-testArtifact extension to build a set of test data for an artifact.
+  Patient/example-1:
+    name: Patient Example 1
+    description: Example patient 1 in the test case group
+  Patient/example-2:
+    name: Patient Example 2
+    description: Example patient 2 in the test case group

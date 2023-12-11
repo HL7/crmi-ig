@@ -172,7 +172,7 @@
     },
     {
       "id" : "ValueSet.compose.include.valueSet",
-      "path" : "ValueSet.compose.include.valueSet",
+     "path" : "ValueSet.compose.include.valueSet",
       "mustSupport" : true
     },
     {
