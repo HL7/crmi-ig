@@ -134,7 +134,7 @@ See [Artifact Terminology Service](artifact-terminology-service.html) for a comp
 The following diagram illustrates the overall ecosystem of services and capabilities required to support knowledge authoring, distribution, and implementation:
 
 <div style="max-width:1200px;">
-{% include img.html img="CRMI-Background.PNG" %}
+{% include img.html img="CRMI-Background.png" %}
 </div>
 
 Within this ecosystem, this IG focuses on the following areas:

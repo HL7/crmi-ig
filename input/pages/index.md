@@ -154,7 +154,6 @@ page in the menu bar:
 -  **Content Management**
     -  **[Content lifecycle](content-lifecycle.html)**: Content lifecycle of knowledge artifacts
     -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, including canonical base, url and name, and operation definitions.
-    -  **[Using CQL](using-cql.html)**: Using Clinical Quality Language as part of knowledge artifacts
     -  **[Testing](testing.html)**: Simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
     -  **[Packaging](packaging.html)**: Packaging requirements for canonical resources and knowledge artifacts 
     -  **[Publishing](publishing.html)**: Publishing requirements for canonical resources and knowledge artifacts 

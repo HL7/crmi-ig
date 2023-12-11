@@ -4,29 +4,6 @@
     "meta": {
       "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide" ]
     },
-    "contained": [{
-        "resourceType": "Parameters",
-        "id": "ancm-modelinfosettings",
-        "parameter": [ {
-          "name": "modelName",
-          "valueString": "ANCM"
-        }, {
-          "name": "modelUrl",
-          "valueString": "http://fhir.org/guides/who/smart-anc-mini"
-        }, {
-          "name": "patientClassName",
-          "valueString": "Patient"
-        }, {
-          "name": "patientBirthDatePropertyName",
-          "valueString": "birthDate"
-        }, {
-          "name": "targetQualifier",
-          "valueString": "ANCM"
-        }, {
-          "name": "targetUrl",
-          "valueString": "http://hl7.org/fhir"
-        } ]
-    }],
     "extension": [{
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseLabel",
       "valueString": "Release 1"

@@ -115,7 +115,6 @@
       <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary"/>
       <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"/>
       <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary"/>
-      <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-modelinfolibrary"/>
       <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduledefinitionlibrary"/>
       <supportedProfile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary"/>
       <interaction>

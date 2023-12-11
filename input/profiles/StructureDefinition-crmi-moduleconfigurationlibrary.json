@@ -101,6 +101,23 @@
         "mustSupport": true
       },
       {
+        "id": "Library.extension:endpointSupportsPost",
+        "path": "Library.extension",
+        "sliceName": "endpointSupportsPost",
+        "requirements": "A module configuration library must define whether the endpoint it is configuring supports search via POST.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Library.type",
         "path": "Library.type",
         "min": 1,

@@ -1,51 +1,10 @@
 == Suppressed Messages ==
 
-# The instances have a start, so it's not clear why the validator is complaining about this
-ERROR: GraphDefinition/publishable-example: GraphDefinition: GraphDefinition.start: minimum required = 1, but only found 0 (from http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablegraphdefinition|1.0.0-ballot)
-ERROR: GraphDefinition/shareable-example: GraphDefinition: GraphDefinition.start: minimum required = 1, but only found 0 (from http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablegraphdefinition|1.0.0-ballot)
-
-# The display name is the same, copied directly from this message, but it still shows up as an error, I don't know why
-ERROR: MedicationKnowledge/definition-example: MedicationKnowledge.code.coding[0]: Wrong Display Name 'Vancomycin Hydrochloride, 10 VIAL in 1 CARTON (0069-2587-10) > 10 mL in 1 VIAL (0069-2587-03) (package)' for http://hl7.org/fhir/sid/ndc#0069-2587-10 - should be ''Vancomycin Hydrochloride, 10 VIAL in 1 CARTON (0069-2587-10)  > 10 mL in 1 VIAL (0069-2587-03)  (package)'' (for the language(s) '--') (from Tx-Server) for 'http://hl7.org/fhir/sid/ndc#0069-2587-10'
-
-# The publisher is constructing structure definition narrative but these are example structure definitions and should not be processed as conformance artifacts
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-examples.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-examples.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-mappings.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-mappings.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-testing.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example-testing.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 195, column 8: The link 'StructureDefinition-publishable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-publishable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 202, column 8: The link 'StructureDefinition-publishable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-definitions.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-examples.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-examples.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-mappings.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-mappings.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-testing.html#/html/body/div/div/div/div/div/ul/li/a at Line 194, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example-testing.html#/html/body/div/div/div/div/div/ul/li/a at Line 201, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 195, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
-ERROR: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\StructureDefinition-shareable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 202, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
-
 # These are example structure definitions, so should not be being validated as conformance artifacts (i.e. no example of this profile should be provided, it's an example profile)
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example'): The Implementation Guide contains no examples for this profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/shareable-example'): The Implementation Guide contains no examples for this profile
 
 # Expected missing slices
-INFORMATION: Library/ANCCohort: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/ANCCohort: Library.content[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/ANCCohort: Library.content[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/FHIRCommon: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/FHIRCommon: Library.content[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/FHIRCommon: Library.content[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/computable-example: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/computable-example: Library.content[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/computable-example: Library.content[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablelibrary|1.0.0-ballot
-INFORMATION: Library/executable-example: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary|1.0.0-ballot
-INFORMATION: Library/executable-example: Library.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary|1.0.0-ballot
-INFORMATION: Library/executable-example: Library.content[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-executablelibrary|1.0.0-ballot
 INFORMATION: Library/manifest-example: Library.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary|1.0.0-ballot
 INFORMATION: Library/manifest-example: Library.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary|1.0.0-ballot
 INFORMATION: Library/publishable-example: Library.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary|1.0.0-ballot
@@ -78,14 +37,6 @@ INFORMATION: ValueSet/crmi-release-version-behavior: ValueSet.extension[2]: This
 INFORMATION: ValueSet/software-system-type: ValueSet.extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset|1.0.0-ballot
 INFORMATION: ValueSet/software-system-type: ValueSet.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset|1.0.0-ballot
 INFORMATION: ValueSet/software-system-type: ValueSet.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset|1.0.0-ballot
-
-# Example content so although the code system is valid, it's not relevant for conformance for this IG anyway
-INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[0].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[1].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/publishable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[2].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[0].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[1].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
-INFORMATION: Measure/shareable-example: Measure.contained[0]/*Library/effective-data-requirements*/.extension[2].value.ofType(Coding): Code System URI 'http://example.org/CodeSystem/iso-8601-derived-periods' is unknown so the code cannot be validated
 
 # The validator does not validate cql-identifier references for measure stratifiers
 WARNING: Measure/publishable-example: Measure.group[0].stratifier[0].criteria: The expression language text/cql-identifier is not supported, so can't be validated

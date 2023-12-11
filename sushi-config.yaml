@@ -120,3 +120,55 @@ pages:
     title: Downloads
   changes.md:
     title: Version History
+
+# The resources property corresponds to IG.definition.resource.
+# SUSHI can auto-generate all of the resource entries based on
+# the FSH definitions and/or information in any user-provided
+# JSON or XML resource files. If the generated entries are not
+# sufficient or complete, however, the author can add entries
+# here. If the reference matches a generated entry, it will
+# replace the generated entry. If it doesn't match any generated
+# entries, it will be added to the generated entries. The format
+# follows IG.definition.resource with the following differences:
+#   * use IG.definition.resource.reference.reference as the YAML key.
+#   * if the key is an id or name, SUSHI will replace it with the
+#     correct URL when generating the IG JSON.
+#   * specify "omit" to omit a FSH-generated resource from the
+#     resource list.
+#   * if the exampleCanonical is an id or name, SUSHI will replace
+#     it with the correct canonical when generating the IG JSON.
+#   * groupingId can be used, but top-level groups syntax may be a
+#     better option (see below).
+# The following are simple examples to demonstrate what this might
+# look like:
+#
+# resources:
+  # ImplementationGuide/hl7.fhir.uv.cpg.chf: omit #omit this because this template does not generate HTML for IG, so the link from TOC fails
+#   Patient/my-example-patient:
+#     name: My Example Patient
+#     description: An example Patient
+#     exampleBoolean: true
+#   Patient/bad-example: omit
+
+resources:
+  Group/definition-example:
+    name: Example Group Definition
+    description: Example Group Definition illustrating the use of an expression to define group membership.
+  Device/cqf-tooling:
+    name: CQF Tooling Device
+    description: Example of a Software System Device instance for describing tooling that was used to process artifacts. This resource is typically referenced from the `crmi-softwaresystem` extension
+  Medication/definition-example:
+    name: Example Medication Definition
+    description: Example of a Medication resource illustrating use as a definitional artifact.
+  MedicationKnowledge/definition-example:
+    name: Example MedicationKnowledge Definition
+    description: Example of a MedicationKnowledge resource illustrating use as a definitional artifact.
+  Substance/definition-example:
+    name: Example Substance Definition
+    description: Example of a Substance resource illustrating use as a definitional artifact.
+  MeasureReport/result-example:
+    name: Example MeasureReport
+    description: Example MeasureReport illustrating use of MeasureReport as a test case.
+  Parameters/crmi-evaluationresult-example:
+    name: Example Evaluation Result Parameters
+    description: Example Parameters resource demonstrating the use of data-absent-reason extension to indicate a null evaluation result.
