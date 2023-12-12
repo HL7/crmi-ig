@@ -18,10 +18,10 @@
       "valueCode": "structured"
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Questionnaire/publishable-example",
-    "name": "ANCB5",
-    "title": "ANC.B5 Quick check",
+    "name": "ANCB5Publishable",
+    "title": "ANC.B5 Quick check (Publishable Example)",
     "status": "active",
-    "experimental": false,
+    "experimental": true,
     "description": "Quick check questionnaire",
     "useContext": [ {
       "code": {

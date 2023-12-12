@@ -5,10 +5,10 @@
     "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset" ]
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/shareable-example",
-  "name": "SpecifichealthconcernsCodes",
-  "title": "Specific health concern(s) Codes",
+  "name": "SpecifichealthconcernsCodesShareable",
+  "title": "Specific health concern(s) Codes (Shareable Example)",
   "status": "draft",
-  "experimental": false,
+  "experimental": true,
   "description": "Codes representing possible values for the Specific health concern(s) element",
   "immutable": true,
   "compose": {

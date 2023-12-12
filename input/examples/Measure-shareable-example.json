@@ -334,10 +334,10 @@
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-definitionTerm"
     }],
     "url": "http://hl7.org/fhir/uv/crmi/Measure/shareable-example",
-    "name": "ANCIND01",
-    "title": "ANC.IND.01 Percentage of pregnant women with first ANC contact in the first trimester",
+    "name": "ANCIND01Shareabale",
+    "title": "ANC.IND.01 Percentage of pregnant women with first ANC contact in the first trimester (Shareable Example)",
     "status": "draft",
-    "experimental": false,
+    "experimental": true,
     "date": "2023-03-13T22:32:10-06:00",
     "description": "Percentage of pregnant women with first ANC contact in the first trimester (before 12 weeks of gestation)",
     "library": [ "http://hl7.org/fhir/uv/crmi/Library/ANCCohort" ],

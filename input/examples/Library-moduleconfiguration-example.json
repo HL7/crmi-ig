@@ -17,7 +17,7 @@
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10ModuleConfiguration",
   "version": "2022.1.0",
   "name": "OpioidCDSREC10ModuleConfiguration",
-  "title": "Module Configuration Library for Recommendation 10 (Endpoint-specific prefetch configuration)",
+  "title": "Module Configuration Example Library for Recommendation 10 (Endpoint-specific prefetch configuration)",
   "status": "draft",
   "experimental": true,
   "type": {

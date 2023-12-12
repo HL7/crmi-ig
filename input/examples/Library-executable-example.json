@@ -68,8 +68,8 @@
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Library/executable-example",
     "version": "4.1.000",
-    "name": "FHIRCommon",
-    "title": "FHIR Common",
+    "name": "FHIRCommonExecutable",
+    "title": "FHIR Common (Executable Example)",
     "status": "active",
     "experimental": false,
     "type": {

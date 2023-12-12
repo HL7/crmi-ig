@@ -12,9 +12,9 @@
         "valueString": "0.1.0"
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-title",
-      "valueString": "SNOMED CT"
+      "valueString": "SNOMED CT (Shareable Example)"
     }],
-    "name": "SNOMEDCT",
+    "name": "SNOMEDCTShareable",
     "status": "active",
     "kind": "codesystem",
     "date": "2014-12-13",

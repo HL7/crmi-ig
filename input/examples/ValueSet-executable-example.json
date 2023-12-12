@@ -9,10 +9,10 @@
     "valueMarkdown": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated."
   }],
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/expanded-example",
-  "name": "DangersignsCodesGrouper",
-  "title": "Danger signs Codes Grouper",
+  "name": "DangersignsCodesGrouperExpanded",
+  "title": "Danger signs Codes Grouper (Expanded Example)",
   "status": "draft",
-  "experimental": false,
+  "experimental": true,
   "date": "2023-07-11T09:29:40-06:00",
   "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
   "immutable": true,
