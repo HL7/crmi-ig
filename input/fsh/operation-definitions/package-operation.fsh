@@ -5,6 +5,7 @@ Usage: #definition
 * insert DefinitionMetadata
 * name = "CRMIPackage"
 * title = "CRMI Package"
+* status = #active
 * description = """
 Packages a specified canonical resource for use in a target environment, optionally 
 including related content such as dependencies, components, and testing cases and data.

@@ -41,15 +41,16 @@ These operations are defined to support artifact authoring capabilities expected
 
 Operations on knowledge artifacts **SHOULD** consider conforming to one or more of the following profiles to ensure consistent naming of operation parameters when providing the same capabilities across operations:
 
-| **Operation Profile**               | **Purpose**                                                                    |
-|-------------------------------------|--------------------------------------------------------------------------------|
-| [Artifact][1]                       | Defines parameters used to identify artifact resource                          |
+| **Operation Profile**               | **Purpose**                                                                                                            |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| [Artifact][1]                       | Defines parameters used to identify artifact resource                                                                  |
 | [Canonical Version Bindable][2]     | DEPRECATED, see Artifact Version Bindable: Defines parameters used to specify missing versions in canonical references |
-| [Artifact Version Bindable][3]      | Defines parameters used to specify missing versions in all artifact references |
-| [Manifestable][4]                   | Defines parameters used to provide a version manifest                          |
-| [Pageable][5]                       | Defines parameters for an operation with pageable options                      |
-| [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts         |
-| Data Configurable (Roadmap)         | Defines parameters to specify how to resolve data requirements                 |
+| [Artifact Version Bindable][3]      | Defines parameters used to specify missing versions in all artifact references                                         |
+| [Manifestable][4]                   | Defines parameters used to provide a version manifest                                                                  |
+| [Pageable][5]                       | Defines parameters for an operation with pageable options                                                              |
+| [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts                                                 |
+| [Data Configurable][7]              | Defines parameters to specify how to resolve data requirements                                                         |
+| [Parameterizable][8]                | Defines a `parameters` parameter used in evaluation                                                                    |
 {: .grid }
 
 Note that the `CanonicalVersionBindable` profile is already used in at some published operation definitions (such as ValueSet$expand) but is declared as deprecated because this implementation guide is proposing the more general `ArtifactVersionBindable` to support version-binding behavior for both canonical and non-canonical knowledge artifacts.
@@ -60,6 +61,8 @@ Note that the `CanonicalVersionBindable` profile is already used in at some publ
 [4]: StructureDefinition-crmi-manifestable-operation.html
 [5]: StructureDefinition-crmi-pageable-operation.html
 [6]: StructureDefinition-crmi-artifact-endpoint-configurable-operation.html
+[7]: StructureDefinition-crmi-data-configurable-operation.html
+[8]: StructureDefinition-crmi-parameterizable-operation.html
 
 <!--
 * ArtifactOperation
