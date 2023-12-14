@@ -5,6 +5,7 @@ Usage: #definition
 * insert DefinitionMetadata
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
+* status = #active
 * description = """
 Determines the effective data requirements for the artifact, including known
 components and dependencies, and optionally informed by a version manifest.

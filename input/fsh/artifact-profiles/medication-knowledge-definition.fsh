@@ -11,9 +11,9 @@ Description: "Represents the definition of medication knowledge, suitable for us
 * code MS
 * relatedMedicationKnowledge
   * reference
-    * extension contains CRMIArtifactReference named artifactReference 0..1 MS
+    * extension contains ArtifactUriReference named artifactReference 0..1 MS
 * associatedMedication
-  * extension contains CRMIArtifactReference named artifactReference 0..1 MS
+  * extension contains ArtifactUriReference named artifactReference 0..1 MS
 * ingredient
   * itemReference
-    * extension contains CRMIArtifactReference named artifactReference 0..1 MS
+    * extension contains ArtifactUriReference named artifactReference 0..1 MS

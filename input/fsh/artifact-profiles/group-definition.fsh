@@ -1,13 +1,18 @@
+Extension: CRMIProfileReference
+Id: crmi-profile-reference
+Description: "Allows a canonical reference to a structure definintion"
+* value[x] only Canonical(StructureDefinition)
+
 Invariant: gdf-1
 Description: "Group definition must have either an expression or characteristics, but not both"
 Severity: #error
 Expression: "extension('http://hl7.org/fhir/StructureDefinition/cqf-expression').exists() xor characteristic.exists()"
 XPath: "exists(f:extension)"
 
-Extension: CRMIProfileReference
-Id: crmi-profile-reference
-Description: "Allows a canonical reference to a structure definintion"
-* value[x] only Canonical(StructureDefinition)
+Invariant: gdf-2
+Description: "Reference must be to a structure definition"
+Severity: #error
+Expression: "resolve().conformsTo('http://hl7.org/fhir/StructureDefinition/StructureDefinition')"
 
 Profile: CRMIGroupDefinition
 Parent: Group
@@ -21,7 +26,6 @@ Description: "Represents the definition of a group of subjects, suitable for use
 * extension contains
     $cqf-library named library 0..1 MS and
     $cqf-expression named expression 0..1 MS
-* extension[expression] ^condition = "gdf-1"
 * identifier MS
 * active MS
 * type only code
@@ -33,9 +37,9 @@ Description: "Represents the definition of a group of subjects, suitable for use
 * code MS
 * name 1..1 MS
 * characteristic MS
-* characteristic ^condition = "gdf-1"
 * member
   * entity
-    * extension contains CRMIProfileReference named profile 0..1 MS
+    * extension contains ArtifactCanonicalReference named profile 0..1 MS
+    * extension[profile].valueCanonical obeys gdf-2
 * managingEntity
-  * extension contains CRMIProfileReference named profile 0..1 MS
+  * extension contains ArtifactCanonicalReference named profile 0..1 MS

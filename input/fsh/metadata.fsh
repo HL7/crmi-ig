@@ -29,3 +29,6 @@ RuleSet: ArtifactVersionBindableOperationProfile
 
 RuleSet: ArtifactEndpointConfigurableOperationProfile
 * meta.profile[+] = Canonical(ArtifactEndpointConfigurableOperation)
+
+RuleSet: ParameterizableOperationProfile
+* meta.profile[+] = Canonical(ParameterizableOperation)

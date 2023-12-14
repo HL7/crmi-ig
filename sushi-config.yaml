@@ -166,7 +166,7 @@ resources:
   MedicationKnowledge/definition-example:
     name: Example MedicationKnowledge Definition
     description: Example of a MedicationKnowledge resource illustrating use as a definitional artifact.
-  Substance/definition-example:
+  Substance/artifact-reference-example:
     name: Example Substance Definition
     description: Example of a Substance resource illustrating use as a definitional artifact.
   MeasureReport/result-example:
