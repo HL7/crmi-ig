@@ -1,11 +1,12 @@
 {
   "resourceType": "Substance",
-  "id": "definition-example",
+  "id": "artifact-reference-example",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-substancedefinition"
     ]
   },
+  "description": "Example substance definition. This example uses artifact-url and artifact-version as business identifiers, as well as artifact-uriReference to refer to an ingredient using these identifiers.",
   "identifier": [
     {
       "system": "http://acme.org/identifiers/substances",
@@ -15,7 +16,7 @@
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
-      "valueUri": "http://example.org/Substance/definition-example"
+      "valueUri": "http://example.org/Substance/substance-definition-example"
     },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
@@ -42,8 +43,8 @@
       "substanceReference": {
         "extension": [
           {
-            "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-reference",
-            "valueUri": "http://example.org/Substance/definition-example|1.0.0"
+            "url": "http://hl7.org/fhir/StructureDefinition/artifact-uriReference",
+            "valueUri": "http://example.org/Substance/substance-definition-example|1.0.0"
           }
         ],
         "display": "apitoxin (Honey Bee Venom)"

@@ -14,4 +14,4 @@ Description: "Represents the definition of a substance, suitable for use in vari
 * ingredient
   * substance[x] MS
   * substanceReference
-    * extension contains CRMIArtifactReference named artifactReference 0..1 MS
+    * extension contains ArtifactUriReference named artifactReference 0..1 MS
