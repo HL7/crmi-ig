@@ -38,6 +38,7 @@ The following table lists the resource types that are considered _artifacts_, al
 |Domain Definition Artifacts (Roadmap) |Medications, substances, groups, and other domain-related definitional artifacts | ActorDefinition (R5)<br/>CareTeam (Profiled)<br/>ConditionDefinition<br/>ClinicalUseDefinition (R5)<br/>DeviceDefinition<br/>Group (non-canonical definitional)<br/>Location (profiled)<br/>Medication (non-canonical definitionl)<br/>MedicationKnowledge (non-canonical definitional)<br/>Practitioner (profiled)<br/>PractitionerRole (profiled)<br/>ObservationDefinition<br/>Organization (profiled)<br/>SpecimenDefinition<br/>Substance (non-canonical definitional |
 |Evidence-based Medicine (EBM) Artifacts (Quarternary) |Evidence, EvidenceVariable, and other artifacts related to supporting evidence-based medicine | Evidence<br/>EvidenceVariable<br/>ResearchDefinition<br/>ResearchElementDefinition<br/>RiskEvidenceSynthesis |
 |Related Resources (Roadmap) | | ArtifactAssessment (R5)<br/>Permission (R5) |
+{: .grid}
 
 Note that CompartmentDefinition is not profiled in this implementation guide because only HL7 can define CompartmentDefinition instances.
 

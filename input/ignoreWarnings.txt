@@ -238,18 +238,12 @@ ERROR: output\StructureDefinition-shareable-example-testing.html#/html/body/div/
 ERROR: output\StructureDefinition-shareable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 198, column 8: The link 'StructureDefinition-shareable-example.profile.xml.html' for "XML" cannot be resolved
 ERROR: output\StructureDefinition-shareable-example.profile.history.html#/html/body/div/div/div/div/div/ul/li/a at Line 205, column 8: The link 'StructureDefinition-shareable-example.profile.json.html' for "JSON" cannot be resolved
 
-# Reviewed, the crmi-artifact-reference extension is intended to be usable on any element to add a reference to an artifact (either canonical or uri)
-WARNING: StructureDefinition/crmi-artifact-reference: StructureDefinition.context[0]: Review the extension type for crmi-artifact-reference: extensions should not have a context of Element unless it's really intended that they can be used anywhere
-
-# Reviewed, not clear what this is saying because the slice it is referring to (name) is singular in this profile?
+# Reviewed, the slice it is referring to (name) is singular in this profile
 INFORMATION: StructureDefinition/crmi-manifestable-operation: StructureDefinition.snapshot.element[68].pattern.ofType(canonical): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 WARNING: StructureDefinition/crmi-manifestable-operation: StructureDefinition.snapshot.element[68].pattern.ofType(canonical): The repeating element has a pattern value for a primitive type. The DotNet validator will not apply this to all the repeats - this is an error
 
-# Reviewed, the crmi-profile-reference extension is intended to be usable on any element to add the ability to reference to a profile of StructureDefinition for that element
-WARNING: StructureDefinition/crmi-profile-reference: StructureDefinition.context[0]: Review the extension type for crmi-profile-reference: extensions should not have a context of Element unless it's really intended that they can be used anywhere
-
-# Reviewed: the group-definition profile does make use of this extension, shouldn't that count as an example of use?
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-profile-reference'): The Implementation Guide contains no examples for this extension
+# Reviewed, the uriReference extension is intended to be usable on any element to allow references to non-canonical definitional artifacts
+WARNING: StructureDefinition/artifact-uriReference: StructureDefinition.context[0]: Review the extension type for artifact-uriReference: extensions should not have a context of Element unless it's really intended that they can be used anywhere
 
 # Reviewed, accepted reference to draft item
 INFORMATION: ActivityDefinition/publishable-example: ActivityDefinition.extension[3].value.ofType(code): Reference to draft item http://hl7.org/fhir/CodeSystem/knowledge-representation-level|1.0.0-ballot2
@@ -282,12 +276,4 @@ WARNING: ConceptMap/shareable-example: ConceptMap.group[0].element[3].target[0]:
 # Reviewed, the relevant elements are set correctly in the published output
 WARNING: GraphDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/GraphDefinition/publishable-example'): The resource needed to modified during loading to apply common headers version=1.0.0-ballot2, wg=cds, contact, jurisdiction, publisher=HL7 International / Clinical Decision Support but this isn't possible for the type GraphDefinition because version conversion isn't working completely
 WARNING: GraphDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/GraphDefinition/shareable-example'): The resource needed to modified during loading to apply common headers version=1.0.0-ballot2, wg=cds, contact, jurisdiction, publisher=HL7 International / Clinical Decision Support but this isn't possible for the type GraphDefinition because version conversion isn't working completely
-
-# Included all-resource-types value set definition since it is in the R5 specification
-WARNING: Library/manifest-example: Library.relatedArtifact[1].resource.extension[0].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/all-resource-types not found
-WARNING: Library/manifest-example: Library.relatedArtifact[2].resource.extension[0].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/all-resource-types not found
-WARNING: Library/manifest-example: Library.relatedArtifact[3].resource.extension[0].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/all-resource-types not found
-
-# Known issue because the publisher terminology server does not consider ballot content?
-ERROR: ValueSet.where(id = 'computable-example'): Error from server: Unable to find value set "http://hl7.org/fhir/uv/crmi/ValueSet/anc-b5-de49"
 

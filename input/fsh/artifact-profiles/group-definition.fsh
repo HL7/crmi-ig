@@ -1,8 +1,3 @@
-Extension: CRMIProfileReference
-Id: crmi-profile-reference
-Description: "Allows a canonical reference to a structure definintion"
-* value[x] only Canonical(StructureDefinition)
-
 Invariant: gdf-1
 Description: "Group definition must have either an expression or characteristics, but not both"
 Severity: #error
