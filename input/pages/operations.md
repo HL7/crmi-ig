@@ -51,8 +51,6 @@ Operations on knowledge artifacts **SHOULD** consider conforming to one or more 
 | [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts                                                 |
 | Data Configurable (Roadmap)         | Defines parameters to specify how to resolve data requirements                 |
 | Parameterizable (Roadmap)            | Defines parameters passed to logic evaluation (e.g. CQL parameters)         |
-| Data Configurable (Roadmap)         | Defines parameters to specify how to resolve data requirements                 |
-| Parameterizable (Roadmap)            | Defines parameters passed to logic evaluation (e.g. CQL parameters)         |
 {: .grid }
 
 Note that the `CanonicalVersionBindable` profile is already used in at some published operation definitions (such as ValueSet$expand) but is declared as deprecated because this implementation guide is proposing the more general `ArtifactVersionBindable` to support version-binding behavior for both canonical and non-canonical knowledge artifacts.
