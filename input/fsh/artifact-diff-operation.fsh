@@ -6,10 +6,10 @@ Usage: #definition
 * name = "CRMIArtifactDiff"
 * title = "CRMI Artifact Diff"
 * description = """
-Describes the differences between two knowledge artifacts in [FHIR Patch format](https://www.hl7.org/fhir/fhirpatch.html).
+Describes the differences between two knowledge artifacts in [FHIR Patch format](https://www.hl7.org/fhir/fhirpatch.html) by recursively resolving dependencies to get a holistic diff.
 """
 * comment = """
-The operation is only valid between two resources of the same type and can optionally includes the artifact's entire dependency tree.
+The operation is only valid between two resources of the same type and can optionally include expanding all ValueSets in the dependency tree.
 """
 * kind = #operation
 * code = #crmi.artifact-diff
@@ -17,9 +17,9 @@ The operation is only valid between two resources of the same type and can optio
 * resource[+] = #Library
 * resource[+] = #PlanDefinition
 * resource[+] = #ValueSet
-* system = false
-* type = true
-* instance = true
+* system = true
+* type = false
+* instance = false
 
 * parameter[+]
   * name = #source
@@ -38,12 +38,20 @@ The operation is only valid between two resources of the same type and can optio
   * documentation = "A canonical reference of the target artifact which is being compared."
 
 * parameter[+]
-  * name = #checkDependencies
+  * name = #compareComputable
   * min = 0
   * max = "1"
   * use = #in
   * type = #boolean
-  * documentation = "Whether or not to compare the artifacts' dependency trees."
+  * documentation = "Whether or not to compare computable content such as ValueSet.compose.include entries."
+
+* parameter[+]
+  * name = #compareExecutable
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #boolean
+  * documentation = "Whether or not to compare computable content such as ValueSet.expansion.contains entries."
 
 // Output parameter
 * parameter[+]

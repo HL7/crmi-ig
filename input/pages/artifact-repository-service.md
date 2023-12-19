@@ -86,7 +86,7 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Release**](#release): Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
 * [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 * [**Archive**](#archive): Delete a _retired_ artifact
-* [**Diff**](#diff): Compare two knowledge artifacts and optionally their dependency tree for changes
+* [**Diff**](#diff): Compare two knowledge artifacts and optionally expand any ValueSets in the dependency tree
 
 ##### Retrieve
 
@@ -268,13 +268,16 @@ The _archive_ operation supports removing an existing _retired_ artifact from th
 ##### Artifact Diff
 The _artifact-diff_ operation supports the comparison of two artifacts of the same type. This operation generates a differential between source and target artifacts as [FHIR Patch](https://www.hl7.org/fhir/fhirpatch.html).
 
+If the `compareExecutable` parameter is set to true then the operation will expand any ValueSets while traversing dependencies for comparison.
+
+If the `compareComputable` parameter is set to false then differences in computable content should be omitted from the output (this may be useful in certain contexts, e.g. if `compareExecutable` is true it would be redundant).
+
 The following parameters SHOULD be supported for the _artifact-diff_ operation:
 
-* **checkDependencies**: Whether or not to compare the artifacts' dependency trees.
-* Instance level:
-    * **target**: A canonical reference of the target artifact which is being compared.
-* Type level:
-    * **source**: The canonical reference of the source artifact to compare against.
+* **compareComputable**: Whether or not to compare the computable content in the artifacts' dependency trees such as `ValueSet.compose.include` content.
+* **compareExecutable**: Whether or not to compare the executable content in the artifacts' dependency trees such as `ValueSet.expansion.contains`. Any ValueSets in the tree will be expanded as part of the operation.
+* **target**: A canonical reference of the target artifact which is being compared.
+* **source**: The canonical reference of the source artifact to compare against.
 
 ### Shareable Artifact Repository
 
