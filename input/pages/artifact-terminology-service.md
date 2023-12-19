@@ -21,7 +21,7 @@ As a version manifest, an artifact collection specifies versioned canonical refe
 > NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if an artifact explicitly references the version of a value set, the manifest cannot override that version.
 
 #### Expansion Rules
-Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters](http://build.fhir.org/extensions/StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
+Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters](https://hl7.org/fhir/extensions/5.1.0-ballot/StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
 
 1. `activeOnly`
 2. `system-version` (or `canonical-version`)

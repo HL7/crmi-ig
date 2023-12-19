@@ -68,7 +68,7 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 #  hl7.fhir.uv.extensions.r4: 1.0.0
 
 dependencies:
-  hl7.fhir.uv.extensions: current
+  hl7.fhir.uv.extensions: 5.1.0-ballot1
 
 parameters:
   excludettl: true

@@ -161,6 +161,6 @@ The _scope_ of an artifact is the package context in which it is authored, teste
 hl7.fhir.uv.crmi@http://hl7.org/fhir/uv/crmi
 ```
 
-For knowledge artifacts that are authored and published as part of a FHIR Implementation Guide (i.e. a content IG), the scope of the artifact is implied by the base canonical of the artifact URL. However, the scope of an artifact can be overridden using the [cqf-scope](http://build.fhir.org/extensions/StructureDefinition-cqf-scope.html) extension.
+For knowledge artifacts that are authored and published as part of a FHIR Implementation Guide (i.e. a content IG), the scope of the artifact is implied by the base canonical of the artifact URL. However, the scope of an artifact can be overridden using the [cqf-scope](https://hl7.org/fhir/extensions/5.1.0-ballot/StructureDefinition-cqf-scope.html) extension.
 
 The scope is important for determining the manifest (which dictates the expansion parameters used to resolve unversioned canonical references). The manifest for a given scope is either the implementation guide (if the scope corresponds directly to an implementation guide), or the manifest library identified by the package and url.
