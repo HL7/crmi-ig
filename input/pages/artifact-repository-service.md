@@ -241,6 +241,8 @@ The following parameters SHOULD be supported for the operation:
 ##### Draft
 The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and a pre-release label of `-draft` appended to the version.
 
+`effectivePeriod`, `approvalDate` and any extensions which are only valid for active artifacts should also be removed.
+
 The following parameters SHOULD be supported for the draft operations:
 
 * **draftVersion**: The version of the artifact which is in review, i.e. the version under which it will be released
