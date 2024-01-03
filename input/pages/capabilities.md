@@ -1,3 +1,5 @@
+{:toc}
+
 {: #capabilities}
 
 The following discussion describes overall processing for quality improvement artifact development and implementation scenarios. The roles depicted are:
@@ -17,21 +19,14 @@ There are 5 workflows depicted using the swimlanes.
 
 The CRMI IG is focused on the Setup workflow for knowledge artifacts, while subsequent workflows including Attribution/Selection, Submission, Evaluation are out of scope for this IG and covered by other implementation guides focused on particular use cases (such as the Data Exchange for Quality Measures IG for the quality measurement domain in the US Realm).
 
-## Capability Statements
+### Capability Statements
 
-This implementation guide defines capability statements, use cases, and conformance requirements for:
+This implementation guide defines capability statements, use cases, and conformance requirements for an artifact terminology service, as well as several levels of support for an artifact repository service. Note that these capabilities could potentially be provided by the same service, but the capability statements are separated in order to facilitate implementation as part of an existing terminology service, or as a separate service as appropriate for the architecture of the implementation environment.
+
+In addition, the terminology service capability statement is specifically focused on support for terminology-capabilities required for authoring, distribution, and implementation of knowledge artifacts, including version manifest support.
+
+These capability statements are required to ensure conformance expectations are met for services that support artifact content development, distribution, and implementation. The profiles in this implementation guide are specifically about supporting those aspects of the content development lifecycle, so the terminology and artifact services need to provide resources that conform to the expectations of the profiles defined in this implementation guide.
 
 * [**Artifact Terminology Service**](artifact-terminology-service.html)
 * [**Artifact Repository**](artifact-repository-service.html)
-
-In addition, the following example capability statement illustrates the use of the cqf-supportedCqlVersion extension to support advertising the version of CQL supported by a service:
-
-* [**Example Library Evaluation Service**](CapabilityStatement-library-evaluation-service-example.html)
-
-
-## Operations
-
-* [**$crmi.package**](OperationDefinition-crmi-package.html)
-* [**$crmi.data-requirements**](OperationDefinition-crmi-data-requirements.html)
-* [**ValueSet/$expand**](OperationDefinition-crmi-valueset-expand.html)
 

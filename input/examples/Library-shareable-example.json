@@ -68,8 +68,8 @@
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Library/shareable-example",
     "version": "4.1.000",
-    "name": "FHIRCommon",
-    "title": "FHIR Common",
+    "name": "FHIRCommonShareable",
+    "title": "FHIR Common (Shareable Example)",
     "status": "active",
     "experimental": false,
     "type": {

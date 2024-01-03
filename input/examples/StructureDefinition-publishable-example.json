@@ -4,24 +4,11 @@
     "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablestructuredefinition" ]
   },
   "id": "publishable-example",
-  "extension": [{
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
-    "valueBoolean": true
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
-    "valueBoolean": true
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-    "valueString": "Danger signs"
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
-    "valueString": "code"
-  }],
-"url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/publishable-example",
   "name": "Dangersigns",
-  "title": "Danger signs",
+  "title": "Danger signs (Publishable Example)",
   "status": "draft",
-  "experimental": false,
+  "experimental": true,
   "description": "Before each contact, the health worker should check whether the woman has any of the danger signs listed here – if yes, she should refer to the hospital urgently; if no, she should continue to the normal contact",
   "useContext": [ {
     "code": {

@@ -68,8 +68,8 @@
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Library/computable-example",
     "version": "4.1.000",
-    "name": "FHIRCommon",
-    "title": "FHIR Common",
+    "name": "FHIRCommonComputable",
+    "title": "FHIR Common (Computable Example)",
     "status": "active",
     "experimental": false,
     "type": {

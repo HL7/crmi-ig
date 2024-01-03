@@ -319,15 +319,13 @@
     }, {
       "id": "effective-data-requirements",
       "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
-      "valueReference": {
-        "reference": "#effective-data-requirements"
-      }
+      "valueCanonical": "#effective-data-requirements"
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Measure/publishable-example",
-    "name": "ANCIND01",
-    "title": "ANC.IND.01 Percentage of pregnant women with first ANC contact in the first trimester",
+    "name": "ANCIND01Publishable",
+    "title": "ANC.IND.01 Percentage of pregnant women with first ANC contact in the first trimester (Publishable Example)",
     "status": "draft",
-    "experimental": false,
+    "experimental": true,
     "date": "2023-03-13T22:32:10-06:00",
     "description": "Percentage of pregnant women with first ANC contact in the first trimester (before 12 weeks of gestation)",
     "library": [ "http://hl7.org/fhir/uv/crmi/Library/ANCCohort" ],

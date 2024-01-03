@@ -5,10 +5,10 @@
     "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablevalueset" ]
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/publishable-example",
-  "name": "DangersignsCodesGrouper",
-  "title": "Danger signs Codes Grouper",
+  "name": "DangersignsCodesGrouperPublishable",
+  "title": "Danger signs Codes Grouper (Publishable Example)",
   "status": "draft",
-  "experimental": false,
+  "experimental": true,
   "date": "2023-07-11T09:29:40-06:00",
   "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
   "immutable": true,

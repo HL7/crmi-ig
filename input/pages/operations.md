@@ -1,5 +1,68 @@
+{:toc}
+
 {: #operations}
 
+This implementation guide defines operations related to packaging and dependency management, as well as establishing several operation definition profiles that provide patterns for common capabilities of knowledge artifact operations.
+
+### Operations
+
+#### Packaging and Dependency Tracing
+
+These operations are defined to support artifact packaging and dependency tracing, including data requirements determination. See the [Packaging](packaging.html) discussion for more information.
+
+| **Operation** | **Description** |
+|----|----|
+| [CRMI Package](OperationDefinition-crmi-package.html) | Packages a specified canonical resource for use in a target environment, optionally including related content such as dependencies, components, and testing cases and data. |
+| [CRMI DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. The data requirements operation is used for dependency gathering, as a way to understand the set of dependencies of a given artifact, as well as for data requirements determination, as a way to understand the complete set of data requirements for a given artifact. |
+{: .grid }
+
+#### Terminology
+
+These operations are defined to support terminology capabilities expected in an Artifact Terminology Service. See the [Capabilities](capabilities.html) discussion for more information.
+
+| **Operation** | **Description** |
+|----|----|
+| [CRMI ValueSet Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manfiest support |
+{: .grid }
+
+#### Artifact Authoring
+
+These operations are defined to support artifact authoring capabilities expected in an Artifact Authoring Service. See the [Capabilities](capabilities.html) discussion for more information.
+
+| **Operation** | **Description** |
+|----|----|
+| [CRMI Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository. |
+| [CRMI Draft](OperationDefinition-crmi-draft.html) | Creates a draft version of a knowledge artifact, as well as for all resources it is composed of. |
+| [CRMI Release](OperationDefinition-crmi-release.html) | The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program’s manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
+| [CRMI Revise](OperationDefinition-crmi-revise.html) | Revises an existing resource with draft status. A successful $revise will produce a Bundle containing the updated resource. The updated resource must also have a status draft. |
+{: .grid }
+
+### Operation Pattern Profiles
+
+Operations on knowledge artifacts **SHOULD** consider conforming to one or more of the following profiles to ensure consistent naming of operation parameters when providing the same capabilities across operations:
+
+| **Operation Profile**               | **Purpose**                                                                                                            |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| [Artifact][1]                       | Defines parameters used to identify artifact resource                                                                  |
+| [Canonical Version Bindable][2]     | DEPRECATED, see Artifact Version Bindable: Defines parameters used to specify missing versions in canonical references |
+| [Artifact Version Bindable][3]      | Defines parameters used to specify missing versions in all artifact references                                         |
+| [Manifestable][4]                   | Defines parameters used to provide a version manifest                                                                  |
+| [Pageable][5]                       | Defines parameters for an operation with pageable options                                                              |
+| [Artifact Endpoint Configurable][6] | Defines parameters to provide endpoints to resolve canonical artifacts                                                 |
+| Data Configurable (Roadmap)         | Defines parameters to specify how to resolve data requirements                 |
+| Parameterizable (Roadmap)            | Defines parameters passed to logic evaluation (e.g. CQL parameters)         |
+{: .grid }
+
+Note that the `CanonicalVersionBindable` profile is already used in at some published operation definitions (such as ValueSet$expand) but is declared as deprecated because this implementation guide is proposing the more general `ArtifactVersionBindable` to support version-binding behavior for both canonical and non-canonical knowledge artifacts.
+
+[1]: StructureDefinition-crmi-artifact-operation.html
+[2]: StructureDefinition-crmi-canonical-version-bindable-operation.html
+[3]: StructureDefinition-crmi-artifact-version-bindable-operation.html
+[4]: StructureDefinition-crmi-manifestable-operation.html
+[5]: StructureDefinition-crmi-pageable-operation.html
+[6]: StructureDefinition-crmi-artifact-endpoint-configurable-operation.html
+
+<!--
 * ArtifactOperation
     * id
     * url
@@ -35,7 +98,7 @@ Options for federated client specification:
     * canonicalRoute: http://cts.nlm.org/fhir/ValueSet/
     * endpointUri: http://apelon-dts
 * 2
-    * 
+    *
     * endpointUri: http://tx.fhir.org
 
 * Route
@@ -173,3 +236,4 @@ Options for federated client specification:
     * manifest
     * expansion
     * includeDraft
+-->

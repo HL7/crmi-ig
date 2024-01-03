@@ -6,21 +6,32 @@ This section provides guidance on naming conventions for canonical artifacts.
 
 ### Definitional content
 
-The versions of all artifacts are consistend across the package.
+#### URL
 
-When definition the `url` fo the artifact, use the package's canonical base and the `name` of the artifact (computable representation), a common pattern is:
+The `url` element of an artifact **SHOULD** be constructed according to the following pattern:
 
 ```
 {package-canonical-base}/{resource.resourceType}/{resource.name}
 ```
 
+Note that this pattern is NOT the same as what is typically produced by the IG publisher, which usually makes use of the `id` of the artifact in the authoring context. For example, the URL for the CRMIShareableActivityDefinition profile defined in this implementation guide is:
+
+```
+http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition
+```
+
+However, because the `id` element of the artifact will in general change when the artifact is hosted in other environments, the use of the `id` to construct the URL results in confusion about the role of the `id` in identifying the artifact. Because the canonical URL is so central to the identity of a canonical resource, this IG recommends the use of the `name` element to construct the URL, eliminating the potential confusion associated with the use of the `id` element.
+
+#### Version
+
+The `version` element for all artifacts within the same package **SHOULD** be the same as the version of the package. This is usually the ImplementationGuide in which the artifact is defined.
+
+In addition, all references to canonicals from artifacts in the package to other artifacts in the same package **SHOULD** be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
+
 ### Operation definitions
 
-Operation definition names (`OperationDefinition.code` property) should be constructed using a namespace from the last segment of the package `id` and the operation signifier e.g.:
+Although FHIR operation definitions can specify a `code` property, servers may use whatever code they surface in their capability statement to implement operations. To simplify application development and encourage consistency, this implementation guide proposes that:
 
-Given the packageId of `hl7.fhir.uv.crmi`, the namespace for operation is `crmi`:
+1. Servers **SHOULD** use the `code` property of the OperationDefinition to expose operation capability
+2. Operation definitions **SHOULD** use the same `code` property as the base definition of an OperationDefinition they are extending
 
-```
-crmi.data-requirements
-crmi.apply
-```

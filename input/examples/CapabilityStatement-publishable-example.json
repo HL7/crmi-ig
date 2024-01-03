@@ -18,7 +18,7 @@
         "value" : "http://www.hl7.org/Special/committees/dss"
       }]
     }],
-    "description" : "Basic conformance statement for a Library Evaluation Service. A server can support more fucntionality    than defined here, but this is the minimum amount",
+    "description" : "Basic conformance statement for a Library Evaluation Service. A server can support more functionality than defined here, but this is the minimum amount",
     "jurisdiction" : [{
       "coding" : [{
         "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",

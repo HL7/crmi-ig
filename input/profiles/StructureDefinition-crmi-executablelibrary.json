@@ -57,7 +57,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Library",
-  "baseDefinition": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Library",
   "derivation": "constraint",
   "differential": {
     "element": [
@@ -103,73 +103,7 @@
       {
         "id": "Library.content",
         "path": "Library.content",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "contentType"
-            }
-          ],
-          "rules": "open"
-        },
-        "mustSupport": false
-      },
-      {
-        "id": "Library.content:elmXmlContent",
-        "path": "Library.content",
-        "sliceName": "elmXmlContent",
-        "requirements": "An executable library must specify its content in an executable form.",
-        "min": 0,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:elmXmlContent.contentType",
-        "path": "Library.content.contentType",
         "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "application/elm+xml",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:elmXmlContent.data",
-        "path": "Library.content.data",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:elmJsonContent",
-        "path": "Library.content",
-        "sliceName": "elmJsonContent",
-        "requirements": "An executable library must specify its content in an executable form.",
-        "min": 0,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:elmJsonContent.contentType",
-        "path": "Library.content.contentType",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "application/elm+json",
-        "mustSupport": true
-      },
-      {
-        "id": "Library.content:elmJsonContent.data",
-        "path": "Library.content.data",
-        "min": 1,
-        "max": "1",
         "mustSupport": true
       }
     ]

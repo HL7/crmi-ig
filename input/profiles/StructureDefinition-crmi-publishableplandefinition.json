@@ -16,7 +16,7 @@
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableplandefinition",
   "name" : "CRMIPublishablePlanDefinition",
   "title" : "CRMI Publishable PlanDefinition",
-  "status" : "draft",
+  "status" : "active",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "PlanDefinition",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableplandefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/PlanDefinition",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

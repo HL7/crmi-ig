@@ -16,7 +16,7 @@
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablenamingsystem",
   "name" : "CRMIPublishableNamingSystem",
   "title" : "CRMI Publishable NamingSystem",
-  "status" : "draft",
+  "status" : "active",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
@@ -50,7 +50,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "NamingSystem",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/NamingSystem",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

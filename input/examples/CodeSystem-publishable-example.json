@@ -6,7 +6,7 @@
   },
   "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
   "name": "ANCMConceptCodes",
-  "title": "ANCM Concept Codes",
+  "title": "ANCM Concept Codes (Publishable Example)",
   "status": "draft",
   "experimental": false,
   "description": "Set of codes representing all concepts used in the implementation guide",

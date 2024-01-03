@@ -1,0 +1,20 @@
+{
+    "resourceType": "Group",
+    "id": "testcase-example",
+    "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/cqf-testArtifact",
+        "valueCanonical": "http://hl7.org/fhir/uv/crmi/Library/ANCCohort"
+    }],
+    "name": "ANCInclusionCriteriaTestCase",
+    "type": "person",
+    "actual": true,
+    "member": [{
+        "entity": {
+            "reference": "Patient/example-1"
+        }
+    }, {
+        "entity": {
+            "reference": "Patient/example-2"
+        }
+    }]
+}

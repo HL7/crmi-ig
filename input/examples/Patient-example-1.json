@@ -1,0 +1,12 @@
+{
+    "resourceType": "Patient",
+    "id": "example-1",
+    "name": [ {
+      "family": "Asdf",
+      "given": [ "Alana" ]
+    } ],
+    "birthDate": "1993-06-14",
+    "address": [ {
+      "line": [ "Somewhere" ]
+    } ]
+  }

@@ -4,24 +4,11 @@
     "meta": {
         "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablestructuredefinition" ]
     },
-    "extension": [{
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
-      "valueBoolean": true
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
-      "valueBoolean": true
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString": "Specific health concern(s)"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
-      "valueString": "code"
-    }],
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/shareable-example",
     "name": "Specifichealthconcerns",
-    "title": "Specific health concern(s)",
+    "title": "Specific health concern(s) (Shareable Example)",
     "status": "draft",
-    "experimental": false,
+    "experimental": true,
     "description": "If the woman came to the facility with a specific health concern, select the health concern(s) from the list",
     "useContext": [ {
       "code": {
