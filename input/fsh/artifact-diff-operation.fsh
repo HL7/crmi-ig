@@ -12,7 +12,7 @@ Describes the differences between two knowledge artifacts in [FHIR Patch format]
 The operation is only valid between two resources of the same type and can optionally include expanding all ValueSets in the dependency tree.
 """
 * kind = #operation
-* code = #crmi.artifact-diff
+* code = #artifact-diff
 =
 * resource[+] = #Library
 * resource[+] = #PlanDefinition
