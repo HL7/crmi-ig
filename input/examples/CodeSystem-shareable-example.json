@@ -6,7 +6,7 @@
     },
     "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/shareable-example",
     "name": "ANCMActivityCodes",
-    "title": "ANCM Activity Codes",
+    "title": "ANCM Activity Codes (Shareable Example)",
     "status": "draft",
     "experimental": false,
     "description": "Set of codes representing all activities used in the implementation guide",

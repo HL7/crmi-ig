@@ -38,10 +38,11 @@
   "productReference": {
     "extension": [
       {
-        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-artifact-reference",
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-uriReference",
         "valueUri": "http://example.org/Medication/definition-example|1.0.0"
       }
-    ]
+    ],
+    "display": "alprazolam 0.25 MG Oral Tablet"
   },
   "dosage": [
     {

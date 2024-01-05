@@ -3,29 +3,24 @@ InstanceOf: OperationDefinition
 Title: "CRMI Data Requirements Operation"
 Usage: #definition
 * insert DefinitionMetadata
-* insert ArtifactOperationProfile
-* insert ArtifactVersionBindableOperationProfile
-* insert ArtifactEndpointConfigurableOperationProfile
-* insert ManifestableOperationProfile
 * name = "CRMIDataRequirements"
 * title = "CRMI Data Requirements"
+* status = #active
 * description = """
 Determines the effective data requirements for the artifact, including known
 components and dependencies, and optionally informed by a version manifest.
 
-See [$crmi.package and $crmi.data-requirements](introduction.html#distribution-fhir-package)
-
-*TODO*: Add example of the use-case that will do dependency tracing, similar to
-`$package` but returns only the information and not the actual resources.
+See [$package and $data-requirements](distribution.html#package-and-data-requirements)
 """
 * comment = """
-The requirements operation supports the ability of a repository to determine the
-effective requirements of an artifact, including terminology usage (code
-systems, value sets, and direct-reference codes), parameters, dependencies
-(artifacts), and data requirements
+The data requirements operation is used for dependency gathering, as a way to understand 
+the set of dependencies of a given artifact, as well as for data requirements determination, 
+as a way to understand the complete set of data requirements for a given artifact, including 
+terminology usage (code systems, value sets, and direct-reference codes), parameters, dependencies,
+and data requirements.
 """
 * kind = #operation
-* code = #crmi.data-requirements
+* code = #data-requirements
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
@@ -117,14 +112,14 @@ specified.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-Any input parameters for the artifact. Parameters defined in this input will be
-bound by name to parameters defined in the CQL library (or referenced
-libraries). Parameter types are mapped to CQL as specified in the Using CQL
-section of this implementation guide. If a parameter appears more than once in
-the input Parameters resource, it is represented with a List in the input CQL.
-If a parameter has parts, it is represented as a Tuple in the input CQL.
-
-NOTE: Does this only apply to Library resource types?
+Any input parameters for the artifact. If the artifact is a logic library, 
+or references logic libraries, parameters defined in this input will be
+bound by name to parameters defined in the logic library (or referenced
+libraries). If the logic library is a CQL library, parameter types are 
+mapped to CQL as specified in the Using CQL with FHIR implementation guide. 
+If a parameter appears more than once in the input Parameters resource, 
+it is represented with a List in the input CQL. If a parameter has parts, 
+it is represented as a Tuple in the input CQL.
 """
 * parameter[=].type = #Parameters
 
@@ -169,7 +164,7 @@ result in a value set expansion giving a different list of codes that is both
 wrong and unsafe, and implementers should only use this capability reluctantly.
 
 It primarily exists to deal with situations where specifications have fallen
-into decay as time passes. If the version of a canonical is overriden, the version used SHALL
+into decay as time passes. If the version of a canonical is overridden, the version used SHALL
 explicitly be represented in the expansion parameters. 
 
 Note that this is a generalization of the `force-system-version` parameter to the $expand operation 
@@ -291,4 +286,4 @@ is being performed as the terminology server.
 The result of the requirements operation is a _module-definition_ Library that
 returns the computed effective requirements of the artifact.
 """
-* parameter[=].type = #Bundle
+* parameter[=].type = #Library

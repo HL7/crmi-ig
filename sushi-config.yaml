@@ -20,7 +20,7 @@ description: >-
 status: draft
 license: CC0-1.0
 date: 2022-05-17
-version: 1.0.0-ballot
+version: 1.0.0-ballot2
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -63,9 +63,12 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 # For R5 ImplementationGuides, the object can also have a key for `reason`.
+# dependencies:
+#  fhir.cqf.common: 4.0.1
+#  hl7.fhir.uv.extensions.r4: 1.0.0
+
 dependencies:
-  fhir.cqf.common: 4.0.1
-  hl7.fhir.uv.extensions.r4: 1.0.0
+  hl7.fhir.uv.extensions: 5.1.0-ballot1
 
 parameters:
   excludettl: true
@@ -76,3 +79,108 @@ parameters:
     - http://terminology.hl7.org/CodeSystem/software-system-type-codes
     - http://terminology.hl7.org/ValueSet/artifact-version-policy
     - http://terminology.hl7.org/ValueSet/software-system-type
+
+pages:
+  index.md:
+    title: Home
+  introduction.md:
+    title: Introduction
+    acknowledgements.md:
+      title: Acknowledgements
+    bibliography.md:
+      title: Bibliography
+  content-lifecycle.md:
+    title: Content Lifecycle
+    naming-conventions.md:
+      title: Naming Conventions
+    packaging.md:
+      title: Packaging
+    testing.md:
+      title: Testing
+    publishing.md:
+      title: Publishing
+    distribution.md:
+      title: Distribution
+    version-manifest.md:
+      title: Dealing with Unversioned Canonicals
+  profiles.md:
+    title: Profiles
+  extensions.md:
+    title: Extensions
+  operations.md:
+    title: Operations
+  capabilities.md:
+    title: Capabilities
+    artifact-repository-service.md:
+      title: Artifact Repository Service
+    artifact-terminology-service.md:
+      title: Artifact Terminology Service
+  terminology.md:
+    title: Terminology
+  artifacts.xml:
+    title: Artifacts Summary
+  downloads.md:
+    title: Downloads
+  changes.md:
+    title: Version History
+
+# The resources property corresponds to IG.definition.resource.
+# SUSHI can auto-generate all of the resource entries based on
+# the FSH definitions and/or information in any user-provided
+# JSON or XML resource files. If the generated entries are not
+# sufficient or complete, however, the author can add entries
+# here. If the reference matches a generated entry, it will
+# replace the generated entry. If it doesn't match any generated
+# entries, it will be added to the generated entries. The format
+# follows IG.definition.resource with the following differences:
+#   * use IG.definition.resource.reference.reference as the YAML key.
+#   * if the key is an id or name, SUSHI will replace it with the
+#     correct URL when generating the IG JSON.
+#   * specify "omit" to omit a FSH-generated resource from the
+#     resource list.
+#   * if the exampleCanonical is an id or name, SUSHI will replace
+#     it with the correct canonical when generating the IG JSON.
+#   * groupingId can be used, but top-level groups syntax may be a
+#     better option (see below).
+# The following are simple examples to demonstrate what this might
+# look like:
+#
+# resources:
+  # ImplementationGuide/hl7.fhir.uv.cpg.chf: omit #omit this because this template does not generate HTML for IG, so the link from TOC fails
+#   Patient/my-example-patient:
+#     name: My Example Patient
+#     description: An example Patient
+#     exampleBoolean: true
+#   Patient/bad-example: omit
+
+resources:
+  Group/definition-example:
+    name: Example Group Definition
+    description: Example Group Definition illustrating the use of an expression to define group membership.
+  Device/cqf-tooling:
+    name: CQF Tooling Device
+    description: Example of a Software System Device instance for describing tooling that was used to process artifacts. This resource is typically referenced from the `crmi-softwaresystem` extension
+  Medication/definition-example:
+    name: Example Medication Definition
+    description: Example of a Medication resource illustrating use as a definitional artifact.
+  MedicationKnowledge/definition-example:
+    name: Example MedicationKnowledge Definition
+    description: Example of a MedicationKnowledge resource illustrating use as a definitional artifact.
+  Substance/artifact-reference-example:
+    name: Example Substance Definition
+    description: Example of a Substance resource illustrating use as a definitional artifact.
+  MeasureReport/result-example:
+    name: Example MeasureReport
+    description: Example MeasureReport illustrating use of MeasureReport as a test case.
+  Parameters/crmi-evaluationresult-example:
+    name: Example Evaluation Result Parameters
+    description: Example Parameters resource demonstrating the use of data-absent-reason extension to indicate a null evaluation result.
+  Group/testcase-example:
+    name: Example TestCase Group
+    description: Example Group illustrating use of the cqf-testArtifact extension to build a set of test data for an artifact.
+  Patient/example-1:
+    name: Patient Example 1
+    description: Example patient 1 in the test case group
+  Patient/example-2:
+    name: Patient Example 2
+    description: Example patient 2 in the test case group

@@ -1,0 +1,542 @@
+{
+    "resourceType" : "ValueSet",
+    "id" : "all-resource-types",
+    "meta" : {
+      "lastUpdated" : "2023-12-11T16:34:43.536+11:00",
+      "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "fhir"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "normative"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 5
+    }],
+    "url" : "http://hl7.org/fhir/ValueSet/all-resource-types",
+    "identifier" : [{
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.4.642.3.3294"
+    }],
+    "version" : "6.0.0-cibuild",
+    "name" : "AllResourceTypes",
+    "title" : "All Resource Types",
+    "status" : "active",
+    "experimental" : false,
+    "date" : "2023-12-11T05:34:43+00:00",
+    "publisher" : "HL7 (FHIR Project)",
+    "contact" : [{
+      "telecom" : [{
+        "system" : "url",
+        "value" : "http://hl7.org/fhir"
+      },
+      {
+        "system" : "email",
+        "value" : "fhir@lists.hl7.org"
+      }]
+    }],
+    "description" : "All fhir resource types (including abstract resources)",
+    "jurisdiction" : [{
+      "coding" : [{
+        "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+        "code" : "001",
+        "display" : "World"
+      }]
+    }],
+    "immutable" : true,
+    "compose" : {
+      "include" : [{
+        "system" : "http://hl7.org/fhir/fhir-types",
+        "concept" : [{
+          "code" : "Account"
+        },
+        {
+          "code" : "ActivityDefinition"
+        },
+        {
+          "code" : "ActorDefinition"
+        },
+        {
+          "code" : "AdministrableProductDefinition"
+        },
+        {
+          "code" : "AdverseEvent"
+        },
+        {
+          "code" : "AllergyIntolerance"
+        },
+        {
+          "code" : "Appointment"
+        },
+        {
+          "code" : "AppointmentResponse"
+        },
+        {
+          "code" : "ArtifactAssessment"
+        },
+        {
+          "code" : "AuditEvent"
+        },
+        {
+          "code" : "Basic"
+        },
+        {
+          "code" : "Binary"
+        },
+        {
+          "code" : "BiologicallyDerivedProduct"
+        },
+        {
+          "code" : "BiologicallyDerivedProductDispense"
+        },
+        {
+          "code" : "BodyStructure"
+        },
+        {
+          "code" : "Bundle"
+        },
+        {
+          "code" : "CanonicalResource"
+        },
+        {
+          "code" : "CapabilityStatement"
+        },
+        {
+          "code" : "CarePlan"
+        },
+        {
+          "code" : "CareTeam"
+        },
+        {
+          "code" : "ChargeItem"
+        },
+        {
+          "code" : "ChargeItemDefinition"
+        },
+        {
+          "code" : "Citation"
+        },
+        {
+          "code" : "Claim"
+        },
+        {
+          "code" : "ClaimResponse"
+        },
+        {
+          "code" : "ClinicalImpression"
+        },
+        {
+          "code" : "ClinicalUseDefinition"
+        },
+        {
+          "code" : "CodeSystem"
+        },
+        {
+          "code" : "Communication"
+        },
+        {
+          "code" : "CommunicationRequest"
+        },
+        {
+          "code" : "CompartmentDefinition"
+        },
+        {
+          "code" : "Composition"
+        },
+        {
+          "code" : "ConceptMap"
+        },
+        {
+          "code" : "Condition"
+        },
+        {
+          "code" : "ConditionDefinition"
+        },
+        {
+          "code" : "Consent"
+        },
+        {
+          "code" : "Contract"
+        },
+        {
+          "code" : "Coverage"
+        },
+        {
+          "code" : "CoverageEligibilityRequest"
+        },
+        {
+          "code" : "CoverageEligibilityResponse"
+        },
+        {
+          "code" : "DetectedIssue"
+        },
+        {
+          "code" : "Device"
+        },
+        {
+          "code" : "DeviceAssociation"
+        },
+        {
+          "code" : "DeviceDefinition"
+        },
+        {
+          "code" : "DeviceDispense"
+        },
+        {
+          "code" : "DeviceMetric"
+        },
+        {
+          "code" : "DeviceRequest"
+        },
+        {
+          "code" : "DeviceUsage"
+        },
+        {
+          "code" : "DiagnosticReport"
+        },
+        {
+          "code" : "DocumentReference"
+        },
+        {
+          "code" : "DomainResource"
+        },
+        {
+          "code" : "Encounter"
+        },
+        {
+          "code" : "EncounterHistory"
+        },
+        {
+          "code" : "Endpoint"
+        },
+        {
+          "code" : "EnrollmentRequest"
+        },
+        {
+          "code" : "EnrollmentResponse"
+        },
+        {
+          "code" : "EpisodeOfCare"
+        },
+        {
+          "code" : "EventDefinition"
+        },
+        {
+          "code" : "Evidence"
+        },
+        {
+          "code" : "EvidenceReport"
+        },
+        {
+          "code" : "EvidenceVariable"
+        },
+        {
+          "code" : "ExampleScenario"
+        },
+        {
+          "code" : "ExplanationOfBenefit"
+        },
+        {
+          "code" : "FamilyMemberHistory"
+        },
+        {
+          "code" : "Flag"
+        },
+        {
+          "code" : "FormularyItem"
+        },
+        {
+          "code" : "GenomicStudy"
+        },
+        {
+          "code" : "Goal"
+        },
+        {
+          "code" : "GraphDefinition"
+        },
+        {
+          "code" : "Group"
+        },
+        {
+          "code" : "GuidanceResponse"
+        },
+        {
+          "code" : "HealthcareService"
+        },
+        {
+          "code" : "ImagingSelection"
+        },
+        {
+          "code" : "ImagingStudy"
+        },
+        {
+          "code" : "Immunization"
+        },
+        {
+          "code" : "ImmunizationEvaluation"
+        },
+        {
+          "code" : "ImmunizationRecommendation"
+        },
+        {
+          "code" : "ImplementationGuide"
+        },
+        {
+          "code" : "Ingredient"
+        },
+        {
+          "code" : "InsurancePlan"
+        },
+        {
+          "code" : "InventoryItem"
+        },
+        {
+          "code" : "InventoryReport"
+        },
+        {
+          "code" : "Invoice"
+        },
+        {
+          "code" : "Library"
+        },
+        {
+          "code" : "Linkage"
+        },
+        {
+          "code" : "List"
+        },
+        {
+          "code" : "Location"
+        },
+        {
+          "code" : "ManufacturedItemDefinition"
+        },
+        {
+          "code" : "Measure"
+        },
+        {
+          "code" : "MeasureReport"
+        },
+        {
+          "code" : "Medication"
+        },
+        {
+          "code" : "MedicationAdministration"
+        },
+        {
+          "code" : "MedicationDispense"
+        },
+        {
+          "code" : "MedicationKnowledge"
+        },
+        {
+          "code" : "MedicationRequest"
+        },
+        {
+          "code" : "MedicationStatement"
+        },
+        {
+          "code" : "MedicinalProductDefinition"
+        },
+        {
+          "code" : "MessageDefinition"
+        },
+        {
+          "code" : "MessageHeader"
+        },
+        {
+          "code" : "MetadataResource"
+        },
+        {
+          "code" : "MolecularSequence"
+        },
+        {
+          "code" : "NamingSystem"
+        },
+        {
+          "code" : "NutritionIntake"
+        },
+        {
+          "code" : "NutritionOrder"
+        },
+        {
+          "code" : "NutritionProduct"
+        },
+        {
+          "code" : "Observation"
+        },
+        {
+          "code" : "ObservationDefinition"
+        },
+        {
+          "code" : "OperationDefinition"
+        },
+        {
+          "code" : "OperationOutcome"
+        },
+        {
+          "code" : "Organization"
+        },
+        {
+          "code" : "OrganizationAffiliation"
+        },
+        {
+          "code" : "PackagedProductDefinition"
+        },
+        {
+          "code" : "Parameters"
+        },
+        {
+          "code" : "Patient"
+        },
+        {
+          "code" : "PaymentNotice"
+        },
+        {
+          "code" : "PaymentReconciliation"
+        },
+        {
+          "code" : "Permission"
+        },
+        {
+          "code" : "Person"
+        },
+        {
+          "code" : "PlanDefinition"
+        },
+        {
+          "code" : "Practitioner"
+        },
+        {
+          "code" : "PractitionerRole"
+        },
+        {
+          "code" : "Procedure"
+        },
+        {
+          "code" : "Provenance"
+        },
+        {
+          "code" : "Questionnaire"
+        },
+        {
+          "code" : "QuestionnaireResponse"
+        },
+        {
+          "code" : "RegulatedAuthorization"
+        },
+        {
+          "code" : "RelatedPerson"
+        },
+        {
+          "code" : "RequestOrchestration"
+        },
+        {
+          "code" : "Requirements"
+        },
+        {
+          "code" : "ResearchStudy"
+        },
+        {
+          "code" : "ResearchSubject"
+        },
+        {
+          "code" : "Resource"
+        },
+        {
+          "code" : "RiskAssessment"
+        },
+        {
+          "code" : "Schedule"
+        },
+        {
+          "code" : "SearchParameter"
+        },
+        {
+          "code" : "ServiceRequest"
+        },
+        {
+          "code" : "Slot"
+        },
+        {
+          "code" : "Specimen"
+        },
+        {
+          "code" : "SpecimenDefinition"
+        },
+        {
+          "code" : "StructureDefinition"
+        },
+        {
+          "code" : "StructureMap"
+        },
+        {
+          "code" : "Subscription"
+        },
+        {
+          "code" : "SubscriptionStatus"
+        },
+        {
+          "code" : "SubscriptionTopic"
+        },
+        {
+          "code" : "Substance"
+        },
+        {
+          "code" : "SubstanceDefinition"
+        },
+        {
+          "code" : "SubstanceNucleicAcid"
+        },
+        {
+          "code" : "SubstancePolymer"
+        },
+        {
+          "code" : "SubstanceProtein"
+        },
+        {
+          "code" : "SubstanceReferenceInformation"
+        },
+        {
+          "code" : "SubstanceSourceMaterial"
+        },
+        {
+          "code" : "SupplyDelivery"
+        },
+        {
+          "code" : "SupplyRequest"
+        },
+        {
+          "code" : "Task"
+        },
+        {
+          "code" : "TerminologyCapabilities"
+        },
+        {
+          "code" : "TestPlan"
+        },
+        {
+          "code" : "TestReport"
+        },
+        {
+          "code" : "TestScript"
+        },
+        {
+          "code" : "Transport"
+        },
+        {
+          "code" : "ValueSet"
+        },
+        {
+          "code" : "VerificationResult"
+        },
+        {
+          "code" : "VisionPrescription"
+        }]
+      }]
+    }
+  }

@@ -3,28 +3,24 @@ InstanceOf: OperationDefinition
 Title: "CRMI Package Operation"
 Usage: #definition
 * insert DefinitionMetadata
-* insert ArtifactOperationProfile
-* insert ArtifactVersionBindableOperationProfile
-* insert ArtifactEndpointConfigurableOperationProfile 
-* insert ManifestableOperationProfile
 * name = "CRMIPackage"
 * title = "CRMI Package"
+* status = #active
 * description = """
-Packages a specified canonical resource with dependencies.
+Packages a specified canonical resource for use in a target environment, optionally 
+including related content such as dependencies, components, and testing cases and data.
 
-See [$package and $data-requirements](introduction.html#distribution-fhir-package)
+See [$package and $data-requirements](distribution.html#package-and-data-requirements)
 """
 * comment = """
-TODO: More documentation about the operation, including inline examples:
-
-```json
-{
-  "resourceType": "Bundle"
-}
-```
+The package operation supports producing a complete package of a particular artifact 
+supporting the capabilities expected to be available in a particular target environment. 
+For example, a Questionnaire may be packaged together with the value sets referenced by 
+elements of the questionnaire, and those value sets may be definitions (Computable) or 
+expansions (Expanded), depending on the parameters to the operation. 
 """
 * kind = #operation
-* code = #crmi.package
+* code = #package
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
@@ -109,6 +105,19 @@ packaged content.
 """
 
 * parameter[+]
+  * name = #terminologyCapabilities
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #TerminologyCapabilities
+  * documentation = """
+A TerminologyCapabilities resource describing the expected terminology capabilities 
+of the target environment. For example, an environment may be capable of processing 
+specific types of value set definitions, but not others (e.g. LOINC panel definitions, 
+but not SNOMED hierarchies).
+"""
+
+* parameter[+]
   * name = #artifactVersion
   * min = 0
   * max = "*"
@@ -149,7 +158,7 @@ http://loinc.org|2.56. Note that this has obvious safety issues, in that it may
 result in a value set expansion giving a different list of codes that is both
 wrong and unsafe, and implementers should only use this capability reluctantly.
 It primarily exists to deal with situations where specifications have fallen
-into decay as time passes. If the version of a canonical is overriden, the version used SHALL
+into decay as time passes. If the version of a canonical is overridden, the version used SHALL
 explicitly be represented in the expansion parameters. Note that this is a generalization of the
 `force-system-version` parameter to the $expand operation to apply to any canonical resource,
 including code systems.

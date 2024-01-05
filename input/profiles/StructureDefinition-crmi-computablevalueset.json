@@ -16,7 +16,7 @@
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset",
   "name" : "CRMIComputableValueSet",
   "title" : "CRMI Computable ValueSet",
-  "status" : "draft",
+  "status" : "active",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
@@ -45,7 +45,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "ValueSet",
-  "baseDefinition" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ValueSet",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
@@ -172,7 +172,7 @@
     },
     {
       "id" : "ValueSet.compose.include.valueSet",
-      "path" : "ValueSet.compose.include.valueSet",
+     "path" : "ValueSet.compose.include.valueSet",
       "mustSupport" : true
     },
     {

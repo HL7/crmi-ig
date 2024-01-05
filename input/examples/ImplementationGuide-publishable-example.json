@@ -4,40 +4,12 @@
     "meta": {
       "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableimplementationguide" ]
     },
-    "contained": [{
-        "resourceType": "Parameters",
-        "id": "ancm-modelinfosettings",
-        "parameter": [ {
-          "name": "modelName",
-          "valueString": "ANCM"
-        }, {
-          "name": "modelUrl",
-          "valueString": "http://fhir.org/guides/who/smart-anc-mini"
-        }, {
-          "name": "patientClassName",
-          "valueString": "Patient"
-        }, {
-          "name": "patientBirthDatePropertyName",
-          "valueString": "birthDate"
-        }, {
-          "name": "targetQualifier",
-          "valueString": "ANCM"
-        }, {
-          "name": "targetUrl",
-          "valueString": "http://hl7.org/fhir"
-        } ]
-    }],
     "extension": [{
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseLabel",
       "valueString": "Release 1"
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseDescription",
       "valueMarkdown": "Example release of an implementation guide with knowledge artifacts"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings",
-      "valueReference": {
-        "reference": "#ancm-modelinfosettings"
-      }
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm",
       "valueCoding": {
@@ -46,9 +18,11 @@
       }
   }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
-      "valueCoding": {
-          "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
-          "code": "strict"
+      "valueCodeableConcept": {
+          "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+            "code": "strict"
+          }]
       }
   }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-purpose",
@@ -123,12 +97,6 @@
       }],
       "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
       "packageId" : "hl7.fhir.uv.extensions.r4",
-      "version" : "1.0.0"
-    },
-    {
-      "id" : "cpg",
-      "uri" : "http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg",
-      "packageId" : "hl7.fhir.uv.cpg",
       "version" : "1.0.0"
     },
     {

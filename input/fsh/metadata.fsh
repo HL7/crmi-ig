@@ -1,6 +1,6 @@
 RuleSet: DefinitionMetadata
 // NOTE: These should match sushi-config.yaml
-* version = "0.1.0"
+* version = "1.0.0-ballot2"
 * date = "2023-03-12"
 * publisher = "Clinical Decision Support WG"
 * contact.telecom.system = #url
@@ -29,3 +29,6 @@ RuleSet: ArtifactVersionBindableOperationProfile
 
 RuleSet: ArtifactEndpointConfigurableOperationProfile
 * meta.profile[+] = Canonical(ArtifactEndpointConfigurableOperation)
+
+RuleSet: ParameterizableOperationProfile
+* meta.profile[+] = Canonical(ParameterizableOperation)

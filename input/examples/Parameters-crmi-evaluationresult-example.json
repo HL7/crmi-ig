@@ -1,0 +1,16 @@
+{
+    "resourceType": "Parameters",
+    "id": "crmi-evaluationresult-example",
+    "meta": {
+      "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-evaluationresultparameters" ]
+    },
+    "parameter": [ {
+      "name": "Is pregnancy confirmed",
+      "_valueBoolean": {
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueCode": "unknown"
+        }]
+      }
+    }]
+}

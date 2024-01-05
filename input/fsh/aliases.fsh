@@ -8,8 +8,7 @@ Alias: $cqf-knowledgeCapability = http://hl7.org/fhir/StructureDefinition/cqf-kn
 Alias: $cqf-knowledgeRepresentationLevel = http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel
 Alias: $cqf-artifactComment = http://hl7.org/fhir/StructureDefinition/cqf-artifactComment
 
-// CQFMeasures
-Alias: $artifact-comment-type = http://hl7.org/fhir/uv/crmi/ValueSet/artifact-comment-type
+Alias: $artifact-comment-type = http://hl7.org/fhir/ValueSet/artifact-comment-type
 Alias: $cqf-library = http://hl7.org/fhir/StructureDefinition/cqf-library
 Alias: $cqf-expression = http://hl7.org/fhir/StructureDefinition/cqf-expression
 
