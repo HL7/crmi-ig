@@ -5,6 +5,9 @@ Usage: #definition
 * insert DefinitionMetadata
 * name = "CRMIArtifactDiff"
 * title = "CRMI Artifact Diff"
+* system = true
+* type = false
+* instance = false
 * description = """
 Describes the differences between two knowledge artifacts in [FHIR Patch format](https://www.hl7.org/fhir/fhirpatch.html) by recursively resolving dependencies to get a holistic diff.
 """
@@ -13,17 +16,13 @@ The operation is only valid between two resources of the same type and can optio
 """
 * kind = #operation
 * code = #artifact-diff
-=
 * resource[+] = #Library
 * resource[+] = #PlanDefinition
 * resource[+] = #ValueSet
-* system = true
-* type = false
-* instance = false
 
 * parameter[+]
   * name = #source
-  * min = "0"
+  * min = 0
   * max = "1"
   * use = #in
   * type = #canonical
@@ -31,7 +30,7 @@ The operation is only valid between two resources of the same type and can optio
 
 * parameter[+]
   * name = #target
-  * min = "1"
+  * min = 1
   * max = "1"
   * use = #in
   * type = #canonical
