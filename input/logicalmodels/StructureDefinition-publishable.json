@@ -403,7 +403,7 @@
       "id" : "Publishable.author",
       "path" : "Publishable.author",
       "short" : "Who authored the {{title}}",
-      "definition" : "An individiual or organization primarily involved in the creation and maintenance of the {{title}}.",
+      "definition" : "An individual or organization primarily involved in the creation and maintenance of the {{title}}.",
       "min" : 0,
       "max" : "*",
       "base" : {

@@ -22,7 +22,7 @@ These operations are defined to support terminology capabilities expected in an 
 
 | **Operation** | **Description** |
 |----|----|
-| [CRMI ValueSet Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manfiest support |
+| [CRMI ValueSet Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manifest support |
 {: .grid }
 
 #### Artifact Authoring

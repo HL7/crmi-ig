@@ -19,7 +19,7 @@ Like publishing, [FHIR Packages](https://hl7.org/fhir/packages.html) are a way t
 npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-package
 ```
 
-This example iollustrates the use of an NPM package registry to install IG packages as NPM packages. This example also illustrates the use of NPM Scopes for FHIR packages.
+This example illustrates the use of an NPM package registry to install IG packages as NPM packages. This example also illustrates the use of NPM Scopes for FHIR packages.
 
 ### FHIR REST API
 {: #distribution-fhir-rest}
@@ -344,4 +344,4 @@ For IG packages, the FHIR publishing ecosystem, including the FHIR validation to
 
 Note that for artifact bundles that are the result of the $package operation, bundles may be requested that include duplicate artifacts. Client applications that consume artifact bundles must be prepared for this case.
 
-In addition, client applications must ensure that artifact references are resolved correctly. If an artifact reference is unversioned, a version manifest for the artifact should be consulted to determine the appropriate version-binding information. See the Artifact Scope discussion for information on how to identify the version manfiest appropriate for a particular artifact.
+In addition, client applications must ensure that artifact references are resolved correctly. If an artifact reference is unversioned, a version manifest for the artifact should be consulted to determine the appropriate version-binding information. See the Artifact Scope discussion for information on how to identify the version manifest appropriate for a particular artifact.
