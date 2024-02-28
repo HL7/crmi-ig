@@ -37,7 +37,7 @@ The above diagram depicts the high-level phases of content development as:
 * Publishing
 * Distribution
 * Implementation
-
+ 
 #### Authoring
 
 The authoring phase is supported by the Shareable and Computable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of these capability categories and profiles.
