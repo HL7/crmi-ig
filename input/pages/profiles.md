@@ -78,7 +78,7 @@ For knowledge artifacts a _computable_ artifact identifies the aspects of the ar
 ### Executable
 {: #executable }
 
-For knowledge artifacts an _executable_ artifact identifies the aspects of the artifact that are primarily focused on implementation or run-time considerations. For example, the `expansion` element of a ValueSet is an explicit representation of the members of the value set for a particular expansion (i.e. without requiring the use of a terminology server to understand the computable definition). Becasue the executable capabilities of each type of knowledge artifact vary based on what the knowledge artifact is representing, guidance on individual elements for each profile are defined in the executable profile.
+For knowledge artifacts an _executable_ artifact identifies the aspects of the artifact that are primarily focused on implementation or run-time considerations. For example, the `expansion` element of a ValueSet is an explicit representation of the members of the value set for a particular expansion (i.e. without requiring the use of a terminology server to understand the computable definition). Because the executable capabilities of each type of knowledge artifact vary based on what the knowledge artifact is representing, guidance on individual elements for each profile are defined in the executable profile.
 
 ### Artifact Capability Profiles
 {: #artifact-capability-profiles }
