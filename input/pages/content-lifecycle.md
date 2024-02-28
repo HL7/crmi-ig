@@ -29,12 +29,12 @@ If an invalid state transition occurs accidentally, the artifacts **SHOULD** be 
 The above diagram depicts the high-level phases of content development as:
 
 * Authoring/Development
-    * Analyze (L1)
+    * Analysis (L1)
     * Design (L2)
-    * Develop (L3)
+    * Development (L3)
     * Testing
     * Packaging
-* Publish
+* Publishing
 * Distribution
 * Implementation
 
