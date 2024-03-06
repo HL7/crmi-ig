@@ -84,6 +84,8 @@ This IG is a conformance profile, as described in the [“Conformance” section
 {% include img.html img="CRMI-Overview.png" %}
 </div>
 
+_Figure 3.2_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
+
 **Roles include:**
 * [Authoring System](#authoring-system): A system enabling content modifications and publishing
   * [Authoring Knowledge Repository](#authoring-knowledge-repository)
