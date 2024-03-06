@@ -25,7 +25,7 @@ Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts fo
 <img src="types-of-igs.png" alt="Types of FHIR Implementation Guides" class="img-responsive img-rounded center-block" width="700" height="700"/>
 </div>
 
-_Figure 3.1_ Types of implementation guides: Specification, model, and content IGs
+_Figure 2.2_ Types of implementation guides: Specification, model, and content IGs
 
 As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
@@ -84,7 +84,7 @@ This IG is a conformance profile, as described in the [“Conformance” section
 {% include img.html img="CRMI-Overview.png" %}
 </div>
 
-_Figure 3.2_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
+_Figure 2.4_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
 
 **Roles include:**
 * [Authoring System](#authoring-system): A system enabling content modifications and publishing
