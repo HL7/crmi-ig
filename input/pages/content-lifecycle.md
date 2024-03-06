@@ -19,8 +19,8 @@ To ensure stable resolution of dependencies of an artifact throughout its lifecy
 
 To support proper version management, this implementation guide requires that:
 
-1. An `active` artifact **SHALL NOT** transition back to `draft`, a new version of the artifact is required
-2. A `retired` artifact **SHALL NOT** transition back to `active`, a new version of the artifact is required
+1. An `active` artifact **SHALL NOT** transition back to `draft`. A new version of the artifact is required.
+2. A `retired` artifact **SHALL NOT** transition back to `active`. A new version of the artifact is required.
 
 If an invalid state transition occurs accidentally, the artifacts **SHOULD** be updated to the correct status and downstream systems **SHOULD** be notified as soon as possible.
 
