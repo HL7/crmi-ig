@@ -54,7 +54,7 @@ The middle row on the left of the figure shows the Model Implementation Guides (
 
 #### Specification Implementation Guides
 
-The middle row on the right of the figure shows the Specification Implementation Guides, which derive from the FHIR Clinical Reasoning resources to provide implementation guidance and conformance requirements for the creation, distribution, evaluation, and maintenance of shareable clinical knowledge. These include the Quality Measure IG (QM), Data Exchange for Quality Measures (DEQM), the Clinical Practice Guidelines IG (CPG-on-FHIR), and Evidence-based Medicine on FHIR (EBM-on-FHIR).
+The middle row on the right of the figure shows the Specification Implementation Guides, which derive from the FHIR Clinical Reasoning resources to provide implementation guidance and conformance requirements for the creation, distribution, evaluation, and maintenance of shareable clinical knowledge. These include the Quality Measure (QM) IG, Data Exchange for Quality Measures (DEQM), the Clinical Practice Guidelines IG (CPG-on-FHIR), and Evidence-based Medicine on FHIR (EBM-on-FHIR).
 
 * [**Quality Measure IG (QM)**](http://hl7.org/fhir/us/cqfmeasures) provides guidance on and conformance requirements for the use of the FHIR Reasoning resources, Measure and Library, to create and share clinical quality measures.
 * [**Data Exchange for Quality Measures (DEQM)**](http://hl7.org/fhir/us/davinci-deqm) provides guidance for reporting quality measures.
