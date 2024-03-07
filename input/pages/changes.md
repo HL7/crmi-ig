@@ -43,6 +43,7 @@ The following sections detail the changes that were applied for this ballot.
 
 #### Non-Substantive Changes
 
+* **Applied**: Misspelling of read-only([FHIR-43998](https://jira.hl7.org/browse/FHIR-43998))
 * **Applied**: Consider requiring the use of a SignatureLevel higher than none([FHIR-42921](https://jira.hl7.org/browse/FHIR-42921))
 * **Applied**: Artifact dropdown doesn't show all artifacts e.g. operationdefinitions. ([FHIR-42803](https://jira.hl7.org/browse/FHIR-42803))
 * **Applied**: All local code systems must be temp or approved by TSMG([FHIR-42601](https://jira.hl7.org/browse/FHIR-42601))

@@ -116,7 +116,7 @@ An authoring system MAY use an Authoring Knowledge Repository and Authoring Know
 ##### Authoring Knowledge Repository
 {: #authoring-knowledge-repository}
 
-An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing readonly access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
+An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing read-only access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
 
 See [Artifact Repository Service](artifact-repository-service.html) for a complete description of the capabilities provided by an artifact repository.
 
