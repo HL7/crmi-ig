@@ -5,13 +5,13 @@
     "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-moduleconfigurationlibrary" ]
   },
   "extension": [ {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-configurationEndpoint",
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-configurationEndpoint",
     "valueUri": "http://example.com/fhir"
   }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost",
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-endpointSupportsPost",
     "valueBoolean": true
   }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-configurationFor",
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-configurationFor",
     "valueCanonical": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-order-sign"
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10ModuleConfiguration",

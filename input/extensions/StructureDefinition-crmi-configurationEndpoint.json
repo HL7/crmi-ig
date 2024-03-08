@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-configurationFor",
+  "id": "crmi-configurationEndpoint",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-configurationFor",
-  "name": "ConfigurationFor",
-  "title": "Configuration For",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-configurationEndpoint",
+  "name": "CRMIConfigurationEndpoint",
+  "title": "CRMI Configuration Endpoint",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "description": "Which artifact this module configuration is for",
-  "purpose": "This extension allows module configuration libraries to indicate which artifact the configuration is for",
+  "description": "Which endpoint this module configuration is for",
+  "purpose": "This extension allows module configuration libraries to indicate which endpoint the configuration is for",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -56,8 +56,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What artifact the configuration is for",
-        "definition": "A reference to the artifact this module configuration is for",
+        "short": "What endpoint the configuration is for",
+        "definition": "A uri that is the endpoint this configuration is for",
         "min": 0,
         "max": "1"
       },
@@ -69,14 +69,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-configurationFor"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-configurationEndpoint"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "canonical"
+            "code": "uri"
           }
         ]
       }
