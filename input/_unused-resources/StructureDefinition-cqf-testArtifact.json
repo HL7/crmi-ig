@@ -46,6 +46,10 @@
     {
       "type": "element",
       "expression": "Group"
+    },
+    {
+      "type": "element",
+      "expression": "Library"
     }
   ],
   "type": "Extension",
