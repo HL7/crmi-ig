@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-configurationEndpoint",
+  "id": "crmi-endpointSupportsPost",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-configurationEndpoint",
-  "name": "ConfigurationEndpoint",
-  "title": "Configuration Endpoint",
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-endpointSupportsPost",
+  "name": "CRMIEndpointSupportsPost",
+  "title": "CRMI Endpoint Supports POST",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "description": "Which endpoint this module configuration is for",
-  "purpose": "This extension allows module configuration libraries to indicate which endpoint the configuration is for",
+  "description": "Indicates whether the endpoint of the configuration library on which it appears supports using a POST for search",
+  "purpose": "This extension allows module configuration libraries to indicate whether the endpoint they are configuring supports the POST style of search interaction.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -45,7 +45,7 @@
   "context": [
     {
       "type": "element",
-      "expression": "Resource"
+      "expression": "Library"
     }
   ],
   "type": "Extension",
@@ -56,8 +56,8 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "What endpoint the configuration is for",
-        "definition": "A uri that is the endpoint this configuration is for",
+        "short": "Endpoint supports POST?",
+        "definition": "Indicates whether the endpoint for the module configuration library supports POST-style search",
         "min": 0,
         "max": "1"
       },
@@ -69,14 +69,14 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-configurationEndpoint"
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-endpointSupportsPost"
       },
       {
         "id": "Extension.value[x]",
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "uri"
+            "code": "boolean"
           }
         ]
       }
