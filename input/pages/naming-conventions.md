@@ -20,7 +20,7 @@ Note that this pattern is NOT the same as what is typically produced by the IG p
 http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition
 ```
 
-However, because the `id` element of the artifact will in general change when the artifact is hosted in other environments, the use of the `id` to construct the URL results in confusion about the role of the `id` in identifying the artifact. Because the canonical URL is so central to the identity of a canonical resource, this IG recommends the use of the `name` element to construct the URL, eliminating the potential confusion associated with the use of the `id` element.
+However, because the `id` element of the artifact will in general change when the artifact is hosted in other environments, the use of the `id` to construct the URL results in confusion about the role of the `id` in identifying the artifact. Because the canonical URL is so central to the identity of a canonical resource, this IG recommends the use of the `name` element to construct the URL, eliminating the potential confusion associated with the use of the `id` element. NOTE: This is the "original id as established at authoring time, and not expected to be permanent when the artifact appears in other contexts. For CQL Libraries in particular, the "original id" must match the name of the CQL library.
 
 #### Version
 
