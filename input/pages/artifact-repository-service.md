@@ -92,6 +92,8 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Release**](#release): Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
 * [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 * [**Archive**](#archive): Delete a _retired_ artifact
+* [**Draft**](#draft): Draft a new version of an existing artifact in active status
+* [**Clone**](#clone): Clone a new artifact based on an existing artifact (regardless of status)
 
 ##### Retrieve
 
@@ -187,6 +189,8 @@ The following parameters **SHOULD** be supported for the requirements operations
 * **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by value set(s) or other artifacts used in the artifact. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
 * **artifactEndpointConfiguration**: Specifies an optional endpoint configuration for resolving artifact references
+* **include**: Specifies the types of artifacts that should be included in the dependency trace
+* **packageOnly**: Specifies that only dependencies defined in the same package as the artifact be included (or whether to trace dependencies, regardless of package boundaries)
 
 The result of the requirements operation is a _module-definition_ Library that returns the computed effective requirements of the artifact.
 
