@@ -73,7 +73,7 @@ incrementing the "patch version number". Version numbers for knowledge artifacts
 ```
 {: #content-pre}
 
-To summarize, breaking changes or major substantive new capabilities (such as materially changing whether a given recommendation will be applicable to a subject) require a major version number increment; non-breaking changes or minor new capabilities (such as refining the content of a questionnaire or adding stratifiers to a quality measure) require a minor version number increment; while non-substantive changes (such as fixing spelling mistakes and other minor technical corrections) require only a patch version number increment. The scheme is for the benefit of consumers and so should be understood from that perspective.
+To summarize, breaking changes or major substantive new capabilities (such as materially changing whether a given recommendation will be applicable to a subject) require a major version number increment; non-breaking changes or minor new capabilities (such as refining the content of a questionnaire or adding stratifiers to a quality measure) require a minor version number increment; while non-substantive changes (such as fixing spelling mistakes and other minor technical corrections) require only a patch version number increment. Incrementing a version number resets version numbers to the right. E.g., When `1.3.5` contains a major change, it becomes `2.0.0`, not `2.3.5`. The scheme is for the benefit of consumers and so should be understood from that perspective.
 
 #### Artifact Versioning Policy
 {: #artifact-versioning-policy }
