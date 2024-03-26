@@ -17,6 +17,8 @@ Note that during the authoring phase, the value sets referenced by artifacts wil
 
 #### Version Manifest
 As a version manifest, an artifact collection specifies versioned canonical references for dependencies using `relatedArtifact` elements with a type of `depends-on`.
+Some systems will not support the ability to version manifests, any changes needed would require a new manifest. 
+(i.e. versioning of manifests is a MAY)
 
 > NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if an artifact explicitly references the version of a value set, the manifest cannot override that version.
 
