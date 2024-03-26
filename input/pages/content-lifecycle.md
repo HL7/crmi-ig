@@ -52,7 +52,7 @@ This IG recommends [Semantic Versioning](https://semver.org) be used to version 
   1. Active artifacts **SHALL** specify a version
   2. The artifact version **SHOULD** follow the convention:
        < major >.< minor >.< patch >
-  3. For artifacts in draft status, the versioning scheme **SHALL NOT** apply, and there is no expectation that artifact contents are stable
+  3. For artifacts in draft status, the versioning scheme **SHOULD NOT** apply, and there is no expectation that artifact contents are stable. Some systems allow only a single draft version of an artifact and that instance has no version element, other systems allow multiple draft versions  
   4. The versioning scheme **SHALL** apply when an artifact moves to active status.
 
 There are three main types of changes that can be made to an artifact:
