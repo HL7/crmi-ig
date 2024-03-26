@@ -638,3 +638,7 @@ In addition to the use of the `expansion` parameter of the `$expand` operation, 
 ```
 
 The result of this search is the same as requesting an `$expand` with the `expansion` parameter.
+
+##### Summary Search 
+
+{}summary is a as either a SHOULD support search parameter. The _{}summary{_} search parameter would allow responding with partial-data sets of artifacts, which may be desirable to boost performance for certain actions.
