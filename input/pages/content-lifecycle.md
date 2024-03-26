@@ -46,6 +46,7 @@ The authoring phase is supported by the Shareable and Computable profiles define
 {: #artifact-versioning }
 
 This IG recommends [Semantic Versioning](https://semver.org) be used to version artifacts to help track and manage dependencies.
+Stock semver labeling exceptions include [FHIR Releases and Versioning](https://hl7.org/fhir/versions.html#versions)
 
 **Conformance Requirement 3.1 (Artifact Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
 {: #conformance-requirement-3-1}
