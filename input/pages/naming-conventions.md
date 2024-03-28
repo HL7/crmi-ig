@@ -4,14 +4,14 @@
 
 This section provides guidance on naming conventions for canonical artifacts. The guidance here is aligned with [Terminology Expectations for IG Developers](https://confluence.hl7.org/display/TSMG/Terminology+Expectations+for+IG+Developers).
 
-### Definitional content
+### Canonical Resources
 
 #### URL
 
 The `url` element of an artifact **SHOULD** be constructed according to the following pattern:
 
 ```
-{package-canonical-base}/{resource.resourceType}/{resource.name}
+{package-canonical-base}/{resource.resourceType}/{resource.id}
 ```
 
 Note that this pattern is NOT the same as what is typically produced by the IG publisher, which usually makes use of the `id` of the artifact in the authoring context. For example, the URL for the CRMIShareableActivityDefinition profile defined in this implementation guide is:
@@ -29,6 +29,7 @@ The `version` element for all artifacts within the same package **SHOULD** be th
 In addition, all references to canonicals from artifacts in the package to other artifacts in the same package **SHOULD** be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
 
 The name and title should both be unique within the canonical base (and resource type) for artifacts as well.
+
 ### Operation definitions
 
 Although FHIR operation definitions can specify a `code` property, servers may use whatever code they surface in their capability statement to implement operations. To simplify application development and encourage consistency, this implementation guide proposes that:
