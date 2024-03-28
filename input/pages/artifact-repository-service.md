@@ -9,31 +9,31 @@ This implementation guide is not prescriptive about authentication or authorizat
 
 In addition to use cases for knowledge artifact management, this page defines three levels of artifact repository capabilities:
 
-* **Shareable Artifact Repository** The minimum functionality required to support read-only, API access to artifacts
-* **Publishable Artifact Repository** Additional capabilities to support indexing and searching, dependency tracing, and packaging of artifacts
-* **Authoring Artifact Repository** Additional write capabilities to support content authoring using the repository as a content store
+* **Shareable Artifact Repository**: The minimum functionality required to support read-only, API access to artifacts
+* **Publishable Artifact Repository**: Additional capabilities to support indexing and searching, dependency tracing, and packaging of artifacts
+* **Authoring Artifact Repository**: Additional write capabilities to support content authoring using the repository as a content store
 
 ### Knowledge Artifact Management
 
-This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of _status_, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
+This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of `status`, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
 
 #### Artifact Lifecycle
 
-Knowledge artifacts as represented within FHIR follow a general, high-level content development workflow, as represented by the possible values of the _status_ element of the artifact:
+Knowledge artifacts as represented within FHIR follow a general, high-level content development workflow, as represented by the possible values of the `status` element of the artifact:
 
 * **draft**: The artifact is under development and not yet considered to be ready for normal use. In particular, there is no guarantee that the version element associated with the artifact is established, and the actual content of the artifact may change.
 * **active**: The artifact is ready for normal use. In particular, the content of the artifact related to the version element is stable and **SHALL NOT** change. Changes to the artifact require a new version to be introduced in draft status.
 * **retired**: The artifact has been withdrawn or superseded and should no longer be used.
 
-In addition, the _experimental_ element may be used to indicate that the artifact is intended for testing/experimental usage only and should not be used in production settings.
+In addition, the `experimental element` may be used to indicate that the artifact is intended for testing/experimental usage only and should not be used in production settings.
 
 #### Artifact Identity
 
 Knowledge artifacts represented as FHIR resources have multiple ways of identifying the artifact:
 
-1. _logical id_: As FHIR resources, knowledge artifacts have a server-specific logical id for the artifact, as defined by the _id_ element of the resource. This id is typically managed by the specific server in which a resource appears, and so can change depending on the server it is accessed from. See the [Logical ID](http://hl7.org/fhir/resource.html#id) topic in FHIR for more information.
-2. _business identifiers_: All knowledge artifacts have an _identifier_ element that can be used to provide additional identifiers that are unique within a defined scope (or _system_) and remain fixed as the resource appears on different servers. See the [Business Identifiers](http://hl7.org/fhir/resource.html#identifiers) topic in FHIR for more information.
-3. _canonical urls_: As _canonical_ resources in FHIR, knowledge artifacts have a special purpose business identifiers that is a globally unique, version-independent identifier for the resource, specified by the _url_ element. See the [Canonical URLs](http://hl7.org/fhir/resource.html#canonical) topic in FHIR for more information.
+1. **logical id**: As FHIR resources, knowledge artifacts have a server-specific logical id for the artifact, as defined by the _id_ element of the resource. This id is typically managed by the specific server in which a resource appears, and so can change depending on the server it is accessed from. See the [Logical ID](http://hl7.org/fhir/resource.html#id) topic in FHIR for more information.
+2. **business identifiers**: All knowledge artifacts have an _identifier_ element that can be used to provide additional identifiers that are unique within a defined scope (or _system_) and remain fixed as the resource appears on different servers. See the [Business Identifiers](http://hl7.org/fhir/resource.html#identifiers) topic in FHIR for more information.
+3. **canonical urls**: As _canonical_ resources in FHIR, knowledge artifacts have a special purpose business identifiers that is a globally unique, version-independent identifier for the resource, specified by the _url_ element. See the [Canonical URLs](http://hl7.org/fhir/resource.html#canonical) topic in FHIR for more information.
 
 Knowledge artifacts **SHALL** provide and maintain a globally unique, version-independent identifier in the _url_ element. When referencing knowledge artifacts, a reference may be version-independent by providing only the canonical URL, or the reference may be version-specific, using the `|` notation to indicate the version of the artifact to be referenced:
 
@@ -92,6 +92,7 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Release**](#release): Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
 * [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 * [**Archive**](#archive): Delete a _retired_ artifact
+* [**Diff**](#diff): Compare two knowledge artifacts and optionally expand any ValueSets in the dependency tree
 
 ##### Retrieve
 
@@ -105,36 +106,36 @@ Because artifacts in FHIR share consistent metadata attributes, searching can be
 
 Artifact repositories **SHALL** support searching for artifacts by the following parameters:
 
-1. url: Returning all versions of the artifact matching a url
-2. version: Returning the artifact matching a version (can appear only in combination with a url search)
-3. identifier: Returning any artifact matching the identifier
-4. name: Returning any artifact matching the name, according to the string-matching semantics in FHIR
-5. title: Returning any artifact matching the title, according to the string-matching semantics in FHIR
-6. status: Returning artifacts that match the given status
-7. description: Returning any artifact matching the search description, according to string-matching semantics in FHIR
+1. `url`: Returning all versions of the artifact matching a url
+2. `version`: Returning the artifact matching a version (can appear only in combination with a url search)
+3. `identifier`: Returning any artifact matching the identifier
+4. `name`: Returning any artifact matching the name, according to the string-matching semantics in FHIR
+5. `title`: Returning any artifact matching the title, according to the string-matching semantics in FHIR
+6. `status`: Returning artifacts that match the given status
+7. `description`: Returning any artifact matching the search description, according to string-matching semantics in FHIR
 
 ###### Metadata Searches
 
 Artifact repositories **SHOULD** support searching for artifacts by the following parameters:
 
-1. date: Returning all artifacts matching the given date
-2. effective: Returning all artifacts matching the given effectivePeriod
-3. jurisdiction: Returning all artifacts matching the given jurisdiction
-4. context: Returning all artifacts with a use context value matching the given context
-5. context-type: Returning all artifacts with a use context type matching the given context type
-6. context-type-quantity: Returning all artifacts with a use context quantity or range matching the given quantity
-7. context-type-value: Returning all artifacts with a given use context type and value
-8. topic: Returning all artifacts matching the given topic
+1. `date`: Returning all artifacts matching the given date
+2. `effective`: Returning all artifacts matching the given effectivePeriod
+3. `jurisdiction`: Returning all artifacts matching the given jurisdiction
+4. `context`: Returning all artifacts with a use context value matching the given context
+5. `context-type`: Returning all artifacts with a use context type matching the given context type
+6. `context-type-quantity`: Returning all artifacts with a use context quantity or range matching the given quantity
+7. `context-type-value`: Returning all artifacts with a given use context type and value
+8. `topic`: Returning all artifacts matching the given topic
 
 ###### Related Artifact Searches
 
 Artifact repositories **MAY** support searching for artifacts by the following parameters:
 
-1. composed-of: Returning all artifacts that have the given artifact as a component
-2. depends-on: Returning all artifacts that have the given artifact as a dependency
-3. derived-from: Returning all artifacts that are derived from the given artifact
-4. successor: Returning all artifacts that have the given artifact as a successor
-5. predecessor: Returning all artifacts that have the given artifact as a predecessor
+1. `composed-of`: Returning all artifacts that have the given artifact as a component
+2. `depends-on`: Returning all artifacts that have the given artifact as a dependency
+3. `derived-from`: Returning all artifacts that are derived from the given artifact
+4. `successor`: Returning all artifacts that have the given artifact as a successor
+5. `predecessor`: Returning all artifacts that have the given artifact as a predecessor
 
 ##### Package
 
@@ -149,11 +150,11 @@ The following parameters **SHOULD** be supported for packaging operations:
 * **offset**: Paging support - where to start if a subset is desired (default = 0). Offset is number of records (not number of pages)
 * **count**: Paging support - how many resources should be provided in a partial page view. If count = 0, the client is asking how large the package is.
 * **artifactVersion**: Specifies a version to use for an artifact if it is referenced without a version 
-* **checkArtifactVersion**: Edge Case: Specifies a version to use for an artifact. If the artifact is referenced with a different version, an error is returned instead of the package. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
-* **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
+* **checkArtifactVersion**: Edge Case: Specifies a version to use for an artifact. If the artifact is referenced with a different version, an error is returned instead of the package. The format is the same as a canonical URL: `[system]|[version]` - e.g. http://loinc.org|2.56
+* **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: `[system]|[version]` - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for artifacts referenced in the artifact being packaged. When specified, artifacts identified as `depends-on` related artifacts in the root artifact have the same meaning as specifying that artifact version in the `artifactVersion` parameter.
-* **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is all)
-* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the implementation guide or specification that defines the artifact being packaged (default is false)
+* **include**: Specifies what to include in the resulting package (e.g. canonical, terminology, conformance, profiles, extensions, etc) (default is `all`)
+* **packageOnly**: Specifies whether to include all artifacts or only the artifacts that are defined in the implementation guide or specification that defines the artifact being packaged (default is `false`)
 * **artifactEndpointConfiguration**: Specifies an optional endpoint configuration for resolving artifact references
 * Instance level:
     * **id**: The server-specific id of the artifact to be approved.
@@ -183,8 +184,8 @@ The following parameters **SHOULD** be supported for the requirements operations
 * **expression**: If appropriate for the type of artifact, specific expressions or components to be analyzed. If not specified, the analysis is performed for the entire artifact
 * **parameters**: Any input parameters for the artifact. If the artifact is a logic library (or references any logic libraries), parameters defined in this input will be bound by name to parameters defined in the logic library (or referenced libraries). If the logic library is a CQL library, parameter types are mapped to CQL as specified in the Using CQL With FHIR implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL.
 * **artifactVersion**: Specifies a version to use for an artifact if it is referenced without a version 
-* **checkArtifactVersion**: Edge Case: Specifies a version to use for an artifact. If the artifact is referenced with a different version, an error is returned instead of the requirements. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56
-* **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
+* **checkArtifactVersion**: Edge Case: Specifies a version to use for an artifact. If the artifact is referenced with a different version, an error is returned instead of the requirements. The format is the same as a canonical URL: `[system]|[version]` - e.g. http://loinc.org|2.56
+* **forceArtifactVersion**: Edge Case: Specifies a version to use for an artifact. This parameter overrides any specified version of the artifact (and any it depends on). The format is the same as a canonical URL: `[system]|[version]` - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used **SHALL** explicitly be represented in the expansion parameters
 * **manifest**: Specifies an asset-collection library that defines version bindings for code systems referenced by value set(s) or other artifacts used in the artifact. When specified, code systems identified as `depends-on` related artifacts in the library have the same meaning as specifying that code system version in the `system-version` parameter.
 * **artifactEndpointConfiguration**: Specifies an optional endpoint configuration for resolving artifact references
 
@@ -215,7 +216,7 @@ The following parameters **SHOULD** be supported for the operation:
 * **approvalDate**: The date on which the artifact was last approved. If this parameter is not provided the operation will infer the date to be the current system date on the repository performing the operation.
 * **artifactAssessmentType**: If a comment is submitted as part of the approval, this parameter denotes the type of artifact comment (and must belong to the [Artifact Assessment Information Type ValueSet](http://hl7.org/fhir/ValueSet/artifactassessment-information-type)).
 * **artifactAssessmentSummary**: If a comment is submitted as part of the approval, this parameter contains the body of the comment.
-* **artifactAssessmentTarget**: The version-specific canonical URL for the artifact being approved. The format is: [system]|[version] - e.g. http://loinc.org|2.56
+* **artifactAssessmentTarget**: The version-specific canonical URL for the artifact being approved. The format is: `[system]|[version]` - e.g. http://loinc.org|2.56
 * **artifactAssessmentRelatedArtifact**: Optional supporting Reference or canonical URL pointing to a supporting resource for the comment.
 * **artifactAssessmentAuthor**: A Reference to a resource with further information about the entity applying the approval.
 * Instance level:
@@ -225,6 +226,7 @@ The following parameters **SHOULD** be supported for the operation:
     * **url**: The canonical url of the artifact to be approved.
     * **identifier**: A business identifier of the artifact to be approved.
     * **resource**: The resource type of the artifact to be released.
+
 ##### Publish
 
 The _publish_ operation supports posting a new artifact with _active_ status. The operation is defined as a `POST` (or `PUT` if the server supports client-defined ids) of the artifact resource, but the status of the posted resource is required to be _active_.
@@ -252,6 +254,8 @@ The following parameters **SHOULD** be supported for the operation:
 ##### Draft
 The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and a pre-release label of `-draft` appended to the version.
 
+`effectivePeriod`, `approvalDate` and any extensions which are only valid for active artifacts should also be removed.
+
 The following parameters **SHOULD** be supported for the draft operations:
 
 * **draftVersion**: The version of the artifact which is in review, i.e. the version under which it will be released
@@ -274,6 +278,20 @@ The _retire_ operation supports updating the status of an existing _active_ arti
 ##### Archive
 
 The _archive_ operation supports removing an existing _retired_ artifact from the repository. The operation is defined as a `DELETE` but the status of the deleted resource is required to be _retired_.
+
+##### Artifact Diff
+The _artifact-diff_ operation supports the comparison of two artifacts of the same type. This operation generates a differential between source and target artifacts as [FHIR Patch](https://www.hl7.org/fhir/fhirpatch.html).
+
+If the `compareExecutable` parameter is set to true then the operation will expand any ValueSets while traversing dependencies for comparison.
+
+If the `compareComputable` parameter is set to false then differences in computable content should be omitted from the output (this may be useful in certain contexts, e.g. if `compareExecutable` is true it would be redundant).
+
+The following parameters SHOULD be supported for the _artifact-diff_ operation:
+
+* **compareComputable**: Whether or not to compare the computable content in the artifacts' dependency trees such as `ValueSet.compose.include` content.
+* **compareExecutable**: Whether or not to compare the executable content in the artifacts' dependency trees such as `ValueSet.expansion.contains`. Any ValueSets in the tree will be expanded as part of the operation.
+* **target**: A canonical reference of the target artifact which is being compared.
+* **source**: The canonical reference of the source artifact to compare against.
 
 ### Shareable Artifact Repository
 
@@ -306,13 +324,13 @@ For each type of knowledge artifact supported by a ShareableArtifactRepository:
 3. **SHALL** support artifact read by the server-defined id for the artifact
 
 4. **SHALL** support artifact searches by:
-    1. **SHALL** url: Returning all versions of the artifact matching that url
-    2. **SHALL** version: Returning the artifact matching that version (can appear only in combination with a url search)
-    3. **SHALL** identifier: Returning any artifact matching the identifier
-    4. **SHALL** name: Returning any artifact matching the name, according to the string-matching semantics in FHIR
-    5. **SHALL** title: Returning any artifact matching the title, according to the string-matching semantics in FHIR
-    6. **SHALL** status: Returning artifacts that match the given status
-    7. **SHALL** description: Returning any artifact matching the search description, according to string-matching semantics in FHIR
+    1. url: Returning all versions of the artifact matching that url
+    2. version: Returning the artifact matching that version (can appear only in combination with a url search)
+    3. identifier: Returning any artifact matching the identifier
+    4. name: Returning any artifact matching the name, according to the string-matching semantics in FHIR
+    5. title: Returning any artifact matching the title, according to the string-matching semantics in FHIR
+    6. status: Returning artifacts that match the given status
+    7. description: Returning any artifact matching the search description, according to string-matching semantics in FHIR
 
 ### Publishable Artifact Repository
 

@@ -25,7 +25,7 @@ Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts fo
 <img src="types-of-igs.png" alt="Types of FHIR Implementation Guides" class="img-responsive img-rounded center-block" width="700" height="700"/>
 </div>
 
-_Figure 3.1_ Types of implementation guides: Specification, model, and content IGs
+_Figure 2.2_ Types of implementation guides: Specification, model, and content IGs
 
 As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
@@ -84,6 +84,8 @@ This IG is a conformance profile, as described in the [“Conformance” section
 {% include img.html img="CRMI-Overview.png" %}
 </div>
 
+_Figure 2.4_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
+
 **Roles include:**
 * [Authoring System](#authoring-system): A system enabling content modifications and publishing
   * [Authoring Knowledge Repository](#authoring-knowledge-repository)
@@ -124,7 +126,7 @@ See [Artifact Repository Service](artifact-repository-service.html) for a comple
 ##### Authoring Knowledge Terminology Service
 {: #authoring-knowledge-terminology-service}
 
-An artifact terminology service is a FHIR terminology service with specific capabilities to enable mangaement of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
+An artifact terminology service is a FHIR terminology service with specific capabilities to enable management of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
 
 See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
 
