@@ -2,7 +2,7 @@
 
 {: #naming-conventions}
 
-This section provides guidance on naming conventions for canonical artifacts.
+This section provides guidance on naming conventions for canonical artifacts. The guidance here is aligned with [Terminology Expectations for IG Developers](https://confluence.hl7.org/display/TSMG/Terminology+Expectations+for+IG+Developers).
 
 ### Definitional content
 
