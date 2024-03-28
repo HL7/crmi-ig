@@ -19,7 +19,7 @@ This section describes the general use case of knowledge artifact management as 
 
 #### Artifact Lifecycle
 
-Knowledge artifacts as represented within FHIR follow a general, high-level content development work flow, as represented by the possible values of the `status` element of the artifact:
+Knowledge artifacts as represented within FHIR follow a general, high-level content development workflow, as represented by the possible values of the `status` element of the artifact:
 
 * **draft**: The artifact is under development and not yet considered to be ready for normal use. In particular, there is no guarantee that the version element associated with the artifact is established, and the actual content of the artifact may change.
 * **active**: The artifact is ready for normal use. In particular, the content of the artifact related to the version element is stable and **SHALL NOT** change. Changes to the artifact require a new version to be introduced in draft status.
