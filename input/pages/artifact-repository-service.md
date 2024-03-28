@@ -92,7 +92,7 @@ To support content authoring, searching, publication, and distribution, the foll
 * [**Release**](#release): Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
 * [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 * [**Archive**](#archive): Delete a _retired_ artifact
-* [**Draft**](#draft): Draft a new version of an existing artifact in active status
+* [**Draft**](#draft): Draft a new version of an existing active artifact
 * [**Clone**](#clone): Clone a new artifact based on an existing artifact (regardless of status)
 * [**Diff**](#diff): Compare two knowledge artifacts and optionally expand any ValueSets in the dependency tree
 
@@ -256,13 +256,12 @@ The following parameters **SHOULD** be supported for the operation:
     * **resource**: The resource type of artifact to be released.
 
 ##### Draft
-The _draft_ operation supports the creation of a new draft version of an existing artifact in _active_ status. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and a pre-release label of `-draft` appended to the version.
 
-`effectivePeriod`, `approvalDate` and any extensions which are only valid for active artifacts should also be removed.
+The _draft_ operation supports the creation of a new draft version of an existing _active_ artifact. This operation creates a new resource with the same contents as the existing artifact, but with a status of _draft_ and an appropriate version element consistent with the versioning methodology of the authoring system (e.g. an incremented version with a pre-release label of `-draft`). In addition, this operation **SHOULD** remove elements such as `effectivePeriod` and  `approvalDate` which are only valid for active artifacts.
 
 The following parameters **SHOULD** be supported for the draft operations:
 
-* **draftVersion**: The version of the artifact which is in review, i.e. the version under which it will be released
+* **draftVersion**: If specified, the version to be used for the newly drafted artifact
 * Instance level:
     * **id**: The server-specific id of the artifact to be drafted.
 * Type level:
