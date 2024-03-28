@@ -28,6 +28,7 @@ The `version` element for all artifacts within the same package **SHOULD** be th
 
 In addition, all references to canonicals from artifacts in the package to other artifacts in the same package **SHOULD** be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
 
+The name and title should both be unique within the canonical base (and resource type) for artifacts as well.
 ### Operation definitions
 
 Although FHIR operation definitions can specify a `code` property, servers may use whatever code they surface in their capability statement to implement operations. To simplify application development and encourage consistency, this implementation guide proposes that:
