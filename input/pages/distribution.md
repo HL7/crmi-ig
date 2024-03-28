@@ -61,9 +61,23 @@ The following sections describe the dependency references for each type of resou
 
 Each section provides a listing of the paths to each element that should be considered as a reference to an artifact (and recursively traced for dependencies as well) using a FHIRPath-like syntax, with abbreviated references to the names of extensions to be followed.
 
+Note that the following extensions may be safely ignored for the purposes of dependency tracing:
+
+```
+StructureDefinition http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+StructureDefinition http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+StructureDefinition http://hl7.org/fhir/StructureDefinition/codesystem-properties-mode
+```
+
+#### Resource
+
+```
+meta.profile
+```
+
 #### Structure Definition
 
-NOTE: For structure definitions, only the differential element is considered, on the basis that the baseDefinition will be traced, so anything in the snapshots will be covered by tracing up the hierarchy.
+> For structure definitions, only the differential element is considered, on the basis that the baseDefinition will be traced, so anything in the snapshots will be covered by tracing up the hierarchy.
 
 ```
 extension[].url
@@ -72,7 +86,6 @@ baseDefinition
 differential.element[].type.code
 differential.element[].type.profile[]
 differential.element[].type.targetProfile[]
-differential.element[].constraint[].source
 differential.element[].binding.valueSet
 differential.element[].extension[].url
 differential.element[].modifierExtension[].url
@@ -88,7 +101,7 @@ import[]
 group[].rule[]..source[].defaultValue[x]
 ```
 
-#### ValueSet**
+#### ValueSet
 
 ```
 compose.include[].valueSet
@@ -97,32 +110,35 @@ compose.exclude[].valueSet
 compose.exclude[].system
 ```
 
-#### CodeSystem**
+#### CodeSystem
 
 ```
-valueSet
+valueSet // NOTE: This element may be skipped because if the value set is really used by artifacts it will be referenced
 supplements
 ```
 
-#### NamingSystem**
+#### NamingSystem
 ```
 (none)
 ```
 
-#### ConceptMap**
+#### ConceptMap
 
 ```
 sourceCanonical
 targetCanonical
+group.source
+group.target
 group[].element[].target[].dependsOn[].system
 group[].element[].target[].product[]..system
 unmapped.url
 ```
 
-#### Questionnaire**
+#### Questionnaire
 
 ```
-item[]..definition
+derivedFrom
+item[]..definition // NOTE: This is not a simple canonical, it will have a fragment to identify the specific element
 item[]..answerValueSet
 item[]..extension[itemMedia]
 item[]..extension[itemAnswerMedia]
@@ -141,7 +157,7 @@ item[]..extension[cqf-expression].reference
 item[]..extension[sdc-questionnaire-subQuestionnaire]
 ```
 
-#### ActivityDefinition**
+#### ActivityDefinition
 
 ```
 relatedArtifact[].resource
@@ -158,7 +174,7 @@ extension[cpg-enrollIn]
 extension[cpg-reportWith]
 ```
 
-#### PlanDefinition**
+#### PlanDefinition
 
 ```
 relatedArtifact[].resource
@@ -175,7 +191,7 @@ action[]..dynamicValue[].expression.reference
 extension[cpg-partOf]
 ```
 
-#### Library**
+#### Library
 
 ```
 relatedArtifact[].resource
@@ -183,7 +199,7 @@ dataRequirement[].profile[]
 dataRequirement[].codeFilter[].valueSet
 ```
 
-#### Measure**
+#### Measure
 
 ```
 relatedArtifact[].resource
@@ -199,44 +215,44 @@ extension[cqfm-cqlOptions]
 extension[cqfm-component][].resource
 ```
 
-#### GraphDefinition**
+#### GraphDefinition
 
 ```
 extension[cpg-relatedArtifact].reference
 ```
 
-#### ImplementationGuide**
+#### ImplementationGuide
 
 ```
 extension[cpg-relatedArtifact].reference
 ```
 
-#### Ingredient**
+#### Ingredient
 
 ```
 for
 ```
 
-#### Medication**
+#### Medication
 
 ```
 manufacturer
 ingredient[].itemReference
 ```
 
-#### Substance**
+#### Substance
 
 ```
 ingredient[].substanceReference
 ```
 
-#### Parameters**
+#### Parameters
 
 ```
 parameter[].resource
 ```
 
-#### MedicationKnowledge**
+#### MedicationKnowledge
 
 ```
 relatedMedicationKnowledge[].reference
