@@ -14,21 +14,41 @@ The `url` element of an artifact **SHOULD** be constructed according to the foll
 {package-canonical-base}/{resource.resourceType}/{resource.id}
 ```
 
-Note that this pattern is NOT the same as what is typically produced by the IG publisher, which usually makes use of the `id` of the artifact in the authoring context. For example, the URL for the CRMIShareableActivityDefinition profile defined in this implementation guide is:
+Note that this pattern is based on the logical `id` of the resource in an implementation guide authoring context. This means the id-space is isolated by the canonical base of the IG and there is no chance of collision with other content. When the resource is published and appears in other contexts, the logical `id` will change, but the `url` will remain constant as the canonical identifier for the resource.
 
-```
-http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableactivitydefinition
-```
-
-However, because the `id` element of the artifact will in general change when the artifact is hosted in other environments, the use of the `id` to construct the URL results in confusion about the role of the `id` in identifying the artifact. Because the canonical URL is so central to the identity of a canonical resource, this IG recommends the use of the `name` element to construct the URL, eliminating the potential confusion associated with the use of the `id` element.
+If the authoring context is an authoring repository, the repository must ensure that collisions cannot occur with content from other projects in the same repository, and this convention typically cannot be followed. In these cases, the authoring repository is responsible for preventing collisions and establishing the URL for the artifact.
 
 #### Version
 
 The `version` element for all artifacts within the same package **SHOULD** be the same as the version of the package. This is usually the ImplementationGuide in which the artifact is defined.
 
-In addition, all references to canonicals from artifacts in the package to other artifacts in the same package **SHOULD** be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
+In addition, all references to canonicals from artifacts in a package to other artifacts in the same package **SHOULD** be version-consistent (i.e. if the references are version-specific and the referenced artifact is included in the package, the referenced artifact is the version referenced (and no other unreferenced versions of that artifact are included).
 
-The name and title should both be unique within the canonical base (and resource type) for artifacts as well.
+#### Name
+
+The `name` element of an artifact **SHOULD**:
+1. Start with an alphabetic character `[A-Za-z]`, followed only by alphanumeric characters `[A-Za-z0-9]` (note no underscores or spaces)
+2. Use PascalCasing (i.e. first letter of every word capitalized)
+3. Be unique within the canonical base and resource type for the artifact
+
+In addition, for Knowledge Artifacts (i.e. Library, ActivityDefinition, PlanDefinition, Measure, and Questionnaire), the `name` element **SHOULD**:
+1. Correspond to the _tail_ of the canonical (i.e. everything after the last slash (`/`))
+
+This is especially important for Library resources that contain CQL, since library resolution in CQL relies on the canonical identifiers of the resources.
+
+For example:
+
+```
+"url": "http://fhir.org/guides/cqf/common/Library/FHIRCommon",
+"name": "FHIRCommon"
+```
+
+#### Title
+
+The `title` element of an artifact **SHOULD**:
+1. Correspond to the `name`, but with spaces allowed
+2. Use Title Casing (i.e. first letter of every word capitalized, except for conjunctions and prepositions)
+3. Avoid the use of special characters
 
 ### Operation definitions
 
