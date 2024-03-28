@@ -37,7 +37,7 @@ The above diagram depicts the high-level phases of content development as:
 * Publish
 * Distribution
 * Implementation
-
+ 
 #### Authoring
 
 The authoring phase is supported by the Shareable and Computable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of these capability categories and profiles.
@@ -107,7 +107,7 @@ For example, if a new version of a computable guideline is published as a conten
 
 ### Publishing
 
-The publishing phase is supported by the Publishable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete descripition of the Publishable capability category and profiles.
+The publishing phase is supported by the Publishable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of the Publishable capability category and profiles.
 
 In addition, the $package and $data-requirements operations are concerned with tracing dependencies and constructing packages for the distribution of content.
 
@@ -130,7 +130,7 @@ This IG is not prescriptive about whether content is distributed via IG packages
 
 ### Implementation
 
-The implementation (or run-time) phase is supported by the Executable profiles dfined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of the Executable capability category and profiles.
+The implementation (or run-time) phase is supported by the Executable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of the Executable capability category and profiles.
 
 ### Components vs dependencies
 
