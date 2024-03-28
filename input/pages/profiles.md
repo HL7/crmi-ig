@@ -119,6 +119,8 @@ The following table lists the capability profiles defined for each type of knowl
   <tr><td>ValueSet</td><td><a href="StructureDefinition-crmi-shareablevalueset.html">CRMIShareableValueSet</a></td><td><a href="StructureDefinition-crmi-computablevalueset.html">CRMIComputableValueSet</a></td><td><a href="StructureDefinition-crmi-publishablevalueset.html">CRMIPublishableValueSet</a></td><td><a href="StructureDefinition-crmi-expandedvalueset.html">CRMIExpandedValueSet</a></td></tr>
 </table>
 
+> Note that the terminology-related profiles (on CodeSystem, ConceptMap, NamingSystem, and ValueSet) are defined to support usage in R4 implementations. These profiles are aligned with the same profiles defined in the R6 base specification, and when an R6 version of this implementation guide is produced, these profiles will be removed from this IG in favor of the R6 profiles in the base specification.
+
 ### Artifact Definition Profiles
 {: #artifact-definition-profiles }
 
