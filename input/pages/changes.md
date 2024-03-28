@@ -43,6 +43,7 @@ The following sections detail the changes that were applied for this ballot.
 
 #### Non-Substantive Changes
 
+* **Applied**: Explain isSelective extension in terms of partial execution([FHIR-44733](https://jira.hl7.org/browse/FHIR-44733))
 * **Applied**: Broken hyperlinks for HEDIS IG(removed) and World Health Organization Antenatal Care (WHO ANC)([FHIR-44506](https://jira.hl7.org/browse/FHIR-44506))
 * **Applied**: Misspelling of read-only([FHIR-43998](https://jira.hl7.org/browse/FHIR-43998))
 * **Applied**: NPM is not an acronym for Node Package Manager([FHIR-43997](https://jira.hl7.org/browse/FHIR-43997))
