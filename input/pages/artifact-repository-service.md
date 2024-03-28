@@ -428,4 +428,5 @@ For each type of artifact supported, an AuthoringMeasureRepository:
 7. **SHALL** support [**Release**](OperationDefinition-crmi-release.html): The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and, to the extent specified in the operation's parameter inputs, pins versions of all direct and transitive references and records them in the program's manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively.
 8. **SHOULD** support [**Retire**](#retire): Post an update that sets status to _retired_ on an existing _active_ artifact
 9. **SHOULD** support [**Archive**](#archive): Delete a _retired_ artifact
-
+10. **SHALL** support [**Draft**](#draft): Draft a new version of an existing artifact in active status
+11. **SHOULD** support [**Clone**](#clone): Clone a new artifact based on the contents of an existing artifact (regardless of status)
