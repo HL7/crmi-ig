@@ -17,15 +17,15 @@ Canonical resources are conformance, structural, and knowledge [canonical FHIR r
 For a more detailed description of the Shareable, Publishable, Computable, and Executable profile capabilities, refer to the [Profiles](profiles.html) page.
 
 ### Content Implementation Guides
-{: #content-igs}
+{: #content-IGs}
 
-Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts four categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification igs_ in this diagram and generalized to apply across all types of igs, specification, model, and content.
+Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts four categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification IGs_ in this diagram and generalized to apply across all types of IGs, specification, model, and content.
 
 <div>
 <img src="types-of-igs.png" alt="Types of FHIR Implementation Guides" class="img-responsive img-rounded center-block" width="700" height="700"/>
 </div>
 
-_Figure 3.1_ Types of implementation guides: Specification, model, and content IGs
+_Figure 2.2_ Types of implementation guides: Specification, model, and content IGs
 
 As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
@@ -41,7 +41,7 @@ As shown in the diagram, the Canonical Resource Management Infrastructure IG pro
     * **Reasoning** layer – provides definitional artifacts like plan and activity definitions, libraries, and measures.
 * [**FHIRPath**](http://hl7.org/fhirpath) is a simple, yet powerful, model-independent expression language that is used extensively throughout FHIR to describe paths to elements on resources, and to define invariants on profiles.
 * [**Clinical Quality Language (CQL)**](http://cql.hl7.org) is a superset of FHIRPath that provides an author-friendly format for the description of clinical logic, as well as a machine-friendly format for processing the logic.
-* [**CDS Hooks**](http://cds-hooks.hl7.org) is an HL7 standard specification for integrating decision support services with clinical systems. It is primarily focused on clinician-facing remote decision support within an EHR.</li>
+* [**CDS Hooks**](http://cds-hooks.hl7.org) is an HL7 standard specification for integrating decision support services with clinical systems. It is primarily focused on clinician-facing remote decision support within an EHR.
 * [**SMART-on-FHIR (SMART)**](http://hl7.org/fhir/smart-app-launch.html) is an HL7 standard specification for integrating clinical applications into EMRs using FHIR.
 
 #### Model Implementation Guides
@@ -54,7 +54,7 @@ The middle row on the left of the figure shows the Model Implementation Guides (
 
 #### Specification Implementation Guides
 
-The middle row on the right of the figure shows the Specification Implementation Guides, which derive from the FHIR Clinical Reasoning resources to provide implementation guidance and conformance requirements for the creation, distribution, evaluation, and maintenance of shareable clinical knowledge. These include the Quality Measure IG (QM), Data Exchange for Quality Measures (DEQM), the Clinical Practice Guidelines IG (CPG-on-FHIR), and Evidence-based Medicine on FHIR (EBM-on-FHIR).
+The middle row on the right of the figure shows the Specification Implementation Guides, which derive from the FHIR Clinical Reasoning resources to provide implementation guidance and conformance requirements for the creation, distribution, evaluation, and maintenance of shareable clinical knowledge. These include the Quality Measure (QM) IG, Data Exchange for Quality Measures (DEQM), the Clinical Practice Guidelines IG (CPG-on-FHIR), and Evidence-based Medicine on FHIR (EBM-on-FHIR).
 
 * [**Quality Measure IG (QM)**](http://hl7.org/fhir/us/cqfmeasures) provides guidance on and conformance requirements for the use of the FHIR Reasoning resources, Measure and Library, to create and share clinical quality measures.
 * [**Data Exchange for Quality Measures (DEQM)**](http://hl7.org/fhir/us/davinci-deqm) provides guidance for reporting quality measures.
@@ -66,9 +66,9 @@ The middle row on the right of the figure shows the Specification Implementation
 
 In the top row of the figure, the Content Implementation Guides are FHIR Implementation Guides. These IGs are not necessarily balloted as HL7 standards; rather, they use the FHIR publication toolchain to support authoring and distribution as depicted in the rest of the diagram. The content is stewarded by separate authorities such as quality agencies, specialty societies, and guideline developers; groups that have their own governance and maintenance policies. The content IGs conform to the specification IGs on the right of row 2, and typically make use of the model IGs on the left of row 2 to define content focused on a particular realm.
 
-* [**HEDIS IG**](http://build.fhir.org/ig/cqframework/hedis-ig) contains Healthcare and Effectiveness Data and Information Set (HEDIS) quality measures expressed using FHIR Reasoning Measure and Library resources and conforming to the Quality Measure IG (QM) profiles.
+* [**HEDIS IG**] Contains Healthcare and Effectiveness Data and Information Set (HEDIS) quality measures expressed using FHIR Reasoning Measure and Library resources and conforming to the Quality Measure IG (QM) profiles.
 * [**CDC Opioid Prescribing IG**](http://build.fhir.org/ig/cqframework/opioid-cds-r4) contains decision support content to streamline guideline implementation regarding the use of opioids for chronic pain in clinical settings.
-* [**World Health Organization Antenatal Care (WHO ANC)**](http://build.fhir.org/ig/who-int/anc-cds) IG contains decision support content to streamline guideline implementation of the World Health Organization's recommendations on antenatal care for a positive pregnancy experience.
+* [**World Health Organization Antenatal Care (WHO ANC)**](https://build.fhir.org/ig/WorldHealthOrganization/smart-anc/) IG contains decision support content to streamline guideline implementation of the World Health Organization's recommendations on antenatal care for a positive pregnancy experience.
 
 ### Audience
 {: #audience}
@@ -84,6 +84,8 @@ This IG is a conformance profile, as described in the [“Conformance” section
 {% include img.html img="CRMI-Overview.png" %}
 </div>
 
+_Figure 2.4_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
+
 **Roles include:**
 * [Authoring System](#authoring-system): A system enabling content modifications and publishing
   * [Authoring Knowledge Repository](#authoring-knowledge-repository)
@@ -92,7 +94,7 @@ This IG is a conformance profile, as described in the [“Conformance” section
   * FHIR Package Registry
   * Knowledge Repository
   * Knowledge Terminology Service
-* [Distribution](distribution.html): Specifications for artifact distribution, including the use of NPM (Node Package Manager)
+* [Distribution](distribution.html): Specifications for artifact distribution, including the use of npm 
   * Downstream System(s): Systems using distributed content.
 
 #### Authoring System
@@ -116,7 +118,7 @@ An authoring system MAY use an Authoring Knowledge Repository and Authoring Know
 ##### Authoring Knowledge Repository
 {: #authoring-knowledge-repository}
 
-An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing readonly access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
+An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing read-only access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
 
 See [Artifact Repository Service](artifact-repository-service.html) for a complete description of the capabilities provided by an artifact repository.
 
@@ -124,7 +126,7 @@ See [Artifact Repository Service](artifact-repository-service.html) for a comple
 ##### Authoring Knowledge Terminology Service
 {: #authoring-knowledge-terminology-service}
 
-An artifact terminology service is a FHIR terminology service with specific capabilities to enable mangaement of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
+An artifact terminology service is a FHIR terminology service with specific capabilities to enable management of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
 
 See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
 

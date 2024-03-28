@@ -8,8 +8,8 @@ Usage: #definition
 * title = "CRMI Draft"
 * description = "Creates a draft version of a knowledge artifact, as well as for all resources it is composed of."
 * kind = #operation
-* code = #draft
-* comment = "This operation is used to set the status and version."
+* code = #crmi.draft
+* comment = "This operation is used to set the status and version. It also removes effectivePeriod, approvalDate and any extensions which are only valid for active artifacts."
 * resource[0] = #Library
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
