@@ -399,6 +399,19 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
     4. successor: Returning all artifacts that have the given artifact as a successor
     5. predecessor: Returning all artifacts that have the given artifact as a predecessor
 
+#### Packaging
+
+1. **SHOULD** support include parameter
+2. **SHOULD** support contactEndpoint parameter
+3. **SHOULD** support terminologyEndpoint parameter
+
+#### Artifact Management
+
+1. **SHOULD** support artifact management operations:
+    1. Publish: Post a new artifact with active status
+    2. Retire: Post an update that sets status to retired on an existing active artifact
+    3. Archive: Delete a retired artifact
+
 ### Authoring Artifact Repository
 
 The AuthoringArtifactRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed.
