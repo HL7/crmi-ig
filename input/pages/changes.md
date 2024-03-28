@@ -43,6 +43,7 @@ The following sections detail the changes that were applied for this ballot.
 
 #### Non-Substantive Changes
 
+* **Applied**: An end of list markup element is visible in the ballot([FHIR-43992](https://jira.hl7.org/browse/FHIR-43992))
 * **Applied**: IG is an acronym and should be capitalized.([FHIR-43991](https://jira.hl7.org/browse/FHIR-43991))
 * **Applied**: Consider requiring the use of a SignatureLevel higher than none([FHIR-42921](https://jira.hl7.org/browse/FHIR-42921))
 * **Applied**: Artifact dropdown doesn't show all artifacts e.g. operationdefinitions. ([FHIR-42803](https://jira.hl7.org/browse/FHIR-42803))
