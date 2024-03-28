@@ -43,6 +43,7 @@ The following sections detail the changes that were applied for this ballot.
 
 #### Non-Substantive Changes
 
+* **Applied**: Incorrectly assigned acrynoym([FHIR-43995](https://jira.hl7.org/browse/FHIR-43995))
 * **Applied**: An end of list markup element is visible in the ballot([FHIR-43992](https://jira.hl7.org/browse/FHIR-43992))
 * **Applied**: IG is an acronym and should be capitalized.([FHIR-43991](https://jira.hl7.org/browse/FHIR-43991))
 * **Applied**: Consider requiring the use of a SignatureLevel higher than none([FHIR-42921](https://jira.hl7.org/browse/FHIR-42921))
