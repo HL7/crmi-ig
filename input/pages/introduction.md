@@ -17,15 +17,15 @@ Canonical resources are conformance, structural, and knowledge [canonical FHIR r
 For a more detailed description of the Shareable, Publishable, Computable, and Executable profile capabilities, refer to the [Profiles](profiles.html) page.
 
 ### Content Implementation Guides
-{: #content-igs}
+{: #content-IGs}
 
-Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts four categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification igs_ in this diagram and generalized to apply across all types of igs, specification, model, and content.
+Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts four categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification IGs_ in this diagram and generalized to apply across all types of IGs, specification, model, and content.
 
 <div>
 <img src="types-of-igs.png" alt="Types of FHIR Implementation Guides" class="img-responsive img-rounded center-block" width="700" height="700"/>
 </div>
 
-_Figure 3.1_ Types of implementation guides: Specification, model, and content IGs
+_Figure 2.2_ Types of implementation guides: Specification, model, and content IGs
 
 As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
@@ -84,6 +84,8 @@ This IG is a conformance profile, as described in the [“Conformance” section
 {% include img.html img="CRMI-Overview.png" %}
 </div>
 
+_Figure 2.4_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
+
 **Roles include:**
 * [Authoring System](#authoring-system): A system enabling content modifications and publishing
   * [Authoring Knowledge Repository](#authoring-knowledge-repository)
@@ -124,7 +126,7 @@ See [Artifact Repository Service](artifact-repository-service.html) for a comple
 ##### Authoring Knowledge Terminology Service
 {: #authoring-knowledge-terminology-service}
 
-An artifact terminology service is a FHIR terminology service with specific capabilities to enable mangaement of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
+An artifact terminology service is a FHIR terminology service with specific capabilities to enable management of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
 
 See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
 
