@@ -239,7 +239,10 @@ For each type of artifact supported, an AuthoringMeasureRepository:
     4. **SHOULD** support compareExecutable parameter
 
 > The Review and Approve actions are supported via operations, rather than interactions, because they have a specific set of input parameters and are only allowed to make certain updates to the artifacts. Although an `update` interaction could be used in theory, this would place a higher burden on the client to ensure the updated resource was only affecting appropriate elements, something the server must validate anyway.
+
 > The Release action is supported as an operation because it is specifically asking the server to perform a series of processes involving updating statuses, dates, and potentially versions on multiple artifacts, all within the same operation. Multiple `update` interactions could in theory be used to support this, this would place a higher burden on the client to ensure the release processing was followed appropriately for the artifact and all child artifacts, recursively. In addition, all these updates would need to be performed as part of a single transaction, and the server would need to validate the transaction updates anyway.
+
 > The Draft action is supported as an operation because it involves not only creating a new version of an artifact, but any child artifacts, recursively. This could be done in theory by the client reading all relevant artifacts and creating new resources, but an operation simplifies implementation for the client.
+
 > The Clone action is supported as an operation because it involves not only creating a copy of the artifact, but any child artifacts, recursively. This could be done in theory by the client reading all relevant artifacts and creating new resources, but an operation simplifies implementation for the client.
 

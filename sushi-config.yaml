@@ -20,7 +20,7 @@ description: >-
 status: draft
 license: CC0-1.0
 date: 2022-05-17
-version: 1.0.0-ballot2
+version: 1.0.0-snapshot
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -34,7 +34,7 @@ fhirVersion: 4.0.1
 # will recognize them as well. In either case, they'll be copied
 # to the IG JSON using the formal names.
 copyrightYear: 2022+
-releaseLabel: Ballot
+releaseLabel: Snapshot
 
 # The publisher can be a single item or a list, each with a name and
 # optional url and/or email. The first publisher's name will be used
@@ -68,7 +68,10 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 #  hl7.fhir.uv.extensions.r4: 1.0.0
 
 dependencies:
-  hl7.fhir.uv.extensions: 5.1.0-ballot1
+  hl7.terminology: 5.5.0
+  hl7.fhir.uv.extensions: 
+    id: ext
+    version: 5.1.0-cibuild
 
 parameters:
   excludettl: true
