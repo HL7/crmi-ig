@@ -2,16 +2,13 @@
   <li><a href="index.html">Home</a></li>
   <li><a href="introduction.html" class="item">Introduction</a></li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Content Management
-      <b class="caret"></b>
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifact Management<b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="content-lifecycle.html" class="item">Content lifecycle</a></li>
-      <li><a href="naming-conventions.html" class="item">Naming conventions</a></li>
+      <li><a href="artifact-lifecycle.html" class="item">Artifact lifecycle</a></li>
       <li><a href="packaging.html" class="item">Packaging</a></li>
       <li><a href="publishing.html" class="item">Publishing</a></li>
       <li><a href="distribution.html" class="item">Distribution</a></li>
-      <li><a href="version-manifest.html" class="item">Dealing with unversioned canonicals</a></li>
     </ul>
   </li>
   <li class="dropdown">

@@ -1,11 +1,10 @@
 {:toc}
 
-## Overview
 This page describes and documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based knowledge artifact specifications as described in this implementation guide.
 
 This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and implementation of FHIR-based knowledge artifacts.
 
-This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html).
+This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html). In addition, though knowledge artifacts typically do not include patient-specific information, test data for knowledge artifacts can sometimes be derived from or based on real patient information. In this cases, care must be taken to ensure the data is scrubbed to remove any possibility of violating patient privacy or security.
 
 ### Use Cases
 Beyond the basic required use cases of searching, retrieving, and expanding value sets, applications that reference value sets that are defined in terms of code systems from different authorities and with different publishing timelines face common challenges related to stable expansion of those value sets. To address that general problem, this implementation guide proposes to use the Library resource as an _artifact collection_. Artifact collections are libraries of knowledge artifacts used to package sets of artifacts for development and release. From the perspective of a terminology service, artifact collections provide two main capabilities:

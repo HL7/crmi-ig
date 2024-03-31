@@ -2,7 +2,7 @@
 
 {: #distribution}
 
-Distribution involves the APIs for searching and reading published artifacts. There are a few APIs this IG supports, including:
+Distribution involves the APIs for searching and retrieving published artifacts. There are a few APIs this IG supports, including:
 
 * [FHIR Package / NPM](#distribution-fhir-package)
 * [FHIR REST API](#distribution-fhir-rest)
@@ -24,7 +24,7 @@ This example illustrates the use of an NPM package registry to install IG packag
 ### FHIR REST API
 {: #distribution-fhir-rest}
 
-Read and search operations can be used to distribute artifacts, see [Knowledge Repository]() and [Knowledge Terminology Services]() capability statements. FHIR read and search **SHOULD** be available for all canonical resources.
+Read and search operations can be used to distribute artifacts, see [Artifact Repository](artifact-repository-service.html) and [Artifact Terminology Service](artifact-terminology-service.html) capability statements. FHIR read and search **SHOULD** be available for all canonical resources.
 
 ### $package and $data-requirements
 {: #package-and-data-requirements}
@@ -35,12 +35,12 @@ Downstream systems **MAY** require all content dependencies. These dependencies 
 {% include img.html img="CRMI-PackageOperation.png" %}
 </div>
 
-To facilitate this, a downstream system MAY use the $package or $data-requirements operation(s) on a canonical resource to resolve dependencies.
+To facilitate this, a downstream system MAY use the `$package` or `$data-requirements` operation(s) on a canonical resource to resolve dependencies.
 
-* [$package](OperationDefinition-crmi-package.html): The Knowledge Repository assembles a FHIR Bundle of the target resource, and all of its dependencies for a client.
-* [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Knowledge Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
+* [$package](OperationDefinition-crmi-package.html): The Artifact Repository assembles a FHIR Bundle of the target resource, and all of its dependencies for a client.
+* [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Artifact Repository assembles a FHIR Library with all the dependencies listed. The client can then download as needed.
 
-NOTE: $data-requirements allows the client to decide what is needed to download (verses what might already have been downloaded), whereas $package always ships the actual resources.
+NOTE: $data-requirements allows the client to decide what is needed to download (versus what might already have been downloaded), whereas $package always ships the actual resources.
 
 Both `$package` and `$data-requirements` operations are available for all canonical resources:
 
@@ -49,7 +49,7 @@ Both `$package` and `$data-requirements` operations are available for all canoni
 3. Questionnaire, ActivityDefinition, PlanDefinition, Library, Measure
 4. ObservationDefinition, SpecimenDefinition, MedicationKnowledge, etc...
 
-NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropriate parameters to only include local resources defined in the package, e.g., `packageOnly` set to `true`.
+NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropriate parameters to only include local resources defined in the package (i.e. `packageOnly` set to `true`).
 
 ### Dependency Tracing
 
@@ -271,7 +271,7 @@ More information on [manifest specification](version-manifest.html)
 ### Syndication
 {: #distribution-syndication}
 
-Syndication allows broadcasting of content changes to interested parties. The syndication mechanism proposed in the IG **MAY** be used by downstream systems, or federated Knowledge Artifact Repositories so preemptive downloading, or notification message send to interested parties.
+Syndication allows broadcasting of content changes to interested parties. The syndication mechanism proposed in the IG **MAY** be used by downstream systems, or federated Artifact Repositories so preemptive downloading, or notification message send to interested parties.
 
 The syndication API **SHALL** be based on ATOM, an example is shown below:
 

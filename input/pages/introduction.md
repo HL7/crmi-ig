@@ -2,22 +2,85 @@
 
 {: #introduction}
 
-### Purpose
-{: #purpose}
+### Overview
+{: #overview}
 
-Canonical resources are conformance, structural, and knowledge [canonical FHIR resources](https://www.hl7.org/fhir/resource.html#canonical). An "artifact" in this Implementation Guide (IG) means an instance of a canonical resource. The purpose of this IG is to:
+This Implementation Guide (IG) is a conformance profile, as described in the [Conformance section of the HL7 FHIR specification](http://hl7.org/fhir/R4/conformance-module.html). The following is a conceptual diagram of various systems and specifications involved in FHIR artifact management.
 
-* Provide a place for universal specification of Shareable/Publishable/Computable/Executable profiles that R4 IGs can use for canonical resources
-    * **Shareable**: Shareable profiles set the minimum expectations for including an artifact in a repository or implementation guide
-    * **Computable**: Computable profiles deal with authoring and design-time considerations
-    * **Publishable**: Publishable profiles describe the expectations for publication and distribution of an artifact, typically as part of an artifact repository
-    * **Executable**: Executable profiles deal with run-time behavior and implementation considerations
-* Provide a space for universally applicable guidance and extensions in support of content management and the content development lifecycle, including support for: (1) publishing artifacts and (2) distributing artifacts
+<div style="max-width:800px;">
+{% include img.html img="CRMI-Overview.png" %}
+</div>
 
-For a more detailed description of the Shareable, Publishable, Computable, and Executable profile capabilities, refer to the [Profiles](profiles.html) page.
+_Figure 2.4_ Illustrates the management of artifacts as a Canonical Resource Management Infrastructure (CRMI), highlighting the interactions between authoring components, publishing mechanisms such as the Node Package Manager (npm), distribution channels, and downstream systems.
 
-### Content Implementation Guides
-{: #content-igs}
+**Roles include:**
+* [Authoring System](#authoring-system): A system enabling artifact development and publishing
+  * [Authoring Knowledge Repository](#authoring-knowledge-repository): An artifact repository that supports authoring capabilities
+  * [Authoring Knowledge Terminology Service](#authoring-knowledge-terminology-service): A terminology service supporting artifact authoring
+* [Publishing](#publishing-and-distribution): Specifications for publishing artifacts to:
+  * FHIR Package Registry
+  * Knowledge Repository
+  * Knowledge Terminology Service
+* [Distribution](#publishing-and-distribution): Specifications for artifact distribution, including the use of npm 
+  * Downstream System(s): Systems using distributed content.
+
+#### Authoring System
+{: #authoring-system}
+
+An authoring system supports the development, testing, packaging, and publishing of artifacts. At a minimum, an authoring system must provide for:
+
+* Creation and maintenance of artifacts
+* Publication and versioning of artifacts
+
+Many authoring systems provide additional capabilities such as content validation, change tracking, integrated testing, and more. The focus of this implementation guide is on ensuring that authoring systems can confirm they are managing artifacts in a consistent manner across the artifact lifecycle, from authoring, through publishing, to implementation.
+
+For example, a common authoring system in use in the FHIR artifact development community is:
+
+* Visual Studio Code (with various plugins)
+* git for change management
+* build tools (IG Publisher and SUSHI)
+
+In this example, the authoring content for the system is stored in a filesystem as text files in a git repository (for example, on GitHub)
+
+This IG also describes capabilities for an authoring repository (i.e. an environment where the authoring system uses a repository to store authoring content, rather than a filesystem). An authoring system can make use of an Authoring Knowledge Repository and Artifact Terminology Service to support the authoring process.
+
+However the content authoring is performed, the capability profiles described in this IG provide a mechanism for ensuring consistent expectations of artifact content.
+
+See [Artifact Lifecycle](artifact-lifecycle.html) for a description of the artifact lifecycle and artifact management.
+
+##### Authoring Knowledge Repository
+{: #authoring-knowledge-repository}
+
+An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing read-only access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
+
+See [Artifact Repository Service](artifact-repository-service.html) for a complete description of the capabilities provided by an artifact repository.
+
+##### Authoring Knowledge Terminology Service
+{: #authoring-knowledge-terminology-service}
+
+An artifact terminology service is a FHIR terminology service with specific capabilities to enable management of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
+
+See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
+
+#### Publishing and Distribution
+{: #publishing-and-distribution}
+
+_Publishing_ refers to the process of surfacing artifacts from the authoring environment to the distribution environment, while _distribution_ refers to the process an implementation uses to retrieve artifacts from a repository.
+
+In the FHIR publishing ecosystem, this is typically done using FHIR Implementation Guides, published as websites which include npm packages containing the artifacts. In addition, these npm packages are registered with the FHIR Package Registry, allowing the packages to be distributed using npm. Implementations typically make use of the artifacts by downloading the packages directly from the IG website, or by integrating with the FHIR npm package registry.
+
+However, this approach to distribution does not adequately address some common use cases for artifact management, including:
+
+1. Focused packaging: Retrieving a package a specific artifact with its dependencies. For example a package for a Questionnaire that includes all and only the resources required to fill out that questionnaire.
+2. Artifact selection: Retrieving a set of artifacts together with their related depedencies, independent of the publication grouping. For example, a set of measures is published that includes 50 clinician measures, but a provider system is only reporting 5 of those measures.
+3. Platform-specific packaging: Retrieving a package tailored for the capabilities of a particular implementation environment. For example, a set of guideline recommendations together with pre-expanded value sets
+
+This implementation guide provides support for these use cases by describing alternate mechanisms for publishing and distribution. Specifically, the $data-requirements and $package operations support identifying artifact dependencies and packaging artifacts with those dependencies (and only those dependencies), and the Artifact Repository and Artifact Terminology Services describe capabilities for supporting artifact publication and distribution as FHIR APIs.
+
+See [Publishing](publishing.html) and [Distribution](distribution.html) for further discussion of these capabilities.
+
+### Implementation Guide Categories
+{: #ig-categories}
 
 Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts four categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification IGs_ in this diagram and generalized to apply across all types of IGs, specification, model, and content.
 
@@ -25,13 +88,13 @@ Figure 3.1 below, FHIR-based Knowledge Representation Specifications, depicts fo
 <img src="types-of-igs.png" alt="Types of FHIR Implementation Guides" class="img-responsive img-rounded center-block" width="700" height="700"/>
 </div>
 
-_Figure 2.2_ Types of implementation guides: Specification, Model, and Content IGs
+_Figure 2.2_ Categories of implementation guides: Specification, Model, and Content IGs
 
 As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
 #### Foundational Standards
 
-<p>The foundational standards on the bottom row of the diagram include the layers of FHIR, as well as expression language and integration standards including FHIRPath, Clinical Quality Language (CQL), CDS Hooks, and SMART.</p>
+The foundational standards on the bottom row of the diagram include the layers of FHIR, as well as expression language and integration standards including FHIRPath, Clinical Quality Language (CQL), CDS Hooks, and SMART.
 
 * [**FHIR**](http://hl7.org/fhir) includes five layers of concepts, each shown as an icon on the bottom row of the diagram.
     * **Foundation** layer – defines the core data exchange protocol.
@@ -63,72 +126,13 @@ The middle row on the right of the figure shows the Specification Implementation
 * [**Evidence-Based Medicine on FHIR (EBM-on-FHIR)**](http://build.fhir.org/clinicalreasoning-evidence-and-statistics.html) provides interoperability (standards for data exchange) for those producing, analyzing, synthesizing, disseminating and implementing clinical research (evidence) and recommendations for clinical care (clinical practice guidelines). It specifies resources and patterns for the exchange of data involved in evidence-based medicine including study results, quality of evidence and strength of recommendation and relevant context, environmental surveys, and systematic reviews.
 
 #### Content Implementation Guides
+{: #content-igs}
 
 In the top row of the figure, the Content Implementation Guides are FHIR Implementation Guides. These IGs are not necessarily balloted as HL7 standards; rather, they use the FHIR publication toolchain to support authoring and distribution as depicted in the rest of the diagram. The content is stewarded by separate authorities such as quality agencies, specialty societies, and guideline developers; groups that have their own governance and maintenance policies. The content IGs conform to the specification IGs on the right of row 2, and typically make use of the model IGs on the left of row 2 to define content focused on a particular realm.
 
 * [**HEDIS IG**] Contains Healthcare and Effectiveness Data and Information Set (HEDIS) quality measures expressed using FHIR Reasoning Measure and Library resources and conforming to the Quality Measure IG profiles.
 * [**CDC Opioid Prescribing IG**](http://build.fhir.org/ig/cqframework/opioid-cds-r4) contains decision support content to streamline guideline implementation regarding the use of opioids for chronic pain in clinical settings.
 * [**World Health Organization Antenatal Care (WHO ANC)**](https://build.fhir.org/ig/WorldHealthOrganization/smart-anc/) IG contains decision support content to streamline guideline implementation of the World Health Organization's recommendations on antenatal care for a positive pregnancy experience.
-
-### Audience
-{: #audience}
-
-The audience for this IG includes modelers (authors of FHIR profiles); terminologists; knowledge developers (authors of measures, guidelines, order catalogs, clinical logic/rules, assessments); and healthcare software developers using FHIR.
-
-### Scope
-{: #scope}
-
-This IG is a conformance profile, as described in the [“Conformance” section of the HL7 FHIR specification](http://hl7.org/fhir/R4/conformance-module.html). The following is a conceptual diagram of various systems and specifications as the scope of this IG:
-
-<div style="max-width:800px;">
-{% include img.html img="CRMI-Overview.png" %}
-</div>
-
-_Figure 2.4_ Illustrates the flow of information within a Clinical Research Management Infrastructure (CRMI), highlighting the interaction between authoring components, the authorization system, publishing mechanisms such as the Node Package Manager (NPM), distribution channels, and downstream systems.
-
-**Roles include:**
-* [Authoring System](#authoring-system): A system enabling content modifications and publishing
-  * [Authoring Knowledge Repository](#authoring-knowledge-repository)
-  * [Authoring Knowledge Terminology Service](#authoring-knowledge-terminology-service)
-* [Publishing](publishing.html): Specifications for publishing artifacts to:
-  * FHIR Package Registry
-  * Knowledge Repository
-  * Knowledge Terminology Service
-* [Distribution](distribution.html): Specifications for artifact distribution, including the use of npm 
-  * Downstream System(s): Systems using distributed content.
-
-#### Authoring System
-{: #authoring-system}
-
-Authoring systems allow new content to be introduced into a system. At a minimum they provide capabilities to:
-* Make changes to content (out of scope for this IG)
-* Publish content
-
-Many authoring systems also:
-* Save work-in-progress
-* Orchestrate dependencies
-* Validate content
-* Track changes
-* Content version control
-
-An example of an authoring system is: Visual Studio Code (with various plugins); git; build tools (IG Publisher and SUSHI). In this case the authoring content could be stored in a filesystem as text files in a git repository. 
-
-An authoring system MAY use an Authoring Knowledge Repository and Authoring Knowledge Terminology Services to aid in the authoring process.
-
-##### Authoring Knowledge Repository
-{: #authoring-knowledge-repository}
-
-An artifact repository is a FHIR server that hosts knowledge artifacts such as profiles, extensions, libraries, and measures. An artifact repository may be simply a distribution service, providing read-only access to content, or it may provide more extensive support for authoring services such as dependency tracing and packaging capabilities, as well as content modification such as drafting, releasing, revising, and reviewing.
-
-See [Artifact Repository Service](artifact-repository-service.html) for a complete description of the capabilities provided by an artifact repository.
-
-
-##### Authoring Knowledge Terminology Service
-{: #authoring-knowledge-terminology-service}
-
-An artifact terminology service is a FHIR terminology service with specific capabilities to enable management of versioning issues for collections of knowledge artifacts. In particular, support for providing version-binding information as part of terminology operation requests is key to supporting the development of collections of artifacts with extensive terminology references.
-
-See [Artifact Terminology Service](artifact-terminology-service.html) for a complete description of the capabilities provided by an artifact terminology service.
 
 ### Approach
 {: #approach}
@@ -173,5 +177,23 @@ The keywords **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **MAY**, and 
 * **SHOULD/SHOULD NOT**: a best practice or recommendation to be considered by implementers within the context of their particular implementation; there may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course
 * **MAY/NEED NOT**: truly optional; can be included or omitted as the implementer decides with no implications
 
-<br/>
-<br/>
+### Must Support
+{: #must-support}
+
+Certain elements in the profiles defined in this implementation guide are marked as Must Support. This flag is used to indicate that the element plays a critical role in defining, sharing, and implementing artifacts, and implementations **SHALL** understand and process the element.
+
+In addition, because artifact specifications typically make use of data implementation guides (e.g. IPS, US Core, QI-Core), the implications of the Must Support flag for profiles used from those implementation guides must be considered.
+
+For more information, see the definition of [Must Support](https://hl7.org/fhir/R4/profiling.html#mustsupport) in the base FHIR specification.
+
+**Conformance Requirement 1.1 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-1-1)
+{: #conformance-requirement-1-1}
+
+For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element **SHALL** be interpreted as follows:
+
+* Authoring systems and knowledge repositories **SHALL** be capable of populating all Must Support data elements.
+* Evaluating systems **SHALL** be capable of processing resource instances containing Must Support data elements without generating an error or causing the evaluation to fail.
+* In situations where information on a particular data element is not present and the reason for absence is unknown, authoring and repository systems **SHALL NOT** include the data elements in the resource instance. For example, for systems using ‘9999’ to indicate unknown data values, do not include ‘9999’ in the resource instance.
+* When consuming resource instances, evaluating systems **SHALL** interpret missing data elements within resource instances as data not present for the artifact.
+* Submitting and receiving systems using knowledge artifacts to perform data exchange or artifact evaluation operations **SHALL** respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
+

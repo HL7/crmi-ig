@@ -1,7 +1,6 @@
-
-
 {:toc}
 
+<!--
 Where possible, new and updated content will be highlighted with green text and background.
 {:.new-content}
 
@@ -10,6 +9,7 @@ Where possible, new and updated content will be highlighted with green text and 
 {{ site.data.package-list.list[0].desc }}
 
 </div>
+-->
 
 {: #canonical-resource-management-infrastructure-implementation-guide}
 
@@ -22,27 +22,48 @@ This implementation guide is based upon work in multiple quality improvement and
 
 ### Scope of Use
 
-This implementation guide defines categories of profiles to represent knowledge capabilities for shareable, computable, publishable, and executable knowledge artifacts [Profiles](profiles.html). These categories are proposed as a way to help facilitate management of expectations in the content development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
+This implementation guide is focused on facilitating consistent exchange of knowledge artifacts throughout the artifact management lifecycle, from authoring, through publishing and distribution, to implementation. At the highest level, this is done through the definition of capability categories that roughly correspond to these lifecycle phases:
+
+<div style="max-width:500px;">
+{% include img.html img="knowledge-capabilities.png" %}
+</div>
+
+These categories are proposed as a way to help facilitate management of expectations in the artifact development lifecycle, as well as address common challenges that have been encountered in the development of knowledge artifacts across the quality improvement spectrum, including guideline development, public health reporting specifications, clinical decision support rules, and quality measures. The expectation is that these same challenges will arise in any knowledge artifact development effort, and that the profiles and solutions proposed here will be useful in addressing those challenges.
+
+The implementation guide defines:
+
+* Capability profiles to establish expectations for artifacts at the various phases of the artifact lifecycle
+* Guidance for artifact versioning and dependency management
+* Operations to support artifact authoring and publishing
+* Service descriptions to support a knowledge artifact ecosystem
+
+In particular, this implementation guide enables a consistent approach to developing knowledge artifacts as FHIR resources so that they can be seamlessly integrated with the existing FHIR publishing ecosystem, and can be easily deployed and implemented as part of existing FHIR infrastructures. At the same time, the additional capabilities for packaging and distribution enable use cases that cannot be easily achieved with current FHIR packages, such as:
+
+1. Focused packaging: Retrieving a package a specific artifact with its dependencies. For example a package for a Questionnaire that includes all and only the resources required to fill out that questionnaire.
+2. Artifact selection: Retrieving a set of artifacts together with their related depedencies, independent of the publication grouping. For example, a measure set may include fifty (50) measures, but a provider system is only reporting on five (5) of those measures.
+3. Platform-specific packaging: Retrieving a package tailored for the capabilities of a particular implementation environment. For example, a set of guideline recommendations together with pre-expanded value sets
 
 #### Artifacts
 
-An _artifact_ in this implementation guide is a FHIR resource whose primary focus is the representation of context-independent knowledge such as a profile, a value set, a decision support rule, or a quality measure specification, as opposed to FHIR resources such as Patient, Organization, or Observation, that are typically focused on the representation of _instance_ data for patients and other healthcare related entities. Most of the resources types for representing artifacts in FHIR are also [_canonical resources_](https://hl7.org/fhir/canonicalresource.html#CanonicalResource), and often [_metadata resources_](https://hl7.org/fhir/metadataresource.html#MetadataResource). However, some FHIR resources are not defined by FHIR as canonical resources, but may still be used to represent context-independent knowledge (e.g. Medication, or Substance). The use of the term _artifact_ in this IG applies to both canonical resources as defined by the base specification, as well as these _non-canonical definitional_ resources.
+An _artifact_ in this implementation guide is a FHIR resource whose primary focus is the representation of context-independent knowledge such as a profile, a value set, a decision support rule, or a quality measure specification, as opposed to FHIR resources such as Patient, Organization, or Observation, that are typically focused on the representation of _instance_ data for patients and other healthcare related entities. Most of the resources types for representing artifacts in FHIR are also [_canonical resources_](https://hl7.org/fhir/canonicalresource.html#CanonicalResource), and often [_metadata resources_](https://hl7.org/fhir/metadataresource.html#MetadataResource). However, some FHIR resources are not defined by FHIR as canonical resources, but may still be used to represent context-independent knowledge (e.g. Medication, or Substance). The use of the term _artifact_ in this IG applies to both canonical resources as defined by the base specification, as well as these _non-canonical artifact_ resources.
 
-The following table lists the resource types that are considered _artifacts_, along with a categorization of those artifacts and the relative priority of consideration of those items in this implementation guide.
+The following table lists the resource types that are considered _artifacts_, along with a categorization of those artifacts.
 
 |Artifact Category |Description |Resources |
 |----|----|----|
-|Knowledge Artifacts (Primary) |Representing decision support rules, quality measures, logic libraries, and activity definitions | ActivityDefinition<br/>Library<br/>Measure<br/>PlanDefinition<br/>Questionnaire |
-|Terminology Artifacts (Secondary) |Code systems, value sets, naming systems, and concept maps | ValueSet<br/>CodeSystem<br/>ConceptMap<br/>NamingSystem<br/> |
-|Conformance Artifacts (Tertiary) |Profiles, extensions, structure maps, and artifacts related to defining and testing conformance | CapabilityStatement<br/>CompartmentDefinition<br/>GraphDefinition<br/>ImplementationGuide<br/>MessageDefinition<br/>OperationDefinition<br/>Requirements (R5)<br/>StructureDefinition<br/>StructureMap<br/>SearchParameter<br/>SubscriptionTopic (R5)<br/>TerminologyCapabilities<br/> |
-|Domain Definition Artifacts (Roadmap) |Medications, substances, groups, and other domain-related definitional artifacts | ActorDefinition (R5)<br/>CareTeam (Profiled)<br/>ConditionDefinition<br/>ClinicalUseDefinition (R5)<br/>DeviceDefinition<br/>Group (non-canonical definitional)<br/>Location (profiled)<br/>Medication (non-canonical definition)<br/>MedicationKnowledge (non-canonical definitional)<br/>Practitioner (profiled)<br/>PractitionerRole (profiled)<br/>ObservationDefinition<br/>Organization (profiled)<br/>SpecimenDefinition<br/>Substance (non-canonical definitional |
-|Evidence-based Medicine (EBM) Artifacts (Quarternary) |Evidence, EvidenceVariable, and other artifacts related to supporting evidence-based medicine | Evidence<br/>EvidenceVariable<br/>ResearchDefinition<br/>ResearchElementDefinition<br/>RiskEvidenceSynthesis |
-|Related Resources (Roadmap) | | ArtifactAssessment (R5)<br/>Permission (R5) |
+|Knowledge Artifacts |Representing decision support rules, quality measures, logic libraries, and activity definitions | ActivityDefinition<br/>Library<br/>Measure<br/>PlanDefinition<br/>Questionnaire |
+|Terminology Artifacts |Code systems, value sets, naming systems, and concept maps | ValueSet<br/>CodeSystem<br/>ConceptMap<br/>NamingSystem |
+|Conformance Artifacts |Profiles, extensions, structure maps, and artifacts related to defining and testing conformance | GraphDefinition<br/>ImplementationGuide<br/>StructureDefinition<br/>StructureMap |
+|Domain Artifacts |Medications, substances, groups, and other domain-related artifacts | CareTeam (_profiled_)<br/>Group (non-canonical artifact)<br/>Location (_profiled_)<br/>Medication (non-canonical artifact)<br/>MedicationKnowledge (non-canonical artifact)<br/>Practitioner (_profiled_)<br/>PractitionerRole (_profiled_)<br/>Organization (_profiled_)<br/>Substance (non-canonical artifact) |
+|Evidence-based Medicine (EBM) Artifacts (Roadmap) |Artifacts related to supporting evidence-based medicine | Evidence<br/>EvidenceVariable |
 {: .grid}
 
-Note that CompartmentDefinition is not profiled in this implementation guide because only HL7 can define CompartmentDefinition instances.
+> (_profiled_) For entity-related Domain Artifacts (i.e. Organization, Location, Practitioner, Patient, and CareTeam), this implementation guide uses profiling to address references to these types of resources in the artifact space (i.e. when a PlanDefinition references a particular type of CareTeam for example, the canonical reference is to a profile of the CareTeam resource.
 
-(profiled) For Entity-related Domain Definition Artifacts such as Organization, Location, Practitioner, Patient, and CareTeam, this implementation guide uses profiling to address references to these types of resources in the definitional space (i.e. when a PlanDefinition references a particular type of CareTeam for example, the canonical reference would be to a profile of the CareTeam resource.
+### Audience
+{: #audience}
+
+The audience for this IG includes modelers (authors of FHIR profiles); terminologists; knowledge developers (authors of measures, guidelines, order catalogs, clinical logic/rules, assessments); and healthcare system and software developers using FHIR-based knowledge artifacts.
 
 ### How to read this Guide
 {: #how-to-read-this-guide}
@@ -52,39 +73,42 @@ page in the menu bar:
 
 -  **[Home](index.html)**: Summary and background information for the Canonical Resource Management Infrastructure Implementation Guide
 -  **[Introduction](introduction.html)**: Detailed overview of the content management lifecycle and the background for this guide
--  **Content Management**
-    -  **[Content lifecycle](content-lifecycle.html)**: Content lifecycle of knowledge artifacts
-    -  **[Naming conventions](naming-conventions.html)**: Naming conventions for a package of knowledge artifacts, including canonical base, url and name, and operation definitions.
-    -  **[Testing](testing.html)**: Simple testing specification to support defining, distributing, and verifying test cases for knowledge artifacts
-    -  **[Packaging](packaging.html)**: Packaging requirements for canonical resources and knowledge artifacts 
-    -  **[Publishing](publishing.html)**: Publishing requirements for canonical resources and knowledge artifacts 
-    -  **[Distribution](distribution.html)**: Distribution requirements for canonical resources and knowledge artifacts 
-    -  **[Dealing with unversioned canonical references](version-manifest.html)**: Guidance for the use of version manifests to facilitate version management and support stable behavior of artifacts
--  **[Profiles](profiles.html)**: List of profiles defined for use by knowledge artifacts
--  **[Extensions](extensions.html)**: List of extensions defined and used by knowledge artifacts
--  **[Operations](operations.html)**: List of operations and operation pattern profiles
--  **[Capabilities](capabilities.html)**: Definitions of services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
+-  **Artifact Management**
+    -  **[Artifact lifecycle](artifact-lifecycle.html)**: Content lifecycle of knowledge artifacts
+    -  **[Packaging](packaging.html)**: Packaging considerations for canonical resources and knowledge artifacts 
+    -  **[Publishing](publishing.html)**: Publishing considerations for canonical resources and knowledge artifacts 
+    -  **[Distribution](distribution.html)**: Distribution considerations for canonical resources and knowledge artifacts 
+-  **FHIR Artifacts**
+    -  **[Profiles](profiles.html)**: List of profiles defined for use by knowledge artifacts
+    -  **[Extensions](extensions.html)**: List of extensions defined and used by knowledge artifacts
+    -  **[Operations](operations.html)**: List of operations and operation pattern profiles
+    -  **[Capabilities](capabilities.html)**: Definitions of services and operations in support of authoring, publishing, and distributing canonical resources and knowledge artifacts
+    -  **[Terminology](terminology.html)**: Terminology defined in this implementation guide.
+    -  **[Artifact Summary](artifacts.html)**: Index of all conformance artifacts defined in this implementation guide.
 -  **[Downloads](downloads.html)**: Links to downloadable artifacts for implementations.
--  **[Acknowledgements](acknowledgements.html)**
+-  **[Version History](changes.html)**: Version and change history
 
-### Must Support
+### Acknowledgements
+{: #acknowledgements}
 
-Certain elements in the profiles defined in this implementation guide are marked as Must Support. This flag is used to indicate that the element plays a critical role in defining, sharing, and implementing artifacts, and implementations **SHALL** understand and process the element.
+This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
 
-In addition, because artifact specifications typically make use of data implementation guides (e.g. IPS, US Core, QI-Core), the implications of the Must Support flag for profiles used from those implementation guides must be considered.
-
-For more information, see the definition of [Must Support](https://hl7.org/fhir/R4/profiling.html#mustsupport) in the base FHIR specification.
-
-**Conformance Requirement 1.1 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-1-1)
-{: #conformance-requirement-1-1}
-
-For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element **SHALL** be interpreted as follows:
-
-* Authoring systems and knowledge repositories **SHALL** be capable of populating all Must Support data elements.
-* Evaluating systems **SHALL** be capable of processing resource instances containing Must Support data elements without generating an error or causing the evaluation to fail.
-* In situations where information on a particular data element is not present and the reason for absence is unknown, authoring and repository systems **SHALL NOT** include the data elements in the resource instance. For example, for systems using ‘9999’ to indicate unknown data values, do not include ‘9999’ in the resource instance.
-* When consuming resource instances, evaluating systems **SHALL** interpret missing data elements within resource instances as data not present for the artifact.
-* Submitting and receiving systems using knowledge artifacts to perform data exchange or artifact evaluation operations **SHALL** respect the must support requirements of the profiles used by the artifact to describe the data involved in the operation.
+* Taha Attari, Smile Digital Health - Contributor
+* Martijn Harthoorn, Firely - Contributor
+* Brian Kaney, Vermonster - Editor
+* Ewout Kramer, Firely - Contributor
+* Taylor Le, Vermonster - Editor
+* Carl Leitner - Contributor
+* Rob McClure, Md Partners - Contributor
+* Evan Muchasak, NCQA - Contributor
+* Brian Postlethwaite, Microsoft - Contributor
+* Rob Reynolds, Smile Digital Health - Contributor
+* Brenin Rhodes, Smile Digital Health - Contributor
+* Bryn Rhodes, Smile Digital Health - Editor
+* Derek Ritz - Contributor
+* Chris Schuler, Smile Digital Health - Contributor
+* Adam Stevenson, Smile Digital Health - Contributor
+* Ward Weistra, Firely - Contributor
 
 ### References
 {: #references}
@@ -92,6 +116,17 @@ For resource instances claiming to conform to CRMI IG profiles, Must Support on 
 Health level seven. Clinical Quality Framework - HL7 Clinical Decision Support Work Group Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/CQIWC/Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical%20Quality%20Framework) [Accessed 11 October 2019].
 
 Health level seven. Publishing terminology to the FHIR Ecosystem - FHIR Product Family Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/FHIR/Publishing+terminology+to+the+FHIR+Ecosystem](https://confluence.hl7.org/display/FHIR/Publishing+terminology+to+the+FHIR+Ecosystem) [Accessed 17 May 2022]
+
+Health Level Seven. FHIR Clinical Guidelines. [Online]. Available from: [http://hl7.org/fhir/uv/cpg](http://hl7.org/fhir/uv/cpg) [Accessed October 2023].
+
+Health Level Sevent. Electronic Case Reporting. [Online]. Available from: [http://hl7.org/fhir/us/ecr](http://hl7.org/fhir/us/ecr) [Accessed October 2023].
+
+Health Level Seven. Quality Measure Implementation Guide. [Online]. Available from: [http://hl7.org/fhir/us/cqfmeasures](http://hl7.org/fhir/us/cqfmeasures) [Accessed October 2023].
+
+Health Level Seven. FHIR Quality Profile. [Online]. Available from: [http://hl7.org/fhir/us/qicore](http://hl7.org/fhir/us/qicore) [Accessed March 2024].
+
+Health Level Seven. US Core. [Online]. Available from: [http://hl7.org/fhir/us/core](http://hl7.org/fhir/us/core) [Accessed March 2024].
+
 
 ### Dependencies
 

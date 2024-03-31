@@ -85,24 +85,20 @@ pages:
     title: Home
   introduction.md:
     title: Introduction
-    acknowledgements.md:
-      title: Acknowledgements
-    bibliography.md:
-      title: Bibliography
-  content-lifecycle.md:
-    title: Content Lifecycle
-    naming-conventions.md:
-      title: Naming Conventions
-    packaging.md:
-      title: Packaging
-    testing.md:
-      title: Testing
-    publishing.md:
-      title: Publishing
-    distribution.md:
-      title: Distribution
+  artifact-lifecycle.md:
+    title: Artifact Lifecycle
     version-manifest.md:
-      title: Dealing with Unversioned Canonicals
+      title: Artifact Manifest
+    artifact-conventions.md:
+      title: Artifact Conventions
+  packaging.md:
+    title: Packaging
+  testing.md:
+    title: Testing
+  publishing.md:
+    title: Publishing
+  distribution.md:
+    title: Distribution
   profiles.md:
     title: Profiles
   extensions.md:

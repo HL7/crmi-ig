@@ -2,9 +2,9 @@
 
 {: #publishing}
 
-Within this implementation guide, _publishing_ refers to packaging and distributing artifacts for downstream usage, as opposed to the function of FHIR IG publishing more broadly, which is about preparing a website for implementation guidance (in addition to packaging and distribution concerns).
+For the purposes of this discussion, _publishing_ refers to packaging and surfacing artifacts for downstream usage, as opposed to the function of FHIR IG publishing more broadly, which is about preparing a website for implementation guidance (in addition to packaging and distribution concerns).
 
-From the perspective of the content development lifecycle, publishing involves preparing, packaging, and then transmitting artifacts, as shown in the diagram below:
+From the perspective of the artifact development lifecycle, publishing involves preparing, packaging, and then transmitting artifacts, as shown in the diagram below:
 
 <div style="max-width:800px;">
 {% include img.html img="CRMI-Publishing.png" %}
@@ -62,12 +62,10 @@ so that even after adding tags, the SHA would not change:
 
 Packaging artifacts **MAY** be either FHIR Bundles or FHIR Packages. See [Packaging](packaging.html) for more.
 
-
 ### Transmit to repository
 
 There are two modes to send content to a repository, depending on how it was packaged.
 
-<br/>
 **If the package is a FHIR Bundle** Publishing uses the FHIR REST API where **transaction** bundle(s) are sent to the Knowledge Artifact Repository and Knowledge Terminology Services for processing. Example publishing command:
 
 ```
@@ -83,10 +81,9 @@ curl -X POST -d @content-bundle.json http://example.org/fhir-artifact-repository
 curl -X POST -d @terminology-bundle.json http://example.org/fhir-artifact-terminology-service/
 ```
 
-<br/>
 **If the package is a FHIR Package** Publishing uses the NPM API. The receiving system **SHOULD** process the request and: (1) create non-terminology resources on the Knowledge Artifact Server, and (2) create terminology resources on the Knowledge Terminology Server. This **MAY** be accomplished using the same FHIR bundle packaging as described above. Example publishing command:
 ```
 npm --registry http://fhir-package-registry publish ./output/package.tgz
 ```
 
-NOTE: A benefit of using FHIR packages is to support authoring tools, such as IG Publisher and SUSHI, where dependencies are managed with FHIR packages.
+NOTE: A benefit of using FHIR packages is to support existing authoring tools such as IG Publisher and SUSHI, where dependencies are managed with FHIR packages.
