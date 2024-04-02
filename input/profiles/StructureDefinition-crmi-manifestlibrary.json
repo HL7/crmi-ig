@@ -86,6 +86,23 @@
         "mustSupport": true
       },
       {
+        "id": "Library.extension:logicDefinition",
+        "path": "Library.extension",
+        "sliceName": "logicDefinition",
+        "requirements": "A manifest library must be able to describe the logic definitions it uses.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Library.extension:cqlOptions",
         "path": "Library.extension",
         "sliceName": "cqlOptions",
