@@ -208,7 +208,7 @@ If count = 0, the client is asking how large the package is. If count > 0 but le
   * min = 0
   * max = "*"
   * use = #in
-  * type = #string
+  * type = #code
   * documentation = """
 Specifies what contents should only be included in the resulting package. The
 codes indicate which types of resources should be included, but note that the
@@ -246,7 +246,7 @@ URL, can take the form `{url}` or `{url}|{version}`.
   * min = 0
   * max = "*"
   * use = #in
-  * type = #string
+  * type = #code
   * documentation = """
 Specifies what contents should be excluded in the resulting package. The codes
 indicate which types of resources should be excluded, but note that the set of
