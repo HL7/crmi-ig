@@ -189,28 +189,6 @@ parameter.
 * parameter[=].targetProfile = Canonical(http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary)
 
 * parameter[+]
-  * name = #include
-  * min = 0
-  * max = "*"
-  * use = #in
-  * type = #string
-  * documentation = """
-Specifies what contents should be included in the resulting package. The codes indicate which types of resources should be included, but note that
-the set of possible resources is determined as all known (i.e. present on the server) dependencies and related artifacts. Possible
-values are:
-* all (default) - all resource types
-* artifact - the specified artifact
-* canonical - canonical resources (i.e. resources with a defined url element or that can be canonical resources using the artifact-url extension)
-* terminology - terminology resources (i.e. CodeSystem, ValueSet, NamingSystem, ConceptMap)
-* conformance - conformance resources (i.e. StructureDefinition, StructureMap, SearchParameter, CompartmentDefinition)
-* profiles - profile definitions (i.e. StructureDefinition resources that define profiles)
-* extensions - extension definitions (i.e. StructureDefinition resources that define extensions) 
-* knowledge - knowledge artifacts (i.e. ActivityDefinition, Library, PlanDefinition, Measure, Questionnaire)
-* tests - test cases and data (i.e. test cases as defined by the testing specification in this implementation guide)
-* examples - example resources (i.e. resources identified as examples in the implementation guide)
-"""
-
-* parameter[+]
   * name = #artifactEndpointConfiguration
   * documentation = """
 Configuration information to resolve canonical artifacts
