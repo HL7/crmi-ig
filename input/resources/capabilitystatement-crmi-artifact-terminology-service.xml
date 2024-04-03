@@ -361,7 +361,7 @@
         <valueCode value="SHOULD"/>
       </extension>
       <name value="expand"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/ValueSet-expand"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-valueset-expand"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -381,8 +381,8 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
-      <name value="translate"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/Library-package"/>
+      <name value="package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-library-package"/>
     </operation>
   </rest>
 </CapabilityStatement>

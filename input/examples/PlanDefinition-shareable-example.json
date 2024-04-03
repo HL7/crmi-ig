@@ -40,8 +40,8 @@
       } ],
       "action": [ {
         "id": "1",
-        "title": "Proceed with ANC contact ",
-        "description": "Proceed with ANC contact ",
+        "title": "Proceed with ANC contact",
+        "description": "Proceed with ANC contact",
         "textEquivalent": "If no danger signs are present, the health worker can continue with the normal ANC contact",
         "documentation": [ {
           "type": "citation",
