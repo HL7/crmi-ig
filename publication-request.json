@@ -1,11 +1,11 @@
 {
     "package-id" : "hl7.fhir.uv.crmi",
-    "version" : "1.0.0-ballot2",
+    "version" : "1.0.0-snapshot",
     "path" : "http://hl7.org/fhir/uv/crmi/2024Jan",
     "mode": "working",
-    "status" : "ballot",
+    "status" : "draft",
     "sequence" : "STU1",
-    "desc" : "STU1 Ballot 2 (v1.0.0)",
-    "descmd" : "This is the second ballot of the Canonical Resource Management Infrastructure IG STU1",
+    "desc" : "STU1 Snapshot (v1.0.0-snapshot)",
+    "descmd" : "This is a snapshot of the Canonical Resource Management Infrastructure IG STU1 to support ballot of the Quality Measure IG in the May 2024 cycle",
     "first" : false
   }
