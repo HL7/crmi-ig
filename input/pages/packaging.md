@@ -94,8 +94,8 @@ In addition, packages may be built for specific environments with particular cap
 
 The following are conformance requirements that apply to the FHIR Bundle when packaging an artifact using the bundling approach:
 
-**Conformance Requirement 6.1 (Artifact Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-1)
-{: #conformance-requirement-6-1}
+**Conformance Requirement 4.1 (Artifact Packaging):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-1)
+{: #conformance-requirement-4-1}
 
   1. The first entry in an artifact bundle **SHALL** be the artifact resource conforming to the artifact profile dictated by the target package capability ([Shareable, Publishable, Computable, Executable](profiles.html#artifact-capability-profiles)
   2. Artifact bundles **MAY** include any libraries referenced by the primary library
@@ -104,8 +104,8 @@ The following are conformance requirements that apply to the FHIR Bundle when pa
 ### Intellectual Property of Packaging
   {: #intellectual-property-packaging}
 
-**Conformance Requirement 6.2 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-6-2)
-{: #conformance-requirement-6-2}
+**Conformance Requirement 4.2 (Intellectual Property Considerations):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-2)
+{: #conformance-requirement-4-2}
 
   1. Artifacts distributed in this way **SHALL** carry the copyright and intellectual property declarations as mandated by the publishing (or stewarding) entity that governs the use of the content.
 

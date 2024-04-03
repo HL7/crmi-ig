@@ -186,8 +186,8 @@ In addition, because artifact specifications typically make use of data implemen
 
 For more information, see the definition of [Must Support](https://hl7.org/fhir/R4/profiling.html#mustsupport) in the base FHIR specification.
 
-**Conformance Requirement 1.1 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-1-1)
-{: #conformance-requirement-1-1}
+**Conformance Requirement 2.1 (Must Support Elements):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-2-1)
+{: #conformance-requirement-2-1}
 
 For resource instances claiming to conform to CRMI IG profiles, Must Support on any profile data element **SHALL** be interpreted as follows:
 

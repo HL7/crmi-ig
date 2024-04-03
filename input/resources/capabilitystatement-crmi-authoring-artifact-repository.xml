@@ -153,12 +153,5 @@
       <name value="release"/>
       <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-release"/>
     </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="revise"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-revise"/>
-    </operation>
   </rest>
 </CapabilityStatement>

@@ -14,7 +14,7 @@ This page defines three levels of artifact repository capabilities:
 
 Note that the Publishable and Authoring repositories build on the Shareable repository, so that Shareable describes the minimum basic capabilities of an artifact repository, and the Publishable and Authoring repositories build on that to support additional, more sophisticated use cases.
 
-In addition, the repository capabilities described here are intended to conform to and facilitate artifact management as described in the [Artifact Lifecycle](artifact-lifecycle.html) topic of this implementation guide. In particular, artifact status is a key element and care must be taken to ensure that artifact status can only transition as specified in the [Artifact Status](artifactlifecycle.html#artifact-status) topic.
+In addition, the repository capabilities described here are intended to conform to and facilitate artifact management as described in the [Artifact Lifecycle](artifact-lifecycle.html) topic of this implementation guide. In particular, artifact status is a key element and care must be taken to ensure that artifact status can only transition as specified in the [Artifact Status](artifact-lifecycle.html#artifact-status) topic.
 
 ### Artifact Repository Actions
 

@@ -32,9 +32,9 @@ These operations are defined to support artifact authoring capabilities expected
 | **Operation** | **Description** |
 |----|----|
 | [CRMI Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository. |
+| [CRMI Artifact Diff](OperationDefinition-crmi-artifact-diff.html) | Describes the differences between two knowledge artifacts in FHIR Patch format by recursively resolving dependencies to get a holistic diff. |
 | [CRMI Draft](OperationDefinition-crmi-draft.html) | Creates a draft version of a knowledge artifact, as well as for all resources it is composed of. |
 | [CRMI Release](OperationDefinition-crmi-release.html) | The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program’s manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
-| [CRMI Revise](OperationDefinition-crmi-revise.html) | Revises an existing resource with draft status. A successful $revise will produce a Bundle containing the updated resource. The updated resource must also have a status draft. |
 {: .grid }
 
 ### Operation Pattern Profiles

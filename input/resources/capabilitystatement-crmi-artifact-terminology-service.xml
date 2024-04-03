@@ -382,7 +382,7 @@
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>
-      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-library-package"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-package"/>
     </operation>
   </rest>
 </CapabilityStatement>
