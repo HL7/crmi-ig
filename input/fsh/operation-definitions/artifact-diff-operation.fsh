@@ -71,7 +71,7 @@ The operation is only valid between two resources of the same type and can optio
   * max = "1"
   * use = #in
   * type = #boolean
-  * documentation = "Whether or not to compare computable content such as ValueSet.expansion.contains entries."
+  * documentation = "Whether or not to compare executable content such as ValueSet.expansion.contains entries."
 
 // Output parameter
 * parameter[+]
