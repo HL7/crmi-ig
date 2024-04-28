@@ -71,7 +71,7 @@ dependencies:
   hl7.terminology: 5.5.0
   hl7.fhir.uv.extensions: 
     id: ext
-    version: 5.1.0-cibuild
+    version: current
 
 parameters:
   excludettl: true
