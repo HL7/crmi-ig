@@ -187,6 +187,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "StructureDefinition.extension:relatedArtifact.extension:publicationDate",
+      "path" : "StructureDefinition.extension.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "StructureDefinition.extension:relatedArtifact.extension:publicationStatus",
+      "path" : "StructureDefinition.extension.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "StructureDefinition.identifier",
       "path" : "StructureDefinition.identifier",
       "mustSupport" : true

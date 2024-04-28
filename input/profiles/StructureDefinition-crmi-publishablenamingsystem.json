@@ -216,6 +216,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "NamingSystem.extension:relatedArtifact.extension:publicationDate",
+      "path" : "NamingSystem.extension.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "NamingSystem.extension:relatedArtifact.extension:publicationStatus",
+      "path" : "NamingSystem.extension.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "NamingSystem.date",
       "path" : "NamingSystem.date",
       "min" : 1,

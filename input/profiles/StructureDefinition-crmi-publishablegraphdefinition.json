@@ -211,6 +211,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "GraphDefinition.extension:relatedArtifact.extension:publicationDate",
+      "path" : "GraphDefinition.extension.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "GraphDefinition.extension:relatedArtifact.extension:publicationStatus",
+      "path" : "GraphDefinition.extension.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "GraphDefinition.date",
       "path" : "GraphDefinition.date",
       "min" : 1,
