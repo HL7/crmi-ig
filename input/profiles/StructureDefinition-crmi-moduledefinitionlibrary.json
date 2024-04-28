@@ -175,6 +175,7 @@
       {
         "id": "Library.dataRequirement",
         "path": "Library.dataRequirement",
+        "comment": "Include data requirements for any data referenced by logic in the module. Systems MAY include a profile reference in the data requirement if the logic expects a specific profile. When elements are referenced in the logic, systems MAY communicate this using the mustSupport element of the data requirement. If the element is an extension, the mustSupport will be a FHIRPath referencing the extension (e.g. `extension('http://example.org/fhir/StructureDefinition/example-extension')`), and the mustSupport list will include a `rendered-value` extension with the slice name of the extension for human-readable views. For CQL-based logic, refer to the Parameters and DataRequirements topic in the Using CQL With FHIR IG.",
         "requirements": "A module definition library must declare any data requirements.",
         "mustSupport": true
       },
