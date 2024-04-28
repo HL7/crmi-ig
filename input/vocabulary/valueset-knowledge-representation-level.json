@@ -1,10 +1,6 @@
 {
   "resourceType" : "ValueSet",
   "id" : "knowledge-representation-level",
-  "meta" : {
-    "lastUpdated" : "2023-03-22T22:40:54.878-06:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
-  },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
     "valueCode" : "shareable"

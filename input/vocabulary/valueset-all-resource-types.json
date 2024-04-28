@@ -1,10 +1,6 @@
 {
     "resourceType" : "ValueSet",
     "id" : "all-resource-types",
-    "meta" : {
-      "lastUpdated" : "2023-12-11T16:34:43.536+11:00",
-      "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
-    },
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
       "valueCode" : "fhir"
