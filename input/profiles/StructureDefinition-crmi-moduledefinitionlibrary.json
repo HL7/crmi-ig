@@ -201,6 +201,7 @@
         "id": "Library.dataRequirement.extension:valueFilter",
         "path": "Library.dataRequirement.extension",
         "sliceName": "valueFilter",
+        "comment": "Supports describing additional filtering information for the data requirement. For example a restriction of encounter data to `finished` encounters.",
         "min": 0,
         "max": "*",
         "type": [
