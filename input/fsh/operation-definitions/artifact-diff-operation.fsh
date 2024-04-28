@@ -16,8 +16,29 @@ The operation is only valid between two resources of the same type and can optio
 """
 * kind = #operation
 * code = #artifact-diff
+* resource[+] = #ActivityDefinition
+* resource[+] = #CapabilityStatement
+* resource[+] = #CodeSystem
+* resource[+] = #CompartmentDefinition
+* resource[+] = #ConceptMap
+* resource[+] = #ExampleScenario
+* resource[+] = #GraphDefinition
+* resource[+] = #ImplementationGuide
 * resource[+] = #Library
+* resource[+] = #Measure
+* resource[+] = #Medication
+* resource[+] = #MedicationKnowledge
+* resource[+] = #MessageDefinition
+* resource[+] = #NamingSystem
+* resource[+] = #OperationDefinition
 * resource[+] = #PlanDefinition
+* resource[+] = #Questionnaire
+* resource[+] = #SearchParameter
+* resource[+] = #StructureDefinition
+* resource[+] = #StructureMap
+* resource[+] = #Substance
+* resource[+] = #TerminologyCapabilities
+* resource[+] = #TestScript
 * resource[+] = #ValueSet
 
 * parameter[+]

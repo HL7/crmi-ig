@@ -24,14 +24,9 @@ and data requirements.
 
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
-* resource[+] = #ChargeItemDefinition
 * resource[+] = #CodeSystem
 * resource[+] = #CompartmentDefinition
 * resource[+] = #ConceptMap
-* resource[+] = #EffectEvidenceSynthesis
-* resource[+] = #EventDefinition
-* resource[+] = #Evidence
-* resource[+] = #EvidenceVariable
 * resource[+] = #ExampleScenario
 * resource[+] = #GraphDefinition
 * resource[+] = #ImplementationGuide
@@ -44,9 +39,6 @@ and data requirements.
 * resource[+] = #OperationDefinition
 * resource[+] = #PlanDefinition
 * resource[+] = #Questionnaire
-* resource[+] = #ResearchDefinition
-* resource[+] = #ResearchElementDefinition
-* resource[+] = #RiskEvidenceSynthesis
 * resource[+] = #SearchParameter
 * resource[+] = #StructureDefinition
 * resource[+] = #StructureMap
