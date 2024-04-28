@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "cqf-endpointSupportsPost",
+  "id": "cqf-testArtifact",
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -13,9 +13,9 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "trial-use"
   }],
-  "url": "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost",
-  "name": "EndpointSupportsPost",
-  "title": "Endpoint Supports POST",
+  "url": "http://hl7.org/fhir/StructureDefinition/cqf-testArtifact",
+  "name": "TestArtifact",
+  "title": "Test Artifact",
   "status": "active",
   "experimental": false,
   "date": "2019-02-13",
@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "description": "Indicates whether the endpoint of the configuration library on which it appears supports using a POST for search",
-  "purpose": "This extension allows module configuration libraries to indicate whether the endpoint they are configuring supports the POST style of search interaction.",
+  "description": "The artifact under test for this test content",
+  "purpose": "This extension allows test content (such as a Group of test case patients) to specify the artifact under test.",
   "fhirVersion": "4.0.1",
   "mapping": [
     {
@@ -45,6 +45,10 @@
   "context": [
     {
       "type": "element",
+      "expression": "Group"
+    },
+    {
+      "type": "element",
       "expression": "Library"
     }
   ],
@@ -56,10 +60,10 @@
       {
         "id": "Extension",
         "path": "Extension",
-        "short": "Endpoint supports POST?",
-        "definition": "Indicates whether the endpoint for the module configuration library supports POST-style search",
+        "short": "What artifact the test is for",
+        "definition": "A reference to the artifact under test for this test content",
         "min": 0,
-        "max": "1"
+        "max": "*"
       },
       {
         "id": "Extension.url",
@@ -69,14 +73,21 @@
             "code": "uri"
           }
         ],
-        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost"
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/cqf-testArtifact"
       },
       {
         "id": "Extension.value[x]",
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-shouldTraceDependency",
+          "valueBoolean": true
+        }],
         "path": "Extension.value[x]",
         "type": [
           {
-            "code": "boolean"
+            "code": "canonical"
+          },
+          {
+            "code": "uri"
           }
         ]
       }
