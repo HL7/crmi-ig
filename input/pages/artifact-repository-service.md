@@ -197,10 +197,8 @@ For each type of artifact supported, an AuthoringMeasureRepository:
     2. The artifact must be in (and remain in) _draft_ status
 3. **SHOULD** support _withdraw_ using the `delete` interaction
     2. The artifact must be in _draft_ status
-4. **SHOULD** support _review_ using the [$review](OperationDefinition-crmi-approve.html) operation
+4. **SHOULD** support _review_ using the [$review](OperationDefinition-crmi-review.html) operation
     1. **SHOULD** support id parameter
-    2. **SHOULD** support url parameter
-    3. **SHOULD** support version parameter
     1. **SHOULD** support reviewDate parameter
     2. **SHOULD** support artifactAssessmentType parameter
     3. **SHOULD** support artifactAssessmentSummary parameter
@@ -208,29 +206,23 @@ For each type of artifact supported, an AuthoringMeasureRepository:
     5. **SHOULD** support artifactAssessmentAuthor parameter
 5. **SHOULD** support _approve_ using the [$approve](OperationDefinition-crmi-approve.html) operation
     1. **SHOULD** support id parameter
-    2. **SHOULD** support url parameter
-    3. **SHOULD** support version parameter
     1. **SHOULD** support approvalDate parameter
     2. **SHOULD** support artifactAssessmentType parameter
     3. **SHOULD** support artifactAssessmentSummary parameter
     4. **SHOULD** support artifactAssessmentTarget parameter
     5. **SHOULD** support artifactAssessmentAuthor parameter
 6. **SHALL** support _draft_ using the [$draft](OperationDefinition-crmi-draft.html) operation
-    1. **SHOULD** support draftVersion parameter
     2. **SHOULD** support id parameter
-    3. **SHOULD** support url parameter
     4. **SHOULD** support version parameter
 6. **SHALL** support _release_ using the [$release](OperationDefinition-crmi-release.html) operation
-    1. **SHALL** support id parameter
-    2. **SHALL** support url parameter
-    3. **SHALL** support version parameter
-    4. **SHOULD** support releaseVersion parameter
+    1. **SHOULD** support id parameter
+    4. **SHOULD** support version parameter
     5. **SHOULD** support versionBehavior parameter
     6. **SHOULD** support latestFromTxServer parameter
     7. **SHOULD** support experimentalBehavior parameter
-11. **SHOULD** support _clone_ using the [$clone](OperationDefinition-crmi-draft.html) operation
+    8. **SHOULD** support releaseLabel parameter
+11. **SHOULD** support _clone_ using the [$clone](OperationDefinition-crmi-clone.html) operation
     2. **SHOULD** support id parameter
-    3. **SHOULD** support url parameter
     4. **SHOULD** support version parameter
 12. **SHOULD** support _diff_ using the [$artifact-diff](OperationDefinition-crmi-artifact-diff.html) operation
     1. **SHALL** support target parameter

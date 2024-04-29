@@ -1,14 +1,14 @@
-Instance: crmi-draft
+Instance: crmi-clone
 InstanceOf: OperationDefinition
-Title: "CRMI Draft Operation"
+Title: "CRMI Clone Operation"
 Usage: #definition
 * insert DefinitionMetadata
-* url = "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-draft"
-* name = "CRMIDraft"
-* title = "CRMI Draft"
-* description = "Creates a draft version of a knowledge artifact, as well as for all resources it is composed of."
+* url = "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-clone"
+* name = "CRMIClone"
+* title = "CRMI Clone"
+* description = "Creates a clone version of a knowledge artifact, as well as for all resources it is composed of."
 * kind = #operation
-* code = #draft
+* code = #clone
 * comment = "This operation is used to set the status and version. It also removes effectivePeriod, approvalDate and any extensions which are only valid for active artifacts."
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
@@ -41,7 +41,7 @@ Usage: #definition
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "The logical id of the artifact to draft. The server must know the artifact (e.g. it is defined explicitly in the server's resources)"
+* parameter[=].documentation = "The logical id of the artifact to clone. The server must know the artifact (e.g. it is defined explicitly in the server's resources)"
 * parameter[=].type = #string
 * parameter[+].name = #version
 * parameter[=].use = #in

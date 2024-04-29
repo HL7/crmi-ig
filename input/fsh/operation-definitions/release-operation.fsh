@@ -54,7 +54,7 @@ Usage: #definition
 * parameter[=].documentation = "The logical id of the artifact to release. The server must know the artifact (e.g. it is defined explicitly in the server's artifacts)"
 * parameter[=].type = #string
 
-* parameter[+].name = #releaseVersion
+* parameter[+].name = #version
 * parameter[=].use = #in
 * parameter[=].min = 1
 * parameter[=].max = "1"
@@ -99,3 +99,17 @@ Usage: #definition
 * parameter[=].type = #code
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-experimental-behavior"
+
+* parameter[+].name = #releaseLabel
+* parameter[=].use = #in
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "Specifies a release label to be applied to the artifact(s) being released"
+* parameter[=].type = #string
+
+* parameter[+].name = #return
+* parameter[=].use = #out
+* parameter[=].min = 1
+* parameter[=].max = "1"
+* parameter[=].documentation = "The Bundle result containing the released resource(s)"
+* parameter[=].type = #Bundle
