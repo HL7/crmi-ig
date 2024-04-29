@@ -78,6 +78,8 @@ parameters:
   path-history: http://hl7.org/fhir/uv/crmi/history.html
   path-expansion-params: '../../input/_resources/exp-params.json'  # for using International ed of SNOMED
   special-url-base: http://hl7.org/fhir
+  special-url:
+    - http://terminology.hl7.org/ValueSet/artifact-resource-types
   auto-oid-root: 2.16.840.1.113883.4.642.40.38
 
 pages:
