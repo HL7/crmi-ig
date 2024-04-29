@@ -22,7 +22,7 @@ Some systems will not support the ability to version manifests, any changes need
 > NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if an artifact explicitly references the version of a value set, the manifest cannot override that version.
 
 #### Expansion Rules
-Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters](https://hl7.org/fhir/extensions/5.1.0-ballot/StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
+Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
 
 1. `activeOnly`
 2. `system-version` (or `canonical-version`)
@@ -37,6 +37,14 @@ Because this capability results in the potential for parameter values to be supp
 2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
+
+> NOTE: The term _artifact collection_ can also be understood as a content Implementation Guide, in which case the ImplementationGuide resource serves as the container for the collection of artifacts; all the same discussions and use cases apply, in particular the ability to use the cqf-expansionParameters extension as described here. The [CRMIImplementationGuide](StructrueDefinition-crmi-implementationguide.html) profile supports this use case.
+
+For ImplementationGuide, this extension specifies expansion parameters to be used for all ValueSet expansions for ValueSets defined in the IG or referenced by artifacts defined in the IG.
+
+Expansion parameters specified in the IG would override expansion parameters specified in dependency IGs, and can be overridden by expansion parameters in downstream IGs.
+
+When the cqf-expansionParameters extension is used, it is intended to be binding (i.e. expansion SHALL take the expansion parameters into account, according to the expansion rules discussed here.
 
 #### Hosted Content
 
