@@ -57,7 +57,7 @@ Dependency tracing is the process of determining, given a root artifact, what ot
 
 In general, the process considers each element of a resource and, if it is a canonical reference, or a reference to an "artifact" resource as described by this implementation guide, it is traced. In addition, extensions used in quality improvement profiles such as Clinical Guidelines and Quality Measures, are considered.
 
-The following sections describe the dependency references for each type of resource. Note that this dependency-listing is not exhaustive, but captures the required dependencies for the quality improvement use case. The [cqf-shouldTraceDependency](StructureDefinition-cqf-shouldTraceDependency.html) extension can be used in the definition of an extension or profile to indicate whether the element should be traced as a dependency for the purposes of packaging and distribution.
+The following sections describe the dependency references for each type of resource. Note that this dependency-listing is not exhaustive, but captures the required dependencies for the quality improvement use case. The [cqf-shouldTraceDependency]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-shouldTraceDependency.html) extension can be used in the definition of an extension or profile to indicate whether the element should be traced as a dependency for the purposes of packaging and distribution.
 
 Each section provides a listing of the paths to each element that should be considered as a reference to an artifact (and recursively traced for dependencies as well) using a FHIRPath-like syntax, with abbreviated references to the names of extensions to be followed.
 

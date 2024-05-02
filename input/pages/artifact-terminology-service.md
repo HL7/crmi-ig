@@ -38,7 +38,7 @@ Because this capability results in the potential for parameter values to be supp
 3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
 
-> NOTE: The term _artifact collection_ can also be understood as a content Implementation Guide, in which case the ImplementationGuide resource serves as the container for the collection of artifacts; all the same discussions and use cases apply, in particular the ability to use the cqf-expansionParameters extension as described here. The [CRMIImplementationGuide](StructrueDefinition-crmi-implementationguide.html) profile supports this use case.
+> NOTE: The term _artifact collection_ can also be understood as a content Implementation Guide, in which case the ImplementationGuide resource serves as the container for the collection of artifacts; all the same discussions and use cases apply, in particular the ability to use the cqf-expansionParameters extension as described here. The [CRMIImplementationGuide](StructureDefinition-crmi-implementationguide.html) profile supports this use case.
 
 For ImplementationGuide, this extension specifies expansion parameters to be used for all ValueSet expansions for ValueSets defined in the IG or referenced by artifacts defined in the IG.
 
