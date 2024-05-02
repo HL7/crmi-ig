@@ -6,10 +6,10 @@ Usage: #definition
 * url = "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-review"
 * name = "CRMIReview"
 * title = "CRMI Review"
-* description = "The review operation supports applying an review to an existing artifact, regardless of status. The operation sets the _date_ and _lastReviewDate_ elements of the reviewed artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository."
+* description = "The review operation supports applying an review to an existing artifact, regardless of status. The operation sets the _date_ and _lastReviewDate_ elements of the reviewed artifact, and is otherwise only allowed to create ArtifactAssessment (Basic or cqf-artifactComment extension in R4) resources in the repository."
 * kind = #operation
 * code = #review
-* comment = "The review operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment resource by applying a review. The ArtifactAssessments which are added by the operation must reference a version of the artifact."
+* comment = "The review operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment (Basic or cqf-artifactComment extension in R4) resource by applying a review. The artifact assessments which are added by the operation must reference a version of the artifact."
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
 * resource[+] = #CodeSystem
@@ -83,5 +83,5 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "The Bundle result containing both the updated artifact and the ArtifactAssessment resource containing the review metadata"
+* parameter[=].documentation = "The Bundle result containing both the updated artifact and the ArtifactAssessment (Basic in R4) resource containing the review metadata"
 * parameter[=].type = #Bundle
