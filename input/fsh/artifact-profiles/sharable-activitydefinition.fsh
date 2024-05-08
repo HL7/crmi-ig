@@ -7,7 +7,7 @@ Description: "Enforces the minimum information set for the activity definition m
 * insert StandardsMetadata(4)
 * extension contains
     $cqf-knowledgeCapability named knowledgeCapability 0..* MS and
-    $cqf-knowledgeRepresentationLevel named knowledgeRepresentationLevel 0..* MS and
+    //$cqf-knowledgeRepresentationLevel named knowledgeRepresentationLevel 0..* MS and
     ArtifactComment named artifactComment 0..* MS and 
     ArtifactVersionAlgorithm named versionAlgorithm 0..1 MS and
     ArtifactVersionPolicy named versionPolicy 0..1 MS

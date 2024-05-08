@@ -67,18 +67,6 @@
       "mustSupport" : true
     },
     {
-      "id" : "CapabilityStatement.extension:knowledgeRepresentationLevel",
-      "path" : "CapabilityStatement.extension",
-      "sliceName" : "knowledgeRepresentationLevel",
-      "min" : 0,
-      "max" : "*",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
-      }],
-      "mustSupport" : true
-    },
-    {
       "id" : "CapabilityStatement.extension:artifactComment",
       "path" : "CapabilityStatement.extension",
       "sliceName" : "artifactComment",

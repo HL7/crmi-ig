@@ -18,10 +18,6 @@
     "valueCode" : "publishable"
   },
   {
-    "url" : "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel",
-    "valueCode" : "structured"
-  },
-  {
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
     "valueCode" : "fhir"
   }],

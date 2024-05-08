@@ -13,9 +13,6 @@
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
       "valueCode": "publishable"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel",
-      "valueCode": "structured"
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Questionnaire/publishable-example",
     "name": "ANCB5Publishable",

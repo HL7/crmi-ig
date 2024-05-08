@@ -55,14 +55,14 @@
       "max" : "1"
     },
     {
-      "id" : "ValueSet.extension:knowledgeRepresentationLevel",
+      "id" : "ValueSet.extension:knowledgeCapability",
       "path" : "ValueSet.extension",
-      "sliceName" : "knowledgeRepresentationLevel",
+      "sliceName" : "knowledgeCapability",
       "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
       "mustSupport" : true
     },

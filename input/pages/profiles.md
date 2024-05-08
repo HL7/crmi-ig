@@ -41,8 +41,11 @@ For knowledge artifacts, a _shareable_ artifact defines the minimum expectations
 | experimental | **SHOULD** be provided to ensure systems can differentiate production from experimental content |
 | publisher | **SHOULD** be provided to ensure consumers can identify the publisher (i.e. steward) of the artifact |
 | description | **SHALL** be provided to ensure systems can provide a meaningful human-readable description of the artifact |
-| knowledgeRepresentationLevel | **SHOULD** be provided to allow systems to understand the levels of representation of content provided by the artifact |
+| knowledgeCapability | **SHOULD** be provided to allow systems to understand the knowledge capability afforded by the artifact |
+| knowledgeRepresentationLevel | **SHOULD** be provided to allow systems to understand the levels of representation of content provided by the artifact. |
 {: .grid }
+
+> NOTE: Because the KnowledgeRepresentationLevel code system is an R5 terminology, there are cross-version publication issues that prevent this aspect of the shareable profiles from being expressed in this version of the publication. A future version of this publication will add representation level back in to the shareable profiles.
 
 ### Publishable
 {: #publishable }

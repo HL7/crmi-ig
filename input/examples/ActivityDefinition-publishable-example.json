@@ -20,10 +20,6 @@
         "valueCode": "publishable"
       },
       {
-        "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel",
-        "valueCode": "structured"
-      },
-      {
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel",
         "valueString": "Copyright 2023+"
       }
