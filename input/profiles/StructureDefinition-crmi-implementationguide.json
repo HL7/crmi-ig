@@ -18,7 +18,6 @@
     "title" : "CRMI ImplementationGuide",
     "status" : "active",
     "experimental" : false,
-    "date" : "2020-12-28T16:55:11+11:00",
     "publisher" : "HL7",
     "description" : "Supports the specification of expansion parameters to be used with the implementation guide",
     "fhirVersion" : "4.0.1",

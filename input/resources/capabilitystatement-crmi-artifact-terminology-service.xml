@@ -6,12 +6,10 @@
     <valueUri value="http://loinc.org"/>
   </extension>
   <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-artifact-terminology-service"/>
-  <version value="3.0.0"/>
   <name value="CRMIArtifactTerminologyService"/>
   <title value="CRMI Artifact Terminology Service"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2015-07-05"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <name value="FHIR Project"/>

@@ -14,12 +14,10 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemeasure",
-  "version": "4.0.101",
   "name" : "CRMIPublishableMeasure",
   "title" : "CRMI Publishable Measure",
   "status" : "active",
   "experimental" : false,
-  "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Supports declaration of the Measure metadata required by HL7 and other organizations that share and publish measures with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
   "fhirVersion" : "4.0.1",

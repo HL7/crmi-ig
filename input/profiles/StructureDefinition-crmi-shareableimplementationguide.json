@@ -18,7 +18,6 @@
   "title" : "CRMI Shareable ImplementationGuide",
   "status" : "active",
   "experimental" : false,
-  "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Enforces the minimum information set for the implementation guide metadata required by HL7 and other organizations that share and publish implementation guides",
   "fhirVersion" : "4.0.1",

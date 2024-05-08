@@ -2,12 +2,10 @@
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="crmi-authoring-artifact-repository"/>
   <url value="http://hl7.org/fhir/uv/crmi/CapabilityStatement/crmi-authoring-artifact-repository"/>
-  <version value="3.0.0"/>
   <name value="CRMIAuthoringArtifactRepository"/>
   <title value="CRMI Authoring Artifact Repository"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-03-08"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <name value="FHIR Project"/>

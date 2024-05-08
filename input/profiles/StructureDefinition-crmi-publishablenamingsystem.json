@@ -18,7 +18,6 @@
   "title" : "CRMI Publishable NamingSystem",
   "status" : "active",
   "experimental" : false,
-  "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Defines and enforces the minimum expectations for publication and distribution of a naming system, typically as part of an artifact repository or implementation guide publication",
   "fhirVersion" : "4.0.1",

@@ -17,9 +17,9 @@ description: >-
   intended to be used by specification and content implementation guide authors
   as both a dependency for validation of published artifacts, and a guide for
   construction and publication of content.
-status: draft
+status: active
 license: CC0-1.0
-date: 2022-05-17
+date: 2024-05-08
 version: 1.0.0
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
