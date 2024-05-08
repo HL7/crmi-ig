@@ -247,9 +247,3 @@ WARNING: ConceptMap/shareable-example: ConceptMap.group[0].element[3].target[0]:
 WARNING: GraphDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/GraphDefinition/publishable-example'): The resource needed to modified during loading to apply common headers version=1.0.0, contact, jurisdiction, publisher=HL7 International / Clinical Decision Support but this isn't possible for the type GraphDefinition because version conversion isn't working completely
 WARNING: GraphDefinition.where(url = 'http://hl7.org/fhir/uv/crmi/GraphDefinition/shareable-example'): The resource needed to modified during loading to apply common headers version=1.0.0, contact, jurisdiction, publisher=HL7 International / Clinical Decision Support but this isn't possible for the type GraphDefinition because version conversion isn't working completely
 
-# Verified these references are correct, but they are only to support examples and we do not want to introduce a dependency on the US realm QICore IG
-ERROR: Library/moduledefinition-example: Library.dataRequirement[0].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient' does not resolve
-ERROR: Library/moduledefinition-example: Library.dataRequirement[1].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter' does not resolve
-ERROR: Library/moduledefinition-example: Library.dataRequirement[3].profile[0]: Canonical URL 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage' does not resolve
-
-
