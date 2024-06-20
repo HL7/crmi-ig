@@ -172,6 +172,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "Library.relatedArtifact.extension:publicationDate",
+      "path" : "Library.relatedArtifact.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "Library.relatedArtifact.extension:publicationStatus",
+      "path" : "Library.relatedArtifact.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "Library.relatedArtifact.display",
       "path" : "Library.relatedArtifact.display",
       "mustSupport" : true
