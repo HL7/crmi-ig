@@ -1,9 +1,4 @@
 RuleSet: DefinitionMetadata
-// NOTE: These should match sushi-config.yaml
-* publisher = "Clinical Decision Support WG"
-* contact.telecom.system = #url
-* contact.telecom.value = "http://www.hl7.org/Special/committees/dss/index.cfm"
-* experimental = false
 * status = #active
 
 RuleSet: ArtifactOperationProfile
