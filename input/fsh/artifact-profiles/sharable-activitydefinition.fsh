@@ -19,4 +19,5 @@ Description: "Enforces the minimum information set for the activity definition m
 * publisher MS
 * description 1..1 MS
 * productReference
-  * extension contains ArtifactUriReference named artifactReference 0..1 MS
+  * extension contains ArtifactReference named artifactReference 0..1 MS
+  * extension[ArtifactReference].value[x] only uri

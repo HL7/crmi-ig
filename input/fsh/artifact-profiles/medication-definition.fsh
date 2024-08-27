@@ -13,4 +13,5 @@ Description: "Represents the definition of a medication, suitable for use in var
 * ingredient
   * item[x] MS
   * itemReference 
-    * extension contains ArtifactUriReference named artifactReference 0..1 MS
+    * extension contains ArtifactReference named artifactReference 0..1 MS
+    * extension[ArtifactReference].value[x] only uri

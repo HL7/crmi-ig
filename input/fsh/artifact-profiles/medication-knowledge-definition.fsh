@@ -10,9 +10,12 @@ Description: "Represents the definition of medication knowledge, suitable for us
 * code MS
 * relatedMedicationKnowledge
   * reference
-    * extension contains ArtifactUriReference named artifactReference 0..1 MS
+    * extension contains ArtifactReference named artifactReference 0..1 MS
+    * extension[ArtifactReference].value[x] only uri
 * associatedMedication
-  * extension contains ArtifactUriReference named artifactReference 0..1 MS
+  * extension contains ArtifactReference named artifactReference 0..1 MS
+  * extension[ArtifactReference].value[x] only uri
 * ingredient
   * itemReference
-    * extension contains ArtifactUriReference named artifactReference 0..1 MS
+    * extension contains ArtifactReference named artifactReference 0..1 MS
+    * extension[ArtifactReference].value[x] only uri
