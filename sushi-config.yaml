@@ -80,6 +80,15 @@ parameters:
   special-url:
     - http://terminology.hl7.org/ValueSet/artifact-resource-types
   auto-oid-root: 2.16.840.1.113883.4.642.40.38
+  apply:
+    - version
+    - date
+    - status
+    - publisher
+    - contact
+    - copyright
+    - experimental
+    - jurisdiction
 
 pages:
   index.md:

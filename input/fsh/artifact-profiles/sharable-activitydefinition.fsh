@@ -3,7 +3,6 @@ Parent: ActivityDefinition
 Id: crmi-shareableactivitydefinition
 Title: "CRMI Shareable ActivityDefinition"
 Description: "Enforces the minimum information set for the activity definition metadata required by HL7 and other organizations that share and publish activity definitions"
-* ^status = #active
 * insert StandardsMetadata(4)
 * extension contains
     $cqf-knowledgeCapability named knowledgeCapability 0..* MS and
@@ -20,4 +19,5 @@ Description: "Enforces the minimum information set for the activity definition m
 * publisher MS
 * description 1..1 MS
 * productReference
-  * extension contains ArtifactUriReference named artifactReference 0..1 MS
+  * extension contains ArtifactReference named artifactReference 0..1 MS
+  * extension[ArtifactReference].value[x] only uri
