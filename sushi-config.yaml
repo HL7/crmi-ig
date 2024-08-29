@@ -20,7 +20,7 @@ description: >-
 status: active
 license: CC0-1.0
 date: 2024-05-08
-version: 1.0.0
+version: 1.1.0-cibuild
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -34,7 +34,7 @@ fhirVersion: 4.0.1
 # will recognize them as well. In either case, they'll be copied
 # to the IG JSON using the formal names.
 copyrightYear: 2022+
-releaseLabel: STU1
+releaseLabel: cibuild
 
 # The publisher can be a single item or a list, each with a name and
 # optional url and/or email. The first publisher's name will be used
