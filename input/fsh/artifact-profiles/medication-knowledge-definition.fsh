@@ -7,15 +7,9 @@ Description: "Represents the definition of medication knowledge, suitable for us
 * extension contains 
   $artifact-url named artifactUrl 0..1 MS and 
   $artifact-version named artifactVersion 0..1 MS
+/* XXX: MedicationKnowledge does not have identifier
+ * identifier 0..* MS
+ * obeys crmi-identifier-when-artifact-url
+ * obeys crmi-identifier-with-version-when-artifact-url-and-version
+*/
 * code MS
-* relatedMedicationKnowledge
-  * reference
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri
-* associatedMedication
-  * extension contains ArtifactReference named artifactReference 0..1 MS
-  * extension[ArtifactReference].value[x] only uri
-* ingredient
-  * itemReference
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri

@@ -7,11 +7,8 @@ Description: "Represents the definition of a medication, suitable for use in var
 * extension contains 
   $artifact-url named artifactUrl 0..1 MS and 
   $artifact-version named artifactVersion 0..1 MS
-* identifier MS
+* identifier 0..* MS
+* obeys crmi-identifier-when-artifact-url
+* obeys crmi-identifier-with-version-when-artifact-url-and-version
 * code MS
 * ingredient MS
-* ingredient
-  * item[x] MS
-  * itemReference 
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri

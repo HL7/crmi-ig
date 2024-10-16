@@ -15,3 +15,6 @@ Alias: $cqf-expression = http://hl7.org/fhir/StructureDefinition/cqf-expression
 // Extensions
 Alias: $artifact-url = http://hl7.org/fhir/StructureDefinition/artifact-url
 Alias: $artifact-version = http://hl7.org/fhir/StructureDefinition/artifact-version
+
+// CRMI
+Alias: $crmi-identifier-system = http://hl7.org/fhir/uv/crmi
