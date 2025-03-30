@@ -71,9 +71,9 @@ In the FHIR publishing ecosystem, this is typically done using FHIR Implementati
 
 However, this approach to distribution does not adequately address some common use cases for artifact management, including:
 
-1. Focused packaging: Retrieving a package a specific artifact with its dependencies. For example a package for a Questionnaire that includes all and only the resources required to fill out that questionnaire.
-2. Artifact selection: Retrieving a set of artifacts together with their related depedencies, independent of the publication grouping. For example, a set of measures is published that includes 50 clinician measures, but a provider system is only reporting 5 of those measures.
-3. Platform-specific packaging: Retrieving a package tailored for the capabilities of a particular implementation environment. For example, a set of guideline recommendations together with pre-expanded value sets
+1. Focused packaging: Retrieving a package for a specific artifact with its dependencies. For example a package for a Questionnaire that includes all and only the resources required to fill out that questionnaire.
+2. Artifact selection: Retrieving a set of artifacts together with their related dependencies, independent of the publication grouping. For example, a set of measures is published that includes 50 clinician measures, but a provider system is only reporting 5 of those measures.
+3. Platform-specific packaging: Retrieving a package tailored for the capabilities of a particular implementation environment. For example, a set of guideline recommendations together with pre-expanded value sets.
 
 This implementation guide provides support for these use cases by describing alternate mechanisms for publishing and distribution. Specifically, the $data-requirements and $package operations support identifying artifact dependencies and packaging artifacts with those dependencies (and only those dependencies), and the Artifact Repository and Artifact Terminology Services describe capabilities for supporting artifact publication and distribution as FHIR APIs.
 
