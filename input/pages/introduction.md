@@ -82,13 +82,13 @@ See [Publishing](publishing.html) and [Distribution](distribution.html) for furt
 ### Implementation Guide Categories
 {: #ig-categories}
 
-Figure 2.2 below, FHIR-based Knowledge Representation Specifications, depicts three categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification IGs_ in this diagram and generalized to apply across all types of IGs, specification, model, and content.
+Figure 2.2 below, FHIR-based Knowledge Representation Specifications, depicts four categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable artifacts. This categorization of implementation guides, though not intended to be exhaustive, provides a useful way to classify types of implementation guides. In particular, the profiles and approaches in the CRMI IG have been adopted from the _specification IGs_ in this diagram and generalized to apply across all types of IGs, specification, model, and content.
 
 <div>
 <img src="types-of-igs.png" alt="Types of FHIR Implementation Guides" class="img-responsive img-rounded center-block" width="700" height="700"/>
 </div>
 
-_Figure 2.2_ Categories of implementation guides: Specification, Model, and Content IGs
+_Figure 2.2_ Categories of implementation guides: Specification, Model, and Content IGs plus the foundational standards
 
 As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
