@@ -1,15 +1,15 @@
 {
   "resourceType": "Medication",
-  "id": "medication-definition-example",
+  "id": "medication-definition-sharable-example",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition"
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-sharablemedicationdefinition"
     ]
   },
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
-      "valueUri": "http://example.org/Medication/medication-definition-example"
+      "valueUri": "http://example.org/Medication/medication-definition-sharable-example"
     },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
@@ -19,11 +19,11 @@
   "identifier": [
     {
       "type": "version-independent",
-      "value": "http://example.org/Medication/medication-definition-example"
+      "value": "http://example.org/Medication/medication-definition-sharable-example"
     },
     {
       "type": "version-dependent",
-      "value": "http://example.org/Medication/medication-definition-example|1.0.0"
+      "value": "http://example.org/Medication/medication-definition-sharable-example|1.0.0"
     }
   ],
   "code": {
@@ -46,14 +46,11 @@
   },
   "ingredient": [
     {
-      "itemCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "386983007",
-            "display": "Alprazolam (substance)"
-          }
-        ]
+      "itemReference": {
+        "identifier": {
+          "type": "version-independent",
+          "value": "http://example.org/Substance/substance-definition-example"
+        }
       },
       "strength": {
         "numerator": {

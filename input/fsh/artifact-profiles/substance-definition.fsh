@@ -13,5 +13,11 @@ Description: "Represents the definition of a substance, suitable for use in vari
 * ingredient
   * substance[x] MS
   * substanceReference
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri
+    * identifier MS
+
+Profile: CRMISharableSubstanceDefinition
+Id: crmi-sharablesubstancedefinition
+Title: "CRMI Sharable SubstanceDefinition"
+Description: "Enforces the minimum information set for the Substatnce definition metadata required by HL7 and other organizations that share and publish Substance definitions"
+Parent: CRMISubstanceDefinition
+* insert DefinitionalIdentifiers

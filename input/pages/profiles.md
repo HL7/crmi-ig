@@ -89,37 +89,223 @@ For knowledge artifacts an _executable_ artifact identifies the aspects of the a
 The following table lists the capability profiles defined for each type of knowledge artifact:
 
 <table class="grid">
-  <tr><th>Artifact</th><th>Shareable</th><th>Computable</th><th>Publishable</th><th>Executable</th></tr>
-  <tr><td>ActivityDefinition</td><td><a href="StructureDefinition-crmi-shareableactivitydefinition.html">CRMIShareableActivityDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableactivitydefinition.html">CRMIPublishableActivityDefinition</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>CapabilityStatement</td><td><a href="StructureDefinition-crmi-shareablecapabilitystatement.html">CRMIShareableCapabilityStatement</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecapabilitystatement.html">CRMIPublishableCapabilityStatement</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>ClinicalUseDefinition</td><td>CRMIShareableClinicalUseDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableClinicalUseDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>CodeSystem</td><td><a href="StructureDefinition-crmi-shareablecodesystem.html">CRMIShareableCodeSystem</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablecodesystem.html">CRMIPublishableCodeSystem</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>CompartmentDefinition</td><td>CRMIShareableCompartmentDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableCompartmentDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>ConditionDefinition</td><td>CRMIShareableConditionDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableConditionDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>ConceptMap</td><td><a href="StructureDefinition-crmi-shareableconceptmap.html">CRMIShareableConceptMap</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableconceptmap.html">CRMIPublishableConceptMap</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>DeviceDefinition</td><td>CRMIShareableDeviceDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableDeviceDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>ExampleScenario</td><td>CRMIShareableExampleScenario (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableExampleScenario (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>GraphDefinition</td><td><a href="StructureDefinition-crmi-shareablegraphdefinition.html">CRMIShareableGraphDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablegraphdefinition.html">CRMIPublishableGraphDefinition</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>Group</td><td>CRMIShareableGroup (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableGroup (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>ImplementationGuide</td><td><a href="StructureDefinition-crmi-shareableimplementationguide.html">CRMIShareableImplementationGuide</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableimplementationguide.html">CRMIPublishableImplementationGuide</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>Library</td><td><a href="StructureDefinition-crmi-shareablelibrary.html">CRMIShareableLibrary</a></td><td><a href="StructureDefinition-crmi-computablelibrary.html">CRMIComputableLibrary</a></td><td><a href="StructureDefinition-crmi-publishablelibrary.html">CRMIPublishableLibrary</a></td><td><a href="StructureDefinition-crmi-executablelibrary.html">CRMIExecutableLibrary</a></td></tr>
-  <tr><td>Measure</td><td><a href="StructureDefinition-crmi-shareablemeasure.html">CRMIShareableMeasure</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablemeasure.html">CRMIPublishableMeasure</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>Medication</td><td>CRMIShareableMedication (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableMedication (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>MedicationKnowledge</td><td>CRMIShareableMedicationKnowledge (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableMedicationKnowledge (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>MessageDefinition</td><td>CRMIShareableMessageDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableMessageDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>NamingSystem</td><td><a href="StructureDefinition-crmi-shareablenamingsystem.html">CRMIShareableNamingSystem</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablenamingsystem.html">CRMIPublishableNamingSystem</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>ObservationDefinition</td><td>CRMIShareableObservationDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableObservationDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>OperationDefinition</td><td><a href="StructureDefinition-crmi-shareableoperationdefinition.html">CRMIShareableOperationDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableoperationdefinition.html">CRMIPublishableOperationDefinition</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>PlanDefinition</td><td><a href="StructureDefinition-crmi-shareableplandefinition.html">CRMIShareablePlanDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableplandefinition.html">CRMIPublishablePlanDefinition</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>Questionnaire</td><td><a href="StructureDefinition-crmi-shareablequestionnaire.html">CRMIShareableQuestionnaire</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablequestionnaire.html">CRMIPublishableQuestionnaire</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>SearchParameter</td><td><a href="StructureDefinition-crmi-shareablesearchparameter.html">CRMIShareableSearchParameter</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablesearchparameter.html">CRMIPublishableSearchParameter</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>SpecimenDefinition</td><td>CRMIShareableSpecimenDefinition (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableSpecimenDefinition (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>Substance</td><td>CRMIShareableSubstance (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableSubstance (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>SubscriptionTopic</td><td>CRMIShareableSubscriptionTopic (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableSubscriptionTopic (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>StructureDefinition</td><td><a href="StructureDefinition-crmi-shareablestructuredefinition.html">CRMIShareableStructureDefinition</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishablestructuredefinition.html">CRMIPublishableStructureDefinition</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>StructureMap</td><td>CRMIShareableStructureMap (Roadmap Item)</td><td>N/A (no requirements)</td><td>CRMIPublishableStructureMap (Roadmap Item)</td><td>N/A (no requirements)</td></tr>
-  <tr><td>TerminologyCapabilities</td><td><a href="StructureDefinition-crmi-shareableterminologycapabilities.html">CRMIShareableTerminologyCapabilities</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableterminologycapabilities.html">CRMIPublishableTerminologyCapabilities</a></td><td>N/A (no requirements)</td></tr>
-  <tr><td>ValueSet</td><td><a href="StructureDefinition-crmi-shareablevalueset.html">CRMIShareableValueSet</a></td><td><a href="StructureDefinition-crmi-computablevalueset.html">CRMIComputableValueSet</a></td><td><a href="StructureDefinition-crmi-publishablevalueset.html">CRMIPublishableValueSet</a></td><td><a href="StructureDefinition-crmi-expandedvalueset.html">CRMIExpandedValueSet</a></td></tr>
+  <tr>
+    <th>Artifact</th>
+    <th>Shareable</th>
+    <th>Computable</th>
+    <th>Publishable</th>
+    <th>Executable</th>
+  </tr>
+  <tr>
+    <td>ActivityDefinition</td>
+    <td><a href="StructureDefinition-crmi-shareableactivitydefinition.html">CRMIShareableActivityDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishableactivitydefinition.html">CRMIPublishableActivityDefinition</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>CapabilityStatement</td>
+    <td><a href="StructureDefinition-crmi-shareablecapabilitystatement.html">CRMIShareableCapabilityStatement</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablecapabilitystatement.html">CRMIPublishableCapabilityStatement</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ClinicalUseDefinition</td>
+    <td>CRMIShareableClinicalUseDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableClinicalUseDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>CodeSystem</td>
+    <td><a href="StructureDefinition-crmi-shareablecodesystem.html">CRMIShareableCodeSystem</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablecodesystem.html">CRMIPublishableCodeSystem</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>CompartmentDefinition</td>
+    <td>CRMIShareableCompartmentDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableCompartmentDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ConditionDefinition</td>
+    <td>CRMIShareableConditionDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableConditionDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ConceptMap</td>
+    <td><a href="StructureDefinition-crmi-shareableconceptmap.html">CRMIShareableConceptMap</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishableconceptmap.html">CRMIPublishableConceptMap</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>DeviceDefinition</td>
+    <td>CRMIShareableDeviceDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableDeviceDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ExampleScenario</td>
+    <td>CRMIShareableExampleScenario (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableExampleScenario (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>GraphDefinition</td>
+    <td><a href="StructureDefinition-crmi-shareablegraphdefinition.html">CRMIShareableGraphDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablegraphdefinition.html">CRMIPublishableGraphDefinition</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>CRMIShareableGroup (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableGroup (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ImplementationGuide</td>
+    <td><a href="StructureDefinition-crmi-shareableimplementationguide.html">CRMIShareableImplementationGuide</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishableimplementationguide.html">CRMIPublishableImplementationGuide</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>Library</td>
+    <td><a href="StructureDefinition-crmi-shareablelibrary.html">CRMIShareableLibrary</a></td>
+    <td><a href="StructureDefinition-crmi-computablelibrary.html">CRMIComputableLibrary</a></td>
+    <td><a href="StructureDefinition-crmi-publishablelibrary.html">CRMIPublishableLibrary</a></td>
+    <td><a href="StructureDefinition-crmi-executablelibrary.html">CRMIExecutableLibrary</a></td>
+  </tr>
+  <tr>
+    <td>Measure</td>
+    <td><a href="StructureDefinition-crmi-shareablemeasure.html">CRMIShareableMeasure</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablemeasure.html">CRMIPublishableMeasure</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>Medication</td>
+    <td><a href="StructureDefinition-crmi-sharablemedicationdefinition.html">CRMIShareableMedicationDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableMedication (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>MedicationKnowledge</td>
+    <td><a href="StructureDefinition-crmi-shareablemedicationknowledgedefinition.html">CRMIShareableMedicationKnowledgeDefintion</a></td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableMedicationKnowledge (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>MessageDefinition</td>
+    <td>CRMIShareableMessageDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableMessageDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>NamingSystem</td>
+    <td><a href="StructureDefinition-crmi-shareablenamingsystem.html">CRMIShareableNamingSystem</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablenamingsystem.html">CRMIPublishableNamingSystem</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ObservationDefinition</td>
+    <td>CRMIShareableObservationDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableObservationDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>OperationDefinition</td>
+    <td><a href="StructureDefinition-crmi-shareableoperationdefinition.html">CRMIShareableOperationDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishableoperationdefinition.html">CRMIPublishableOperationDefinition</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>PlanDefinition</td>
+    <td><a href="StructureDefinition-crmi-shareableplandefinition.html">CRMIShareablePlanDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishableplandefinition.html">CRMIPublishablePlanDefinition</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>Questionnaire</td>
+    <td><a href="StructureDefinition-crmi-shareablequestionnaire.html">CRMIShareableQuestionnaire</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablequestionnaire.html">CRMIPublishableQuestionnaire</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>SearchParameter</td>
+    <td><a href="StructureDefinition-crmi-shareablesearchparameter.html">CRMIShareableSearchParameter</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablesearchparameter.html">CRMIPublishableSearchParameter</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>SpecimenDefinition</td>
+    <td>CRMIShareableSpecimenDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableSpecimenDefinition (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>Substance</td>
+    <td><a href="StructureDefinition-crmi-sharablesubstancedefinition.html">CRMIShareableSubstanceDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableSubstance (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>SubscriptionTopic</td>
+    <td>CRMIShareableSubscriptionTopic (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableSubscriptionTopic (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>StructureDefinition</td>
+    <td><a href="StructureDefinition-crmi-shareablestructuredefinition.html">CRMIShareableStructureDefinition</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishablestructuredefinition.html">CRMIPublishableStructureDefinition</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>StructureMap</td>
+    <td>CRMIShareableStructureMap (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+    <td>CRMIPublishableStructureMap (Roadmap Item)</td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>TerminologyCapabilities</td>
+    <td><a href="StructureDefinition-crmi-shareableterminologycapabilities.html">CRMIShareableTerminologyCapabilities</a></td>
+    <td>N/A (no requirements)</td>
+    <td><a href="StructureDefinition-crmi-publishableterminologycapabilities.html">CRMIPublishableTerminologyCapabilities</a></td>
+    <td>N/A (no requirements)</td>
+  </tr>
+  <tr>
+    <td>ValueSet</td>
+    <td><a href="StructureDefinition-crmi-shareablevalueset.html">CRMIShareableValueSet</a></td>
+    <td><a href="StructureDefinition-crmi-computablevalueset.html">CRMIComputableValueSet</a></td>
+    <td><a href="StructureDefinition-crmi-publishablevalueset.html">CRMIPublishableValueSet</a></td>
+    <td><a href="StructureDefinition-crmi-expandedvalueset.html">CRMIExpandedValueSet</a></td>
+  </tr>
 </table>
 
 > Note that the terminology-related profiles (on CodeSystem, ConceptMap, NamingSystem, and ValueSet) are defined to support usage in R4 implementations. These profiles are aligned with the same profiles defined in the R6 base specification, and when an R6 version of this implementation guide is produced, these profiles will be removed from this IG in favor of the R6 profiles in the base specification.

@@ -10,12 +10,16 @@ Description: "Represents the definition of medication knowledge, suitable for us
 * code MS
 * relatedMedicationKnowledge
   * reference
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri
+    * identifier MS
 * associatedMedication
-  * extension contains ArtifactReference named artifactReference 0..1 MS
-  * extension[ArtifactReference].value[x] only uri
+  * identifier MS
 * ingredient
   * itemReference
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri
+    * identifier MS
+
+Profile: CRMISharableMedicationKnowledgeDefinition
+Id: crmi-sharablemedicationknowledgedefinition
+Title: "CRMI Sharable MedicationKnowledge Definition"
+Description: "Enforces the minimum information set for the MedicationKnowledge metadata required by HL7 and other organizations that share and publish MedicationKnowledge"
+Parent: CRMIMedicationKnowledgeDefinition
+* insert DefinitionalIdentifiersAsExtension

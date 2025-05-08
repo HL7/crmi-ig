@@ -12,6 +12,13 @@ Description: "Represents the definition of a medication, suitable for use in var
 * ingredient MS
 * ingredient
   * item[x] MS
-  * itemReference 
-    * extension contains ArtifactReference named artifactReference 0..1 MS
-    * extension[ArtifactReference].value[x] only uri
+  * itemReference
+    * identifier MS 
+
+
+Profile: CRMISharableMedicationDefinition
+Id: crmi-sharablemedicationdefinition
+Title: "CRMI Sharable MedicationDefinition"
+Description: "Enforces the minimum information set for the Medication definition metadata required by HL7 and other organizations that share and publish Medication definitions"
+Parent: CRMIMedicationDefinition
+* insert DefinitionalIdentifiers
