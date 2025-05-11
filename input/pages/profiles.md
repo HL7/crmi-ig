@@ -203,7 +203,7 @@ The following table lists the capability profiles defined for each type of knowl
   </tr>
   <tr>
     <td>MedicationKnowledge</td>
-    <td><a href="StructureDefinition-crmi-shareablemedicationknowledgedefinition.html">CRMIShareableMedicationKnowledgeDefintion</a></td>
+    <td><a href="StructureDefinition-crmi-sharablemedicationknowledgedefinition.html">CRMIShareableMedicationKnowledgeDefintion</a></td>
     <td>N/A (no requirements)</td>
     <td>CRMIPublishableMedicationKnowledge (Roadmap Item)</td>
     <td>N/A (no requirements)</td>

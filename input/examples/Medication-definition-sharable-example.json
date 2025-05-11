@@ -18,11 +18,14 @@
   ],
   "identifier": [
     {
-      "type": "version-independent",
-      "value": "http://example.org/Medication/medication-definition-sharable-example"
-    },
-    {
-      "type": "version-dependent",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+            "code": "canonical"
+          }
+        ]
+      },
       "value": "http://example.org/Medication/medication-definition-sharable-example|1.0.0"
     }
   ],
@@ -48,7 +51,14 @@
     {
       "itemReference": {
         "identifier": {
-          "type": "version-independent",
+          "type":   { 
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+                "code": "canonical"
+              }
+            ]
+          },
           "value": "http://example.org/Substance/substance-definition-example"
         }
       },

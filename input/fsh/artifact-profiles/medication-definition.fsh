@@ -15,7 +15,6 @@ Description: "Represents the definition of a medication, suitable for use in var
   * itemReference
     * identifier MS 
 
-
 Profile: CRMISharableMedicationDefinition
 Id: crmi-sharablemedicationdefinition
 Title: "CRMI Sharable MedicationDefinition"

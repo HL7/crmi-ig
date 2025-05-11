@@ -23,3 +23,4 @@ Title: "CRMI Sharable MedicationKnowledge Definition"
 Description: "Enforces the minimum information set for the MedicationKnowledge metadata required by HL7 and other organizations that share and publish MedicationKnowledge"
 Parent: CRMIMedicationKnowledgeDefinition
 * insert DefinitionalIdentifiersAsExtension
+* obeys crmi-artifact-url-as-extension and crmi-artifact-version-as-extension and crmi-canonical-identifier-as-extension

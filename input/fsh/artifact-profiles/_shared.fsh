@@ -6,29 +6,17 @@ RuleSet: StandardsMetadata(fmm)
 * ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"
 * ^extension[=].valueCode = #trial-use
 
-
 RuleSet: DefinitionalIdentifiers
-* identifier 2..* MS
+* identifier 1..* MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type"
 * identifier ^slicing.rules = #open
-* identifier contains 
-    version-dependent 1..1 MS and
-    version-independent 1..1 MS
-* identifier[version-dependent].type = CRMIIdentifierTypeCodes#version-dependent
-* identifier[version-independent].type = CRMIIdentifierTypeCodes#version-independent 
+* identifier contains canonical 1..1 MS
+* identifier[canonical].type = $artifact-identifier-type-codesystem#canonical
 
 RuleSet: DefinitionalIdentifiersAsExtension
-* extension contains $artifact-identifier named artifact-identifier 2..* MS
+* extension contains $artifact-identifier named artifact-identifier-canonical 1..* MS
+* extension[artifact-identifier-canonical].valueIdentifier.type = $artifact-identifier-type-codesystem#canonical
 
-/*
-// XXX: Why doesn't this work?
-* extension[artifact-identifier].valueIdentifier ^slicing.discriminator.type = #value
-* extension[artifact-identifier].valueIdentifier ^slicing.discriminator.path = "type"
-* extension[artifact-identifier].valueIdentifier ^slicing.rules = #open
-* extension[artifact-identifier].valueIdentifier contains 
-    version-dependent 1..1 MS and
-    version-independent 1..1 MS
-* extension[artifact-identifier].valueIdentifier[version-dependent].type = CRMIIdentifierTypeCodes#version-dependent
-* extension[artifact-identifier].valueIdentifier[version-independent].type = CRMIIdentifierTypeCodes#version-independent
-*/
+RuleSet: ObeysArtifactIdentifiers
+* obeys crmi-artifact-url and crmi-artifact-version and crmi-canonical-identifier
