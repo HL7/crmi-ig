@@ -166,9 +166,12 @@ resources:
   Device/cqf-tooling:
     name: CQF Tooling Device
     description: Example of a Software System Device instance for describing tooling that was used to process artifacts. This resource is typically referenced from the `crmi-softwaresystem` extension
-  Medication/definition-example:
+  Medication/medication-definition-example:
     name: Example Medication Definition
     description: Example of a Medication resource illustrating use as a definitional artifact.
+  Medication/medication-definition-sharable-example:
+    name: Example Sharable Medication Definition
+    description: Example of a Sharable Medication resource illustrating use as a definitional artifact.
   MedicationKnowledge/definition-example:
     name: Example MedicationKnowledge Definition
     description: Example of a MedicationKnowledge resource illustrating use as a definitional artifact.

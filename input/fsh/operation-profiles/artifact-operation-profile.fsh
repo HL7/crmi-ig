@@ -20,8 +20,9 @@ operation.
 * `resource`: instance of a canonical resource
 
 &ast;The artifact URL for canonical resources is `.url`, for non-canonical resources, it is
-the extension `artifact-url`. The version for canonical resources is `.version`, for non-canonical
-resources it is the extension `artifact-version`.
+the identifier type=canonical (or startsWith if the canonical is versioned). The version for 
+canonical resources is `.version`, for non-canonical resources value after the
+`|` of identifier type=canonical if it is a versioned canonical URL.
 
 NOTE: When invoking canonical operations using any combination of `url`,
 `version`, and `identifier`: 

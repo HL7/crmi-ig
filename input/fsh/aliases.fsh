@@ -13,5 +13,7 @@ Alias: $cqf-library = http://hl7.org/fhir/StructureDefinition/cqf-library
 Alias: $cqf-expression = http://hl7.org/fhir/StructureDefinition/cqf-expression
 
 // Extensions
-Alias: $artifact-url = http://hl7.org/fhir/StructureDefinition/artifact-url
-Alias: $artifact-version = http://hl7.org/fhir/StructureDefinition/artifact-version
+Alias: $artifact-identifier = http://hl7.org/fhir/StructureDefinition/artifact-identifier
+
+// CodeSystems
+Alias: $artifact-identifier-type-codesystem = http://terminology.hl7.org/CodeSystem/artifact-identifier-type

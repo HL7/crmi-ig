@@ -210,7 +210,7 @@ server) dependencies and related artifacts.
 Possible values are either a code to mean a category of resource types:
 * `all` (default) - all resource types
 * `artifact` - the specified artifact
-* `canonical` - canonical resources (i.e. resources with a defined url element or that can be canonical resources using the artifact-url extension)
+* `canonical` - canonical resources (i.e. resources with a defined url element or that can be canonical resources using identifier type=canonical)
 * `terminology` - terminology resources (i.e. CodeSystem, ValueSet, NamingSystem, ConceptMap)
 * `conformance` - conformance resources (i.e. StructureDefinition, StructureMap, SearchParameter, CompartmentDefinition)
 * `profiles` - profile definitions (i.e. StructureDefinition resources that define profiles)
@@ -248,7 +248,7 @@ dependencies and related artifacts.
 Possible values are either a code to mean a category of resource types:
 * `all` (default) - all resource types
 * `artifact` - the specified artifact
-* `canonical` - canonical resources (i.e. resources with a defined url element or that can be canonical resources using the artifact-url extension)
+* `canonical` - canonical resources (i.e. resources with a defined url element or that can be canonical resources using the identifier type=canonical)
 * `terminology` - terminology resources (i.e. CodeSystem, ValueSet, NamingSystem, ConceptMap)
 * `conformance` - conformance resources (i.e. StructureDefinition, StructureMap, SearchParameter, CompartmentDefinition)
 * `profiles` - profile definitions (i.e. StructureDefinition resources that define profiles)
