@@ -71,30 +71,6 @@
       "mustSupport" : true
     },
     {
-      "id" : "NamingSystem.extension:url",
-      "path" : "NamingSystem.extension",
-      "sliceName" : "url",
-      "min" : 1,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-url"]
-      }],
-      "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.extension:version",
-      "path" : "NamingSystem.extension",
-      "sliceName" : "version",
-      "min" : 1,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-version"]
-      }],
-      "mustSupport" : true
-    },
-    {
       "id" : "NamingSystem.extension:versionAlgorithm",
       "path" : "NamingSystem.extension",
       "sliceName" : "versionAlgorithm",

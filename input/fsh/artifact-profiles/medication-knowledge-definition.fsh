@@ -4,9 +4,6 @@ Id: crmi-medicationknowledgedefinition
 Title: "CRMI MedicationKnowledge Definition"
 Description: "Represents the definition of medication knowledge, suitable for use in various contexts"
 * insert StandardsMetadata(1)
-* extension contains 
-  $artifact-url named artifactUrl 0..1 MS and 
-  $artifact-version named artifactVersion 0..1 MS
 * code MS
 * relatedMedicationKnowledge
   * reference
@@ -23,4 +20,3 @@ Title: "CRMI Sharable MedicationKnowledge Definition"
 Description: "Enforces the minimum information set for the MedicationKnowledge metadata required by HL7 and other organizations that share and publish MedicationKnowledge"
 Parent: CRMIMedicationKnowledgeDefinition
 * insert DefinitionalIdentifiersAsExtension
-* obeys crmi-artifact-url-as-extension and crmi-artifact-version-as-extension and crmi-canonical-identifier-as-extension

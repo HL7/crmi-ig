@@ -6,23 +6,16 @@
       "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-medicationdefinition"
     ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
-      "valueUri": "http://example.org/Medication/medication-definition-example"
-    },
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
-      "valueString": "1.0.0"
-    }
-  ],
   "identifier": [
     {
-      "type": "version-independent",
-      "value": "http://example.org/Medication/medication-definition-example"
-    },
-    {
-      "type": "version-dependent",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-identifier-type",
+            "code": "canonical"
+          }
+        ]
+      },
       "value": "http://example.org/Medication/medication-definition-example|1.0.0"
     }
   ],

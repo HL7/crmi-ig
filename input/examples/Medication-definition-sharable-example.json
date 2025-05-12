@@ -6,16 +6,6 @@
       "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-sharablemedicationdefinition"
     ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",
-      "valueUri": "http://example.org/Medication/medication-definition-sharable-example"
-    },
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/artifact-version",
-      "valueString": "1.0.0"
-    }
-  ],
   "identifier": [
     {
       "type": {

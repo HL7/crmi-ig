@@ -17,6 +17,3 @@ RuleSet: DefinitionalIdentifiers
 RuleSet: DefinitionalIdentifiersAsExtension
 * extension contains $artifact-identifier named artifact-identifier-canonical 1..* MS
 * extension[artifact-identifier-canonical].valueIdentifier.type = $artifact-identifier-type-codesystem#canonical
-
-RuleSet: ObeysArtifactIdentifiers
-* obeys crmi-artifact-url and crmi-artifact-version and crmi-canonical-identifier
