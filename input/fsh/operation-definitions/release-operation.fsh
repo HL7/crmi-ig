@@ -7,9 +7,9 @@ Usage: #definition
 * name = "CRMIRelease"
 * title = "CRMI Release"
 * kind = #operation
-* description = "The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program's manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively."
+* description = "The release operation performs release processing, including setting the date element of the resource and pinning versions of all direct and transitive references and recording them in the manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively."
 * code = #release
-* comment = "The release operation supports the ability of an authoring repository to transition an artifact and, transitively, any referenced and owned (as indicated by the 'crmiOwned' extension on the RelatedArtifact reference) component artifacts to a released state. The operation SHALL update the status of all owned components to 'active' and update their date to the current date. The operation SHALL ensure that all references for which a version is determined are recorded in the version manifest. For both components and dependencies, if versions are not specified in the relevant reference, the operation will lookup the version to be used in the version manifest.\\n\\nWhen 'requireVersionSpecificReferences' is true then all references SHALL either be version-specific or, if they are not, an entry SHALL exist in the version manifest to specify which version of the referenced resource should be used. If, 'requireVersionSpecificReferences' is true and there exists a reference that is not version-specific and no entry exists in the version manifest for the referenced resource, the program is considered to be in an invalid state and not eligible for release. If 'requireVersionSpecificReferences' is false (the default), then unversioned references are valid and the artifact can be released in that state - deferring the version determination to the consumer.\\n\\nWhen 'requireActiveReferences' is true then the operation SHALL throw an error if any 'draft' or 'retired' dependencies are found."
+* comment = "The release operation supports the ability of an authoring repository to release an artifact and, transitively, any referenced and owned (as indicated by the 'crmiOwned' extension on the RelatedArtifact reference) component artifacts. The operation SHALL update the date of the artifact and all owned children to the given releaseDate parameter, if specified, otherwise the current date. The operation SHALL ensure that all references for which a version is determined are recorded in the version manifest. For both components and dependencies, if versions are not specified in the relevant reference, the operation will lookup the version to be used in the version manifest.\\n\\nWhen 'requireVersionSpecificReferences' is true then all references SHALL either be version-specific or, if they are not, an entry SHALL exist in the version manifest to specify which version of the referenced resource should be used. If, 'requireVersionSpecificReferences' is true and there exists a reference that is not version-specific and no entry exists in the version manifest for the referenced resource, the artifact is considered to be in an invalid state and not eligible for release. If 'requireVersionSpecificReferences' is false (the default), then unversioned references are valid and the artifact can be released in that state - deferring the version determination to the consumer.\\n\\nWhen 'requireActiveReferences' is true then the operation SHALL throw an error if any 'draft' or 'retired' dependencies are found."
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
 * resource[+] = #CodeSystem
@@ -90,6 +90,13 @@ Usage: #definition
 * parameter[=].type = #code
 * parameter[=].binding.strength = #required
 * parameter[=].binding.valueSet = "http://hl7.org/fhir/uv/crmi/ValueSet/crmi-release-experimental-behavior"
+
+* parameter[+].name = #releaseDate
+* parameter[=].use = #in
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "The release date of the artifact. If this parameter is not specified, the current date is used. The date element of the artifact and any owned children will be set to the releaseDate."
+* parameter[=].type = #dateTime
 
 * parameter[+].name = #releaseLabel
 * parameter[=].use = #in
