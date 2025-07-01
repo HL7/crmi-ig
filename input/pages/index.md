@@ -39,9 +39,9 @@ The implementation guide defines:
 
 In particular, this implementation guide enables a consistent approach to developing knowledge artifacts as FHIR resources so that they can be seamlessly integrated with the existing FHIR publishing ecosystem, and can be easily deployed and implemented as part of existing FHIR infrastructures. At the same time, the additional capabilities for packaging and distribution enable use cases that cannot be easily achieved with current FHIR packages, such as:
 
-1. Focused packaging: Retrieving a package a specific artifact with its dependencies. For example a package for a Questionnaire that includes all and only the resources required to fill out that questionnaire.
-2. Artifact selection: Retrieving a set of artifacts together with their related depedencies, independent of the publication grouping. For example, a measure set may include fifty (50) measures, but a provider system is only reporting on five (5) of those measures.
-3. Platform-specific packaging: Retrieving a package tailored for the capabilities of a particular implementation environment. For example, a set of guideline recommendations together with pre-expanded value sets
+1. Focused packaging: Retrieving a package for a specific artifact with its dependencies. For example a package for a Questionnaire that includes all and only the resources required to fill out that questionnaire.
+2. Artifact selection: Retrieving a set of artifacts together with their related dependencies, independent of the publication grouping. For example, a measure set may include fifty (50) measures, but a provider system is only reporting on five (5) of those measures.
+3. Platform-specific packaging: Retrieving a package tailored for the capabilities of a particular implementation environment. For example, a set of guideline recommendations together with pre-expanded value sets.
 
 #### Artifacts
 
