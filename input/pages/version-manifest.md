@@ -8,7 +8,7 @@ This topic discusses the use of terminology within artifacts and the challenges 
 
 The use of standardized terminologies in canonical resources (including profile and extension definitions, as well as knowledge artifacts such as questionnaires, measures, and decision support rules) is key to enabling interoperable semantics, allowing authors and consumers of these artifacts to share a common understanding. In particular, the use of ValueSets as a means for describing shared understanding of a clinical concept or set of concepts is ubiquitous in healthcare knowledge artifacts. However, the number of standardized terminologies, as well as the differing publication cycles and versioning strategies of each present significant challenges for both authors and implementers.
 
-This section provides a brief introduction to the key aspects of terminology usage in knowledge artifacts, specifically FHIR-based knowledge artifacts, and then describes these challenges, and proposes a solution in the form of a _version manifest_.
+This section provides a brief introduction to the key aspects of terminology usage in knowledge artifacts, specifically FHIR-based knowledge artifacts, and then describes these challenges, and proposes a solution in the form of a _manifest_.
 
 Standardized terminologies are used throughout FHIR to represent coded values in FHIR resources, such as a Patient's gender, the status and type of an Encounter, the code of a Condition or Procedure, or the code and result of an Observation. In all these cases, terminologies are used to represent the allowable values for these coded elements.
 
@@ -85,9 +85,9 @@ The second option we consider is to specify the code system and value set versio
 
 However, this option again creates a significant maintenance burden because it requires artifact authors to _version_ their artifacts, even though nothing about the definition really changed.
 
-#### Option 3: Version Manifest
+#### Option 3: Manifest
 
-The third option, and the one recommended by this implementation guide, is to separate the version information from both the artifact and the value set, and provide it as part of a _version manifest_, as depicted in the following diagram:
+The third option, and the one recommended by this implementation guide, is to separate the version information from both the artifact and the value set, and provide it as part of a _manifest_, as depicted in the following diagram:
 
 {% include img.html img="version-manifest-usage.png" %}
 
@@ -95,25 +95,50 @@ This approach means that the version information can be supplied as part of the 
 
 In addition, it allows the same artifacts and value sets to be included in different artifact packages, and means that the version can be used to only reflect real change in the artifacts, rather than having to increment version information just to support terminology versioning.
 
-### Version Manifest
-{: #version-manifest-detail}
+### Manifest
+{: #manifest}
 
-A _version manifest_ as defined by this implementation guide is an _asset collection_ library (i.e. an instance of a Library resource with a type of `asset-collection`), and conforming to the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile. A version manifest may contain any number of `depends-on` `relatedArtifact` entries to specify the version for any references to canonical resources within the artifacts of the release.
+Conceptually, a _manifest_ is a way to provide the versions for versionless references from within an artifact. There are two levels to providing this capability:
 
-In addition, the version manifest profile allows for specifying the _expansion parameters_, i.e. values for the parameters that should be provided to the `$expand` operation whenever an expansion request is made.
+1. Through a _manifest parameters_, i.e. a Parameters resource that provides all and only the "pinned" versions of versionless references
+2. Through a _manifest library_, i.e. a Library resource that includes a _manifest parameters_ but also provides additional context and information about the use of an artifact collection
 
-Version manifests typically correspond to program-level artifacts such as "eCQM Annual Update - Eligible Hospitals". A version manifest may have any number of `composed-of` `relatedArtifact` entries to specify the component artifacts that make up a release.
+#### Manifest Parameters
 
-And to support artifacts that make use of Clinical Quality Language, a version manifest may also include a cqlOptions extension that allows various CQL options to be provided as part of the manifest.
+A _manifest parameters_, or a Parameters resource conforming to at least the [CRMIManifestParameters](StructureDefinition-crmi-manifestparameters.html) profile, contains all and only the pinned versions of versionless references that appear in an artifact collection. As an example, an ImplementationGuide may include a manifest parameters that pins references from artifacts in the implementation guide. (See the [Managing Canonical Versions](https://build.fhir.org/ig/FHIR/ig-guidance/pinning.html#controlling-where-pinning-happens) topic in FHIR IG Guidance for a discussion of how to do this using the IG publishing infrastructure.
 
-To make use of a version manifest, whenever a version-independent canonical reference from an artifact needs to be resolved, first check the version manifest to determine whether the canonical has a version-binding in the manifest. If it does not, proceed as normal. If it does, use the canonical from the version-binding in order to resolve the reference.
+More generally, given a collection of artifacts, the CRMIManifestParameters resource is constructed by:
+
+1. For each artifact, trace through the elements to identify any canonical references (see [Dependency Tracing](distribution.html#dependency-tracing))
+1. For each canonical reference, if the reference is versionless
+    1. If the reference is already in the manifest parameters, that is the pinned version
+    1. Otherwise, resolve the most recent known version of the artifact, and
+        1. If the artifact is a value set, record the version in the manifest parameters using the default-valueset-version parameter
+        2. If the artifact is a code system, record the version in the manifest parameters using the default-system-version parameter
+        3. Otherwise, record the version in the manifest parameters using the default-canonical-version parameter
+
+These parameters are specifically named so that they can be used to provide values for the parameters to operations such as ValueSet/$expand, ValueSet/$validate-code, and so on. Effectively, the manifest parameters provide a default for expansion parameters. In addition, because the process above allows for existing artifact versions to be specified, it can also be used to proactively pin versions of specific artifacts as input to the process (e.g. selecting a specific version of SNOMED). This is the same mechanism the IG publisher uses to provide [expansion-parameters](https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html).
+
+#### Manifest Library
+
+Building on the capability provided by manifest parameters, a _manifest library_ is an _asset collection_ library (i.e. an instance of a Library resource with a type of `asset-collection`), and conforming to the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile that provides complete dependency and usage information for an artifact collection. Roughly, a manifest library will contain:
+
+1. Components: Any number of `composed-of` `relatedArtifact` entries that specify the canonical resources in the artifact collection
+1. Dependencies: Any number of `depends-on` `relatedArtifact` entries that specify the canonical resources referenced by artifacts of the release. The dependencies are listed regardless of whether the source reference is versioned, but versionless references will also have an entry in the manifest parameters, represented as a contained Parameters resource referred to by the CRMIExpansionParameters extension.
+
+Manifest Libraries allow for collections of artifacts to be described, together with all the information required to correctly make use of those artifacts in a particular context or setting. For example, a typical use of a Manifest Library is to describe the measures in an eCQM Annual Update release. In this case, the components of the manifest library are the measures that make up the release, and the dependencies are any code systems, value sets, libraries, or other canonical dependencies referenced by the measures.
+
+To support artifacts that make use of Clinical Quality Language, a version manifest may also include a `cqlOptions` extension that allows various CQL options to be provided as part of the manifest.
+
+The following sections discuss how a manifest can be used within implementation and authoring environments to support predictable dependency resolution.
 
 ### Implementation Strategy
 
-There are two potential implementation strategies considered here:
+Determining which manifest to use can be done in several ways. There are three potential implementation strategies considered here:
 
 1. A `manifest` parameter to an operation that involves artifact evaluation
 2. An `X-Manifest` header that allows the version manifest binding behavior to be described independent of the specific operation being performed
+3. Determine the package or collection in which the artifact being evaluated is defined
 
 #### Manifest Parameter
 
@@ -139,7 +164,18 @@ X-Manifest: http://example.org/fhir/Library/example-manifest
 [body]
 ```
 
-When performing the operation, whenever a canonical reference is resolved, if the reference is version-independent, then the version manifest is used to look up the canonical reference by url, and if a version binding is present in the manifest for that artifact, that is the reference used to resolve the resource.
+#### Artifact Source Manifest
+
+If the package or collection in which the artifact being evaluated is known, this information is used to establish the manifest to be used. For example, if the artifact is defined in an implementation guide, the packageSource extension can be used to identify the package. See the [Artifact Package Source](artifact-lifecycle.html#artifact-package-source) discussion for more information on this approach.
+
+### Canonical Resolution With A Manifest
+
+To make use of a manifest, whenever a version-independent canonical reference from an artifact needs to be resolved, first check the manifest parameters to determine whether the canonical has a version-binding in the manifest:
+
+* Find any `default-system-version`, `default-valueset-version`, or `default-canonical-version` parameter that matches the version-independent canonical
+    * i.e. matches means the canonical reference is the same up to but not including the version delimiter (`|`) in the parameter
+
+If this results in a matching parameter, use the value of the parameter as the canonical reference to resolve.
 
 For example, given the following reference to a ValueSet:
 
@@ -173,10 +209,11 @@ And the following example manifest:
   ]
 }
 ```
-Resolving the canonical reference `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018` in the context of a request with the X-Manifest header above, will look up the `example-manifest`, search for a version-specific reference to that URL, and return the version-specific reference for resolution.
+
+Resolving the canonical reference `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018` in the context of an operation establishing a manifest, will look up the `example-manifest`, search for a version-specific reference to that URL, and return the version-specific reference for resolution.
 
 The result is that even though the artifact refers to a value set by a version-independent reference, it can be predictably bound to the specific version of the value set required for the release.
 
-In addition, if the operation specifically involves value set expansion, the `expansionParameters` extension of the manifest can be used to provide values for the parameters to the expand (such as `activeOnly` and `system-version`).
+In addition, if the operation specifically involves value set expansion, the `expansionParameters` extension of the manifest library can be used to provide values for the parameters to the expand (such as `activeOnly` and `system-version`).
 
 And finally, if the operation specifically involves CQL evaluation, the `cqlOptions` extension of the manifest can be used to provide options to the CQL evaluation environment.

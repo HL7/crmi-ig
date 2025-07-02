@@ -6,18 +6,8 @@
   "title": "CRMI Extension of Value Set Expansion",
   "status" : "active",
   "kind" : "operation",
-  "publisher" : "HL7 (FHIR Project)",
-  "contact" : [{
-    "telecom" : [{
-      "system" : "url",
-      "value" : "http://hl7.org/fhir"
-    },
-    {
-      "system" : "email",
-      "value" : "fhir@lists.hl7.org"
-    }]
-  }],
-  "description" : "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. \n\nIf the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message.",
+  "description" : "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. \n\nIf the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message.\n\nThis CRMI Extension adds support for providing value set versions, as well as the use of a manifest (parameters or library) to provide system and value set versions for references encountered during the expansion.",
+  "affectsState" : false,
   "code" : "expand",
   "comment" : "The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.  \n\nIf the expansion is too large (at the discretion of the server), the server MAY return an error (OperationOutcome with code too-costly). Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters, or use the count parameter to request a subset of the expansion for limited purposes. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  \n\nDifferent servers may return different results from expanding a value set for the following reasons:  \n\n* The underlying code systems are different (e.g. different versions, possibly with different defined behavior) \n* The server optimizes filter includes differently, such as sorting by code frequency \n* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server\n\nWhen a server cannot correctly expand a value set because it does not fully understand the code systems (e.g. it has the wrong version, or incomplete definitions) then it SHALL return an error. If the value set itself is unbounded due to the inclusion of post-coordinated value sets (e.g. SNOMED CT, UCUM), then the extension [http://hl7.org/fhir/StructureDefinition/valueset-unclosed](http://hl7.org/fhir/StructureDefinition/valueset-unclosed) can be used to indicate that the expansion is incomplete",
   "base": "http://hl7.org/fhir/OperationDefinition/ValueSet-expand",
@@ -174,6 +164,14 @@
     "use" : "in",
     "min" : 0,
     "max" : "*",
+    "documentation" : "(Deprecated, use default-system-version). Specifies a version to use for a system, if the value set does not specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56",
+    "type" : "canonical"
+  },
+  {
+    "name" : "default-system-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
     "documentation" : "Specifies a version to use for a system, if the value set does not specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56",
     "type" : "canonical"
   },
@@ -198,16 +196,17 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Specifies an asset-collection library that provides expansion rules for the operation. See the description of manifest for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter.",
-    "type": "canonical"
+    "documentation" : "Specifies a manifest library that provides expansion rules for the operation. See the description of manifest library for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter. It is an error to supply both a manifest and a manifestParameters.",
+    "type" : "canonical",
+    "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Library"]
   },
   {
-    "name" : "expansion",
+    "name" : "manifestParameters",
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Specifies an expansion identifier to be used. If the value set has an expansion with that identifier, that expansion is used. This parameter has the same behavior as using the `expansion` search parameter with the canonical url for the value set. If the server performing the expand does not know the expansion identifier, it SHALL return an error. An expansion parameter takes precedence over other parameters that control expansion, since the expansion identifier establishes the expansion to be returned.",
-    "type" : "uri"
+    "documentation" : "Specifies manifest parameters that provide expansion rules for the operation. See the description of manifest parameters for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter. It is an error to supply both a manifest and a manifestParameters.",
+    "type": "Parameters"
   },
   {
     "name" : "includeDraft",
@@ -218,27 +217,27 @@
     "type" : "boolean"
   },
   {
-    "name" : "canonicalVersion",
+    "name" : "default-valueset-version",
     "use" : "in",
     "min" : 0,
     "max" : "*",
-    "documentation" : "Specifies a version to use for a canonical resource if the artifact referencing \nthe resource does not already specify a version. The format is the same as a canonical URL:\n[url]|[version] - e.g. http://loinc.org|2.56 Note that this is a generalization of the `system-version`\nparameter to the $expand operation to apply to any canonical resource, including code systems.",
+    "documentation" : "Specifies a version to use for a value set if the artifact referencing the value set does not already specify a version. The format is the same as a canonical URL: [url]|[version] - e.g. http://example.org/ValueSet/example|1.0.0.",
     "type" : "canonical"
   },
   {
-    "name" : "checkCanonicalVersion",
+    "name" : "check-valueset-version",
     "use" : "in",
     "min" : 0,
     "max" : "*",
-    "documentation" : "Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing \nthe resource specifies a different version, an error is returned instead of the package. The\nformat is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 Note that\nthis is a generalization of the `check-system-version` parameter to the $expand operation to \napply to any canonical resource, including code systems.",
+    "documentation" : "Edge Case: Specifies a version to use for a value set. If the artifact referencing the resource specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [url]|[version] - e.g. http://example.org/ValueSet/example|1.0.0.",
     "type" : "canonical"
   },
   {
-    "name" : "forceCanonicalVersion",
+    "name" : "force-valueset-version",
     "use" : "in",
     "min" : 0,
     "max" : "*",
-    "documentation" : "Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any\nspecified version in the artifact (and any artifacts it depends on). The\nformat is the same as a canonical URL: [system]|[version] - e.g.\nhttp://loinc.org|2.56. Note that this has obvious safety issues, in that it may\nresult in a value set expansion giving a different list of codes that is both\nwrong and unsafe, and implementers should only use this capability reluctantly.\nIt primarily exists to deal with situations where specifications have fallen\ninto decay as time passes. If the version of a canonical is overriden, the version used SHALL\nexplicitly be represented in the expansion parameters. Note that this is a generalization of the\n`force-system-version` parameter to the $expand operation to apply to any canonical resource,\nincluding code systems.",
+    "documentation" : "Edge Case: Specifies a version to use for a value set. This parameter overrides any specified version in the artifact (and any artifacts it depends on). The format is the same as a canonical URL: [url]|[version] - e.g. http://example.org/ValueSet/example|1.0.0.",
     "type" : "canonical"
   },
   {
