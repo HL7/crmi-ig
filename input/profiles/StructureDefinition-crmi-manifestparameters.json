@@ -1,0 +1,191 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-manifestparameters",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters",
+  "name": "CRMIManifestParameters",
+  "title": "CRMI Manifest Parameters",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Clinical Decision Support WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The CRMI Manifest Parameters Profile defines the expected parameters used for representing version-pinning.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "001"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Parameters",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Parameters",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Parameters",
+        "path": "Parameters",
+        "mustSupport": false
+      },
+      {
+        "id": "Parameters.parameter",
+        "path": "Parameters.parameter",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "name"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Parameters.parameter:system-version",
+        "path": "Parameters.parameter",
+        "sliceName": "system-version",
+        "short": "Code system version (deprecated, use default-system-version)",
+        "definition": "Specifies a version to use for a code system, if the reference does not specify which one to use (i.e. is a version-independent reference). The format is the same as a versioned canonical reference: [system]|[version] - e.g. http://loinc.org|2.56",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Parameters.parameter:system-version.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "system-version"
+      },
+      {
+        "id": "Parameters.parameter:system-version.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:default-system-version",
+        "path": "Parameters.parameter",
+        "sliceName": "default-system-version",
+        "short": "Code system version",
+        "definition": "Specifies a version to use for a code system, if the reference does not specify which one to use (i.e. is a version-independent reference). The format is the same as a versioned canonical reference: [system]|[version] - e.g. http://loinc.org|2.56",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Parameters.parameter:default-system-version.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "default-system-version"
+      },
+      {
+        "id": "Parameters.parameter:default-system-version.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:default-valueset-version",
+        "path": "Parameters.parameter",
+        "sliceName": "default-valueset-version",
+        "short": "Value set version",
+        "definition": "Specifies a version to use for a value set, if the reference does not specify which one to use (i.e. is a version-independent reference). The format is the same as a versioned canonical reference: [valueset]|[version] - e.g. http://example.org/ValueSet/example|1.0.0",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Parameters.parameter:default-valueset-version.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "default-valueset-version"
+      },
+      {
+        "id": "Parameters.parameter:default-valueset-version.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:default-canonical-version",
+        "path": "Parameters.parameter",
+        "sliceName": "default-canonical-version",
+        "short": "Artifact version",
+        "definition": "Specifies a version to use for an artifact, if the reference does not specify which one to use (i.e. is a version-independent reference). The format is the same as a versioned canonical reference: [artifact-url]|[version] - e.g. http://example.org/StructureDefinition/example|1.0.0",
+        "comment": "This parameter specifies the version to use for any canonical type of canonical artifact. For legacy reasons, the system-version (deprecated) and default-system-version parameters are used for CodeSystem references, and the default-valueset-version parameter is used for ValueSet references.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Parameters.parameter:default-canonical-version.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "default-canonical-version"
+      },
+      {
+        "id": "Parameters.parameter:default-canonical-version.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "canonical"
+          }
+        ]
+      }
+    ]
+  }
+}
