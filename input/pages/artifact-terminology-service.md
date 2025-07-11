@@ -1,54 +1,57 @@
 {:toc}
 
-This page describes and documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based knowledge artifact specifications as described in this implementation guide.
+This page documents the use cases and conformance expectations of a terminology service to support authoring, distribution, and evaluation of FHIR-based knowledge artifacts as described in this implementation guide.
 
 This implementation guide is not advocating for any particular central authority for terminology content, rather the intent is to propose a capability statement that enables publishers to build consistent and interoperable terminology services that support authoring, distribution, and implementation of FHIR-based knowledge artifacts.
 
-This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html). In addition, though knowledge artifacts typically do not include patient-specific information, test data for knowledge artifacts can sometimes be derived from or based on real patient information. In this cases, care must be taken to ensure the data is scrubbed to remove any possibility of violating patient privacy or security.
+This implementation guide is not prescriptive about authentication or authorization, but strongly recommends that these capabilities be addressed through standard mechanisms, as described in [FHIR standard security mechanisms](https://www.hl7.org/fhir/security.html). In addition, though knowledge artifacts typically do not include patient-specific information, test data for knowledge artifacts can sometimes be derived from or based on real patient information. In these cases, care must be taken to ensure the data is scrubbed to remove any possibility of violating patient privacy or security.
 
 ### Use Cases
-Beyond the basic required use cases of searching, retrieving, and expanding value sets, applications that reference value sets that are defined in terms of code systems from different authorities and with different publishing timelines face common challenges related to stable expansion of those value sets. To address that general problem, this implementation guide proposes to use the Library resource as an _artifact collection_. Artifact collections are libraries of knowledge artifacts used to package sets of artifacts for development and release. From the perspective of a terminology service, artifact collections provide two main capabilities:
+Beyond the basic required use cases of searching, retrieving, and expanding value sets, applications that reference value sets that are defined in terms of code systems from different authorities and with different publishing timelines face common challenges related to stable expansion of those value sets. To address that general problem, this implementation guide proposes the concept of a _manifest_ that provides information about the usage artifacts for development and release. From the perspective of a terminology service, manifests provide two main capabilities:
 
-1. They act as a _version manifest_ to specify the versions of dependencies used by artifacts in the collection
-2. They allow _expansion rules_ to be specified for value sets used by artifacts in the collection
+1. They act as a _manifest library_ to provide a complete description of the dependencies and usage information required to use the artifacts in the collection
+2. They act as _expansion rules_ (i.e. _manifest parameters_) to specify how to expand value sets used by artifacts in the collection 
 
-Note that during the authoring phase, the value sets referenced by artifacts will change, but once released, the set is stable. Throughout this process, the focus of the capabilities supported by this service description are intended to ensure stable expansion of the value sets referenced by the artifacts.
+Note that during the authoring phase, as content is being developed, the value sets referenced by artifacts will in general change. However, once released, the set of dependencies must be stable. The focus of the capabilities supported by this service description is to ensure stable expansion of the value sets referenced by the artifacts throughout the content development and usage lifecycle.
 
-#### Version Manifest
-As a version manifest, an artifact collection specifies versioned canonical references for dependencies using `relatedArtifact` elements with a type of `depends-on`.
-Some systems will not support the ability to version manifests, any changes needed would require a new manifest. 
-(i.e. versioning of manifests is a MAY)
+#### Manifest Library
+As a manifest library, an artifact collection specifies the complete set of dependencies referenced by artifacts in the collection, recursively. In a release manifest, this information is represented using using `relatedArtifact` elements with a type of `depends-on`.
 
-> NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach cannot be used to override that version. For example, if an artifact explicitly references the version of a value set, the manifest cannot override that version.
+Some systems will not support the ability to version manifests, any changes needed would require a new manifest. (i.e. versioning of manifests is a MAY)
+
+> NOTE: If the version of an artifact is specified explicitly as part of the declaration in the artifact, the manifest approach can still be used to override that version using the force- version parameters (force-system-version, force-valueset-version, and force-canonical-version). Alternatively, particular versions can be checked (i.e. returning an error if particular versions are not used) using the check- version parameters (check-system-version, check-valueset-version, and check-canonical-version).
 
 #### Expansion Rules
-Artifact collections can specify _expansion rules_ for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource, where the parameter elements provide a default value for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
+Artifact collections can specify _expansion rules_ (i.e. _manifest parameters_) for value sets referenced by artifacts in the collection. This is done using the [cqf-expansionParameters]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-expansionParameters.html) extension to reference a contained Parameters resource that conforms to the [CRMIManifestParameters](StructureDefinition-crmi-manifestparameters.html) profile. The parameters in this Parameters resource provide default values for parameters to the $expand operation, consistent with the conformance requirements for the $expand operation supported by an artifact terminology service, including support for the following parameters:
 
 1. `activeOnly`
-2. `system-version` (or `canonical-version`)
-3. `check-system-version` (or `check-canonical-version`)
-4. `force-system-version` (or `force-canonical-version`)
-5. `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-6. `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+2. `default-system-version` (may still be seen as `system-version` for backwards-compatibility)
+2. `default-valueset-vesrion`
+3. `check-system-version`
+3. `check-valueset-version`
+4. `force-system-version`
+4. `force-valueset-version`
+6. `includeDraft` (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+
+> NOTE: CRMIManifestParameters is a generalization of expansion parameters, and may also contain `default-canonical-version`, `check-canonical-version` and `force-canonical-version` parameters to identify pinned versions of canonical resources other than CodeSystems and ValueSets. See the [Version Manifest](version-manifest.html) discussion for more information.
 
 Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
 
-1. If a parameter is specified as part of the $expand operation directly, it takes precedence
-2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
-3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
-4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
+1. If a parameter is specified as part of the $expand or $validate-code operation directly, it takes precedence
+2. If a `default-valueset-version` parameter is specified in the manifest parameters (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand (in the case that value set is being expanded directly) or as the `default-valueset-version` parameter otherwise
+3. If a `default-system-version` parameter is specified in the manifest parameters (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 
 > NOTE: The term _artifact collection_ can also be understood as a content Implementation Guide, in which case the ImplementationGuide resource serves as the container for the collection of artifacts; all the same discussions and use cases apply, in particular the ability to use the cqf-expansionParameters extension as described here. The [CRMIImplementationGuide](StructureDefinition-crmi-implementationguide.html) profile supports this use case.
 
 For ImplementationGuide, this extension specifies expansion parameters to be used for all ValueSet expansions for ValueSets defined in the IG or referenced by artifacts defined in the IG.
 
-Expansion parameters specified in the IG would override expansion parameters specified in dependency IGs, and can be overridden by expansion parameters in downstream IGs.
+Expansion parameters specified in the IG override expansion parameters specified in dependency IGs, and can be overridden by expansion parameters in downstream IGs.
 
 When the cqf-expansionParameters extension is used, it is intended to be binding (i.e. expansion SHALL take the expansion parameters into account, according to the expansion rules discussed here.
 
 #### Hosted Content
 
-Terminology services **MAY** act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they **MAY** provide features to author and manage content directly, or any combination. When hosting content that is managed elsewhere, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth. In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content **SHALL** be the same as the status of the content in the source of truth.
+Terminology services **MAY** act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they **MAY** provide features to author and manage content directly, or any combination. When hosting content that is managed externally, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth. In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content **SHALL** be the same as the status of the content in the source of truth.
 
 ### Code Systems
 
@@ -58,7 +61,7 @@ Terminology services **MAY** act as a repository for content that is managed and
 
 3. For hosted content, the data-absent-reason extension with a value of unknown **MAY** be used to satisfy required cardinality constraints of the Shareable and Publishable code system profiles when an element is not present in the source of truth for the content.
 
-4. CodeSystem resources returned by the repository **SHALL** use the meta.profile element to indicate which profiles the CodeSystem resource conforms to.
+4. CodeSystem resources returned by the repository **SHALL** use the `meta.profile` element to indicate which profiles the CodeSystem resource conforms to.
 
 5. **SHALL** support CodeSystem read by the server-defined id for the CodeSystem
 
@@ -153,6 +156,11 @@ Note that when a code system authority has not established a versioning system, 
     7. **SHALL** support the systemVersion parameter
     8. **SHALL** support the coding parameter
     9. **SHALL** support the codeableConcept parameter
+    10. **SHALL** support the default-valueset-version parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
+    11. **SHALL** support the check-valueset-version parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
+    12. **SHALL** support the force-valueset-version parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
+    13. **SHOULD** support the manifest parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
+    14. **SHOULD** support the manifestParameters parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
 
 11. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
     1. **SHALL** support the url parameter
@@ -161,20 +169,20 @@ Note that when a code system authority has not established a versioning system, 
     4. **SHALL** support the displayLanguage parameter
     5. **SHALL** support the limitedExpansion parameter
     6. **SHALL** support the default-to-latest-version parameter
-    7. **SHALL** support the system-version parameter
+    7. **SHALL** support the default-system-version parameter (**MAY** be represented as system-version for backwards-compatibility)
     8. **SHALL** support the check-system-version parameter
     9. **SHALL** support the force-system-version parameter
-    10. **SHALL** support the canonicalVersion parameter (defined in the crmi-valueset-expand)
-    11. **SHALL** support the checkCanonicalVersion (defined in the crmi-valueset-expand)
-    12. **SHALL** support the forceCanonicalVersion (defined in the crmi-valueset-expand)
+    10. **SHALL** support the default-valueset-version parameter (defined in the crmi-valueset-expand)
+    11. **SHALL** support the check-valueset-version (defined in the crmi-valueset-expand)
+    12. **SHALL** support the force-valueset-version (defined in the crmi-valueset-expand)
     10. **SHOULD** support includeDesignation parameter
     11. **SHOULD** support designation parameter
     12. **SHOULD** support paging parameters
-    13. **SHOULD** support the `manifest` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    14. **MAY** support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    15. **SHOULD** support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    13. **SHOULD** support the manifest parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    14. **SHOULD** support the manifestParameters parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    15. **SHOULD** support the includeDraft parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
 
-### Artifact Collections
+### Artifact Collections (i.e. Manifest Libraries)
 
 1. **SHALL** Represent basic artifact collection information, as specified by the [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html) profile, which includes identifier, title, type, date, useContext, effectivePeriod, and terminology references
 
@@ -196,18 +204,19 @@ Note that when a code system authority has not established a versioning system, 
 
 4. **SHALL** support specifying expansion rules for the following $expand parameters
     1. **SHALL** support the activeOnly parameter
-    2. **SHALL** support the system-version parameter
+    2. **SHALL** support the default-system-version parameter (**MAY** appear as system-version for backwards-compatibility)
     3. **SHALL** support the check-system-version parameter
     4. **SHALL** support the force-system-version parameter
-    5. **SHOULD** support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    6. **SHOULD** support other parameters
-    7. **MAY** support the `expansion` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    5. **SHALL** support the default-valueset-version parameter
+    6. **SHALL** support the check-valueset-version parameter
+    7. **SHALL** support the force-valueset-version parameter
+    8. **SHOULD** support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    9. **SHOULD** support other parameters
 
 5. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:
-    1. If a parameter is specified as part of the $expand operation directly, it takes precedence
-    2. If a ValueSet dependency is specified as part of the version manifest (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand
-    3. If a CodeSystem dependency is specified as part of the version manifest (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
-    4. Version information specified in the expansion parameters takes precedence over version information specified as part of the version manifest (i.e. as a relatedArtifact dependency in the artifact collection library)
+    1. If a parameter is specified as part of the $expand or $validate-code operation directly, it takes precedence
+    2. If a `default-valueset-version` parameter is specified in the manifest parameters (and no version for the value set is specified in the artifact reference), the version has the same meaning as the `valueSetVersion` parameter to the $expand (in the case that value set is being expanded directly) or as the `default-valueset-version` parameter otherwise
+    3. If a `default-system-version` parameter is specified in the manifest parameters (and no version for the code system is specified in the artifact reference), the version has the same meaning as the `system-version` parameter to the $expand
 
 6. **SHALL** support version manifest and release value set packaging: [Library/$package](OperationDefinition-crmi-package.html) operation
     1. **SHALL** support the url parameter
@@ -217,9 +226,12 @@ Note that when a code system authority has not established a versioning system, 
     5. **SHOULD** support canonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
     6. **SHOULD** support checkCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
     7. **SHOULD** support forceCanonicalVersion parameter (overrides any canonical resource versions specified in the manifest)
-    8. **SHOULD** support system-version parameter (overrides code system versions specified in the quality program release)
-    9. **SHOULD** support check-system-version parameter (overrides code system versions specified in the quality program release)
-    10. **SHOULD** support force-system-version parameter (overrides code system versions specified in the quality program release)
+    8. **SHOULD** support default-system-version parameter (formerly system-version) (overrides code system versions specified in the manifest)
+    9. **SHOULD** support check-system-version parameter (overrides code system versions specified in the manifest)
+    10. **SHOULD** support force-system-version parameter (overrides code system versions specified in the manifest)
+    8. **SHOULD** support default-valueset-version parameter (overrides value set versions specified in the manifest)
+    9. **SHOULD** support check-valueset-version parameter (overrides value set versions specified in the manifest)
+    10. **SHOULD** support force-valueset-version parameter (overrides value set versions specified in the manifest)
 
 7. **SHALL** support operations to enable maintenance of release specifications for artifact collections using Library resources that conform to the CRMIManifestLibrary profile.
     1. **SHALL** support creating a Library in `draft` status (using POST)
@@ -248,7 +260,6 @@ Note that when a code system authority has not established a versioning system, 
     2. **SHOULD** support `text`
 
 5. Servers **SHALL** support the expression of AND and OR search parameters for all search parameters, as defined in the [composite search parameter topic](http://hl7.org/fhir/R4/search.html#combining)
-
 
 ### Capability Statement
 

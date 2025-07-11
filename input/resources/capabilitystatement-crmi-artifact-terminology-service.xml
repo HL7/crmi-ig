@@ -377,6 +377,13 @@
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHOULD"/>
+      </extension>
+      <name value="expand"/>
+      <definition value="http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-valueset-validate-code"/>
+    </operation>
+    <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="package"/>

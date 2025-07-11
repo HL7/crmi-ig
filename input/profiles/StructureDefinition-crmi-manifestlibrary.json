@@ -29,7 +29,7 @@
       ]
     }
   ],
-  "description": "Defines and supports the definition of a manifest used to establish specific versions of dependencies used in a collection of knowledge artifacts",
+  "description": "Provides for the definition of a manifest library that provides complete dependency and usage information for a collection of knowledge artifacts",
   "purpose": "Knowledge artifacts must be able to specify versioning information for all the dependencies used in a particular release to enable stable expansion of value sets and consistent resolution of dependencies. For example, the versions of code systems used in value sets referenced by the artifacts must be identified so that terminology servers performing expansions can unambiguously select the version of each code system used to perform the expansion.",
   "fhirVersion": "4.0.1",
   "mapping": [
@@ -64,8 +64,8 @@
       {
         "id": "Library",
         "path": "Library",
-        "definition": "Represents an artifact manifest, specifying version-specific dependencies of an artifact or group of artifacts. Artifact manifests are used throughout the content development lifecycle to establish version bindings for unversioned canonical references. Prior to release (when the status is draft) of the artifact(s), the manifest establishes the expansion rules such as code system versions used for expansion of value sets while artifacts are being authored. As part of release, the manifest is used to provide a complete dependency listing, as well as complete binding for all unversioned dependencies referenced in the artifacts so that canonical references can be reliably resolved, ensuring the stability of value set expansions used for evaluation of the artifacts.",
-        "comment": "Prior to release, artifact(s) should specify code system versions to support stable expansion of value sets during the development phase (also called an expansion profile). Post release, the artifact(s) may specify expansion identifiers to lock the code lists used for value sets. Provisional codes can be specified using the code system version mechanism (i.e. it is not the case that only one code system version can be specified per code system in an expand, and a manifest).",
+        "definition": "Represents an artifact manifest library, providing complete dependency and usage information for an artifact or collection of artifacts. Artifact manifests are used throughout the content development lifecycle to establish version bindings for unversioned canonical references. Prior to release of the artifact(s), the manifest establishes the expansion rules such as code system versions used for expansion of value sets while artifacts are being authored. As part of release, the manifest is used to provide a complete dependency listing, as well as complete binding for all unversioned dependencies referenced in the artifacts so that canonical references can be reliably resolved, ensuring the stability of value set expansions used for evaluation of the artifacts.",
+        "comment": "Prior to release, artifact(s) should specify code system versions to support stable expansion of value sets during the development phase (also called an expansion profile). Post release, the artifact(s) will specify pinned canonical references for any unversioned canonical references to ensure reliable expansion of value sets. Provisional codes can be specified using the code system version mechanism (i.e. it is not the case that only one code system version can be specified per code system in an expand, and a manifest).",
         "mustSupport": false
       },
       {
@@ -132,6 +132,18 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "Library.extension:expansionParameters.value[x]",
+        "path": "Library.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters"
+            ]
+          }
+        ]
       },
       {
         "id": "Library.type",
