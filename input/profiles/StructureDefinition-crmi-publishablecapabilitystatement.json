@@ -198,6 +198,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "CapabilityStatement.extension:relatedArtifact.extension:publicationDate",
+      "path" : "CapabilityStatement.extension.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "CapabilityStatement.extension:relatedArtifact.extension:publicationStatus",
+      "path" : "CapabilityStatement.extension.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "CapabilityStatement.date",
       "path" : "CapabilityStatement.date",
       "min" : 1,
