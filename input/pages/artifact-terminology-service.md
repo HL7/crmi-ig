@@ -234,12 +234,11 @@ Note that when a code system authority has not established a versioning system, 
     10. **SHOULD** support force-valueset-version parameter (overrides value set versions specified in the manifest)
 
 7. **SHALL** support operations to enable maintenance of release specifications for artifact collections using Library resources that conform to the CRMIManifestLibrary profile.
-    1. **SHALL** support creating a Library in `draft` status (using POST)
-    2. **SHALL** support updating a Library in `draft` status (using PUT)
+    1. **SHALL** support creating a Library (using POST)
+    2. **SHALL** support updating a Library (using PUT)
     3. **SHALL** support updating the status of a Library in `draft` to `active` (using PUT)
     4. **SHALL** support updating the status of a Library in `active` status to `retired` (using PUT)
-    5. **SHALL** reject attempts to update elements of a Library other than status if the Library is not in `draft` status
-    6. **SHALL** reject attempts to create Libraries that have the same `url` and `version` as another library
+    6. **SHALL** reject attempts to create a Library that has the same `url` and `version` as another library
 
 ### Server Operations
 
