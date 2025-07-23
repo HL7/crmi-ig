@@ -109,7 +109,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-approvalDate"]
       }],
       "mustSupport" : true
     },
@@ -121,7 +121,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate"]
       }],
       "mustSupport" : true
     },
@@ -133,7 +133,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"]
       }],
       "mustSupport" : true
     },
