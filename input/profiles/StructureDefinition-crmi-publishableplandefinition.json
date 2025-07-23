@@ -66,6 +66,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "PlanDefinition.extension:artifactComment",
+      "path" : "PlanDefinition.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "PlanDefinition.identifier",
       "path" : "PlanDefinition.identifier",
       "mustSupport" : true

@@ -78,6 +78,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "Library.extension:artifactComment",
+      "path" : "Library.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "Library.identifier",
       "path" : "Library.identifier",
       "mustSupport" : true

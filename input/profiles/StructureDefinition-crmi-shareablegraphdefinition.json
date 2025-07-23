@@ -66,18 +66,6 @@
       "mustSupport" : true
     },
     {
-      "id" : "GraphDefinition.extension:artifactComment",
-      "path" : "GraphDefinition.extension",
-      "sliceName" : "artifactComment",
-      "min" : 0,
-      "max" : "*",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
-      }],
-      "mustSupport" : true
-    },
-    {
       "id" : "GraphDefinition.extension:versionAlgorithm",
       "path" : "GraphDefinition.extension",
       "sliceName" : "versionAlgorithm",

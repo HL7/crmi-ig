@@ -198,6 +198,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "CapabilityStatement.extension:artifactComment",
+      "path" : "CapabilityStatement.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "CapabilityStatement.date",
       "path" : "CapabilityStatement.date",
       "min" : 1,

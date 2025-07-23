@@ -210,6 +210,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "ImplementationGuide.extension:artifactComment",
+      "path" : "ImplementationGuide.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "ImplementationGuide.date",
       "path" : "ImplementationGuide.date",
       "min" : 1,

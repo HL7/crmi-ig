@@ -198,6 +198,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "TerminologyCapabilities.extension:artifactComment",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "TerminologyCapabilities.date",
       "path" : "TerminologyCapabilities.date",
       "min" : 1,

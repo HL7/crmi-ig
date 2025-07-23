@@ -66,18 +66,6 @@
       "mustSupport" : true
     },
     {
-      "id" : "Questionnaire.extension:artifactComment",
-      "path" : "Questionnaire.extension",
-      "sliceName" : "artifactComment",
-      "min" : 0,
-      "max" : "*",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
-      }],
-      "mustSupport" : true
-    },
-    {
       "id" : "Questionnaire.extension:versionAlgorithm",
       "path" : "Questionnaire.extension",
       "sliceName" : "versionAlgorithm",

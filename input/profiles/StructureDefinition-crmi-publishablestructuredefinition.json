@@ -186,6 +186,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "StructureDefinition.extension:artifactComment",
+      "path" : "StructureDefinition.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "StructureDefinition.identifier",
       "path" : "StructureDefinition.identifier",
       "mustSupport" : true
