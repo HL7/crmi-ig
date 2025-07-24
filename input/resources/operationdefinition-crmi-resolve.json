@@ -1,0 +1,163 @@
+{
+  "resourceType" : "OperationDefinition",
+  "id" : "crmi-resolve",
+  "url" : "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-resolve",
+  "name" : "CRMIResolve",
+  "title": "CRMI Resolve",
+  "status" : "active",
+  "kind" : "operation",
+  "description" : "Resolves a canonical reference, returning the resource (or resources) resolved.",
+  "affectsState" : false,
+  "code" : "resolve",
+  "comment" : "If the canonical reference is unversioned, this operation uses the _latest version_ algorithm specified in the version manifest topic of this implementation guide to determine the version to be returned.",
+  "base": "http://hl7.org/fhir/OperationDefinition/ValueSet-expand",
+  "resource" : ["ActivityDefinition","CapabilityStatement","CodeSystem","ConceptMap","Evidence","EvidenceVariable","ExampleScenario","GraphDefinition","Group","ImplementationGuide","Library","Measure","Medication","MedicationKnowledge","NamingSystem","OperationDefinition","PlanDefinition","Questionnaire","SearchParameter","StructureDefinition","StructureMap","Substance","TerminologyCapabilities","ValueSet"],
+  "system" : true,
+  "type" : true,
+  "instance" : false,
+  "parameter" : [{
+    "name" : "resourceType",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "The kind of resource the canonical reference refers to. This parameter is only used when this operation is invoked at the server level.",
+    "type" : "code"
+  },
+  {
+    "name" : "canonical",
+    "use" : "in",
+    "min" : 1,
+    "max" : "1",
+    "documentation" : "The canonical reference to be resolved. This may or may not be a versioned referenced. If the reference is versionless, the operation uses the _latest version_ algorithm specified in the version manifest topic of this implementation guide to determine the version to be returned.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "sourceCanonical",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "A canonical reference to the resource that contains the reference being resolved.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "sourceReference",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "A reference to the specific instance of the resource (on this server) that contains the reference to be resolved (to avoid having to resolve the source canonical as well) (e.g. PlanDefinition/123).",
+    "type" : "string"
+  },
+  {
+    "name" : "duplicateBehavior",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "Indicates what to do if the resolution results in multiple possible targets (i.e. multiple versions of the same resource url). Note that this only applies to duplicates of url, not to duplicates of url and version. For example, a server may have multiple instances of a ValueSet with the same url and version representing the different expansions of the same value set. Possible values are error (default), most-recent, and all.",
+    "type" : "code"
+  },
+  {
+    "name" : "manifest",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "Specifies a manifest library that provides pinned canonicals. If the canonical being resolved is versionless, the manifest is used to attempt a look up of the canonical version. This parameter is exclusive with manifestParameters.",
+    "type" : "canonical",
+    "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Library"]
+  },
+  {
+    "name" : "manifestParameters",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "Specifies manifest parameters that provide pinned canonicals. If the canonical being resolved is versionless, the manifest parameters are used to attempt a look up of the canonical version. This parameter is exclusive with manifest.",
+    "type": "Parameters"
+  },
+  {
+    "name" : "system-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "(Deprecated, use default-system-version). Specifies a version to use for a system, if the value set does not specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56",
+    "type" : "canonical"
+  },
+  {
+    "name" : "default-system-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Specifies a version to use for a system, if the value set does not specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56",
+    "type" : "canonical"
+  },
+  {
+    "name" : "check-system-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Edge Case: Specifies a version to use for a system. If a value set specifies a different version, an error is returned instead of the expansion. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56",
+    "type" : "canonical"
+  },
+  {
+    "name" : "force-system-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the value set (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters",
+    "type" : "canonical"
+  },
+  {
+    "name" : "default-valueset-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Specifies a version to use for a value set if the artifact referencing the value set does not already specify a version. The format is the same as a canonical URL: [url]|[version] - e.g. http://example.org/ValueSet/example|1.0.0.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "check-valueset-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Edge Case: Specifies a version to use for a value set. If the artifact referencing the resource specifies a different version, an error is returned instead of the package. The format is the same as a canonical URL: [url]|[version] - e.g. http://example.org/ValueSet/example|1.0.0.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "force-valueset-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Edge Case: Specifies a version to use for a value set. This parameter overrides any specified version in the artifact (and any artifacts it depends on). The format is the same as a canonical URL: [url]|[version] - e.g. http://example.org/ValueSet/example|1.0.0.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "default-canonical-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Specifies a version to use for a canonical resource if the artifact referencing \nthe resource does not already specify a version. The format is the same as a canonical URL:\n[url]|[version] - e.g. http://loinc.org|2.56 Note that this is a generalization of the `system-version`\nparameter to the $expand operation to apply to any canonical resource, including code systems.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "check-canonical-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Edge Case: Specifies a version to use for a canonical resource. If the artifact referencing \nthe resource specifies a different version, an error is returned instead of the package. The\nformat is the same as a canonical URL: [url]|[version] - e.g. http://loinc.org|2.56 Note that\nthis is a generalization of the `check-system-version` parameter to the $expand operation to \napply to any canonical resource, including code systems.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "force-canonical-version",
+    "use" : "in",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "Edge Case: Specifies a version to use for a canonical resource. This parameter overrides any\nspecified version in the artifact (and any artifacts it depends on). The\nformat is the same as a canonical URL: [system]|[version] - e.g.\nhttp://loinc.org|2.56. Note that this has obvious safety issues, in that it may\nresult in a value set expansion giving a different list of codes that is both\nwrong and unsafe, and implementers should only use this capability reluctantly.\nIt primarily exists to deal with situations where specifications have fallen\ninto decay as time passes. If the version of a canonical is overriden, the version used SHALL\nexplicitly be represented in the expansion parameters. Note that this is a generalization of the\n`force-system-version` parameter to the $expand operation to apply to any canonical resource,\nincluding code systems.",
+    "type" : "canonical"
+  },
+  {
+    "name" : "return",
+    "use" : "out",
+    "min" : 0,
+    "max" : "*",
+    "documentation" : "The result of the resolve. Note that even for a versioned canonical reference it is still possible for the resolve to return multiple instances. For example, a server may have multiple expansions for a single version of a value set.",
+    "type" : "Resource"
+  }]
+}

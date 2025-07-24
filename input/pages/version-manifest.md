@@ -168,7 +168,7 @@ X-Manifest: http://example.org/fhir/Library/example-manifest
 
 If the package or collection in which the artifact being evaluated is known, this information is used to establish the manifest to be used. For example, if the artifact is defined in an implementation guide, the packageSource extension can be used to identify the package. See the [Artifact Package Source](artifact-lifecycle.html#artifact-package-source) discussion for more information on this approach.
 
-### Canonical Resolution With A Manifest
+### Canonical Resolution With a Manifest
 
 To make use of a manifest, whenever a version-independent canonical reference from an artifact needs to be resolved, first check the manifest parameters to determine whether the canonical has a version-binding in the manifest:
 
@@ -217,3 +217,31 @@ The result is that even though the artifact refers to a value set by a version-i
 In addition, if the operation specifically involves value set expansion, the `expansionParameters` extension of the manifest library can be used to provide values for the parameters to the expand (such as `activeOnly` and `system-version`).
 
 And finally, if the operation specifically involves CQL evaluation, the `cqlOptions` extension of the manifest can be used to provide options to the CQL evaluation environment.
+
+### Determining Latest Version
+
+In a repository context, the following steps should be taken to resolve an unversioned canonical reference:
+
+1. If a specific manifest is provided to the operation, use the manifest parameters to attempt to lookup the appropriate version.
+2. If a [package-source](https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-package-source.html) extension is present in the context (i.e. the resource the reference appears in), use that to find the package implementation guide resource, which contains manifest parameters
+3. Otherwise, fall back to the publication-tooling approach (use the base of the canonical in combination with the package dependency tree to resolve) (as described in (https://build.fhir.org/ig/FHIR/ig-guidance/pinning.html#choosing-the-correct-version)
+4. Otherwise, fall back to "latest known version"
+
+For example, given the following example PlanDefinition:
+
+```json
+PlanDefinition
+{ 
+  "id": "123",
+  "library": "http://hl7.org/fhir/Library/example"
+}
+```
+
+The following `$resolve` operation can be used to resolve the canonical reference:
+
+```
+$resolve: url=http://hl7.org/fhir/Library/example&source=PlanDefinition/123
+```
+
+Since the reference is unversioned, there is no manifest, and there is no package-source extension in the PlanDefinition, the resolution falls back to the latest known version.
+
