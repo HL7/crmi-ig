@@ -108,7 +108,7 @@
     "use" : "in",
     "min" : 0,
     "max" : "1",
-    "documentation" : "Controls whether the value set definition is included or excluded in value set expansions",
+    "documentation" : "Controls whether the value set definition is included or excluded in value set expansions. This includes all elements of the ValueSet, including extensions, with the exception that the `id` and `meta` elements would be specific to the expansion, not to the definition of the value set, and the expansion itself is filled out.",
     "type" : "boolean"
   },
   {
