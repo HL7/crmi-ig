@@ -49,6 +49,8 @@ Expansion parameters specified in the IG override expansion parameters specified
 
 When the cqf-expansionParameters extension is used, it is intended to be binding (i.e. expansion SHALL take the expansion parameters into account, according to the expansion rules discussed here.
 
+> NOTE: The previous version of this implementation guide used an "expansion" parameter to allow clients to request persisted expansions using the expansion identifier (one such system is VSAC). However, the "manifest" capability provided through FHIR terminology services replaces the need for the use of the expansion parameter. Some servers may use the manifest identifier as an expansion identifier to facilitate access to and use of persisted expansions.
+
 #### Hosted Content
 
 Terminology services **MAY** act as a repository for content that is managed and created elsewhere (i.e. hosted content AKA a convenience copy), or they **MAY** provide features to author and manage content directly, or any combination. When hosting content that is managed externally, the service must ensure that the content of the resource is materially the same (i.e. the values for all elements are the same where those elements are specified in the Shareable and Publishable profiles) as the source of truth. In particular, for systems that provide both management and hosting of externally managed content, the status element for hosted content **SHALL** be the same as the status of the content in the source of truth.
