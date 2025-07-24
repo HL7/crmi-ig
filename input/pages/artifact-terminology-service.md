@@ -144,7 +144,6 @@ Note that when a code system authority has not established a versioning system, 
     7. library: Returning any valueset that is referenced by the given library url (optionally versioned)
     8. artifact: Returning any valueset that directly or indirectly references or is referenced by the given artifact url (optionally versioned)
     9. Servers **SHOULD** support the _text and _content search parameters (as described in the [base specification](http://hl7.org/fhir/R4/search.html#text)
-    10. expansion: **MAY** support the expansion parameter in combination with url or identifier (and optionally version), returning a ValueSet instance with the given expansion identifier.
 
 10. **SHALL** Support [ValueSet/$validate-code](http://hl7.org/fhir/R4/valueset-operation-validate-code.html)
     1. **SHALL** support the url parameter
@@ -505,18 +504,20 @@ Note that the version of SNOMED in use is still listed as a dependency in the ar
 
 The following example illustrates a collection that is an _active_ instance of an artifact collection release used to provide stable extensions for the released artifacts in the collection.
 
-Specifically, the collection release uses the `expansion` parameter in the contained expansion parameters at the artifact collection level to indicate that all value sets used with artifacts in the program should expand using this expansion identifier:
+Specifically, the collection includes a manifest parameters that specifies pinned versions of unversioned references used in the artifact collection, as well as expansion parameters to be used when expanding value sets used in the artifact collection:
 
-```
+```json
+...
 {
-  "name": "expansion",
-  "valueUri": "eCQM%20Update%202020-05-07"
-}
+  "name": "system-version",
+  "valueCanonical": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901"
+},
+...
 ```
 
-In addition, the collection release specifies versions of code systems, value sets, and artifacts included in the release:
+In addition, the collection release specifies versions of code systems, value sets, and artifacts included in or referenced by artifacts in the release:
 
-```
+```json
 {
   "type": "depends-on",
   "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20190901",
@@ -603,7 +604,7 @@ Similarly, when using a release for the manifest parameter:
 [base]/ValueSet/chronic-liver-disease-legacy-example/$expand?manifest=http://hl7.org/fhir/uv/crmi/Library/ecqm-update-2020-05-07
 ```
 
-This is effectively the same as providing the `expansion` parameter to the value set expand, and results in the expansion with the specified expansion identifier:
+This is effectively the same as providing the relevant `system-version` parameters to the value set expand, and results in the expansion with the appropriate code system versions:
 
 ```
 "expansion": {
@@ -643,19 +644,3 @@ This is effectively the same as providing the `expansion` parameter to the value
   ]
 }
 ```
-
-#### Value Set Searches
-
-##### Expansion Search
-
-In addition to the use of the `expansion` parameter of the `$expand` operation, terminology services **SHOULD** support searching for a particular ValueSet expansion using the `expansion` search parameter:
-
-```
-[base]/ValueSet?url=http://hl7.org/fhir/uv/crmi/ValueSet/chronic-liver-disease-legacy-example&expansion=eCQM%20Update%202020-05-07
-```
-
-The result of this search is the same as requesting an `$expand` with the `expansion` parameter.
-
-##### Summary Search 
-
-{}summary is a as either a SHOULD support search parameter. The _{}summary{_} search parameter would allow responding with partial-data sets of artifacts, which may be desirable to boost performance for certain actions.
