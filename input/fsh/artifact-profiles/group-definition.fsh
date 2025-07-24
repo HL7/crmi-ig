@@ -14,7 +14,6 @@ Parent: Group
 Id: crmi-groupdefinition
 Title: "CRMI GroupDefinition"
 Description: "Represents the definition of a group of subjects, suitable for use in various contexts, such as a cohort definition, a recommendation inclusion or exclusion criteria, the members of a study, or a population criteria"
-* ^status = #active
 * insert StandardsMetadata(3)
 * obeys gdf-1
 * . ^mustSupport = false
@@ -34,7 +33,9 @@ Description: "Represents the definition of a group of subjects, suitable for use
 * characteristic MS
 * member
   * entity
-    * extension contains ArtifactCanonicalReference named profile 0..1 MS
+    * extension contains ArtifactReference named profile 0..1 MS
+    * extension[ArtifactReference].value[x] only canonical
     * extension[profile].valueCanonical obeys gdf-2
 * managingEntity
-  * extension contains ArtifactCanonicalReference named profile 0..1 MS
+  * extension contains ArtifactReference named profile 0..1 MS
+  * extension[ArtifactReference].value[x] only canonical

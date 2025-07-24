@@ -18,7 +18,6 @@
   "title": "CRMI Module Definition Library",
   "status": "active",
   "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -175,6 +174,7 @@
       {
         "id": "Library.dataRequirement",
         "path": "Library.dataRequirement",
+        "comment": "Include data requirements for any data referenced by logic in the module. Systems MAY include a profile reference in the data requirement if the logic expects a specific profile. When elements are referenced in the logic, systems MAY communicate this using the mustSupport element of the data requirement. If the element is an extension, the mustSupport will be a FHIRPath referencing the extension (e.g. `extension('http://example.org/fhir/StructureDefinition/example-extension')`), and the mustSupport list will include a `rendered-value` extension with the slice name of the extension for human-readable views. For CQL-based logic, refer to the Parameters and DataRequirements topic in the Using CQL With FHIR IG.",
         "requirements": "A module definition library must declare any data requirements.",
         "mustSupport": true
       },
@@ -184,6 +184,7 @@
         "sliceName": "isSelective",
         "short": "specifies whether a given DataRequirement is \"selective\"",
         "definition": "specifies whether a given DataRequirement is \"selective\", meaning that it can be used, along with other selective requirements, to determine whether an artifact is applicable to a particular subject.",
+        "comment": "Although this extension may be used by artifact authors as a way to indicate expected selectivity of a data requirement, it will more typically be used by implementers and downstream packaging repositories to indicate selectivity of a data requirement given known data heuristics in particular datasets.",
         "min": 0,
         "max": "1",
         "type": [
@@ -200,6 +201,7 @@
         "id": "Library.dataRequirement.extension:valueFilter",
         "path": "Library.dataRequirement.extension",
         "sliceName": "valueFilter",
+        "comment": "Supports describing additional filtering information for the data requirement. For example a restriction of encounter data to `finished` encounters.",
         "min": 0,
         "max": "*",
         "type": [

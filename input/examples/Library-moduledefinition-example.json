@@ -162,7 +162,7 @@
         "valueString": "Patient?_id={{context.patientId}}"
       } ],
       "type": "Patient",
-      "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ],
+      "profile": [ "http://example.org/fhir/us/qicore/StructureDefinition/qicore-patient" ],
       "mustSupport": [ "extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity')" ],
       "_mustSupport": [
         {
@@ -197,14 +197,14 @@
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
     } ],
       "type": "Encounter",
-      "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ],
+      "profile": [ "http://example.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
       } ]
     }, {
       "type": "Condition",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "profile": [ "http://example.org/fhir/us/qicore/StructureDefinition/qicore-Condition" ],
       "codeFilter": [ {
         "path": "id"
       } ]
@@ -214,7 +214,7 @@
         "valueString": "Coverage?policy-holder=Patient/{{context.patientId}}&type:in=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       } ],
      "type": "Coverage",
-      "profile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage" ],
+      "profile": [ "http://example.org/fhir/us/qicore/StructureDefinition/qicore-coverage" ],
       "codeFilter": [ {
         "path": "type",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"

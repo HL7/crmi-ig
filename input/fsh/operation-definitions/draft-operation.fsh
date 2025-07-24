@@ -8,7 +8,7 @@ Usage: #definition
 * title = "CRMI Draft"
 * description = "Creates a draft version of a knowledge artifact, as well as for all resources it is composed of."
 * kind = #operation
-* code = #crmi.draft
+* code = #draft
 * comment = "This operation is used to set the status and version. It also removes effectivePeriod, approvalDate and any extensions which are only valid for active artifacts."
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
@@ -53,5 +53,5 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "The new Resource with the draft status and version."
-* parameter[=].type = #Resource
+* parameter[=].documentation = "The Bundle result containing the new resource(s). If inputParameters are present in the manifest being drafted, those parameters are moved to the expansionParameters extension in the new draft."
+* parameter[=].type = #Bundle

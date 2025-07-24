@@ -14,6 +14,7 @@ These operations are defined to support artifact packaging and dependency tracin
 |----|----|
 | [CRMI Package](OperationDefinition-crmi-package.html) | Packages a specified canonical resource for use in a target environment, optionally including related content such as dependencies, components, and testing cases and data. |
 | [CRMI DataRequirements](OperationDefinition-crmi-data-requirements.html) | Determines the effective data requirements for the artifact, including known components and dependencies, optionally informed by a version manifest. The data requirements operation is used for dependency gathering, as a way to understand the set of dependencies of a given artifact, as well as for data requirements determination, as a way to understand the complete set of data requirements for a given artifact. |
+| [CRMI Resolve](OperationDefinition-crmi-resolve.html) | Resolves a canonical reference to a specific instance (or instances), using the _latest version_ algorithm described in the version manifest topic of this implementation guide. |
 {: .grid }
 
 #### Terminology
@@ -23,6 +24,7 @@ These operations are defined to support terminology capabilities expected in an 
 | **Operation** | **Description** |
 |----|----|
 | [CRMI ValueSet Expand](OperationDefinition-crmi-valueset-expand.html) | Requests the expansion of a given value set. This extension to the $expand operation adds support for artifact version binding information, as well as version manifest support |
+| [CRMI ValueSet Validate Code](OperationDefinition-crmi-valueset-validate-code.html) | Requests validation of a code for a given value set. This extension to the $validate-code operation adds support for artifact version binding information, as well as version manifest support |
 {: .grid }
 
 #### Artifact Authoring
@@ -31,10 +33,12 @@ These operations are defined to support artifact authoring capabilities expected
 
 | **Operation** | **Description** |
 |----|----|
-| [CRMI Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository. |
+| [CRMI Approve](OperationDefinition-crmi-approve.html) | The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the date and approvalDate elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment (Basic or cqf-artifactAssessment extensions in R4) resources in the repository. |
 | [CRMI Artifact Diff](OperationDefinition-crmi-artifact-diff.html) | Describes the differences between two knowledge artifacts in FHIR Patch format by recursively resolving dependencies to get a holistic diff. |
+| [CRMI Clone](OperationDefinition-crmi-clone.html) | Creates a clone version of a knowledge artifact, as well as for all resources it is composed of. |
 | [CRMI Draft](OperationDefinition-crmi-draft.html) | Creates a draft version of a knowledge artifact, as well as for all resources it is composed of. |
-| [CRMI Release](OperationDefinition-crmi-release.html) | The release operation supports updating the status of an existing draft artifact to active. The operation sets the date element of the resource and pins versions of all direct and transitive references and records them in the program’s manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
+| [CRMI Release](OperationDefinition-crmi-release.html) | The release operation performs release processing, including setting the date element of the resource and pinning versions of all direct and transitive references and recording them in the manifest. Child artifacts (i.e. artifacts of which the existing artifact is composed) are also released, recursively. |
+| [CRMI Review](OperationDefinition-crmi-review.html) | The review operation supports applying an review to an existing artifact, regardless of status. The operation sets the date and lastReviewDate elements of the reviewed artifact, and is otherwise only allowed to create ArtifactAssessment (Basic or cqf-artifactAssessment extensions in R4) resources in the repository. |
 {: .grid }
 
 ### Operation Pattern Profiles

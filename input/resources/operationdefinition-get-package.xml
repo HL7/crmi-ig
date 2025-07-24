@@ -2,12 +2,10 @@
 <OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="get-package"/>
   <url value="http://hl7.org/fhir/uv/crmi/OperationDefinition/get-package"/>
-  <version value="3.0.0"/>
   <name value="GetPackage"/>
   <title value="Get Package"/>
-  <status value="draft"/>
+  <status value="active"/>
   <kind value="operation"/>
-  <date value="2019-11-01T09:29:23+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

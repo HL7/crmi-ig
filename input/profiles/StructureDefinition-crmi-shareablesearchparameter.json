@@ -18,7 +18,6 @@
   "title" : "CRMI Shareable SearchParameter",
   "status" : "active",
   "experimental" : false,
-  "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Enforces the minimum information set for the search parameter metadata required by HL7 and other organizations that share and publish search parameters",
   "fhirVersion" : "4.0.1",
@@ -67,30 +66,6 @@
       "mustSupport" : true
     },
     {
-      "id" : "SearchParameter.extension:knowledgeRepresentationLevel",
-      "path" : "SearchParameter.extension",
-      "sliceName" : "knowledgeRepresentationLevel",
-      "min" : 0,
-      "max" : "*",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]
-      }],
-      "mustSupport" : true
-    },
-    {
-      "id" : "SearchParameter.extension:artifactComment",
-      "path" : "SearchParameter.extension",
-      "sliceName" : "artifactComment",
-      "min" : 0,
-      "max" : "*",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
-      }],
-      "mustSupport" : true
-    },
-    {
       "id" : "SearchParameter.extension:versionAlgorithm",
       "path" : "SearchParameter.extension",
       "sliceName" : "versionAlgorithm",
@@ -112,7 +87,7 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
       }],
-      "mustSupport" : true
+      "mustSupport" : false
     },
     {
       "id" : "SearchParameter.extension:title",

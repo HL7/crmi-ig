@@ -21,6 +21,8 @@ npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-packa
 
 This example illustrates the use of an NPM package registry to install IG packages as NPM packages. This example also illustrates the use of NPM Scopes for FHIR packages.
 
+See also [Publishing and Downloading FHIR (NPM) Packages](publishing-fhir-package.html) for implementation details.
+
 ### FHIR REST API
 {: #distribution-fhir-rest}
 
@@ -51,13 +53,127 @@ Both `$package` and `$data-requirements` operations are available for all canoni
 
 NOTE: To recreate the contents of a FHIR Package, the `$package` operation could be called on the `ImplementationGuide` resource with appropriate parameters to only include local resources defined in the package (i.e. `packageOnly` set to `true`).
 
+### $license-requirements
+
+It is common for knowledge artifacts to depend on other artifacts, which in turn depend on other artifacts. There may be different copyright owners along this dependency tree of artifacts. To ensure license compliance, we need a way to inventory the license information for an artifact and all of it's dependencies.
+
+#### License Extension
+
+All knowledge artifacts (excluding ImplementationGuide, since there is already a `.license` element, a new extension to be defined) may have a [license extension](StructureDefinition-crmi-license.html) to document the license for the artifact e.g.:
+
+```jsonc
+{
+  "meta": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-license",
+        "valueCode": "not-open-source"
+      }
+    ]
+  }
+}
+```
+
+All knowledge artifacts may have a [license-detail extension](StructureDefinition-crmi-license-detail.html) to document the license detail for an artifact, especially useful when the licens is `not-open-source` e.g.:
+
+```jsonc
+{
+  "meta": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/artifact-license-detail",
+        "valueMarkdown": "# ACME Restricted License\n\ndetails here"
+      }
+    ]
+  }
+}
+```
+
+NOTE: During package publishing, a CRMI Artifact Repository may add these extensions to all knowledge artifacts if not already present based on information from the package's ImplementationGuide.
+
+
+#### Operation $license-requirements 
+
+Operation [$license-requirements](OperationDefinition-crmi-license-requirements.html) that returns a Parameters resource listing for each resource out:
+
+* canonical (reference to the artifact)
+* publisher
+* copyright
+* license and license detail (as specified using extensions above)
+
+**NOTE: Similar to $package and $data-requirements, this will trace all dependencies, see below.**
+
+Request:
+
+```
+GET /Measure/$license-requirements
+    ?url=http://acme.org/Measure/my-measure
+    &version=1.2.0
+```
+
+Response:
+
+```jsonc
+{
+  "resourceType": "Parameters",
+  "parameters": [
+    {
+      "name": "http://acme.org/Measure/my-measure",
+      "parameter": [
+        {
+          "name": "license",
+          "valueCode": "CC0-1.0"
+        },
+        {
+          "name": "publisher",
+          "valueString": "Acme Inc"
+        },
+        {
+          "name": "copyright",
+          "valueMarkdown": "Copyright notice"
+        },
+        {
+          "name": "canonical",
+          "valueCanonical": "http://acme.org/Measure/my-measure|1.2.0"
+        }
+      ]
+    },
+    {
+      "name": "http://acme.org/Library/my-lib",
+      "parameter": [
+        {
+          "name": "license",
+          "valueCode": "not-open-source"
+        },
+        {
+          "name": "license-details",
+          "valueMarkdown": "ACME License\nYou have to pay for it."
+        },
+        {
+          "name": "publisher",
+          "valueString": "Acme Inc"
+        },
+        {
+          "name": "copyright",
+          "valueMarkdown": "Copyright notice"
+        },
+        {
+          "name": "canonical",
+          "valueCanonical": "http://acme.org/Library/my-lib|1.2.0"
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### Dependency Tracing
 
 Dependency tracing is the process of determining, given a root artifact, what other artifacts are referenced by the artifact, recursively, to produce a complete listing of all the artifacts (or _dependencies_) required for the artifact to be used. Because FHIR artifacts in general have many different ways of referencing other artifacts, the process needs to be described per resource type. In addition, because new extensions can be introduced and used at any point, the process needs to support a mechanism for allowing new content to indicate whether it constitutes a dependency for this purpose.
 
 In general, the process considers each element of a resource and, if it is a canonical reference, or a reference to an "artifact" resource as described by this implementation guide, it is traced. In addition, extensions used in quality improvement profiles such as Clinical Guidelines and Quality Measures, are considered.
 
-The following sections describe the dependency references for each type of resource. Note that this dependency-listing is not exhaustive, but captures the required dependencies for the quality improvement use case. The [cqf-shouldTraceDependency](StructureDefinition-cqf-shouldTraceDependency.html) extension can be used in the definition of an extension or profile to indicate whether the element should be traced as a dependency for the purposes of packaging and distribution.
+The following sections describe the dependency references for each type of resource. Note that this dependency-listing is not exhaustive, but captures the required dependencies for the quality improvement use case. The [cqf-shouldTraceDependency]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-shouldTraceDependency.html) extension can be used in the definition of an extension or profile to indicate whether the element should be traced as a dependency for the purposes of packaging and distribution.
 
 Each section provides a listing of the paths to each element that should be considered as a reference to an artifact (and recursively traced for dependencies as well) using a FHIRPath-like syntax, with abbreviated references to the names of extensions to be followed.
 

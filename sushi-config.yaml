@@ -17,10 +17,10 @@ description: >-
   intended to be used by specification and content implementation guide authors
   as both a dependency for validation of published artifacts, and a guide for
   construction and publication of content.
-status: draft
+status: active
 license: CC0-1.0
-date: 2022-05-17
-version: 1.0.0-snapshot
+date: 2024-05-08
+version: 2.0.0-cibuild
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
@@ -34,7 +34,7 @@ fhirVersion: 4.0.1
 # will recognize them as well. In either case, they'll be copied
 # to the IG JSON using the formal names.
 copyrightYear: 2022+
-releaseLabel: Snapshot
+releaseLabel: cibuild
 
 # The publisher can be a single item or a list, each with a name and
 # optional url and/or email. The first publisher's name will be used
@@ -68,17 +68,27 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 #  hl7.fhir.uv.extensions.r4: 1.0.0
 
 dependencies:
-  hl7.terminology: 5.5.0
-  hl7.fhir.uv.extensions: 
+  hl7.terminology.r4: 6.4.0
+  hl7.fhir.uv.extensions.r4: 
     id: ext
-    version: 5.1.0-cibuild
+    version: 5.2.0
 
 parameters:
   excludettl: true
   path-history: http://hl7.org/fhir/uv/crmi/history.html
   path-expansion-params: '../../input/_resources/exp-params.json'  # for using International ed of SNOMED
-  special-url-base: http://hl7.org/fhir
+  special-url:
+    - http://terminology.hl7.org/ValueSet/artifact-resource-types
   auto-oid-root: 2.16.840.1.113883.4.642.40.38
+  apply:
+    - version
+    - date
+    - status
+    - publisher
+    - contact
+    - copyright
+    - experimental
+    - jurisdiction
 
 pages:
   index.md:
@@ -97,8 +107,12 @@ pages:
     title: Testing
   publishing.md:
     title: Publishing
+    publishing-fhir-package.md:
+      title: Publishing and Downloading FHIR (NPM) Packages
   distribution.md:
     title: Distribution
+  artifact-signing.md:
+    title: Artifact Signing
   profiles.md:
     title: Profiles
   extensions.md:

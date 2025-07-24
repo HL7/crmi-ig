@@ -14,10 +14,6 @@
       {
         "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
         "valueCode": "computable"
-      },
-      {
-        "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel",
-        "valueCode": "structured"
       }
     ],
     "url": "http://hl7.org/fhir/uv/crmi/ActivityDefinition/shareable-example",

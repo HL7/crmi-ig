@@ -18,7 +18,6 @@
   "title": "CRMI Manifest Library",
   "status": "active",
   "experimental": false,
-  "date": "2021-11-27T13:31:32-07:00",
   "publisher": "Clinical Decision Support WG",
   "contact": [
     {
@@ -30,7 +29,7 @@
       ]
     }
   ],
-  "description": "Defines and supports the definition of a manifest used to establish specific versions of dependencies used in a collection of knowledge artifacts",
+  "description": "A Manifest Library provides dependency version management for a collection of artifacts. The manifest is an `asset-collection` library whose components identify the artifacts in the collection, while the dependency relationships are used to manage version dependencies of those components.\n\nThe manifest is also used to specify expansion parameters, providing details for how value set expansion should be performed for any value sets in the collection or referenced by artifacts in the collection.\n\nIn addition, the manifest can be used to specify CQL translator options for any CQL libraries in the collection (or referenced by artifacts in the collection).",
   "purpose": "Knowledge artifacts must be able to specify versioning information for all the dependencies used in a particular release to enable stable expansion of value sets and consistent resolution of dependencies. For example, the versions of code systems used in value sets referenced by the artifacts must be identified so that terminology servers performing expansions can unambiguously select the version of each code system used to perform the expansion.",
   "fhirVersion": "4.0.1",
   "mapping": [
@@ -65,8 +64,8 @@
       {
         "id": "Library",
         "path": "Library",
-        "definition": "Represents an artifact manifest, specifying version-specific dependencies of an artifact or group of artifacts. Artifact manifests are used throughout the content development lifecycle to establish version bindings for unversioned canonical references. Prior to release (when the status is draft) of the artifact(s), the manifest establishes the expansion rules such as code system versions used for expansion of value sets while artifacts are being authored. As part of release, the manifest is used to provide a complete dependency listing, as well as complete binding for all unversioned dependencies referenced in the artifacts so that canonical references can be reliably resolved, ensuring the stability of value set expansions used for evaluation of the artifacts.",
-        "comment": "Prior to release, artifact(s) should specify code system versions to support stable expansion of value sets during the development phase (also called an expansion profile). Post release, the artifact(s) may specify expansion identifiers to lock the code lists used for value sets. Provisional codes can be specified using the code system version mechanism (i.e. it is not the case that only one code system version can be specified per code system in an expand, and a manifest).",
+        "definition": "Represents an artifact manifest library, providing complete dependency and usage information for an artifact or collection of artifacts. Artifact manifests are used throughout the content development lifecycle to establish version bindings for unversioned canonical references. Prior to release of the artifact(s), the manifest establishes the expansion rules such as code system versions used for expansion of value sets while artifacts are being authored. As part of release, the manifest is used to provide a complete dependency listing, as well as complete binding for all unversioned dependencies referenced in the artifacts so that canonical references can be reliably resolved, ensuring the stability of value set expansions used for evaluation of the artifacts.",
+        "comment": "Prior to release, artifact(s) should specify code system versions to support stable expansion of value sets during the development phase (also called an expansion profile). Post release, the artifact(s) will specify pinned canonical references for any unversioned canonical references to ensure reliable expansion of value sets. Provisional codes can be specified using the code system version mechanism (i.e. it is not the case that only one code system version can be specified per code system in an expand, and a manifest).",
         "mustSupport": false
       },
       {
@@ -122,6 +121,10 @@
         "id": "Library.extension:expansionParameters",
         "path": "Library.extension",
         "sliceName": "expansionParameters",
+        "short": "What pinned dependency versions",
+        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) for canonical references from artifacts in the manifest. The most common usage of this is specifying the version of a code system to be used for expansion when the value set definition does not specify a code system version.", 
+        "comment": "The manifest parameters are most commonly used to provide parameters for value set expansion. In source content, the manifest parameters typically contains only pinned canonicals for major code systems. However, in released content, the manifest parameters contains all and only the pinned canonical dependencies of the artifacts in the manifest library.",
+        "alias": ["manifestParameters"],
         "min": 0,
         "max": "1",
         "type": [
@@ -133,6 +136,50 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "Library.extension:expansionParameters.value[x]",
+        "path": "Library.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.extension:inputParameters",
+        "path": "Library.extension",
+        "sliceName": "inputParameters",
+        "short": "What author-pinned dependency versions",
+        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) that were explicitly specified as input parameters by the authors. This is typically, but not always, used to specify the versions of external code systems such as SNOMED and LOINC.", 
+        "comment": "The input parameters are captured as part of the release process to support distinguishing between canonical dependencies in the expansion parameters that were pinned by authors versus by the release/pinning process.",
+        "alias": ["authoredParameters"],
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:inputParameters.value[x]",
+        "path": "Library.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters"
+            ]
+          }
+        ]
       },
       {
         "id": "Library.type",

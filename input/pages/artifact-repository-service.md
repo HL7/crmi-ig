@@ -24,16 +24,16 @@ The following conceptual actions support artifact authoring, searching, publicat
 * **Search**: Search for an artifact according to specific criteria
 * **Package**: Package an artifact for a particular environment (regardless of status)
 * **Requirements**: Determine the data requirements and dependencies for a particular artifact (regardless of status)
-* **Submit**: Post a new artifact in _draft_ status
-* **Revise**: Update an existing artifact in _draft_ status
-* **Withdraw**: Delete a _draft_ artifact
+* **Submit**: Post a new artifact (regardless of status, used for unreleased content)
+* **Revise**: Update an existing artifact (regardless of status, used for unreleased content)
+* **Withdraw**: Delete an artifact (regardless of status, used for unreleased content)
 * **Review**: Review and provide comments on an existing artifact (regardless of status)
 * **Approve**: Approve and provide comments on an existing artifact (regardless of status)
-* **Publish**: Post a new artifact with _active_ status
-* **Release**: Update an existing _draft_ artifact to _active_ and pin the the versions for all artifacts referenced either directly or transitively by the artifact.
+* **Publish**: Post a new artifact (regardless of status, used for released content)
+* **Release**: Perform release processing, including pinning versions for all artifacts referenced either directly or transitively by the artifact
 * **Retire**: Post an update that sets status to _retired_ on an existing _active_ artifact
-* **Archive**: Delete a _retired_ artifact
-* **Draft**: Draft a new version of an existing active artifact
+* **Remove**: Delete an artifact (regardless of status, used for released content)
+* **Draft**: Draft a new version of an existing artifact (regardless of status)
 * **Clone**: Clone a new artifact based on an existing artifact (regardless of status)
 * **Diff**: Compare two knowledge artifacts and optionally expand any ValueSets in the dependency tree
 
@@ -68,7 +68,7 @@ Repository support for other types of artifacts **SHALL** follow the same patter
   3. **SHOULD** support the `text` modifier
 3. Servers **SHALL** support the expression of `AND` and `OR` search parameters for all search parameters, as defined in the [composite](http://hl7.org/fhir/search.html#combining) search parameter topic.
 
-> Note that for servers that support write capabilities, the `version` element of an artifact is a business version, and is independent of [resource versioning](https://hl7.org/fhir/R4/resource.html#versions). Artifact repositories that support write capabilities may wish to implement resource versioning as well as artifact (business) versioning to ensure auditability of changes, however, this is an implementation decision and does not impact the conceptual support for artifact versions (because each different version of an artifact will necessarily be a different resource instance in the server. Note also that R6 has introduced additional capabilities to better support resource versioning for servers that provide such support.
+> Note that for servers that support write capabilities, the `version` element of an artifact is a business version, and is independent of [resource versioning](https://hl7.org/fhir/R4/resource.html#versions). Artifact repositories that support write capabilities may wish to implement resource versioning as well as artifact (business) versioning to ensure auditability of changes, however, this is an implementation decision and does not impact the conceptual support for artifact versions (because each different version of an artifact will necessarily be a different resource instance in the server). Note also that R6 has introduced additional capabilities to better support resource versioning for servers that provide such support.
 
 #### Artifacts
 
@@ -99,7 +99,7 @@ The PublishableArtifactRepository capability statement builds on the ShareableAr
 * Package artifacts using the $package operation
 * Requirements using the $data-requirements operation
 * Search using additional publishable metadata
-* Should support minimum write capability (Publish, Retire, Archive)
+* Should support minimum write capability for released content (Publish, Retire, Remove)
 
 The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
@@ -161,19 +161,18 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
     5. predecessor: Returning all artifacts that have the given artifact as a predecessor
 5. **SHOULD** support minimum write capability:
     1. Support the _publish_ action by either the `create` or `put` interaction
-        1. The artifact must be in `active` status and must conform to at least the appropriate shareable and publishable profiles for the artifact
+        1. The artifact must conform to at least the appropriate shareable and publishable profiles for the artifact
     2. Support the _retire_ action using an `update` interaction
         1. The artifact must be in `active` status and update is only allowed to change the status to `retired` and update the `date` (and other metadata appropriate to indicate retired status)
-    3. Support the _archive_ action using a `delete` interaction
-        1. The artifact must be in `retired` status
+    3. Support the _remove_ action using a `delete` interaction
 
 ### Authoring Artifact Repository
 
 The AuthoringArtifactRepository capability statement defines additional capabilities that are required to support content authoring workflows in a shared environment. For systems that do not exchange in progress content, or support external review/approval processes, these capabilities are not required to be exposed:
 
-* Support `draft` artifacts (the Submit, Revise, and Withdraw actions)
+* Support unreleased artifact content management (the Submit, Revise, and Withdraw actions)
 * Support artifact review and approval (the Review and Approve actions)
-* Support artifact authoring (Draft, Clone, Release, and Diff)
+* Support artifact authoring and release workflows (Draft, Clone, Release, and Diff)
 
 The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
@@ -192,15 +191,13 @@ Repository support for other types of artifacts **SHALL** follow the same patter
 For each type of artifact supported, an AuthoringMeasureRepository:
 
 1. **SHALL** support _submit_ using either the `create` or `update` interaction
-    1. The artifact must be in _draft_ status
+    1. The artifact must conform to at least the appropriate shareable profile
 2. **SHALL** support _revise_ using the `update` interaction
-    2. The artifact must be in (and remain in) _draft_ status
+    2. The artifact must conform to at least the appropriate shareable profile
 3. **SHOULD** support _withdraw_ using the `delete` interaction
-    2. The artifact must be in _draft_ status
-4. **SHOULD** support _review_ using the [$review](OperationDefinition-crmi-approve.html) operation
+    2. The artifact must be unreleased
+4. **SHOULD** support _review_ using the [$review](OperationDefinition-crmi-review.html) operation
     1. **SHOULD** support id parameter
-    2. **SHOULD** support url parameter
-    3. **SHOULD** support version parameter
     1. **SHOULD** support reviewDate parameter
     2. **SHOULD** support artifactAssessmentType parameter
     3. **SHOULD** support artifactAssessmentSummary parameter
@@ -208,29 +205,23 @@ For each type of artifact supported, an AuthoringMeasureRepository:
     5. **SHOULD** support artifactAssessmentAuthor parameter
 5. **SHOULD** support _approve_ using the [$approve](OperationDefinition-crmi-approve.html) operation
     1. **SHOULD** support id parameter
-    2. **SHOULD** support url parameter
-    3. **SHOULD** support version parameter
     1. **SHOULD** support approvalDate parameter
     2. **SHOULD** support artifactAssessmentType parameter
     3. **SHOULD** support artifactAssessmentSummary parameter
     4. **SHOULD** support artifactAssessmentTarget parameter
     5. **SHOULD** support artifactAssessmentAuthor parameter
 6. **SHALL** support _draft_ using the [$draft](OperationDefinition-crmi-draft.html) operation
-    1. **SHOULD** support draftVersion parameter
     2. **SHOULD** support id parameter
-    3. **SHOULD** support url parameter
     4. **SHOULD** support version parameter
 6. **SHALL** support _release_ using the [$release](OperationDefinition-crmi-release.html) operation
-    1. **SHALL** support id parameter
-    2. **SHALL** support url parameter
-    3. **SHALL** support version parameter
-    4. **SHOULD** support releaseVersion parameter
+    1. **SHOULD** support id parameter
+    4. **SHOULD** support version parameter
     5. **SHOULD** support versionBehavior parameter
     6. **SHOULD** support latestFromTxServer parameter
     7. **SHOULD** support experimentalBehavior parameter
-11. **SHOULD** support _clone_ using the [$clone](OperationDefinition-crmi-draft.html) operation
+    8. **SHOULD** support releaseLabel parameter
+11. **SHOULD** support _clone_ using the [$clone](OperationDefinition-crmi-clone.html) operation
     2. **SHOULD** support id parameter
-    3. **SHOULD** support url parameter
     4. **SHOULD** support version parameter
 12. **SHOULD** support _diff_ using the [$artifact-diff](OperationDefinition-crmi-artifact-diff.html) operation
     1. **SHALL** support target parameter

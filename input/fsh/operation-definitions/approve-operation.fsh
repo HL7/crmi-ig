@@ -6,10 +6,10 @@ Usage: #definition
 * url = "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-approve"
 * name = "CRMIApprove"
 * title = "CRMI Approve"
-* description = "The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment resources in the repository."
+* description = "The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment (Basic or cqf-artifactComment extensions in R4) resources in the repository."
 * kind = #operation
 * code = #approve
-* comment = "The approve operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment resource by applying an approval. The ArtifactAssessments which are added by the operation must reference a version of the artifact."
+* comment = "The approve operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment (Basic or cqf-artifactComment extension in R4) resource by applying an approval. The artifact assessments which are added by the operation must reference a version of the artifact."
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
 * resource[+] = #CodeSystem
@@ -39,7 +39,7 @@ Usage: #definition
 * instance = true
 * parameter[0].name = #id
 * parameter[=].use = #in
-* parameter[=].min = 1
+* parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "The logical id of the artifact to approved. The server must know the artifact (e.g. it is defined explicitly in the server's artifacts)"
 * parameter[=].type = #string
@@ -83,5 +83,5 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "The Bundle result containing both the updated artifact and the ArtifactAssessment resource containing the Approval metadata"
+* parameter[=].documentation = "The Bundle result containing both the updated artifact and the ArtifactAssessment (Basic in R4) resource containing the Approval metadata"
 * parameter[=].type = #Bundle

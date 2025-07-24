@@ -5,7 +5,7 @@ Alias: $shareablelibrary = http://hl7.org/fhir/StructureDefinition/shareablelibr
 Alias: $shareablemeasure = http://hl7.org/fhir/StructureDefinition/shareablemeasure
 
 Alias: $cqf-knowledgeCapability = http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability
-Alias: $cqf-knowledgeRepresentationLevel = http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel
+//Alias: $cqf-knowledgeRepresentationLevel = http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel
 Alias: $cqf-artifactComment = http://hl7.org/fhir/StructureDefinition/cqf-artifactComment
 
 Alias: $artifact-comment-type = http://hl7.org/fhir/ValueSet/artifact-comment-type

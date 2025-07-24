@@ -12,16 +12,14 @@
     },
     {
         "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-        "valueInteger": 1
+        "valueInteger": 2
     }
 ],
 "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/crmi-release-version-behavior-codes",
-  "version": "3.0.0",
   "name": "CRMIReleaseVersionBehavior",
   "title": "CRMI Release Version Behavior Codes",
   "status": "active",
   "experimental": false,
-  "date": "2023-02-03T23:21:03-06:00",
   "publisher": "Clinical Decision Support Workgroup",
   "description": "Behaviors of 'version' parameter application in the $release operation.",
   "caseSensitive": true,

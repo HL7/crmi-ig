@@ -9,6 +9,8 @@
       <li><a href="packaging.html" class="item">Packaging</a></li>
       <li><a href="publishing.html" class="item">Publishing</a></li>
       <li><a href="distribution.html" class="item">Distribution</a></li>
+      <li><a href="artifact-signing.html" class="item">Artifact Signing</a></li>
+      <li><a href="publishing-fhir-package.html" class="item">Publishing and Downloading FHIR (NPM) Packages</a></li>
     </ul>
   </li>
   <li class="dropdown">

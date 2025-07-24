@@ -3,7 +3,7 @@
 
 {: #artifact-lifecycle}
 
-This section describes the general use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ and apply controls through the use of `status`, as described in the artifact lifecycle topic. The use cases for artifact management are then described in artifact operations.
+This section describes the use case of knowledge artifact management as a special case of _content management_. Specifically, we apply _semantic versioning_ as described in the artifact lifecycle topic to support consistent change management, and describe conformance expectations for knowledge artifacts. The use cases for artifact management are then described in artifact operations.
 
 <div style="max-width:750px;">
 {% include img.html img="knowledge-artifact-lifecycle.png" %}
@@ -31,17 +31,18 @@ See [Artifact Conventions](artifact-conventions.html) for artifact authoring con
 
 Knowledge artifacts as represented within FHIR follow a general, high-level content development workflow, as represented by the possible values of the `status` element of the artifact:
 
-* **draft**: The artifact is under development and not yet considered to be ready for normal use. In particular, there is no guarantee that the version element associated with the artifact is established, and the actual content of the artifact may change.
-* **active**: The artifact is ready for normal use. In particular, the content of the artifact related to the version element is stable and may only change in accordance with the versioning policy of the artifact. In general, changes to the artifact require a new version to be introduced in draft status.
+* **draft**: The artifact is under development and not yet considered to be ready for normal use.
+* **active**: The artifact is ready for normal use.
 * **retired**: The artifact has been withdrawn or superseded and should no longer be used.
 
 In addition, the `experimental` element may be used to indicate that the artifact is intended for testing/experimental usage only and should not be used in production settings.
 
-To support proper version management, this implementation guide requires that:
+Note that the `status` element is a general indication of the maturity of the content of the artifact, independent of any versioning, stability, or accessibility claims.
+
+For any knowledge artifact, this implementation guide requires that:
 
 **Conformance Requirement 3.1 (Artifact Status):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-1)
 {: #conformance-requirement-3-1}
-1. The content of an `active` or `retired` artifact **SHALL NOT** change, except in accordance with the [version policy](#artifact-versioning-policy) of the artifact
 1. An `active` artifact **SHALL NOT** transition back to `draft`. A new version of the artifact is required.
 2. A `retired` artifact **SHALL NOT** transition back to `active` or `draft`. A new version of the artifact is required.
 
@@ -89,13 +90,11 @@ This IG recommends [Semantic Versioning](https://semver.org) be used to version 
 
 **Conformance Requirement 3.3 (Artifact Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-3)
 {: #conformance-requirement-3-3}
-  1. Active artifacts **SHALL** specify a version
-  1. Active artifacts **SHOULD** specify a version algorithm
-  2. The artifact version **SHOULD** follow the convention:
-       < major >.< minor >.< patch >
-  3. For artifacts in draft status, the versioning scheme **NEED NOT** apply, and there is no expectation that artifact contents are stable. Some systems allow only a single draft version of an artifact and that instance has no version element, other systems allow multiple draft versions  
-  4. The versioning scheme **SHALL** apply when an artifact moves to active status.
-  5. Artifacts **MAY** use additional labels to support pre-release content or other versioning and build metadata use cases.
+  1. Artifacts **SHALL** specify a version
+  1. Artifacts **SHOULD** specify a version algorithm
+  1. The artifact version **SHOULD** follow the convention:
+       `<major>.<minor>.<patch>[-<label>]`
+  1. Artifacts **SHOULD** use _labels_ to support pre-release content or other versioning and build metadata use cases.
     a. Note that unlike stock semantic versioning, there is no expectation of order among labels
 
 There are three main types of changes that can be made to an artifact:
@@ -106,7 +105,7 @@ There are three main types of changes that can be made to an artifact:
 
 By exposing version numbers that identify all three types of changes, artifacts can be versioned in a way that makes
 clear when a change will impact usage, versus when a change can potentially be safely incorporated as an update. The
-first type of change iss referred to as a _major_ change, and requires incrementing the _major version
+first type of change is referred to as a _major_ change, and requires incrementing the _major version
 number_. The second type of change is referred to as a _minor_ change, and requires incrementing the
 _minor version number_. And finally, the third type of change is referred to as a _patch_, and requires
 incrementing the _patch version number_. Version numbers for knowledge artifacts can then be represented as:
@@ -116,6 +115,12 @@ incrementing the _patch version number_. Version numbers for knowledge artifacts
 ```
 
 To summarize, breaking changes or major substantive new capabilities (such as materially changing whether a given recommendation will be applicable to a subject) require a major version number increment; non-breaking changes or minor new capabilities (such as refining the content of a questionnaire or adding stratifiers to a quality measure) require a minor version number increment; while non-substantive changes (such as fixing spelling mistakes and other minor technical corrections) require only a patch version number increment. Incrementing a version number resets version numbers to the right. E.g., When `1.3.5` contains a major change, it becomes `2.0.0`, not `2.3.5`. The scheme is for the benefit of consumers and so should be understood from that perspective.
+
+Examples of labels in versions include:
+
+* `1.0.0-cibuild` - To indicate that the content is part of a continuous integration build and changes frequently
+* `1.0.0-draft` - To indicate that the content is part of a draft release
+* `1.0.0-ballot` - To indicate that the content is part of a ballot
 
 ##### Artifact Versioning Policy
 {: #artifact-versioning-policy }
@@ -127,7 +132,7 @@ In addition to the use of semantic versioning, this IG adds support for specifyi
 
 **Conformance Requirement 3.4 (Artifact Versioning Policy):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-4)
 {: #conformance-requirement-3-4}
-  1. Active artifacts **SHOULD** specify a versioning policy
+  1. Artifacts **SHOULD** specify a versioning policy
   2. When an artifact versioning policy is `metadata`:
       1. Non-substantive changes to the metadata elements of the artifact **MAY** be made without incrementing the version number, but
       2. When this occurs, the `date` element **SHALL** be updated
@@ -144,7 +149,7 @@ In addition to identity, lifecycle, and versioning, knowledge artifacts typicall
 
 Because artifacts are often authored, published, and consumed as a collection of artifacts (either as a published implementation guide, or as an artifact package such as a quality measure or set of measures), the version of an artifact is often established at the collection level and applied consistently to all the artifacts included in the package. In this case, the same considerations apply to establishing the version number, but because that version number is applied to all the artifacts in a package, it can be the case that an artifact has a new version, but does not actually have changes as indicated by its version number.
 
-For example, if a new version of a computable guideline is published as a content implementation guide, but one of the value sets defined in the implementation guide has not changed, the value set will still be assigned the new version number of the content implementation guide as a whole, even though the content of that value set has not changed.
+For example, if a new version of a computable guideline is published as a content implementation guide, but one of the value sets defined in the implementation guide has not changed, the value set may still be assigned the new version number of the content implementation guide as a whole, even though the content of that value set has not changed.
 
 In addition, to ensure stable resolution of dependencies of an artifact throughout its lifecycle (including stable value set expansion), a version manifest should be used to allow resolution of unversioned canonical references in the artifact and its dependencies. See the [Version Manifest](version-manifest.html) discussion for more information on how the Manifest Library profile supports stable resolution of dependencies.
 

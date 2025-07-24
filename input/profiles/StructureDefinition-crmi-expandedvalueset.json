@@ -18,7 +18,6 @@
   "title" : "CRMI Expanded ValueSet",
   "status" : "active",
   "experimental" : false,
-  "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Defines an expanded value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an expanded value set, a computable definition of the value set must be obtained to compute the updated expansion.",
   "fhirVersion" : "4.0.1",

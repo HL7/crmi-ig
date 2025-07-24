@@ -41,8 +41,11 @@ For knowledge artifacts, a _shareable_ artifact defines the minimum expectations
 | experimental | **SHOULD** be provided to ensure systems can differentiate production from experimental content |
 | publisher | **SHOULD** be provided to ensure consumers can identify the publisher (i.e. steward) of the artifact |
 | description | **SHALL** be provided to ensure systems can provide a meaningful human-readable description of the artifact |
-| knowledgeRepresentationLevel | **SHOULD** be provided to allow systems to understand the levels of representation of content provided by the artifact |
+| knowledgeCapability | **SHOULD** be provided to allow systems to understand the knowledge capability afforded by the artifact |
+| knowledgeRepresentationLevel | **SHOULD** be provided to allow systems to understand the levels of representation of content provided by the artifact. |
 {: .grid }
+
+> NOTE: Because the KnowledgeRepresentationLevel code system is an R5 terminology, there are cross-version publication issues that prevent this aspect of the shareable profiles from being expressed in this version of the publication. A future version of this publication will add representation level back in to the shareable profiles.
 
 ### Publishable
 {: #publishable }
@@ -130,6 +133,7 @@ To support packaging, testing, and distribution of knowledge artifacts, this imp
   <tr><th>Profile</th><th>Description</th></tr>
   <!--<tr><td><a href="StructureDefinition-crmi-artifactassessment.html">CRMIArtifactAssessment</a></td><td>A profile of Basic that supports expression and use of the <a href="http://hl7.org/fhir/artifactassessment.html">R5 ArtifactAssessment</a> resource in R4 contexts.</td></tr>-->
   <tr><td><a href="StructureDefinition-crmi-groupdefinition.html">CRMIGroupDefinition</a></td><td>A profile of Group that supports context-independent representation of groups for use in definitional contexts.</td></tr>
+  <tr><td><a href="StructureDefinition-crmi-implementationguide.html">CRMIImplementationGuide</a></td><td>A profile of ImplementationGuide that allows for expansion parameters to be specified for artifacts in the IG.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-manifestlibrary.html">CRMIManifestLibrary</a></td><td>A library profile used to define artifact collections that provide complete dependency and version resolution information for the artifacts in the collection.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-medicationdefinition.html">CRMIMedicationDefinition</a></td><td>A profile of Medication that supports context-independent representation of medications for use in definitional contexts.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-medicationknowledgedefinition.html">CRMIMedicationKnowledgeDefinition</a></td><td>A profile of MedicationKnowledge that supports context-independent representation of medication knowledge for use in definitional contexts.</td></tr>
@@ -139,3 +143,36 @@ To support packaging, testing, and distribution of knowledge artifacts, this imp
   <tr><td><a href="StructureDefinition-crmi-substancedefinition.html">CRMISubstanceDefinition</a></td><td>A profile of Substance that supports context-independent representation of substances for use in definitional contexts</td></tr>
 </table>
 
+
+### Operation Profiles
+{: #operation-profiles }
+
+To establish consistency across knowledge operations, the following list of profiles describes knowledge operation input parameters:
+
+<table class="grid">
+  <tr><th>Profile</th><th>Description</th></tr>
+  <tr>
+    <td><a href="StructureDefinition-crmi-artifact-endpoint-configurable-operation.html">ArtifactEndpointConfigurableOperation</a></td>
+    <td>Knowledge operations where artifact endpoint configuration can be specified.</td>
+  </tr>
+  <tr>
+    <td><a href="StructureDefinition-crmi-artifact-operation.html">ArtifactOperation</a></td>
+    <td>Knowledge operations invoked at the resource type level specifying identifier or passing resource directly</td>
+  </tr>
+  <tr>
+    <td><a href="StructureDefinition-crmi-artifact-version-bindable-operation.html">ArtifactVersionBindableOperation</a></td>
+    <td>Knowlege operations where default artifact version(s) can be specified.</td>
+  </tr>
+  <tr>
+    <td><a href="StructureDefinition-crmi-canonical-version-bindable-operation.html">CanonicalVersionBindableOperation</a></td>
+    <td><strong>DEPRECATED</strong>. This profile is here for backwards compatibility where default canonical version(s) can be specified, see ArtifactVersionBindableOperation profile as a successor.</td>
+  </tr>
+  <tr>
+    <td><a href="StructureDefinition-crmi-manifestable-operation.html">ManifestableOperation</a></td>
+    <td>Operation where default manifest to resolve canonicals can be specified.</td>
+  </tr>
+  <tr>
+    <td><a href="StructureDefinition-crmi-pagable-operation.html">PageableOperation</a></td>
+    <td>Operation where output may be pageable.</td>
+  </tr>
+</table>

@@ -18,7 +18,6 @@
   "title" : "CRMI Publishable TerminologyCapabilities",
   "status" : "active",
   "experimental" : false,
-  "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Supports declaration of the TerminologyCapabilities metadata required by HL7 and other organizations that share and publish terminology capabilities with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation.",
   "fhirVersion" : "4.0.1",
@@ -98,7 +97,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-approvalDate"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-approvalDate"]
       }],
       "mustSupport" : true
     },
@@ -110,7 +109,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate"]
       }],
       "mustSupport" : true
     },
@@ -122,7 +121,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"]
       }],
       "mustSupport" : true
     },
@@ -219,6 +218,18 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
       }]
+    },
+    {
+      "id" : "TerminologyCapabilities.extension:artifactComment",
+      "path" : "TerminologyCapabilities.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
     },
     {
       "id" : "TerminologyCapabilities.date",
