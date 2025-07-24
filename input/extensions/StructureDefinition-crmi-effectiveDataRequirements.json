@@ -53,11 +53,23 @@
     },
     {
       "type": "element",
+      "expression": "Measure.group"
+    },
+    {
+      "type": "element",
+      "expression": "Measure.group.population"
+    },
+    {
+      "type": "element",
       "expression": "Questionnaire"
     },
     {
       "type": "element",
       "expression": "PlanDefinition"
+    },
+    {
+      "type": "element",
+      "expression": "PlanDefinition.action"
     }
   ],
   "type": "Extension",
