@@ -56,7 +56,7 @@ NOTE: It is recommended that each resource in the transaction is a [conditional 
       "request" :{
         "method": "POST",
         "url": "Library",
-        "ifNotExist": "url=http://example.org/Library/SomeLibrary&version=0.1.0"
+        "ifNoneExist": "url=http://example.org/Library/SomeLibrary&version=0.1.0"
       }
     }
   ]
