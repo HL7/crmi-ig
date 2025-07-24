@@ -109,5 +109,5 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "The Bundle result containing the released resource(s)"
+* parameter[=].documentation = "The Bundle result containing the released resource(s). If expansionParameters are present in the library being released, a copy of the Parameters referenced by that extension will be created and added using the inputParameters extension to ensure input parameters are preserved in the resulting manifest library."
 * parameter[=].type = #Bundle

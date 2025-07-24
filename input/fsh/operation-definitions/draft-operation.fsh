@@ -53,5 +53,5 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "The Bundle result containing the new resource(s)"
+* parameter[=].documentation = "The Bundle result containing the new resource(s). If inputParameters are present in the manifest being drafted, those parameters are moved to the expansionParameters extension in the new draft."
 * parameter[=].type = #Bundle

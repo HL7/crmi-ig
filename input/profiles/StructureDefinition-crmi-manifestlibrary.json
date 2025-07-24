@@ -121,6 +121,10 @@
         "id": "Library.extension:expansionParameters",
         "path": "Library.extension",
         "sliceName": "expansionParameters",
+        "short": "What pinned dependency versions",
+        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) for canonical references from artifacts in the manifest. The most common usage of this is specifying the version of a code system to be used for expansion when the value set definition does not specify a code system version.", 
+        "comment": "The manifest parameters are most commonly used to provide parameters for value set expansion. In source content, the manifest parameters typically contains only pinned canonicals for major code systems. However, in released content, the manifest parameters contains all and only the pinned canonical dependencies of the artifacts in the manifest library.",
+        "alias": "manifestParameters",
         "min": 0,
         "max": "1",
         "type": [
@@ -135,6 +139,38 @@
       },
       {
         "id": "Library.extension:expansionParameters.value[x]",
+        "path": "Library.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.extension:inputParameters",
+        "path": "Library.extension",
+        "sliceName": "inputParameters",
+        "short": "What author-pinned dependency versions",
+        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) that were explicitly specified as input parameters by the authors. This is typically, but not always, used to specify the versions of external code systems such as SNOMED and LOINC.", 
+        "comment": "The input parameters are captured as part of the release process to support distinguishing between canonical dependencies in the expansion parameters that were pinned by authors versus by the release/pinning process.",
+        "alias": "authoredParameters",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:inputParameters.value[x]",
         "path": "Library.extension.value[x]",
         "type": [
           {
