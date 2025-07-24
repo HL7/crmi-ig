@@ -150,6 +150,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "Questionnaire.extension:relatedArtifact.extension:publicationDate",
+      "path" : "Questionnaire.extension.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "Questionnaire.extension:relatedArtifact.extension:publicationStatus",
+      "path" : "Questionnaire.extension.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "Questionnaire.extension:artifactComment",
       "path" : "Questionnaire.extension",
       "sliceName" : "artifactComment",

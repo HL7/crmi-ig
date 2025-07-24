@@ -210,6 +210,28 @@
       "mustSupport" : true
     },
     {
+      "id" : "ImplementationGuide.extension:relatedArtifact.extension:publicationDate",
+      "path" : "ImplementationGuide.extension.extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "ImplementationGuide.extension:relatedArtifact.extension:publicationStatus",
+      "path" : "ImplementationGuide.extension.extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
       "id" : "ImplementationGuide.extension:artifactComment",
       "path" : "ImplementationGuide.extension",
       "sliceName" : "artifactComment",
