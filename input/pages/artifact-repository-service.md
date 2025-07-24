@@ -32,7 +32,7 @@ The following conceptual actions support artifact authoring, searching, publicat
 * **Publish**: Post a new artifact (regardless of status, used for released content)
 * **Release**: Perform release processing, including pinning versions for all artifacts referenced either directly or transitively by the artifact
 * **Retire**: Post an update that sets status to _retired_ on an existing _active_ artifact
-* **Archive**: Delete an artifact (regardless of status, used for released content)
+* **Remove**: Delete an artifact (regardless of status, used for released content)
 * **Draft**: Draft a new version of an existing artifact (regardless of status)
 * **Clone**: Clone a new artifact based on an existing artifact (regardless of status)
 * **Diff**: Compare two knowledge artifacts and optionally expand any ValueSets in the dependency tree
@@ -99,7 +99,7 @@ The PublishableArtifactRepository capability statement builds on the ShareableAr
 * Package artifacts using the $package operation
 * Requirements using the $data-requirements operation
 * Search using additional publishable metadata
-* Should support minimum write capability for released content (Publish, Retire, Archive)
+* Should support minimum write capability for released content (Publish, Retire, Remove)
 
 The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
@@ -164,7 +164,7 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
         1. The artifact must conform to at least the appropriate shareable and publishable profiles for the artifact
     2. Support the _retire_ action using an `update` interaction
         1. The artifact must be in `active` status and update is only allowed to change the status to `retired` and update the `date` (and other metadata appropriate to indicate retired status)
-    3. Support the _archive_ action using a `delete` interaction
+    3. Support the _remove_ action using a `delete` interaction
 
 ### Authoring Artifact Repository
 
