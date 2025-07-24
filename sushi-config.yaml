@@ -107,6 +107,8 @@ pages:
     title: Testing
   publishing.md:
     title: Publishing
+    publishing-fhir-package.md:
+      title: Publishing and Downloading FHIR (NPM) Packages
   distribution.md:
     title: Distribution
   artifact-signing.md:

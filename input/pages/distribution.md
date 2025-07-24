@@ -21,6 +21,8 @@ npm --registry=http://fhir-package-registry install @scope/fhir.uv.test.my-packa
 
 This example illustrates the use of an NPM package registry to install IG packages as NPM packages. This example also illustrates the use of NPM Scopes for FHIR packages.
 
+See also [Publishing and Downloading FHIR (NPM) Packages](publishing-fhir-package.html) for implementation details.
+
 ### FHIR REST API
 {: #distribution-fhir-rest}
 
