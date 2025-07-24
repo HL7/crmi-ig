@@ -8,7 +8,7 @@ Description: "Enforces the minimum information set for the activity definition m
     $cqf-knowledgeCapability named knowledgeCapability 0..* MS and
     //$cqf-knowledgeRepresentationLevel named knowledgeRepresentationLevel 0..* MS and
     ArtifactVersionAlgorithm named versionAlgorithm 0..1 MS and
-    ArtifactVersionPolicy named versionPolicy 0..1 MS
+    ArtifactVersionPolicy named versionPolicy 0..1
 * url 1..1 MS
 * version 1..1 MS
 * name MS
