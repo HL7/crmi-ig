@@ -109,6 +109,8 @@ pages:
     title: Publishing
   distribution.md:
     title: Distribution
+  artifact-signing.md:
+    title: Artifact Signing
   profiles.md:
     title: Profiles
   extensions.md:
