@@ -29,7 +29,7 @@
       ]
     }
   ],
-  "description": "Provides for the definition of a manifest library that provides complete dependency and usage information for a collection of knowledge artifacts",
+  "description": "A Manifest Library provides dependency version management for a collection of artifacts. The manifest is an `asset-collection` library whose components identify the artifacts in the collection, while the dependency relationships are used to manage version dependencies of those components.\n\nThe manifest is also used to specify expansion parameters, providing details for how value set expansion should be performed for any value sets in the collection or referenced by artifacts in the collection.\n\nIn addition, the manifest can be used to specify CQL translator options for any CQL libraries in the collection (or referenced by artifacts in the collection).",
   "purpose": "Knowledge artifacts must be able to specify versioning information for all the dependencies used in a particular release to enable stable expansion of value sets and consistent resolution of dependencies. For example, the versions of code systems used in value sets referenced by the artifacts must be identified so that terminology servers performing expansions can unambiguously select the version of each code system used to perform the expansion.",
   "fhirVersion": "4.0.1",
   "mapping": [
