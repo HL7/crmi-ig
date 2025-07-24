@@ -94,6 +94,8 @@ A desired capability of the resulting package. `computable` to include
 computable elements in packaged content; `executable` to include executable
 elements in packaged content; `publishable` to include publishable elements in
 packaged content.
+
+If no capabilities are specified, the capabilities of resulting artifacts in the package are decided by the server.
 """
 
 * parameter[+]
