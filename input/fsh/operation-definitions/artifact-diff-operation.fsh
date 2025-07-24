@@ -73,6 +73,18 @@ The operation is only valid between two resources of the same type and can optio
   * type = #boolean
   * documentation = "Whether or not to compare executable content such as ValueSet.expansion.contains entries."
 
+* parameter[+]
+  * name = #terminologyEndpoint
+  * min = 0
+  * max = "1"
+  * use = #in
+  * type = #Endpoint
+  * documentation = """
+An endpoint to use to access terminology (i.e. valuesets, codesystems, naming systems, concept maps, and
+membership testing) referenced by the resources. If no terminology endpoint is
+supplied, the server may use whatever mechanism is appropriate for accessing terminology. This could be the server on which the operation is invoked or a third party server accessible to the environment. When a terminology endpoint is provided, the server or third party servers may still be used as fallbacks.
+"""
+
 // Output parameter
 * parameter[+]
   * name = #return
