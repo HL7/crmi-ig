@@ -347,8 +347,7 @@ OperationDefinition.
   * documentation = """
 An endpoint to use to access terminology (i.e. valuesets, codesystems, naming systems, concept maps, and
 membership testing) referenced by the Resource. If no terminology endpoint is
-supplied, the evaluation will attempt to use the server on which the operation
-is being performed as the terminology server.
+supplied, the server may use whatever mechanism is appropriate for accessing terminology. This could be the server on which the operation is invoked or a third party server accessible to the environment. When a terminology endpoint is provided, the server or third party servers may still be used as fallbacks.
 """
 
 // Output parameter
