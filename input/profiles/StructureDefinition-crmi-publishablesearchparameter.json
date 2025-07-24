@@ -210,6 +210,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "SearchParameter.extension:artifactComment",
+      "path" : "SearchParameter.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "SearchParameter.date",
       "path" : "SearchParameter.date",
       "min" : 1,

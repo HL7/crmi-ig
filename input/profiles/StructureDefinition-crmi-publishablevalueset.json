@@ -208,6 +208,18 @@
       }]
     },
     {
+      "id" : "ValueSet.extension:artifactComment",
+      "path" : "ValueSet.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "ValueSet.identifier",
       "path" : "ValueSet.identifier",
       "mustSupport" : true

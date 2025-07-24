@@ -66,6 +66,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "Measure.extension:artifactComment",
+      "path" : "Measure.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "Measure.identifier",
       "path" : "Measure.identifier",
       "mustSupport" : true

@@ -215,6 +215,18 @@
       "mustSupport" : true
     },
     {
+      "id" : "NamingSystem.extension:artifactComment",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "NamingSystem.date",
       "path" : "NamingSystem.date",
       "min" : 1,
