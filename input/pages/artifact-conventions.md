@@ -49,6 +49,7 @@ The `title` element of an artifact **SHOULD**:
 1. Correspond to the `name`, but with spaces allowed
 2. Use Title Casing (i.e. first letter of every word capitalized, except for conjunctions and prepositions)
 3. Avoid the use of special characters
+4. Be unique within the canonical base and resource type for the artifact
 
 ### Operation definitions
 
