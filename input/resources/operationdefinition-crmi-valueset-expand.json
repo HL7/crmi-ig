@@ -217,6 +217,14 @@
     "type" : "boolean"
   },
   {
+    "name" : "lastActiveVersion",
+    "use" : "in",
+    "min" : 0,
+    "max" : "1",
+    "documentation" : "Indicates that if a code explicitly named in the definition is not active in the current (or requested) version of the code system for the expansion, that it should be included in the expansion with the version of the code system in which it was last active.\n\nServers MAY choose to throw an exception if asked to provide last active version and they do not support this capability.\n\nlastActiveVersion is different than setting activeOnly to false, in that the activeOnly flag will return the code in the expansion with the inactive flag set and the version set to the current (or requested) version of the code system.\n\nlastActiveVersion can only be used with activeOnly = false, setting lastActiveVersion when activeOnly is true has no effect (i.e. codes are only included if they are active in the current (or requested) version of the code system.\n\nlastActiveVersion is useful for code system management, especially when setting up code system content for value sets that need to be supported. The activeOnly flag does not give implementers enough information to really validate codes. Conversely, activeOnly is useful for systems that are already managing code system content completely and do not depend on the value sets for code information or validation.",
+    "type" : "boolean"
+  },
+  {
     "name" : "default-valueset-version",
     "use" : "in",
     "min" : 0,
