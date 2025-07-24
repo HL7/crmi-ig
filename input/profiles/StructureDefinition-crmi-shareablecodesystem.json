@@ -99,7 +99,7 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
       }],
-      "mustSupport" : true
+      "mustSupport" : false
     },
     {
       "id" : "CodeSystem.url",
