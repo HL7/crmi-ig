@@ -39,7 +39,7 @@ Usage: #definition
 * instance = true
 * parameter[0].name = #id
 * parameter[=].use = #in
-* parameter[=].min = 1
+* parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "The logical id of the artifact being reviewed. The server must know the artifact (e.g. it is defined explicitly in the server's artifacts)"
 * parameter[=].type = #string
