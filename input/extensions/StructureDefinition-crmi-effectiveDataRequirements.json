@@ -65,6 +65,10 @@
     },
     {
       "type": "element",
+      "expression": "Questionnaire.item"
+    },
+    {
+      "type": "element",
       "expression": "PlanDefinition"
     },
     {
