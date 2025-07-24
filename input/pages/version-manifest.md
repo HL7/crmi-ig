@@ -225,7 +225,8 @@ In a repository context, the following steps should be taken to resolve an unver
 1. If a specific manifest is provided to the operation, use the manifest parameters to attempt to lookup the appropriate version.
 2. If a [package-source](https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-package-source.html) extension is present in the context (i.e. the resource the reference appears in), use that to find the package implementation guide resource, which contains manifest parameters
 3. Otherwise, fall back to the publication-tooling approach (use the base of the canonical in combination with the package dependency tree to resolve) (as described in (https://build.fhir.org/ig/FHIR/ig-guidance/pinning.html#choosing-the-correct-version)
-4. Otherwise, fall back to "latest known version"
+4. If the resource has a versionAlgorithm element (or a versionAlgorithm extension), use it to determine the latest version
+5. Otherwise, fallback to what's documented in the [Choosing the most recent version](https://build.fhir.org/ig/FHIR/ig-guidance/pinning.html#choosing-the-most-recent-version) topic of the IG guidance IG.
 
 For example, given the following example PlanDefinition:
 
