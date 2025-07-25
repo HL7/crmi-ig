@@ -6,7 +6,7 @@ Usage: #definition
 * url = "http://hl7.org/fhir/uv/crmi/OperationDefinition/crmi-approve"
 * name = "CRMIApprove"
 * title = "CRMI Approve"
-* description = "The approve operation supports applying an approval to an existing artifact, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact, and is otherwise only allowed to create ArtifactAssessment (Basic or cqf-artifactComment extensions in R4) resources in the repository."
+* description = "The approve operation supports applying an approval to an existing artifact, as well as for all resources it is composed of, regardless of status. The operation sets the _date_ and _approvalDate_ elements of the approved artifact and child artifacts, and is otherwise only allowed to create ArtifactAssessment (Basic or cqf-artifactComment extensions in R4) resources in the repository."
 * kind = #operation
 * code = #approve
 * comment = "The approve operation supports the ability of a repository to record commentary on a specific state of an artifact in an ArtifactAssessment (Basic or cqf-artifactComment extension in R4) resource by applying an approval. The artifact assessments which are added by the operation must reference a version of the artifact."
