@@ -26,12 +26,13 @@ Artifact collections can specify _expansion rules_ (i.e. _manifest parameters_) 
 
 1. `activeOnly`
 2. `default-system-version` (may still be seen as `system-version` for backwards-compatibility)
-2. `default-valueset-vesrion`
-3. `check-system-version`
-3. `check-valueset-version`
-4. `force-system-version`
-4. `force-valueset-version`
-6. `includeDraft` (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+3. `default-valueset-vesrion`
+4. `check-system-version`
+5. `check-valueset-version`
+6. `force-system-version`
+7. `force-valueset-version`
+8. `includeDraft` (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+9. `lastActiveVersion` (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
 
 > NOTE: CRMIManifestParameters is a generalization of expansion parameters, and may also contain `default-canonical-version`, `check-canonical-version` and `force-canonical-version` parameters to identify pinned versions of canonical resources other than CodeSystems and ValueSets. See the [Version Manifest](version-manifest.html) discussion for more information.
 
@@ -157,11 +158,11 @@ Note that when a code system authority has not established a versioning system, 
     7. **SHALL** support the systemVersion parameter
     8. **SHALL** support the coding parameter
     9. **SHALL** support the codeableConcept parameter
-    10. **SHALL** support the default-valueset-version parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
-    11. **SHALL** support the check-valueset-version parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
-    12. **SHALL** support the force-valueset-version parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
-    13. **SHOULD** support the manifest parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
-    14. **SHOULD** support the manifestParameters parameter (defined in the [crmi-valueset-validatecode](OperationDefinition-crmi-valueset-validatecode.html))
+    10. **SHALL** support the default-valueset-version parameter (defined in [CRMIValueSetValidateCode](OperationDefinition-crmi-valueset-validatecode.html))
+    11. **SHALL** support the check-valueset-version parameter (defined in [CRMIValueSetValidateCode](OperationDefinition-crmi-valueset-validatecode.html))
+    12. **SHALL** support the force-valueset-version parameter (defined in [CRMIValueSetValidateCode](OperationDefinition-crmi-valueset-validatecode.html))
+    13. **SHOULD** support the manifest parameter (defined in [CRMIValueSetValidateCode](OperationDefinition-crmi-valueset-validatecode.html))
+    14. **SHOULD** support the manifestParameters parameter (defined in [CRMIValueSetValidateCode](OperationDefinition-crmi-valueset-validatecode.html))
 
 11. Support [ValueSet/$expand](http://hl7.org/fhir/R4/valueset-operation-expand.html)
     1. **SHALL** support the url parameter
@@ -179,9 +180,10 @@ Note that when a code system authority has not established a versioning system, 
     10. **SHOULD** support includeDesignation parameter
     11. **SHOULD** support designation parameter
     12. **SHOULD** support paging parameters
-    13. **SHOULD** support the manifest parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    14. **SHOULD** support the manifestParameters parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
-    15. **SHOULD** support the includeDraft parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    13. **SHOULD** support the manifest parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+    14. **SHOULD** support the manifestParameters parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+    15. **SHOULD** support the includeDraft parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+    16. **SHOULD** support the lastActiveVersion parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
 
 ### Artifact Collections (i.e. Manifest Libraries)
 
@@ -211,7 +213,8 @@ Note that when a code system authority has not established a versioning system, 
     5. **SHALL** support the default-valueset-version parameter
     6. **SHALL** support the check-valueset-version parameter
     7. **SHALL** support the force-valueset-version parameter
-    8. **SHOULD** support the `includeDraft` parameter (defined in the [crmi-valueset-expand](OperationDefinition-crmi-valueset-expand.html))
+    8. **SHOULD** support the `includeDraft` parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+    9. **SHOULD** support the `lastActiveVersion` parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     9. **SHOULD** support other parameters
 
 5. Because this capability results in the potential for parameter values to be supplied in multiple places, the following rules apply:

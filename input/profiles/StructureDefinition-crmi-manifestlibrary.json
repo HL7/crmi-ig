@@ -290,6 +290,21 @@
         "mustSupport": true
       },
       {
+        "id": "Library.relatedArtifact:component.resource.extension:resourceType",
+        "path": "Library.relatedArtifact.resource.extension",
+        "sliceName": "resourceType",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-resourceType"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Library.relatedArtifact:dependency",
         "path": "Library.relatedArtifact",
         "sliceName": "dependency",
@@ -343,13 +358,28 @@
         "mustSupport": true
       },
       {
-        "id": "Library.relatedArtifact:dependency.artifact",
+        "id": "Library.relatedArtifact:dependency.resource",
         "path": "Library.relatedArtifact.resource",
         "short": "A reference to the dependency artifact (for canonical resources)",
         "min": 0,
         "max": "1",
         "condition": [ "mnf-2" ],
         "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.resource.extension:resourceType",
+        "path": "Library.relatedArtifact.resource.extension",
+        "sliceName": "resourceType",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-resourceType"
+            ]
+          }
+        ]
       },
       {
         "id": "Library.content",

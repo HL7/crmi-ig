@@ -90,11 +90,108 @@
         }
       },
       {
+        "id": "Parameters.parameter:includeDefinition",
+        "path": "Parameters.parameter",
+        "sliceName": "includeDefinition",
+        "short": "Include definition?",
+        "definition": "Controls whether the value set definition is included or excluded in value set expansions. This includes all elements of the ValueSet, including extensions, with the exception that the id and meta elements would be specific to the expansion, not to the definition of the value set, and the expansion itself is filled out.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Parameters.parameter:includeDefinition.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "includeDefinition"
+      },
+      {
+        "id": "Parameters.parameter:includeDefinition.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:activeOnly",
+        "path": "Parameters.parameter",
+        "sliceName": "activeOnly",
+        "short": "Only include active codes?",
+        "definition": "Controls whether inactive concepts are included or excluded in value set expansions. Note that if the value set explicitly specifies that inactive codes are included, this parameter can still remove them from a specific expansion, but this parameter cannot include them if the value set excludes them",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Parameters.parameter:activeOnly.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "activeOnly"
+      },
+      {
+        "id": "Parameters.parameter:activeOnly.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:includeDraft",
+        "path": "Parameters.parameter",
+        "sliceName": "includeDraft",
+        "short": "Include unreleased content?",
+        "definition": "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. If one (or more) draft versions exist, the $expand operation should use the latest draft to create the expansion. This parameter cannot be used at the same time as the valueSetVersion parameter. If a draft version does not exist, then the service should use the latest published (status=Active) version.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Parameters.parameter:includeDraft.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "includeDraft"
+      },
+      {
+        "id": "Parameters.parameter:includeDraft.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:lastActiveVersion",
+        "path": "Parameters.parameter",
+        "sliceName": "lastActiveVersion",
+        "short": "Indicate last active version?",
+        "definition": "Indicates that if a code explicitly named in the definition is not active in the current (or requested) version of the code system for the expansion, that it should be included in the expansion with the version of the code system in which it was last active.",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Parameters.parameter:lastActiveVersion.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "lastActiveVersion"
+      },
+      {
+        "id": "Parameters.parameter:lastActiveVersion.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
         "id": "Parameters.parameter:system-version",
         "path": "Parameters.parameter",
         "sliceName": "system-version",
         "short": "Code system version (deprecated, use default-system-version)",
         "definition": "Specifies a version to use for a code system, if the reference does not specify which one to use (i.e. is a version-independent reference). The format is the same as a versioned canonical reference: [system]|[version] - e.g. http://loinc.org|2.56",
+        "comment": "Note that system-version is the name of the parameter in the R4 version of the $expand operation. It is being deprecated and replaced with default-system-version, but this profile supports both until the ecosystem fully supports the default-system-versionparameter.",
         "min": 0,
         "max": "*"
       },
@@ -110,6 +207,21 @@
         "type": [
           {
             "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:system-version.value[x].extension:display",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "display",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/display"
+            ]
           }
         ]
       },
@@ -138,6 +250,21 @@
         ]
       },
       {
+        "id": "Parameters.parameter:default-system-version.value[x].extension:display",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "display",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/display"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Parameters.parameter:default-valueset-version",
         "path": "Parameters.parameter",
         "sliceName": "default-valueset-version",
@@ -158,6 +285,76 @@
         "type": [
           {
             "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:default-valueset-version.value[x].extension:display",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "display",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/display"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:canonicalVersion",
+        "path": "Parameters.parameter",
+        "sliceName": "canonicalVersion",
+        "short": "Artifact version (deprecated, use default-canonical-version)",
+        "definition": "Specifies a version to use for an artifact, if the reference does not specify which one to use (i.e. is a version-independent reference). The format is the same as a versioned canonical reference: [artifact-url]|[version] - e.g. http://example.org/StructureDefinition/example|1.0.0",
+        "comment": "In CRMI 1.0, this parameter was proposed as a generalization that could be used to specify canonical version for any artifact. In CRMI 2.0, the parameter is default-canonical-version, and is only used for artifacts other than code systems and value sets.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Parameters.parameter:canonicalVersion.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "canonicalVersion"
+      },
+      {
+        "id": "Parameters.parameter:canonicalVersion.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:canonicalVersion.value[x].extension:display",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "display",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/display"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:canonicalVersion.value[x].extension:resourceType",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "resourceType",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-resourceType"
+            ]
           }
         ]
       },
@@ -183,6 +380,36 @@
         "type": [
           {
             "code": "canonical"
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:default-canonical-version.value[x].extension:display",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "display",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/display"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Parameters.parameter:default-canonical-version.value[x].extension:resourceType",
+        "path": "Parameters.parameter.value[x].extension",
+        "sliceName": "resourceType",
+        "min": 0,
+        "max": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-resourceType"
+            ]
           }
         ]
       }
