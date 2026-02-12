@@ -172,6 +172,23 @@
       "mustSupport" : true
     },
     {
+        "id": "ValueSet.extension:curationCoverage",
+        "path": "ValueSet.extension",
+        "sliceName": "curationCoverage",
+        "short": "Relative completeness of clinical curation coverage for this value set",
+        "definition": "Indicates whether the value set content has been fully curated or may contain gaps or missing referenced component groupings.",
+        "min": 0,
+        "max": "1",
+        "type": [
+            {
+                "code": "Extension",
+                "profile": [
+                    "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-curationCoverage"
+                ]
+            }
+        ]
+    },
+    {
       "id" : "ValueSet.extension:relatedArtifact",
       "path" : "ValueSet.extension",
       "sliceName" : "relatedArtifact",

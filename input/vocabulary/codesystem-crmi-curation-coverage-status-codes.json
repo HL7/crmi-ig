@@ -1,0 +1,39 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "CurationCoverageStatusCodes",
+  "extension": [
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "cds"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "trial-use"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 1
+    }
+  ],
+  "url": "http://terminology.hl7.org/CodeSystem/crmi-curation-coverage-status-codes",
+  "version": "1.0.0",
+  "name": "CurationCoverageStatusCodes",
+  "title": "Curation Coverage Status Codes",
+  "status": "active",
+  "experimental": false,
+  "caseSensitive": true,
+  "content": "complete",
+  "description": "Codes describing the relative completeness of clinical curation coverage for a value set.",
+  "concept": [
+    {
+      "code": "complete",
+      "display": "Complete clinical coverage",
+      "definition": "All codes considered relevant to the intended clinical scope of this value set have been proactively identified, reviewed, and curated by the steward. No known gaps or missing component groupings remain."
+    },
+    {
+      "code": "partial",
+      "display": "Partial clinical coverage",
+      "definition": "The value set has not yet been fully curated for the intended clinical scope. Relevant codes or component groupings may be missing, unreviewed, or not yet incorporated, including cases where expected referenced value sets have not yet been included."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "resourceType": "ValueSet",
+  "id": "example-diabetes-grouper",
+  "url": "http://example.org/fhir/ValueSet/diabetes-grouper",
+  "version": "1.0.0",
+  "name": "ExampleDiabetesGrouper",
+  "title": "Diabetes Condition Grouper",
+  "status": "active",
+  "description": "Example condition grouper for diabetes-related diagnoses.",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-curationCoverage",
+      "extension": [
+        {
+          "url": "status",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/CurationCoverageStatus",
+                "code": "partial",
+                "display": "Incomplete clinical coverage"
+              }
+            ]
+          }
+        },
+        {
+          "url": "statusReason",
+          "valueMarkdown": "Medication and laboratory additional-context groupers have not yet been curated or incorporated."
+        },
+        {
+          "url": "author",
+          "valueString": "CSTE"
+        },
+        {
+          "url": "dateTime",
+          "valueDateTime": "2026-02-12"
+        },
+        {
+          "url": "note",
+          "valueMarkdown": "Initial publication; additional groupers planned for next release."
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          { "code": "44054006" },
+          { "code": "73211009" }
+        ]
+      }
+    ]
+  }
+}

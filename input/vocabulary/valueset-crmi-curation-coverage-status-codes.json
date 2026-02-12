@@ -1,0 +1,32 @@
+{
+  "resourceType": "ValueSet",
+  "id": "CurationCoverageStatusCodes",
+  "extension": [
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "cds"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "trial-use"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 1
+    }
+  ],
+  "url": "http://terminology.hl7.org/ValueSet/crmi-curation-coverage-status-codes",
+  "version": "1.0.0",
+  "name": "CurationCoverageStatusCodes",
+  "title": "Curation Coverage Status Codes",
+  "status": "active",
+  "experimental": false,
+  "description": "Value set containing codes that indicate the relative completeness of clinical curation coverage for a value set.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/crmi-curation-coverage-status-codes"
+      }
+    ]
+  }
+}
