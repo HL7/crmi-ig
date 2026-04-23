@@ -8,7 +8,7 @@
         "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
         "valueCanonical": "http://hl7.org/fhir/uv/crmi/Library/ANCCohort"
     }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+        "url": "http://hl7.org/fhir/StructureDefinition/characteristicExpression",
         "valueExpression": {
             "language": "text/cql-identifier",
             "expression": "Is Antenatal Care Applicable"

@@ -1,8 +1,8 @@
 Invariant: gdf-1
-Description: "Group definition must have either an expression or characteristics, but not both"
+Description: "Group definition must have either a characteristicExpression or characteristics, but not both"
 Severity: #error
-Expression: "extension('http://hl7.org/fhir/StructureDefinition/cqf-expression').exists() xor characteristic.exists()"
-XPath: "exists(f:extension)"
+Expression: "extension('http://hl7.org/fhir/StructureDefinition/characteristicExpression').exists() xor characteristic.exists()"
+XPath: "exists(f:extension[@url='http://hl7.org/fhir/StructureDefinition/characteristicExpression']) != exists(f:characteristic)"
 
 Invariant: gdf-2
 Description: "Reference must be to a structure definition"
@@ -19,7 +19,7 @@ Description: "Represents the definition of a group of subjects, suitable for use
 * . ^mustSupport = false
 * extension contains
     $cqf-library named library 0..1 MS and
-    $cqf-expression named expression 0..1 MS
+    $characteristicExpression named characteristicExpression 0..1 MS
 * identifier MS
 * active MS
 * type only code
@@ -31,6 +31,11 @@ Description: "Represents the definition of a group of subjects, suitable for use
 * code MS
 * name 1..1 MS
 * characteristic MS
+* characteristic.value[x] MS
+* characteristic.valueReference.extension contains
+    GroupCharacteristicValueCanonical named valueCanonical 0..1 MS
+* characteristic.valueReference.extension[valueCanonical] ^short = "Instances that conform to the referenced profile"
+* characteristic.valueReference.extension[valueCanonical] ^definition = "Instances that conform to the referenced profile are included (or excluded if characteristic.exclude is true) in the cohort."
 * member MS
   * entity MS
     * extension contains 
