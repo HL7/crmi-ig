@@ -341,3 +341,8 @@ This IG is not prescriptive about whether content is distributed via IG packages
 
 The implementation (or run-time) phase is supported by the Executable profiles defined in this implementation guide. See the [Profiles](profiles.html) page for a complete description of the Executable capability category and profiles.
 
+### Maintenance, Deprecated, and Retired
+
+For maintenance of content generally, the process above is iterative, in that a new version is authored to incorporate feedback and changes following the same processes to produce the new version, validate it, release it, and make it available for use. As part of that process, older versions of the content can be updated to indicate that they are no longer intended for use because they have been replaced by newer versions, or that they are just generally being retired. The `status` element that is present for all artifacts can be used to indicate that an artifact is `retired`, however, it does not support communication of the `deprecated` status. Because that use case is an important aspect of value set maintenance in particular, the ShareableValueSet supports a `workflowStatusDescription` element that can be used to communicate the `deprecated`. status.
+
+We seek feedback on whether this capability should be provided generally for all types of artifacts.

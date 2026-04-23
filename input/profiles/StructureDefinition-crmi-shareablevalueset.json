@@ -131,6 +131,21 @@
       "mustSupport" : true
     },
     {
+      "id" : "ValueSet.extension:workflowStatusDescription",
+      "path" : "ValueSet.extension",
+      "sliceName" : "workflowStatusDescription",
+      "short" : "Content authoring workflow status",
+      "definition" : "Indicates a specific phase or activity status for the value set. Different stewards have different processes for managing content.",
+      "comment" : "This element can be used to communicate additional status beyond the publication status for the artifact, including concepts such as deprecated.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "ValueSet.url",
       "path" : "ValueSet.url",
       "min" : 1,
