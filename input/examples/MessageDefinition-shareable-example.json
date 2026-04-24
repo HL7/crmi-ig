@@ -1,0 +1,31 @@
+{
+  "resourceType": "MessageDefinition",
+  "id": "shareable-example",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemessagedefinition" ]
+  },
+  "url": "http://hl7.org/fhir/uv/crmi/MessageDefinition/shareable-example",
+  "version": "0.1.0",
+  "name": "ShareableExample",
+  "title": "Shareable Message Definition Example",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-04-24",
+  "publisher": "Health Level Seven, Int'l",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org"
+        }
+      ]
+    }
+  ],
+  "purpose": "Provides an example of a shareable message definition",
+  "eventCoding": {
+    "system": "http://example.org/fhir/message-events",
+    "code": "admin-notify"
+  },
+  "category": "notification"
+}

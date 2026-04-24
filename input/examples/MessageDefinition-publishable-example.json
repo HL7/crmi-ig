@@ -1,0 +1,83 @@
+{
+  "resourceType": "MessageDefinition",
+  "id": "publishable-example",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablemessagedefinition" ]
+  },
+  "extension": [{
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseLabel",
+    "valueString": "Release 1"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseDescription",
+    "valueMarkdown": "Example release of a message definition"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy",
+    "valueCodeableConcept": {
+      "coding": [{
+        "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+        "code": "strict"
+      }]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-usage",
+    "valueMarkdown": "See the [FHIR Messaging](https://hl7.org/fhir/R4/messaging.html) topic for more information on how messaging is implemented in FHIR"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel",
+    "valueString": "Copyright 2026+, Health Level 7 International"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-approvalDate",
+    "valueDate": "2026-04-24"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-lastReviewDate",
+    "valueDate": "2026-04-24"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod",
+    "valuePeriod": {
+        "start": "2026-07-01"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-topic",
+    "valueCodeableConcept": {
+        "text": "Antenatal Care"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+    "valueContactDetail": {
+        "name": "HL7 Infrastructure and Messaging Work Group"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-editor",
+    "valueContactDetail": {
+        "name": "Canonical Resource Management Infrastructure Project"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-reviewer",
+    "valueContactDetail": {
+        "name": "HL7 Clinical Decision Support Work Group"
+    }
+  }],
+  "url": "http://hl7.org/fhir/uv/crmi/MessageDefinition/publishable-example",
+  "version": "0.1.0",
+  "name": "PublishableExample",
+  "title": "Publishable Message Definition Example",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-04-24",
+  "publisher": "Health Level Seven, Int'l",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org"
+        }
+      ]
+    }
+  ],
+  "purpose": "Provides an example of a publishable message definition",
+  "eventCoding": {
+    "system": "http://example.org/fhir/message-events",
+    "code": "admin-notify"
+  },
+  "category": "notification"
+}
