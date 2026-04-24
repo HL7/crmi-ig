@@ -33,7 +33,7 @@ Description: "Represents the definition of a group of subjects, suitable for use
 * characteristic MS
 * characteristic.value[x] MS
 * characteristic.valueReference.extension contains
-    GroupCharacteristicValueCanonical named valueCanonical 0..1 MS
+    CRMIGroupCharacteristicValueCanonical named valueCanonical 0..1 MS
 * characteristic.valueReference.extension[valueCanonical] ^short = "Instances that conform to the referenced profile"
 * characteristic.valueReference.extension[valueCanonical] ^definition = "Instances that conform to the referenced profile are included (or excluded if characteristic.exclude is true) in the cohort."
 * member MS
