@@ -37,7 +37,7 @@
   "abstract" : false,
   "context" : [{
     "type" : "element",
-    "expression" : "canonical"
+    "expression" : "RelatedArtifact"
   }],
   "type" : "Extension",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",

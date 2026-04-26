@@ -17,10 +17,14 @@
   "description": "Group Valueset with codes representing possible values for the Danger signs Codes Grouper element",
   "immutable": true,
   "expansion": {
+    "identifier": "urn:uuid:65d93335-e6ee-4613-8898-d89771239c0f",
     "timestamp": "2023-07-11T09:29:40-06:00",
     "parameter": [{
       "name": "system-version",
-      "valueString": "1.0.0"
+      "valueString": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0-cibuild"
+    }, {
+      "name": "used-system-version",
+      "valueUri": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0-cibuild"
     }],
     "contains": [ {
       "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",

@@ -22,7 +22,12 @@
     } ]
   },
   "expansion": {
+    "identifier": "urn:uuid:6530663c-a90c-4433-875f-2c3818e6988c",
     "timestamp": "2023-07-11T09:29:40-06:00",
+    "parameter": [{
+      "name": "used-system-version",
+      "valueUri": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0-cibuild"
+    }],
     "contains": [ {
       "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",
       "code": "ANC.B5.DE49",

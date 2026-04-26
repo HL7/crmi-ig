@@ -254,18 +254,6 @@
       }]
     },
     {
-      "id" : "ValueSet.extension:trustedExpansion",
-      "path" : "ValueSet.extension",
-      "sliceName" : "trustedExpansion",
-      "min" : 0,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"]
-      }],
-      "mustSupport" : true
-    },
-    {
       "id" : "ValueSet.extension:otherTitle",
       "path" : "ValueSet.extension",
       "sliceName" : "otherTitle",

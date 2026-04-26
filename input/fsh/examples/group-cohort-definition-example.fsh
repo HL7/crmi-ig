@@ -16,4 +16,5 @@ Description: "An example cohort definition using the GroupDefinition profile"
 * characteristic[+].code = http://loinc.org#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
 * characteristic[=].code.text = "Patients with high HbA1c (>6%)"
 * characteristic[=].valueReference.extension[valueCanonical].valueCanonical = "http://example.org/fhir/StructureDefinition/high-a1c-observation"
+* characteristic[=].valueReference.display = "High A1C Observation Profile"
 * characteristic[=].exclude = false

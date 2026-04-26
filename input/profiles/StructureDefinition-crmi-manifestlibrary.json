@@ -121,9 +121,9 @@
         "id": "Library.extension:expansionParameters",
         "path": "Library.extension",
         "sliceName": "expansionParameters",
-        "short": "What pinned dependency versions",
-        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) for canonical references from artifacts in the manifest. The most common usage of this is specifying the version of a code system to be used for expansion when the value set definition does not specify a code system version.", 
-        "comment": "The manifest parameters are most commonly used to provide parameters for value set expansion. In source content, the manifest parameters typically contains only pinned canonicals for major code systems. However, in released content, the manifest parameters contains all and only the pinned canonical dependencies of the artifacts in the manifest library.",
+        "short": "What versions SHOULD be used",
+        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) that SHOULD be used for canonical references from artifacts in the manifest. The most common usage of this is specifying the version of a code system that SHOULD be used for expansion when the value set definition does not specify a code system version.", 
+        "comment": "The manifest parameters are most commonly used to provide parameters for value set expansion. In source content (i.e. draft or unreleased content that is under development), the manifest parameters typically contains only pinned canonicals for major code systems. However, in released content, the manifest parameters contains pinned versions of canonical dependencies referenced without a specific version by the artifacts in the manifest library.",
         "alias": ["manifestParameters"],
         "min": 0,
         "max": "1",
@@ -132,6 +132,37 @@
             "code": "Extension",
             "profile": [
               "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.extension:expansionParameters.value[x]",
+        "path": "Library.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.extension:usedExpansionParameters",
+        "path": "Library.extension",
+        "sliceName": "usedExpansionParameters",
+        "short": "As published versions",
+        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) that were used for canonical references from artifacts in the manifest during as part of the release or publication process.", 
+        "alias": ["usedManifestParameters"],
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters"
             ]
           }
         ],
@@ -225,7 +256,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"
+              "http://hl7.org/fhir/StructureDefinition/cqf-messages"
             ]
           }
         ],
@@ -278,7 +309,7 @@
         "mustSupport": true
       },
       {
-        "id": "Library.relatedArtifact:component.isOwned",
+        "id": "Library.relatedArtifact:component.extension:isOwned",
         "path": "Library.relatedArtifact.extension",
         "sliceName": "isOwned",
         "min": 0,
@@ -290,7 +321,7 @@
         "mustSupport": true
       },
       {
-        "id": "Library.relatedArtifact:component.intendedUsageContext",
+        "id": "Library.relatedArtifact:component.extension:intendedUsageContext",
         "path": "Library.relatedArtifact.extension",
         "sliceName": "intendedUsageContext",
         "min": 0,
@@ -347,6 +378,23 @@
         ]
       },
       {
+        "id": "Library.relatedArtifact:component.resource.extension:uriReference.value[x].extension:resourceType",
+        "path": "Library.relatedArtifact.resource.extension.value[x].extension",
+        "sliceName": "uriResourceType",
+        "short": "What type of non-canonical artifact",
+        "definition": "Because the type of an artifact cannot be reliably inferred from the uri, this element allows the type of the artifact to be specified",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-resourceType"
+            ]
+          }
+        ]
+      },
+      {
         "id": "Library.relatedArtifact:component.resource.extension:resourceType",
         "path": "Library.relatedArtifact.resource.extension",
         "sliceName": "resourceType",
@@ -376,7 +424,7 @@
         "mustSupport": true
       },
       {
-        "id": "Library.relatedArtifact:component.intendedUsageContext",
+        "id": "Library.relatedArtifact:dependency.extension:intendedUsageContext",
         "path": "Library.relatedArtifact.extension",
         "sliceName": "intendedUsageContext",
         "min": 0,
@@ -386,6 +434,55 @@
           "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-intendedUsageContext"]
         }],
         "mustSupport": true
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.extension:referenceSource",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "referenceSource",
+        "short": "Originated in",
+        "definition": "Allows for the source of the dependency to be recorded. This extension may appear on the dependency any number of times, once for each unique originating source for the given dependency.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.extension:dependencyRole",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "dependencyRole",
+        "short": "What role",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Library.relatedArtifact:dependency.extension:packageSource",
+        "path": "Library.relatedArtifact.extension",
+        "sliceName": "packageSource",
+        "short": "What package",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/package-source"
+            ]
+          }
+        ]
       },
       {
         "id": "Library.relatedArtifact:dependency.type",
@@ -433,11 +530,11 @@
         ]
       },
       {
-        "id": "Library.relatedArtifact:dependency.resource.extension:resourceType",
-        "path": "Library.relatedArtifact.resource.extension",
-        "sliceName": "resourceType",
-        "short": "What type of artifact",
-        "definition": "Because the type of an artifact cannot be reliably inferred from the canonical url, this element specifies the type of artifact.",
+        "id": "Library.relatedArtifact:dependency.resource.extension:uriReference.value[x].extension:resourceType",
+        "path": "Library.relatedArtifact.resource.extension.value[x].extension",
+        "sliceName": "uriResourceType",
+        "short": "What type of non-canonical artifact",
+        "definition": "Because the type of an artifact cannot be reliably inferred from the uri, this element allows the type of the artifact to be specified",
         "min": 0,
         "max": "1",
         "type": [
@@ -450,34 +547,18 @@
         ]
       },
       {
-        "id": "Library.relatedArtifact:dependency.resource.extension:referenceSource",
+        "id": "Library.relatedArtifact:dependency.resource.extension:resourceType",
         "path": "Library.relatedArtifact.resource.extension",
-        "sliceName": "referenceSource",
-        "short": "Originated in",
-        "definition": "Allows for the source of the dependency to be recorded. This extension may appear on the dependency any number of times, once for each unique originating source for the given dependency.",
+        "sliceName": "resourceType",
+        "short": "What type of artifact",
+        "definition": "Because the type of an artifact cannot be reliably inferred from the canonical url, this element specifies the type of artifact.",
         "min": 0,
-        "max": "*",
+        "max": "1",
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Library.relatedArtifact:dependency.resource.extension:dependencyRole",
-        "path": "Library.relatedArtifact.resource.extension",
-        "sliceName": "dependencyRole",
-        "short": "What role",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole"
+              "http://hl7.org/fhir/StructureDefinition/cqf-resourceType"
             ]
           }
         ]

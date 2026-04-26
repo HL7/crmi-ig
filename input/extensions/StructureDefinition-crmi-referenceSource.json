@@ -37,7 +37,7 @@
   "abstract" : false,
   "context" : [{
     "type" : "element",
-    "expression" : "canonical"
+    "expression" : "RelatedArtifact"
   }],
   "type" : "Extension",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
@@ -47,7 +47,7 @@
       "id" : "Extension",
       "path" : "Extension",
       "short" : "Reference source",
-      "definition" : "Identifies the source of a canonical reference when it is being recorded as a dependency as part of a manifest library.",
+      "definition" : "Identifies the source of a dependency reference when it is being recorded as a dependency as part of a manifest library.",
       "min" : 0,
       "max" : "*"
     },
@@ -56,7 +56,7 @@
       "path" : "Extension.extension",
       "sliceName" : "artifact",
       "short" : "What artifact",
-      "definition" : "Specifies the artifact in which the dependency reference originated.",
+      "definition" : "Specifies the artifact in which the dependency reference originated. This may be a Reference, a canonical, or a uri (for non-canonical artifacts)",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -73,6 +73,10 @@
       "path" : "Extension.extension.value[x]",
       "type" : [{
         "code" : "canonical"
+      }, {
+        "code" : "Reference"
+      }, {
+        "code" : "uri"
       }]
     },
     {

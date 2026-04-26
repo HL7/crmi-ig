@@ -409,7 +409,7 @@ Canonical references **MAY** be authored without a version. To ensure consistent
 
 More information on [manifest specification](version-manifest.html)
 
-> NOTE: For parameter precedence rules when manifest parameters conflict with operation parameters, see [Artifact Terminology Service](artifact-terminology-service.html#parameters).
+> NOTE: For parameter precedence rules when manifest parameters conflict with operation parameters, see [Artifact Terminology Service](artifact-terminology-service.html#expansion-rules).
 
 ### Syndication
 {: #distribution-syndication}
