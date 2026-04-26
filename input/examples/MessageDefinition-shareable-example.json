@@ -22,6 +22,7 @@
       ]
     }
   ],
+  "description": "Example shareable message definition",
   "purpose": "Provides an example of a shareable message definition",
   "eventCoding": {
     "system": "http://example.org/fhir/message-events",

@@ -6,7 +6,7 @@
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/computable-example",
   "name": "DangersignsCodesGrouperComputable",
-  "title": "Danger signs Codes Grouper (Computable Example)",
+  "title": "Danger signs Codes Grouper Computable Example",
   "status": "draft",
   "experimental": true,
   "date": "2023-07-11T09:29:40-06:00",

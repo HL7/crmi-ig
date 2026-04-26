@@ -61,7 +61,15 @@
       "id" : "GraphDefinition",
       "path" : "GraphDefinition",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "pub-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include publishable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'publishable').exists()"
+        }
+      ]
     },
     {
       "id" : "GraphDefinition.meta.extension:packageSource",
@@ -83,16 +91,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "pub-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "GraphDefinition.extension:knowledgeCapability.value[x]",
-      "path" : "GraphDefinition.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "publishable"
     },
     {
       "id" : "GraphDefinition.extension:identifier",
@@ -263,8 +263,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "GraphDefinition.extension:relatedArtifact.extension:publicationDate",
-      "path" : "GraphDefinition.extension.extension",
+      "id" : "GraphDefinition.extension:relatedArtifact.value[x].extension:publicationDate",
+      "path" : "GraphDefinition.extension.value[x].extension",
       "sliceName" : "publicationDate",
       "min" : 0,
       "max" : "1",
@@ -274,8 +274,8 @@
       }]
     },
     {
-      "id" : "GraphDefinition.extension:relatedArtifact.extension:publicationStatus",
-      "path" : "GraphDefinition.extension.extension",
+      "id" : "GraphDefinition.extension:relatedArtifact.value[x].extension:publicationStatus",
+      "path" : "GraphDefinition.extension.value[x].extension",
       "sliceName" : "publicationStatus",
       "min" : 0,
       "max" : "1",

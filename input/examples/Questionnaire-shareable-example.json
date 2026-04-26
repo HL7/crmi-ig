@@ -16,7 +16,7 @@
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Questionnaire/shareable-example",
     "name": "ANCB5Shareable",
-    "title": "ANC.B5 Quick check (Shareable Example)",
+    "title": "ANC.B5 Quick check Shareable Example",
     "status": "active",
     "experimental": true,
     "description": "Quick check questionnaire",

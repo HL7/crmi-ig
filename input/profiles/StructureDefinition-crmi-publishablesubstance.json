@@ -62,7 +62,15 @@
       "id" : "Substance",
       "path" : "Substance",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "pub-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include publishable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'publishable').exists()"
+        }
+      ]
     },
     {
       "id" : "Substance.meta.extension:packageSource",
@@ -84,16 +92,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "pub-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "Substance.extension:knowledgeCapability.value[x]",
-      "path" : "Substance.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "publishable"
     },
     {
       "id" : "Substance.extension:date",
@@ -298,6 +298,28 @@
         "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
       }],
       "mustSupport" : true
+    },
+    {
+      "id" : "Substance.extension:relatedArtifact.value[x].extension:publicationDate",
+      "path" : "Substance.extension.value[x].extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "Substance.extension:relatedArtifact.value[x].extension:publicationStatus",
+      "path" : "Substance.extension.value[x].extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
     },
     {
       "id" : "Substance.extension:authoritativeSource",

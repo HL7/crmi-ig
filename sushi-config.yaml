@@ -87,6 +87,10 @@ parameters:
   pin-manifest: 'manifest'
   special-url:
     - http://terminology.hl7.org/ValueSet/artifact-resource-types
+    - http://terminology.hl7.org/CodeSystem/dependency-role-codes
+    - http://terminology.hl7.org/ValueSet/dependency-role
+    - http://terminology.hl7.org/CodeSystem/curation-coverage-level-codes
+    - http://terminology.hl7.org/ValueSet/curation-coverage-level
   auto-oid-root: 2.16.840.1.113883.4.642.40.38
   apply-version: false
   default-version: true
@@ -264,6 +268,12 @@ resources:
   MedicationKnowledge/shareable-example:
     name: Shareable MedicationKnowledge Example
     description: Example of a MedicationKnowledge resource as a shareable non-canonical artifact.
+  MessageDefinition/shareable-example:
+    name: Shareable MessageDefinition Example
+    description: Example of a MessageDefinition resource as a shareable artifact.
+  MessageDefinition/publishable-example:
+    name: Publishable MessageDefinition Example
+    description: Example of a MessageDefinition resource as a publishable artifact.
   Substance/artifact-reference-example:
     name: Example Substance Definition
     description: Example of a Substance resource illustrating use as a non-canonical artifact.

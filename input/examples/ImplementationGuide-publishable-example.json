@@ -14,6 +14,12 @@
       "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
       "valueInteger": 4
     }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
+      "valueCode": "shareable"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
+      "valueCode": "publishable"
+    }, {
       "url": "http://hl7.org/fhir/StructureDefinition/artifact-releaseLabel",
       "valueString": "Release 1"
     }, {

@@ -16,7 +16,7 @@
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Questionnaire/publishable-example",
     "name": "ANCB5Publishable",
-    "title": "ANC.B5 Quick check (Publishable Example)",
+    "title": "ANC.B5 Quick check Publishable Example",
     "status": "active",
     "experimental": true,
     "description": "Quick check questionnaire",

@@ -66,7 +66,15 @@
       "id" : "NamingSystem",
       "path" : "NamingSystem",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "pub-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include publishable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'publishable').exists()"
+        }
+      ]
     },
     {
       "id" : "NamingSystem.meta.extension:packageSource",
@@ -88,16 +96,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "pub-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.extension:knowledgeCapability.value[x]",
-      "path" : "NamingSystem.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "publishable"
     },
     {
       "id" : "NamingSystem.extension:identifier",
@@ -256,8 +256,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "NamingSystem.extension:relatedArtifact.extension:publicationDate",
-      "path" : "NamingSystem.extension.extension",
+      "id" : "NamingSystem.extension:relatedArtifact.value[x].extension:publicationDate",
+      "path" : "NamingSystem.extension.value[x].extension",
       "sliceName" : "publicationDate",
       "min" : 0,
       "max" : "1",
@@ -267,8 +267,8 @@
       }]
     },
     {
-      "id" : "NamingSystem.extension:relatedArtifact.extension:publicationStatus",
-      "path" : "NamingSystem.extension.extension",
+      "id" : "NamingSystem.extension:relatedArtifact.value[x].extension:publicationStatus",
+      "path" : "NamingSystem.extension.value[x].extension",
       "sliceName" : "publicationStatus",
       "min" : 0,
       "max" : "1",

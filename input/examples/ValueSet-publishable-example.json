@@ -6,7 +6,7 @@
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/publishable-example",
   "name": "DangersignsCodesGrouperPublishable",
-  "title": "Danger signs Codes Grouper (Publishable Example)",
+  "title": "Danger signs Codes Grouper Publishable Example",
   "status": "draft",
   "experimental": true,
   "date": "2023-07-11T09:29:40-06:00",

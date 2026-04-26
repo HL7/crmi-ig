@@ -66,6 +66,11 @@
         "severity" : "error",
         "human" : "Either a compose definition or a computable expression SHALL be provided",
         "expression" : "compose.exists() xor extension('http://hl7.org/fhir/StructureDefinition/valueset-expression').exists()"
+      }, {
+        "key": "cbl-1",
+        "severity": "error",
+        "human": "If knowledge capabilities are stated, they SHALL include computable",
+        "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'computable').exists()"
       }],
       "mustSupport" : false
     },
@@ -77,16 +82,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "cbl-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.extension:knowledgeCapability.value[x]",
-      "path" : "ValueSet.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "computable"
     },
     {
       "id" : "ValueSet.extension:rulesText",

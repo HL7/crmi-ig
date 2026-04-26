@@ -62,7 +62,15 @@
       "path" : "ValueSet",
       "definition" : "A value set that has an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage.",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "exc-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include executable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'executable').exists()"
+        }
+      ]
     },
     {
       "id" : "ValueSet.extension:knowledgeCapability",
@@ -72,16 +80,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "exc-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.extension:knowledgeCapability.value[x]",
-      "path" : "ValueSet.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "executable"
     },
     {
       "id" : "ValueSet.extension:usageWarning",

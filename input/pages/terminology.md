@@ -15,3 +15,7 @@
   <tr><th>ValueSet</th><th>Description</th></tr>
 {% include table-valuesets.xhtml %}
 </table>
+
+### Expansion Parameters
+
+{% lang-fragment expansion-params.xhtml %}

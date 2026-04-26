@@ -69,7 +69,7 @@
     "url": "http://hl7.org/fhir/uv/crmi/Library/publishable-example",
     "version": "4.1.000",
     "name": "FHIRCommonPublishable",
-    "title": "FHIR Common (Publishable Example)",
+    "title": "FHIR Common Publishable Example",
     "status": "active",
     "experimental": false,
     "type": {

@@ -61,7 +61,15 @@
       "id" : "ConceptMap",
       "path" : "ConceptMap",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "pub-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include publishable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'publishable').exists()"
+        }
+      ]
     },
     {
       "id" : "ConceptMap.meta.extension:packageSource",
@@ -83,16 +91,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "pub-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "ConceptMap.extension:knowledgeCapability.value[x]",
-      "path" : "ConceptMap.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "publishable"
     },
     {
       "id" : "ConceptMap.extension:copyrightLabel",
@@ -215,8 +215,8 @@
       "mustSupport" : true
     },
     {
-      "id" : "ConceptMap.extension:relatedArtifact.extension:publicationDate",
-      "path" : "ConceptMap.extension.extension",
+      "id" : "ConceptMap.extension:relatedArtifact.value[x].extension:publicationDate",
+      "path" : "ConceptMap.extension.value[x].extension",
       "sliceName" : "publicationDate",
       "min" : 0,
       "max" : "1",
@@ -226,8 +226,8 @@
       }]
     },
     {
-      "id" : "ConceptMap.extension:relatedArtifact.extension:publicationStatus",
-      "path" : "ConceptMap.extension.extension",
+      "id" : "ConceptMap.extension:relatedArtifact.value[x].extension:publicationStatus",
+      "path" : "ConceptMap.extension.value[x].extension",
       "sliceName" : "publicationStatus",
       "min" : 0,
       "max" : "1",

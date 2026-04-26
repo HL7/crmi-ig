@@ -20,7 +20,7 @@
   "status": "active",
   "experimental": false,
   "date": "2026-02-11",
-  "publisher": "HL7 Clinical Decision Support (CDS)",
+  "publisher": "HL7 International / Clinical Decision Support",
   "description": "Indicates the qualitative curation level of the concept codes in a value set.",
   "purpose": "Provides a machine-readable signal describing whether the value set content has been fully curated or may contain gaps, supporting trust and fitness-for-use decisions in analytics and public health workflows.",
   "kind": "complex-type",
@@ -40,7 +40,7 @@
         "id": "Extension",
         "path": "Extension",
         "short": "Relative curation level of the codes in the value set",
-        "definition": "Represents the steward’s assessment of the completeness of curation for the value set, including whether relevant codes or referenced component value sets may be missing.",
+        "definition": "Represents the steward's assessment of the completeness of curation for the value set, including whether relevant codes or referenced component value sets may be missing.",
         "min": 0,
         "max": "1",
         "constraint": [
@@ -53,24 +53,6 @@
         ]
       },
       {
-        "id": "Extension.value[x]",
-        "path": "Extension.value[x]",
-        "max": "0"
-      },
-      {
-        "id": "Extension.extension",
-        "path": "Extension.extension",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
-          "rules": "open"
-        }
-      },
-      {
         "id": "Extension.extension:level",
         "path": "Extension.extension",
         "sliceName": "level",
@@ -80,13 +62,19 @@
       {
         "id": "Extension.extension:level.url",
         "path": "Extension.extension.url",
+        "type": [{
+          "code": "uri"
+        }],
         "fixedUri": "level"
       },
       {
-        "id": "Extension.extension:level.valueCodeableConcept",
-        "path": "Extension.extension.valueCodeableConcept",
+        "id": "Extension.extension:level.value[x]",
+        "path": "Extension.extension.value[x]",
         "min": 1,
         "max": "1",
+        "type": [{
+          "code": "CodeableConcept"
+        }],
         "binding": {
           "strength": "extensible",
           "valueSet": "http://terminology.hl7.org/ValueSet/curation-coverage-level"
@@ -102,13 +90,19 @@
       {
         "id": "Extension.extension:levelReason.url",
         "path": "Extension.extension.url",
+        "type": [{
+          "code": "uri"
+        }],
         "fixedUri": "levelReason"
       },
       {
-        "id": "Extension.extension:levelReason.valueMarkdown",
-        "path": "Extension.extension.valueMarkdown",
+        "id": "Extension.extension:levelReason.value[x]",
+        "path": "Extension.extension.value[x]",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "type": [{
+          "code": "markdown"
+        }]
       },
       {
         "id": "Extension.extension:author",
@@ -120,31 +114,43 @@
       {
         "id": "Extension.extension:author.url",
         "path": "Extension.extension.url",
+        "type": [{
+          "code": "uri"
+        }],
         "fixedUri": "author"
       },
       {
-        "id": "Extension.extension:author.valueString",
-        "path": "Extension.extension.valueString",
+        "id": "Extension.extension:author.value[x]",
+        "path": "Extension.extension.value[x]",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "type": [{
+          "code": "string"
+        }]
       },
       {
-        "id": "Extension.extension:dateTime",
+        "id": "Extension.extension:assessmentDateTime",
         "path": "Extension.extension",
-        "sliceName": "dateTime",
+        "sliceName": "assessmentDateTime",
         "min": 0,
         "max": "1"
       },
       {
-        "id": "Extension.extension:dateTime.url",
+        "id": "Extension.extension:assessmentDateTime.url",
         "path": "Extension.extension.url",
-        "fixedUri": "dateTime"
+        "type": [{
+          "code": "uri"
+        }],
+        "fixedUri": "assessmentDateTime"
       },
       {
-        "id": "Extension.extension:dateTime.valueDateTime",
-        "path": "Extension.extension.valueDateTime",
+        "id": "Extension.extension:assessmentDateTime.value[x]",
+        "path": "Extension.extension.value[x]",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "type": [{
+          "code": "dateTime"
+        }]
       },
       {
         "id": "Extension.extension:note",
@@ -156,13 +162,32 @@
       {
         "id": "Extension.extension:note.url",
         "path": "Extension.extension.url",
+        "type": [{
+          "code": "uri"
+        }],
         "fixedUri": "note"
       },
       {
-        "id": "Extension.extension:note.valueMarkdown",
-        "path": "Extension.extension.valueMarkdown",
+        "id": "Extension.extension:note.value[x]",
+        "path": "Extension.extension.value[x]",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "type": [{
+          "code": "markdown"
+        }]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [{
+          "code": "uri"
+        }],
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-curationCoverageLevel"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
       }
     ]
   }

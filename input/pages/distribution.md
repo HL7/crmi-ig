@@ -90,7 +90,7 @@ All knowledge artifacts (excluding ImplementationGuide, which already has a `.li
   "meta": {
     "extension": [
       {
-        "url": "http://hl7.org/fhir/StructureDefinition/artifact-license",
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-license",
         "valueCode": "not-open-source"
       }
     ]
@@ -98,14 +98,14 @@ All knowledge artifacts (excluding ImplementationGuide, which already has a `.li
 }
 ```
 
-All knowledge artifacts may have a [license-detail extension](StructureDefinition-crmi-license-detail.html) to document the license detail for an artifact, especially useful when the licens is `not-open-source` e.g.:
+All knowledge artifacts may have a [licenseDetail extension](StructureDefinition-crmi-licenseDetail.html) to document the license detail for an artifact, especially useful when the licens is `not-open-source` e.g.:
 
 ```jsonc
 {
   "meta": {
     "extension": [
       {
-        "url": "http://hl7.org/fhir/StructureDefinition/artifact-license-detail",
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-licenseDetail",
         "valueMarkdown": "# ACME Restricted License\n\ndetails here"
       }
     ]
@@ -170,7 +170,7 @@ Response:
           "valueCode": "not-open-source"
         },
         {
-          "name": "license-detail",
+          "name": "licenseDetail",
           "valueMarkdown": "ACME License\nYou have to pay for it."
         },
         {

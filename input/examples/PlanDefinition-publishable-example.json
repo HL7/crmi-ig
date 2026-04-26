@@ -10,7 +10,7 @@
       "value": "ANC.DT.01"
     } ],
     "name": "ANCDT01Publishable",
-    "title": "ANC.DT.01 Danger signs (Publishable Example)",
+    "title": "ANC.DT.01 Danger signs Publishable Example",
     "type": {
       "coding": [ {
         "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",

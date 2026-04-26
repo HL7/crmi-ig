@@ -15,7 +15,7 @@
         "valueInteger": 1
     }
   ],
-  "url": "http://terminology.hl7.org/ValueSet/crmi-dependency-role",
+  "url": "http://terminology.hl7.org/ValueSet/dependency-role",
   "version": "1.0.0",
   "name": "DependencyRole",
   "title": "Dependency Role",

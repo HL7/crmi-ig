@@ -35,9 +35,6 @@ For knowledge artifacts, a _shareable_ artifact defines the minimum expectations
 |----|----|
 | url | **SHALL** be provided because it provides the globally unique identity for the artifact |
 | webSource | **SHOULD** be used to provide a human-readable web page describing the artifact if it is different than the canonical |
-
-> NOTE: `webSource` is an R5 element. For R4 implementations, use the [`crmi-webSource`](StructureDefinition-crmi-webSource.html) extension.
-
 | version | **SHALL** be provided because it ensures version tracking is possible for the artifact |
 | versionAlgorithm | **SHOULD** be provided if a version algorithm other than semver or date-based is used to ensure systems understand how to interpret the version element of the artifact |
 | name | **SHOULD** be provided to ensure systems can reliably make use of code-generation and other system-level processing for the artifact |
@@ -50,6 +47,9 @@ For knowledge artifacts, a _shareable_ artifact defines the minimum expectations
 | knowledgeRepresentationLevel | **SHOULD** be provided to allow systems to understand the levels of representation of content provided by the artifact. (currently unenforceable in profile; see note below) |
 {: .grid }
 
+> NOTE: webSource is represented using the [web-source]({{site.data.fhir.ver.ext}}StructureDefinition-web-source.html) extension
+> NOTE: versionAlgorithm uses the [artifact-versionAlgorithm]({{site.data.fhir.ver.ext}}StructureDefinition-artifact-versionAlgorithm.html) extension
+> NOTE: knowledgeCapability uses the [cqf-knowledgeCapability]({{site.data.fhir.ver.ext}}StructureDefinition-cqf-knowledgeCapability.html) extension
 > NOTE: Because the KnowledgeRepresentationLevel code system is an R5 terminology, there are cross-version publication issues that prevent this aspect of the shareable profiles from being expressed in this version of the publication. A future version of this publication will add representation level back in to the shareable profiles.
 
 ### Publishable
@@ -149,7 +149,6 @@ To support packaging, testing, and distribution of knowledge artifacts, this imp
   <tr><td><a href="StructureDefinition-crmi-softwaresystemdevice.html">CRMISoftwareSystemDevice</a></td><td>A software device used in the creation, validation, evaluation, packaging, and/or testing of a library or measure artifact.</td></tr>
   <tr><td><a href="StructureDefinition-crmi-substancedefinition.html">CRMISubstanceDefinition</a></td><td>A profile of Substance that supports context-independent representation of substances for use in definitional contexts</td></tr>
 </table>
-
 
 ### Operation Profiles
 {: #operation-profiles }

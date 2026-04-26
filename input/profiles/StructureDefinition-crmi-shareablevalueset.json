@@ -61,7 +61,15 @@
       "id" : "ValueSet",
       "path" : "ValueSet",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "shr-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include shareable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'shareable').exists()"
+        }
+      ]
     },
     {
       "id" : "ValueSet.extension:knowledgeCapability",
@@ -71,16 +79,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "shr-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "ValueSet.extension:knowledgeCapability.value[x]",
-      "path" : "ValueSet.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "shareable"
     },
     {
       "id" : "ValueSet.extension:versionAlgorithm",
@@ -107,6 +107,24 @@
       "mustSupport" : false
     },
     {
+      "id" : "ValueSet.extension:valuesetAuthoritativeSource",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "deprecated"
+      }],
+      "path" : "ValueSet.extension",
+      "sliceName" : "valueSetAuthoritativeSource",
+      "short": "DEPRECATED: Use artifact-authoritativeSource",
+      "definition": "DEPRECATED: Use artifact-authoritativeSource",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"]
+      }],
+      "mustSupport" : false
+    },
+    {
       "id" : "ValueSet.extension:authoritativeSource",
       "path" : "ValueSet.extension",
       "sliceName" : "authoritativeSource",
@@ -114,7 +132,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-authoritativeSource"]
       }],
       "mustSupport" : true
     },

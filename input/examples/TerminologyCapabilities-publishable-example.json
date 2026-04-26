@@ -13,7 +13,7 @@
         },
         {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
-          "valueCode": "computable"
+          "valueCode": "publishable"
         }
       ],
       "url": "http://hl7.org/fhir/uv/crmi/TerminologyCapabilities/publishable-example",

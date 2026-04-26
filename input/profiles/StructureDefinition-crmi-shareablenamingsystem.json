@@ -66,7 +66,15 @@
       "id" : "NamingSystem",
       "path" : "NamingSystem",
       "min" : 1,
-      "max" : "1"
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "shr-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include shareable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'shareable').exists()"
+        }
+      ]
     },
     {
       "id" : "NamingSystem.extension:knowledgeCapability",
@@ -76,16 +84,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "shr-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "NamingSystem.extension:knowledgeCapability.value[x]",
-      "path" : "NamingSystem.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "shareable"
     },
     {
       "id" : "NamingSystem.extension:url",

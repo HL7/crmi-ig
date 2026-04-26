@@ -69,7 +69,7 @@
     "url": "http://hl7.org/fhir/uv/crmi/Library/FHIRCommon",
     "version": "4.1.000",
     "name": "FHIRCommon",
-    "title": "FHIR Common (Example)",
+    "title": "FHIR Common Example",
     "status": "active",
     "experimental": true,
     "type": {

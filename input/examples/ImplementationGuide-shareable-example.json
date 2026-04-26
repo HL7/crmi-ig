@@ -13,6 +13,9 @@
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
       "valueInteger": 4
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability",
+      "valueCode": "shareable"
     }],
     "url" : "http://hl7.org/fhir/uv/crmi/ImplementationGuide/shareable-example",
     "version" : "0.1.0",

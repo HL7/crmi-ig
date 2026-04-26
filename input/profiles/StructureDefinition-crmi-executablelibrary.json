@@ -63,6 +63,14 @@
       {
         "id": "Library",
         "path": "Library",
+        "constraint": [
+          {
+            "key": "exc-1",
+            "severity": "error",
+            "human": "If knowledge capabilities are stated, they SHALL include executable",
+            "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'executable').exists()"
+          }
+        ],
         "mustSupport": false
       },
       {
@@ -73,16 +81,8 @@
           "code" : "Extension",
           "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
         }],
+        "condition": [ "exc-1" ],
         "mustSupport" : true
-      },
-      {
-        "id" : "Library.extension:knowledgeCapability.value[x]",
-        "path" : "Library.extension.value[x]",
-        "min" : 1,
-        "type" : [{
-          "code" : "code"
-        }],
-        "fixedCode": "executable"
       },
       {
         "id": "Library.relatedArtifact",

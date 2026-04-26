@@ -118,9 +118,11 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 ### References
 {: #references}
 
-Health level seven. Clinical Quality Framework - HL7 Clinical Decision Support Work Group Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/CQIWC/Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical%20Quality%20Framework) [Accessed 11 October 2019].
+Health Level Seven. Clinical Quality Framework - HL7 Clinical Decision Support Work Group Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/CQIWC/Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical%20Quality%20Framework) [Accessed 11 October 2019].
 
-Health level seven. Publishing terminology to the FHIR Ecosystem - FHIR Product Family Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/FHIR/Publishing+terminology+to+the+FHIR+Ecosystem](https://confluence.hl7.org/display/FHIR/Publishing+terminology+to+the+FHIR+Ecosystem) [Accessed 17 May 2022]
+Health Level Seven. Publishing terminology to the FHIR Ecosystem - FHIR Product Family Confluence Page. [Online]. Available from: [https://confluence.hl7.org/display/FHIR/Publishing+terminology+to+the+FHIR+Ecosystem](https://confluence.hl7.org/display/FHIR/Publishing+terminology+to+the+FHIR+Ecosystem) [Accessed 17 May 2022]
+
+Health Level Seven. FHIR Terminology Ecosystem. [Online]. Available from: [https://hl7.org/fhir/uv/tx-ecosystem/](https://hl7.org/fhir/uv/tx-ecosystem/) [Accessed February 2026]
 
 Health Level Seven. FHIR Clinical Guidelines. [Online]. Available from: [http://hl7.org/fhir/uv/cpg](http://hl7.org/fhir/uv/cpg) [Accessed October 2023].
 
@@ -131,7 +133,6 @@ Health Level Seven. Quality Measure Implementation Guide. [Online]. Available fr
 Health Level Seven. FHIR Quality Profile. [Online]. Available from: [http://hl7.org/fhir/us/qicore](http://hl7.org/fhir/us/qicore) [Accessed March 2024].
 
 Health Level Seven. US Core. [Online]. Available from: [http://hl7.org/fhir/us/core](http://hl7.org/fhir/us/core) [Accessed March 2024].
-
 
 ### Dependencies
 
@@ -145,6 +146,6 @@ Health Level Seven. US Core. [Online]. Available from: [http://hl7.org/fhir/us/c
 
 {% include globals-table.xhtml %}
 
-### IP Statements
+### Intellectual Property Statements
 
 {% include ip-statements.xhtml %}

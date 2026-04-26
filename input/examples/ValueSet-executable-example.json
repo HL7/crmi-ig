@@ -10,7 +10,7 @@
   }],
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/expanded-example",
   "name": "DangersignsCodesGrouperExpanded",
-  "title": "Danger signs Codes Grouper (Expanded Example)",
+  "title": "Danger signs Codes Grouper Expanded Example",
   "status": "draft",
   "experimental": true,
   "date": "2023-07-11T09:29:40-06:00",

@@ -69,6 +69,12 @@
         "expression" : "concept.concept.exists() implies hierarchyMeaning.exists()"
       },
       {
+        "key": "shr-1",
+        "severity": "error",
+        "human": "If knowledge capabilities are stated, they SHALL include shareable",
+        "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'shareable').exists()"
+      },
+      {
         "key" : "scs-2",
         "severity" : "error",
         "human" : "If a codesystem contains example, fragment, or complete content, it must have at least one concept",
@@ -83,16 +89,8 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
       }],
+      "condition": [ "shr-1" ],
       "mustSupport" : true
-    },
-    {
-      "id" : "CodeSystem.extension:knowledgeCapability.value[x]",
-      "path" : "CodeSystem.extension.value[x]",
-      "min" : 1,
-      "type" : [{
-        "code" : "code"
-      }],
-      "fixedCode": "shareable"
     },
     {
       "id" : "CodeSystem.extension:versionAlgorithm",

@@ -37,34 +37,78 @@
       } ]
     } ],
     "relatedArtifact": [ {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/package-source",
+        "extension": [ {
+          "url": "packageId",
+          "valueString": "hl7.terminology"
+        }, {
+          "url": "version",
+          "valueString": "5.4.0"
+        }, {
+          "url": "uri",
+          "valueUri": "http://terminology.hl7.org"
+        } ]
+      } ],
       "type": "depends-on",
       "display": "Code system Diagnosis Role",
       "resource": "http://terminology.hl7.org/CodeSystem/diagnosis-role"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set Emergency Department Visit",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set Psychiatric/Mental Health Patient",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.299"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set Hospital Settings",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.126"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set ONC Administrative Sex",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set Race",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set Ethnicity",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837"
     }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
+        "valueCode": "default"
+      } ],
       "type": "depends-on",
       "display": "Value set Payer",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
