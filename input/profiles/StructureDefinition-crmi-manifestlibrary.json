@@ -150,25 +150,6 @@
         ]
       },
       {
-        "id": "Library.extension:usedExpansionParameters",
-        "path": "Library.extension",
-        "sliceName": "usedExpansionParameters",
-        "short": "As published versions",
-        "definition": "A reference to a contained Parameters resource that specifies versions of canonical dependencies (i.e. pinned canonicals) that were used for canonical references from artifacts in the manifest during as part of the release or publication process.", 
-        "alias": ["usedManifestParameters"],
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "Library.extension:expansionParameters.value[x]",
         "path": "Library.extension.value[x]",
         "type": [
