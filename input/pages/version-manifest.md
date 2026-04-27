@@ -88,8 +88,7 @@ The following list specifies for each parameter of the ValueSet/$expand operatio
 | force-system-version | SHALL | |
 | manifest | SHALL NOT | |
 | manifestParameters | SHALL NOT | |
-| includeDraft | SHOULD NOT | Deprecated, use includeUnreleasedContent |
-| includeUnreleasedContent | SHOULD | Use includeDraft for a CRMI STU1 server |
+| includeDraft | SHOULD | |
 | includeLastVersionActive | SHOULD | |
 | includeNoLongerPresent | SHOULD | |
 | default-valueset-version | SHALL | Use canonicalVersion for a CRMI STU1 server |

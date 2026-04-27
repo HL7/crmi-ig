@@ -34,7 +34,7 @@ Artifact collections can specify _expansion rules_ (i.e. _manifest parameters_) 
 5. `check-valueset-version`
 6. `force-system-version`
 7. `force-valueset-version`
-8. `includeUnreleasedContent` (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html)) (was `includeDraft` in prior versions)
+8. `includeDraft` (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
 9. `includeLastVersionActive` (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
 10. `includeNoLongerPresent` (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
 
@@ -194,7 +194,7 @@ Note that when a code system authority has not established a versioning system, 
     12. **SHOULD** support paging parameters
     13. **SHOULD** support the manifest parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     14. **SHOULD** support the manifestParameters parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
-    15. **SHOULD** support the includeUnreleasedContent parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+    15. **SHOULD** support the includeDraft parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     16. **SHOULD** support the includeLastVersionActive parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     17. **SHOULD** support the includeNoLongerPresent parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     18. To align with the FHIR Terminology Ecosystem requirements, servers
@@ -234,7 +234,7 @@ Note that when a code system authority has not established a versioning system, 
     5. **SHALL** support the default-valueset-version parameter
     6. **SHALL** support the check-valueset-version parameter
     7. **SHALL** support the force-valueset-version parameter
-    8. **SHOULD** support the `includeUnreleasedContent` parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
+    8. **SHOULD** support the `includeDraft` parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     9. **SHOULD** support the `includeLastVersionActive` parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     10. **SHOULD** support the `includeNoLongerPresent` parameter (defined in [CRMIValueSetExpand](OperationDefinition-crmi-valueset-expand.html))
     11. **SHOULD** support other parameters
@@ -526,7 +526,7 @@ This example illustrates the use of a draft quality program description to speci
         "valueBoolean": true
       },
       {
-        "name": "includeUnreleasedContent",
+        "name": "includeDraft",
         "valueBoolean": true
       }
     ]

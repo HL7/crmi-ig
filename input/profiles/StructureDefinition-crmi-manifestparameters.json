@@ -143,7 +143,7 @@
         "path": "Parameters.parameter",
         "sliceName": "includeDraft",
         "short": "Include unreleased content?",
-        "definition": "DEPRECATED: Use includeUnreleasedContent instead. Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. If one (or more) draft versions exist, the $expand operation should use the latest draft to create the expansion. This parameter cannot be used at the same time as the valueSetVersion parameter. If a draft version does not exist, then the service should use the latest published (status=Active) version.",
+        "definition": "Indicates that draft versions of the value set should be considered when determining the version of the value set to be used to perform the expand. If one (or more) draft versions exist, the $expand operation should use the latest draft to create the expansion. This parameter cannot be used at the same time as the valueSetVersion parameter. If a draft version does not exist, then the service should use the latest published (status=Active) version.",
         "min": 0,
         "max": "1"
       },
@@ -154,30 +154,6 @@
       },
       {
         "id": "Parameters.parameter:includeDraft.value[x]",
-        "path": "Parameters.parameter.value[x]",
-        "min": 1,
-        "type": [
-          {
-            "code": "boolean"
-          }
-        ]
-      },
-      {
-        "id": "Parameters.parameter:includeUnreleasedContent",
-        "path": "Parameters.parameter",
-        "sliceName": "includeUnreleasedContent",
-        "short": "Consider unreleased versions when determining latest?",
-        "definition": "Indicates that when resolving which version of a value set definition should be used during an expansion, the server SHALL consider unreleased content. False indicates that the server SHALL only consider released content during the expansion. If this parameter is not supplied, the behavior is at the server's discretion. What constitutes released content is at the server's discretion, such as publication status or workflow status. Servers MAY choose to throw an exception if asked to include unreleased content and they do not support this capability.",
-        "min": 0,
-        "max": "1"
-      },
-      {
-        "id": "Parameters.parameter:includeUnreleasedContent.name",
-        "path": "Parameters.parameter.name",
-        "fixedString": "includeUnreleasedContent"
-      },
-      {
-        "id": "Parameters.parameter:includeUnreleasedContent.value[x]",
         "path": "Parameters.parameter.value[x]",
         "min": 1,
         "type": [

@@ -239,6 +239,5 @@ Options for federated client specification:
     * checkCanonicalVersion
     * forceCanonicalVersion
     * manifest
-    * includeDraft (deprecated)
-    * includeUnreleasedContent
+    * includeDraft
 -->
