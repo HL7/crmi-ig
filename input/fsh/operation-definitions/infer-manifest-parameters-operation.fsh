@@ -34,7 +34,7 @@ with CRMI STU1 parameter names):
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-The logical id of the module-definition library to process. Only one of id, url, or resource may be provided.
+The logical id of the module-definition library to process. Only one of id, url, or library may be provided.
 """
 * parameter[=].type = #string
 
@@ -43,18 +43,18 @@ The logical id of the module-definition library to process. Only one of id, url,
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-A canonical or artifact reference to the module-definition library to process. Only one of id, url, or resource may be provided.
+A canonical or artifact reference to the module-definition library to process. Only one of id, url, or library may be provided.
 """
 * parameter[=].type = #canonical
 
-* parameter[+].name = #resource
+* parameter[+].name = #library
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-The module-definition library to processs. Only one of id, url, or resource may be provided.
+The module-definition library to processs. Only one of id, url, or library may be provided.
 """
-* parameter[=].type = #canonical
+* parameter[=].type = #Library
 
 * parameter[+].name = #v1Compatible
 * parameter[=].use = #in
