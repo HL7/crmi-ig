@@ -23,7 +23,7 @@
       "name": "system-version",
       "valueString": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0-cibuild"
     }, {
-      "name": "used-system-version",
+      "name": "used-codesystem",
       "valueUri": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0-cibuild"
     }],
     "contains": [ {

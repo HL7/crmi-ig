@@ -69,8 +69,8 @@ WARNING: MedicationKnowledge/publishable-example: MedicationKnowledge.code.codin
 WARNING: MedicationKnowledge/shareable-example: MedicationKnowledge.code.coding[0]: The concept '0069-2587-10' has a status of inactive and its use should be reviewed
 
 # 2.0.0:010 - These examples do not have corresponding CQL content, so data requirements are not expected
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\input\examples\Measure-publishable-example.json: Artifact library could not be found so no data requirements were inferred.
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\input\examples\Measure-shareable-example.json: Artifact library could not be found so no data requirements were inferred.
+%Measure-publishable-example.json: Artifact library could not be found so no data requirements were inferred.
+%Measure-shareable-example.json: Artifact library could not be found so no data requirements were inferred.
 
 # 2.0.0:011 - The example is intentionally incomplete for brevity
 WARNING: ValueSet/expanded-example: ValueSet.expansion: The expansion provided is has 14 extra codes (ANC.B5.DE49, ANC.B5.DE50, ANC.B5.DE51, ANC.B5.DE52, ANC.B5.DE53,...) that are not in the expansion using default expansion parameters
