@@ -16,12 +16,13 @@ This page details changes made in each version of the Canonical Resource Managem
 
 #### Compatible, Substantive Changes
 
-* [FHIR-56287](https://jira.hl7.org/browse/FHIR-56287): Added support for _lastUpdated search parameter (applied [here](artifact-repository-server.html#server-requirements))
+* [FHIR-56287](https://jira.hl7.org/browse/FHIR-56287): Added support for _lastUpdated search parameter (applied [here](artifact-repository-service.html#server-requirements))
 * [FHIR-55971](https://jira.hl7.org/browse/FHIR-55971): Add a requestMethod parameter to $package (applied [here](OperationDefinition-crmi-package.html))
-* [FHIR-55634](https://jira.hl7.org/browse/FHIR-55634): Added includeNoLongerPresent parameter to ValueSet/$expand (applied [here](OperationDefinition-crmi-valuest-expand.html))
+* [FHIR-55634](https://jira.hl7.org/browse/FHIR-55634): Added includeNoLongerPresent parameter to ValueSet/$expand (applied [here](OperationDefinition-crmi-valueset-expand.html))
+* [FHIR-55612](https://jira.hl7.org/browse/FHIR-55612): Added support for curationCoverageLevel extension (applied [here](StructureDefinition-crmi-curationCoverageLevel.html))
 * [FHIR-55605](https://jira.hl7.org/browse/FHIR-55605): Clarified strict versioning policy aligns with signing (applied [here](artifact-lifecycle.html#artifact-versioning-policy))
 * [FHIR-55586](https://jira.hl7.org/browse/FHIR-55586): Added webSource element to all shareable profiles; packageSource and authoritativeSource to all publishable profiles (applied [here](profiles.html))
-* [FHIR-54026](https://jira.hl7.org/browse/FHIR-54026): Updated implementation of includeLastVersionActive parameter (applied [here](OperationDefinition-crmi-valuest-expand.html))
+* [FHIR-54026](https://jira.hl7.org/browse/FHIR-54026): Updated implementation of includeLastVersionActive parameter (applied [here](OperationDefinition-crmi-valueset-expand.html))
 * [FHIR-53310](https://jira.hl7.org/browse/FHIR-53310): Clarify id handling in package output (applied [here](OperationDefinition-crmi-package.html))
 * [FHIR-53276](https://jira.hl7.org/browse/FHIR-53276): Add canonical profile reference support to Group characteristics (applied [here](StructureDefinition-crmi-groupdefinition.html))
 * [FHIR-53271](https://jira.hl7.org/browse/FHIR-53271): Added dependency roles to the package operation (applied [here](OperationDefinition-crmi-package.html))
@@ -43,7 +44,7 @@ This page details changes made in each version of the Canonical Resource Managem
 * [FHIR-51677](https://jira.hl7.org/browse/FHIR-51677): Added support for delete operations in artifact terminology server (applied [here](artifact-terminology-service.html#artifact-collections-ie-manifest-libraries))
 * [FHIR-51624](https://jira.hl7.org/browse/FHIR-51624): Document how manifest parameters are applied (applied [here](version-manifest.html#applying-manifest-parameters))
 * [FHIR-51555](https://jira.hl7.org/browse/FHIR-51555): Support license requirements discovery (applied [here](OperationDefinition-crmi-license-requirements.html))
-* [FHIR-50185](https://jira.hl7.org/browse/FHIR-50185): Updated versioning policy discussion to include loose and package (applied [here](artifact-lifecycle.html#aritfact-versioning-policy))
+* [FHIR-50185](https://jira.hl7.org/browse/FHIR-50185): Updated versioning policy discussion to include loose and package (applied [here](artifact-lifecycle.html#artifact-versioning-policy))
 * [FHIR-48381](https://jira.hl7.org/browse/FHIR-48381): Clarified release behavior and added $infer-manifest-parameters (applied [here](artifact-lifecycle.html#release))
 * [FHIR-46385](https://jira.hl7.org/browse/FHIR-46385): Added url parameter to the $clone operation (applied [here](OperationDefinition-crmi-clone.html))
 * [FHIR-43344](https://jira.hl7.org/browse/FHIR-43344): Support a module configuration library (applied [here](StructureDefinition-crmi-moduleconfigurationlibrary.html))
@@ -51,7 +52,6 @@ This page details changes made in each version of the Canonical Resource Managem
 #### Non-substantive Changes
 
 * [FHIR-55914](https://jira.hl7.org/browse/FHIR-55914): Removed references to invalid expand parameters in artifact terminology service (applied [here](artifact-terminology-service.html#value-sets))
-* [FHIR-55612](https://jira.hl7.org/browse/FHIR-55612): Add curationCoverage extension (applied [here](StructureDefinition-crmi-curationCoverage.html))
 * [FHIR-55585](https://jira.hl7.org/browse/FHIR-55585): Correct artifact route processing semantics (applied [here](StructureDefinition-crmi-artifact-endpoint-configurable-operation.html))
 * [FHIR-53266](https://jira.hl7.org/browse/FHIR-53266): Clarify package output may not be complete given include/exclude parameters (applied [here](OperationDefinition-crmi-package.html))
 * [FHIR-53157](https://jira.hl7.org/browse/FHIR-53157): Clarify that the outcome of a package is not subject to the include/exclude parameter processing (applied [here](OperationDefinition-crmi-package.html))

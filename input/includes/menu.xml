@@ -3,7 +3,7 @@
   <li><a href="introduction.html" class="item">Introduction</a></li>
   <li><a href="conformance.html" class="item">Conformance</a></li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifact Management<b class="caret"></b>
+    <a data-toggle="dropdown" href="index.html" class="dropdown-toggle">Artifact Management<b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li><a href="artifact-lifecycle.html" class="item">Artifact Lifecycle</a></li>
@@ -17,7 +17,7 @@
     </ul>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR Artifacts
+    <a data-toggle="dropdown" href="index.html" class="dropdown-toggle">FHIR Artifacts
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
@@ -31,7 +31,7 @@
   </li>
   <!--li><a href="examples.html" class="item">Examples</a></li-->
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Support<b class="caret">
+    <a data-toggle="dropdown" href="index.html" class="dropdown-toggle">Support<b class="caret">
       </b>
     </a>
     <ul class="dropdown-menu">

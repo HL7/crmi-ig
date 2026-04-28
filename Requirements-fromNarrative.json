@@ -6,5 +6,11 @@
   "title" : "Narrative Conformance Statements",
   "status" : "active",
   "experimental" : false,
-  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes"
+  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes",
+  "statement" : [{
+    "key" : "1",
+    "conformance" : ["SHALL",
+    "SHOULD-NOT"],
+    "requirement" : "6.1.2.2.6, the `srCms` signer commitments property in the JWS protected header (shown above) satisfies the SHALL requirement to include the purpose of signature. When the signature is carried in a Provenance resource, `Signature.type`, `Signature.when`, and `Signature.who` SHOULD NOT be set (see"
+  }]
 }

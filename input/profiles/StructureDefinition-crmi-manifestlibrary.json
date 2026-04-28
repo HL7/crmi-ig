@@ -150,18 +150,6 @@
         ]
       },
       {
-        "id": "Library.extension:expansionParameters.value[x]",
-        "path": "Library.extension.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestparameters"
-            ]
-          }
-        ]
-      },
-      {
         "id": "Library.extension:inputParameters",
         "path": "Library.extension",
         "sliceName": "inputParameters",
