@@ -27,9 +27,6 @@
     }, {
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-publisher",
         "valueString": "Clinical Decision Support WG"
-    }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/artifact-description",
-        "valueMarkdown": "Example of a Substance resource as a shareable non-canonical artifact."
     }],
     "modifierExtension": [{
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-status",
@@ -55,5 +52,6 @@
     ],
     "code": {
       "text": "apitoxin (Honey Bee Venom)"
-    }
+    }, 
+    "description": "Example of a Substance resource as a shareable non-canonical artifact."
 }
