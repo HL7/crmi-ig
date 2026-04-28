@@ -91,6 +91,16 @@ parameters:
     - http://terminology.hl7.org/ValueSet/dependency-role
     - http://terminology.hl7.org/CodeSystem/curation-coverage-level-codes
     - http://terminology.hl7.org/ValueSet/curation-coverage-level
+    - http://hl7.org/fhir/StructureDefinition/shareablecodesystem
+    - http://hl7.org/fhir/StructureDefinition/publishablecodesystem
+    - http://hl7.org/fhir/StructureDefinition/shareableconceptmap
+    - http://hl7.org/fhir/StructureDefinition/publishableconceptmap
+    - http://hl7.org/fhir/StructureDefinition/shareablenamingsystem
+    - http://hl7.org/fhir/StructureDefinition/publishablenamingsystem
+    - http://hl7.org/fhir/StructureDefinition/shareablevalueset
+    - http://hl7.org/fhir/StructureDefinition/publishablevalueset
+    - http://hl7.org/fhir/StructureDefinition/computablevalueset
+    - http://hl7.org/fhir/StructureDefinition/expandedvalueset
   auto-oid-root: 2.16.840.1.113883.4.642.40.38
   apply-version: false
   default-version: true
@@ -296,8 +306,8 @@ resources:
     name: Example Manifest Parameters
     description: Example Parameters resource demonstrating an input manifest parameters used to support predictable expansion throughout a measure development cycle.
   Parameters/manifest:
-    name: Input Expansion Parameters
-    description: The input expansion parameters resource for this implementation guide, specifying SNOMED Edition and version.
+    name: Expansion Parameters
+    description: The expansion parameters resource for this implementation guide, specifying SNOMED Edition and version, as well as pinned versions for versionless references used in the IG.
     exampleBoolean: false
   Group/testcase-example:
     name: Example TestCase Group

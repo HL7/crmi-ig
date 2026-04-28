@@ -1,0 +1,227 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "computablevalueset",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "vocab"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUri" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-computablevalueset.html"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/computablevalueset",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1212"
+  }],
+  "version": "4.0.2",
+  "name" : "ComputableValueSet",
+  "title" : "Computable ValueSet",
+  "status" : "active",
+  "experimental" : false,
+  "publisher": "HL7 International / Terminology Infrastructure",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/Vocab"
+        }
+      ]
+    }
+  ],
+  "description" : "Defines a computable value set as one that SHALL have an expression-based definition (i.e. a value set defined intensionally using expressions of the code systems involved) and MAY have an expansion included. The expression-based definition SHALL be represented either using the compose element, or using the expression extension. A rules-text extension may be used to provide a step-by-step process for expanding the value set definition",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ValueSet",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ValueSet",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ValueSet",
+      "path" : "ValueSet",
+      "definition" : "A value set that includes instructions for construction of the value set using either the value set compose element or machine processable instructions expressed in a formal language such as ECL.",
+      "constraint" : [{
+        "key" : "cvs-1",
+        "severity" : "error",
+        "human" : "Either a compose definition or a computable expression SHALL be provided",
+        "expression" : "compose.exists() xor extension('http://hl7.org/fhir/StructureDefinition/valueset-expression').exists()"
+      }, {
+        "key": "cbl-1",
+        "severity": "error",
+        "human": "If knowledge capabilities are stated, they SHALL include computable",
+        "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'computable').exists()"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "ValueSet.extension:knowledgeCapability",
+      "path" : "ValueSet.extension",
+      "sliceName" : "knowledgeCapability",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "condition": [ "cbl-1" ],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:rulesText",
+      "path" : "ValueSet.extension",
+      "sliceName" : "rulesText",
+      "short" : "Human instructions for constructing the valueset",
+      "definition" : "Instructions for identifying the members of the value set in some form that is not computable - e.g. instructions that could only be followed by a human.",
+      "comment" : "This element can be used to provide a human-readable description of the value set alongside the compose or expression. In this case, the instructions are expected to be consistent with (i.e. produce the same results as) the computable definition.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-rules-text"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:expression",
+      "path" : "ValueSet.extension",
+      "sliceName" : "expression",
+      "short" : "Machine instructions for constructing the value set",
+      "definition" : "An expression that provides the computable definition for the content of the value set. The value set can only be expanded by a server that understands the expression syntax used.",
+      "comment" : "Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-expression"]
+      }],
+      "condition" : ["cvs-1"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:supplement",
+      "path" : "ValueSet.extension",
+      "sliceName" : "supplement",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-supplement"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.immutable",
+      "path" : "ValueSet.immutable",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose",
+      "path" : "ValueSet.compose",
+      "condition" : ["cvs-1"],
+      "mustSupport" : true
+    },
+    {
+      "id": "ValueSet.compose.extension:expansionParameter",
+      "path": "ValueSet.compose.extension",
+      "sliceName" : "expansionParameter",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-expansion-parameter"]
+      }],
+      "mustSupport": true
+    },
+    {
+      "id" : "ValueSet.compose.lockedDate",
+      "path" : "ValueSet.compose.lockedDate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.inactive",
+      "path" : "ValueSet.compose.inactive",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include",
+      "path" : "ValueSet.compose.include",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.system",
+      "path" : "ValueSet.compose.include.system",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.version",
+      "path" : "ValueSet.compose.include.version",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.concept",
+      "path" : "ValueSet.compose.include.concept",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.filter",
+      "path" : "ValueSet.compose.include.filter",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.filter.property",
+      "path" : "ValueSet.compose.include.filter.property",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.filter.op",
+      "path" : "ValueSet.compose.include.filter.op",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.filter.value",
+      "path" : "ValueSet.compose.include.filter.value",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.include.valueSet",
+     "path" : "ValueSet.compose.include.valueSet",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose.exclude",
+      "path" : "ValueSet.compose.exclude",
+      "mustSupport" : true
+    }]
+  }
+}

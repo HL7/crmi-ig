@@ -1,0 +1,205 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "shareablenamingsystem",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "vocab"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUri" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-shareablenamingsystem.html"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/shareablenamingsystem",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1260"
+  }],
+  "version" : "4.0.2",
+  "name" : "ShareableNamingSystem",
+  "title" : "Shareable NamingSystem",
+  "status" : "active",
+  "experimental" : false,
+  "publisher": "HL7 International / Terminology Infrastructure",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/Vocab"
+        }
+      ]
+    }
+  ],
+  "description" : "Enforces the minimum information set for the naming system metadata required by HL7 and other organizations that share and publish naming systems",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 V2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "NamingSystem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/NamingSystem",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "NamingSystem",
+      "path" : "NamingSystem",
+      "min" : 1,
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "shr-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include shareable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'shareable').exists()"
+        }
+      ]
+    },
+    {
+      "id" : "NamingSystem.extension:knowledgeCapability",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "knowledgeCapability",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "condition": [ "shr-1" ],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:url",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "url",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-url"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:version",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-version"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:versionAlgorithm",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:versionPolicy",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "NamingSystem.extension:webSource",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "webSource",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/web-source"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:title",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "title",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-title"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.extension:experimental",
+      "path" : "NamingSystem.extension",
+      "sliceName" : "experimental",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.name",
+      "path" : "NamingSystem.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.status",
+      "path" : "NamingSystem.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.publisher",
+      "path" : "NamingSystem.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "NamingSystem.description",
+      "path" : "NamingSystem.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "shareableconceptmap",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "vocab"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUri" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-shareableconceptmap.html"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/shareableconceptmap",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1115"
+  }],
+  "version" : "4.0.2",
+  "name" : "ShareableConceptMap",
+  "title" : "Shareable ConceptMap",
+  "status" : "active",
+  "experimental" : false,
+  "publisher": "HL7 International / Terminology Infrastructure",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/Vocab"
+        }
+      ]
+    }
+  ],
+  "description" : "Enforces the minimum information set for the concept map metadata required by HL7 and other organizations that share and publish concept maps",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ConceptMap",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ConceptMap",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ConceptMap",
+      "path" : "ConceptMap",
+      "min" : 1,
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "shr-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include shareable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'shareable').exists()"
+        }
+      ]
+    },
+    {
+      "id" : "ConceptMap.extension:knowledgeCapability",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "knowledgeCapability",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "condition": [ "shr-1" ],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:versionAlgorithm",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "versionAlgorithm",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionAlgorithm"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.extension:versionPolicy",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "versionPolicy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-versionPolicy"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "ConceptMap.extension:webSource",
+      "path" : "ConceptMap.extension",
+      "sliceName" : "webSource",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/web-source"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.url",
+      "path" : "ConceptMap.url",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.version",
+      "path" : "ConceptMap.version",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.name",
+      "path" : "ConceptMap.name",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.title",
+      "path" : "ConceptMap.title",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.status",
+      "path" : "ConceptMap.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.experimental",
+      "path" : "ConceptMap.experimental",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.publisher",
+      "path" : "ConceptMap.publisher",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.description",
+      "path" : "ConceptMap.description",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    }]
+  }
+}

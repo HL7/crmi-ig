@@ -2,7 +2,10 @@
     "resourceType": "ConceptMap",
     "id": "shareable-example",
     "meta" : {
-      "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap"]
+      "profile" : [
+        "http://hl7.org/fhir/StructureDefinition/shareableconceptmap",
+        "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap"
+      ]
     },
     "url": "http://hl7.org/fhir/uv/crmi/ConceptMap/shareable-example",
     "version": "4.0.1",

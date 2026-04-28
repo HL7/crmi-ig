@@ -2,7 +2,10 @@
   "resourceType": "ValueSet",
   "id": "computable-example",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset" ]
+    "profile": [ 
+      "http://hl7.org/fhir/StructureDefinition/computablevalueset",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-computablevalueset" 
+    ]
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/computable-example",
   "name": "DangersignsCodesGrouperComputable",

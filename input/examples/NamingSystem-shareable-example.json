@@ -2,7 +2,10 @@
     "resourceType": "NamingSystem",
     "id": "shareable-example",
     "meta": {
-        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem" ]
+        "profile": [ 
+          "http://hl7.org/fhir/StructureDefinition/shareablenamingsystem",
+          "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablenamingsystem" 
+        ]
     },
     "extension": [{
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",

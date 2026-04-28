@@ -2,7 +2,10 @@
   "resourceType": "ValueSet",
   "id": "shareable-example",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset" ]
+    "profile": [ 
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset|4.0.2",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablevalueset" 
+    ]
   },
   "url": "http://hl7.org/fhir/uv/crmi/ValueSet/shareable-example",
   "name": "SpecifichealthconcernsCodesShareable",

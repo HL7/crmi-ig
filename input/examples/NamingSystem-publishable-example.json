@@ -2,7 +2,10 @@
     "resourceType": "NamingSystem",
     "id": "publishable-example",
     "meta": {
-        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablenamingsystem" ]
+        "profile": [ 
+          "http://hl7.org/fhir/StructureDefinition/publishablenamingsystem",
+          "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablenamingsystem" 
+        ]
     },
     "extension": [{
         "url": "http://hl7.org/fhir/StructureDefinition/artifact-url",

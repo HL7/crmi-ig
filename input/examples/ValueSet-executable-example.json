@@ -2,7 +2,10 @@
   "resourceType": "ValueSet",
   "id": "expanded-example",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expandedvalueset" ]
+    "profile": [ 
+      "http://hl7.org/fhir/StructureDefinition/expandedvalueset",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-expandedvalueset" 
+    ]
   },
   "extension": [{
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",

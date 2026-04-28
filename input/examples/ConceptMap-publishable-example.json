@@ -2,7 +2,10 @@
     "resourceType": "ConceptMap",
     "id": "publishable-example",
     "meta" : {
-      "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableconceptmap"]
+      "profile" : [
+        "http://hl7.org/fhir/StructureDefinition/publishableconceptmap",
+        "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableconceptmap"
+      ]
     },
     "url": "http://hl7.org/fhir/uv/crmi/ConceptMap/publishable-example",
     "version": "4.0.1",

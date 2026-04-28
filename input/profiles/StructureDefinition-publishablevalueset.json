@@ -1,0 +1,374 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "publishablevalueset",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 3
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "vocab"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUri" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-publishablevalueset.html"
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/publishablevalueset",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.5.1201"
+  }],
+  "version" : "4.0.2",
+  "name" : "PublishableValueSet",
+  "title" : "Publishable ValueSet",
+  "status" : "active",
+  "experimental" : false,
+  "publisher": "HL7 International / Terminology Infrastructure",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/Vocab"
+        }
+      ]
+    }
+  ],
+  "description" : "Defines and enforces the minimum expectations for publication and distribution of a value set, typically as part of an artifact repository or implementation guide publication",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "objimpl",
+    "uri" : "http://hl7.org/fhir/object-implementation",
+    "name" : "Object Implementation Information"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ValueSet",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ValueSet",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ValueSet",
+      "path" : "ValueSet",
+      "min" : 1,
+      "max" : "1",
+      "constraint": [
+        {
+          "key": "pub-1",
+          "severity": "error",
+          "human": "If knowledge capabilities are stated, they SHALL include publishable",
+          "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'publishable').exists()"
+        }
+      ]
+    },
+    {
+      "id" : "ValueSet.meta.extension:packageSource",
+      "path" : "ValueSet.meta.extension",
+      "sliceName" : "packageSource",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/package-source"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:knowledgeCapability",
+      "path" : "ValueSet.extension",
+      "sliceName" : "knowledgeCapability",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"]
+      }],
+      "condition": [ "pub-1" ],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:copyrightLabel",
+      "path" : "ValueSet.extension",
+      "sliceName" : "copyrightLabel",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:approvalDate",
+      "path" : "ValueSet.extension",
+      "sliceName" : "approvalDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-approvalDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:lastReviewDate",
+      "path" : "ValueSet.extension",
+      "sliceName" : "lastReviewDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:effectivePeriod",
+      "path" : "ValueSet.extension",
+      "sliceName" : "effectivePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:topic",
+      "path" : "ValueSet.extension",
+      "sliceName" : "topic",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:author",
+      "path" : "ValueSet.extension",
+      "sliceName" : "author",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-author"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:editor",
+      "path" : "ValueSet.extension",
+      "sliceName" : "editor",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-editor"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:reviewer",
+      "path" : "ValueSet.extension",
+      "sliceName" : "reviewer",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:endorser",
+      "path" : "ValueSet.extension",
+      "sliceName" : "endorser",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-endorser"]
+      }],
+      "mustSupport" : true
+    },
+    {
+        "id": "ValueSet.extension:curationCoverageLevel",
+        "path": "ValueSet.extension",
+        "sliceName": "curationCoverageLevel",
+        "short": "Relative completeness of curation coverage for this value set",
+        "definition": "Indicates the qualitative curation level of the concept codes in a value set.",
+        "min": 0,
+        "max": "1",
+        "type": [
+            {
+                "code": "Extension",
+                "profile": [
+                    "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-curationCoverageLevel"
+                ]
+            }
+        ]
+    },
+    {
+      "id" : "ValueSet.extension:relatedArtifact",
+      "path" : "ValueSet.extension",
+      "sliceName" : "relatedArtifact",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.extension:relatedArtifact.value[x].extension:publicationDate",
+      "path" : "ValueSet.extension.value[x].extension",
+      "sliceName" : "publicationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationDate"]
+      }]
+    },
+    {
+      "id" : "ValueSet.extension:relatedArtifact.value[x].extension:publicationStatus",
+      "path" : "ValueSet.extension.value[x].extension",
+      "sliceName" : "publicationStatus",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-publicationStatus"]
+      }]
+    },
+    {
+      "id" : "ValueSet.extension:otherTitle",
+      "path" : "ValueSet.extension",
+      "sliceName" : "otherTitle",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"]
+      }]
+    },
+    {
+      "id" : "ValueSet.extension:sourceReference",
+      "path" : "ValueSet.extension",
+      "sliceName" : "sourceReference",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-sourceReference"]
+      }]
+    },
+    {
+      "id" : "ValueSet.extension:artifactComment",
+      "path" : "ValueSet.extension",
+      "sliceName" : "artifactComment",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "ValueSet.extension:authoritativeSource",
+      "path" : "ValueSet.extension",
+      "sliceName" : "authoritativeSource",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/artifact-authoritativeSource"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.identifier",
+      "path" : "ValueSet.identifier",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.date",
+      "path" : "ValueSet.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.contact",
+      "path" : "ValueSet.contact",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.useContext",
+      "path" : "ValueSet.useContext",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.jurisdiction",
+      "path" : "ValueSet.jurisdiction",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.purpose",
+      "path" : "ValueSet.purpose",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.copyright",
+      "path" : "ValueSet.copyright",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.compose",
+      "path" : "ValueSet.compose"
+    },
+    {
+      "id" : "ValueSet.compose.extension:composeCreatedBy",
+      "path" : "ValueSet.compose.extension",
+      "sliceName" : "composeCreatedBy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]
+      }]
+    },
+    {
+      "id" : "ValueSet.compose.extension:composeCreationDate",
+      "path" : "ValueSet.compose.extension",
+      "sliceName" : "composeCreationDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/valueset-compose-creationDate"]
+      }]
+    }]
+  }
+}
