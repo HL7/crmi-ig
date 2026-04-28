@@ -5,6 +5,75 @@
 
 This page details changes made in each version of the Canonical Resource Management Infrastructure IG.
 
+### STU 2 Publication (version 2.0.0)
+
+#### Non-compatible Changes
+
+* [FHIR-53277](https://jira.hl7.org/browse/FHIR-53277): Align CRMI artifact signing with FHIR signatures (applied [here](artifact-signing.html))
+* [FHIR-52719](https://jira.hl7.org/browse/FHIR-52719): Updated discussion on location of terminology-related profiles remaining in CRMI (applied [here](profiles.html#artifact-capability-profiles))
+* [FHIR-52711](https://jira.hl7.org/browse/FHIR-52711): Updated terminology profiles to use base FHIR canonicals and conventions, preserving canonical history with the published terminology profiles between R4 and R5. (applied [here](profiles.html#artifact-capability-profiles))
+* [FHIR-51492](https://jira.hl7.org/browse/FHIR-51492): Rules-text cannot be used alone to provide a computable value set definition (applied [here](StructureDefinition-computablevalueset.html))
+
+#### Compatible, Substantive Changes
+
+* [FHIR-56287](https://jira.hl7.org/browse/FHIR-56287): Added support for _lastUpdated search parameter (applied [here](artifact-repository-server.html#server-requirements))
+* [FHIR-55971](https://jira.hl7.org/browse/FHIR-55971): Add a requestMethod parameter to $package (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-55634](https://jira.hl7.org/browse/FHIR-55634): Added includeNoLongerPresent parameter to ValueSet/$expand (applied [here](OperationDefinition-crmi-valuest-expand.html))
+* [FHIR-55605](https://jira.hl7.org/browse/FHIR-55605): Clarified strict versioning policy aligns with signing (applied [here](artifact-lifecycle.html#artifact-versioning-policy))
+* [FHIR-55586](https://jira.hl7.org/browse/FHIR-55586): Added webSource element to all shareable profiles; packageSource and authoritativeSource to all publishable profiles (applied [here](profiles.html))
+* [FHIR-54026](https://jira.hl7.org/browse/FHIR-54026): Updated implementation of includeLastVersionActive parameter (applied [here](OperationDefinition-crmi-valuest-expand.html))
+* [FHIR-53310](https://jira.hl7.org/browse/FHIR-53310): Clarify id handling in package output (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-53276](https://jira.hl7.org/browse/FHIR-53276): Add canonical profile reference support to Group characteristics (applied [here](StructureDefinition-crmi-groupdefinition.html))
+* [FHIR-53271](https://jira.hl7.org/browse/FHIR-53271): Added dependency roles to the package operation (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-53268](https://jira.hl7.org/browse/FHIR-53268): Added excludePackageId parameter to the $package operation (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-53237](https://jira.hl7.org/browse/FHIR-53237): Support intended usageContext for included artifacts (applied [here](StructureDefinition-crmi-intendedUsageContext.html))
+* [FHIR-53220](https://jira.hl7.org/browse/FHIR-53220): Add bundleType parameter to $package (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-52903](https://jira.hl7.org/browse/FHIR-52903): Clarify dependency behavior of manifest parameters (applied [here](artifact-terminology-service.html#expansion-rules))
+* [FHIR-52877](https://jira.hl7.org/browse/FHIR-52877): Added support for results search parameters (applied [here](artifact-repository-service.html#server-requirements) and [here](artifact-terminology-service.html#server-operations))
+* [FHIR-52761](https://jira.hl7.org/browse/FHIR-52761): Create MessageDefinition profiles (applied [here](profiles.html))
+* [FHIR-52756](https://jira.hl7.org/browse/FHIR-52756): Added $expand and $validate-code parameters to align with terminology ecosystem requirements (applied [here](artifact-terminology-service.html#value-sets))
+* [FHIR-52750](https://jira.hl7.org/browse/FHIR-52750): Documented language support expectations (applied [here](artifact-terminology-service.html#server-operations))
+* [FHIR-52738](https://jira.hl7.org/browse/FHIR-52738): Added executable declaration to executable profiles (applied [here](profiles.html))
+* [FHIR-52725](https://jira.hl7.org/browse/FHIR-52725): Added computable declaration to computable profiles (applied [here](profiles.html))
+* [FHIR-52724](https://jira.hl7.org/browse/FHIR-52724): Added publishable declaration extension to all publishable profiles (applied [here](profiles.html))
+* [FHIR-52723](https://jira.hl7.org/browse/FHIR-52723): Added shareable declaration to shareable profiles (applied [here](profiles.html))
+* [FHIR-52593](https://jira.hl7.org/browse/FHIR-52593): Documented support for deprecated status for value sets (applied [here](artifact-lifecycle.html#maintenance-deprecated-and-retired))
+* [FHIR-51846](https://jira.hl7.org/browse/FHIR-51846): Added packageId search parameter for ImplementationGuide (applied [here](packaging.html#fhir-packages))
+* [FHIR-51734](https://jira.hl7.org/browse/FHIR-51734): Clarified manifest parameter description in $package operation (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-51677](https://jira.hl7.org/browse/FHIR-51677): Added support for delete operations in artifact terminology server (applied [here](artifact-terminology-service.html#artifact-collections-ie-manifest-libraries))
+* [FHIR-51624](https://jira.hl7.org/browse/FHIR-51624): Document how manifest parameters are applied (applied [here](version-manifest.html#applying-manifest-parameters))
+* [FHIR-51555](https://jira.hl7.org/browse/FHIR-51555): Support license requirements discovery (applied [here](OperationDefinition-crmi-license-requirements.html))
+* [FHIR-50185](https://jira.hl7.org/browse/FHIR-50185): Updated versioning policy discussion to include loose and package (applied [here](artifact-lifecycle.html#aritfact-versioning-policy))
+* [FHIR-48381](https://jira.hl7.org/browse/FHIR-48381): Clarified release behavior and added $infer-manifest-parameters (applied [here](artifact-lifecycle.html#release))
+* [FHIR-46385](https://jira.hl7.org/browse/FHIR-46385): Added url parameter to the $clone operation (applied [here](OperationDefinition-crmi-clone.html))
+* [FHIR-43344](https://jira.hl7.org/browse/FHIR-43344): Support a module configuration library (applied [here](StructureDefinition-crmi-moduleconfigurationlibrary.html))
+
+#### Non-substantive Changes
+
+* [FHIR-55914](https://jira.hl7.org/browse/FHIR-55914): Removed references to invalid expand parameters in artifact terminology service (applied [here](artifact-terminology-service.html#value-sets))
+* [FHIR-55612](https://jira.hl7.org/browse/FHIR-55612): Add curationCoverage extension (applied [here](StructureDefinition-crmi-curationCoverage.html))
+* [FHIR-55585](https://jira.hl7.org/browse/FHIR-55585): Correct artifact route processing semantics (applied [here](StructureDefinition-crmi-artifact-endpoint-configurable-operation.html))
+* [FHIR-53266](https://jira.hl7.org/browse/FHIR-53266): Clarify package output may not be complete given include/exclude parameters (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-53157](https://jira.hl7.org/browse/FHIR-53157): Clarify that the outcome of a package is not subject to the include/exclude parameter processing (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-52990](https://jira.hl7.org/browse/FHIR-52990): Fixed incorrect default designation on exclude parameter (applied [here](OperationDefinition-crmi-package.html))
+* [FHIR-52755](https://jira.hl7.org/browse/FHIR-52755): Adopted supported and predefined terms for CodeSystem and ValueSet content (applied [here](artifact-terminology-service.html#support-content))
+* [FHIR-52749](https://jira.hl7.org/browse/FHIR-52749): Shareable CodeSystem CodeSystem.concept.concept.concept link not correct (applied [here](StructureDefinition-shareablecodesystem.html))
+* [FHIR-52747](https://jira.hl7.org/browse/FHIR-52747): TerminologyCapabilities.software definition does not define the element (applied [here](StructureDefinition-crmi-shareableterminologycapabilities.html))
+* [FHIR-52746](https://jira.hl7.org/browse/FHIR-52746): Document relationship to Tx FHIR Ecosystem IG (applied [here](artifact-terminology-service.html))
+* [FHIR-52731](https://jira.hl7.org/browse/FHIR-52731): Clarified and corrected use of the term knowledge artifact throughout (applied [here](OperationDefinition-crmi-artifact-diff.html))
+* [FHIR-52709](https://jira.hl7.org/browse/FHIR-52709): Remove extraneous ?? (applied [here](StructureDefinition-shareablecodesystem.html))
+* [FHIR-52708](https://jira.hl7.org/browse/FHIR-52708): Updated page standards status throughout and added conformance page (applied [here](conformance.html))
+* [FHIR-52603](https://jira.hl7.org/browse/FHIR-52603): Added manifest overview section (applied [here](version-manifest.html))
+* [FHIR-52602](https://jira.hl7.org/browse/FHIR-52602): Improve Placement and Navigation for Artifact Manifest Page (applied [here](index.html))
+* [FHIR-52599](https://jira.hl7.org/browse/FHIR-52599): Correct Definition of ExpandedValueSet (applied [here](packaging.html#artifact-terminology))
+* [FHIR-52478](https://jira.hl7.org/browse/FHIR-52478): Added $release to the artifact terminology service capability statement (applied [here](artifact-terminology-service.html#artifact-collections-ie-manifest-libraries))
+* [FHIR-51751](https://jira.hl7.org/browse/FHIR-51751): Added missing operation definitions to the Operations page (applied [here](operations.html))
+* [FHIR-51682](https://jira.hl7.org/browse/FHIR-51682): Clarify input vs output manifest parameters (applied [here](version-manifest.html#manifest-parameters))
+* [FHIR-51681](https://jira.hl7.org/browse/FHIR-51681): Reorganized manifest documentation to better highlight the specification (applied [here](version-manifest.html))
+* [FHIR-51680](https://jira.hl7.org/browse/FHIR-51680): Clarified manifest parameters include expansion rules parameters as well (applied [here](version-manifest.html#manifest-parameters))
+* [FHIR-49856](https://jira.hl7.org/browse/FHIR-49856): Consider improved Artifact pattern for multi-artifact cases (applied [here](StructureDefinition-crmi-artifact-operation.html))
+* [FHIR-48380](https://jira.hl7.org/browse/FHIR-48380): Release Version Behavior Description Updates (applied [here](CodeSystem-crmi-release-version-behavior-codes.html))
+
 ### STU 2 Ballot (version 2.0.0-ballot)
 
 The major themes of this ballot are:
