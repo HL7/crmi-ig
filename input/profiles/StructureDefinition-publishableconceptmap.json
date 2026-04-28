@@ -14,7 +14,7 @@
     "valueCode" : "trial-use"
   }, {
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
-    "valueUri" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-publishableconceptmap.html"
+    "valueUrl" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-publishableconceptmap.html"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/publishableconceptmap",
   "identifier" : [{
