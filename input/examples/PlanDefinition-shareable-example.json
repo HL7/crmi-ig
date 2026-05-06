@@ -46,14 +46,6 @@
         "documentation": [ {
           "type": "citation",
           "label": "Pregnancy, childbirth, postpartum and newborn care guide (IMPAC) (2015) (1)"
-        } ],
-        "condition": [ {
-          "kind": "applicability",
-          "expression": {
-            "description": "\"Danger signs\" = \"No danger signs\"",
-            "language": "text/cql-identifier",
-            "expression": "Should Proceed with ANC contact"
-          }
         } ]
       }, {
         "id": "2",
@@ -63,14 +55,6 @@
         "documentation": [ {
           "type": "citation",
           "label": "Pregnancy, childbirth, postpartum and newborn care guide (IMPAC) (2015) (1)"
-        } ],
-        "condition": [ {
-          "kind": "applicability",
-          "expression": {
-            "description": "\"Danger signs\" = \"Central cyanosis\"",
-            "language": "text/cql-identifier",
-            "expression": "Should Proceed with ANC contact OR Referral for Central cyanosis"
-          }
         } ]
       }, {
         "id": "3",
@@ -80,14 +64,6 @@
         "documentation": [ {
           "type": "citation",
           "label": "Pregnancy, childbirth, postpartum and newborn care guide (IMPAC) (2015) (1)"
-        } ],
-        "condition": [ {
-          "kind": "applicability",
-          "expression": {
-            "description": "(((((((((((\"Danger signs\" = \"Bleeding vaginally\")\n  OR (\"Danger signs\" = \"Convulsing\"))\n  OR (\"Danger signs\" = \"Fever\"))\n  OR (\"Danger signs\" = \"Severe headache\"))\n  OR (\"Danger signs\" = \"Visual disturbance\"))\n  OR (\"Danger signs\" = \"Imminent delivery\"))\n  OR (\"Danger signs\" = \"Labour\"))\n  OR (\"Danger signs\" = \"Looks very ill\"))\n  OR (\"Danger signs\" = \"Severe vomiting\"))\n  OR (\"Danger signs\" = \"Severe pain\"))\n  OR (\"Danger signs\" = \"Severe abdominal pain\"))\n  OR (\"Danger signs\" = \"Unconscious\")",
-            "language": "text/cql-identifier",
-            "expression": "Should Proceed with ANC contact OR Referral"
-          }
         } ]
       } ]
     } ]

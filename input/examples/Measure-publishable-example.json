@@ -327,7 +327,7 @@
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Measure/publishable-example",
     "name": "ANCIND01Publishable",
-    "title": "ANC.IND.01 Percentage of pregnant women with first ANC contact in the first trimester (Publishable Example)",
+    "title": "ANC.IND.01 Publishable Percentage of pregnant women with first ANC contact in the first trimester",
     "status": "draft",
     "experimental": true,
     "date": "2023-03-13T22:32:10-06:00",

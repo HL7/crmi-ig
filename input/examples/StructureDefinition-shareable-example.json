@@ -6,7 +6,7 @@
     },
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/shareable-example",
     "name": "Specifichealthconcerns",
-    "title": "Specific health concern(s) (Shareable Example)",
+    "title": "Specific health concerns (Shareable Example)",
     "status": "draft",
     "experimental": true,
     "description": "If the woman came to the facility with a specific health concern, select the health concern(s) from the list",

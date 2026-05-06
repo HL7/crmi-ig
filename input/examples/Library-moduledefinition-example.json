@@ -40,18 +40,6 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-dependencyRole",
         "valueCode": "default"
-      }, {
-        "url": "http://hl7.org/fhir/StructureDefinition/package-source",
-        "extension": [ {
-          "url": "packageId",
-          "valueString": "hl7.terminology"
-        }, {
-          "url": "version",
-          "valueString": "5.4.0"
-        }, {
-          "url": "uri",
-          "valueUri": "http://terminology.hl7.org"
-        } ]
       } ],
       "type": "depends-on",
       "display": "Code system Diagnosis Role",
