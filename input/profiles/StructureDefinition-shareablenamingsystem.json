@@ -14,7 +14,7 @@
     "valueCode" : "trial-use"
   }, {
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
-    "valueUrl" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-shareablenamingsystem.html"
+    "valueUrl" : "http://hl7.org/fhir/uv/crmi/STU2/StructureDefinition-shareablenamingsystem.html"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/shareablenamingsystem",
   "identifier" : [{

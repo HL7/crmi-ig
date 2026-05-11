@@ -12,7 +12,7 @@
     "valueCode" : "trial-use"
   }, {
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
-    "valueUrl" : "http://hl7.org/fhir/uv/crmi/StructureDefinition-computablevalueset.html"
+    "valueUrl" : "http://hl7.org/fhir/uv/crmi/STU2/StructureDefinition-computablevalueset.html"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/computablevalueset",
   "identifier" : [{

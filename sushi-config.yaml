@@ -83,6 +83,8 @@ parameters:
   excludettl: true
   path-history: http://hl7.org/fhir/uv/crmi/history.html
   path-expansion-params: '../../input/resources/Parameters-manifest.json'  # for using International ed of SNOMED
+#  path-liquid: "templates/liquid"
+  path-liquid-ig: "templates/liquid"
   pin-canonicals: 'pin-all'
   pin-manifest: 'manifest'
   special-url:
@@ -114,6 +116,10 @@ parameters:
   default-jurisdiction: true
   apply-wg: false
   default-wg: true
+
+
+
+
 
 pages:
   index.md:
