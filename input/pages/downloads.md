@@ -17,7 +17,6 @@ In addition to the above, we have provided format-specific _definitions_:
 
 -  [XML](../definitions.xml.zip)
 -  [JSON](../definitions.json.zip)
--  [TTL](../definitions.ttl.zip)
 
 These files should be the first choice whenever generating any implementation artifacts since they contain all of the
 rules about what makes these CRMI profiles valid. Implementers will still need to be familiar with the content of the
@@ -32,4 +31,3 @@ All examples used in this Implementation Guide:
 
 -  [XML](../examples.xml.zip)
 -  [JSON](../examples.json.zip)
--  [TTL](../examples.ttl.zip)

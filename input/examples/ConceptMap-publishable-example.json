@@ -50,12 +50,14 @@
     ],
     "purpose": "To help implementers map from HL7 v3/CDA to FHIR",
     "copyright": "Creative Commons 0",
-    "sourceUri": "http://hl7.org/fhir/ValueSet/address-use",
-    "targetUri": "http://terminology.hl7.org/ValueSet/v3-AddressUse",
+    "sourceCanonical": "http://hl7.org/fhir/ValueSet/address-use|4.0.1",
+    "targetCanonical": "http://terminology.hl7.org/ValueSet/v3-AddressUse|3.0.0",
     "group": [
       {
         "source": "http://hl7.org/fhir/address-use",
+        "sourceVersion": "4.0.1",
         "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
+        "targetVersion": "4.0.0",
         "element": [
           {
             "code": "home",
