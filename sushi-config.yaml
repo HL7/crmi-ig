@@ -312,7 +312,7 @@ resources:
     name: Example Manifest Parameters
     description: Example Parameters resource demonstrating an input manifest parameters used to support predictable expansion throughout a measure development cycle.
   Parameters/manifest:
-    name: Expansion Parameters
+    name: Manifest Parameters
     description: The expansion parameters resource for this implementation guide, specifying SNOMED Edition and version, as well as pinned versions for versionless references used in the IG.
     exampleBoolean: false
   Group/testcase-example:
