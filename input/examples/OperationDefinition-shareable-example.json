@@ -45,14 +45,12 @@
     ],
     "jurisdiction": [
       {
-        "coding": [
-          {
-            "system": "urn:iso:std:iso:3166",
-            "code": "GB",
-            "display": "United Kingdom of Great Britain and Northern Ireland"
-          }
-        ]
-      }
+            "coding": [{
+                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                "code": "001",
+                "display": "World"
+            }]
+        }
     ],
     "code": "populate",
     "comment": "Only implemented for Labs and Medications so far",

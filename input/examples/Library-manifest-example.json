@@ -74,11 +74,12 @@
       }
     ],
     "jurisdiction": [{
-      "coding": [{
-        "system": "urn:iso:std:iso:3166",
-        "code": "US"
-      }]
-    }],
+            "coding": [{
+                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                "code": "001",
+                "display": "World"
+            }]
+        }],
     "description": "This library is an example of an artifact manifest for the DT-01 PlanDefinition from the ANC-Mini IG.",
     "approvalDate": "2020-05-07",
     "lastReviewDate": "2020-05-07",

@@ -36,12 +36,12 @@
   } ],
   "description": "This library is used to populate the prefetch template for Recommendation 10 (Endpoint-specific)",
   "jurisdiction": [ {
-    "coding": [ {
-      "system": "urn:iso:std:iso:3166",
-      "code": "US",
-      "display": "United States of America"
-    } ]
-  } ],
+            "coding": [{
+                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                "code": "001",
+                "display": "World"
+            }]
+        } ],
   "dataRequirement": [ {
     "id": "patient-query",
     "extension": [ {

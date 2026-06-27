@@ -86,11 +86,12 @@
       }
     ],
     "jurisdiction": [{
-      "coding": [{
-        "system": "urn:iso:std:iso:3166",
-        "code": "US"
-      }]
-    }],
+            "coding": [{
+                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                "code": "001",
+                "display": "World"
+            }]
+        }],
     "description": "This library is the outcome manifest for the example ANCM Danger Signs Package.",
     "useContext": [
       {

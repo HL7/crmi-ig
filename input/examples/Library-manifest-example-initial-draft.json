@@ -102,11 +102,12 @@
     }],
     "description" : "This library is an example initial draft of a version manifest (also referred to as an expansion profile) that specifies expansion rules for a set of value sets used for a collection of measures authored, published, and distributed together, and that are executed with a collective set of expectations documented as part of the release, especially version dependencies for code systems used in value sets referenced by the measures, to ensure predictable expansion of the value sets used to evaluate the measures.",
     "jurisdiction" : [{
-      "coding" : [{
-        "system" : "urn:iso:std:iso:3166",
-        "code" : "US"
-      }]
-    }],
+            "coding": [{
+                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+                "code": "001",
+                "display": "World"
+            }]
+        }],
     "purpose": "This library is defined to illustrate a Version Manifest in initial draft status, as it would look at the beginning of an eCQM Annual Update cycle, established on August 1st, 2023. The latest available version of code systems used at that time is specified to provide stability for value set expansion during the authoring phase. Terminology.HL7.org, in particular, was version 5.2.0 at the time, and FHIR code system versions are chosen from that release.",
     "relatedArtifact" : [{
       "type" : "depends-on",
