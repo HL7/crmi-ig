@@ -29,8 +29,12 @@ exists in the version manifest for the referenced resource, the artifact is cons
 not eligible for release. If 'requireVersionSpecificReferences' is false (the default), then unversioned references 
 are valid and the artifact can be released in that state - deferring the version determination to the consumer.
 
-When 'requireActiveReferences' is true then the operation SHALL throw an error if any 'draft' or 'retired' dependencies 
+When 'requireActiveReferences' is true then the operation SHALL throw an error if any 'draft' or 'retired' dependencies
 are encountered.
+
+If the artifact being released (or any of its owned components) includes value set expansions, those expansions SHALL
+be regenerated, or verified, against the version manifest established by the release, and SHALL conform to the
+requirements described in the [Production Expansions](packaging.html#production-expansions) topic.
 """
 * resource[+] = #ActivityDefinition
 * resource[+] = #CapabilityStatement
