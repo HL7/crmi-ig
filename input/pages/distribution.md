@@ -504,3 +504,5 @@ For IG packages, the FHIR publishing ecosystem, including the FHIR validation to
 Note that for artifact bundles that are the result of the $package operation, bundles may be requested that include duplicate artifacts. Client applications that consume artifact bundles must be prepared for this case.
 
 In addition, client applications must ensure that artifact references are resolved correctly. If an artifact reference is unversioned, a version manifest for the artifact should be consulted to determine the appropriate version-binding information. See the Artifact Scope discussion for information on how to identify the version manifest appropriate for a particular artifact.
+
+Similarly, when evaluating a [production artifact](artifact-lifecycle.html#production-artifacts) that includes value set expansions, client applications must ensure that the expansions used for evaluation match the included expansions, and must not silently substitute a different expansion. See [Production Expansions](packaging.html#production-expansions) for the conformance requirements that apply.

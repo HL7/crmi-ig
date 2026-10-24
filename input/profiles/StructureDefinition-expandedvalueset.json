@@ -31,7 +31,7 @@
       ]
     }
   ],
-  "description" : "Defines an expanded value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an expanded value set, a computable definition of the value set must be obtained to compute the updated expansion.",
+  "description" : "Defines an expanded value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an expanded value set, a computable definition of the value set must be obtained to compute the updated expansion. For production (active and not experimental) value sets, additional requirements apply to identify the value set, code system, and manifest versions used to produce the expansion, as well as the expansion identifier and licensing information (see [Production Expansions](packaging.html#production-expansions)).",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -71,6 +71,18 @@
           "severity": "error",
           "human": "If knowledge capabilities are stated, they SHALL include executable",
           "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'executable').exists()"
+        },
+        {
+          "key": "evs-2",
+          "severity": "error",
+          "human": "A production (active and not experimental) expanded value set SHALL specify url, version, publisher, copyright, and an expansion identifier",
+          "expression": "(status = 'active' and experimental.where($this = true).empty()) implies (url.exists() and version.exists() and publisher.exists() and copyright.exists() and expansion.identifier.exists())"
+        },
+        {
+          "key": "evs-3",
+          "severity": "error",
+          "human": "A production (active and not experimental) expanded value set SHALL include a used-codesystem expansion parameter (system|version) for each code system in the expansion",
+          "expression": "(status = 'active' and experimental.where($this = true).empty()) implies expansion.repeat(contains).system.distinct().subsetOf(%resource.expansion.parameter.where(name = 'used-codesystem').value.toString().select(substring(0, indexOf('|'))))"
         }
       ]
     },
@@ -109,6 +121,31 @@
       "mustSupport" : true
     },
     {
+      "id" : "ValueSet.url",
+      "path" : "ValueSet.url",
+      "condition" : ["evs-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.version",
+      "path" : "ValueSet.version",
+      "condition" : ["evs-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.publisher",
+      "path" : "ValueSet.publisher",
+      "condition" : ["evs-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ValueSet.copyright",
+      "path" : "ValueSet.copyright",
+      "comment" : "For production expanded value sets, the copyright SHALL include the licensing notices required by each code system with licensing restrictions from which codes in the expansion are drawn (e.g. CPT, SNOMED CT).",
+      "condition" : ["evs-2"],
+      "mustSupport" : true
+    },
+    {
       "id" : "ValueSet.expansion",
       "path" : "ValueSet.expansion",
       "min" : 1,
@@ -136,6 +173,8 @@
     {
       "id" : "ValueSet.expansion.identifier",
       "path" : "ValueSet.expansion.identifier",
+      "comment" : "For production expanded value sets, the identifier SHALL uniquely identify the expansion, and SHOULD be (or be accompanied by) a hash of the expansion content.",
+      "condition" : ["evs-2"],
       "mustSupport" : true
     },
     {
@@ -156,6 +195,8 @@
     {
       "id" : "ValueSet.expansion.parameter",
       "path" : "ValueSet.expansion.parameter",
+      "comment" : "For production expanded value sets, the parameters used to produce the expansion SHALL be included, together with a `used-codesystem` parameter (system|version) for each code system, a `used-valueset` parameter for each included value set, and a `manifest` parameter when the expansion was produced in the context of a manifest. See [Production Expansions](packaging.html#production-expansions).",
+      "condition" : ["evs-3"],
       "mustSupport" : true
     },
     {

@@ -54,6 +54,11 @@ For any knowledge artifact, this implementation guide requires that:
 
 If an invalid state transition occurs accidentally, the artifacts **SHOULD** be updated to the correct status and downstream systems **SHOULD** be notified as soon as possible.
 
+##### Production Artifacts
+{: #production-artifacts}
+
+For the purposes of this implementation guide, a _production artifact_ is an artifact with a `status` of `active` and an `experimental` element that is not `true`. Production artifacts are intended for use in real-world settings, and so this implementation guide places additional expectations on them to ensure stable and predictable behavior, particularly with respect to dependency and terminology version management (see [Production Expansions](packaging.html#production-expansions)).
+
 #### Artifact Identity
 {: #artifact-identity}
 
@@ -216,6 +221,8 @@ A collection of artifacts is represented using a [CRMIManifestLibrary](Structure
 
 The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact.
 
+Note that dependencies include terminology transformations, such as ConceptMaps used to translate or normalize codes, as well as libraries, code systems, and value sets. See [Terminology Transformations](packaging.html#terminology-transformations) for the requirements that apply to these dependencies.
+
 **Conformance Requirement 3.5 (Artifact Collection Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-5)
 {: #conformance-requirement-3-5}
 1. Artifacts that are authored as part of a collection (either a content implementation guide or an asset collection):
@@ -223,6 +230,8 @@ The dependencies of a collection can be stated explicitly using `relatedArtifact
   2. **MAY** have version number increments that do not strictly reflect changes to that artifact
   3. **MAY** specify version algorithm and versioning policy once at the collection level
 1. Artifact collections **SHOULD** use an Artifact Manifest to establish versions of dependencies
+1. Artifact collections that include or reference [production](#production-artifacts) value sets with included expansions **SHALL** use an Artifact Manifest to establish versions of dependencies
+1. Artifact manifests for collections that use frequently updated external terminologies (such as CPT) **SHOULD** pin the versions of those code systems explicitly (e.g. using `default-system-version`), rather than relying on latest-version resolution
 
 ##### Artifact Package Source
 {: #artifact-package-source}
