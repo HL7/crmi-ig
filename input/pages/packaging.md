@@ -161,3 +161,50 @@ The following table summarizes how each aspect of an included expansion is repre
   2. If an evaluating system cannot use the included expansion or a matching expansion, it **SHALL NOT** silently substitute a different expansion; it **SHALL** either fail the evaluation, or report the substitution (for example, as an OperationOutcome issue or an evaluation warning) identifying the value set and code system versions of both the included expansion and the expansion actually used
   3. In effect, an included production expansion is treated as though each `used-codesystem` version were provided as a `check-system-version` parameter (see [ValueSet/$expand](OperationDefinition-crmi-valueset-expand.html))
 
+### Terminology Transformations
+{: #terminology-transformations}
+
+In addition to code systems and value sets, computable artifacts may depend on terminology transformations, such as a ConceptMap used to translate clinical codes to administrative codes (e.g. SNOMED CT to CPT), or a mapping used to normalize local codes before evaluation. A mapping can materially change the output of an artifact even when the logic and value sets of the artifact are unchanged, so terminology transformations need to be identified and managed as dependencies in the same way as other terminology.
+
+The following table summarizes how each aspect of a terminology transformation represented as a ConceptMap is identified:
+
+| Aspect | Representation |
+|----|----|
+| ConceptMap canonical and version | `ConceptMap.url` and `ConceptMap.version` |
+| Source and target code systems and versions | `ConceptMap.group.source` and `ConceptMap.group.sourceVersion`, `ConceptMap.group.target` and `ConceptMap.group.targetVersion` |
+| Publisher and steward | `ConceptMap.publisher` (the organization responsible for the content and maintenance of the map), with `contact`, and optionally the `author`, `editor`, `reviewer`, and `endorser` extensions |
+| Effective period | The [resource-effectivePeriod](https://hl7.org/fhir/extensions/StructureDefinition-resource-effectivePeriod.html) extension |
+| Relationship (equivalence) semantics | `ConceptMap.group.element.target.equivalence` |
+| Mapping rule or context | `ConceptMap.group.element.target.dependsOn`, `ConceptMap.group.element.target.product`, `ConceptMap.group.unmapped`, and `ConceptMap.purpose` and `ConceptMap.useContext` for the map as a whole |
+| Confidence or review status | For the map as a whole, the `approvalDate`, `lastReviewDate`, and `reviewer` extensions; for individual mappings, `ConceptMap.group.element.target.comment` |
+| Licensing conditions | `ConceptMap.copyright` (and optionally the `copyrightLabel` extension) |
+{: .grid}
+
+**Conformance Requirement 4.5 (Terminology Transformation Dependencies):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-5)
+{: #conformance-requirement-4-5}
+
+  1. A computable artifact that depends on a terminology transformation **SHALL** identify that transformation as a dependency, using a `relatedArtifact` entry of type `depends-on` with the canonical of the ConceptMap (or other transformation artifact), in the same way as dependencies on libraries, code systems, and value sets
+  2. For [production artifacts](artifact-lifecycle.html#production-artifacts), the version of each terminology transformation dependency **SHALL** be established, either by a version-specific reference, or by an entry in the artifact manifest (i.e. a `default-canonical-version` parameter, see [Version Manifest](version-manifest.html#manifest))
+  3. Terminology transformations used by production artifacts **SHOULD** be represented as ConceptMap resources
+  4. When a terminology transformation used by a production artifact is not represented as a ConceptMap (for example, a StructureMap, or a mapping defined within a library), the transformation **SHALL** still be identified as a dependency, and the artifact (or the transformation) **SHOULD** document the information described in the table above
+
+**Conformance Requirement 4.6 (Production Concept Maps):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-4-6)
+{: #conformance-requirement-4-6}
+
+  1. A ConceptMap that is, or is used by, a production artifact **SHALL** conform to the [PublishableConceptMap](StructureDefinition-publishableconceptmap.html) profile, and:
+      1. **SHALL** specify `url` and `version`
+      2. **SHALL** specify `group.source`, `group.sourceVersion`, `group.target`, and `group.targetVersion` for each group
+      3. **SHALL** specify `publisher`
+      4. **SHALL** specify an effective period using the resource-effectivePeriod extension
+      5. **SHALL** specify `group.element.target.equivalence` for each mapping (as required by the base ConceptMap resource)
+      6. **SHALL** use `group.element.target.dependsOn` and `group.element.target.product` to represent any mapping rule or context on which a mapping depends
+      7. **SHOULD** indicate the review status of the map using the `approvalDate`, `lastReviewDate`, and `reviewer` extensions, and **SHOULD** indicate the confidence or review status of individual mappings, where applicable, using `group.element.target.comment`
+      8. **SHALL** specify `copyright`, and the `copyright` **SHALL** include the licensing conditions for the map, as well as those required by each source or target code system with licensing restrictions (e.g. CPT, SNOMED CT)
+
+#### Administrative Code Mappings
+{: #administrative-code-mappings}
+
+Mappings from clinical terminologies to administrative terminologies are inherently approximate, because administrative codes are assigned according to coding, billing, authorization, and reporting rules that depend on information not typically available to a mapping (such as payer policy, documentation requirements, and modifiers).
+
+> **Caution:** A CPT, HCPCS, or other administrative code produced by a terminology transformation is a _candidate_ administrative concept. It **SHOULD NOT** be treated as an assigned or confirmed administrative code unless it has been confirmed through the applicable coding, billing, authorization, or quality-reporting process. Artifacts that use such mappings **SHOULD** make this distinction clear in their documentation and, where the result of the mapping is communicated, in their output.
+

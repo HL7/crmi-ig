@@ -221,6 +221,8 @@ A collection of artifacts is represented using a [CRMIManifestLibrary](Structure
 
 The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact.
 
+Note that dependencies include terminology transformations, such as ConceptMaps used to translate or normalize codes, as well as libraries, code systems, and value sets. See [Terminology Transformations](packaging.html#terminology-transformations) for the requirements that apply to these dependencies.
+
 **Conformance Requirement 3.5 (Artifact Collection Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-5)
 {: #conformance-requirement-3-5}
 1. Artifacts that are authored as part of a collection (either a content implementation guide or an asset collection):
