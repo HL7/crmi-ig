@@ -28,7 +28,7 @@ The authoring phase is supported by the Shareable and Computable profiles define
 
 See [Artifact Conventions](artifact-conventions.html) for artifact authoring conventions.
 
-When creating a specification that references other artifacts, the $data-requirements operation can be used to determine the set of dependencies referenced by the artifact. This set of dependencies can then be used to infer manifest parameters, using [$infer-manifest-parameters](OperationDefinition-crmi-infer-manifest-parameters.html) operation, and then the release process consists only of determining latest version for any unversioned references in the artifact.
+When creating a specification that references other artifacts, the $data-requirements operation can be used to determine the set of dependencies referenced by the artifact (or, for a specification with multiple artifacts, the aggregate set of dependencies referenced by all the artifacts). This set of dependencies can then be used to infer manifest parameters, using [$infer-manifest-parameters](OperationDefinition-crmi-infer-manifest-parameters.html) operation, and then the release process consists only of determining latest version for any unversioned references in the artifact.
 
 Note that the release process must still be used to establish the version for any unversioned references in the artifact because it is a transactional operation (i.e. the resulting manifest must contain all the unversioned references in the artifact or any of its dependencies at the time of release).
 
@@ -214,7 +214,7 @@ In addition, to ensure stable resolution of dependencies of an artifact througho
 
 A collection of artifacts is represented using a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html). The components of the collection are identified with `relatedArtifact` entries of type `composed-of`.
 
-The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact.
+The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact, or the aggregate dependencies of a set of artifacts (by specifying multiple `url` parameters).
 
 **Conformance Requirement 3.5 (Artifact Collection Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-5)
 {: #conformance-requirement-3-5}

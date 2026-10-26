@@ -5,6 +5,12 @@
 
 This page details changes made in each version of the Canonical Resource Management Infrastructure IG.
 
+### Current Build (version 2.1.0-cibuild)
+
+#### Non-compatible Changes
+
+* [FHIR-57728](https://jira.hl7.org/browse/FHIR-57728): Generalized the $data-requirements operation to support multiple artifacts (removed the id, version, identifier, and terminologyEndpoint parameters; url now 0..*, and system-level invocation is supported) (applied [here](OperationDefinition-crmi-data-requirements.html))
+
 ### STU 2 Publication (version 2.0.0)
 
 #### Non-compatible Changes
