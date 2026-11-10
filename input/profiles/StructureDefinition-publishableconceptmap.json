@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "description" : "Defines and enforces the minimum expectations for publication and distribution of a concept map, typically as part of an artifact repository or implementation guide publication",
+  "description" : "Defines and enforces the minimum expectations for publication and distribution of a concept map, typically as part of an artifact repository or implementation guide publication. For production (active and not experimental) concept maps, additional requirements apply to identify the source and target code system versions, publisher, effective period, and licensing information (see [Terminology Transformations](packaging.html#terminology-transformations))",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -76,6 +76,18 @@
           "severity": "error",
           "human": "If knowledge capabilities are stated, they SHALL include publishable",
           "expression": "extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').exists() implies extension('http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability').where(value = 'publishable').exists()"
+        },
+        {
+          "key": "pcm-1",
+          "severity": "error",
+          "human": "A production (active and not experimental) concept map SHALL specify version, publisher, copyright, and an effective period",
+          "expression": "(status = 'active' and experimental.where($this = true).empty()) implies (version.exists() and publisher.exists() and copyright.exists() and extension('http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod').exists())"
+        },
+        {
+          "key": "pcm-2",
+          "severity": "error",
+          "human": "A production (active and not experimental) concept map SHALL specify the source and target code systems and versions for each group",
+          "expression": "(status = 'active' and experimental.where($this = true).empty()) implies group.all(source.exists() and sourceVersion.exists() and target.exists() and targetVersion.exists())"
         }
       ]
     },
@@ -281,6 +293,13 @@
       "mustSupport" : true
     },
     {
+      "id" : "ConceptMap.publisher",
+      "path" : "ConceptMap.publisher",
+      "comment" : "The publisher is understood to be the steward of the concept map, i.e. the organization responsible for its content and ongoing maintenance.",
+      "condition" : ["pcm-1"],
+      "mustSupport" : true
+    },
+    {
       "id" : "ConceptMap.contact",
       "path" : "ConceptMap.contact",
       "mustSupport" : true
@@ -303,6 +322,53 @@
     {
       "id" : "ConceptMap.copyright",
       "path" : "ConceptMap.copyright",
+      "comment" : "For production concept maps, the copyright SHALL include the licensing conditions for the concept map itself, as well as those required by each source or target code system with licensing restrictions (e.g. CPT, SNOMED CT).",
+      "condition" : ["pcm-1"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.source",
+      "path" : "ConceptMap.group.source",
+      "condition" : ["pcm-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.sourceVersion",
+      "path" : "ConceptMap.group.sourceVersion",
+      "condition" : ["pcm-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.target",
+      "path" : "ConceptMap.group.target",
+      "condition" : ["pcm-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.targetVersion",
+      "path" : "ConceptMap.group.targetVersion",
+      "condition" : ["pcm-2"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.element.target.equivalence",
+      "path" : "ConceptMap.group.element.target.equivalence",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.element.target.comment",
+      "path" : "ConceptMap.group.element.target.comment",
+      "comment" : "For production concept maps, the comment SHOULD be used to describe the review status or confidence of an individual mapping, where applicable, as well as any mapping rule or context not captured by dependsOn or product.",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.element.target.dependsOn",
+      "path" : "ConceptMap.group.element.target.dependsOn",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ConceptMap.group.element.target.product",
+      "path" : "ConceptMap.group.element.target.product",
       "mustSupport" : true
     }]
   }
