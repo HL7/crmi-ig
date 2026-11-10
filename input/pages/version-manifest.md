@@ -250,9 +250,9 @@ Resolving the canonical reference `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840
 
 The result is that even though the artifact refers to a value set by a version-independent reference, it can be predictably bound to the specific version of the value set required for the release.
 
-In addition, if the operation specifically involves value set expansion, the [cqf-expansionParameters]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-expansionParameters.html) extension of the manifest library SHOULD be used to provide values for the parameters to the expand (such as activeOnly and default-system-version). If no cqf-expansionParameters is present, [expansion-parameters](https://build.fhir.org/ig/FHIR/fhir-tools-ig/en/StructureDefinition-expansion-parameters.html) MAY be used to provide the "as-published" expansion parameters. 
+In addition, the [cqf-expansionParameters]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-expansionParameters.html) extension of the manifest library **SHOULD** be used to provide values for the parameters to expansions performed during the operation (such as activeOnly and default-system-version). Refer to the [$expand](https://build.fhir.org/valueset-operation-expand.html) operation in the R6 specification for the most current descriptions of the behavior of expansion parameters.
 
-In other words, cqf-expansionParameters defines default values that SHOULD be used for $expand input parameters, while expansion-parameters defines the parameter values that were used during the publication expansion process. 
+If the manifest library does not specify expansion parameters, applications **MAY** attempt to determine the expansion parameters that were used in the publication of the artifact by examining the [expansion-parameters](https://build.fhir.org/ig/FHIR/fhir-tools-ig/en/StructureDefinition-expansion-parameters.html) extension of the ImplementationGuide resource for the implementation guide in which the artifact was published.
 
 And finally, if the operation specifically involves CQL evaluation, the `cqlOptions` extension of the manifest can be used to provide options to the CQL evaluation environment.
 

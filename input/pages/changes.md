@@ -14,6 +14,7 @@ This page details changes made in each version of the Content Repository Managem
 
 #### Compatible, Substantive Changes
 
+* [FHIR-53319](https://jira.hl7.org/browse/FHIR-53319): Clarified that the cqf-expansionParameters extension of a manifest library applies to all expansions performed during an operation, and that the expansion-parameters extension of the publishing ImplementationGuide may be used when the manifest does not specify expansion parameters (applied [here](version-manifest.html#canonical-resolution-with-a-manifest))
 * [FHIR-59723](https://jira.hl7.org/browse/FHIR-59723): Updated the evs-1 constraint to refer to the `used-codesystem` expansion parameter, rather than the `system-version` parameter, and to apply to each entry in the expansion (applied [here](StructureDefinition-expandedvalueset.html) and [here](StructureDefinition-crmi-expandedvalueset.html))
 * [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Renamed the implementation guide from "Canonical Resource Management Infrastructure" to "Content Repository Management Infrastructure" (applied [here](index.html))
 * [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Defined _production artifacts_ (applied [here](artifact-lifecycle.html#production-artifacts))
