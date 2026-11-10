@@ -67,7 +67,7 @@ A _supported_ code system is any code system that a server supports correctly fo
 
 ### Code Systems
 
-1. For predefined content, servers **SHALL** Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive, content, and concept.
+1. For predefined content, servers **SHALL** Represent basic CodeSystem information, as specified by the [ShareableCodeSystem](http://hl7.org/fhir/shareablecodesystem.html) profile, which includes url, version, name, status, experimental, publisher, description, caseSensitive (for code systems that are not supplements), content, and concept.
 
 2. For published CodeSystems, servers **SHALL** represent publishable CodeSystem information, as specified by the [CRMIPublishableCodeSystem](StructureDefinition-crmi-publishablecodesystem.html) profile.
 

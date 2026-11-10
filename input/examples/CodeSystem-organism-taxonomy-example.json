@@ -42,7 +42,6 @@
   ],
   "purpose": "Illustrates sharing classification data (organism genus and species rollups) as properties defined in a code system supplement, so that logic can classify organisms consistently without embedding the classification in the logic itself.",
   "copyright": "This material includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of SNOMED International. All rights reserved. SNOMED CT® was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of SNOMED International.",
-  "caseSensitive": true,
   "content": "supplement",
   "supplements": "http://snomed.info/sct",
   "property": [

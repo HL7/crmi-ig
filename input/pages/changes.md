@@ -9,6 +9,7 @@ This page details changes made in each version of the Content Repository Managem
 
 #### Non-compatible Changes
 
+* [FHIR-57726](https://jira.hl7.org/browse/FHIR-57726): Updated the ShareableCodeSystem and CRMIShareableCodeSystem profiles to require caseSensitive only for code systems that are not supplements, and to prohibit it for code system supplements (scs-3, scs-4) (applied [here](StructureDefinition-shareablecodesystem.html) and [here](StructureDefinition-crmi-shareablecodesystem.html))
 * [FHIR-57728](https://jira.hl7.org/browse/FHIR-57728): Generalized the $data-requirements operation to support multiple artifacts (removed the id, version, identifier, and terminologyEndpoint parameters; url now 0..*, and system-level invocation is supported) (applied [here](OperationDefinition-crmi-data-requirements.html))
 
 #### Compatible, Substantive Changes

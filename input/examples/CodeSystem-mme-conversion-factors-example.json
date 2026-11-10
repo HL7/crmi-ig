@@ -76,7 +76,6 @@
   ],
   "purpose": "Illustrates sharing configuration data (MME conversion factors) as properties defined in a code system supplement, so that the configuration can be distributed and versioned using the same artifact management infrastructure as the logic that uses it.",
   "copyright": "Conversion factors are derived from the CDC Opioid Prescribing Guideline, Copyright 2019+ Centers for Disease Control and Prevention (CDC). This material contains content from RxNorm, which is publicly available courtesy of the U.S. National Library of Medicine (NLM).",
-  "caseSensitive": true,
   "content": "supplement",
   "supplements": "http://www.nlm.nih.gov/research/umls/rxnorm",
   "property": [
