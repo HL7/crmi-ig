@@ -140,15 +140,15 @@ The following table summarizes how each aspect of an included expansion is repre
 {: #conformance-requirement-4-3}
 
   1. A ValueSet that includes an expansion and is, or is included with, a production artifact **SHALL** conform to the [ExpandedValueSet](StructureDefinition-expandedvalueset.html) profile, and:
-      1. **SHALL** specify `url` and `version`
-      2. **SHALL** specify `expansion.timestamp`
-      3. **SHALL** specify `expansion.identifier`, which **SHALL** uniquely identify the expansion (i.e. two expansions with different content **SHALL NOT** have the same identifier)
-      4. **SHALL** include the parameters used to produce the expansion in `expansion.parameter`
-      5. **SHALL** include a `used-codesystem` expansion parameter, with a value of the form `system|version`, for each code system from which codes in the expansion are drawn
+      1. **SHOULD** specify `url` and `version`
+      2. **SHOULD** specify `expansion.timestamp`
+      3. **SHOULD** specify `expansion.identifier`, which **SHALL** uniquely identify the expansion (i.e. two expansions with different content **SHALL NOT** have the same identifier)
+      4. **SHOULD** include the parameters used to produce the expansion in `expansion.parameter`
+      5. **SHOULD** include a `used-codesystem` expansion parameter, with a value of the form `system|version`, for each code system from which codes in the expansion are drawn
       6. **SHOULD** specify `expansion.contains.version` for each code in the expansion
-      7. **SHALL** include a `used-valueset` expansion parameter, with a version-specific canonical value, for each value set included by the value set definition
-      8. **SHALL** include a `manifest` expansion parameter, with a version-specific canonical reference to the manifest library or implementation guide, when the expansion was produced in the context of a manifest
-      9. **SHALL** specify `publisher` and `copyright`, and the `copyright` **SHALL** include the licensing notices required by each code system with licensing restrictions from which codes in the expansion are drawn (e.g. CPT, SNOMED CT)
+      7. **SHOULD** include a `used-valueset` expansion parameter, with a version-specific canonical value, for each value set included by the value set definition
+      8. **SHOULD** include a `manifest` expansion parameter, with a version-specific canonical reference to the manifest library or implementation guide, when the expansion was produced in the context of a manifest
+      9. **SHOULD** specify `publisher` and `copyright`, and the `copyright` **SHOULD** include the licensing notices required by each code system with licensing restrictions from which codes in the expansion are drawn (e.g. CPT, SNOMED CT)
       10. **SHOULD** provide a hash of the expansion content, either as the value of `expansion.identifier` or using an extension, to allow consumers to verify the integrity of the expansion
   2. Production artifacts with included expansions **SHOULD** be packaged together with the manifest under which the expansions were produced
 

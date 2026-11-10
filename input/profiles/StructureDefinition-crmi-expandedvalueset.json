@@ -72,14 +72,14 @@
         },
         {
           "key": "evs-2",
-          "severity": "error",
-          "human": "A production (active and not experimental) expanded value set SHALL specify url, version, publisher, copyright, and an expansion identifier",
+          "severity": "warning",
+          "human": "A production (active and not experimental) expanded value set SHOULD specify url, version, publisher, copyright, and an expansion identifier",
           "expression": "(status = 'active' and experimental.where($this = true).empty()) implies (url.exists() and version.exists() and publisher.exists() and copyright.exists() and expansion.identifier.exists())"
         },
         {
           "key": "evs-3",
-          "severity": "error",
-          "human": "A production (active and not experimental) expanded value set SHALL include a used-codesystem expansion parameter (system|version) for each code system in the expansion",
+          "severity": "warning",
+          "human": "A production (active and not experimental) expanded value set SHOULD include a used-codesystem expansion parameter (system|version) for each code system in the expansion",
           "expression": "(status = 'active' and experimental.where($this = true).empty()) implies expansion.repeat(contains).system.distinct().subsetOf(%resource.expansion.parameter.where(name = 'used-codesystem').value.toString().select(substring(0, indexOf('|'))))"
         }
       ]
@@ -139,7 +139,7 @@
     {
       "id" : "ValueSet.copyright",
       "path" : "ValueSet.copyright",
-      "comment" : "For production expanded value sets, the copyright SHALL include the licensing notices required by each code system with licensing restrictions from which codes in the expansion are drawn (e.g. CPT, SNOMED CT).",
+      "comment" : "For production expanded value sets, the copyright SHOULD include the licensing notices required by each code system with licensing restrictions from which codes in the expansion are drawn (e.g. CPT, SNOMED CT).",
       "condition" : ["evs-2"],
       "mustSupport" : true
     },
@@ -193,7 +193,7 @@
     {
       "id" : "ValueSet.expansion.parameter",
       "path" : "ValueSet.expansion.parameter",
-      "comment" : "For production expanded value sets, the parameters used to produce the expansion SHALL be included, together with a `used-codesystem` parameter (system|version) for each code system, a `used-valueset` parameter for each included value set, and a `manifest` parameter when the expansion was produced in the context of a manifest. See [Production Expansions](packaging.html#production-expansions).",
+      "comment" : "For production expanded value sets, the parameters used to produce the expansion SHOULD be included, together with a `used-codesystem` parameter (system|version) for each code system, a `used-valueset` parameter for each included value set, and a `manifest` parameter when the expansion was produced in the context of a manifest. See [Production Expansions](packaging.html#production-expansions).",
       "condition" : ["evs-3"],
       "mustSupport" : true
     },

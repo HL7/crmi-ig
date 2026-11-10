@@ -8,7 +8,7 @@
 id: hl7.fhir.uv.crmi
 canonical: http://hl7.org/fhir/uv/crmi
 name: CRMI
-title: Canonical Resource Management Infrastructure Implementation Guide
+title: Content Repository Management Infrastructure Implementation Guide
 description: >-
   This implementation guide defines profiles, operations, capability statements
   and guidance to facilitate the content management lifecycle for authoring,

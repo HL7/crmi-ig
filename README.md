@@ -1,6 +1,6 @@
-# Content Management Infrastructure Implementation Guide
+# Content Repository Management Infrastructure Implementation Guide
 
-This repository contains the source for the HL7 Content Management Infrastructure
+This repository contains the source for the HL7 Content Repository Management Infrastructure
 FHIR implementation guide.
 
 
