@@ -25,8 +25,8 @@
       "value" : "http://www.hl7.org/Special/committees/dss"
     }]
   }],
-  "description" : "Specifies the source of an artifact reference when it is being recorded as a dependency as part of manifest library.",
-  "purpose" : "A manifest library should be able to specify where a dependency reference originated.",
+  "description" : "Specifies the source of an artifact reference when it is being recorded as a dependency (or a direct reference code) as part of a manifest library. The extension may repeat to indicate that the same dependency or direct reference code is referenced from multiple artifacts. See [Reference Sources](distribution.html#reference-sources) for guidance and use cases.",
+  "purpose" : "A manifest library should be able to specify where a dependency reference (or direct reference code) originated, so that consumers can determine which artifacts in the collection make use of a given dependency, and which dependencies a given artifact makes use of.",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -38,6 +38,10 @@
   "context" : [{
     "type" : "element",
     "expression" : "RelatedArtifact"
+  },
+  {
+    "type" : "element",
+    "expression" : "Coding"
   }],
   "type" : "Extension",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
@@ -47,7 +51,7 @@
       "id" : "Extension",
       "path" : "Extension",
       "short" : "Reference source",
-      "definition" : "Identifies the source of a dependency reference when it is being recorded as a dependency as part of a manifest library.",
+      "definition" : "Identifies the source of a dependency reference when it is being recorded as a dependency (or a direct reference code) as part of a manifest library.",
       "min" : 0,
       "max" : "*"
     },
@@ -97,7 +101,7 @@
       "fixedUri" : "path"
     },
     {
-      "id" : "Extension.extension:definition.value[x]",
+      "id" : "Extension.extension:path.value[x]",
       "path" : "Extension.extension.value[x]",
       "type" : [{
         "code" : "string"

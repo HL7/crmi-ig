@@ -1,0 +1,580 @@
+{
+  "resourceType": "Library",
+  "id": "manifest-reference-source-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "exp-params",
+      "parameter": [
+        {
+          "name": "default-system-version",
+          "valueCanonical": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20240301"
+        },
+        {
+          "name": "default-system-version",
+          "valueCanonical": "http://hl7.org/fhir/sid/icd-10-cm|2024"
+        },
+        {
+          "name": "default-system-version",
+          "valueCanonical": "http://www.ama-assn.org/go/cpt|2024"
+        },
+        {
+          "name": "default-system-version",
+          "valueCanonical": "http://loinc.org|2.77"
+        },
+        {
+          "name": "default-valueset-version",
+          "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20240206"
+        },
+        {
+          "name": "default-valueset-version",
+          "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001|20240206"
+        },
+        {
+          "name": "default-valueset-version",
+          "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013|20240206"
+        },
+        {
+          "name": "default-valueset-version",
+          "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.115.12.1088|20240206"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
+      "valueReference": {
+        "reference": "#exp-params"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+            "extension": [
+              {
+                "url": "artifact",
+                "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+              },
+              {
+                "url": "path",
+                "valueString": "dataRequirement[3].codeFilter[0].code[0]"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+            "extension": [
+              {
+                "url": "artifact",
+                "valueCanonical": "http://example.org/fhir/Library/DiabetesEyeExamExample|1.0.0"
+              },
+              {
+                "url": "path",
+                "valueString": "dataRequirement[3].codeFilter[0].code[0]"
+              }
+            ]
+          }
+        ],
+        "system": "http://loinc.org",
+        "version": "2.77",
+        "code": "21112-8",
+        "display": "Birth date"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+            "extension": [
+              {
+                "url": "artifact",
+                "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+              },
+              {
+                "url": "path",
+                "valueString": "dataRequirement[4].codeFilter[0].code[0]"
+              }
+            ]
+          }
+        ],
+        "system": "http://loinc.org",
+        "version": "2.77",
+        "code": "4548-4",
+        "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+      }
+    }
+  ],
+  "url": "http://hl7.org/fhir/uv/crmi/Library/manifest-reference-source-example",
+  "version": "1.0.0",
+  "name": "DiabetesMeasuresManifestExample",
+  "title": "Diabetes Measures Manifest Example",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "asset-collection"
+      }
+    ]
+  },
+  "date": "2026-11-09",
+  "publisher": "HL7 International / Clinical Decision Support",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss"
+        }
+      ]
+    }
+  ],
+  "description": "Example manifest for a collection of two diabetes measures, illustrating the use of the crmi-referenceSource extension to record which artifacts reference each dependency and direct reference code. See [Reference Sources](distribution.html#reference-sources) for a description of the use cases this example supports.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "840",
+          "display": "United States of America (USA)"
+        }
+      ]
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "display": "Diabetes: Hemoglobin A1c Poor Control Example",
+      "resource": "http://example.org/fhir/Measure/DiabetesHbA1cPoorControlExample|1.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Measure"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "display": "Diabetes: Eye Exam Example",
+      "resource": "http://example.org/fhir/Measure/DiabetesEyeExamExample|1.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Measure"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Measure/DiabetesHbA1cPoorControlExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "library[0]"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "Diabetes HbA1c Poor Control Example Library",
+      "resource": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Measure/DiabetesEyeExamExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "library[0]"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "Diabetes Eye Exam Example Library",
+      "resource": "http://example.org/fhir/Library/DiabetesEyeExamExample|1.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[0].codeFilter[0].valueSet"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesEyeExamExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[0].codeFilter[0].valueSet"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "Diabetes",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20240206",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "ValueSet"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[1].codeFilter[0].valueSet"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesEyeExamExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[1].codeFilter[0].valueSet"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "Office Visit",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001|20240206",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "ValueSet"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[2].codeFilter[0].valueSet"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "HbA1c Laboratory Test",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013|20240206",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "ValueSet"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesEyeExamExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[2].codeFilter[0].valueSet"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "Retinal or Dilated Eye Exam",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.115.12.1088|20240206",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "ValueSet"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[0].system"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[0].system"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.115.12.1088|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[0].system"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "SNOMED CT US Edition, 2024-03-01",
+      "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20240301",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "CodeSystem"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[1].system"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "ICD-10-CM 2024",
+      "resource": "http://hl7.org/fhir/sid/icd-10-cm|2024",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "CodeSystem"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[1].system"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.115.12.1088|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[1].system"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "CPT 2024",
+      "resource": "http://www.ama-assn.org/go/cpt|2024",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "CodeSystem"
+          }
+        ]
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013|20240206"
+            },
+            {
+              "url": "path",
+              "valueString": "compose.include[0].system"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[3].codeFilter[0].code[0].system"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesHbA1cPoorControlExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[4].codeFilter[0].code[0].system"
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource",
+          "extension": [
+            {
+              "url": "artifact",
+              "valueCanonical": "http://example.org/fhir/Library/DiabetesEyeExamExample|1.0.0"
+            },
+            {
+              "url": "path",
+              "valueString": "dataRequirement[3].codeFilter[0].code[0].system"
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "display": "LOINC 2.77",
+      "resource": "http://loinc.org|2.77",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "CodeSystem"
+          }
+        ]
+      }
+    }
+  ]
+}

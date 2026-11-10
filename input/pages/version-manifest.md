@@ -159,6 +159,9 @@ Building on the capability provided by manifest parameters, a _manifest library_
 
 1. Components: Any number of `composed-of` `relatedArtifact` entries that specify the canonical resources in the artifact collection
 1. Dependencies: Any number of `depends-on` `relatedArtifact` entries that specify the canonical resources referenced by artifacts of the release. The dependencies are listed regardless of whether the source reference is versioned, but versionless references will also have an entry in the manifest parameters, represented as a contained Parameters resource referred to by the CRMIExpansionParameters extension.
+1. Direct reference codes: Any number of `cqf-directReferenceCode` extensions that specify the codes referenced directly by artifacts of the release (i.e. not through a value set)
+
+For both dependencies and direct reference codes, the [crmi-referenceSource](StructureDefinition-crmi-referenceSource.html) extension is used to record which artifacts (and which elements of those artifacts) reference the dependency or code, as described in [Reference Sources](distribution.html#reference-sources).
 
 Manifest Libraries allow for collections of artifacts to be described, together with all the information required to correctly make use of those artifacts in a particular context or setting. For example, a typical use of a Manifest Library is to describe the measures in an eCQM Annual Update release. In this case, the components of the manifest library are the measures that make up the release, and the dependencies are any code systems, value sets, libraries, or other canonical dependencies referenced by the measures.
 
