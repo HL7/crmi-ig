@@ -79,14 +79,14 @@
         },
         {
           "key": "pcm-1",
-          "severity": "error",
-          "human": "A production (active and not experimental) concept map SHALL specify version, publisher, copyright, and an effective period",
+          "severity": "warning",
+          "human": "A production (active and not experimental) concept map SHOULD specify version, publisher, copyright, and an effective period",
           "expression": "(status = 'active' and experimental.where($this = true).empty()) implies (version.exists() and publisher.exists() and copyright.exists() and extension('http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod').exists())"
         },
         {
           "key": "pcm-2",
-          "severity": "error",
-          "human": "A production (active and not experimental) concept map SHALL specify the source and target code systems and versions for each group",
+          "severity": "warning",
+          "human": "A production (active and not experimental) concept map SHOULD specify the source and target code systems and versions for each group",
           "expression": "(status = 'active' and experimental.where($this = true).empty()) implies group.all(source.exists() and sourceVersion.exists() and target.exists() and targetVersion.exists())"
         }
       ]
@@ -322,7 +322,7 @@
     {
       "id" : "ConceptMap.copyright",
       "path" : "ConceptMap.copyright",
-      "comment" : "For production concept maps, the copyright SHALL include the licensing conditions for the concept map itself, as well as those required by each source or target code system with licensing restrictions (e.g. CPT, SNOMED CT).",
+      "comment" : "For production concept maps, the copyright SHOULD include the licensing conditions for the concept map itself, as well as those required by each source or target code system with licensing restrictions (e.g. CPT, SNOMED CT).",
       "condition" : ["pcm-1"],
       "mustSupport" : true
     },

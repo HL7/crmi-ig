@@ -192,14 +192,14 @@ The following table summarizes how each aspect of a terminology transformation r
 {: #conformance-requirement-4-6}
 
   1. A ConceptMap that is, or is used by, a production artifact **SHALL** conform to the [PublishableConceptMap](StructureDefinition-publishableconceptmap.html) profile, and:
-      1. **SHALL** specify `url` and `version`
-      2. **SHALL** specify `group.source`, `group.sourceVersion`, `group.target`, and `group.targetVersion` for each group
-      3. **SHALL** specify `publisher`
-      4. **SHALL** specify an effective period using the resource-effectivePeriod extension
+      1. **SHOULD** specify `url` and `version`
+      2. **SHOULD** specify `group.source`, `group.sourceVersion`, `group.target`, and `group.targetVersion` for each group
+      3. **SHOULD** specify `publisher`
+      4. **SHOULD** specify an effective period using the resource-effectivePeriod extension
       5. **SHALL** specify `group.element.target.equivalence` for each mapping (as required by the base ConceptMap resource)
-      6. **SHALL** use `group.element.target.dependsOn` and `group.element.target.product` to represent any mapping rule or context on which a mapping depends
+      6. **SHOULD** use `group.element.target.dependsOn` and `group.element.target.product` to represent any mapping rule or context on which a mapping depends
       7. **SHOULD** indicate the review status of the map using the `approvalDate`, `lastReviewDate`, and `reviewer` extensions, and **SHOULD** indicate the confidence or review status of individual mappings, where applicable, using `group.element.target.comment`
-      8. **SHALL** specify `copyright`, and the `copyright` **SHALL** include the licensing conditions for the map, as well as those required by each source or target code system with licensing restrictions (e.g. CPT, SNOMED CT)
+      8. **SHOULD** specify `copyright`, and the `copyright` **SHOULD** include the licensing conditions for the map, as well as those required by each source or target code system with licensing restrictions (e.g. CPT, SNOMED CT)
 
 #### Administrative Code Mappings
 {: #administrative-code-mappings}
