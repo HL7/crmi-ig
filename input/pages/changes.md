@@ -22,6 +22,10 @@ This page details changes made in each version of the Content Repository Managem
 * [FHIR-59701](https://jira.hl7.org/browse/FHIR-59701): Added requirements for terminology transformation (e.g. ConceptMap) dependencies and production concept maps, and a caution on mapped administrative codes (applied [here](packaging.html#terminology-transformations))
 * [FHIR-59701](https://jira.hl7.org/browse/FHIR-59701): Added production invariants (pcm-1, pcm-2, with warning severity) to the PublishableConceptMap and CRMIPublishableConceptMap profiles (applied [here](StructureDefinition-publishableconceptmap.html) and [here](StructureDefinition-crmi-publishableconceptmap.html))
 
+#### Non-substantive Changes
+
+* [FHIR-59235](https://jira.hl7.org/browse/FHIR-59235): Moved the CodeSystem, ConceptMap, NamingSystem, and ValueSet profiles to a separate Terminology Resource Profiles table, noting that they are maintained by the Terminology Infrastructure Work Group (applied [here](profiles.html#terminology-resource-profiles))
+
 ### STU 2 Publication (version 2.0.0)
 
 #### Non-compatible Changes
