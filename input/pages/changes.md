@@ -7,6 +7,10 @@ This page details changes made in each version of the Canonical Resource Managem
 
 ### Current Build (version 2.1.0)
 
+#### Non-compatible Changes
+
+* [FHIR-57728](https://jira.hl7.org/browse/FHIR-57728): Generalized the $data-requirements operation to support multiple artifacts (removed the id, version, identifier, and terminologyEndpoint parameters; url now 0..*, and system-level invocation is supported) (applied [here](OperationDefinition-crmi-data-requirements.html))
+
 #### Compatible, Substantive Changes
 
 * [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Defined _production artifacts_ (applied [here](artifact-lifecycle.html#production-artifacts))

@@ -7,15 +7,17 @@ Usage: #definition
 * title = "CRMI Data Requirements"
 * status = #active
 * description = """
-Determines the effective data requirements for the artifact, including known
-components and dependencies, and optionally informed by a version manifest.
+Determines the effective data requirements for one or more artifacts, including known
+components and dependencies, and optionally informed by a version manifest. When multiple
+artifacts are specified, the result is the aggregate data requirements for all the artifacts.
 
 See [$package and $data-requirements](distribution.html#package-and-data-requirements)
 """
 * comment = """
 The data requirements operation is used for dependency gathering, as a way to understand 
-the set of dependencies of a given artifact, as well as for data requirements determination, 
-as a way to understand the complete set of data requirements for a given artifact, including 
+the set of dependencies of a given artifact (or set of artifacts), as well as for data requirements 
+determination, as a way to understand the complete set of data requirements for a given artifact 
+(or set of artifacts), including 
 terminology usage (code systems, value sets, and direct-reference codes), parameters, dependencies,
 and data requirements.
 """
@@ -47,56 +49,36 @@ and data requirements.
 * resource[+] = #TerminologyCapabilities
 * resource[+] = #TestScript
 * resource[+] = #ValueSet
-* system = false
+* system = true
 * type = true
 * instance = true
-
-* parameter[+].name = #id
-* parameter[=].use = #in
-* parameter[=].min = 0
-* parameter[=].max = "1"
-* parameter[=].documentation = """
-The logical id of the canonical or artifact resource to analyze.
-"""
-* parameter[=].type = #string
 
 * parameter[+].name = #url
 * parameter[=].use = #in
 * parameter[=].min = 0
-* parameter[=].max = "1"
+* parameter[=].max = "*"
 * parameter[=].documentation = """
-A canonical or artifact reference to a canonical resource.
+Optionally versioned canonical or artifact reference to the resource(s) for which data 
+requirements will be determined. Multiple artifacts will result in the aggregate data 
+requirements for all the artifacts.
+
+This parameter cannot be used when invoking at the instance level. When invoking at the
+type level, the reference must be to a type that agrees with the invocation.
 """
 * parameter[=].type = #uri
-
-* parameter[+].name = #version
-* parameter[=].use = #in
-* parameter[=].min = 0
-* parameter[=].max = "1"
-* parameter[=].documentation = """
-The version of the canonical or artifact resource to analyze
-"""
-* parameter[=].type = #string
-
-* parameter[+].name = #identifier
-* parameter[=].use = #in
-* parameter[=].min = 0
-* parameter[=].max = "1"
-* parameter[=].documentation = """
-A business identifier of the canonical or artifact resource to be analyzed.
-"""
-* parameter[=].type = #string
-* parameter[=].searchType = #token
 
 * parameter[+].name = #expression
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "*"
 * parameter[=].documentation = """
-The name of a specific expression to be considered for analysis. If no
-expressions are specified, the analysis is performed on the entire resource. If
-expressions are specified, the analysis is performed only on the expressions
-specified.
+The identifier (optionally qualified) of the expression(s) for which data requirements will 
+be determined, regardless of whether the declaration is private. If no expression names are 
+provided, the operation determines data requirements for the entire artifact or artifacts. 
+If the operation is performed with multiple artifacts, expression names must be qualified with
+the name of the library in which they appear. Note that this may result in expression requirements
+being included because they are called from a specified expression, rather than because they are
+specified directly.
 """
 * parameter[=].type = #string
 
@@ -105,14 +87,18 @@ specified.
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = """
-Any input parameters for the artifact. If the artifact is a logic library, 
-or references logic libraries, parameters defined in this input will be
-bound by name to parameters defined in the logic library (or referenced
-libraries). If the logic library is a CQL library, parameter types are 
-mapped to CQL as specified in the Using CQL with FHIR implementation guide. 
-If a parameter appears more than once in the input Parameters resource, 
-it is represented with a List in the input CQL. If a parameter has parts, 
-it is represented as a Tuple in the input CQL.
+Any input parameters (optionally qualified) for the artifact(s). 
+If any artifact is a logic library, or references logic libraries, 
+parameters defined in this input will be bound by name to parameters 
+defined in the logic library (or referenced libraries). If parameter
+names are qualified, the parameter will be bound only to parameters in
+the library with the qualifier name, and the qualifier name must be the
+name of an artifact being processed (or an included library, recursively). 
+If the logic library is a CQL library, parameter types are mapped to CQL 
+as specified in the Using CQL with FHIR implementation guide. If a 
+parameter appears more than once in the input Parameters resource, it is 
+represented with a List in the input CQL. If a parameter has parts, it is 
+represented as a Tuple in the input CQL.
 """
 * parameter[=].type = #Parameters
 
@@ -235,25 +221,13 @@ OperationDefinition.
     * type = #Endpoint
     * use = #in
 
-* parameter[+]
-  * name = #terminologyEndpoint
-  * min = 0
-  * max = "1"
-  * use = #in
-  * type = #Endpoint
-  * documentation = """
-An endpoint to use to access terminology (i.e. valuesets, codesystems, naming systems, concept maps, and
-membership testing) referenced by the Resource. If no terminology endpoint is
-supplied, the evaluation will attempt to use the server on which the operation
-is being performed as the terminology server.
-"""
-
 * parameter[+].name = #return
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = """
 The result of the requirements operation is a _module-definition_ Library that
-returns the computed effective requirements of the artifact.
+returns the computed effective requirements of the artifact (or the aggregate effective
+requirements of the artifacts, if multiple artifacts are specified).
 """
 * parameter[=].type = #Library
