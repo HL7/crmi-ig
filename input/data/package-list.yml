@@ -1,8 +1,8 @@
 package-id: hl7.fhir.uv.crmi
-title: Canonical Resource Management Infrastructure
+title: Content Repository Management Infrastructure
 canonical: 'http://hl7.org/fhir/uv/crmi'
 introduction: >-
-  The Canonical Resource Management Infrastructure implementation guide defines profiles, operations, capability 
+  The Content Repository Management Infrastructure implementation guide defines profiles, operations, capability 
   statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, 
   and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The 
   guide is intended to be used by specification and content implementation guide authors as both a dependency for 

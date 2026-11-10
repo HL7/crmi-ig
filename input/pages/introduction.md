@@ -12,7 +12,7 @@ This Implementation Guide (IG) is a conformance profile, as described in the [Co
 {% include img.html img="CRMI-Overview.png" %}
 </div>
 
-_Figure 2.1_ Illustrates the management of artifacts as a Canonical Resource Management Infrastructure (CRMI), highlighting the interactions between authoring components, publishing mechanisms such as the Node Package Manager (npm), distribution channels, and downstream systems.
+_Figure 2.1_ Illustrates the management of artifacts as a Content Repository Management Infrastructure (CRMI), highlighting the interactions between authoring components, publishing mechanisms such as the Node Package Manager (npm), distribution channels, and downstream systems.
 
 **Roles include:**
 * [Authoring System](#authoring-system): A system enabling artifact development and publishing
@@ -91,7 +91,7 @@ Figure 2.2 below, FHIR-based Knowledge Representation Specifications, depicts fo
 
 _Figure 2.2_ Categories of implementation guides: Specification, Model, and Content IGs plus the foundational standards
 
-As shown in the diagram, the Canonical Resource Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
+As shown in the diagram, the Content Repository Management Infrastructure IG provides cross-cutting support for content development across all these types of implementation guides. Future versions of these specifications should consider whether to refactor to make use of the profiles and capabilities provided by this implementation guide.
 
 #### Foundational Standards
 

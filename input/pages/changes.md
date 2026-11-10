@@ -3,13 +3,22 @@
 
 {: #changes}
 
-This page details changes made in each version of the Canonical Resource Management Infrastructure IG.
+This page details changes made in each version of the Content Repository Management Infrastructure IG.
 
-### Current Build (version 2.1.0-cibuild)
+### Current Build (version 2.1.0)
 
 #### Non-compatible Changes
 
 * [FHIR-57728](https://jira.hl7.org/browse/FHIR-57728): Generalized the $data-requirements operation to support multiple artifacts (removed the id, version, identifier, and terminologyEndpoint parameters; url now 0..*, and system-level invocation is supported) (applied [here](OperationDefinition-crmi-data-requirements.html))
+
+#### Compatible, Substantive Changes
+
+* [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Renamed the implementation guide from "Canonical Resource Management Infrastructure" to "Content Repository Management Infrastructure" (applied [here](index.html))
+* [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Defined _production artifacts_ (applied [here](artifact-lifecycle.html#production-artifacts))
+* [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Required artifact collections with production expansions to use an artifact manifest, and recommended explicit pinning of frequently updated external terminologies (applied [here](artifact-lifecycle.html#conformance-requirement-3-5))
+* [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Added conformance requirements for value set expansions included with production artifacts, and for evaluating systems using those expansions (applied [here](packaging.html#production-expansions))
+* [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Added production invariants (evs-2, evs-3, with warning severity) to the ExpandedValueSet and CRMIExpandedValueSet profiles (applied [here](StructureDefinition-expandedvalueset.html) and [here](StructureDefinition-crmi-expandedvalueset.html))
+* [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Clarified expansion requirements for the $package and $release operations (applied [here](OperationDefinition-crmi-package.html) and [here](OperationDefinition-crmi-release.html))
 
 ### STU 2 Publication (version 2.0.0)
 

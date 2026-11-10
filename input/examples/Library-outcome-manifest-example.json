@@ -56,7 +56,7 @@
           "valueCode": "documentation"
         }, {
           "url": "text",
-          "valueMarkdown": "For more information on the use of this manifest, refer to the Canonical Resource Management Infrastructure IG"
+          "valueMarkdown": "For more information on the use of this manifest, refer to the Content Repository Management Infrastructure IG"
         }]
       }
     ],

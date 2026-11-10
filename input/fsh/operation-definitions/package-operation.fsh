@@ -102,6 +102,9 @@ expanded, as described in the [Outcome Manifest](distribution.html#outcome-manif
 
 In addition, so long as the errorBehavior parameter is not `strict`, the server MAY include a computable representation of
 value sets that could not be expanded.
+
+When a server produces expansions for production (active and not experimental) artifacts, the resulting expansions SHALL
+conform to the requirements described in the [Production Expansions](packaging.html#production-expansions) topic.
 """
 
 * parameter[+]

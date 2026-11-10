@@ -12,12 +12,12 @@ Where possible, new and updated content will be highlighted with green text and 
 </div>
 -->
 
-{: #canonical-resource-management-infrastructure-implementation-guide}
+{: #content-repository-management-infrastructure-implementation-guide}
 
 ### Summary
 {: #summary}
 
-The Canonical Resource Management Infrastructure implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content.
+The Content Repository Management Infrastructure implementation guide defines profiles, operations, capability statements and guidance to facilitate the content management lifecycle for authoring, publishing, distribution, and implementation of FHIR knowledge artifacts such as value sets, profiles, libraries, rules, and measures. The guide is intended to be used by specification and content implementation guide authors as both a dependency for validation of published artifacts, and a guide for construction and publication of content.
 
 This implementation guide is based upon work in multiple quality improvement and reporting domains. Various implementation guides have developed similar infrastructure-level profiles for conformance and knowledge artifacts. These profiles are being refactored into universal-realm, domain-independent profiles that can then be re-used in future versions of those specifications, as well as included in future versions of the base FHIR specification.
 
@@ -72,7 +72,7 @@ The audience for this IG includes modelers (authors of FHIR profiles); terminolo
 This Guide is divided into several pages which are listed at the top of each
 page in the menu bar:
 
--  **[Home](index.html)**: Summary and background information for the Canonical Resource Management Infrastructure Implementation Guide
+-  **[Home](index.html)**: Summary and background information for the Content Repository Management Infrastructure Implementation Guide
 -  **[Introduction](introduction.html)**: Detailed overview of the content management lifecycle and the background for this guide
 -  **[Conformance](conformance.html)**: Conformance information for the implementation guide
 -  **Artifact Management**

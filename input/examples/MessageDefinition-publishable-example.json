@@ -48,7 +48,7 @@
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/artifact-editor",
     "valueContactDetail": {
-        "name": "Canonical Resource Management Infrastructure Project"
+        "name": "Content Repository Management Infrastructure Project"
     }
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/artifact-reviewer",
