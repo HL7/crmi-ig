@@ -402,6 +402,67 @@ ingredient[].itemReference
 regulatory[].regulatoryAuthority
 ```
 
+#### Reference Sources
+{: #reference-sources}
+
+When the results of dependency tracing are recorded in a [manifest library](version-manifest.html#manifest-library), each dependency is listed once, as a `depends-on` `relatedArtifact` entry, regardless of how many artifacts in the collection reference it. To preserve where each dependency was found, the [crmi-referenceSource](StructureDefinition-crmi-referenceSource.html) extension **SHOULD** be used to record the source of each reference to the dependency:
+
+* `artifact`: The artifact in which the reference was found, as a version-specific canonical reference (or a reference or uri for [non-canonical artifacts](artifact-lifecycle.html#non-canonical-artifacts))
+* `path`: The path to the element containing the reference, as a FHIRPath expression evaluated in the context of the `artifact` (i.e. one of the paths listed in the sections above, with the specific indexes of the element)
+
+The extension repeats, with one occurrence for each place the dependency is referenced. Note that the `artifact` is the artifact that _directly_ contains the reference, which is not necessarily a component of the collection. For example, a value set referenced by the library of a measure has a reference source of the library, not the measure, and the library in turn has a reference source of the measure. Similarly, a code system referenced by a value set has a reference source of the value set.
+
+Direct reference codes (i.e. codes referenced directly by logic, rather than through a value set) are recorded in a manifest library using the [cqf-directReferenceCode](https://hl7.org/fhir/extensions/StructureDefinition-cqf-directReferenceCode.html) extension, rather than as `relatedArtifact` entries. The crmi-referenceSource extension **SHOULD** be used on the `valueCoding` of each direct reference code to record the source of each reference to the code, in the same way as for dependencies. The code system of the direct reference code is also recorded as a dependency, with reference sources identifying the elements containing the code.
+
+Recording reference sources enables the following use cases, each of which is illustrated using the [Diabetes Measures Manifest Example](Library-manifest-reference-source-example.html), a manifest for a collection of two measures:
+
+| Component | Library | Value sets | Direct reference codes |
+|----|----|----|----|
+| DiabetesHbA1cPoorControlExample | DiabetesHbA1cPoorControlExample | Diabetes, Office Visit, HbA1c Laboratory Test | Birth date (LOINC 21112-8), Hemoglobin A1c (LOINC 4548-4) |
+| DiabetesEyeExamExample | DiabetesEyeExamExample | Diabetes, Office Visit, Retinal or Dilated Eye Exam | Birth date (LOINC 21112-8) |
+{: .grid}
+
+##### What measures reference this value set?
+
+Find the dependency entry for the value set, and follow its reference sources back to the components of the collection:
+
+1. Find the `depends-on` entry whose `resource` is the value set
+2. For each reference source of that entry, if the `artifact` is a component of the manifest (a `composed-of` entry), it is a referencing artifact
+3. Otherwise, find the dependency entry for the `artifact` and repeat from step 2 using its reference sources
+
+In the example, the Diabetes value set (`http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20240206`) has reference sources of both measure libraries. The DiabetesHbA1cPoorControlExample library has a reference source of the DiabetesHbA1cPoorControlExample measure (`library[0]`), and the DiabetesEyeExamExample library has a reference source of the DiabetesEyeExamExample measure, so both measures reference the value set. By contrast, the HbA1c Laboratory Test value set is only referenced by the DiabetesHbA1cPoorControlExample measure.
+
+##### What measures reference this direct reference code?
+
+Find the `cqf-directReferenceCode` extension whose `valueCoding` matches the code (by `system` and `code`), and follow the reference sources of the `valueCoding` back to the components of the collection, as described above.
+
+In the example, the Birth date code (LOINC `21112-8`) has reference sources of both measure libraries, so it is referenced by both measures, while the Hemoglobin A1c code (LOINC `4548-4`) is only referenced by the DiabetesHbA1cPoorControlExample library, and therefore only by the DiabetesHbA1cPoorControlExample measure.
+
+##### What value sets does this measure use?
+
+This is the reverse of the first use case. Starting with the measure, find the dependency entries that have a reference source with the measure as the `artifact` (e.g. the measure's libraries), then find the dependency entries that have a reference source with any of those artifacts as the `artifact`, recursively. The value sets used by the measure are the ValueSet dependencies in the result (as indicated by the `cqf-resourceType` extension, or by resolving the reference).
+
+In the example, the DiabetesEyeExamExample measure references the DiabetesEyeExamExample library, which references the Diabetes, Office Visit, and Retinal or Dilated Eye Exam value sets. The same process identifies the direct reference codes used by a measure (the `cqf-directReferenceCode` extensions with a reference source of the measure or one of its dependencies), and the code systems used by a measure (including code systems used by the value sets used by the measure).
+
+##### What manifest parameters apply when expanding a value set for this measure?
+
+When a terminology server supports manifests, the manifest can be provided directly to the expand operation (see [Artifact Terminology Service](artifact-terminology-service.html)). When it does not, the client needs to provide the relevant version parameters to the expand operation itself. Rather than providing every manifest parameter, the reference sources can be used to determine the parameters relevant to the value set:
+
+1. Find the dependency entries that have a reference source with the value set as the `artifact` (i.e. the code systems and value sets referenced by the value set definition), recursively for any referenced value sets
+2. For each of these dependencies, find the corresponding manifest parameter (e.g. `default-system-version` for a code system, or `default-valueset-version` for a value set) in the manifest's expansion parameters
+3. Provide the version of the value set itself as the `valueSetVersion` parameter, and the code system versions as `system-version` parameters (or the equivalent parameters for the terminology server being used)
+
+In the example, the Diabetes value set has reference sources for the SNOMED CT and ICD-10-CM code systems, so the following expand would be used when expanding the value set for either measure:
+
+```
+GET [base]/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001
+  &valueSetVersion=20240206
+  &system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20240301
+  &system-version=http://hl7.org/fhir/sid/icd-10-cm|2024
+```
+
+Because a manifest establishes a single version for each dependency, the parameters for a given value set are the same for every measure in the collection that uses it; the measure determines _which_ value sets need to be expanded (see the previous use case), and the reference sources of each value set determine which parameters apply to its expansion.
+
 ### Manifest
 {: #distribution-manifest}
 

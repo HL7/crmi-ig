@@ -85,6 +85,24 @@
         "mustSupport": true
       },
       {
+        "id": "Library.extension:directReferenceCode.value[x].extension:referenceSource",
+        "path": "Library.extension.value[x].extension",
+        "sliceName": "referenceSource",
+        "short": "Originated in",
+        "definition": "Identifies the artifact (and the element within that artifact) in which the direct reference code is referenced. Repeats if the code is referenced from multiple artifacts.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-referenceSource"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Library.extension:logicDefinition",
         "path": "Library.extension",
         "sliceName": "logicDefinition",
