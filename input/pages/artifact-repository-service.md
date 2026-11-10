@@ -58,15 +58,35 @@ The ShareableArtifactRepository capability statement defines the minimum expecta
 
 The [CRMIShareableArtifactRepository](CapabilityStatement-crmi-shareable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
-Note that the shareable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide:
+Note that the shareable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide, together with the terminology artifacts (code system supplements and concept maps) that are commonly authored and distributed with them:
 
 * ActivityDefinition
+* CodeSystem (in particular, code system supplements)
+* ConceptMap
 * Library
 * Measure
 * PlanDefinition
 * Questionnaire
 
 Repository support for other types of artifacts **SHALL** follow the same pattern established for these artifacts.
+
+#### Terminology Artifacts
+{: #terminology-artifacts}
+
+Although terminology content is typically managed and distributed by terminology services (see [Artifact Terminology Service](artifact-terminology-service.html)), knowledge artifacts frequently depend on terminology artifacts that are authored and distributed together with the knowledge artifacts, rather than with the code systems they reference. Artifact repositories support the following terminology artifacts for this purpose:
+
+* **Code system supplements**: CodeSystem resources with a `content` of `supplement`, used to share additional properties and designations for the concepts of an existing code system, such as configuration or classification data used by logic. Repositories **SHOULD** support searching for supplements using the `supplements` search parameter.
+* **Concept maps**: ConceptMap resources, used to share terminology transformations used by logic (see [Terminology Transformations](packaging.html#terminology-transformations)).
+
+Because the publishable metadata for code systems and concept maps (effective period, topic, and related artifacts) is represented using extensions in R4, publishable artifact repositories use extension-based search parameters for these elements: the [artifact-topic](https://hl7.org/fhir/extensions/SearchParameter-artifact-topic.html) search parameter, and the [effective](SearchParameter-artifact-effective.html), [composed-of](SearchParameter-artifact-composed-of.html), [depends-on](SearchParameter-artifact-depends-on.html), [derived-from](SearchParameter-artifact-derived-from.html), [successor](SearchParameter-artifact-successor.html), and [predecessor](SearchParameter-artifact-predecessor.html) search parameters defined in this implementation guide.
+
+The same approach is used for the Questionnaire resource, which in R4 represents topic and related artifacts using extensions (the `effective` search parameter is defined for Questionnaire in the base specification).
+
+The following examples illustrate these uses:
+
+* [MME Conversion Factors Supplement Example](CodeSystem-mme-conversion-factors-example.html): An RxNorm supplement sharing configuration data, the conversion factors used to calculate Morphine Milligram Equivalents (MME)
+* [Organism Taxonomy Supplement Example](CodeSystem-organism-taxonomy-example.html): A SNOMED CT supplement sharing classification data, the genus and species rollups for organisms
+* [Encounter Type to Encounter Class Example](ConceptMap-encounter-type-to-class-example.html): A concept map sharing a mapping from encounter type value sets to HL7 V3 ActCode encounter class codes
 
 #### Server Requirements
 
@@ -121,9 +141,11 @@ The PublishableArtifactRepository capability statement builds on the ShareableAr
 
 The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
-Note that the publishable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide:
+Note that the publishable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide, together with the terminology artifacts (code system supplements and concept maps) that are commonly authored and distributed with them:
 
 * ActivityDefinition
+* CodeSystem (in particular, code system supplements)
+* ConceptMap
 * Library
 * Measure
 * PlanDefinition
@@ -199,9 +221,11 @@ The AuthoringArtifactRepository capability statement defines additional capabili
 
 The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
-Note that the authoring artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide:
+Note that the authoring artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide, together with the terminology artifacts (code system supplements and concept maps) that are commonly authored and distributed with them:
 
 * ActivityDefinition
+* CodeSystem (in particular, code system supplements)
+* ConceptMap
 * Library
 * Measure
 * PlanDefinition

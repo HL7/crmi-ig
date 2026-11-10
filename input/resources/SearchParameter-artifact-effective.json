@@ -1,0 +1,29 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "artifact-effective",
+  "url": "http://hl7.org/fhir/uv/crmi/SearchParameter/artifact-effective",
+  "name": "ArtifactEffective",
+  "status": "active",
+  "description": "The time during which the artifact is intended to be in use, as specified using the resource-effectivePeriod extension",
+  "code": "effective",
+  "base": [
+    "CodeSystem",
+    "ConceptMap"
+  ],
+  "type": "date",
+  "expression": "CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod').value | ConceptMap.extension('http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod').value",
+  "xpathUsage": "normal",
+  "multipleOr": true,
+  "multipleAnd": true,
+  "comparator": [
+    "eq",
+    "ne",
+    "gt",
+    "lt",
+    "ge",
+    "le",
+    "sa",
+    "eb",
+    "ap"
+  ]
+}

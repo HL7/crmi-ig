@@ -1,0 +1,19 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "artifact-successor",
+  "url": "http://hl7.org/fhir/uv/crmi/SearchParameter/artifact-successor",
+  "name": "ArtifactSuccessor",
+  "status": "active",
+  "description": "Artifacts referenced by a related artifact of type 'successor', as specified using the artifact-relatedArtifact extension",
+  "code": "successor",
+  "base": [
+    "CodeSystem",
+    "ConceptMap",
+    "Questionnaire"
+  ],
+  "type": "reference",
+  "expression": "CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='successor').resource | ConceptMap.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='successor').resource | Questionnaire.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='successor').resource",
+  "xpathUsage": "normal",
+  "multipleOr": true,
+  "multipleAnd": true
+}

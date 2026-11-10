@@ -1,0 +1,19 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "artifact-derived-from",
+  "url": "http://hl7.org/fhir/uv/crmi/SearchParameter/artifact-derived-from",
+  "name": "ArtifactDerivedFrom",
+  "status": "active",
+  "description": "Artifacts referenced by a related artifact of type 'derived-from', as specified using the artifact-relatedArtifact extension (for Questionnaire, also includes the derivedFrom element)",
+  "code": "derived-from",
+  "base": [
+    "CodeSystem",
+    "ConceptMap",
+    "Questionnaire"
+  ],
+  "type": "reference",
+  "expression": "CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='derived-from').resource | ConceptMap.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='derived-from').resource | Questionnaire.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='derived-from').resource | Questionnaire.derivedFrom",
+  "xpathUsage": "normal",
+  "multipleOr": true,
+  "multipleAnd": true
+}

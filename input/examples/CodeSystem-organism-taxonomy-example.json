@@ -1,0 +1,184 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "organism-taxonomy-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem|4.0.2",
+      "http://hl7.org/fhir/StructureDefinition/publishablecodesystem",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecodesystem"
+    ]
+  },
+  "language": "en",
+  "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/organism-taxonomy-example",
+  "version": "1.0.0",
+  "name": "OrganismTaxonomyExample",
+  "title": "Organism Taxonomy Supplement Example",
+  "status": "active",
+  "experimental": true,
+  "date": "2026-11-09",
+  "publisher": "HL7 International / Clinical Decision Support",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss"
+        }
+      ]
+    }
+  ],
+  "description": "Example of a SNOMED CT code system supplement used to share genus and species classifications for organisms. Each concept identifies the genus-level SNOMED CT concept the organism rolls up to and, where applicable, the species-level SNOMED CT concept. This example contains a small subset of the organism taxonomy used by the NHSN Hospital-Onset Bacteremia (HOB) measure, based on the [HOB organism taxonomy supplement](https://github.com/cqframework/dqm-content-cms-2026/blob/main/input/tests/HOBOrganismTaxonomySupplement/demo/CodeSystem-hob-organism-taxonomy.json).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "840",
+          "display": "United States of America (USA)"
+        }
+      ]
+    }
+  ],
+  "purpose": "Illustrates sharing classification data (organism genus and species rollups) as properties defined in a code system supplement, so that logic can classify organisms consistently without embedding the classification in the logic itself.",
+  "copyright": "This material includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of SNOMED International. All rights reserved. SNOMED CT® was originally created by The College of American Pathologists. \"SNOMED\" and \"SNOMED CT\" are registered trademarks of SNOMED International.",
+  "caseSensitive": true,
+  "content": "supplement",
+  "supplements": "http://snomed.info/sct",
+  "property": [
+    {
+      "code": "roll-up-genus",
+      "type": "Coding",
+      "description": "Genus-level SNOMED CT concept this organism rolls up to (roll_up_genus_conceptid / roll_up_genus_name)."
+    },
+    {
+      "code": "roll-up-species",
+      "type": "Coding",
+      "description": "Species-level SNOMED CT concept this organism rolls up to (roll_up_species_conceptid / roll_up_species_name). Absent for genus-level or higher concepts."
+    }
+  ],
+  "concept": [
+    {
+      "code": "186087007",
+      "display": "(Cholera) or (Vibrio cholerae)",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "34872001",
+            "display": "Vibrio"
+          }
+        },
+        {
+          "code": "roll-up-species",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "75953000",
+            "display": "Vibrio cholerae"
+          }
+        }
+      ]
+    },
+    {
+      "code": "266186009",
+      "display": "(Legionella) or (Legionnaire's disease)",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "7527002",
+            "display": "Legionella"
+          }
+        }
+      ]
+    },
+    {
+      "code": "186103005",
+      "display": "(Shigella dysenteriae - group A) or (bacillary dysentery)",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "77352002",
+            "display": "Shigella"
+          }
+        },
+        {
+          "code": "roll-up-species",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "43612004",
+            "display": "Shigella dysenteriae"
+          }
+        }
+      ]
+    },
+    {
+      "code": "115161005",
+      "display": "Abiotrophia",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "115161005",
+            "display": "Abiotrophia"
+          }
+        }
+      ]
+    },
+    {
+      "code": "113714003",
+      "display": "Abiotrophia defectiva",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "115161005",
+            "display": "Abiotrophia"
+          }
+        },
+        {
+          "code": "roll-up-species",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "113714003",
+            "display": "Abiotrophia defectiva"
+          }
+        }
+      ]
+    },
+    {
+      "code": "372391001",
+      "display": "Abiotrophia species",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "115161005",
+            "display": "Abiotrophia"
+          }
+        }
+      ]
+    },
+    {
+      "code": "57145009",
+      "display": "Absidia",
+      "property": [
+        {
+          "code": "roll-up-genus",
+          "valueCoding": {
+            "system": "http://snomed.info/sct",
+            "code": "57145009",
+            "display": "Absidia"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "artifact-composed-of",
+  "url": "http://hl7.org/fhir/uv/crmi/SearchParameter/artifact-composed-of",
+  "name": "ArtifactComposedOf",
+  "status": "active",
+  "description": "Artifacts referenced by a related artifact of type 'composed-of', as specified using the artifact-relatedArtifact extension",
+  "code": "composed-of",
+  "base": [
+    "CodeSystem",
+    "ConceptMap",
+    "Questionnaire"
+  ],
+  "type": "reference",
+  "expression": "CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='composed-of').resource | ConceptMap.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='composed-of').resource | Questionnaire.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='composed-of').resource",
+  "xpathUsage": "normal",
+  "multipleOr": true,
+  "multipleAnd": true
+}

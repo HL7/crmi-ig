@@ -1,0 +1,19 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "artifact-depends-on",
+  "url": "http://hl7.org/fhir/uv/crmi/SearchParameter/artifact-depends-on",
+  "name": "ArtifactDependsOn",
+  "status": "active",
+  "description": "Artifacts referenced by a related artifact of type 'depends-on', as specified using the artifact-relatedArtifact extension",
+  "code": "depends-on",
+  "base": [
+    "CodeSystem",
+    "ConceptMap",
+    "Questionnaire"
+  ],
+  "type": "reference",
+  "expression": "CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='depends-on').resource | ConceptMap.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='depends-on').resource | Questionnaire.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='depends-on').resource",
+  "xpathUsage": "normal",
+  "multipleOr": true,
+  "multipleAnd": true
+}

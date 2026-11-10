@@ -630,5 +630,13 @@ ERROR: ImplementationGuide/hl7.fhir.uv.crmi: ImplementationGuide.definition.exte
 ERROR: ImplementationGuide/hl7.fhir.uv.crmi: ImplementationGuide.definition.extension[62].extension[0].value.ofType(code): The System URI could not be determined for the code 'path-liquid-ig' in the ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'
 ERROR: ImplementationGuide/hl7.fhir.uv.crmi: ImplementationGuide.definition.extension[62].extension[0].value.ofType(code): The value provided ('path-liquid-ig') was not found in the value set 'ig-parameters Codes ValueSet' (http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2), and a code is required from this value set  (error message = The System URI could not be determined for the code 'path-liquid-ig' in the ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'; The provided code '#path-liquid-ig' was not found in the value set 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2')
 
+# 3.0.0:001 - Concept definitions for code system supplements are provided by the supplemented code system (RxNorm, SNOMED CT)
+WARNING: CodeSystem/mme-conversion-factors-example: CodeSystem.concept[0]: HL7 Defined CodeSystems should ensure that every concept has a definition
+WARNING: CodeSystem/organism-taxonomy-example: CodeSystem.concept[0]: HL7 Defined CodeSystems should ensure that every concept has a definition
 
+# 3.0.0:002 - The encounter type value sets mapped by this example draw codes from multiple code systems, so the group has no single source code system; mappings are identified by value set using the R5 ConceptMap.group.element.valueSet cross-version extension
+WARNING: ConceptMap/encounter-type-to-class-example: ConceptMap.group[0]: No Source Code System, so the source codes cannot be checked
 
+# 3.0.0:003 - Example code systems, TSMG exemption is not required
+INFORMATION: CodeSystem/mme-conversion-factors-example: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
+INFORMATION: CodeSystem/organism-taxonomy-example: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)

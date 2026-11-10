@@ -1,0 +1,19 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "artifact-predecessor",
+  "url": "http://hl7.org/fhir/uv/crmi/SearchParameter/artifact-predecessor",
+  "name": "ArtifactPredecessor",
+  "status": "active",
+  "description": "Artifacts referenced by a related artifact of type 'predecessor', as specified using the artifact-relatedArtifact extension",
+  "code": "predecessor",
+  "base": [
+    "CodeSystem",
+    "ConceptMap",
+    "Questionnaire"
+  ],
+  "type": "reference",
+  "expression": "CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='predecessor').resource | ConceptMap.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='predecessor').resource | Questionnaire.extension('http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact').value.where(type='predecessor').resource",
+  "xpathUsage": "normal",
+  "multipleOr": true,
+  "multipleAnd": true
+}

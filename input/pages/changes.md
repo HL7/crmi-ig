@@ -21,9 +21,11 @@ This page details changes made in each version of the Content Repository Managem
 * [FHIR-59700](https://jira.hl7.org/browse/FHIR-59700): Clarified expansion requirements for the $package and $release operations (applied [here](OperationDefinition-crmi-package.html) and [here](OperationDefinition-crmi-release.html))
 * [FHIR-59701](https://jira.hl7.org/browse/FHIR-59701): Added requirements for terminology transformation (e.g. ConceptMap) dependencies and production concept maps, and a caution on mapped administrative codes (applied [here](packaging.html#terminology-transformations))
 * [FHIR-59701](https://jira.hl7.org/browse/FHIR-59701): Added production invariants (pcm-1, pcm-2, with warning severity) to the PublishableConceptMap and CRMIPublishableConceptMap profiles (applied [here](StructureDefinition-publishableconceptmap.html) and [here](StructureDefinition-crmi-publishableconceptmap.html))
+* [FHIR-57655](https://jira.hl7.org/browse/FHIR-57655): Added CodeSystem (supplements) and ConceptMap to the artifact types supported by the Shareable, Publishable, and Authoring Artifact Repository capability statements, with examples of sharing code system supplements and concept maps, and defined search parameters for the extension-based effective period and related artifact elements (also applied to Questionnaire) (applied [here](artifact-repository-service.html#terminology-artifacts))
 
 #### Non-substantive Changes
 
+* Technical correction: Added Questionnaire to the Authoring Artifact Repository capability statement, consistent with the artifact types listed for the Authoring Artifact Repository (applied [here](CapabilityStatement-crmi-authoring-artifact-repository.html))
 * [FHIR-59235](https://jira.hl7.org/browse/FHIR-59235): Moved the CodeSystem, ConceptMap, NamingSystem, and ValueSet profiles to a separate Terminology Resource Profiles table, noting that they are maintained by the Terminology Infrastructure Work Group (applied [here](profiles.html#terminology-resource-profiles))
 
 ### STU 2 Publication (version 2.0.0)

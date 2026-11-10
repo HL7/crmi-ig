@@ -59,6 +59,54 @@
       </interaction>
     </resource>
     <resource>
+      <type value="CodeSystem"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="create"/>
+        <documentation value="Create allows authoring workflows to post new code systems (including code system supplements) in _draft_ (**submit**) or _active_ (**publish**) status."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="update"/>
+        <documentation value="Update allows authoring workflows to update existing code systems in _draft_ (**revise**) status, add comments to existing code systems (**review** and **approve**), and **release** or **retire** a code system."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Delete allows authoring workflows to **withdraw** _draft_ code systems or **archive** _retired_ code systems."/>
+      </interaction>
+    </resource>
+    <resource>
+      <type value="ConceptMap"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="create"/>
+        <documentation value="Create allows authoring workflows to post new concept maps in _draft_ (**submit**) or _active_ (**publish**) status."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="update"/>
+        <documentation value="Update allows authoring workflows to update existing concept maps in _draft_ (**revise**) status, add comments to existing concept maps (**review** and **approve**), and **release** or **retire** a concept map."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Delete allows authoring workflows to **withdraw** _draft_ concept maps or **archive** _retired_ concept maps."/>
+      </interaction>
+    </resource>
+    <resource>
       <type value="Library"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -128,6 +176,30 @@
         </extension>
         <code value="delete"/>
         <documentation value="Delete allows authoring workflows to **withdraw** _draft_ plan definitions or **archive** _retired_ plan definitions."/>
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Questionnaire"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="create"/>
+        <documentation value="Create allows authoring workflows to post new questionnaires in _draft_ (**submit**) or _active_ (**publish**) status."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="update"/>
+        <documentation value="Update allows authoring workflows to update existing questionnaires in _draft_ (**revise**) status, add comments to existing questionnaires (**review** and **approve**), and **release** or **retire** a questionnaire."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Delete allows authoring workflows to **withdraw** _draft_ questionnaires or **archive** _retired_ questionnaires."/>
       </interaction>
     </resource>
     <operation>

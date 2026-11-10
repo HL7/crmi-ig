@@ -1,0 +1,136 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "encounter-type-to-class-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareableconceptmap",
+      "http://hl7.org/fhir/StructureDefinition/publishableconceptmap",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap",
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableconceptmap"
+    ]
+  },
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Mapping from encounter type value sets to HL7 V3 ActCode (<code>http://terminology.hl7.org/CodeSystem/v3-ActCode</code>) encounter class codes. Each mapping applies to all the codes in the source value set.</p><table class=\"grid\"><tr><th>Source Value Set</th><th>Equivalence</th><th>Target Encounter Class</th></tr><tr><td><a href=\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292\">Emergency Department Visit</a></td><td>wider</td><td><code>EMER</code> (emergency)</td></tr><tr><td><a href=\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307\">Encounter Inpatient</a></td><td>wider</td><td><code>IMP</code> (inpatient encounter)</td></tr><tr><td><a href=\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.206\">Intensive Care Unit</a></td><td>wider</td><td><code>ACUTE</code> (inpatient acute)</td></tr><tr><td><a href=\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143\">Observation Services</a></td><td>wider</td><td><code>OBSENC</code> (observation encounter)</td></tr><tr><td><a href=\"http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.38\">Outpatient Surgery Service</a></td><td>wider</td><td><code>AMB</code> (ambulatory)</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/uv/crmi/ConceptMap/encounter-type-to-class-example",
+  "version": "1.0.0",
+  "name": "EncounterTypeToClassExample",
+  "title": "Encounter Type to Encounter Class Example",
+  "status": "active",
+  "experimental": true,
+  "date": "2026-11-09",
+  "publisher": "HL7 International / Clinical Decision Support",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss"
+        }
+      ]
+    }
+  ],
+  "description": "Example of a concept map used to share a mapping from the encounter type value sets used in quality measures to the HL7 V3 ActCode encounter class codes. Each mapping applies to all the codes in the given encounter type value set, identified using the R5 `ConceptMap.group.element.valueSet` element (represented in R4 using the cross-version extension). The value sets are those declared in the [CQMCommon](https://github.com/cqframework/dqm-content-cms-2026/blob/main/input/cql/CQMCommon.cql) library.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "840",
+          "display": "United States of America (USA)"
+        }
+      ]
+    }
+  ],
+  "purpose": "Illustrates sharing a terminology transformation that allows logic to determine the expected encounter class for an encounter type.",
+  "copyright": "This material references value sets from the Value Set Authority Center (VSAC), which are subject to the license terms of their respective code systems (e.g. SNOMED CT, CPT). This material contains content from HL7 Terminology (THO), which is licensed under the Creative Commons \"No Rights Reserved\" (CC0) license.",
+  "targetCanonical": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+  "group": [
+    {
+      "target": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "element": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-ConceptMap.group.element.valueSet",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
+            }
+          ],
+          "display": "Emergency Department Visit",
+          "target": [
+            {
+              "code": "EMER",
+              "display": "emergency",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-ConceptMap.group.element.valueSet",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
+            }
+          ],
+          "display": "Encounter Inpatient",
+          "target": [
+            {
+              "code": "IMP",
+              "display": "inpatient encounter",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-ConceptMap.group.element.valueSet",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.206"
+            }
+          ],
+          "display": "Intensive Care Unit",
+          "target": [
+            {
+              "code": "ACUTE",
+              "display": "inpatient acute",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-ConceptMap.group.element.valueSet",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143"
+            }
+          ],
+          "display": "Observation Services",
+          "target": [
+            {
+              "code": "OBSENC",
+              "display": "observation encounter",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-ConceptMap.group.element.valueSet",
+              "valueCanonical": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.38"
+            }
+          ],
+          "display": "Outpatient Surgery Service",
+          "target": [
+            {
+              "code": "AMB",
+              "display": "ambulatory",
+              "equivalence": "wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
