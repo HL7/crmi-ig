@@ -5,7 +5,7 @@
 
 This page details changes made in each version of the Content Repository Management Infrastructure IG.
 
-### Current Build (version 2.1.0)
+### STU 3 Ballot (version 3.0.0-ballot)
 
 #### Non-compatible Changes
 

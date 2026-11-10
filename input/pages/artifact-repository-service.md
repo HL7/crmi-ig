@@ -24,7 +24,7 @@ The following conceptual actions support artifact authoring, searching, publicat
 * **Retrieve**: Get a specific artifact by its server-specific identity
 * **Search**: Search for an artifact according to specific criteria
 * **Package**: Package an artifact for a particular environment (regardless of status)
-* **Requirements**: Determine the data requirements and dependencies for one or more artifacts (regardless of status)
+* {:.new-content} **Requirements**: Determine the data requirements and dependencies for one or more artifacts (regardless of status)
 * **Submit**: Post a new artifact and all its children (regardless of status, used for unreleased content)
 * **Revise**: Update an existing artifact and all its children (regardless of status, used for unreleased content)
 * **Withdraw**: Delete an artifact and all its children (regardless of status, used for unreleased content)
@@ -59,16 +59,19 @@ The ShareableArtifactRepository capability statement defines the minimum expecta
 The [CRMIShareableArtifactRepository](CapabilityStatement-crmi-shareable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 Note that the shareable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide, together with the terminology artifacts (code system supplements and concept maps) that are commonly authored and distributed with them:
+{:.new-content}
 
 * ActivityDefinition
-* CodeSystem (in particular, code system supplements)
-* ConceptMap
+* {:.new-content} CodeSystem (in particular, code system supplements)
+* {:.new-content} ConceptMap
 * Library
 * Measure
 * PlanDefinition
 * Questionnaire
 
 Repository support for other types of artifacts **SHALL** follow the same pattern established for these artifacts.
+
+<div markdown="1" class="new-content">
 
 #### Terminology Artifacts
 {: #terminology-artifacts}
@@ -87,6 +90,8 @@ The following examples illustrate these uses:
 * [MME Conversion Factors Supplement Example](CodeSystem-mme-conversion-factors-example.html): An RxNorm supplement sharing configuration data, the conversion factors used to calculate Morphine Milligram Equivalents (MME)
 * [Organism Taxonomy Supplement Example](CodeSystem-organism-taxonomy-example.html): A SNOMED CT supplement sharing classification data, the genus and species rollups for organisms
 * [Encounter Type to Encounter Class Example](ConceptMap-encounter-type-to-class-example.html): A concept map sharing a mapping from encounter type value sets to HL7 V3 ActCode encounter class codes
+
+</div>
 
 #### Server Requirements
 
@@ -142,10 +147,11 @@ The PublishableArtifactRepository capability statement builds on the ShareableAr
 The [CRMIPublishableArtifactRepository](CapabilityStatement-crmi-publishable-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 Note that the publishable artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide, together with the terminology artifacts (code system supplements and concept maps) that are commonly authored and distributed with them:
+{:.new-content}
 
 * ActivityDefinition
-* CodeSystem (in particular, code system supplements)
-* ConceptMap
+* {:.new-content} CodeSystem (in particular, code system supplements)
+* {:.new-content} ConceptMap
 * Library
 * Measure
 * PlanDefinition
@@ -175,16 +181,16 @@ For each type of knowledge artifact supported by a PublishableArtifactRepository
     16. **SHOULD** support contentEndpoint parameter
     17. **SHOULD** support terminologyEndpoint parameter
 2. **SHALL** support artifact requirements analysis: [$data-requirements](OperationDefinition-crmi-data-requirements.html) operation
-    1. **SHALL** support invocation at the instance level (e.g. `Library/[id]/$data-requirements`)
-    2. **SHALL** support invocation at the type level with the url parameter, including versioned references (i.e. `[url]|[version]`)
-    3. **SHOULD** support invocation at the system level (i.e. `[base]/$data-requirements`)
-    4. **SHOULD** support multiple url parameters (returns the aggregate data requirements for all the specified artifacts)
-    5. **SHOULD** support the expression parameter (including qualified expression names when multiple artifacts are specified)
-    6. **SHOULD** support the parameters parameter (including qualified parameter names)
+    1. {:.new-content} **SHALL** support invocation at the instance level (e.g. `Library/[id]/$data-requirements`)
+    2. {:.new-content} **SHALL** support invocation at the type level with the url parameter, including versioned references (i.e. `[url]|[version]`)
+    3. {:.new-content} **SHOULD** support invocation at the system level (i.e. `[base]/$data-requirements`)
+    4. {:.new-content} **SHOULD** support multiple url parameters (returns the aggregate data requirements for all the specified artifacts)
+    5. {:.new-content} **SHOULD** support the expression parameter (including qualified expression names when multiple artifacts are specified)
+    6. {:.new-content} **SHOULD** support the parameters parameter (including qualified parameter names)
     7. **SHOULD** support artifactVersion parameter (overrides artifact versions specified in the manifest)
     8. **SHOULD** support checkArtifactVersion parameter (overrides code artifact versions specified in the manifest)
     9. **SHOULD** support forceArtifactVersion parameter (overrides code artifact versions specified in the manifest)
-    10. **SHOULD** support manifest parameter (provides a reference to a manifest to be used for the requirements analysis)
+    10. {:.new-content} **SHOULD** support manifest parameter (provides a reference to a manifest to be used for the requirements analysis)
 3. **SHOULD** support artifact Metadata searches:
     1. date: Returning all artifacts matching the given date
     2. effective: Returning all artifacts matching the given effectivePeriod
@@ -222,10 +228,11 @@ The AuthoringArtifactRepository capability statement defines additional capabili
 The [CRMIAuthoringArtifactRepository](CapabilityStatement-crmi-authoring-artifact-repository.html) capability statement captures these requirements formally, while the following sections provide a narrative description of them.
 
 Note that the authoring artifact repository defined here supports only the knowledge artifacts that are the primary focus of this implementation guide, together with the terminology artifacts (code system supplements and concept maps) that are commonly authored and distributed with them:
+{:.new-content}
 
 * ActivityDefinition
-* CodeSystem (in particular, code system supplements)
-* ConceptMap
+* {:.new-content} CodeSystem (in particular, code system supplements)
+* {:.new-content} ConceptMap
 * Library
 * Measure
 * PlanDefinition

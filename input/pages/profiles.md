@@ -125,6 +125,8 @@ The following table lists the capability profiles defined for each type of knowl
   <tr><td>TerminologyCapabilities</td><td><a href="StructureDefinition-crmi-shareableterminologycapabilities.html">CRMIShareableTerminologyCapabilities</a></td><td>N/A (no requirements)</td><td><a href="StructureDefinition-crmi-publishableterminologycapabilities.html">CRMIPublishableTerminologyCapabilities</a></td><td>N/A (no requirements)</td></tr>
 </table>
 
+<div markdown="1" class="new-content">
+
 #### Terminology Resource Profiles
 {: #terminology-resource-profiles }
 
@@ -141,6 +143,8 @@ The following table lists the capability profiles defined for terminology resour
 > Note that the terminology resource profiles (on CodeSystem, ConceptMap, NamingSystem, and ValueSet) are maintained by the Terminology Infrastructure Work Group.
 
 > Note also that these profiles are defined to support usage in R4 implementations. These profiles are aligned with the same profiles published in the R4 and R5 base specifications. However, these profiles have been removed from the base specification in R6 and will continue to be available in this implementation guide in a future R6 version of CRMI. Because these profiles were previously published in the base FHIR specification, the URLs have been retained (e.g. `http://hl7.org/fhir/StructureDefinition/shareablevalueset`, rather than following the CRMI naming convention for the rest of the profiles). In addition, the OIDs for these profiles have been retained (other than ExpandedValueSet, since it was originally published in R5 as ExecutableValueSet). For all these profiles that have a base FHIR canonical, the version 4.0.2 is used to indicate that they are 1. Not part of the base FHIR publication, 2. To situate them in the versioning scheme relative to their expected usage (i.e. after all FHIR R4 versions, but before all FHIRR4B and later versions). And finallly, the web-source extension is used in these profiles specifically to indicate that although they have a FHIR base canonical, they are published as part of this CRMI implementation guide. As well, note that the ShareableCodeSystem and ShareableValueSet profiles, because they exist in R4, are specifically pinned in the source examples to use the 4.0.2 versions declared in this implementation guide.
+
+</div>
 
 ### Artifact Definition Profiles
 {: #artifact-definition-profiles }

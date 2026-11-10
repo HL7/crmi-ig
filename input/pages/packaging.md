@@ -87,6 +87,7 @@ Whether to package and distribute Computable or Expanded value sets is a conside
 In addition, the $package operation defines a `terminologyCapabilities` parameter to support more fine-grained control over how value sets are packaged for a particular environment.
 
 Note that an Expanded value set is a point-in-time snapshot that becomes stale as the value set definition or the underlying code systems change. When expansions are included with [production artifacts](artifact-lifecycle.html#production-artifacts), additional requirements apply, as described in [Production Expansions](#production-expansions).
+{:.new-content}
 
 ### Package Conformance
 {: #package-conformance}
@@ -117,6 +118,8 @@ The following are conformance requirements that apply to the FHIR Bundle when pa
 {: #conformance-requirement-4-2}
 
   1. Artifacts distributed in this way **SHALL** carry the copyright and intellectual property declarations as mandated by the publishing (or stewarding) entity that governs the use of the content.
+
+<div markdown="1" class="new-content">
 
 ### Production Expansions
 {: #production-expansions}
@@ -208,3 +211,4 @@ Mappings from clinical terminologies to administrative terminologies are inheren
 
 > **Caution:** A CPT, HCPCS, or other administrative code produced by a terminology transformation is a _candidate_ administrative concept. It **SHOULD NOT** be treated as an assigned or confirmed administrative code unless it has been confirmed through the applicable coding, billing, authorization, or quality-reporting process. Artifacts that use such mappings **SHOULD** make this distinction clear in their documentation and, where the result of the mapping is communicated, in their output.
 
+</div>

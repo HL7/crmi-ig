@@ -39,9 +39,10 @@ Downstream systems **MAY** require all content dependencies. These dependencies 
 </div>
 
 To facilitate this, a downstream system MAY use the `$package` or `$data-requirements` operation(s) on a canonical resource to resolve dependencies. The `$data-requirements` operation can also be invoked for multiple artifacts at once (by specifying multiple `url` parameters at the type or system level), in which case the result describes the aggregate dependencies and data requirements of all the specified artifacts.
+{:.new-content}
 
 * [$package](OperationDefinition-crmi-package.html): The Artifact Repository assembles a FHIR Bundle of the target resource, and all of its dependencies for a client.
-* [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Artifact Repository assembles a FHIR Library with all the dependencies of the target resource(s) listed. The client can then download as needed.
+* {:.new-content} [$data-requirements](OperationDefinition-crmi-data-requirements.html): The Artifact Repository assembles a FHIR Library with all the dependencies of the target resource(s) listed. The client can then download as needed.
 
 NOTE: $data-requirements allows the client to decide what is needed to download (versus what might already have been downloaded), whereas $package always ships the actual resources.
 
@@ -402,6 +403,8 @@ ingredient[].itemReference
 regulatory[].regulatoryAuthority
 ```
 
+<div markdown="1" class="new-content">
+
 #### Reference Sources
 {: #reference-sources}
 
@@ -462,6 +465,8 @@ GET [base]/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.
 ```
 
 Because a manifest establishes a single version for each dependency, the parameters for a given value set are the same for every measure in the collection that uses it; the measure determines _which_ value sets need to be expanded (see the previous use case), and the reference sources of each value set determine which parameters apply to its expansion.
+
+</div>
 
 ### Manifest
 {: #distribution-manifest}
@@ -567,3 +572,4 @@ Note that for artifact bundles that are the result of the $package operation, bu
 In addition, client applications must ensure that artifact references are resolved correctly. If an artifact reference is unversioned, a version manifest for the artifact should be consulted to determine the appropriate version-binding information. See the Artifact Scope discussion for information on how to identify the version manifest appropriate for a particular artifact.
 
 Similarly, when evaluating a [production artifact](artifact-lifecycle.html#production-artifacts) that includes value set expansions, client applications must ensure that the expansions used for evaluation match the included expansions, and must not silently substitute a different expansion. See [Production Expansions](packaging.html#production-expansions) for the conformance requirements that apply.
+{:.new-content}

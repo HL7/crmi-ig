@@ -29,6 +29,7 @@ The authoring phase is supported by the Shareable and Computable profiles define
 See [Artifact Conventions](artifact-conventions.html) for artifact authoring conventions.
 
 When creating a specification that references other artifacts, the $data-requirements operation can be used to determine the set of dependencies referenced by the artifact (or, for a specification with multiple artifacts, the aggregate set of dependencies referenced by all the artifacts). This set of dependencies can then be used to infer manifest parameters, using [$infer-manifest-parameters](OperationDefinition-crmi-infer-manifest-parameters.html) operation, and then the release process consists only of determining latest version for any unversioned references in the artifact.
+{:.new-content}
 
 Note that the release process must still be used to establish the version for any unversioned references in the artifact because it is a transactional operation (i.e. the resulting manifest must contain all the unversioned references in the artifact or any of its dependencies at the time of release).
 
@@ -54,10 +55,14 @@ For any knowledge artifact, this implementation guide requires that:
 
 If an invalid state transition occurs accidentally, the artifacts **SHOULD** be updated to the correct status and downstream systems **SHOULD** be notified as soon as possible.
 
+<div markdown="1" class="new-content">
+
 ##### Production Artifacts
 {: #production-artifacts}
 
 For the purposes of this implementation guide, a _production artifact_ is an artifact with a `status` of `active` and an `experimental` element that is not `true`. Production artifacts are intended for use in real-world settings, and so this implementation guide places additional expectations on them to ensure stable and predictable behavior, particularly with respect to dependency and terminology version management (see [Production Expansions](packaging.html#production-expansions)).
+
+</div>
 
 #### Artifact Identity
 {: #artifact-identity}
@@ -220,8 +225,10 @@ In addition, to ensure stable resolution of dependencies of an artifact througho
 A collection of artifacts is represented using a [CRMIManifestLibrary](StructureDefinition-crmi-manifestlibrary.html). The components of the collection are identified with `relatedArtifact` entries of type `composed-of`.
 
 The dependencies of a collection can be stated explicitly using `relatedArtifact` entries of type `depends-on`, but because dependencies can always be inferred from the components, this listing is typically calculated. The $data-requirements operation can be used to calculate the dependencies of an artifact, or the aggregate dependencies of a set of artifacts (by specifying multiple `url` parameters).
+{:.new-content}
 
 Note that dependencies include terminology transformations, such as ConceptMaps used to translate or normalize codes, as well as libraries, code systems, and value sets. See [Terminology Transformations](packaging.html#terminology-transformations) for the requirements that apply to these dependencies.
+{:.new-content}
 
 **Conformance Requirement 3.5 (Artifact Collection Versioning):** [<img src="conformance.png" width="20" class="self-link" height="20"/>](#conformance-requirement-3-5)
 {: #conformance-requirement-3-5}
@@ -230,8 +237,8 @@ Note that dependencies include terminology transformations, such as ConceptMaps 
   2. **MAY** have version number increments that do not strictly reflect changes to that artifact
   3. **MAY** specify version algorithm and versioning policy once at the collection level
 1. Artifact collections **SHOULD** use an Artifact Manifest to establish versions of dependencies
-1. Artifact collections that include or reference [production](#production-artifacts) value sets with included expansions **SHALL** use an Artifact Manifest to establish versions of dependencies
-1. Artifact manifests for collections that use frequently updated external terminologies (such as CPT) **SHOULD** pin the versions of those code systems explicitly (e.g. using `default-system-version`), rather than relying on latest-version resolution
+1. {:.new-content} Artifact collections that include or reference [production](#production-artifacts) value sets with included expansions **SHALL** use an Artifact Manifest to establish versions of dependencies
+1. {:.new-content} Artifact manifests for collections that use frequently updated external terminologies (such as CPT) **SHOULD** pin the versions of those code systems explicitly (e.g. using `default-system-version`), rather than relying on latest-version resolution
 
 ##### Artifact Package Source
 {: #artifact-package-source}

@@ -159,9 +159,10 @@ Building on the capability provided by manifest parameters, a _manifest library_
 
 1. Components: Any number of `composed-of` `relatedArtifact` entries that specify the canonical resources in the artifact collection
 1. Dependencies: Any number of `depends-on` `relatedArtifact` entries that specify the canonical resources referenced by artifacts of the release. The dependencies are listed regardless of whether the source reference is versioned, but versionless references will also have an entry in the manifest parameters, represented as a contained Parameters resource referred to by the CRMIExpansionParameters extension.
-1. Direct reference codes: Any number of `cqf-directReferenceCode` extensions that specify the codes referenced directly by artifacts of the release (i.e. not through a value set)
+1. {:.new-content} Direct reference codes: Any number of `cqf-directReferenceCode` extensions that specify the codes referenced directly by artifacts of the release (i.e. not through a value set)
 
 For both dependencies and direct reference codes, the [crmi-referenceSource](StructureDefinition-crmi-referenceSource.html) extension is used to record which artifacts (and which elements of those artifacts) reference the dependency or code, as described in [Reference Sources](distribution.html#reference-sources).
+{:.new-content}
 
 Manifest Libraries allow for collections of artifacts to be described, together with all the information required to correctly make use of those artifacts in a particular context or setting. For example, a typical use of a Manifest Library is to describe the measures in an eCQM Annual Update release. In this case, the components of the manifest library are the measures that make up the release, and the dependencies are any code systems, value sets, libraries, or other canonical dependencies referenced by the measures.
 
@@ -254,8 +255,10 @@ Resolving the canonical reference `http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840
 The result is that even though the artifact refers to a value set by a version-independent reference, it can be predictably bound to the specific version of the value set required for the release.
 
 In addition, the [cqf-expansionParameters]({{site.data.fhir.ver.ext}}/StructureDefinition-cqf-expansionParameters.html) extension of the manifest library **SHOULD** be used to provide values for the parameters to expansions performed during the operation (such as activeOnly and default-system-version). Refer to the [$expand](https://build.fhir.org/valueset-operation-expand.html) operation in the R6 specification for the most current descriptions of the behavior of expansion parameters.
+{:.new-content}
 
 If the manifest library does not specify expansion parameters, applications **MAY** attempt to determine the expansion parameters that were used in the publication of the artifact by examining the [expansion-parameters](https://build.fhir.org/ig/FHIR/fhir-tools-ig/en/StructureDefinition-expansion-parameters.html) extension of the ImplementationGuide resource for the implementation guide in which the artifact was published.
+{:.new-content}
 
 And finally, if the operation specifically involves CQL evaluation, the `cqlOptions` extension of the manifest can be used to provide options to the CQL evaluation environment.
 
