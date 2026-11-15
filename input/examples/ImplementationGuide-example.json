@@ -32,7 +32,6 @@
       "valueInteger": 4
     }],
     "url" : "http://hl7.org/fhir/uv/crmi/ImplementationGuide/example",
-    "version" : "0.1.0",
     "name" : "ImplementationGuideExample",
     "title" : "ImplementationGuide Example",
     "status" : "draft",

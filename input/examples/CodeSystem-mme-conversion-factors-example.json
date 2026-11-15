@@ -11,7 +11,6 @@
   },
   "language": "en",
   "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/mme-conversion-factors-example",
-  "version": "1.0.0",
   "name": "MMEConversionFactorsExample",
   "title": "MME Conversion Factors Supplement Example",
   "status": "active",

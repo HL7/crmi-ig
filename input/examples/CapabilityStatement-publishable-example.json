@@ -5,7 +5,6 @@
       "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablecapabilitystatement"]
     },
     "url" : "http://hl7.org/fhir/uv/crmi/CapabilityStatement/publishable-example",
-    "version" : "0.1.0",
     "name" : "PublishableCapabilityStatementExample",
     "title" : "Publishable Capability Statement Example",
     "status" : "draft",

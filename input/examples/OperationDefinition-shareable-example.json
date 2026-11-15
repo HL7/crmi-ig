@@ -5,7 +5,6 @@
         "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableoperationdefinition" ]
     },
     "url": "http://h7.org/fhir/uv/crmi/OperationDefinition/shareable-example",
-    "version": "B",
     "name": "ShareableOperationDefinitionExample",
     "title": "Shareable OperationDefinition Example",
     "status": "draft",

@@ -18,7 +18,6 @@
       "valueCode": "shareable"
     }],
     "url" : "http://hl7.org/fhir/uv/crmi/ImplementationGuide/shareable-example",
-    "version" : "0.1.0",
     "name" : "ShareableImplementationGuideExample",
     "title" : "Shareable ImplementationGuide Example",
     "status" : "draft",

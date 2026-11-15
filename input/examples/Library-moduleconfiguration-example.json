@@ -15,7 +15,6 @@
     "valueCanonical": "http://example.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-order-sign"
   } ],
   "url": "http://example.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10ModuleConfiguration",
-  "version": "2022.1.0",
   "name": "OpioidCDSREC10ModuleConfiguration",
   "title": "Module Configuration Example Library for Recommendation 10 (Endpoint-specific prefetch configuration)",
   "status": "draft",

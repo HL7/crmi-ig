@@ -5,7 +5,6 @@
       "profile" : ["http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecapabilitystatement"]
     },
     "url" : "http://hl7.org/fhir/uv/crmi/CapabilityStatement/shareable-example",
-    "version" : "0.1.0",
     "name" : "ShareableCapabilityStatementExample",
     "title" : "Shareable Capability Statement Example",
     "status" : "draft",

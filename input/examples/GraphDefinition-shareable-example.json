@@ -9,7 +9,7 @@
         "valueString": "Shareable GraphDefinition Example"
     }],
     "url": "http://hl7.org/fhir/uv/crmi/GraphDefinition/shareable-example",
-    "version": "1.0.0",
+    "version": "3.0.0-ballot",
     "name": "ShareableGraphDefinitionExample",
     "status": "draft",
     "experimental": true,

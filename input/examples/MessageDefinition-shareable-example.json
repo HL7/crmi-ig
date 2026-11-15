@@ -5,7 +5,6 @@
     "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemessagedefinition" ]
   },
   "url": "http://hl7.org/fhir/uv/crmi/MessageDefinition/shareable-example",
-  "version": "0.1.0",
   "name": "ShareableExample",
   "title": "Shareable Message Definition Example",
   "status": "draft",

@@ -116,7 +116,6 @@
     }
   ],
   "url": "http://hl7.org/fhir/uv/crmi/Library/manifest-reference-source-example",
-  "version": "1.0.0",
   "name": "DiabetesMeasuresManifestExample",
   "title": "Diabetes Measures Manifest Example",
   "status": "active",

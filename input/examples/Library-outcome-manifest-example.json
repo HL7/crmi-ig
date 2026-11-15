@@ -107,8 +107,8 @@
     "relatedArtifact": [
       {
         "type": "derived-from",
-        "resource": "http://hl7.org/fhir/uv/crmi/Library/manifest-example|1.0.0",
-        "display": "Library ANCM Danger Signs Package, version 1.0.0"
+        "resource": "http://hl7.org/fhir/uv/crmi/Library/manifest-example|3.0.0-ballot",
+        "display": "Library ANCM Danger Signs Package, version 3.0.0-ballot"
       },
       {
         "type": "depends-on",

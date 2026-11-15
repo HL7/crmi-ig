@@ -11,7 +11,6 @@
       }
     } ],
     "url": "http://hl7.org/fhir/uv/crmi/Library/ANCCohort",
-    "version": "0.1.0",
     "name": "ANCCohort",
     "title": "ANC Cohort",
     "status": "active",

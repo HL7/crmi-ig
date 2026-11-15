@@ -24,10 +24,10 @@
     "timestamp": "2023-07-11T09:29:40-06:00",
     "parameter": [{
       "name": "system-version",
-      "valueString": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0"
+      "valueString": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|3.0.0-ballot"
     }, {
       "name": "used-codesystem",
-      "valueUri": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|2.0.0"
+      "valueUri": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example|3.0.0-ballot"
     }],
     "contains": [ {
       "system": "http://hl7.org/fhir/uv/crmi/CodeSystem/publishable-example",

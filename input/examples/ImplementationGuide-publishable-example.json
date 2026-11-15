@@ -65,7 +65,6 @@
       }
   }],
     "url" : "http://hl7.org/fhir/uv/crmi/ImplementationGuide/publishable-example",
-    "version" : "0.1.0",
     "name" : "PublishableImplementationGuideExample",
     "title" : "Publishable ImplementationGuide Example",
     "status" : "draft",

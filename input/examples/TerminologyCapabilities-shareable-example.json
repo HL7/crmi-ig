@@ -17,7 +17,6 @@
         }
       ],
       "url": "http://hl7.org/fhir/uv/crmi/TerminologyCapabilities/shareable-example",
-      "version": "1.0.0",
       "name": "ExampleShareableTerminologyCapabilities",
       "title": "Example Shareable TerminologyCapabilities",
       "status": "draft",

@@ -11,7 +11,6 @@
   },
   "language": "en",
   "url": "http://hl7.org/fhir/uv/crmi/CodeSystem/organism-taxonomy-example",
-  "version": "1.0.0",
   "name": "OrganismTaxonomyExample",
   "title": "Organism Taxonomy Supplement Example",
   "status": "active",

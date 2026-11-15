@@ -17,7 +17,6 @@
         }
       ],
       "url": "http://hl7.org/fhir/uv/crmi/TerminologyCapabilities/publishable-example",
-      "version": "1.0.0",
       "name": "ExamplePublishableTerminologyCapabilities",
       "title": "Example Publishable TerminologyCapabilities",
       "status": "draft",

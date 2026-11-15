@@ -7,7 +7,6 @@
       ]
     },
     "url": "http://hl7.org/fhir/uv/crmi/StructureMap/publishable-example",
-    "version": "0.1",
     "name": "PublishableStructureMapExample",
     "title": "Publishable StructureMap Example",
     "status": "draft",

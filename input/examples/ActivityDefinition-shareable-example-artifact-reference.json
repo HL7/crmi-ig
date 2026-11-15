@@ -17,7 +17,6 @@
     }
   ],
   "url": "http://hl7.org/fhir/uv/crmi/ActivityDefinition/shareable-example-artifact-reference",
-  "version": "1.0.0",
   "name": "ShareableActivityDefinitionExampleArtifactReference",
   "title": "Shareable ActivityDefinition Example Artifact Reference",
   "status": "draft",

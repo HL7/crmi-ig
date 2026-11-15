@@ -7,7 +7,6 @@
       ]
     },
     "url": "http://hl7.org/fhir/uv/crmi/StructureMap/shareable-example",
-    "version": "0.1",
     "name": "ShareableStructureMapExample",
     "title": "Shareable Structure Map Example",
     "status": "draft",

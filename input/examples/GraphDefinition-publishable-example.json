@@ -9,7 +9,7 @@
         "valueString": "Publishable GraphDefinition Example"
     }],
     "url": "http://hl7.org/fhir/uv/crmi/GraphDefinition/publishable-example",
-    "version": "1.0.0",
+    "version": "3.0.0-ballot",
     "name": "PublishableGraphDefinitionExample",
     "status": "draft",
     "experimental": true,

@@ -5,7 +5,6 @@
         "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishableoperationdefinition" ]
     },
     "url": "http://h7.org/fhir/uv/crmi/OperationDefinition/publishable-example",
-    "version": "B",
     "name": "PublishableOperationDefinitionExample",
     "title": "Publishable OperationDefinition Example",
     "status": "draft",

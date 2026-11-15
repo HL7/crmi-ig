@@ -25,7 +25,6 @@
       }
     ],
     "url": "http://hl7.org/fhir/uv/crmi/ActivityDefinition/publishable-example",
-    "version": "1.0.0",
     "name": "PublishableActivityDefinitionExample",
     "title": "Publishable ActivityDefinition Example",
     "status": "draft",

@@ -81,7 +81,6 @@
       "system" : "http://example.org/fhir/cqi/ecqm/Library/Identifier",
       "value" : "eCQM Annual Update 2024"
     }],
-    "version" : "1.0.0",
     "name" : "ECQMAnnualUpdate2024",
     "title" : "eCQM Annual Update 2024",
     "status" : "draft",

@@ -17,7 +17,6 @@
       }
     ],
     "url": "http://hl7.org/fhir/uv/crmi/ActivityDefinition/shareable-example",
-    "version": "1.0.0",
     "name": "ShareableActivityDefinitionExample",
     "title": "Shareable ActivityDefinition Example",
     "status": "draft",

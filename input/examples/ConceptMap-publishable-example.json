@@ -8,7 +8,6 @@
       ]
     },
     "url": "http://hl7.org/fhir/uv/crmi/ConceptMap/publishable-example",
-    "version": "4.0.1",
     "name": "PublishableConceptMapExample",
     "title": "Publishable Concept Map Example",
     "status": "draft",
@@ -56,7 +55,7 @@
         "source": "http://hl7.org/fhir/address-use",
         "sourceVersion": "4.0.1",
         "target": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-        "targetVersion": "4.0.0",
+        "targetVersion": "5.0.0",
         "element": [
           {
             "code": "home",
