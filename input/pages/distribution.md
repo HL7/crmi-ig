@@ -436,7 +436,7 @@ Find the dependency entry for the value set, and follow its reference sources ba
 2. For each reference source of that entry, if the `artifact` is a component of the manifest (a `composed-of` entry), it is a referencing artifact
 3. Otherwise, find the dependency entry for the `artifact` and repeat from step 2 using its reference sources
 
-In the example, the Diabetes value set (`http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20240206`) has reference sources of both measure libraries. The DiabetesHbA1cPoorControlExample library has a reference source of the DiabetesHbA1cPoorControlExample measure (`library[0]`), and the DiabetesEyeExamExample library has a reference source of the DiabetesEyeExamExample measure, so both measures reference the value set. By contrast, the HbA1c Laboratory Test value set is only referenced by the DiabetesHbA1cPoorControlExample measure.
+In the example, the Diabetes value set (`http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001|20250115`) has reference sources of both measure libraries. The DiabetesHbA1cPoorControlExample library has a reference source of the DiabetesHbA1cPoorControlExample measure (`library[0]`), and the DiabetesEyeExamExample library has a reference source of the DiabetesEyeExamExample measure, so both measures reference the value set. By contrast, the HbA1c Laboratory Test value set is only referenced by the DiabetesHbA1cPoorControlExample measure.
 
 ##### What measures reference this direct reference code?
 
@@ -462,7 +462,7 @@ In the example, the Diabetes value set has reference sources for the SNOMED CT a
 
 ```
 GET [base]/ValueSet/$expand?url=http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001
-  &valueSetVersion=20240206
+  &valueSetVersion=20250115
   &system-version=http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20240301
   &system-version=http://hl7.org/fhir/sid/icd-10-cm|2024
 ```
