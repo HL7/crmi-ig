@@ -114,6 +114,10 @@
     {
       "type": "element",
       "expression": "DataRequirement.sort.direction"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.extension.extension.value[x]"
     }
   ],
   "type": "Extension",

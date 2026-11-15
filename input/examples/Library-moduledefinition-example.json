@@ -219,6 +219,24 @@
         }
       ],
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
+    }, {
+      "extension" : [ {
+          "url" : "path",
+          "valueString" : "length"
+        }, {
+          "url" : "comparator",
+          "valueCode" : "gt"
+        }, {
+          "url" : "value",
+          "valueQuantity" : {
+            "extension" : [ {
+              "url" : "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException",
+              "valueString" : "The value for this filter could not be determined because it is the result of a function reference"
+            } ]
+          }
+        }
+      ],
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-valueFilter"
     } ],
       "type": "Encounter",
       "profile": [ "http://example.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ],

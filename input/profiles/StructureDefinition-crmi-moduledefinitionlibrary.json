@@ -215,6 +215,33 @@
         "mustSupport": true
       },
       {
+        "id": "Library.dataRequirement.extension:valueFilter.extension:value",
+        "path": "Library.dataRequirement.extension.extension",
+        "sliceName": "value"
+      },
+      {
+        "id": "Library.dataRequirement.extension:valueFilter.extension:value.value[x]",
+        "path": "Library.dataRequirement.extension.extension.value[x]"
+      },
+      {
+        "id": "Library.dataRequirement.extension:valueFilter.extension:value.value[x].extension:analysisException",
+        "path": "Library.dataRequirement.extension.extension.value[x].extension",
+        "sliceName": "analysisException",
+        "short": "Value filter value could not be determined",
+        "definition": "Indicates that the value of the value filter could not be determined due to a processing exception, with a message describing the exception.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Library.dataRequirement.extension:fhirQueryPattern",
         "path": "Library.dataRequirement.extension",
         "sliceName": "fhirQueryPattern",
@@ -229,6 +256,42 @@
           }
         ],
         "mustSupport": false
+      },
+      {
+        "id": "Library.dataRequirement.codeFilter.code.extension:analysisException",
+        "path": "Library.dataRequirement.codeFilter.code.extension",
+        "sliceName": "analysisException",
+        "short": "Codes could not be determined",
+        "definition": "Indicates that the codes for the code filter could not be determined due to a processing exception (for example, codes that are the result of a function reference), with a message describing the exception.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Library.dataRequirement.dateFilter.value[x].extension:analysisException",
+        "path": "Library.dataRequirement.dateFilter.value[x].extension",
+        "sliceName": "analysisException",
+        "short": "Date filter value could not be determined",
+        "definition": "Indicates that the value of the date filter could not be determined due to a processing exception, with a message describing the exception.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException"
+            ]
+          }
+        ],
+        "mustSupport": true
       },
       {
         "id": "Library.content",
