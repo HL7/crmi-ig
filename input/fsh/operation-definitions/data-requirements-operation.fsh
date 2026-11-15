@@ -20,6 +20,10 @@ determination, as a way to understand the complete set of data requirements for 
 (or set of artifacts), including 
 terminology usage (code systems, value sets, and direct-reference codes), parameters, dependencies,
 and data requirements.
+
+When the value of an element of a data requirement cannot be determined due to a processing exception
+(for example, a code filter based on the result of a function), the [crmi-analysisException](StructureDefinition-crmi-analysisException.html)
+extension is used on that element to indicate that the value could not be determined, with a message describing the exception.
 """
 * kind = #operation
 * code = #data-requirements

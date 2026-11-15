@@ -46,6 +46,9 @@ To facilitate this, a downstream system MAY use the `$package` or `$data-require
 
 NOTE: $data-requirements allows the client to decide what is needed to download (versus what might already have been downloaded), whereas $package always ships the actual resources.
 
+When determining data requirements, the analysis may not be able to determine the values of every element of a data requirement. For example, when logic filters data using the result of a function, rather than a direct reference to a code or value set, the codes involved cannot be determined from the logic alone. In this case, the [crmi-analysisException](StructureDefinition-crmi-analysisException.html) extension is used on the element of the data requirement (e.g. the `code` element of a code filter) to indicate that its value could not be determined, with a message describing the processing exception. This allows consumers of the data requirements to distinguish an element whose value could not be determined from an element that is not required.
+{:.new-content}
+
 Both `$package` and `$data-requirements` operations are available for all canonical resources and non-canonical-artifacts:
 
 1. StructureDefinition, StructureMap

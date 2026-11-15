@@ -230,7 +230,13 @@
       "type": "Condition",
       "profile": [ "http://example.org/fhir/us/qicore/StructureDefinition/qicore-Condition" ],
       "codeFilter": [ {
-        "path": "id"
+        "path": "id",
+        "code": [ {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException",
+            "valueString": "The values for this filter could not be determined because they are the result of a function reference"
+          } ]
+        } ]
       } ]
     }, {
       "extension": [ {

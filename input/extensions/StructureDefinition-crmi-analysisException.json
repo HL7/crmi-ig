@@ -1,0 +1,162 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "crmi-analysisException",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cds"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
+  "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException",
+  "name": "CRMIAnalysisException",
+  "title": "CRMI Analysis Exception",
+  "status": "active",
+  "experimental": false,
+  "date": "2026-11-15",
+  "publisher": "HL7 International / Clinical Decision Support",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss"
+        }
+      ]
+    }
+  ],
+  "description": "This extension is used on the DataRequirement structure, or any of its elements, to indicate that values for the data requirement could not be determined due to a processing exception. For example, the `code` element of a code filter may have an exception indicating the value could not be determined for function references.",
+  "purpose": "Data requirements analysis (e.g. as performed by the $data-requirements operation) cannot always determine the values of every element of a data requirement. This extension allows the analysis to communicate that a value could not be determined, and why, so that consumers of the data requirements do not interpret the absence of a value as the absence of a requirement.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "DataRequirement"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.type"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.profile"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.subject[x]"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.mustSupport"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.codeFilter"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.codeFilter.path"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.codeFilter.searchParam"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.codeFilter.valueSet"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.codeFilter.code"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.dateFilter"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.dateFilter.path"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.dateFilter.searchParam"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.dateFilter.value[x]"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.limit"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.sort"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.sort.path"
+    },
+    {
+      "type": "element",
+      "expression": "DataRequirement.sort.direction"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Analysis Exception",
+        "definition": "Indicates that values for the element of the data requirement on which it appears could not be determined due to a processing exception, with a message describing the exception. For example, the `code` element of a code filter may have an exception indicating the value could not be determined for function references.",
+        "comment": "The extension may repeat to indicate multiple processing exceptions for the same element.",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-analysisException"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "short": "Exception message",
+        "definition": "A message describing the processing exception that prevented the value from being determined.",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
