@@ -32,6 +32,7 @@ This page details changes made in each version of the Content Repository Managem
 #### Non-substantive Changes
 
 * Technical correction: Added Questionnaire to the Authoring Artifact Repository capability statement, consistent with the artifact types listed for the Authoring Artifact Repository (applied [here](CapabilityStatement-crmi-authoring-artifact-repository.html))
+* [FHIR-59880](https://jira.hl7.org/browse/FHIR-59880): Technical correction: Renamed the `assessmentDateTime` sub-extension of the crmi-curationCoverageLevel extension to `dateTime`, consistent with the approved disposition of FHIR-55612 (applied [here](StructureDefinition-crmi-curationCoverageLevel.html) and [here](ValueSet-example-diabetes-grouper.html))
 * [FHIR-59235](https://jira.hl7.org/browse/FHIR-59235): Moved the CodeSystem, ConceptMap, NamingSystem, and ValueSet profiles to a separate Terminology Resource Profiles table, noting that they are maintained by the Terminology Infrastructure Work Group (applied [here](profiles.html#terminology-resource-profiles))
 
 ### STU 2 Publication (version 2.0.0)

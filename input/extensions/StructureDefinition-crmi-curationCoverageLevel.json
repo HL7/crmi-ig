@@ -129,22 +129,22 @@
         }]
       },
       {
-        "id": "Extension.extension:assessmentDateTime",
+        "id": "Extension.extension:dateTime",
         "path": "Extension.extension",
-        "sliceName": "assessmentDateTime",
+        "sliceName": "dateTime",
         "min": 0,
         "max": "1"
       },
       {
-        "id": "Extension.extension:assessmentDateTime.url",
+        "id": "Extension.extension:dateTime.url",
         "path": "Extension.extension.url",
         "type": [{
           "code": "uri"
         }],
-        "fixedUri": "assessmentDateTime"
+        "fixedUri": "dateTime"
       },
       {
-        "id": "Extension.extension:assessmentDateTime.value[x]",
+        "id": "Extension.extension:dateTime.value[x]",
         "path": "Extension.extension.value[x]",
         "min": 1,
         "max": "1",

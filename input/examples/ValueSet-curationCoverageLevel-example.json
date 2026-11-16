@@ -33,7 +33,7 @@
           "valueString": "CSTE"
         },
         {
-          "url": "assessmentDateTime",
+          "url": "dateTime",
           "valueDateTime": "2026-02-12"
         },
         {
