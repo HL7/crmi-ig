@@ -3,7 +3,7 @@
     "version" : "3.0.0-ballot",
     "path" : "http://hl7.org/fhir/uv/crmi/3.0.0-202701-ballot",
     "mode": "working",
-    "status" : "trial-use",
+    "status" : "ballot",
     "sequence" : "STU 3",
     "desc" : "STU 3 Ballot (v3.0.0-ballot)",
     "descmd" : "STU 3 Ballot (v3.0.0-ballot)",
