@@ -182,7 +182,7 @@ INFORMATION: CodeSystem/organism-taxonomy-example: CodeSystem.property[0]: This 
 INFORMATION: CodeSystem/organism-taxonomy-example: CodeSystem.property[1]: This property has only a code ('roll-up-species') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
 
 # 3.0.0:005 - The duplicate anchor ids are produced by the generated narrative for the entries of the example bundle
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\crmi-ig\output\en\Bundle-example-publishable-bundle.html: The html source has duplicate anchor Ids: metadata
+%Bundle-example-publishable-bundle.html: The html source has duplicate anchor Ids: metadata
 
 # 3.0.0:006 - Accepted warning about the binding applying to all slices; understood that it will have no effect on slices for boolean and Reference
 INFORMATION: StructureDefinition/crmi-groupdefinition: StructureDefinition.snapshot.element[35]: The Binding on the type slicer Group.characteristic.value[x] applies to all its slices, but it only makes sense for some of its types, so it has no effect on the slices for boolean, Reference
