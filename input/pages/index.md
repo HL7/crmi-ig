@@ -12,6 +12,28 @@ Where possible, new and updated content will be highlighted with green text and 
 </div>
 -->
 
+<div class="note-to-balloters" markdown="1">
+
+This is the STU 3 ballot of the Content Repository Management Infrastructure (CRMI) implementation guide (formerly Canonical Resource Management Infrastructure). Since the STU 2 publication, this version:
+
+* Renames the guide to better reflect its scope of managing content using repositories
+* Defines _production artifacts_ and adds requirements for production value set expansions and terminology transformations (e.g. ConceptMap), including new production invariants on the expanded value set and concept map profiles
+* Adds code system supplements and concept maps to the artifact repository capability statements
+* Generalizes the `$data-requirements` operation to support multiple artifacts, and adds the crmi-analysisException extension to communicate processing exceptions in data requirements analysis
+* Clarifies the use of manifest expansion parameters and reference sources in dependency tracing
+* Requires `caseSensitive` only for code systems that are not supplements in the shareable code system profiles
+
+Two changes are non-compatible with STU 2: the `caseSensitive` requirements for code system supplements, and the generalized `$data-requirements` operation (the `id`, `version`, `identifier`, and `terminologyEndpoint` parameters are removed). Reviewers are directed to the [Change Log](changes.html) for the complete list of changes in this version, with links to the associated tracker items and the affected content. Where possible, new and updated content is highlighted with green text and background.
+
+Note that the terminology resource profiles (on CodeSystem, ConceptMap, NamingSystem, and ValueSet) are maintained by the Terminology Infrastructure Work Group.
+
+In addition to general review, ballot feedback is specifically requested on the following questions:
+
+1. The [CRMIGroupDefinition](StructureDefinition-crmi-groupdefinition.html) profile uses the `artifact-reference` extension on `Group.member.entity` and `Group.managingEntity` to support referencing profiles. That extension is now deprecated in the FHIR Extensions Pack. What is the best approach to replacing this capability?
+2. The [Maintenance, Deprecated, and Retired](artifact-lifecycle.html#maintenance-deprecated-and-retired) section documents support for a deprecated status for value sets. Should this capability be provided generally for all types of artifacts?
+
+</div>
+
 {: #content-repository-management-infrastructure-implementation-guide}
 
 ### Summary
