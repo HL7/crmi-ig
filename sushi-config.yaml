@@ -86,7 +86,7 @@ parameters:
   path-expansion-params: '../../input/resources/Parameters-manifest.json'  # for using International ed of SNOMED
 #  path-liquid: "templates/liquid"
 #  path-liquid-ig: "templates/liquid"
-  pin-canonicals: 'pin-all'
+  pin-canonicals: 'pin-multiples'
   pin-manifest: 'manifest'
   special-url:
     - http://terminology.hl7.org/ValueSet/artifact-resource-types
