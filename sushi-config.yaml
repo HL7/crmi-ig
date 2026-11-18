@@ -81,6 +81,7 @@ dependencies:
 
 parameters:
   excludettl: true
+  toggle-changes: true
   path-history: http://hl7.org/fhir/uv/crmi/history.html
   path-expansion-params: '../../input/resources/Parameters-manifest.json'  # for using International ed of SNOMED
 #  path-liquid: "templates/liquid"
